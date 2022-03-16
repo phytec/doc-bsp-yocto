@@ -1,5 +1,5 @@
-PHYTEC BSP documentation for releases based on The Yocto Project
-================================================================
+PHYTEC Yocto BSP Documentation
+==============================
 
 .. inclusion-marker-do-not-remove
 
