@@ -14,7 +14,7 @@ options:
 
 1. github pages
 2. render locally with your BSP
-3. Standalone installtion
+3. Standalone installation
 
 Standalone Installation
 #######################

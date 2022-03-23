@@ -1,0 +1,36 @@
+# This workflow will build and deploy the documentation
+
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: internal-docu
+    env:
+      repository_name: doc-template
+    steps:
+    - name: clone repo
+      run: |
+        git clone git@github.com:phytec/${{ env.repository_name }}.git ${{ env.repository_name }}
+    - name: build latest documentation
+      run: |
+        cd ${{ env.repository_name }}
+        tox -e py3-html
+    - name: deploy latest documentation
+      run: |
+        cd ${{ env.repository_name }}
+        rm -rf /var/www/html/${{ env.repository_name }}/latest/
+        mkdir -p /var/www/html/${{ env.repository_name }}/latest/
+        cp -r build/html/* /var/www/html/${{ env.repository_name }}/latest/
+    - name: update html tree
+      run: |
+        cd /var/www/html/
+        ./gentree.sh
+    - name: post cleanup
+      if: always()
+      run: |
+        rm -rf ${{ env.repository_name}}
