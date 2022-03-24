@@ -3,6 +3,9 @@ PHYTEC Yocto BSP Documentation
 
 .. inclusion-marker-do-not-remove
 
+.. image:: https://github.com/phytec/doc-bsp-yocto/workflows/Documentation/badge.svg
+   :target: https://github.com/phytec/doc-bsp-yocto/actions/workflows/documentation.yaml
+
 How-to use this documentation
 #############################
 
