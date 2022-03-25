@@ -12,7 +12,7 @@ How-to use this documentation
 This documentation includes a quick start guide for our BSPs together with a complete
 development documentation of our products.
 
-The documentation is bundle with your release. To read it, you have three
+The documentation is bundled with your release. To read it, you have three
 options:
 
 1. github pages
