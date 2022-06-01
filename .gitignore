@@ -9,3 +9,5 @@ storage/
 .tox/
 *\.log
 *.swp
+build/
+.vscode/
