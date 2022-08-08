@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L-813e.Ax Yocto Reference Manual Head &mdash; PHYTEC BSP Documentation 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L-813e.A12 Yocto Reference Manual Head (Hardknott)" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html" />
+    <link rel="prev" title="Yocto Reference Manual" href="manual.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PHYTEC BSP Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">How-to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#standalone-installation">Standalone Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#build-the-documentation">Build the Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Host Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devtools/hostsetup.html">Develoment Host Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Reference Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="manual.html">Yocto Reference Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L-813e.Ax Yocto Reference Manual Head</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-yocto-project">The Yocto Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yocto-introduction">Yocto Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vocabulary">Vocabulary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recipes">Recipes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layers">Layers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#machine">Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distribution-distro">Distribution (Distro)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#poky">Poky</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bitbake">Bitbake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#toaster">Toaster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#official-documentation">Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phytec-bsp-introduction">PHYTEC BSP Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-structure">BSP Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-management">BSP Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-metadata">BSP Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-content">BSP Content</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#build-configuration">Build Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsp-workspace-installation">BSP Workspace Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-host">Setting Up the Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-configuration">Git Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#site-conf-setup">site.conf Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#phylinux-documentation">phyLinux Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-phylinux">Get phyLinux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-usage">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-poky-and-bitbake">Working with Poky and Bitbake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-build">Start the Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#images">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-development-states-between-releases">Accessing Development States between Releases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspect-your-build-configuration">Inspect your Build Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">BSP Features of meta-phytec and meta-ampliphy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#buildinfo">Buildinfo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-customization">BSP Customization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#disable-qt-demo">Disable Qt Demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuffer-console">Framebuffer Console</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools-provided-in-the-prebuild-image">Tools Provided in the Prebuild Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-additional-software-for-the-bsp-image">Add Additional Software for the BSP Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-an-additional-layer">Add an Additional Layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-your-own-layer">Create your own Layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-and-bootloader-recipe-and-version">Kernel and Bootloader Recipe and Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-and-bootloader-configuration">Kernel and Bootloader Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patch-the-kernel-or-bootloader-with-devtool">Patch the Kernel or Bootloader with <em>devtool</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patch-the-kernel-or-bootloader-using-temporary-method">Patch the Kernel or Bootloader using “Temporary Method”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">Working with the Kernel and Bootloader using SRC_URI in <em>local.conf</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-existing-software-with-sustainable-method">Add Existing Software with “Sustainable Method”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-linux-firmware-files-to-the-root-filesystem">Add Linux Firmware Files to the Root Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-the-barebox-environment-via-bbappend-files">Change the barebox Environment via <em>bbappend</em> Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-network-configuration">Changing the Network Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-wireless-network-configuration">Changing the Wireless Network Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-opencv-libraries-and-examples">Add OpenCV Libraries and Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-minimal-php-web-runtime-with-lightpd">Add Minimal php web runtime with <em>lightpd</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-tasks">Common Tasks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-a-user-space-application">Debugging a User Space Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-source-mirrors-working-offline">Generating Source Mirrors, working Offline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-on-the-target">Compiling on the Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#different-toolchains">Different Toolchains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-kernel-modules">Working with Kernel Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-udev">Working with <em>udev</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setscene-task-warning">Setscene Task Warning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html">L-813e.A12 Yocto Reference Manual Head (Hardknott)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#the-yocto-project">The Yocto Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#phytec-bsp-introduction">PHYTEC BSP Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#bsp-workspace-installation">BSP Workspace Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#phylinux-documentation">phyLinux Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html">L-813e.A11 Yocto Reference Manual (Dunfell)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#the-yocto-project">The Yocto Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#phytec-bsp-introduction">PHYTEC BSP Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#bsp-workspace-installation">BSP Workspace Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#phylinux-documentation">phyLinux Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A11_Yocto_Reference_Manual_Dunfell_.html#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html">L-813e.A10 Yocto Reference Manual (Zeus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#the-yocto-project">The Yocto Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#phytec-bsp-introduction">PHYTEC BSP Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#bsp-workspace-installation">BSP Workspace Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#phylinux-documentation">phyLinux Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A10_Yocto_Reference_Manual_Zeus_.html#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html">L-813e.A9 Yocto Reference Manual (Warrior)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#the-yocto-project">The Yocto Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#phytec-bsp-introduction">PHYTEC BSP Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#bsp-workspace-installation">BSP Workspace Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#phylinux-documentation">phyLinux Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A9_Yocto_Reference_Manual_Warrior_.html#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html">L-813e.A8 Yocto Reference Manual (Sumo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#the-yocto-project">The Yocto Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#compatible-linux-distributions">Compatible Linux Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#phytec-bsp-introduction">PHYTEC BSP Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#prebuild-images">Prebuild Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#bsp-workspace-installation">BSP Workspace Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#phylinux-documentation">phyLinux Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L-813e.A8_Yocto_Reference_Manual_Sumo_.html#yocto-documentation">Yocto Documentation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">i.MX8MP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../imx8/imx8mp.html">NPU</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="manual.html">Yocto Reference Manual</a> &raquo;</li>
+      <li>L-813e.Ax Yocto Reference Manual Head</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/yocto/L-813e.Ax_Yocto_Reference_Manual_Head.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="l-813e-ax-yocto-reference-manual-head">
+<h1>L-813e.Ax Yocto Reference Manual Head<a class="headerlink" href="#l-813e-ax-yocto-reference-manual-head" title="Permalink to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>L-813e.AX Yocto
+Reference
+Manual Head</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Document Title</p></td>
+<td><p>L-813e.AX Yocto Reference Manual Head</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document Type</p></td>
+<td><p>Yocto Reference Manual</p></td>
+</tr>
+<tr class="row-even"><td><p>Article Number</p></td>
+<td><p>L813e.Ax</p></td>
+</tr>
+<tr class="row-odd"><td><p>Release Date</p></td>
+<td><p>XXXX/XX/XX</p></td>
+</tr>
+<tr class="row-even"><td><p>Is Branch of</p></td>
+<td><p>L-813e.Ax Yocto Reference Manual Head</p></td>
+</tr>
+</tbody>
+</table>
+<table class="wrapped confluenceTable"><tbody><tr class="header"><th class="confluenceTh"><p>Compatible BSPs</p>
+</th><th class="confluenceTh"><p>BSP Release Type</p>
+</th><th class="confluenceTh"><p>BSP Release Date</p>
+</th><th class="confluenceTh"><p>BSP Status</p>
+</th></tr><tr class="odd"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6-PD22.1.0</p>
+</td><td class="confluenceTd"><p>Major</p>
+</td><td class="confluenceTd"></td><td class="confluenceTd"><p>in planning</p>
+</td></tr><tr class="even"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0</p>
+</td><td class="confluenceTd"><p>Major</p>
+</td><td class="confluenceTd"></td><td class="confluenceTd"><p><p>in planning</p>
+</p></td></tr><tr class="odd"><td class="confluenceTd"></td><td class="confluenceTd"></td><td class="confluenceTd"></td><td class="confluenceTd"><p></p></td></tr><tr class="even"><td class="confluenceTd"><p>Releases based on hardknott for A12</p>
+</td><td class="confluenceTd"></td><td class="confluenceTd"></td><td class="confluenceTd"><p></p></td></tr><tr class="odd"><td class="confluenceTd"><p>BSP-Yocto-NXP-i.MX8MM-PD22.1.0</p>
+</td><td class="confluenceTd"><p>Major</p>
+</td><td class="confluenceTd"><p>04.08.2022</p>
+</td><td class="confluenceTd"><p><p>released</p>
+</p></td></tr><tr class="even"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.1</p>
+</td><td class="confluenceTd"><p>Minor</p>
+</td><td class="confluenceTd"><p>04.06.2022</p>
+</td><td class="confluenceTd"><p><p>released</p>
+</p></td></tr><tr class="odd"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6-PD21.1.1</p>
+</td><td class="confluenceTd"><p>Minor</p>
+</td><td class="confluenceTd"><p>24.03.2022</p>
+</td><td class="confluenceTd"><p><p>released</p>
+</p></td></tr><tr class="even"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.0</p>
+</td><td class="confluenceTd"><p>Major</p>
+</td><td class="confluenceTd"><p>24.02.2022</p>
+</td><td class="confluenceTd"><p><p>released</p>
+</p></td></tr><tr class="odd"><td class="confluenceTd"><p>BSP-Yocto-Ampliphy-i.MX6-PD21.1.0</p>
+</td><td class="confluenceTd"><p>Major</p>
+</td><td class="confluenceTd"><p>15.10.2021</p>
+</td><td class="confluenceTd"><p><p>released</p>
+</p></td></tr></tbody></table><p>This manual applies to all <em>kirkstone</em> based PHYTEC releases:</p>
+<ul class="simple">
+<li><p>1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-TheYoctoProject">The Yocto
+Project</a></p>
+<ul>
+<li><p>1.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-PHYTECDocumentation">PHYTEC
+Documentation</a></p></li>
+<li><p>1.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-YoctoIntroduction">Yocto
+Introduction</a></p></li>
+<li><p>1.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CoreComponents">Core
+Components</a></p></li>
+<li><p>1.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Vocabulary">Vocabulary</a></p>
+<ul>
+<li><p>1.4.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Recipes">Recipes</a></p></li>
+<li><p>1.4.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Classes">Classes</a></p></li>
+<li><p>1.4.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Layers">Layers</a></p></li>
+<li><p>1.4.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Machine">Machine</a></p></li>
+<li><p>1.4.5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Distribution(Distro)">Distribution
+(Distro)</a></p></li>
+</ul>
+</li>
+<li><p>1.5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Poky">Poky</a></p>
+<ul>
+<li><p>1.5.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Bitbake">Bitbake</a></p></li>
+<li><p>1.5.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Toaster">Toaster</a></p></li>
+</ul>
+</li>
+<li><p>1.6 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-OfficialDocumentation">Official
+Documentation</a></p></li>
+</ul>
+</li>
+<li><p>2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CompatibleLinuxDistributions">Compatible Linux
+Distributions</a></p></li>
+<li><p>3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-PHYTECBSPIntroduction">PHYTEC BSP
+Introduction</a></p>
+<ul>
+<li><p>3.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPStructure">BSP
+Structure</a></p>
+<ul>
+<li><p>3.1.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPManagement">BSP
+Management</a></p>
+<ul>
+<li><p>3.1.1.1
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-phyLinux">phyLinux</a></p></li>
+<li><p>3.1.1.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Repo">Repo</a></p></li>
+</ul>
+</li>
+<li><p>3.1.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPMetadata">BSP
+Metadata</a></p>
+<ul>
+<li><p>3.1.2.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Poky.1">Poky</a></p></li>
+<li><p>3.1.2.2
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-openembedded">meta-openembedded</a></p></li>
+<li><p>3.1.2.3
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-qt5">meta-qt5</a></p></li>
+<li><p>3.1.2.4
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-nodejs">meta-nodejs</a></p></li>
+<li><p>3.1.2.5
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-gstreamer1.0">meta-gstreamer1.0</a></p></li>
+<li><p>3.1.2.6
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-rauc">meta-rauc</a></p></li>
+<li><p>3.1.2.7
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-phytec">meta-phytec</a></p></li>
+<li><p>3.1.2.8
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-ampliphy">meta-ampliphy</a></p></li>
+<li><p>3.1.2.9
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-virtualization">meta-virtualization</a></p></li>
+<li><p>3.1.2.10
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-security">meta-security</a></p></li>
+<li><p>3.1.2.11
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-selinux">meta-selinux</a></p></li>
+<li><p>3.1.2.12
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-browser">meta-browser</a></p></li>
+<li><p>3.1.2.13
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-rust">meta-rust</a></p></li>
+<li><p>3.1.2.14
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-timesys">meta-timesys</a></p></li>
+<li><p>3.1.2.15
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-freescale">meta-freescale</a></p></li>
+<li><p>3.1.2.16
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-freescale-3rdparty">meta-freescale-3rdparty</a></p></li>
+<li><p>3.1.2.17
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-freescale-distro">meta-freescale-distro</a></p></li>
+<li><p>3.1.2.18 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-base(fsl-community-bsp-base)">base
+(fsl-community-bsp-base)</a></p></li>
+<li><p>3.1.2.19
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-meta-fsl-bsp-release">meta-fsl-bsp-release</a></p></li>
+</ul>
+</li>
+<li><p>3.1.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPContent">BSP
+Content</a></p></li>
+</ul>
+</li>
+<li><p>3.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BuildConfiguration">Build
+Configuration</a></p></li>
+</ul>
+</li>
+<li><p>4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-PrebuildImages">Prebuild
+Images</a></p></li>
+<li><p>5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPWorkspaceInstallation">BSP Workspace
+Installation</a></p>
+<ul>
+<li><p>5.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-SettingUptheHost">Setting Up the
+Host</a></p></li>
+<li><p>5.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-GitConfiguration">Git
+Configuration</a></p></li>
+<li><p>5.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-site.confSetup">site.conf
+Setup</a></p></li>
+</ul>
+</li>
+<li><p>6 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-phyLinuxDocumentation">phyLinux
+Documentation</a></p>
+<ul>
+<li><p>6.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-GetphyLinux">Get
+phyLinux</a></p></li>
+<li><p>6.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BasicUsage">Basic Usage</a></p></li>
+<li><p>6.3
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Initialization">Initialization</a></p></li>
+<li><p>6.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AdvancedUsage">Advanced
+Usage</a></p></li>
+</ul>
+</li>
+<li><p>7 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-WorkingwithPokyandBitbake">Working with Poky and
+Bitbake</a></p>
+<ul>
+<li><p>7.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-StarttheBuild">Start the
+Build</a></p></li>
+<li><p>7.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Imagesimages">Images</a></p></li>
+<li><p>7.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AccessingDevelopmentStatesbetweenReleases">Accessing Development States between
+Releases</a></p></li>
+<li><p>7.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-InspectyourBuildConfiguration">Inspect your Build
+Configuration</a></p></li>
+<li><p>7.5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPFeaturesofmeta-phytecandmeta-ampliphy">BSP Features of meta-phytec and
+meta-ampliphy</a></p>
+<ul>
+<li><p>7.5.1
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Buildinfo">Buildinfo</a></p></li>
+</ul>
+</li>
+<li><p>7.6 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-BSPCustomization">BSP
+Customization</a></p>
+<ul>
+<li><p>7.6.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-DisableQtDemo">Disable Qt
+Demo</a></p></li>
+<li><p>7.6.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-FramebufferConsole">Framebuffer
+Console</a></p></li>
+<li><p>7.6.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ToolsProvidedinthePrebuildImage">Tools Provided in the Prebuild
+Image</a></p>
+<ul>
+<li><p>7.6.3.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-RAMBenchmark">RAM
+Benchmark</a></p></li>
+</ul>
+</li>
+<li><p>7.6.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddAdditionalSoftwarefortheBSPImage">Add Additional Software for the BSP
+Image</a></p>
+<ul>
+<li><p>7.6.4.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-NotesaboutPackagesandRecipes">Notes about Packages and
+Recipes</a></p></li>
+</ul>
+</li>
+<li><p>7.6.5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddanAdditionalLayer">Add an Additional
+Layer</a></p></li>
+<li><p>7.6.6 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CreateyourownLayercreatelayer">Create your own
+Layer</a></p></li>
+<li><p>7.6.7 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-KernelandBootloaderRecipeandVersion">Kernel and Bootloader Recipe and
+Version</a></p></li>
+<li><p>7.6.8 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-KernelandBootloaderConfiguration">Kernel and Bootloader
+Configuration</a></p>
+<ul>
+<li><p>7.6.8.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddaConfigurationFragmenttoaRecipe">Add a Configuration Fragment to a
+Recipe</a></p></li>
+<li><p>7.6.8.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddaCompleteDefaultConfiguration(defconfig)toaRecipe">Add a Complete Default Configuration (defconfig) to
+a
+Recipe</a></p></li>
+</ul>
+</li>
+<li><p>7.6.9 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-PatchtheKernelorBootloaderwithdevtool">Patch the Kernel or Bootloader with
+devtool</a></p></li>
+<li><p>7.6.10 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-PatchtheKernelorBootloaderusing%22TemporaryMethod%22">Patch the Kernel or Bootloader using “Temporary
+Method”</a></p></li>
+<li><p>7.6.11 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-WorkingwiththeKernelandBootloaderusingSRC_URIinlocal.conf">Working with the Kernel and Bootloader using SRC_URI in
+local.conf</a></p></li>
+<li><p>7.6.12 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddExistingSoftwarewith%22SustainableMethod%22">Add Existing Software with “Sustainable
+Method”</a></p></li>
+<li><p>7.6.13 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddLinuxFirmwareFilestotheRootFilesystem">Add Linux Firmware Files to the Root
+Filesystem</a></p></li>
+<li><p>7.6.14 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ChangethebareboxEnvironmentviabbappendFiles">Change the barebox Environment via bbappend
+Files</a></p>
+<ul>
+<li><p>7.6.14.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-DebuggingtheEnvironment">Debugging the
+Environment</a></p></li>
+<li><p>7.6.14.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ChangingtheEnvironment(dependingonMachines)">Changing the Environment (depending on
+Machines)</a></p></li>
+<li><p>7.6.14.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-UpgradingthebareboxEnvironmentfromPreviousBSPReleases">Upgrading the barebox Environment from Previous
+BSP
+Releases</a></p></li>
+</ul>
+</li>
+<li><p>7.6.15 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ChangingtheNetworkConfiguration">Changing the Network
+Configuration</a></p></li>
+<li><p>7.6.16 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ChangingtheWirelessNetworkConfiguration">Changing the Wireless Network
+Configuration</a></p>
+<ul>
+<li><p>7.6.16.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-ConnectingtoaWLANNetwork">Connecting to a WLAN
+Network</a></p></li>
+<li><p>7.6.16.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CreatingaWLANAccessPoint">Creating a WLAN Access
+Point</a></p></li>
+</ul>
+</li>
+<li><p>7.6.17 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddOpenCVLibrariesandExamples">Add OpenCV Libraries and
+Examples</a></p></li>
+<li><p>7.6.18 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-AddMinimalphpwebruntimewithlightpd">Add Minimal php web runtime with
+lightpd</a></p></li>
+</ul>
+</li>
+<li><p>7.7 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CommonTasks">Common
+Tasks</a></p>
+<ul>
+<li><p>7.7.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-DebuggingaUserSpaceApplication">Debugging a User Space
+Application</a></p></li>
+<li><p>7.7.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-GeneratingSourceMirrors,workingOffline">Generating Source Mirrors, working
+Offline</a></p></li>
+<li><p>7.7.3 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-CompilingontheTarget">Compiling on the
+Target</a></p></li>
+<li><p>7.7.4 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-DifferentToolchains">Different
+Toolchains</a></p>
+<ul>
+<li><p>7.7.4.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-UsingtheSDK">Using the
+SDK</a></p></li>
+<li><p>7.7.4.2 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-UsingtheSDKwithGNUAutotools">Using the SDK with GNU
+Autotools</a></p></li>
+</ul>
+</li>
+<li><p>7.7.5 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-WorkingwithKernelModules">Working with Kernel
+Modules</a></p></li>
+<li><p>7.7.6 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Workingwithudev">Working with
+udev</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>8
+<a class="reference external" href="#L813e.AxYoctoReferenceManualHead-Troubleshooting">Troubleshooting</a></p>
+<ul>
+<li><p>8.1 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-SetsceneTaskWarning">Setscene Task
+Warning</a></p></li>
+</ul>
+</li>
+<li><p>9 <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-YoctoDocumentation">Yocto
+Documentation</a></p></li>
+</ul>
+</section>
+<section id="the-yocto-project">
+<h1>The Yocto Project<a class="headerlink" href="#the-yocto-project" title="Permalink to this heading"></a></h1>
+<section id="phytec-documentation">
+<h2>PHYTEC Documentation<a class="headerlink" href="#phytec-documentation" title="Permalink to this heading"></a></h2>
+<p>PHYTEC will provide a variety of hardware and software documentation for
+all of our products. This includes any or all of the following:</p>
+<ul class="simple">
+<li><p><strong>QS Guide</strong>: A short guide on how to set up and boot a phyCORE board
+along with brief information on building a BSP, the device tree, and
+accessing peripherals.</p></li>
+<li><p><strong>Hardware Manual</strong>:  A detailed description of the System on Module
+and accompanying carrier board.</p></li>
+<li><p><strong>Yocto Guide</strong>:  A comprehensive guide for the Yocto version the
+phyCORE uses. This guide contains an overview of Yocto; introducing,
+installing, and customizing the PHYTEC BSP; how to work with programs
+like Poky and Bitbake; and much more.</p></li>
+<li><p><strong>BSP Manual</strong>:  A manual specific to the BSP version of the phyCORE.
+Information such as how to build the BSP, booting, updating software,
+device tree, and accessing peripherals can be found here.</p></li>
+<li><p><strong>Development Environment Guide</strong>:  This guide shows how to work with
+the Virtual Machine (VM) Host PHYTEC has developed and prepared to
+run various Development Environments. There are detailed step-by-step
+instructions for Eclipse and Qt Creator, which are included in the
+VM. There are instructions for running demo projects for these
+programs on a phyCORE product as well. Information on how to build a
+Linux host PC yourself is also a part of this guide.</p></li>
+<li><p><strong>Pin Muxing Table</strong>:  phyCORE SOMs have an accompanying pin table
+(in Excel format). This table will show the complete default signal
+path, from processor to carrier board. The default device tree muxing
+option will also be included. This gives a developer all the
+information needed in one location to make muxing changes and design
+options when developing a specialized carrier board or adapting a
+PHYTEC phyCORE SOM to an application.</p></li>
+</ul>
+<p>On top of these standard manuals and guides, PHYTEC will also provide
+Product Change Notifications, Application Notes, and Technical Notes.
+These will be done on a case-by-case basis. Most of the documentation
+can be found in the applicable download page of our products.</p>
+</section>
+<section id="yocto-introduction">
+<h2>Yocto Introduction<a class="headerlink" href="#yocto-introduction" title="Permalink to this heading"></a></h2>
+<p>Yocto is the smallest SI metric system prefix. Like m stands for Milli =
+10^-3, so is yocto y = 10^-24. <em>Yocto</em> is also a project working group
+of the <em>Linux</em> foundation and therefore backed up by several major
+companies in the field. On the project
+website <a class="reference external" href="http://www.yoctoproject.org/">http://www.yoctoproject.org/</a> you can read the official
+introduction:</p>
+<p>“The Yocto Project is an open-source collaboration project that provides
+templates, tools, and methods to help you create custom Linux-based
+systems for embedded products regardless of the hardware architecture.
+It was founded in 2010 as a collaboration among many hardware
+manufacturers, open-source operating systems vendors, and electronics
+companies to bring some order to the chaos of embedded Linux
+development.”</p>
+<p>As said, the project wants to provide toolsets for embedded developers.
+It builds on top of the long-lasting OpenEmbedded project. It is not
+a <em>Linux</em> distribution. It contains the tools to create
+a <em>Linux</em> distribution specially fitted to the product requirements. The
+most important step to bring order in the set of tools is to define a
+common versioning scheme and a reference system. All subprojects have
+then to comply with the reference system and have to comply with the
+versioning scheme.</p>
+<p>The release process is similar to the <em>Linux</em> kernel. <em>Yocto</em> increases
+its version number every six months and gives the release a name. The
+release list can be found here:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://wiki.yoctoproject.org/wiki/Releases
+</pre></div>
+</div>
+</section>
+<section id="core-components">
+<h2>Core Components<a class="headerlink" href="#core-components" title="Permalink to this heading"></a></h2>
+<p>The most important tools or subprojects of the <em>Yocto</em> Project are:</p>
+<ul class="simple">
+<li><p><em>Bitbake</em>: build engine, a task scheduler like make, interprets
+metadata</p></li>
+<li><p>OpenEmbedded-Core, a set of base layers, containing metadata of
+software, no sources</p></li>
+<li><p><em>Yocto</em> kernel</p>
+<ul>
+<li><p>Optimized for embedded devices</p></li>
+<li><p>Includes many subprojects: rt-kernel, vendor patches</p></li>
+<li><p>Infrastructure provided by Wind River</p></li>
+<li><p>Alternative: classic kernel build → we use it to integrate our
+kernel into <em>Yocto</em></p></li>
+</ul>
+</li>
+<li><p><em>Yocto</em> Reference BSP: <em>beagleboneblack</em>, <em>minnow max</em></p></li>
+<li><p><em>Poky</em>, the reference system, a collection of projects and tools,
+used to bootstrap a new distribution based on <em>Yocto</em></p></li>
+</ul>
+</section>
+<section id="vocabulary">
+<h2>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this heading"></a></h2>
+<section id="recipes">
+<h3>Recipes<a class="headerlink" href="#recipes" title="Permalink to this heading"></a></h3>
+<p>Recipes contain information about the software project (author,
+homepage, and license). A recipe is versioned, defines dependencies,
+contains the URL of the source code, and describes how to fetch,
+configure, and compile the sources. It describes how to package the
+software, e.g. into different.deb packages, which then contain the
+installation path. Recipes are basically written in <em>Bitbake’</em>s own
+programming language, which has a simple syntax. However, a recipe can
+contain <em>Python</em> as well as a bash code.</p>
+</section>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h3>
+<p>Classes combine functionality used inside recipes into reusable blocks.</p>
+</section>
+<section id="layers">
+<h3>Layers<a class="headerlink" href="#layers" title="Permalink to this heading"></a></h3>
+<p>A layer is a collection of recipes, classes, and configuration metadata.
+A layer can depend on other layers and can be included or excluded one
+by one. It encapsulates a specific functionality and fulfills a specific
+purpose. Each layer falls into a specific category:</p>
+<ul class="simple">
+<li><p>Base</p></li>
+<li><p>Machine (BSP)</p></li>
+<li><p>Software</p></li>
+<li><p>Distribution</p></li>
+<li><p>Miscellaneous</p></li>
+</ul>
+<p><em>Yocto’</em>s versioning scheme is reflected in every layer as version
+branches. For each <em>Yocto</em> version, every layer has a named branch in
+its <em>Git</em> repository. You can add one or many layers of each category in
+your build.</p>
+<p>A collection of OpenEmbedded layers can be found here. The search
+function is very helpful to see if a software package can be retrieved
+and integrated easily:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>http://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+</pre></div>
+</div>
+</section>
+<section id="machine">
+<h3>Machine<a class="headerlink" href="#machine" title="Permalink to this heading"></a></h3>
+<p>Machines are configuration variables that describe the aspects of the
+target hardware.</p>
+</section>
+<section id="distribution-distro">
+<h3>Distribution (Distro)<a class="headerlink" href="#distribution-distro" title="Permalink to this heading"></a></h3>
+<p>Distribution describes the software configuration and comes with a set
+of software features.</p>
+</section>
+</section>
+<section id="poky">
+<h2>Poky<a class="headerlink" href="#poky" title="Permalink to this heading"></a></h2>
+<p><em>Poky</em> is the reference system to define <em>Yocto</em> Project compatibility.
+It combines several subprojects into releases:</p>
+<ul class="simple">
+<li><p><em>Bitbake</em></p></li>
+<li><p><em>Toaster</em></p></li>
+<li><p>OpenEmbedded Core</p></li>
+<li><p><em>Yocto</em> Documentation</p></li>
+<li><p><em>Yocto</em> Reference BSP</p></li>
+</ul>
+<section id="bitbake">
+<h3>Bitbake<a class="headerlink" href="#bitbake" title="Permalink to this heading"></a></h3>
+<p><em>Bitbake</em> is the task scheduler. It is written in <em>Python</em> and
+interprets recipes that contain code in <em>Bitbake’</em>s own programming
+language, <em>Python</em>, and bash code. The official documentation can be
+found here:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/bitbake/2.0/index.html
+</pre></div>
+</div>
+</section>
+<section id="toaster">
+<h3>Toaster<a class="headerlink" href="#toaster" title="Permalink to this heading"></a></h3>
+<p><em>Toaster</em> is a web frontend for <em>Bitbake</em> to start and investigate
+builds. It provides information about the build history and statistics
+on created images. There are several use cases where the installation
+and maintenance of a <em>Toaster</em> instance are beneficial. PHYTEC did not
+add or remove any features to the upstream <em>Toaster</em>, provided
+by <em>Poky</em>. The best source for more information is the official
+documentation:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/toaster-manual/index.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="official-documentation">
+<h2>Official Documentation<a class="headerlink" href="#official-documentation" title="Permalink to this heading"></a></h2>
+<p>For more general questions about <em>Bitbake</em> and <em>Poky</em> consult the
+mega-manual:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/4.0/singleindex.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="compatible-linux-distributions">
+<h1>Compatible Linux Distributions<a class="headerlink" href="#compatible-linux-distributions" title="Permalink to this heading"></a></h1>
+<p>To build <em>Yocto</em> you need a compatible <em>Linux</em> host development machine.
+The list of supported distributions can be found in the reference
+manual:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/4.0/ref-manual/system-requirements.html#supported-linux-distributions
+</pre></div>
+</div>
+</section>
+<section id="phytec-bsp-introduction">
+<h1>PHYTEC BSP Introduction<a class="headerlink" href="#phytec-bsp-introduction" title="Permalink to this heading"></a></h1>
+<section id="bsp-structure">
+<h2>BSP Structure<a class="headerlink" href="#bsp-structure" title="Permalink to this heading"></a></h2>
+<p>The BSP consists roughly of three parts. BSP management, BSP metadata,
+and BSP content. The management consists of <em>Repo</em> and phyLinux while
+the metadata depends on the SOC, which describes how to build the
+software. The content comprises PHYTEC’s <em>Git</em> repositories and external
+sources.</p>
+<section id="bsp-management">
+<h3>BSP Management<a class="headerlink" href="#bsp-management" title="Permalink to this heading"></a></h3>
+<p><em>Yocto</em> is an umbrella project. Naturally, this will force the user to
+base their work on several external repositories. They need to be
+managed in a deterministic way. We use manifest files, which contain an
+XML data structure, to describe all git repositories with pinned-down
+versions. The <em>Repo</em> tool and our phyLinux wrapper script are used to
+manage the manifests and set up the BSP, as described in the manifest
+file.</p>
+<section id="phylinux">
+<h4>phyLinux<a class="headerlink" href="#phylinux" title="Permalink to this heading"></a></h4>
+<p>phyLinux is a wrapper for <em>Repo</em> to handle downloading and setting up
+the BSP with an “out of the box” experience.</p>
+</section>
+<section id="repo">
+<h4>Repo<a class="headerlink" href="#repo" title="Permalink to this heading"></a></h4>
+<p><em>Repo</em> is a wrapper around the <em>Repo</em> toolset. The phyLinux script will
+install the wrapper in a global path. This is only a wrapper, though.
+Whenever you run “repo init -u &lt;url&gt;”, you first download
+the <em>Repo</em> tools from <em>Googles Git</em> server in a specific version to
+the <em>.repo/repo</em> directory. The next time you run <em>Repo</em>, all the
+commands will be available. Be aware that the <em>Repo</em> version in
+different build directories can differ over the years if you do not
+run <em>Repo sync</em>. Also if you store information for your archives, you
+need to include the complete <em>.repo</em> folder.</p>
+<p><em>Repo</em> expects a <em>Git</em> repository which will be parsed from the command
+line. In the PHYTEC BSP, it is called phy²octo. In this repository, all
+information about a software BSP release is stored in the form of
+a <em>Repo</em> XML manifest. This data structure defines URLs of <em>Git</em> servers
+(called “remotes”) and <em>Git</em> repositories and their states (called
+“projects”). The <em>Git</em> repositories can be seen in different states. The
+revision field can be a branch, tag, or commit id of a repository. This
+means the state of the software is not necessarily unique and can change
+over time. That is the reason we use only tags or commit ids for our
+releases. The state of the working directory is then unique and does not
+change.</p>
+<p>The manifests for the releases have the same name as the release itself.
+It is a unique identifier for the complete BSP. The releases are sorted
+by the SOC platform. The selected SOC will define the branch of the
+phy²octo <em>Git</em> repository which will be used for the manifest selection.</p>
+</section>
+</section>
+<section id="bsp-metadata">
+<h3>BSP Metadata<a class="headerlink" href="#bsp-metadata" title="Permalink to this heading"></a></h3>
+<p>We include several third-party layers in our BSP to get a
+complete <em>Linux</em> distribution up and running without the need to
+integrate external projects. All used repositories are described in the
+following section.</p>
+<section id="poky-1">
+<span id="id1"></span><h4>Poky<a class="headerlink" href="#poky-1" title="Permalink to this heading"></a></h4>
+<p>The PHYTEC BSP is built on top of <em>Poky</em>. It comes with a specific
+version, defined in the <em>Repo</em> manifest. <em>Poky</em> comes with a specific
+version of <em>Bitbake</em>. The OpenEmbedded-core layer “meta” is used as a
+base for our <em>Linux</em> system.</p>
+</section>
+<section id="meta-openembedded">
+<h4>meta-openembedded<a class="headerlink" href="#meta-openembedded" title="Permalink to this heading"></a></h4>
+<p>OpenEmbedded is a collection of different layers containing the meta
+description for many open-source software projects. We ship all
+OpenEmbedded layers with our BSP, but not all of them are activated. Our
+example images pull several software packages generated from
+OpenEmbedded recipes.</p>
+</section>
+<section id="meta-qt5">
+<h4>meta-qt5<a class="headerlink" href="#meta-qt5" title="Permalink to this heading"></a></h4>
+<p>This layer provides a community-supported integration of <em>Qt5</em> in <em>the
+Poky</em>-based root filesystem and is integrated into our BSP.</p>
+</section>
+<section id="meta-nodejs">
+<h4>meta-nodejs<a class="headerlink" href="#meta-nodejs" title="Permalink to this heading"></a></h4>
+<p>This is an application layer to add recent Node.js versions.</p>
+</section>
+<section id="meta-gstreamer1-0">
+<h4>meta-gstreamer1.0<a class="headerlink" href="#meta-gstreamer1-0" title="Permalink to this heading"></a></h4>
+<p>This is an application layer to add recent GStreamer versions.</p>
+</section>
+<section id="meta-rauc">
+<h4>meta-rauc<a class="headerlink" href="#meta-rauc" title="Permalink to this heading"></a></h4>
+<p>This layer contains the tools required to build an updated
+infrastructure with RAUC. A comparison with other update systems can be
+found here: Yocto update tools.</p>
+</section>
+<section id="meta-phytec">
+<h4>meta-phytec<a class="headerlink" href="#meta-phytec" title="Permalink to this heading"></a></h4>
+<p>This layer contains all machines and common features for all our BSPs.
+It is PHYTEC’s Yocto Board Support Package for all supported hardware
+(since <em>fido</em>) and is designed to be standalone with <em>Poky</em>. Only these
+two parts are required if you want to integrate the PHYTEC’s hardware
+into your existing <em>Yocto</em> workflow. The features are:</p>
+<ul class="simple">
+<li><p>Bootloaders in <em>recipes-bsp/barebox/</em></p></li>
+<li><p>Kernels in <em>recipes-kernel/linux/</em></p></li>
+<li><p>Many machines in <em>conf/machine/</em></p></li>
+<li><p>Proprietary <em>OpenGL ES/EGL</em> user space libraries for AM335x and i.MX
+6 platforms</p></li>
+<li><p>Proprietary <em>OpenCL</em> libraries for i.MX 6 platforms</p></li>
+</ul>
+</section>
+<section id="meta-ampliphy">
+<h4>meta-ampliphy<a class="headerlink" href="#meta-ampliphy" title="Permalink to this heading"></a></h4>
+<p>This is our example distribution and BSP layer. It extends the basic
+configuration of <em>Poky</em> with software projects described by all the
+other BSP components. It provides a base for your specific development
+scenarios. The current features are:</p>
+<ul class="simple">
+<li><p>systemd init system</p></li>
+<li><p>Qt5 with eglfs backend for PHYTEC’s AM335x, i.MX 6 and RK3288
+platforms</p></li>
+<li><p>Two different images: <em>phytec-headless-image</em> for non-graphics
+applications and <em>phytec-qt5demo-image</em> for <em>Qt5</em> and video
+applications</p></li>
+<li><p>Camera integration with OpenCV and GStreamer examples for the i.MX 6
+platform bundled in a <em>phytec-vision-image</em></p></li>
+<li><p>A <em>Qt5</em> demo application demonstrating how to create a <em>Qt5</em> project
+using <em>QML</em> widgets and a <em>Bitbake</em> recipe for
+the <em>Yocto</em> and <em>systemd</em> integration. It can be found
+at <em>sources/meta-ampliphy/recipes-qt/examples/phytec-qtdemo_git.bb</em></p></li>
+<li><p>RAUC integration: we setup basic support for an over-the-air A-B
+system image update</p></li>
+</ul>
+</section>
+<section id="meta-virtualization">
+<h4>meta-virtualization<a class="headerlink" href="#meta-virtualization" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer provides support for building Xen, KVM, Libvirt, and
+associated packages necessary for constructing OE-based virtualized
+solutions.</p></li>
+</ul>
+</section>
+<section id="meta-security">
+<h4>meta-security<a class="headerlink" href="#meta-security" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer provides security tools, hardening tools for Linux
+kernels, and libraries for implementing security mechanisms.</p></li>
+</ul>
+</section>
+<section id="meta-selinux">
+<h4>meta-selinux<a class="headerlink" href="#meta-selinux" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer’s purpose is to enable SE Linux support. The majority of
+this layer’s work is accomplished in <em>bbappend</em> files, used to enable
+SE Linux support in existing recipes.</p></li>
+</ul>
+</section>
+<section id="meta-browser">
+<h4>meta-browser<a class="headerlink" href="#meta-browser" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This is an application layer to add recent web browsers (Chromium,
+Firefox, etc.).</p></li>
+</ul>
+</section>
+<section id="meta-rust">
+<h4>meta-rust<a class="headerlink" href="#meta-rust" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Includes the Rust compiler and the Cargo package manager for Rust.</p></li>
+</ul>
+</section>
+<section id="meta-timesys">
+<h4>meta-timesys<a class="headerlink" href="#meta-timesys" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Timesys layer for Vigiles Yocto CVE monitoring, security
+notifications, and image manifest generation.</p></li>
+</ul>
+</section>
+<section id="meta-freescale">
+<h4>meta-freescale<a class="headerlink" href="#meta-freescale" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer provides support for the i.MX, Layerscape, and QorIQ
+product lines.</p></li>
+</ul>
+</section>
+<section id="meta-freescale-3rdparty">
+<h4>meta-freescale-3rdparty<a class="headerlink" href="#meta-freescale-3rdparty" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Provides support for boards from various vendors.</p></li>
+</ul>
+</section>
+<section id="meta-freescale-distro">
+<h4>meta-freescale-distro<a class="headerlink" href="#meta-freescale-distro" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer provides support for Freescale’s Demonstration images for
+use with OpenEmbedded and/or Yocto Freescale’s BSP layer.</p></li>
+</ul>
+</section>
+<section id="base-fsl-community-bsp-base">
+<h4>base (fsl-community-bsp-base)<a class="headerlink" href="#base-fsl-community-bsp-base" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This layer provides BSP base files of NXP.</p></li>
+</ul>
+</section>
+<section id="meta-fsl-bsp-release">
+<h4>meta-fsl-bsp-release<a class="headerlink" href="#meta-fsl-bsp-release" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>This is the i.MX Yocto Project Release Layer.</p></li>
+</ul>
+</section>
+</section>
+<section id="bsp-content">
+<h3>BSP Content<a class="headerlink" href="#bsp-content" title="Permalink to this heading"></a></h3>
+<p>The BSP content gets pulled from different online sources when you first
+start using <em>Bitbake</em>. All files will be downloaded and cloned in a
+local directory configured as DL_DIR in <em>Yocto</em>. If you backup your BSP
+with the complete content, those sources have to be backed up, too. How
+you can do this will be explained in the chapter “Generating Source
+Mirrors, working offline”.</p>
+</section>
+</section>
+<section id="build-configuration">
+<h2>Build Configuration<a class="headerlink" href="#build-configuration" title="Permalink to this heading"></a></h2>
+<p>The BSP initializes a build folder that will contain all files you
+create by running <em>Bitbake</em> commands. It contains a <em>conf</em> folder that
+handles build input variables.</p>
+<ul class="simple">
+<li><p><em>bblayers.conf</em> defines activated meta-layers,</p></li>
+<li><p><em>local.conf</em> defines build input variables specific to your build</p></li>
+<li><p><em>site.conf</em> defines build input variables specific to the development
+host</p></li>
+</ul>
+<p>The two topmost build input variables are <em>DISTRO</em> and <em>MACHINE</em>. They
+are preconfigured <em>local.conf</em> when you check out the BSP using
+phyLinux.</p>
+<p>We use “<em>Ampliphy</em>” as <em>DISTRO</em> with our BSP. This distribution will be
+preselected and give you a starting point for implementing your own
+configuration.</p>
+<p>A <em>MACHINE</em> defines a binary image that supports specific hardware
+combinations of module and baseboard. Check the <em>machine.conf</em> file or
+our webpage for a description of the hardware.</p>
+</section>
+</section>
+<section id="prebuild-images">
+<h1>Prebuild Images<a class="headerlink" href="#prebuild-images" title="Permalink to this heading"></a></h1>
+<p>For each BSP we provide prebuild target images that can be downloaded
+from the PHYTEC FTP server:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://download.phytec.de/Software/Linux/
+</pre></div>
+</div>
+<p>These images are also used for the BSP tests, which are flashed to the
+boards during production. You can use the provided <em>.sdcard</em> images to
+create a bootable SD card at any time. Identify your hardware and flash
+the downloaded image file to an empty SD card using <em>dd</em>. Please see
+section <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-images">Images</a> for
+information about the correct usage of the command.</p>
+</section>
+<section id="bsp-workspace-installation">
+<h1>BSP Workspace Installation<a class="headerlink" href="#bsp-workspace-installation" title="Permalink to this heading"></a></h1>
+<section id="setting-up-the-host">
+<h2>Setting Up the Host<a class="headerlink" href="#setting-up-the-host" title="Permalink to this heading"></a></h2>
+<p>You need to have a running <em>Linux</em> distribution. It should be running on
+a powerful machine, since a lot of compiling will need to be
+done. <em>Yocto</em> needs a handful of additional packages on your host.
+For <em>Ubuntu 20.04</em> you need:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
+</pre></div>
+</div>
+<p>For other distributions you can find information in the <em>Yocto</em> Quick
+Build:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/4.0/brief-yoctoprojectqs/index.html
+</pre></div>
+</div>
+</section>
+<section id="git-configuration">
+<h2>Git Configuration<a class="headerlink" href="#git-configuration" title="Permalink to this heading"></a></h2>
+<p>The BSP is heavily based on <em>Git</em>. <em>Git</em> needs some information from you
+as a user to identify who made changes. If you do not have one, create
+a <em>~/.gitconfig</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>[user]
+    name = &lt;Your Name&gt;
+    email = &lt;Your Mail&gt;
+[core]
+    editor = vim
+[merge]
+    tool = vimdiff
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+[push]
+    default = current
+[color]
+    ui = auto
+</pre></div>
+</div>
+<p>You should set <em>name</em> and <em>email</em> in your <em>Git</em> configuration,
+otherwise, <em>Bitbake</em> will complain during the first build. You can use
+the two commands to set them directly without
+editing <em>~/.gitconfig</em> manually:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ git config --global user.email &quot;your_email@example.com&quot;
+host$ git config --global user.name &quot;name surname&quot;
+</pre></div>
+</div>
+</section>
+<section id="site-conf-setup">
+<h2>site.conf Setup<a class="headerlink" href="#site-conf-setup" title="Permalink to this heading"></a></h2>
+<p>Before starting the <em>Yocto</em> build, it is advisable to configure the
+development setup. Two things are most important: the download directory
+and the cache directory. PHYTEC strongly recommends configuring the
+setup as it will reduce the compile time of consequent builds.</p>
+<p>A download directory is a place where <em>Yocto</em> stores all sources fetched
+from the internet. It can contain tar.gz, <em>Git</em> mirror, etc. It is very
+useful to set this to a common shared location on the machine. Create
+this directory with 777 access rights. To share this directory with
+different users, all files need to have group write access. This will
+most probably be in conflict with default <em>umask</em> settings. One possible
+solution would be to use ACLs for this directory:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install acl
+host$ sudo setfacl -R -d -m g::rwx &lt;dl_dir&gt;
+</pre></div>
+</div>
+<p>If you have already created a download directory and want to fix the
+permissions afterward, you can do so with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo find /home/share/  -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
+host$ sudo find /home/share/  -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
+host$ sudo find /home/share/  -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
+</pre></div>
+</div>
+<p>The cache directory stores all stages of the build process. <em>Poky</em> has
+quite an involved caching infrastructure. It is advisable to create a
+shared directory, as all builds can access this cache directory, called
+shared state cache.</p>
+<p>Create the two directories on a drive where you have approximately 50 GB
+of space and assign the two variables in your <em>build/conf/local.conf</em>.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>DL_DIR ?= &quot;&lt;your_directory&gt;/yocto_downloads&quot;
+SSTATE_DIR ?= &quot;&lt;your_directory&gt;/yocto_sstate&quot;
+</pre></div>
+</div>
+<p>If you want to know more about configuring your build, see the
+documented example settings:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>sources/poky/meta-yocto/conf/local.conf.sample
+sources/poky/meta-yocto/conf/local.conf.sample.extended
+</pre></div>
+</div>
+</section>
+</section>
+<section id="phylinux-documentation">
+<h1>phyLinux Documentation<a class="headerlink" href="#phylinux-documentation" title="Permalink to this heading"></a></h1>
+<p>The phyLinux script is a basic management tool for PHYTEC <em>Yocto</em> BSP
+releases written in <em>Python</em>. It is mainly a helper to get started with
+the BSP structure. You can get all the BSP sources without the need of
+interacting with <em>Repo</em> or <em>Git</em>.</p>
+<p>The phyLinux script has only one real dependency. It requires
+the <em>wget</em> tool installed on your host. It will also install
+the Repo tool in a global path (/usr/local/bin) on your host PC. You can
+install it in a different location manually. <em>Repo</em> will be
+automatically detected by phyLinux if it is found in the PATH.
+The <em>Repo</em> tool will be used to manage the different <em>Git</em> repositories
+of the <em>Yocto</em> BSP.</p>
+<section id="get-phylinux">
+<h2>Get phyLinux<a class="headerlink" href="#get-phylinux" title="Permalink to this heading"></a></h2>
+<p>The phyLinux script can be found on the PHYTEC download server:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
+<p>For the basic usage of phyLinux, type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux --help
+</pre></div>
+</div>
+<p>which will result in:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>usage: phyLinux [-h] [-v] [--verbose] {init,info,clean} ...
+
+This Programs sets up an environment to work with The Yocto Project on Phytecs
+Development Kits. Use phyLinx &lt;command&gt; -h to display the help text for the
+available commands.
+
+positional arguments:
+  {init,info,clean}  commands
+    init             init the phytec bsp in the current directory
+    info             print info about the phytec bsp in the current directory
+    clean            Clean up the current working directory
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --version      show program&#39;s version number and exit
+  --verbose
+</pre></div>
+</div>
+</section>
+<section id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h2>
+<p>Create a fresh project folder:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mkdir ~/yocto
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Calling phyLinux will use the default Python version. Starting with
+Ubuntu 20.04 it will be Python3.</div>
+<div class="line">If you want to initiate a BSP, which is not compatible with Python3,
+you need to set Python2 as default (temporarily) before running
+phyLinux:</div>
+</div>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ln -s `which python2` python &amp;&amp; export PATH=`pwd`:$PATH
+</pre></div>
+</div>
+<p>Now run phyLinux from the new folder:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux init
+</pre></div>
+</div>
+<p>A clean folder is important because phyLinux will clean its working
+directory. Calling phyLinux from a directory that isn’t empty will
+result in the following <strong>warning</strong>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>This current directory is not empty. It could lead to errors in the BSP configuration
+ process if you continue from here. At the very least, you have to check your build directory
+ for settings in bblayers.conf and local.conf, which will not be handled correctly in
+ all cases. It is advisable to start from an empty directory of call:
+ $ ./phyLinux clean
+ Do you really want to continue from here?
+ [yes/no]:
+</pre></div>
+</div>
+<p>On the first initialization, the phyLinux script will ask you to install
+the <em>Repo</em> tool in your <em>/usr/local/bin</em> directory. During the execution
+of the <em>init</em> command, you need to choose your processor platform (SoC),
+PHYTEC’s BSP release number, and the hardware you are working on:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>***************************************************
+* Please choose one of the available SoC Platforms:
+*
+*   1: am335x
+*   2: am64x
+*   3: imx6
+*   4: imx6ul
+*   5: imx7
+*   6: imx8
+*   7: imx8m
+*   8: imx8mm
+*   9: imx8mp
+*   10: nightly
+*   11: rk3288
+*   12: stm32mp1
+*   13: topic
+
+# Exemplary output for choosen imx6
+***************************************************
+* Please choose one of the available Releases:
+*
+*   1: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc1
+*   2: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc2
+*   3: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc3
+*   4: BSP-Yocto-Ampliphy-i.MX6-PD21.1.0
+*   5: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1-rc1
+*   6: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
+*   7: BSP-Yocto-Ampliphy-i.MX6-PD21.1.y
+*   8: BSP-Yocto-Ampliphy-i.MX6-PD22.1.y
+*   9: BSP-Yocto-i.MX6-PD14.2-rc1
+*   10: BSP-Yocto-i.MX6-PD14.2-rc2
+*   11: BSP-Yocto-i.MX6-PD14.2-rc3
+*   12: BSP-Yocto-i.MX6-PD15.1-rc1
+*   13: BSP-Yocto-i.MX6-PD15.1-rc2
+*   14: BSP-Yocto-i.MX6-PD15.1.0
+*   15: BSP-Yocto-i.MX6-PD15.1.1
+*   16: BSP-Yocto-i.MX6-PD15.1.2
+*   17: BSP-Yocto-i.MX6-PD15.2-rc1
+*   18: BSP-Yocto-i.MX6-PD15.2.0
+*   19: BSP-Yocto-i.MX6-PD15.3-rc1
+*   20: BSP-Yocto-i.MX6-PD15.3-rc2
+*   21: BSP-Yocto-i.MX6-PD15.3.0
+*   22: BSP-Yocto-i.MX6-PD15.3.1
+*   23: BSP-Yocto-i.MX6-PD16.1-rc1
+*   24: BSP-Yocto-i.MX6-PD16.1-rc2
+*   25: BSP-Yocto-i.MX6-PD16.1.0
+*   26: BSP-Yocto-i.MX6-PD16.1.1
+*   27: BSP-Yocto-i.MX6-PD16.1.2-rc1
+*   28: BSP-Yocto-i.MX6-PD16.1.2
+*   29: BSP-Yocto-i.MX6-PD18.1-rc4
+*   30: BSP-Yocto-i.MX6-PD18.1.0
+*   31: BSP-Yocto-i.MX6-PD18.1.1-rc1
+*   32: BSP-Yocto-i.MX6-PD18.1.1-rc2
+*   33: BSP-Yocto-i.MX6-PD18.1.1
+*   34: BSP-Yocto-i.MX6-PD18.1.2-rc1
+*   35: BSP-Yocto-i.MX6-PD18.1.2-rc2
+*   36: BSP-Yocto-i.MX6-PD18.1.2-rc3
+*   37: BSP-Yocto-i.MX6-PD18.1.2
+*   38: BSP-Yocto-i.MX6-PD20.1-rc1
+*   39: BSP-Yocto-i.MX6-PD20.1-rc2
+*   40: BSP-Yocto-i.MX6-PD20.1-rc3
+*   41: BSP-Yocto-i.MX6-PD20.1.0
+
+# Exemplary output for choosen BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
+*********************************************************************
+* Please choose one of the available builds:
+*
+no:        machine: description and article number
+                    distro: supported yocto distribution
+                    target: supported build target
+ 1: phyboard-mira-imx6-14: PHYTEC phyBOARD-Mira full-featured i.MX6 DualLite
+                    1GiB RAM, 4GiB eMMC
+                    PBA-C-06-002.A2, PCM-058-30242C0X.A0
+                    distro: ampliphy
+                    target: phytec-qt5demo-image
+ 2: phyboard-mira-imx6-15: PHYTEC phyBOARD-Mira full-featured i.MX6 Solo
+                    256MiB RAM, NAND
+                    PBA-C-06-002.A2, PCM-058-12000D0C.A4
+                    distro: ampliphy
+                    target: phytec-headless-image
+ 3: phyboard-mira-imx6-3: PHYTEC phyBOARD-Mira full-featured i.MX6 Quad
+                    1GiB RAM, NAND
+                    PB-01501-002.A2, PBA-C-06-002.A2, PCM-058-33230C0I.A3
+                    distro: ampliphy
+                    target: -c populate_sdk phytec-qt5demo-image
+                    target: barebox-hosttools-native
+                    target: phytec-qt5demo-image
+...
+19: phyflex-imx6-2: PHYTEC phyFLEX-i.MX6 Quad PBA-B-01
+                    1GiB RAM one bank, 16MiB SPI-NOR
+                    PFL-A-02-13237E0.A1
+                    distro: ampliphy-xwayland
+                    target: phytec-vision-image
+20: phyflex-imx6-8: PHYTEC phyFLEX-i.MX6 Solo PBA-B-01
+                    512MiB RAM one bank, no SPI-NOR
+                    PFL-A-02-0200541.A0
+                    distro: ampliphy
+                    target: phytec-qt5demo-image
+</pre></div>
+</div>
+<p>If you cannot identify your board with the information given in the
+selector, have a look at the invoice for the product. After the
+configuration is done, you can always run:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux info
+
+# Exemplary output
+**********************************************
+* The current BSP configuration is:
+*
+(&#39;* SoC: &#39;, &#39;refs/heads/imx6&#39;)
+(&#39;* Release: &#39;, &#39;BSP-Yocto-Ampliphy-i.MX6-PD21.1.1&#39;)
+*
+ **********************************************
+</pre></div>
+</div>
+<p>to see which SoC and Release are selected in the current workspace. If
+you do not want to use the selector, phyLinux also supports command-line
+arguments for the several settings:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ MACHINE=phyboard-mira-imx6-3 ./phyLinux init -p imx6 -r BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
+</pre></div>
+</div>
+<p>or view the help command for more information:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux  init --help
+
+usage: phyLinux init [-h] [--verbose] [--no-init] [-o REPOREPO]
+                     [-b REPOREPO_BRANCH] [-x XML] [-u URL] [-p PLATFORM]
+                     [-r RELEASE]
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --verbose
+  --no-init           dont execute init after fetch
+  -o REPOREPO         Use repo tool from another url
+  -b REPOREPO_BRANCH  Checkout different branch of repo tool
+  -x XML              Use a local XML manifest
+  -u URL              Manifest git url
+  -p PLATFORM         Processor platform
+  -r RELEASE          Release version
+</pre></div>
+</div>
+<p>After the execution of the <em>init</em> command, phyLinux will print a few
+important notes as well as information for the next steps in the build
+process.</p>
+</section>
+<section id="advanced-usage">
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this heading"></a></h2>
+<p>phyLinux can be used to transport software states over any medium. The
+state of the software is uniquely identified by <em>manifest.xml</em>. You can
+create a manifest, send it to another place and recover the software
+state with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux init -x manifest.xml
+</pre></div>
+</div>
+<p>You can also create a <em>Git</em> repository containing your software states.
+The <em>Git</em> repository needs to have branches other than master, as we
+reserved the master branch for different usage. Use phyLinux to check
+out the states:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux -u &lt;url-of-your-git-repo&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-poky-and-bitbake">
+<h1>Working with Poky and Bitbake<a class="headerlink" href="#working-with-poky-and-bitbake" title="Permalink to this heading"></a></h1>
+<section id="start-the-build">
+<h2>Start the Build<a class="headerlink" href="#start-the-build" title="Permalink to this heading"></a></h2>
+<p>After you download all the metadata with phyLinux init, you have to set
+up the shell environment variables. This needs to be done every time you
+open a new shell for starting builds. We use the shell script provided
+by <em>Poky</em> in its default configuration. From the root of your project
+directory type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source sources/poky/oe-init-build-env
+</pre></div>
+</div>
+<p>The abbreviation for the source command is a single dot.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ . sources/poky/oe-init-build-env
+</pre></div>
+</div>
+<p>The current working directory of the shell should change to <em>build/</em>.
+Before building for the first time, you should take a look at the main
+configuration file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ vim conf/local.conf
+</pre></div>
+</div>
+<p>Your local modifications for the current build are stored here.
+Depending on the SoC, you might need to accept license agreements. For
+example, to build the image for Freescale/NXP processors you need to
+accept the GPU and VPU binary license agreements. You have to uncomment
+the corresponding line.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># Uncomment to accept NXP EULA
+# EULA can be found under ../sources/meta-freescale/EULA
+ACCEPT_FSL_EULA = &quot;1&quot;
+</pre></div>
+</div>
+<p>Now you are ready to build your first image. We suggest starting with
+our smaller non-graphical image <em>phytec-headless-image</em> to see if
+everything is working correctly:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-headless-image
+</pre></div>
+</div>
+<p>The first compile process takes about 40 minutes on a modern Intel Core
+i7. All subsequent builds will use the filled caches and should take
+about 3 minutes.</p>
+</section>
+<section id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this heading"></a></h2>
+<p>If everything worked, the images can be found under:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ cd deploy/images/&lt;MACHINE&gt;
+</pre></div>
+</div>
+<p>The easiest way to test your image is to configure your board for SD
+card boot and to flash the build image to the SD card:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=phytec-headless-image-&lt;MACHINE&gt;.sdcard of=/dev/&lt;your_device&gt; bs=1M conv=fsync
+</pre></div>
+</div>
+<p>Here &lt;your_device&gt; could be “sde”, for example, depending on your
+system. Be very careful when selecting the right drive! Selecting the
+wrong drive can erase your hard drive! The parameter conv=fsync forces a
+data buffer to write to the device before dd returns.</p>
+<p>After booting you can log in using a serial cable or over <em>ssh</em>. There
+is no root password. That is because of the debug settings
+in <em>conf/local.conf</em>. If you uncomment the line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>#EXTRA_IMAGE_FEATURES = &quot;debug-tweaks&quot;
+</pre></div>
+</div>
+<p>the debug settings, like setting an empty root password, will not be
+applied.</p>
+</section>
+<section id="accessing-development-states-between-releases">
+<h2>Accessing Development States between Releases<a class="headerlink" href="#accessing-development-states-between-releases" title="Permalink to this heading"></a></h2>
+<p>Special release manifests exist to give you access to the current
+development states of the <em>Yocto</em> BSP. They will not be displayed in the
+phyLinux selection menu but need to be selected manually. This can be
+done using the following command line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux init -p master -r kirkstone
+</pre></div>
+</div>
+<p>This will initialize a BSP that will track the latest development state.
+From now on running:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ repo sync
+</pre></div>
+</div>
+<p>this folder will pull all the latest changes from our Git repositories.</p>
+</section>
+<section id="inspect-your-build-configuration">
+<h2>Inspect your Build Configuration<a class="headerlink" href="#inspect-your-build-configuration" title="Permalink to this heading"></a></h2>
+<p><em>Poky</em> includes several tools to inspect your build layout. You can
+inspect the commands of the layer tool:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers
+</pre></div>
+</div>
+<p>It can, for example, be used to view in which layer a specific recipe
+gets modified:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers show-appends
+</pre></div>
+</div>
+<p>Before running a build you can also launch <em>Toaster</em> to be able to
+inspect the build details with the Toaster web GUI:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source toaster start
+</pre></div>
+</div>
+<p>Maybe you need to install some requirements, first:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ pip3 install -r ../sources/poky/bitbake/toaster-requirements.txt
+</pre></div>
+</div>
+<p>You can then point your browser to <em>http://0.0.0.0:8000/</em> and continue
+working with <em>Bitbake</em>. All build activity can be monitored and analyzed
+from this web server. If you want to learn more about <em>Toaster</em>, look
+at:</p>
+<p><a class="reference external" href="https://docs.yoctoproject.org/toaster-manual/index.html">https://docs.yoctoproject.org/toaster-manual/index.html</a></p>
+<p>To shut down the <em>Toaster</em> web GUI again, execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source toaster stop
+</pre></div>
+</div>
+</section>
+<section id="bsp-features-of-meta-phytec-and-meta-ampliphy">
+<h2>BSP Features of meta-phytec and meta-ampliphy<a class="headerlink" href="#bsp-features-of-meta-phytec-and-meta-ampliphy" title="Permalink to this heading"></a></h2>
+<section id="buildinfo">
+<h3>Buildinfo<a class="headerlink" href="#buildinfo" title="Permalink to this heading"></a></h3>
+<p>The <em>buildinfo</em> task is a feature in our recipes that prints
+instructions to fetch the source code from the public repositories. So
+you do not have to look into the recipes yourself. To see the
+instructions, e.g. for the <em>barebox</em> package, execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c buildinfo
+</pre></div>
+</div>
+<p>in your shell. This will print something like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>(mini) HOWTO: Use a local git repository to build barebox:
+
+To get source code for this package and version (barebox-2018.11.0-phy2), execute
+
+$ mkdir -p ~/git
+$ cd ~/git
+$ git clone git://git.phytec.de/barebox barebox
+$ cd ~/git/barebox
+$ git checkout -b v2018.11.0-phy2-local-development 9a40cd5eb3e5286f9c8ca186475380acf262f2ed
+
+You now have two possible workflows for your changes:
+
+1. Work inside the git repository:
+Copy and paste the following snippet to your &quot;local.conf&quot;:
+
+SRC_URI_pn-barebox = &quot;git:///${HOME}/git/barebox;branch=${BRANCH}&quot;
+SRCREV_pn-barebox = &quot;${AUTOREV}&quot;
+BRANCH_pn-barebox = &quot;v2018.11.0-phy2-local-development&quot;
+
+After that you can recompile and deploy the package with
+
+$ bitbake barebox -c compile
+$ bitbake barebox -c deploy
+
+Note: You have to commit all your changes. Otherwise yocto doesn&#39;t pick them up!
+
+2. Work and compile from the local working directory
+To work and compile in an external source directoy we provide the
+externalsrc.bbclass. To use it copy and paste the following snippet to your
+&quot;local.conf&quot;:
+
+INHERIT += &quot;externalsrc&quot;
+EXTERNALSRC_pn-barebox = &quot;${HOME}/git/barebox&quot;
+EXTERNALSRC_BUILD_pn-barebox = &quot;${HOME}/git/barebox/build&quot;
+
+Note: All the compiling is done in the EXTERNALSRC directory. Everytime
+you build an Image, the package will be recompiled and build.
+
+NOTE: Tasks Summary: Attempted 1 tasks of which 0 didn&#39;t need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+</pre></div>
+</div>
+<p>As you can see, everything is explained in the output.</p>
+<p>Warning</p>
+<p>Using <em>externalsrc</em> breaks a lot of <em>Yocto</em>‘s internal dependency
+mechanism. It is not guaranteed that any changes to the source directory
+are automatically picked up by the build process and incorporated into
+the root filesystem or SD card image. You have to always use <em>–force</em>.
+E.g. to compile <em>barebox</em> and redeploy it
+to <em>deploy/images/&lt;machine&gt;</em> execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c compile --force
+host$ bitbake barebox -c deploy
+</pre></div>
+</div>
+<p>To update the SD card image with a new kernel or image first force the
+compilation of it and then force a rebuild of the root filesystem. Use:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image -c rootfs --force
+</pre></div>
+</div>
+<p>Note that the build system is not modifying the external source
+directory. If you want to apply all patches the <em>Yocto</em> recipe is
+carrying to the external source directory, run the line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>SRCTREECOVEREDTASKS=&quot;&quot; BB_ENV_EXTRAWHITE=&quot;$BB_ENV_EXTRAWHITE SRCTREECOVEREDTASKS&quot; bitbake &lt;recipe&gt; -c patch
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bsp-customization">
+<h2>BSP Customization<a class="headerlink" href="#bsp-customization" title="Permalink to this heading"></a></h2>
+<p>To get you started with the BSP, we have summarized some basic tasks
+from the <em>Yocto</em> official documentation. It describes how to add
+additional software to the image, change the kernel and bootloader
+configuration, and integrate patches for kernel and bootloader.</p>
+<p>Minor modifications, such as adding software, are done in the
+file <em>build/conf/local.conf</em>. There you can overwrite global
+configuration variables and make small modifications to recipes.</p>
+<p>There are 2 ways to make major changes:</p>
+<ol class="arabic simple">
+<li><p>Either create your own layer and use <em>bbappend</em> files.</p></li>
+<li><p>Add everything to PHYTEC’s Distro layer <em>meta-ampliphy</em>.</p></li>
+</ol>
+<p>Creating your own layer is described in section <a class="reference external" href="#L813e.AxYoctoReferenceManualHead-createlayer">Create your own
+Layer</a>.</p>
+<section id="disable-qt-demo">
+<h3>Disable Qt Demo<a class="headerlink" href="#disable-qt-demo" title="Permalink to this heading"></a></h3>
+<p>By default, the BSP image <em>phytec-qt5demo-image</em> starts a Qt5 Demo
+application on the attached display or monitor. If you want to stop the
+demo and use the <em>Linux</em> framebuffer console behind it, connect to the
+target via serial cable or <em>ssh</em> and execute the shell command:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop phytec-qtdemo.service
+</pre></div>
+</div>
+<p>This command stops the demo temporarily. To start it again, reboot the
+board or execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl start phytec-qtdemo.service
+</pre></div>
+</div>
+<p>You can disable the service permanently, so it does not start on boot:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl disable phytec-qtdemo.service
+</pre></div>
+</div>
+<p>Tip</p>
+<p>The last command only disables the service. It does not <em>stop</em> it
+immediately. To see the current status execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl status phytec-qtdemo.service
+</pre></div>
+</div>
+<p>If you want to disable the service by default, edit the
+file <em>build/conf/local.conf</em> and add the following line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/local.conf
+SYSTEMD_AUTO_ENABLE_pn-phytec-qtdemo = &quot;disable&quot;
+</pre></div>
+</div>
+<p>After that, rebuild the image:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+</pre></div>
+</div>
+</section>
+<section id="framebuffer-console">
+<h3>Framebuffer Console<a class="headerlink" href="#framebuffer-console" title="Permalink to this heading"></a></h3>
+<p>On boards with a display interface, the framebuffer console is enabled
+per default. You can attach a USB keyboard and log in. To change the
+keyboard layout from the English default to German, type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ loadkeys /usr/share/keymaps/i386/qwertz/de-latin1.map.gz
+</pre></div>
+</div>
+<p>To detach the framebuffer console, run:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ echo 0 &gt; sys/class/vtconsole/vtcon1/bind
+</pre></div>
+</div>
+<p>To completely deactivate the framebuffer console, disable the following
+kernel configuration option:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>Device Drivers-&gt;Graphics Support-&gt;Support for framebuffer devices-&gt;Framebuffer Console Support
+</pre></div>
+</div>
+<p>More information can be found at:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://www.kernel.org/doc/Documentation/fb/fbcon.txt
+</pre></div>
+</div>
+</section>
+<section id="tools-provided-in-the-prebuild-image">
+<h3>Tools Provided in the Prebuild Image<a class="headerlink" href="#tools-provided-in-the-prebuild-image" title="Permalink to this heading"></a></h3>
+<section id="ram-benchmark">
+<h4>RAM Benchmark<a class="headerlink" href="#ram-benchmark" title="Permalink to this heading"></a></h4>
+<p>Performing RAM and cache performance tests can best be done by
+using <em>pmbw</em> (Parallel Memory Bandwidth Benchmark/Measurement
+Tool). <em>Pmbw</em> runs several assembly routines which all use different
+access patterns to the caches and RAM of the SoC. Before running the
+test, make sure that you have about 2 MiB of space left on the device
+for the log files. We also lower the level of the benchmark to ask the
+kernel more aggressively for resources. The benchmark test will take
+several hours.</p>
+<p>To start the test type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ nice -n -2 pmbw
+</pre></div>
+</div>
+<p>Upon completion of the test run, the log file can be converted to
+a <em>gnuplot</em> script with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ stats2gnuplot stats.txt &gt; run1.gnuplot
+</pre></div>
+</div>
+<p>Now you can transfer the file to the host machine and install any
+version of <em>gnuplot</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install gnuplot
+host$ gnuplot run1.gnuplot
+</pre></div>
+</div>
+<p>The generated <em>plots-&lt;machine&gt;.pdf</em> file contains all plots. To render
+single plots as <em>png</em> files for any web output you can
+use <em>Ghostscript</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install ghostscript
+host$ gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r150 -sOutputFile=&#39;page-%00d.png&#39; plots-phyboard-wega-am335x-1.pdf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="add-additional-software-for-the-bsp-image">
+<h3>Add Additional Software for the BSP Image<a class="headerlink" href="#add-additional-software-for-the-bsp-image" title="Permalink to this heading"></a></h3>
+<p>To add additional software to the image, look at the OpenEmbedded layer
+index:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+</pre></div>
+</div>
+<p>First, select the <em>Yocto</em> version of the BSP you have from the drop-down
+list in the top left corner and click <strong>Recipes</strong>. Now you can search
+for a software project name and find which layer it is in. In some
+cases, the program is in <em>meta-openembedded</em>, <em>openembedded-core</em>,
+or <em>Poky</em> which means that the recipe is already in your build tree.
+This section describes how to add additional software when this is the
+case. If the package is in another layer, see the next section.</p>
+<p>You can also search the list of available recipes:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake -s | grep &lt;program name&gt;  # fill in program name, like in
+host$ bitbake -s | grep lsof
+</pre></div>
+</div>
+<p>When the recipe for the program is already in the <em>Yocto</em> build, you can
+simply add it by appending a configuration option to your
+file <em>build/conf/local.conf</em>. The general syntax to add additional
+software to an image is:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/local.conf
+IMAGE_INSTALL_append = &quot; &lt;package1&gt; &lt;package2&gt;&quot;
+</pre></div>
+</div>
+<p>For example, the line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/local.conf
+IMAGE_INSTALL_append = &quot; ldd strace file lsof&quot;
+</pre></div>
+</div>
+<p>installs some helper programs on the target image.</p>
+<p>Warning</p>
+<p>The leading whitespace is essential for the append command.</p>
+<p>All configuration options in local.conf apply to all images.
+Consequently, the tools are now included in both
+images phytec-headless-image and phytec-qt5demo-image.</p>
+<section id="notes-about-packages-and-recipes">
+<h4>Notes about Packages and Recipes<a class="headerlink" href="#notes-about-packages-and-recipes" title="Permalink to this heading"></a></h4>
+<p>You are adding packages to the IMAGE_INSTALL variable. Those are not
+necessarily equivalent to the recipes in your meta-layers. A recipe
+defines per default a package with the same name. But a recipe can set
+the PACKAGES variable to something different and is able to generate
+packages with arbitrary names. Whenever you look for software, you have
+to search for the package name and, strictly speaking, not for the
+recipe. In the worst case, you have to look at all PACKAGES variables. A
+tool such as <em>Toaster</em> can be helpful in some cases.</p>
+<p>If you can not find your software in the layers provided in the
+folder <em>sources/</em>, see the next section to include another layer into
+the <em>Yocto</em> build.</p>
+<p>References: Yocto 4.0 Docu - Customizing Yocto builds</p>
+</section>
+</section>
+<section id="add-an-additional-layer">
+<h3>Add an Additional Layer<a class="headerlink" href="#add-an-additional-layer" title="Permalink to this heading"></a></h3>
+<p>This is a step-by-step guide on how to add another layer to
+your <em>Yocto</em> build and install additional software from it. As an
+example, we include the network security scanner <em>nmap</em> in the
+layer <em>meta-security</em>. First, you must locate in the layer which
+software is hosted. Check out the OpenEmbedded MetaData Index and guess
+a little bit. The network scanner <em>nmap</em> is in
+the <em>meta-security</em> layer. See meta-security on
+layers.openembedded.org. To integrate it into the <em>Yocto</em> build, you
+have to check out out the repository and then switch to the correct
+stable branch. Since the BSP is based on the <em>Yocto</em> ‘sumo’ build, you
+should try to use the ‘sumo’ branch in the layer, too.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ cd sources
+host$ git clone git://git.yoctoproject.org/meta-security
+host$ cd meta-security
+host$ git branch -r
+</pre></div>
+</div>
+<p>All available remote branches will show up. Usually there should be
+‘fido’, ‘jethro’, ‘krogoth’, ‘master’, …:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ git checkout kirkstone
+</pre></div>
+</div>
+<p>Now we add the directory of the layer to the
+file <em>build/conf/bblayers.conf</em> by appending the line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/bblayers.conf
+BBLAYERS += &quot;${BSPDIR}/sources/meta-security&quot;
+</pre></div>
+</div>
+<p>to the end of the file. After that, you can check if the layer is
+available in the build configuration by executing:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers show-layers
+</pre></div>
+</div>
+<p>If there is an error like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>ERROR: Layer &#39;security&#39; depends on layer &#39;perl-layer&#39;, but this layer is not enabled in your configuration
+</pre></div>
+</div>
+<p>the layer that you want to add (here <em>meta-security</em>), depends on
+another layer, which you need to enable first. E.g. the dependency
+required here is a layer in <em>meta-openembedded</em> (in the PHYTEC BSP it is
+in the path <em>sources/meta-openembedded/meta-perl/</em>). To enable it, add
+the following line to <em>build/conf/bblayers.conf</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/bblayers.conf
+BBLAYERS += &quot;${BSPDIR}/sources/meta-openembedded/meta-perl&quot;
+</pre></div>
+</div>
+<p>Now the command <em>bitbake-layers show-layers</em> should print a list of all
+layers enabled including <em>meta-security</em> and <em>meta-perl</em>. After the
+layer is included, you can install additional software from it as
+already described above. The easiest way is to add the following line
+(here the package <em>nmap</em>):</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file build/conf/local.conf
+IMAGE_INSTALL:append = &quot; nmap&quot;
+</pre></div>
+</div>
+<p>to your <em>build/conf/local.conf</em>. Do not forget to rebuild the image:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+</pre></div>
+</div>
+</section>
+<section id="create-your-own-layer">
+<h3>Create your own Layer<a class="headerlink" href="#create-your-own-layer" title="Permalink to this heading"></a></h3>
+<p>Creating your layer should be one of the first tasks when customizing
+the BSP. You have two basic options. You can either copy and rename our
+meta-ampliphy, or you can create a new layer that will contain your
+changes. The better option depends on your use case. meta-ampliphy is
+our example of how to create a custom <em>Linux</em> distribution and will be
+updated in the future. If you want to benefit from those changes and
+are, in general, satisfied with the userspace configuration, it could be
+the best solution to create your own layer on top of A<em>mpliphy</em>. If
+you need to rework a lot of information and only need the basic hardware
+support from PHYTEC, it would be better to copy meta-ampliphy, rename
+it, and adapt it to your needs. You can also have a look at the
+OpenEmbedded layer index to find different distribution layers. If you
+just need to add your own application to the image, create your own
+layer.</p>
+<p>In the following chapter, we have an embedded project called “racer”
+which we will implement using our <em>Ampliphy Linux</em> distribution. First,
+we need to create a new layer.</p>
+<p><em>Yocto</em> provides a script for that. If you set up the BSP and the shell
+is ready, type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers create-layer meta-racer
+</pre></div>
+</div>
+<p>Default options are fine for now. Move the layer to the source
+directory:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mv meta-racer ../sources/
+</pre></div>
+</div>
+<p>Create a <em>Git</em> repository in this layer to track your changes:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ cd ../sources/meta-racer
+host$ git init &amp;&amp; git add . &amp;&amp; git commit -s
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">your</span> <span class="n">build</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">bblayers</span><span class="o">.</span><span class="n">conf</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>BBLAYERS += &quot;${BSPDIR}/sources/meta-racer&quot;
+</pre></div>
+</div>
+<p>or with a script provided by <em>Yocto</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers add-layer meta-racer
+</pre></div>
+</div>
+</section>
+<section id="kernel-and-bootloader-recipe-and-version">
+<h3>Kernel and Bootloader Recipe and Version<a class="headerlink" href="#kernel-and-bootloader-recipe-and-version" title="Permalink to this heading"></a></h3>
+<p>First, you need to know which kernel and version are used for your
+target machine. PHYTEC provides two kernel
+recipes <em>linux-mainline</em> and <em>linux-ti</em>. The first one provides support
+for PHYTEC’s i.MX 6 modules and is based on the <em>Linux</em> kernel stable
+releases from kernel.org. The second one provides support for PHYTEC’s
+AM335x modules and is based on the <em>TI</em> vendor kernel.</p>
+<p>The <em>Git</em> repositories URLs are:</p>
+<ul class="simple">
+<li><p><em>linux-ti</em>: git://git.phytec.de/linux-ti</p></li>
+<li><p><em>linux-mainline</em>: git://git.phytec.de/linux-mainline</p></li>
+</ul>
+<p>To find your kernel provider, execute the following command:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake virtual/kernel -e | grep  &quot;PREFERRED_PROVIDER_virtual/kernel&quot;
+</pre></div>
+</div>
+<p>The command prints the value of the
+variable <em>PREFERRED_PROVIDER_virtual/kernel</em>. The variable is used in
+the internal <em>Yocto</em> build process to select the kernel recipe to use.
+The following two lines are two different outputs you might see:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>PREFERRED_PROVIDER_virtual/kernel=&quot;linux-mainline&quot;
+PREFERRED_PROVIDER_virtual/kernel=&quot;linux-ti&quot;
+</pre></div>
+</div>
+<p>To see which version is used, execute <em>bitbake -s</em>. For example:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake -s | egrep -e &quot;linux-mainline|linux-ti|barebox&quot;
+</pre></div>
+</div>
+<p>The parameter <em>-s</em> prints the version of all recipes. The output
+contains the recipe name on the left and the version on the right.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>barebox                                  :2019.11.0-phy1-r7.0
+barebox-hosttools-native                 :2019.11.0-phy1-r7.0
+barebox-targettools                      :2019.11.0-phy1-r7.0
+linux-mainline                            :4.19.100-phy1-r0.0
+</pre></div>
+</div>
+<p>As you can see, the recipe <em>linux-mainline</em> has the version
+<em>4.19.100-phy1-r0</em>. In the PHYTEC’s <em>linux-mainline</em> <em>Git</em> repository,
+you will find a corresponding tag <em>v4.19.100-phy1</em>. The version of
+the <em>barebox</em> recipe is 2019.11.0-phy1-r7. If your machine has an AM335x
+module the output of <em>bitbake -s</em> contains a line starting
+with <em>linux-ti</em>.</p>
+</section>
+<section id="kernel-and-bootloader-configuration">
+<h3>Kernel and Bootloader Configuration<a class="headerlink" href="#kernel-and-bootloader-configuration" title="Permalink to this heading"></a></h3>
+<p>The bootloader used by PHYTEC, <em>barebox</em>, uses the same build system as
+the <em>Linux</em> kernel. Therefore, all commands in this section can be used
+to configure the kernel and bootloader. To configure the kernel or
+bootloader, execute one of the following commands:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
+host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly (If you use an AM335x Module)
+host$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
+host$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
+</pre></div>
+</div>
+<p>After that, you can recompile and redeploy the kernel or bootloader:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake virtual/kernel -c compile    # Or &#39;barebox&#39; for the bootloader
+host$ bitbake virtual/kernel -c deploy     # Or &#39;barebox&#39; for the bootloader
+</pre></div>
+</div>
+<p>Instead, you can also just rebuild the complete build output with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-headless-image        # To update the kernel/bootloader, modules and the images
+</pre></div>
+</div>
+<p>In the last command, you can replace the image name with the name of an
+image of your choice. The new images and binaries are
+in <em>build/deploy/images/&lt;machine&gt;/</em>.</p>
+<p>Warning</p>
+<p>The build configuration is not permanent yet. Executing <em>bitbake
+virtual/kernel -c clean</em> will remove everything.</p>
+<p>To make your changes permanent in the build system, you have to
+integrate your configuration modifications into a layer. For the
+configuration you have two options:</p>
+<ul class="simple">
+<li><p>Include only a configuration fragment (a minimal <em>diff</em> between the
+old and new configuration)</p></li>
+<li><p>Complete default configuration (<em>defconfig</em>) after your
+modifications.</p></li>
+</ul>
+<p>Having a set of configuration fragments makes what was changed at which
+stage more transparent. You can turn on and off the changes, you can
+manage configurations for different situations and it helps when porting
+changes to new kernel versions. You can also group changes together to
+reflect specific use cases. A fully assembled kernel configuration will
+be deployed in the directory <em>build/deploy/images/&lt;machine&gt;</em>. If you do
+not have any of those requirements, it might be simpler to just manage a
+separate <em>defconfig</em> file.</p>
+<section id="add-a-configuration-fragment-to-a-recipe">
+<h4>Add a Configuration Fragment to a Recipe<a class="headerlink" href="#add-a-configuration-fragment-to-a-recipe" title="Permalink to this heading"></a></h4>
+<p>The following steps can be used for both kernel and bootloader. Just
+replace the recipe name <em>linux-mainline</em> in the commands
+with <em>linux-ti</em>, or <em>barebox</em> for the bootloader. If you did not already
+take care of this, start with a clean build. Otherwise, the diff of the
+configuration may be wrong:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake linux-mainline -c clean
+host$ bitbake linux-mainline -c menuconfig
+</pre></div>
+</div>
+<p>Make your configuration changes in the menu and generate a config
+fragment:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake linux-mainline -c diffconfig
+</pre></div>
+</div>
+<p>which prints the path of the written file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>Config fragment has been dumped into:
+  /home/&lt;path&gt;/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg
+</pre></div>
+</div>
+<p>All config changes are in the file <em>fragment.cfg</em>which should consist
+of only some lines. The following example shows how to create
+a <em>bbappend</em> file and how to add the necessary lines for the config
+fragment. You just have to adjust the directories and names for the
+specific recipe: <em>linux-mainline</em>, <em>linux-ti</em>, or <em>barebox</em>.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>sources/&lt;layer&gt;/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+sources/&lt;layer&gt;/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+</pre></div>
+</div>
+<p>Replace the string <em>layer</em> with your own layer created as shown above
+(e.g. <em>meta-racer</em>), or just use <em>meta-ampliphy</em>. To
+use <em>meta-ampliphy</em>, first create the directory for the config fragment
+and give it a new name (here <em>enable-r8169.cfg</em>) and move the fragment
+to the layer.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features
+# copy the path from the output of *diffconfig*
+host$ cp /home/&lt;path&gt;/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg \
+    sources/meta-ampliphy/recipes-kernel/linux/features/enable-r8169.cfg
+</pre></div>
+</div>
+<p>Then open the <em>bbappend</em> file (in this
+case <em>sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend</em>)
+with your favorite editor and add the following lines:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># contents of the file linux-mainline_%.bbappend
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/features:&quot;
+SRC_URI:append = &quot; \
+   file://enable-r8169.cfg \
+&quot;
+</pre></div>
+</div>
+<p>Warning</p>
+<p>Do not forget to use the
+correct <em>bbappend</em> filenames: <em>linux-ti_%.bbappend</em> for the linux-ti
+recipe and <em>barebox_%.bbappend</em> for the bootloader in the
+folder <em>recipes-bsp/barebox/</em>!</p>
+<p>After saving the <em>bbappend</em> file, you have to rebuild the
+image. <em>Yocto</em> should pick up the recipe changes automatically and
+generate a new image:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-headless-image    # Or another image name
+</pre></div>
+</div>
+</section>
+<section id="add-a-complete-default-configuration-defconfig-to-a-recipe">
+<h4>Add a Complete Default Configuration (<em>defconfig</em>) to a Recipe<a class="headerlink" href="#add-a-complete-default-configuration-defconfig-to-a-recipe" title="Permalink to this heading"></a></h4>
+<p>This approach is similar to the one above, but instead of adding a
+fragment, a <em>defconfig</em> is used. First, create the necessary folders in
+the layer you want to use, either your own layer or <em>meta-ampliphy</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features/   # For both linux-mainline and linux-ti
+host$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features/    # Or for the bootloader
+</pre></div>
+</div>
+<p>Then you have to create a suitable <em>defconfig</em> file. Make your
+configuration changes using <em>menuconfig</em> and then save
+the <em>defconfig</em> file to the layer:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake linux-mainline -c menuconfig    # Or use recipe name linux-ti or barebox
+host$ bitbake linux-mainline -c savedefconfig # Create file &#39;defconfig.temp&#39; in the work directory
+</pre></div>
+</div>
+<p>This will print the path to the generated file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>Saving defconfig to ..../defconfig.temp
+</pre></div>
+</div>
+<p>Then, as above, copy the generated file to your layer, rename it
+to <em>defconfig</em>, and add the following lines to the <em>bbappend</em> file
+(here <em>sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend</em>):</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># contents of the file linux-mainline_%.bbappend
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/features:&quot;
+SRC_URI:append = &quot; \
+   file://defconfig \
+&quot;
+</pre></div>
+</div>
+<p>Tip</p>
+<p>Do not forget to use the correct bbappend
+filenames: <em>linux-ti_%.bbappend</em> for the linux-ti recipe
+and <em>barebox_%.bbappend</em> for the bootloader in the
+folder <em>recipes-bsp/barebox/</em>!</p>
+<p>After that, rebuild your image as the changes are picked up
+automatically:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-headless-image    # Or another image name
+</pre></div>
+</div>
+</section>
+</section>
+<section id="patch-the-kernel-or-bootloader-with-devtool">
+<h3>Patch the Kernel or Bootloader with <em>devtool</em><a class="headerlink" href="#patch-the-kernel-or-bootloader-with-devtool" title="Permalink to this heading"></a></h3>
+<p><em>Apart from using the standard versions of kernel and bootloader which
+are provided in the recipes, you can modify the source code or use our
+own repositories to build your customized kernel.</em></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 54%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>PRO</p></td>
+<td><p>CON</p></td>
+</tr>
+<tr class="row-even"><td><p>Standard workflow of the
+official <em>Yocto</em> documentation</p></td>
+<td><p>Uses additional hard drive space as
+the sources get duplicated</p></td>
+</tr>
+<tr class="row-odd"><td><p>Toolchain does not have to
+recompile everything</p></td>
+<td><p>No optimal cache usage, build
+overhead</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Devtool</em> is a set of helper scripts to enhance the user workflow
+of <em>Yocto</em>. It was integrated in version 1.8. It is available as soon as
+you set up your shell environment. <em>Devtool</em> can be used to:</p>
+<ul class="simple">
+<li><p>modify existing sources</p></li>
+<li><p>integrate software projects into your build setup</p></li>
+<li><p>build software and deploy software modifications to your target</p></li>
+</ul>
+<p>Here we will use <em>devtool</em> to patch the kernel. We use <em>linux-ti</em> as an
+example for the AM335x TI Kernel. The first command we use is <em>devtool
+modify - x &lt;recipe&gt; &lt;directory&gt;</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ devtool modify -x linux-ti linux-ti
+</pre></div>
+</div>
+<p><em>Devtool</em> will create a layer in <em>build/workspace</em> where you can see all
+modifications done by <em>devtool</em>. It will extract the sources
+corresponding to the recipe to the specified directory.
+A <em>bbappend</em> will be created in the workspace directing the SRC_URI to
+this directory. Building an image with <em>Bitbake</em> will now use the
+sources in this directory. Now you can modify lines in the kernel:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ vim linux-ti/arch/arm/boot/dts/am335x-phycore-som.dtsi
+      -&gt; make a change
+host$ bitbake phytec-qt5demo-image
+</pre></div>
+</div>
+<p>Your changes will now be recompiled and added to the image. If you want
+to store your changes permanently, it is advisable to create a patch
+from the changes, then store and backup only the patch. You can go into
+the <em>linux-ti</em> directory and create a patch using <em>Git</em>. How to create a
+patch is described in the middle of the next section and is the same for
+all methods.</p>
+<p>If you want to learn more about <em>devtool</em>, visit:</p>
+<ul class="simple">
+<li><p>Yocto 4.0 - Devtool or Devtool Quick Reference</p></li>
+</ul>
+</section>
+<section id="patch-the-kernel-or-bootloader-using-temporary-method">
+<h3>Patch the Kernel or Bootloader using “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-temporary-method" title="Permalink to this heading"></a></h3>
+<table class="wrapped confluenceTable"><tbody><tr class="header"><th class="confluenceTh" style="text-align: center;"><p>PRO</p>
+</th><th class="confluenceTh" style="text-align: center;"><p>CON</p>
+</th></tr><tr class="odd"><td class="confluenceTd" style="text-align: center;"><p>No overhead, no extra configuration</p>
+</td><td class="confluenceTd" style="text-align: center;"><p>Changes are easily overwritten by Yocto (Everything is lost!!).</p>
+</td></tr><tr class="even"><td class="confluenceTd" style="text-align: center;"><p>Toolchain does not have to recompile everything</p>
+</td><td class="confluenceTd" style="text-align: center;"></td></tr></tbody></table><p>It is possible to alter the source code before <em>Bitbake</em> configures and
+compiles the recipe. Use <em>Bitbake’</em>s <em>devshell</em> command to jump into
+the source directory of the recipe. Here is the <em>barebox</em> recipe:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c devshell    # or linux-mainline, linux-ti
+</pre></div>
+</div>
+<p>After executing the command, a shell window opens. The current working
+directory of the shell will be changed to the source directory of the
+recipe inside the <em>tmp</em> folder. Here you can use your favorite editor,
+e.g. <em>vim</em>, <em>emacs</em>, or any other graphical editor, to alter the source
+code. When you are finished, exit the <em>devshell</em> by typing <em>exit</em> or
+hitting <strong>CTRL-D</strong>.</p>
+<p>After leaving the <em>devshell</em> you can recompile the package:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c compile --force    # or linux-mainline, linux-ti
+</pre></div>
+</div>
+<p>The extra argument ‘–force’ is important because <em>Yocto</em> does not
+recognize that the source code was changed.</p>
+<p>Tip</p>
+<p>You cannot execute the <em>bitbake</em> command in the <em>devshell</em>. You have to
+leave it first.</p>
+<p>If the build fails, execute the devshell command again and fix it. If
+the build is successful, you can deploy the package and create a new SD
+card image.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c deploy         # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
+host$ bitbake phytec-headless-image    # new sdcard image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+</pre></div>
+</div>
+<p>Warning</p>
+<p>If you execute a clean e.g <em>bitbake barebox -c clean</em>, or if <em>Yocto</em>
+fetches the source code again, all your changes are lost!!!</p>
+<p>To avoid this, you can create a patch and add it to a <em>bbappend</em> file.
+It is the same workflow as described in the section about changing the
+configuration.</p>
+<p>You have to create the patch in the <em>devshell</em> if you use the temporary
+method, and in the subdirectory created by <em>devtool</em> if you
+used <em>devtool</em>.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c devshell            # Or linux-mainline, linux-ti
+host(devshell)$ git status                   # Show changes files
+host(devshell)$ git add &lt;file&gt;               # Add a special file to the staging area
+host(devshell)$ git commit -m &quot;important modification&quot;   # Creates a commit with a not so useful commit message
+host(devshell)$ git format-patch -1 -o ~/    # Creates a patch of the last commit and saves it in your home folder
+/home/&lt;user&gt;/0001-important-modification.patch  # Git prints the path of the written patch file
+host(devshell)$ exit
+</pre></div>
+</div>
+<p>After you have created the patch, you must create a <em>bbappend</em> file for
+it. The locations for the three different recipes
+- <em>linux-mainline</em>, <em>linux-ti</em>, and <em>barebox</em> - are:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>sources/&lt;layer&gt;/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+sources/&lt;layer&gt;/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+</pre></div>
+</div>
+<p>The following example is for the recipe <em>barebox</em>. You have to adjust
+the paths. First, create the folders and move the patch into them. Then
+create the <em>bbappend</em> file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features   # Or use your own layer instead of *meta-ampliphy*
+host$ cp ~/0001-important-modification.patch sources/meta-ampliphy/recipes-bsp/barebox/features  # copy patch
+host$ touch sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend
+</pre></div>
+</div>
+<p>Tip</p>
+<p>Pay attention to your current work directory. You have to execute the
+commands in the BSP top-level directory. Not in the <em>build</em> directory!</p>
+<p>After that use your favorite editor to add the following snipped into
+the <em>bbappend</em> file
+(here <em>sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend</em>):</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># contents of the file barebox_%.bbappend
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/features:&quot;
+SRC_URI:append = &quot; \
+    file://0001-important-modification.patch \
+&quot;
+</pre></div>
+</div>
+<p>Save the file and rebuild the <em>barebox</em> recipe with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c clean    # Or linux-ti, linux-mainline
+host$ bitbake barebox
+</pre></div>
+</div>
+<p>If the build is successful, you can rebuild the final image with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-headless-image    # Or another image name
+</pre></div>
+</div>
+<p><strong>Further Resources:</strong></p>
+<p>The <em>Yocto</em> Project has some documentation for software developers.
+Check the ‘Kernel Development Manual’ for more information about how to
+configure the kernel. Please note that not all of the information from
+the <em>Yocto</em> manual can be applied to the PHYTEC BSP as we use the
+classic kernel approach of <em>Yocto</em> and most of the documentation assumes
+the <em>Yocto</em> kernel approach.</p>
+<ul class="simple">
+<li><p>Yocto - Kernel Development Manual</p></li>
+<li><p>Yocto - Development Manual</p></li>
+</ul>
+</section>
+<section id="working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">
+<h3>Working with the Kernel and Bootloader using SRC_URI in <em>local.conf</em><a class="headerlink" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf" title="Permalink to this heading"></a></h3>
+<p><em>Here we present a third option to make kernel and bootloader changes.
+You have external checkouts of the linux-mainline, linux-ti,
+or barebox Git repositories. You will overwrite the URL of the source
+code fetcher, the variable SRC_URI, to point to your local checkout
+instead of the remote repositories.</em></p>
+<table class="wrapped confluenceTable"><tbody><tr class="header"><th class="confluenceTh" style="text-align: center;"><p>PRO</p>
+</th><th class="confluenceTh" style="text-align: center;"><p>CON</p>
+</th></tr><tr class="odd"><td class="confluenceTd" style="text-align: center;"><p>All changes are saved with Git</p>
+</td><td class="confluenceTd" style="text-align: center;"><p>Many working directories in build/tmp-glibc/work/&lt;machine&gt;/&lt;package&gt;/</p>
+</td></tr><tr class="even"><td class="confluenceTd" style="text-align: center;"></td><td class="confluenceTd" style="text-align: center;"><p>You have to commit every change before recompiling</p>
+</td></tr><tr class="odd"><td class="confluenceTd" style="text-align: center;"></td><td class="confluenceTd" style="text-align: center;"><p>For each change, the toolchain compiles everything from scratch
+(avoidable with ccache)</p>
+</td></tr></tbody></table><p>First, you need a local clone of the <em>Git</em> repository <em>barebox</em> or
+kernel. If you do not have one, use the commands:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ mkdir ~/git
+host$ cd ~/git
+host$ git clone git://git.phytec.de/barebox
+host$ cd barebox
+host$ git checkout -b v2019.11.0-phy remotes/origin/v2019.11.0-phy
+</pre></div>
+</div>
+<p>Add the following snippet to the file build/conf/local.conf:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># Use your own path to the git repository
+# NOTE: Branche name in variable &quot;BRANCH_pn-barebox&quot; should be the same as the
+# branch which is used in the repository folder. Otherwise your commits won&#39;t be recognized later.
+BRANCH:pn-barebox = &quot;v2019.11.0-phy&quot;
+SRC_URI:pn-barebox = &quot;git:///${HOME}/git/barebox;branch=${BRANCH}&quot;
+SRCREV:pn-barebox = &quot;${AUTOREV}&quot;
+</pre></div>
+</div>
+<p>You also have to set the correct BRANCH name in the file. Either you
+create your own branch in the <em>Git</em> repository, or you use the default
+(here “v2015.02.0-phy”). Now you should recompile <em>barebox</em> from your
+own source:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c clean
+host$ bitbake barebox -c compile
+</pre></div>
+</div>
+<p>The build should be successful because the source was not changed yet.</p>
+<p>You can alter the source in <em>~/git/barebox</em> or the
+default <em>defconfig</em> (e.g. <em>~/git/barebox/arch/arm/configs/imx_v7_defconfig</em>).
+After you are satisfied with your changes, you have to make a dummy
+commit for <em>Yocto</em>. If you do not, <em>Yocto</em> will not notice that the
+source code was modified in your repository folder (e.g.
+~/git/barebox/):</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ git status  # show modified files
+host$ git diff    # show changed lines
+host$ git commit -a -m &quot;dummy commit for yocto&quot;   # This command is important!
+</pre></div>
+</div>
+<p>Try to compile your new changes. <em>Yocto</em> will automatically notice that
+the source code was changed and fetches and configures everything from
+scratch.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c compile
+</pre></div>
+</div>
+<p>If the build fails, go back to the source directory, fix the problem,
+and recommit your changes. If the build was successful, you can
+deploy <em>barebox</em> and even create a new SD card image.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c deploy   # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
+host$ bitbake phytec-headless-image   # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+</pre></div>
+</div>
+<p>If you want to make additional changes, just make another commit in the
+repository and rebuild <em>barebox</em> again.</p>
+</section>
+<section id="add-existing-software-with-sustainable-method">
+<h3>Add Existing Software with “Sustainable Method”<a class="headerlink" href="#add-existing-software-with-sustainable-method" title="Permalink to this heading"></a></h3>
+<p>Now that you have created your own layer, you have a second option to
+add existing software to existing image definitions. Our standard image
+is defined in meta-ampliphy in:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>meta-ampliphy/recipes-images/images/phytec-headless-image.bb
+</pre></div>
+</div>
+<p>In your layer, you can now modify the recipe with a <em>bbappend</em> without
+modifying any BSP code:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>meta-racer/recipes-images/images/phytec-headless-image.bbappend
+</pre></div>
+</div>
+<p>The append will be parsed together with the base recipe. As a result,
+you can easily overwrite all variables set in the base recipe, which is
+not always what you want. If we want to include additional software, we
+need to append to the IMAGE_INSTALL variable:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL:append = &quot; rsync&quot;
+</pre></div>
+</div>
+</section>
+<section id="add-linux-firmware-files-to-the-root-filesystem">
+<h3>Add Linux Firmware Files to the Root Filesystem<a class="headerlink" href="#add-linux-firmware-files-to-the-root-filesystem" title="Permalink to this heading"></a></h3>
+<p>It is a common task to add an extra firmware file to your root
+filesystem into <em>/lib/firmware/</em>. For example, WiFi adapters or PCIe
+Ethernet cards might need proprietary firmware. As a solution, we use
+a <em>bbappend</em> in our layer. To create the necessary
+folders, <em>bbappend</em> and copy the firmware file type:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ cd meta-racer   # go into your layer
+host$ mkdir -p recipes-kernel/linux-firmware/linux-firmware/
+host$ touch recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+host$ cp ~/example-firmware.bin recipes-kernel/linux-firmware/linux-firmware/    # adapt filename
+</pre></div>
+</div>
+<p>Then add the following content to the <em>bbappend</em> file and replace every
+occurrence of <em>example-firmware.bin</em> with your firmware file name.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/linux-firmware:&quot;
+SRC_URI += &quot;file://example-firmware.bin&quot;
+
+do_install:append () {
+        install -m 0644 ${WORKDIR}/example-firmware.bin ${D}/lib/firmware/example-firmware.bin
+}
+
+# NOTE: Use &quot;=+&quot; instead of &quot;+=&quot;. Otherwise file is placed into the linux-firmware package.
+PACKAGES =+ &quot;${PN}-example&quot;
+FILES:${PN}-example = &quot;/lib/firmware/example-firmware.bin&quot;
+</pre></div>
+</div>
+<p>Now try to build the linux-firmware recipe:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ . sources/poky/oe-init-build-env
+host$ bitbake linux-firmware
+</pre></div>
+</div>
+<p>This should generate a new
+package <em>deploy/ipk/all/linux-firmware-example</em>.</p>
+<p>As the final step, you have to install the firmware package to your
+image. You can do that in your <em>local.conf</em> or image recipe via:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file local.conf or image recipe
+IMAGE_INSTALL += &quot;linux-firmware-example&quot;
+</pre></div>
+</div>
+<p>Warning</p>
+<p>Ensure that you have adapted the package
+name <em>linux-firmware-example</em> with the name you assigned
+in <em>linux-firmware_%.bbappend</em>.</p>
+</section>
+<section id="change-the-barebox-environment-via-bbappend-files">
+<h3>Change the barebox Environment via <em>bbappend</em> Files<a class="headerlink" href="#change-the-barebox-environment-via-bbappend-files" title="Permalink to this heading"></a></h3>
+<p>Since <em>BSP-Yocto-AM335x-16.2.0</em> and <em>BSP-Yocto-i.MX6-PD16.1.0</em>,
+the <em>barebox</em> environment handling in <em>meta-phytec</em> has changed. Now it
+is possible to add, change, and remove files in
+the <em>barebox</em> environment via the <em>Python</em> bitbake task <em>do_env</em>. There
+are two <em>Python</em> functions to change the environment. Their signatures
+are:</p>
+<ul class="simple">
+<li><p><em>env_add(d, ***filename as string*</em><em>, ***file content as
+string*</em><em>)</em>: to add a new file or overwrite an existing file</p></li>
+<li><p><em>env_rm(d, ***filename as string*</em><em>)</em>: to remove a file</p></li>
+</ul>
+<p>The first example of a <em>bbappend</em> file in the custom
+layer <em>meta-racer</em> shows how to add a new non-volatile
+variable <em>linux.bootargs.fb</em> in the <em>barebox</em> environment
+folder <em>/env/nv/</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+python do_env_append() {
+    env_add(d, &quot;nv/linux.bootargs.fb&quot;, &quot;imxdrm.legacyfb_depth=32\n&quot;)
+}
+</pre></div>
+</div>
+<p>The next example shows how to replace the network configuration
+file <em>/env/network/eth0</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+python do_env_append() {
+    env_add(d, &quot;network/eth0&quot;,
+&quot;&quot;&quot;#!/bin/sh
+
+# ip setting (static/dhcp)
+ip=static
+global.dhcp.vendor_id=barebox-${global.hostname}
+
+# static setup used if ip=static
+ipaddr=192.168.178.5
+netmask=255.255.255.0
+gateway=192.168.178.1
+serverip=192.168.178.1
+&quot;&quot;&quot;)
+}
+</pre></div>
+</div>
+<p>In the above example, the <em>Python</em> multiline string
+syntax <strong>“““ *text* ”““</strong> is used to avoid adding multiple newline
+characters   into the recipe <em>Python* code.
+The *Python* function *env_add</em> can add and overwrite environment
+files.</p>
+<p>The next example shows how to remove an already added environment file,
+for example,<em>/env/boot/mmc</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+python do_env_append() {
+    env_rm(d, &quot;boot/mmc&quot;)
+}
+</pre></div>
+</div>
+<section id="debugging-the-environment">
+<h4>Debugging the Environment<a class="headerlink" href="#debugging-the-environment" title="Permalink to this heading"></a></h4>
+<p>If you want to see all environment files that are added in the build
+process, you can enable a debug flag in the <em>local.conf</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file local.conf
+ENV_VERBOSE = &quot;1&quot;
+</pre></div>
+</div>
+<p>After that, you have to rebuild the <em>barebox</em> recipe to see the
+debugging output:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c clean
+host$ bitbake barebox -c configure
+</pre></div>
+</div>
+<p>The output of the last command looks like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>[...]
+WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File &#39;nv/allow_color&#39; content &quot;false&quot;
+WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.base&#39; content &quot;consoleblank=0&quot;
+WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.fb&#39; content &quot;imxdrm.legacyfb_depth=32&quot;
+WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.rootfs&#39; content &quot;rootwait ro fsck.repair=yes&quot;
+</pre></div>
+</div>
+</section>
+<section id="changing-the-environment-depending-on-machines">
+<h4>Changing the Environment (depending on Machines)<a class="headerlink" href="#changing-the-environment-depending-on-machines" title="Permalink to this heading"></a></h4>
+<p>If you need to apply some <em>barebox</em> environment modifications only to a
+single or only a few machines, you can use <em>Bitbake’</em>s machine
+overwrite syntax. For the machine overwrite syntax, you append a machine
+name or SoC name (such as <em>mx6</em>, <em>ti33x</em> or <em>rk3288</em>) with an underscore
+to a variable or task:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>DEPENDS:remove:mx6 = &quot;virtual/libgl&quot; or
+python do_env_append_phyboard-mira-imx6-4().
+</pre></div>
+</div>
+<p>The next example adds the environment variables only if the MACHINE is
+set to <em>phyboard-mira-imx6-4</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file meta-phytec/recipes-bsp/barebox/barebox_2019.11.0-phy1.bb
+python do_env_append_phyboard-mira-imx6-4() {
+    env_add(d, &quot;nv/linux.bootargs.cma&quot;, &quot;cma=64M\n&quot;)
+}
+</pre></div>
+</div>
+<p><em>Bitbake’s</em> override syntax for variables is explained in more detail
+at: <a class="reference external" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata">https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata</a></p>
+</section>
+<section id="upgrading-the-barebox-environment-from-previous-bsp-releases">
+<h4>Upgrading the barebox Environment from Previous BSP Releases<a class="headerlink" href="#upgrading-the-barebox-environment-from-previous-bsp-releases" title="Permalink to this heading"></a></h4>
+<p>Prior to BSP
+version <em>BSP-Yocto-AM335x-16.2.0</em> and <em>BSP-Yocto-i.MX6-PD16.1.0</em>, <em>barebox</em> environment
+changes via <em>bbappend</em> file were done differently. For example, the
+directory structure in your meta layer (here <em>meta-skeleton</em>) may have
+looked like this:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>$ tree -a sources/meta-skeleton/recipes-bsp/barebox/
+sources/meta-skeleton/recipes-bsp/barebox
+├── barebox
+│   └── phyboard-wega-am335x-3
+│       ├── boardenv
+│       │   └── .gitignore
+│       └── machineenv
+│           └── nv
+│               └── linux.bootargs.cma
+└── barebox_%.bbappend
+</pre></div>
+</div>
+<p>and the file <em>barebox_%.bbappend</em> contained:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/barebox:&quot;
+</pre></div>
+</div>
+<p>In this example, all environment changes from the
+directory <em>boardenv</em> in the layer <em>meta-phytec</em> are ignored and the
+file <em>nv/linux.bootargs.cma</em> is added. For the new handling of
+the <em>barebox</em> environment, you use
+the <em>Python</em> functions <em>env_add</em> and <em>env_rm</em> in
+the <em>Python</em> task <em>do_env</em>. Now the above example translates to a
+single <em>Python</em> function in the file <em>barebox_%.bbappend</em> that looks
+like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
+FILESEXTRAPATHS:prepend := &quot;${THISDIR}/barebox:&quot;
+python do_env_append() {
+    # Removing files (previously boardenv)
+    env_rm(d, &quot;config-expansions&quot;)
+    # Adding new files (previously machineenv)
+    env_add(d, &quot;nv/linux.bootargs.cma&quot;, &quot;cma=64M\n&quot;)
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="changing-the-network-configuration">
+<h3>Changing the Network Configuration<a class="headerlink" href="#changing-the-network-configuration" title="Permalink to this heading"></a></h3>
+<p>To tweak IP addresses, routes, and gateways at runtime you can use the
+tools <em>ifconfig</em> and <em>ip</em>. Some examples:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ ip addr                                         # Show all network interfaces
+target$ ip route                                        # Show all routes
+target$ ip addr add 192.168.178.11/24 dev eth0          # Add static ip and route to interface eth0
+target$ ip route add default via 192.168.178.1 dev eth0 # Add default gateway 192.168.178.1
+target$ ip addr del 192.168.178.11/24 dev eth0          # Remove static ip address from interface eth0
+</pre></div>
+</div>
+<p>The network configuration is managed by <em>systemd-networkd</em>. To query the
+current status use:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ networkctl status
+target$ networkctl list
+</pre></div>
+</div>
+<p>The network daemon reads its configuration from the
+directories <em>/etc/systemd/network/</em>, <em>/run/systemd/network/</em>,
+and <em>/lib/systemd/network/</em> (from higher to lower priority). A sample
+configuration in <a href="#id2"><span class="problematic" id="id3">*</span></a>/lib/systemd/network/10-eth0.network <a href="#id4"><span class="problematic" id="id5">*</span></a>looks like
+this:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file /lib/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+Address=192.168.3.11/24
+Gateway=192.168.3.10
+</pre></div>
+</div>
+<p>These files <em>*.network</em> replace <em>/etc/network/interfaces</em> from other
+distributions. You can either edit the file <em>10-eth0.network</em> in-place
+or copy it to <em>/etc/systemd/network/</em> and make your changes there. After
+changing a file you must restart the daemon to apply your changes:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl restart systemd-networkd
+</pre></div>
+</div>
+<p>To see the syslog message of the network daemon, use:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ journalctl --unit=systemd-networkd.service
+</pre></div>
+</div>
+<p>To modify the network configuration at build time, look at the
+recipe <em>sources/meta-ampliphy/recipes-core/systemd/systemd-machine-units.bb</em>
+and the interface files in the
+folder <em>meta-ampliphy/recipes-core/systemd/systemd-machine-units/</em> where
+the static IP address configuration for <em>eth0</em> (and optionally <em>eth1</em>)
+is done.</p>
+<p>For more information,
+see <a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-networkd">https://wiki.archlinux.org/index.php/Systemd-networkd</a> and <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/systemd.network.html">http://www.freedesktop.org/software/systemd/man/systemd.network.html</a>.</p>
+</section>
+<section id="changing-the-wireless-network-configuration">
+<h3>Changing the Wireless Network Configuration<a class="headerlink" href="#changing-the-wireless-network-configuration" title="Permalink to this heading"></a></h3>
+<section id="connecting-to-a-wlan-network">
+<h4>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>First set the correct regulatory domain for your country:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ iw reg set DE
+target$ iw reg get
+</pre></div>
+</div>
+<p>You will see:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Set up the wireless interface:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ ip link    # list all interfaces. Search for wlan*
+target$ ip link set up dev wlan0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now you can scan for available networks:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>targe$ iw wlan0 scan | grep SSID
+</pre></div>
+</div>
+<p>You can use a cross-platform supplicant with support for <em>WEP</em>, <em>WPA</em>,
+and <em>WPA2</em> called <em>wpa_supplicant</em> for an encrypted connection.</p>
+<ul class="simple">
+<li><p>To do so, add the network-credentials to the
+file <em>/etc/wpa_supplicant.conf</em>:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>country=DE
+network={
+    ssid=&quot;&lt;SSID&gt;&quot;
+    proto=WPA2
+    psk=&quot;&lt;KEY&gt;&quot;
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now a connection can be established:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
+</pre></div>
+</div>
+<p>This should result in the following output:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>...
+ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP
+address (supported by most WLAN access points). For other possible IP
+configurations, see section How to change the Network Configuration.</p>
+<ul class="simple">
+<li><p>First, create the directory:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ mkdir -p /etc/systemd/network/
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then add the following configuration snippet
+in <em>/etc/systemd/network/10-wlan0.network</em>:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now, restart the network daemon so that the configuration takes
+effect:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl restart systemd-networkd
+</pre></div>
+</div>
+</section>
+<section id="creating-a-wlan-access-point">
+<h4>Creating a WLAN Access Point<a class="headerlink" href="#creating-a-wlan-access-point" title="Permalink to this heading"></a></h4>
+<p>This section provides a basic access point (AP) configuration for a
+secured <em>WPA2</em> network.</p>
+<ul class="simple">
+<li><p>Find the name of the WLAN interface with:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ ip link
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Edit the configuration in <em>/etc/hostapd.conf</em>. It is strongly
+dependent on the use case. The following shows an example:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file /etc/hostapd.conf
+interface=wlan0
+driver=nl80211
+ieee80211d=1
+country_code=DE
+hw_mode=g
+ieee80211n=1
+ssid=Test-Wifi
+channel=2
+wpa=2
+wpa_passphrase=12345678
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=CCMP
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Set up and start the DHCP server for the network
+interface <em>wlan0</em> via <em>systemd-networkd</em>:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ mkdir -p /etc/systemd/network/
+target$ vi /etc/systemd/network/10-wlan0.network
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Insert the following text into the file:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>[Match]
+Name=wlan0
+
+[Network]
+Address=192.168.0.1/24
+DHCPServer=yes
+
+[DHCPServer]
+EmitDNS=yes
+target$ systemctl restart systemd-networkd
+target$ systemctl status  systemd-networkd -l   # check status and see errors
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Start the userspace daemon <em>hostapd</em>:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl start hostapd
+target$ systemctl status hostapd -l   # check for errors
+</pre></div>
+</div>
+<p>Now, you should see the WLAN network <em>Test-Wifi</em> on your terminal device
+(laptop, smartphone, etc.).</p>
+<p>If there are problems with the access point, you can either check the
+log messages with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ journalctl --unit=hostapd
+</pre></div>
+</div>
+<p>or start the daemon in debugging mode from the command line:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop hostapd
+target$ hostapd -d /etc/hostapd.conf -P /var/run/hostapd.pid
+</pre></div>
+</div>
+<p>You should see:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>...
+wlan0: interface state UNINITIALIZED-&gt;ENABLED
+wlan0: AP-ENABLED
+</pre></div>
+</div>
+<p>Further information about AP settings and the userspace
+daemon <em>hostapd</em> can be found at:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>http://processors.wiki.ti.com/index.php/OMAP_Wireless_Connectivity_NLCP_WLAN_AP_Configuration_Scripts
+https://wireless.wiki.kernel.org/en/users/documentation/hostapd
+https://w1.fi/hostapd/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="add-opencv-libraries-and-examples">
+<h3>Add OpenCV Libraries and Examples<a class="headerlink" href="#add-opencv-libraries-and-examples" title="Permalink to this heading"></a></h3>
+<p><em>OpenCV</em> (Opensource Computer Vision <a class="reference external" href="http://opencv.org/">http://opencv.org/</a>) is an
+open-source library for computer vision applications.</p>
+<ul class="simple">
+<li><p>To install the libraries and examples edit the
+file <em>conf/local.conf</em> in the <em>Yocto</em> build system and add:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file conf/local.conf
+# Installing OpenCV libraries and examples
+LICENSE_FLAGS_ACCEPTED += &quot;commercial_libav&quot;
+LICENSE_FLAGS_ACCEPTED += &quot;commercial_x264&quot;
+IMAGE_INSTALL:append = &quot; \
+    opencv \
+    opencv-samples \
+    libopencv-calib3d2.4 \
+    libopencv-contrib2.4 \
+    libopencv-core2.4 \
+    libopencv-flann2.4 \
+    libopencv-gpu2.4 \
+    libopencv-highgui2.4 \
+    libopencv-imgproc2.4 \
+    libopencv-legacy2.4 \
+    libopencv-ml2.4 \
+    libopencv-nonfree2.4 \
+    libopencv-objdetect2.4 \
+    libopencv-ocl2.4 \
+    libopencv-photo2.4 \
+    libopencv-stitching2.4 \
+    libopencv-superres2.4 \
+    libopencv-video2.4 \
+    libopencv-videostab2.4 \
+&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then rebuild your image:</p></li>
+</ul>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+</pre></div>
+</div>
+<p>Tip</p>
+<p>Most examples do not work out of the box, because they depend on
+the <em>GTK</em> graphics library. The BSP only supports <em>Qt5</em>.</p>
+</section>
+<section id="add-minimal-php-web-runtime-with-lightpd">
+<h3>Add Minimal php web runtime with <em>lightpd</em><a class="headerlink" href="#add-minimal-php-web-runtime-with-lightpd" title="Permalink to this heading"></a></h3>
+<p>This is one example of how to add a small runtime for php applications
+and a webserver on your target. Lighttpd can be used together with the
+php command line tool over cgi. This solution weights only 5.5 MiB of
+disk storage. It is already preconfigured in meta-ampliphy. Just modify
+the build configuration to install it on the image:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file conf/local.conf
+# install lighttpd with php cgi module
+IMAGE_INSTALL:append = &quot; lighttpd&quot;
+</pre></div>
+</div>
+<p>After booting the image, you should find the example web content
+in <em>/www/pages</em>. For testing php, you can delete the <em>index.html</em> and
+replace it with a <em>index.php</em> file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;PHP-Test&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;?php phpinfo(); ?&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>On your host, you can point your browser to the board’s i, (e.g.
+192.168.3.11) and the phpinfo should show up.</p>
+</section>
+</section>
+<section id="common-tasks">
+<h2>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this heading"></a></h2>
+<section id="debugging-a-user-space-application">
+<h3>Debugging a User Space Application<a class="headerlink" href="#debugging-a-user-space-application" title="Permalink to this heading"></a></h3>
+<p>The phytec-qt5demo-image can be cross debugged without any change. For
+cross-debugging, you just have to match the host sysroot with the image
+in use. So you need to create a toolchain for your image:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c populate_sdk phytec-qt5demo-image
+</pre></div>
+</div>
+<p>Additionally, if you want to have full debug and backtrace capabilities
+for all programs and libraries in the image, you could add:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>DEBUG_BUILD = &quot;1&quot;
+</pre></div>
+</div>
+<p>to the conf/local.conf. This is not necessary in all cases. The compiler
+options will then be switched from FULL_OPTIMIZATION to
+DEBUG_OPTIMIZATION. Look at the <em>Poky</em> source code for the default
+assignment of DEBUG_OPTIMIZATION.</p>
+<p>To start a cross debug session, install the SDK as mentioned previously,
+source the SDK environment, and run <em>Qt Creator</em> in the same shell. If
+you do not use <em>Qt Creator</em>, you can directly call the arm-&lt;..&gt;-gdb
+debugger instead which should be in your path after sourcing the
+environment script.</p>
+<p>If you work with <em>Qt Creator</em>, have a look at the appropriate
+documentation delivered with your product (either QuickStart or
+Application Guide) for information on how to set up the toolchain.</p>
+<p>When starting the debugger with your userspace application you will get
+a SIGILL, an illegal instruction from the <em>libcrypto</em>. <em>Openssl</em> probes
+for the system capabilities by trapping illegal instructions, which will
+trigger <em>GDB</em>. You can ignore this and hit <strong>Continue</strong> (c command). You
+can permanently ignore this stop by adding:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>handle SIGILL nostop
+</pre></div>
+</div>
+<p>to your <em>GDB</em> startup script or in the <em>Qt Creator GDB</em> configuration
+panel. Secondly, you might need to disable a security feature by adding:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>set auto-load safe-path /
+</pre></div>
+</div>
+<p>to the same startup script, which will enable the automatic loading of
+libraries from any location.</p>
+<p>If you need to have native debugging, you might want to install the
+debug symbols on the target. You can do this by adding the following
+line to your <em>conf/local.conf</em>:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>EXTRA_IMAGE_FEATURES += &quot;dbg-pkgs&quot;
+</pre></div>
+</div>
+<p>For cross-debugging, this is not required as the debug symbols will be
+loaded from the host side and the dbg-pkgs are included in the SDK of
+your image anyway.</p>
+</section>
+<section id="generating-source-mirrors-working-offline">
+<h3>Generating Source Mirrors, working Offline<a class="headerlink" href="#generating-source-mirrors-working-offline" title="Permalink to this heading"></a></h3>
+<p>Modify your <em>site.conf</em> (or <em>local.conf</em> if you do not use
+a <em>site.conf</em>) as follows:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>#DL_DIR ?= &quot;&quot; don&#39;t set it! It will default to a directory inside /build
+SOURCE_MIRROR_URL = &quot;file:///home/share/yocto_downloads/&quot;
+INHERIT += &quot;own-mirrors&quot;
+BB_GENERATE_MIRROR_TARBALLS = &quot;1&quot;
+</pre></div>
+</div>
+<p>Now run:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake --runall=fetch &lt;image&gt;
+</pre></div>
+</div>
+<p>for all images and for all machines you want to provide sources for.
+This will create all the necessary <em>tar</em> archives. We can remove all SCM
+subfolders, as they are duplicated with the tarballs:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ rm -rf build/download/git2/
+etc...
+</pre></div>
+</div>
+<p>Please consider that we used a local source mirror for generating the
+dl_dir. Because of that, some archives will be linked locally.</p>
+<p>First, we need to copy all files, resolving symbolic links into the new
+mirror directory:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ rsync -vaL &lt;dl_dir&gt; ${TOPDIR}/../src_mirror/
+</pre></div>
+</div>
+<p>Now we clean the <em>/build</em> directory by deleting everything
+except <em>/build/conf/</em> but including <em>/build/conf/sanity</em>. We
+change <em>site.conf</em> as follows:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>SOURCE_MIRROR_URL = &quot;file://${TOPDIR}/../src_mirror&quot;
+INHERIT += &quot;own-mirrors&quot;
+BB_NO_NETWORK = &quot;1&quot;
+SCONF_VERSION = &quot;1&quot;
+</pre></div>
+</div>
+<p>The BSP directory can now be compressed with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ tar cfJ &lt;filename&gt;.tar.xz &lt;folder&gt;
+</pre></div>
+</div>
+<p>where filename and folder should be the full BSP Name.</p>
+</section>
+<section id="compiling-on-the-target">
+<h3>Compiling on the Target<a class="headerlink" href="#compiling-on-the-target" title="Permalink to this heading"></a></h3>
+<p>To your <em>local.conf</em> add:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>IMAGE_FEATURES:append = &quot; tools-sdk dev-pkgs&quot;
+</pre></div>
+</div>
+</section>
+<section id="different-toolchains">
+<h3>Different Toolchains<a class="headerlink" href="#different-toolchains" title="Permalink to this heading"></a></h3>
+<p>There are several ways to create a toolchain installer in <em>Poky</em>. One
+option is to run:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake meta-toolchain
+</pre></div>
+</div>
+<p>This will generate a toolchain installer in <em>build/deploy/sdk</em> which can
+be used for cross-compiling of target applications. However, the
+installer does not include libraries added to your image, so it is a
+bare <em>GCC</em> compiler only. This is suited for bootloader and kernel
+development.</p>
+<p>Another you can run is:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c populate_sdk &lt;your_image&gt;
+</pre></div>
+</div>
+<p>This will generate a toolchain installer containing all necessary
+development packages of the software installed on the root filesystem of
+the target. This installer can be handed over to the user space
+application development team and includes all necessary parts to develop
+an application. If the image contains the <em>QT</em> libraries, all of those
+will be available in the installer too.</p>
+<p>The third option is to create the ADT (Application Development Toolkit)
+installer. It will contain the cross-toolchain and some tools to aid the
+software developers, for example, an <em>Eclipse</em> plugin and
+a <em>QEMU</em> target simulator.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ bitbake adt-installer
+</pre></div>
+</div>
+<p>The ADT is untested for our BSP at the moment.</p>
+<section id="using-the-sdk">
+<h4>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h4>
+<p>After generating the SDK with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source sources/poky/oe-init-build-env
+host$ bitbake -c populate_sdk phytec-qt5demo-image  # or another image
+</pre></div>
+</div>
+<p>run the generated binary with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt5demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):
+You are about to install the SDK to &quot;/opt/ampliphy/i.MX6-PD15.3-rc&quot;. Proceed[Y/n]?
+Extracting SDK...done
+Setting it up...done
+SDK has been successfully set up and is ready to be used.
+</pre></div>
+</div>
+<p>You can activate the toolchain for your shell by sourcing the
+file <em>environment-setup</em> in the toolchain directory:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+</pre></div>
+</div>
+<p>Then the necessary tools like the cross compiler and linker are in your
+PATH. To compile a simple <em>C</em> program, use:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ $CC main.c -o main
+</pre></div>
+</div>
+<p>The environment variable $CC contains the path to the ARM cross compiler
+and other compiler arguments needed
+like <em>-march</em>, <em>-sysroot</em> and <em>–mfloat-abi</em>.</p>
+<p>Tip</p>
+<p>You cannot compile programs only with the compiler name like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ arm-phytec-linux-gnueabi-gcc main.c -o main
+</pre></div>
+</div>
+<p>It will fail in many cases. Always use <em>CC</em>, CFLAGS, LDFLAGS, and so on.</p>
+<p>For convenience, the <em>environment-setup</em> exports other environment
+variables like CXX, LD, SDKTARGETSYSROOT, ….</p>
+<p>A simple makefile compiling a <em>C</em> and <em>C++</em> program may look like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># Makefile
+TARGETS=c-program cpp-program
+
+all: $(TARGETS)
+
+c-program: c-program.c
+    $(CC) $(CFLAGS) $(LDFLAGS) $&lt; -o $@
+
+cpp-program: cpp-program.cpp
+    $(CXX) $(CXXFLAGS) $(LDFLAGS) $&lt; -o $@
+
+.PHONY: clean
+clean:
+    rm -f $(TARGETS)
+</pre></div>
+</div>
+<p>To compile for the target, just source the toolchain in your shell
+before executing make:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ make     # Compiling with host CC, CXX for host architecture
+host$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+host$ make     # Compiling with target CC, CXX for target architecture
+</pre></div>
+</div>
+<p>If you need to specify additionally included directories in the sysroot
+of the toolchain, you can use an ‘=’ sign in the <em>-I</em> argument like:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>-I=/usr/include/SDL
+</pre></div>
+</div>
+<p><em>GCC</em> replaces it by the sysroot path
+(here <em>/opt/ampliphy/i.MX6-PD15.3-rc/sysroots/cortexa9hf-vfp-neon-phytec-linux-gnueabi/</em>).
+See the main page of <em>GCC</em> for more information.</p>
+<p>Tip</p>
+<p>The variables $CFLAGS and $CXXFLAGS contain the compiler debug flag ‘-g’
+by default. This includes debugging information in the binary and making
+it bigger. Those should be removed in the production image. If you
+create a <em>Bitbake</em> recipe, the default behavior is to turn on ‘-g’ too.
+The debugging symbols are used in the SDK rootfs to be able to get
+debugging information when invoking <em>GDB</em> from the host. Before
+installing the package to the target rootfs, <em>Bitbake</em> will
+invoke <em>strip</em> on the program which removes the debugging symbols. By
+default, they are not found nor required on the target root filesystem</p>
+</section>
+<section id="using-the-sdk-with-gnu-autotools">
+<h4>Using the SDK with GNU Autotools<a class="headerlink" href="#using-the-sdk-with-gnu-autotools" title="Permalink to this heading"></a></h4>
+<p><em>Yocto</em> SDK is a straightforward tool for a project that uses the <em>GNU
+Autotools</em>. The traditional compile steps for the host are usually:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ ./autogen.sh  # maybe not needed
+host$ ./configure
+host$ make
+host$ make install DESTDIR=$PWD/build/
+</pre></div>
+</div>
+<p>The commands to compile for the target machine with the <em>Yocto</em> SDK are
+quite similar. The following commands assume that the SDK was unpacked
+to the directory <em>/opt/phytec-ampliphy/i.MX6-PD15.3.0/</em> (adapt the path
+as needed):</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>host$ source /opt/phytec-ampliphy/i.MX6-PD15.3.0/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+host$ ./autogen.sh  # maybe not needed
+host$ ./configure ${CONFIGURE_FLAGS}
+host$ make
+host$ make install DESTDIR=$PWD/build/
+</pre></div>
+</div>
+<p>Refer to the official <em>Yocto</em> documentation for more information:
+<a class="reference external" href="https://docs.yoctoproject.org/singleindex.html#autotools-based-projects">https://docs.yoctoproject.org/singleindex.html#autotools-based-projects</a></p>
+</section>
+</section>
+<section id="working-with-kernel-modules">
+<h3>Working with Kernel Modules<a class="headerlink" href="#working-with-kernel-modules" title="Permalink to this heading"></a></h3>
+<p>You will come to the point where you either need to set some options for
+a kernel module or you want to blacklist a module. Those things are
+handled by <em>udev</em> and go into <em>*.conf</em> files in:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>/etc/modprobe.d/*.conf.
+</pre></div>
+</div>
+<p>If you want to specify an option at build time, there are three relevant
+variables. If you just want to autoload a module that has no autoload
+capabilities, add it to:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD += &quot;your-module&quot;
+</pre></div>
+</div>
+<p>either in the kernel recipe or in the global variable scope. If you need
+to specify options for a module, you can do so with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD += &quot;your-module&quot;
+KERNEL_MODULE_PROBECONF += &quot;your-module&quot;
+module_conf_your-module = &quot;options your-module parametername=parametervalue&quot;
+</pre></div>
+</div>
+<p>if you want to blacklist a module from autoloading, you can do it
+intuitively with:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD += &quot;your-module&quot;
+KERNEL_MODULE_PROBECONF += &quot;your-module&quot;
+module_conf_your-module = &quot;blacklist your-module&quot;
+</pre></div>
+</div>
+</section>
+<section id="working-with-udev">
+<h3>Working with <em>udev</em><a class="headerlink" href="#working-with-udev" title="Permalink to this heading"></a></h3>
+<p>Udev (Linux dynamic device management) is a system daemon that handles
+dynamic device management in /dev. It is controlled by <em>udev</em> rules that
+are located in <em>/etc/udev/rules.d</em> (sysadmin configuration space)
+and <em>/lib/udev/rules.d/</em> (vendor-provided). Here is an example of
+an <em>udev</em> rule file:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file /etc/udev/rules.d/touchscreen.rules
+# Create a symlink to any touchscreen input device
+SUBSYSTEM==&quot;input&quot;, KERNEL==&quot;event[0-9]*&quot;, ATTRS{modalias}==&quot;input:*-e0*,3,*a0,1,*18,*&quot;, SYMLINK+=&quot;input/touchscreen0&quot;
+SUBSYSTEM==&quot;input&quot;, KERNEL==&quot;event[0-9]*&quot;, ATTRS{modalias}==&quot;ads7846&quot;, SYMLINK+=&quot;input/touchscreen0&quot;
+</pre></div>
+</div>
+<p>See <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/udev.html">http://www.freedesktop.org/software/systemd/man/udev.html</a> for more
+details about the syntax and usage. To get the list of attributes for a
+specific device that can be used in an <em>udev</em> rule you can use
+the <em>udevadm info</em> tool. It prints all existing attributes of the device
+node and its parents. The key-value pairs from the output can be copied
+and pasted into a rule file. Some examples:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ udevadm info -a /dev/mmcblk0
+target$ udevadm info -a /dev/v4l-subdev25
+target$ udevadm info -a -p /sys/class/net/eth0
+</pre></div>
+</div>
+<p>After changing an <em>udev</em> rule, you have to notify the daemon. Otherwise,
+your changes are not reflected. Use the following command:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ udevadm control --reload-rules
+</pre></div>
+</div>
+<p>While developing <em>udev</em> rules you should monitor the events in order to
+see when devices are attached or unattached to the system. Use:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ udevadm monitor
+</pre></div>
+</div>
+<p>Furthermore, it is very useful to monitor the system log in another
+shell, especially if the rule executes external scripts. Execute:</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>target$ journalctl -f
+</pre></div>
+</div>
+<p>Tip</p>
+<p>You cannot start daemons or heavy scripts in a <em>RUN</em> attribute.
+See <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/udev">http://www.freedesktop.org/software/systemd/man/udev</a>.html#RUN{type}.</p>
+<p>This can only be used for very short-running foreground tasks. Running
+an event process for a long period of time may block all further events
+for this or a dependent device. Starting daemons or other long-running
+processes is not appropriate for <em>udev</em>; the forked processes, detached
+or not, will be unconditionally killed after the event handling has
+finished. You can use the special
+attribute <em>ENV{SYSTEMD_WANTS}=“service-name.service”</em> and
+a <em>systemd</em>service instead.</p>
+<p>See <a class="reference external" href="http://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd">http://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd</a>.</p>
+</section>
+</section>
+</section>
+<section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<section id="setscene-task-warning">
+<h2>Setscene Task Warning<a class="headerlink" href="#setscene-task-warning" title="Permalink to this heading"></a></h2>
+<p>This warning occurs when the Yocto cache is in a dirty state.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>WARNING: Setscene task X ([...]) failed with exit code &#39;1&#39; - real task
+</pre></div>
+</div>
+<p>You should avoid canceling the build process or if you have to, press
+Ctrl-C once and wait until the build process has stopped. To remove all
+these warnings just clean the sstate cache and remove the build folders.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>bitbake phytec-headless-image -c cleansstate &amp;&amp; rm -rf tmp deploy/ipk
+</pre></div>
+</div>
+</section>
+</section>
+<section id="yocto-documentation">
+<h1>Yocto Documentation<a class="headerlink" href="#yocto-documentation" title="Permalink to this heading"></a></h1>
+<p>The most important piece of documentation for a BSP user is probably the
+developer manual.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/dev-manual/index.html
+</pre></div>
+</div>
+<p>The chapter about common tasks is a good starting point.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks
+</pre></div>
+</div>
+<p>The complete documentation is available on one single HTML page, which
+is good for searching for a feature or a variable name.</p>
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>https://docs.yoctoproject.org/4.0/singleindex.html
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manual.html" class="btn btn-neutral float-left" title="Yocto Reference Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="L-813e.A12_Yocto_Reference_Manual_Head_Hardknott_.html" class="btn btn-neutral float-right" title="L-813e.A12 Yocto Reference Manual Head (Hardknott)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, PHYTEC Messtechnik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
