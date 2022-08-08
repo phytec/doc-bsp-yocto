@@ -5,32 +5,23 @@ name: Documentation
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types:
+      - closed
 
 jobs:
   build:
-
-    runs-on: internal-docu
-    env:
-      repository_name: doc-template
+    runs-on: ubuntu-latest
     steps:
-    - name: clone repo
-      run: |
-        git clone git@github.com:phytec/${{ env.repository_name }}.git ${{ env.repository_name }}
-    - name: build latest documentation
-      run: |
-        cd ${{ env.repository_name }}
-        tox -e py3-html
-    - name: deploy latest documentation
-      run: |
-        cd ${{ env.repository_name }}
-        rm -rf /var/www/html/${{ env.repository_name }}/latest/
-        mkdir -p /var/www/html/${{ env.repository_name }}/latest/
-        cp -r build/html/* /var/www/html/${{ env.repository_name }}/latest/
-    - name: update html tree
-      run: |
-        cd /var/www/html/
-        ./gentree.sh
-    - name: post cleanup
-      if: always()
-      run: |
-        rm -rf ${{ env.repository_name}}
+    - name: Clone repo
+      uses: actions/checkout@v2
+    - name: Install tox
+      run: pip3 install tox
+    - name: Render Documentation
+      run: tox -e py3-html
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: build/html
