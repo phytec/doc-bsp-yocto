@@ -566,37 +566,24 @@ released
 This manual applies to all *kirkstone* based PHYTEC releases:
 
 -  1 `L-813e.Ax Yocto Reference Manual Head`_
-
 -  2 `The Yocto Project`_
 
    -  2.1 `PHYTEC Documentation`_
-
    -  2.2 `Yocto Introduction`_
-
    -  2.3 `Core Components`_
-
    -  2.4 `Vocabulary`_
 
       -  2.4.1 `Recipes`_
-
       -  2.4.2 `Classes`_
-
       -  2.4.3 `Layers`_
-
       -  2.4.4 `Machine`_
-
       -  2.4.5 `Distribution (Distro)`_
-
    -  2.5 `Poky Overview`_
 
       -  2.5.1 `Bitbake`_
-
       -  2.5.2 `Toaster`_
-
    -  2.6 `Official Documentation`_
-
 -  3 `Compatible Linux Distributions`_
-
 -  4 `PHYTEC BSP Introduction`_
 
    -  4.1 `BSP Structure`_
@@ -604,167 +591,100 @@ This manual applies to all *kirkstone* based PHYTEC releases:
       -  4.1.1 `BSP Management`_
 
          -  4.1.1.1 `phyLinux`_
-
          -  4.1.1.2 `Repo`_
-
       -  4.1.2 `BSP Metadata`_
 
-         -  4.1.2.1 `poky`_
-
+         -  4.1.2.1 `Poky`_
          -  4.1.2.2 `meta-openembedded`_
-
          -  4.1.2.3 `meta-qt5`_
-
          -  4.1.2.4 `meta-nodejs`_
-
          -  4.1.2.5 `meta-gstreamer1.0`_
-
          -  4.1.2.6 `meta-rauc`_
-
          -  4.1.2.7 `meta-phytec`_
-
          -  4.1.2.8 `meta-ampliphy`_
-
          -  4.1.2.9 `meta-virtualization`_
-
          -  4.1.2.10 `meta-security`_
-
          -  4.1.2.11 `meta-selinux`_
-
          -  4.1.2.12 `meta-browser`_
-
          -  4.1.2.13 `meta-rust`_
-
          -  4.1.2.14 `meta-timesys`_
-
          -  4.1.2.15 `meta-freescale`_
-
          -  4.1.2.16 `meta-freescale-3rdparty`_
-
          -  4.1.2.17 `meta-freescale-distro`_
-
          -  4.1.2.18 `base (fsl-community-bsp-base)`_
-
          -  4.1.2.19 `meta-fsl-bsp-release`_
-
       -  4.1.3 `BSP Content`_
-
    -  4.2 `Build Configuration`_
-
 -  5 `Prebuild Images`_
-
 -  6 `BSP Workspace Installation`_
 
    -  6.1 `Setting Up the Host`_
-
    -  6.2 `Git Configuration`_
-
    -  6.3 `site.conf Setup`_
-
 -  7 `phyLinux Documentation`_
 
    -  7.1 `Get phyLinux`_
-
    -  7.2 `Basic Usage`_
-
    -  7.3 `Initialization`_
-
    -  7.4 `Advanced Usage`_
-
 -  8 `Working with Poky and Bitbake`_
 
    -  8.1 `Start the Build`_
-
    -  8.2 `Images`_
-
    -  8.3 `Accessing Development States between Releases`_
-
    -  8.4 `Inspect your Build Configuration`_
-
    -  8.5 `BSP Features of meta-phytec and meta-ampliphy`_
 
       -  8.5.1 `Buildinfo`_
-
    -  8.6 `BSP Customization`_
 
       -  8.6.1 `Disable Qt Demo`_
-
       -  8.6.2 `Framebuffer Console`_
-
       -  8.6.3 `Tools Provided in the Prebuild Image`_
 
          -  8.6.3.1 `RAM Benchmark`_
-
       -  8.6.4 `Add Additional Software for the BSP Image`_
 
          -  8.6.4.1 `Notes about Packages and Recipes`_
-
       -  8.6.5 `Add an Additional Layer`_
-
       -  8.6.6 `Create your own Layer`_
-
       -  8.6.7 `Kernel and Bootloader Recipe and Version`_
-
       -  8.6.8 `Kernel and Bootloader Configuration`_
 
          -  8.6.8.1 `Add a Configuration Fragment to a Recipe`_
-
          -  8.6.8.2 `Add a Complete Default Configuration (defconfig) to a Recipe`_
-
       -  8.6.9 `Patch the Kernel or Bootloader with devtool`_
-
       -  8.6.10 `Patch the Kernel or Bootloader using “Temporary Method”`_
-
       -  8.6.11 `Working with the Kernel and Bootloader using SRC_URI in local.conf`_
-
       -  8.6.12 `Add Existing Software with “Sustainable Method”`_
-
       -  8.6.13 `Add Linux Firmware Files to the Root Filesystem`_
-
       -  8.6.14 `Change the barebox Environment via bbappend Files`_
 
          -  8.6.14.1 `Debugging the Environment`_
-
          -  8.6.14.2 `Changing the Environment (depending on Machines)`_
-
          -  8.6.14.3 `Upgrading the barebox Environment from Previous BSP Releases`_
-
       -  8.6.15 `Changing the Network Configuration`_
-
       -  8.6.16 `Changing the Wireless Network Configuration`_
 
          -  8.6.16.1 `Connecting to a WLAN Network`_
-
          -  8.6.16.2 `Creating a WLAN Access Point`_
-
       -  8.6.17 `Add OpenCV Libraries and Examples`_
-
       -  8.6.18 `Add Minimal php web runtime with lightpd`_
-
    -  8.7 `Common Tasks`_
 
       -  8.7.1 `Debugging a User Space Application`_
-
       -  8.7.2 `Generating Source Mirrors, working Offline`_
-
       -  8.7.3 `Compiling on the Target`_
-
       -  8.7.4 `Different Toolchains`_
 
          -  8.7.4.1 `Using the SDK`_
-
          -  8.7.4.2 `Using the SDK with GNU Autotools`_
-
       -  8.7.5 `Working with Kernel Modules`_
-
       -  8.7.6 `Working with udev`_
-
 -  9 `Troubleshooting`_
 
    -  9.1 `Setscene Task Warning`_
-
 -  10 `Yocto Documentation`_
-
 
 
 The Yocto Project
