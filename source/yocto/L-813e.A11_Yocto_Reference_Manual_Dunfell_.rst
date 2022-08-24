@@ -1188,7 +1188,7 @@ As you can see, everything is explained in the output.
 
 Warning
 
-Using *externalsrc* breaks a lot of *Yocto*\ ′s internal dependency
+Using *externalsrc* breaks a lot of *Yocto*\ 's internal dependency
 mechanism. It is not guaranteed that any changes to the source directory
 are automatically picked up by the build process and incorporated into
 the root filesystem or SD card image. You have to always use *–force*.
