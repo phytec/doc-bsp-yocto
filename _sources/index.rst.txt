@@ -35,13 +35,3 @@ to this package.
    :caption: Yocto Reference Manual
 
    yocto/manual.rst
-
-.. raw:: latex
-
-   \part{i.MX8MP}
-
-.. toctree::
-   :maxdepth: 3
-   :caption: i.MX8MP
-
-   imx8/imx8mp
