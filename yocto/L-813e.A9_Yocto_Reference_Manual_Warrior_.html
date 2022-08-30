@@ -104,7 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#distribution-distro">Distribution (Distro)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#poky">Poky</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#poky-overview">Poky Overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bitbake">Bitbake</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#toaster">Toaster</a></li>
 </ul>
@@ -272,263 +272,165 @@ eleased</p></td>
 </table>
 <p>This manual applies to all <em>warrior</em> based PHYTEC releases:</p>
 <ul class="simple">
-<li><p>1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-TheYoctoProject">The Yocto
-Project</a></p>
+<li><p>1 <a class="reference internal" href="#l-813e-a9-yocto-reference-manual-warrior">L-813e.A9 Yocto Reference Manual (Warrior)</a></p></li>
+<li><p>2 <a class="reference internal" href="#the-yocto-project">The Yocto Project</a></p>
 <ul>
-<li><p>1.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-PHYTECDocumentation">PHYTEC
-Documentation</a></p></li>
-<li><p>1.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-YoctoIntroduction">Yocto
-Introduction</a></p></li>
-<li><p>1.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-CoreComponents">Core
-Components</a></p></li>
-<li><p>1.4
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Vocabulary">Vocabulary</a></p>
+<li><p>2.1 <a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a></p></li>
+<li><p>2.2 <a class="reference internal" href="#yocto-introduction">Yocto Introduction</a></p></li>
+<li><p>2.3 <a class="reference internal" href="#core-components">Core Components</a></p></li>
+<li><p>2.4 <a class="reference internal" href="#vocabulary">Vocabulary</a></p>
 <ul>
-<li><p>1.4.1
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Recipes">Recipes</a></p></li>
-<li><p>1.4.2
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Classes">Classes</a></p></li>
-<li><p>1.4.3
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Layers">Layers</a></p></li>
-<li><p>1.4.4
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Machine">Machine</a></p></li>
-<li><p>1.4.5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Distribution(Distro)">Distribution
-(Distro)</a></p></li>
+<li><p>2.4.1 <a class="reference internal" href="#recipes">Recipes</a></p></li>
+<li><p>2.4.2 <a class="reference internal" href="#classes">Classes</a></p></li>
+<li><p>2.4.3 <a class="reference internal" href="#layers">Layers</a></p></li>
+<li><p>2.4.4 <a class="reference internal" href="#machine">Machine</a></p></li>
+<li><p>2.4.5 <a class="reference internal" href="#distribution-distro">Distribution (Distro)</a></p></li>
 </ul>
 </li>
-<li><p>1.5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Poky">Poky</a></p>
+<li><p>2.5 <a class="reference internal" href="#poky-overview">Poky Overview</a></p>
 <ul>
-<li><p>1.5.1
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Bitbake">Bitbake</a></p></li>
-<li><p>1.5.2
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Toaster">Toaster</a></p></li>
+<li><p>2.5.1 <a class="reference internal" href="#bitbake">Bitbake</a></p></li>
+<li><p>2.5.2 <a class="reference internal" href="#toaster">Toaster</a></p></li>
 </ul>
 </li>
-<li><p>1.6 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-OfficialDocumentation">Official
-Documentation</a></p></li>
+<li><p>2.6 <a class="reference internal" href="#official-documentation">Official Documentation</a></p></li>
 </ul>
 </li>
-<li><p>2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-CompatibleLinuxDistributions">Compatible Linux
-Distributions</a></p></li>
-<li><p>3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-PHYTECBSPIntroduction">PHYTEC BSP
-Introduction</a></p>
+<li><p>3 <a class="reference internal" href="#compatible-linux-distributions">Compatible Linux Distributions</a></p></li>
+<li><p>4 <a class="reference internal" href="#phytec-bsp-introduction">PHYTEC BSP Introduction</a></p>
 <ul>
-<li><p>3.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPStructure">BSP
-Structure</a></p>
+<li><p>4.1 <a class="reference internal" href="#bsp-structure">BSP Structure</a></p>
 <ul>
-<li><p>3.1.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPManagement">BSP
-Management</a></p>
+<li><p>4.1.1 <a class="reference internal" href="#bsp-management">BSP Management</a></p>
 <ul>
-<li><p>3.1.1.1
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-phyLinux">phyLinux</a></p></li>
-<li><p>3.1.1.2
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Repo">Repo</a></p></li>
+<li><p>4.1.1.1 <a class="reference internal" href="#phylinux">phyLinux</a></p></li>
+<li><p>4.1.1.2 <a class="reference internal" href="#repo">Repo</a></p></li>
 </ul>
 </li>
-<li><p>3.1.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPMetadata">BSP
-Metadata</a></p>
+<li><p>4.1.2 <a class="reference internal" href="#bsp-metadata">BSP Metadata</a></p>
 <ul>
-<li><p>3.1.2.1
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Poky.1">Poky</a></p></li>
-<li><p>3.1.2.2
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-openembedded">meta-openembedded</a></p></li>
-<li><p>3.1.2.3
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-qt5">meta-qt5</a></p></li>
-<li><p>3.1.2.4
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-nodejs">meta-nodejs</a></p></li>
-<li><p>3.1.2.5
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-gstreamer1.0">meta-gstreamer1.0</a></p></li>
-<li><p>3.1.2.6
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-rauc">meta-rauc</a></p></li>
-<li><p>3.1.2.7
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-phytec">meta-phytec</a></p></li>
-<li><p>3.1.2.8
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-yogurt">meta-yogurt</a></p></li>
-<li><p>3.1.2.9
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-virtualization">meta-virtualization</a></p></li>
-<li><p>3.1.2.10
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-security">meta-security</a></p></li>
-<li><p>3.1.2.11
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-browser">meta-browser</a></p></li>
-<li><p>3.1.2.12
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-rust">meta-rust</a></p></li>
-<li><p>3.1.2.13
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-timesys">meta-timesys</a></p></li>
-<li><p>3.1.2.14
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-freescale">meta-freescale</a></p></li>
-<li><p>3.1.2.15
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-freescale-3rdparty">meta-freescale-3rdparty</a></p></li>
-<li><p>3.1.2.16
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-freescale-distro">meta-freescale-distro</a></p></li>
-<li><p>3.1.2.17 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-base(fsl-community-bsp-base)">base
-(fsl-community-bsp-base)</a></p></li>
-<li><p>3.1.2.18
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-meta-fsl-bsp-release">meta-fsl-bsp-release</a></p></li>
+<li><p>4.1.2.1 <a class="reference internal" href="#poky-1">poky-1</a></p></li>
+<li><p>4.1.2.2 <a class="reference internal" href="#meta-openembedded">meta-openembedded</a></p></li>
+<li><p>4.1.2.3 <a class="reference internal" href="#meta-qt5">meta-qt5</a></p></li>
+<li><p>4.1.2.4 <a class="reference internal" href="#meta-nodejs">meta-nodejs</a></p></li>
+<li><p>4.1.2.5 <a class="reference internal" href="#meta-gstreamer1-0">meta-gstreamer1.0</a></p></li>
+<li><p>4.1.2.6 <a class="reference internal" href="#meta-rauc">meta-rauc</a></p></li>
+<li><p>4.1.2.7 <a class="reference internal" href="#meta-phytec">meta-phytec</a></p></li>
+<li><p>4.1.2.8 <a class="reference internal" href="#meta-yogurt">meta-yogurt</a></p></li>
+<li><p>4.1.2.9 <a class="reference internal" href="#meta-virtualization">meta-virtualization</a></p></li>
+<li><p>4.1.2.10 <a class="reference internal" href="#meta-security">meta-security</a></p></li>
+<li><p>4.1.2.11 <a class="reference internal" href="#meta-browser">meta-browser</a></p></li>
+<li><p>4.1.2.12 <a class="reference internal" href="#meta-rust">meta-rust</a></p></li>
+<li><p>4.1.2.13 <a class="reference internal" href="#meta-timesys">meta-timesys</a></p></li>
+<li><p>4.1.2.14 <a class="reference internal" href="#meta-freescale">meta-freescale</a></p></li>
+<li><p>4.1.2.15 <a class="reference internal" href="#meta-freescale-3rdparty">meta-freescale-3rdparty</a></p></li>
+<li><p>4.1.2.16 <a class="reference internal" href="#meta-freescale-distro">meta-freescale-distro</a></p></li>
+<li><p>4.1.2.17 <a class="reference internal" href="#base-fsl-community-bsp-base">base (fsl-community-bsp-base)</a></p></li>
+<li><p>4.1.2.18 <a class="reference internal" href="#meta-fsl-bsp-release">meta-fsl-bsp-release</a></p></li>
 </ul>
 </li>
-<li><p>3.1.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPContent">BSP
-Content</a></p></li>
+<li><p>4.1.3 <a class="reference internal" href="#bsp-content">BSP Content</a></p></li>
 </ul>
 </li>
-<li><p>3.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BuildConfiguration">Build
-Configuration</a></p></li>
+<li><p>4.2 <a class="reference internal" href="#build-configuration">Build Configuration</a></p></li>
 </ul>
 </li>
-<li><p>4 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-PrebuildImages">Prebuild
-Images</a></p></li>
-<li><p>5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPWorkspaceInstallation">BSP Workspace
-Installation</a></p>
+<li><p>5 <a class="reference internal" href="#prebuild-images">Prebuild Images</a></p></li>
+<li><p>6 <a class="reference internal" href="#bsp-workspace-installation">BSP Workspace Installation</a></p>
 <ul>
-<li><p>5.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-SettingUptheHost">Setting Up the
-Host</a></p></li>
-<li><p>5.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-GitConfiguration">Git
-Configuration</a></p></li>
-<li><p>5.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-site.confSetup">site.conf
-Setup</a></p></li>
+<li><p>6.1 <a class="reference internal" href="#setting-up-the-host">Setting Up the Host</a></p></li>
+<li><p>6.2 <a class="reference internal" href="#git-configuration">Git Configuration</a></p></li>
+<li><p>6.3 <a class="reference internal" href="#site-conf-setup">site.conf Setup</a></p></li>
 </ul>
 </li>
-<li><p>6 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-phyLinuxDocumentation">phyLinux
-Documentation</a></p>
+<li><p>7 <a class="reference internal" href="#phylinux-documentation">phyLinux Documentation</a></p>
 <ul>
-<li><p>6.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-GetphyLinux">Get
-phyLinux</a></p></li>
-<li><p>6.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BasicUsage">Basic
-Usage</a></p></li>
-<li><p>6.3
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Initialization">Initialization</a></p></li>
-<li><p>6.4 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AdvancedUsage">Advanced
-Usage</a></p></li>
+<li><p>7.1 <a class="reference internal" href="#get-phylinux">Get phyLinux</a></p></li>
+<li><p>7.2 <a class="reference internal" href="#basic-usage">Basic Usage</a></p></li>
+<li><p>7.3 <a class="reference internal" href="#initialization">Initialization</a></p></li>
+<li><p>7.4 <a class="reference internal" href="#advanced-usage">Advanced Usage</a></p></li>
 </ul>
 </li>
-<li><p>7 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-WorkingwithPokyandBitbake">Working with Poky and
-Bitbake</a></p>
+<li><p>8 <a class="reference internal" href="#working-with-poky-and-bitbake">Working with Poky and Bitbake</a></p>
 <ul>
-<li><p>7.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-StarttheBuild">Start the
-Build</a></p></li>
-<li><p>7.2
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-imagesImages">Images</a></p></li>
-<li><p>7.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AccessingDevelopmentStatesbetweenReleases">Accessing Development States between
-Releases</a></p></li>
-<li><p>7.4 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-InspectyourBuildConfiguration">Inspect your Build
-Configuration</a></p></li>
-<li><p>7.5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPFeaturesofmeta-phytecandmeta-yogurt">BSP Features of meta-phytec and
-meta-yogurt</a></p>
+<li><p>8.1 <a class="reference internal" href="#start-the-build">Start the Build</a></p></li>
+<li><p>8.2 <a class="reference internal" href="#images">Images</a></p></li>
+<li><p>8.3 <a class="reference internal" href="#accessing-development-states-between-releases">Accessing Development States between Releases</a></p></li>
+<li><p>8.4 <a class="reference internal" href="#inspect-your-build-configuration">Inspect your Build Configuration</a></p></li>
+<li><p>8.5 <a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-yogurt">BSP Features of meta-phytec and meta-yogurt</a></p>
 <ul>
-<li><p>7.5.1
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Buildinfo">Buildinfo</a></p></li>
+<li><p>8.5.1 <a class="reference internal" href="#buildinfo">Buildinfo</a></p></li>
 </ul>
 </li>
-<li><p>7.6 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-BSPCustomization">BSP
-Customization</a></p>
+<li><p>8.6 <a class="reference internal" href="#bsp-customization">BSP Customization</a></p>
 <ul>
-<li><p>7.6.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-DisableQtDemo">Disable Qt
-Demo</a></p></li>
-<li><p>7.6.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-FramebufferConsole">Framebuffer
-Console</a></p></li>
-<li><p>7.6.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ToolsProvidedinthePrebuildImage">Tools Provided in the Prebuild
-Image</a></p>
+<li><p>8.6.1 <a class="reference internal" href="#disable-qt-demo">Disable Qt Demo</a></p></li>
+<li><p>8.6.2 <a class="reference internal" href="#framebuffer-console">Framebuffer Console</a></p></li>
+<li><p>8.6.3 <a class="reference internal" href="#tools-provided-in-the-prebuild-image">Tools Provided in the Prebuild Image</a></p>
 <ul>
-<li><p>7.6.3.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-RAMBenchmark">RAM
-Benchmark</a></p></li>
+<li><p>8.6.3.1 <a class="reference internal" href="#ram-benchmark">RAM Benchmark</a></p></li>
 </ul>
 </li>
-<li><p>7.6.4 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddAdditionalSoftwarefortheBSPImage">Add Additional Software for the BSP
-Image</a></p>
+<li><p>8.6.4 <a class="reference internal" href="#add-additional-software-for-the-bsp-image">Add Additional Software for the BSP Image</a></p>
 <ul>
-<li><p>7.6.4.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-NotesaboutPackagesandRecipes">Notes about Packages and
-Recipes</a></p></li>
+<li><p>8.6.4.1 <a class="reference internal" href="#notes-about-packages-and-recipes">Notes about Packages and Recipes</a></p></li>
 </ul>
 </li>
-<li><p>7.6.5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddanAdditionalLayer">Add an Additional
-Layer</a></p></li>
-<li><p>7.6.6 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-createlayerCreateyourownLayer">Create your own
-Layer</a></p></li>
-<li><p>7.6.7 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-KernelandBootloaderRecipeandVersion">Kernel and Bootloader Recipe and
-Version</a></p></li>
-<li><p>7.6.8 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-KernelandBootloaderConfiguration">Kernel and Bootloader
-Configuration</a></p>
+<li><p>8.6.5 <a class="reference internal" href="#add-an-additional-layer">Add an Additional Layer</a></p></li>
+<li><p>8.6.6 <a class="reference internal" href="#create-your-own-layer">Create your own Layer</a></p></li>
+<li><p>8.6.7 <a class="reference internal" href="#kernel-and-bootloader-recipe-and-version">Kernel and Bootloader Recipe and Version</a></p></li>
+<li><p>8.6.8 <a class="reference internal" href="#kernel-and-bootloader-configuration">Kernel and Bootloader Configuration</a></p>
 <ul>
-<li><p>7.6.8.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddaConfigurationFragmenttoaRecipe">Add a Configuration Fragment to a
-Recipe</a></p></li>
-<li><p>7.6.8.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddaCompleteDefaultConfiguration(defconfig)toaRecipe">Add a Complete Default Configuration (defconfig) to
-a
-Recipe</a></p></li>
+<li><p>8.6.8.1 <a class="reference internal" href="#add-a-configuration-fragment-to-a-recipe">Add a Configuration Fragment to a Recipe</a></p></li>
+<li><p>8.6.8.2 <a class="reference internal" href="#add-a-complete-default-configuration-defconfig-to-a-recipe">Add a Complete Default Configuration (defconfig) to a Recipe</a></p></li>
 </ul>
 </li>
-<li><p>7.6.9 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-PatchtheKernelorBootloaderwithdevtool">Patch the Kernel or Bootloader with
-devtool</a></p></li>
-<li><p>7.6.10 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-PatchtheKernelorBootloaderusing%22TemporaryMethod%22">Patch the Kernel or Bootloader using “Temporary
-Method”</a></p></li>
-<li><p>7.6.11 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-WorkingwiththeKernelandBootloaderusingSRC_URIinlocal.conf">Working with the Kernel and Bootloader using SRC_URI in
-local.conf</a></p></li>
-<li><p>7.6.12 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddExistingSoftwarewith%22SustainableMethod%22">Add Existing Software with “Sustainable
-Method”</a></p></li>
-<li><p>7.6.13 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddLinuxFirmwareFilestotheRootFilesystem">Add Linux Firmware Files to the Root
-Filesystem</a></p></li>
-<li><p>7.6.14 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ChangethebareboxEnvironmentviabbappendFiles">Change the barebox Environment via bbappend
-Files</a></p>
+<li><p>8.6.9 <a class="reference internal" href="#patch-the-kernel-or-bootloader-with-devtool">Patch the Kernel or Bootloader with devtool</a></p></li>
+<li><p>8.6.10 <a class="reference internal" href="#patch-the-kernel-or-bootloader-using-temporary-method">Patch the Kernel or Bootloader using “Temporary Method”</a></p></li>
+<li><p>8.6.11 <a class="reference internal" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">Working with the Kernel and Bootloader using SRC_URI in local.conf</a></p></li>
+<li><p>8.6.12 <a class="reference internal" href="#add-existing-software-with-sustainable-method">Add Existing Software with “Sustainable Method”</a></p></li>
+<li><p>8.6.13 <a class="reference internal" href="#add-linux-firmware-files-to-the-root-filesystem">Add Linux Firmware Files to the Root Filesystem</a></p></li>
+<li><p>8.6.14 <a class="reference internal" href="#change-the-barebox-environment-via-bbappend-files">Change the barebox Environment via bbappend Files</a></p>
 <ul>
-<li><p>7.6.14.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-DebuggingtheEnvironment">Debugging the
-Environment</a></p></li>
-<li><p>7.6.14.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ChangingtheEnvironment(dependingonMachines)">Changing the Environment (depending on
-Machines)</a></p></li>
-<li><p>7.6.14.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-UpgradingthebareboxEnvironmentfromPreviousBSPReleases">Upgrading the barebox Environment from Previous
-BSP
-Releases</a></p></li>
+<li><p>8.6.14.1 <a class="reference internal" href="#debugging-the-environment">Debugging the Environment</a></p></li>
+<li><p>8.6.14.2 <a class="reference internal" href="#changing-the-environment-depending-on-machines">Changing the Environment (depending on Machines)</a></p></li>
+<li><p>8.6.14.3 <a class="reference internal" href="#upgrading-the-barebox-environment-from-previous-bsp-releases">Upgrading the barebox Environment from Previous BSP Releases</a></p></li>
 </ul>
 </li>
-<li><p>7.6.15 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ChangingtheNetworkConfigurationChangingtheNetworkConfiguration">Changing the Network
-Configuration</a></p></li>
-<li><p>7.6.16 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ChangingtheWirelessNetworkConfiguration">Changing the Wireless Network
-Configuration</a></p>
+<li><p>8.6.15 <a class="reference internal" href="#changing-the-network-configuration">Changing the Network Configuration</a></p></li>
+<li><p>8.6.16 <a class="reference internal" href="#changing-the-wireless-network-configuration">Changing the Wireless Network Configuration</a></p>
 <ul>
-<li><p>7.6.16.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-ConnectingtoaWLANNetwork">Connecting to a WLAN
-Network</a></p></li>
-<li><p>7.6.16.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-CreatingaWLANAccessPoint">Creating a WLAN Access
-Point</a></p></li>
+<li><p>8.6.16.1 <a class="reference internal" href="#connecting-to-a-wlan-network">Connecting to a WLAN Network</a></p></li>
+<li><p>8.6.16.2 <a class="reference internal" href="#creating-a-wlan-access-point">Creating a WLAN Access Point</a></p></li>
 </ul>
 </li>
-<li><p>7.6.17 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddOpenCVLibrariesandExamples">Add OpenCV Libraries and
-Examples</a></p></li>
-<li><p>7.6.18 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-AddMinimalphpwebruntimewithlightpd">Add Minimal php web runtime with
-lightpd</a></p></li>
+<li><p>8.6.17 <a class="reference internal" href="#add-opencv-libraries-and-examples">Add OpenCV Libraries and Examples</a></p></li>
+<li><p>8.6.18 <a class="reference internal" href="#add-minimal-php-web-runtime-with-lightpd">Add Minimal php web runtime with lightpd</a></p></li>
 </ul>
 </li>
-<li><p>7.7 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-CommonTasks">Common
-Tasks</a></p>
+<li><p>8.7 <a class="reference internal" href="#common-tasks">Common Tasks</a></p>
 <ul>
-<li><p>7.7.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-DebuggingaUserSpaceApplication">Debugging a User Space
-Application</a></p></li>
-<li><p>7.7.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-GeneratingSourceMirrors,workingOffline">Generating Source Mirrors, working
-Offline</a></p></li>
-<li><p>7.7.3 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-CompilingontheTarget">Compiling on the
-Target</a></p></li>
-<li><p>7.7.4 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-DifferentToolchains">Different
-Toolchains</a></p>
+<li><p>8.7.1 <a class="reference internal" href="#debugging-a-user-space-application">Debugging a User Space Application</a></p></li>
+<li><p>8.7.2 <a class="reference internal" href="#generating-source-mirrors-working-offline">Generating Source Mirrors, working Offline</a></p></li>
+<li><p>8.7.3 <a class="reference internal" href="#compiling-on-the-target">Compiling on the Target</a></p></li>
+<li><p>8.7.4 <a class="reference internal" href="#different-toolchains">Different Toolchains</a></p>
 <ul>
-<li><p>7.7.4.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-UsingtheSDK">Using the
-SDK</a></p></li>
-<li><p>7.7.4.2 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-UsingtheSDKwithGNUAutotools">Using the SDK with GNU
-Autotools</a></p></li>
+<li><p>8.7.4.1 <a class="reference internal" href="#using-the-sdk">Using the SDK</a></p></li>
+<li><p>8.7.4.2 <a class="reference internal" href="#using-the-sdk-with-gnu-autotools">Using the SDK with GNU Autotools</a></p></li>
 </ul>
 </li>
-<li><p>7.7.5 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-WorkingwithKernelModules">Working with Kernel
-Modules</a></p></li>
-<li><p>7.7.6 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Workingwithudev">Working with
-udev</a></p></li>
+<li><p>8.7.5 <a class="reference internal" href="#working-with-kernel-modules">Working with Kernel Modules</a></p></li>
+<li><p>8.7.6 <a class="reference internal" href="#working-with-udev">Working with udev</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>8
-<a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-Troubleshooting">Troubleshooting</a></p>
+<li><p>9 <a class="reference internal" href="#troubleshooting">Troubleshooting</a></p>
 <ul>
-<li><p>8.1 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-SetsceneTaskWarning">Setscene Task
-Warning</a></p></li>
+<li><p>9.1 <a class="reference internal" href="#setscene-task-warning">Setscene Task Warning</a></p></li>
 </ul>
 </li>
-<li><p>9 <a class="reference external" href="#L813e.A9YoctoReferenceManual(Warrior)-YoctoDocumentation">Yocto
-Documentation</a></p></li>
+<li><p>10 <a class="reference internal" href="#yocto-documentation">Yocto Documentation</a></p></li>
 </ul>
 </section>
 <section id="the-yocto-project">
@@ -674,8 +576,8 @@ target hardware.</p>
 of software features.</p>
 </section>
 </section>
-<section id="poky">
-<h2>Poky<a class="headerlink" href="#poky" title="Permalink to this heading"></a></h2>
+<section id="poky-overview">
+<h2>Poky Overview<a class="headerlink" href="#poky-overview" title="Permalink to this heading"></a></h2>
 <p><em>Poky</em> is the reference system to define <em>Yocto</em> Project compatibility.
 It combines several subprojects into releases:</p>
 <ul class="simple">
@@ -784,8 +686,8 @@ phy²octo <em>Git</em> repository which will be used for the manifest selectio
 complete <em>Linux</em> distribution up and running without the need to
 integrate external projects. All used repositories are described in the
 following section.</p>
-<section id="poky-1">
-<span id="id1"></span><h4>Poky<a class="headerlink" href="#poky-1" title="Permalink to this heading"></a></h4>
+<section id="poky">
+<span id="poky-1"></span><h4>Poky<a class="headerlink" href="#poky" title="Permalink to this heading"></a></h4>
 <p>The PHYTEC BSP is built on top of <em>Poky</em>. It comes with a specific
 version, defined in the <em>Repo</em> manifest. <em>Poky</em> comes with a specific
 version of <em>Bitbake</em>. The OpenEmbedded-core layer “meta” is used as a
@@ -2407,7 +2309,7 @@ target$ networkctl list
 <p>The network daemon reads its configuration from the
 directories <em>/etc/systemd/network/</em>, <em>/run/systemd/network/</em>,
 and <em>/lib/systemd/network/</em> (from higher to lower priority). A sample
-configuration in <a href="#id2"><span class="problematic" id="id3">*</span></a>/lib/systemd/network/10-eth0.network <a href="#id4"><span class="problematic" id="id5">*</span></a>looks like
+configuration in <a href="#id1"><span class="problematic" id="id2">*</span></a>/lib/systemd/network/10-eth0.network <a href="#id3"><span class="problematic" id="id4">*</span></a>looks like
 this:</p>
 <div class="highlight-plain notranslate"><div class="highlight"><pre><span></span># file /lib/systemd/network/10-eth0.network
 [Match]
