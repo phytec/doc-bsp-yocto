@@ -1,0 +1,18 @@
+# This workflow will check for various agreements such as filesize, filenames.
+name: Compliance
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v3
+    - name: Check file sizes
+      run: scripts/check_filesize.sh
+    - name: Check file names
+      # Run all checks so that the user can address errors after one run.
+      if: always()
+      run: scripts/check_filenames.sh
