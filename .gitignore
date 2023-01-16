@@ -1,4 +1,5 @@
 lib/
+env/
 *venv/
 dist/
 *.egg-info/
