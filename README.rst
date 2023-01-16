@@ -11,19 +11,17 @@ Clone the Git repository::
 
    git clone git@github.com:phytec/doc-bsp-yocto.git
 
-This documentation uses Python `tox <https://tox.wiki/en/latest/>`_ for
-building. Install it using the package manager of your system, e.g.::
-
-   # Ubuntu/Debian
-   sudo apt install tox
-
-   # Archlinux
-   sudo pacman -S python-tox
-
 Change your current working directory to the just cloned source code::
 
    cd doc-bsp-yocto/
 
+This documentation depends on Python `tox <https://tox.wiki/en/latest/>`_ for
+building. It is recommended to install it in a virtualenv with pip. All required
+dependencies are specified in ``requirements/``::
+
+   python3 -m venv env
+   source env/bin/activate
+   pip3 install -r requirements/setup.txt
 
 Building the Documentation
 --------------------------
