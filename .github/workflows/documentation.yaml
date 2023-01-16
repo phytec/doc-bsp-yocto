@@ -12,8 +12,8 @@ jobs:
     steps:
     - name: Clone repo
       uses: actions/checkout@v2
-    - name: Install tox
-      run: pip3 install tox
+    - name: Install dependencies
+      run: pip3 install -r requirements/setup.txt
     - name: Render Documentation
       run: tox -e py3-html
     - name: Deploy
