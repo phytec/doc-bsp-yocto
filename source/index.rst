@@ -32,6 +32,6 @@ to this package.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Yocto Reference Manual
+   :caption: Yocto Reference Manuals
 
-   yocto/manual.rst
+   yocto/manual-index.rst
