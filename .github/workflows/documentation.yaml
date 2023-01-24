@@ -21,4 +21,4 @@ jobs:
       if: ${{ github.ref_name == 'main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: build/html
+        publish_dir: build
