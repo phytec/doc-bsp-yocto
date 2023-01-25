@@ -1,0 +1,69 @@
+Video
+.....
+
+Videos with Gstreamer
+~~~~~~~~~~~~~~~~~~~~~
+
+The video is installed by default in the BSP:
+
+.. parsed-literal::
+
+   target$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
+
+* Or
+
+.. parsed-literal::
+
+   target$ gst-launch-1.0 -v filesrc location=<video.mp4> \
+   \! qtdemux  \! h264parse \! queue \! vpudec \! waylandsink async=false enable-last-sample=false \
+   qos=false sync=false
+
+* Or
+
+.. parsed-literal::
+
+   target$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
+
+kmssink Plugin ID Evaluation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The kmssink plugin needs a connector ID. To get the connector ID, you can use
+the tool modetest.
+
+.. parsed-literal::
+
+   target$ modetest -c imx-drm
+
+The output will show something like:
+
+.. parsed-literal::
+
+   Connectors:
+   id  encoder status      name        size (mm)   modes   encoders
+   35  34  connected   LVDS-1          216x135     1   34
+     modes:
+       index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
+     #0 1280x800 59.07 1280 1380 1399 1440 800 804 808 823 70000 flags: phsync, pvsync; type: preferred, driver
+     props:
+       1 EDID:
+           flags: immutable blob
+           blobs:
+    
+           value:
+       2 DPMS:
+           flags: enum
+           enums: On=0 Standby=1 Suspend=2 Off=3
+           value: 0
+       5 link-status:
+           flags: enum
+           enums: Good=0 Bad=1
+           value: 0
+       6 non-desktop:
+           flags: immutable range
+           values: 0 1
+           value: 0
+       4 TILE:
+           flags: immutable blob
+           blobs:
+    
+           value:

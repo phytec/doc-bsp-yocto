@@ -1,0 +1,357 @@
+eMMC Devices
+............
+
+PHYTEC modules like phyCORE-|soc| is populated with an eMMC memory chip as the
+main storage. eMMC devices contain raw MLC memory cells combined with a memory
+controller that handles ECC and wear leveling. They are connected via an SD/MMC
+interface to the |soc| and are represented as block devices in the Linux kernel
+like SD cards, flash drives, or hard disks.
+
+The electric and protocol specifications are provided by JEDEC
+(https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc).
+The eMMC manufacturer's datasheet is relatively short and meant to be read
+together with the supported version of the JEDEC eMMC standard.
+
+PHYTEC currently utilizes the eMMC chips with JEDEC Version 5.0 and 5.1
+
+Extended CSD Register
+~~~~~~~~~~~~~~~~~~~~~
+
+eMMC devices have an extensive amount of extra information and settings that are
+available via the Extended CSD registers. For a detailed list of the registers,
+see manufacturer datasheets and the JEDEC standard.
+
+* In the Linux user space, you can query the registers:
+
+.. parsed-literal::
+
+   target$ mmc extcsd read /dev/mmcblk2
+
+You will see:
+
+.. parsed-literal::
+
+   =============================================
+      Extended CSD rev 1.7 (MMC 5.0)
+    =============================================
+  
+    Card Supported Command sets [S_CMD_SET: 0x01]
+    [...]
+
+Enabling Background Operations (BKOPS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
+(FTL) that handles the wear leveling, block management, and ECC of the raw MLC
+cells. This requires some maintenance tasks (for example erasing unused blocks)
+that are performed regularly. These tasks are called **Background
+Operations (BKOPS)**.
+
+By default (depending on the chip), the background operations may or may not be
+executed periodically, impacting the worst-case read and write latency.
+
+The JEDEC Standard has specified a method since version v4.41 that the host can
+issue BKOPS manually. See the JEDEC Standard chapter Background Operations and
+the description of registers BKOPS_EN (Reg: 163) and BKOPS_START (Reg: 164) in
+the eMMC datasheet for more details.
+
+Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):
+
+* Value 0: The host does not support the manual trigger of BKOPS. Device write
+  performance suffers.
+* Value 1: The host does support the manual trigger of BKOPS. It will issue
+  BKOPS from time to time when it does not need the device.
+
+The mechanism to issue background operations has been implemented in
+the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
+(see below for details).
+
+The JEDEC standard v5.1 introduces a new automatic BKOPS feature. It frees the
+host to trigger the background operations regularly because the device starts
+BKOPS itself when it is idle (see the description of bit AUTO_EN in
+register BKOPS_EN (Reg: 163)).
+
+The userspace tool mmc does not currently support enabling automatic BKOPS
+features.
+
+* To check whether *BKOPS_EN* is set, execute:
+
+.. parsed-literal::
+
+   target$ mmc extcsd read /dev/mmcblk2 | grep BKOPS_EN
+
+The output will be, for example:
+
+.. parsed-literal::
+
+   Enable background operations handshake [BKOPS_EN]: 0x01
+   #OR
+   Enable background operations handshake [BKOPS_EN]: 0x00
+
+Where value 0x00 means BKOPS_EN is disabled and device write performance
+suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
+background operations from time to time.
+
+* To set the BKOPS_EN bit, execute:
+
+.. parsed-literal::
+
+   target$ mmc bkops enable /dev/mmcblk2
+
+* To ensure that the new setting is taken over and the kernel triggers BKOPS by
+  itself, shut down the system:
+
+.. parsed-literal::
+
+   target$ poweroff
+
+.. tip::
+
+   The BKOPS_EN bit is one-time programmable only. It cannot be reversed.
+
+Reliable Write
+~~~~~~~~~~~~~~
+
+There are two different Reliable Write options:
+
+1. Reliable Write option for a whole eMMC device/partition.
+2. Reliable Write for single write transactions.
+
+.. tip::
+
+   Do not confuse eMMC partitions with partitions of a DOS, MBR, or GPT
+   partition table (see the previous section).
+
+The first Reliable Write option is mostly already enabled on the eMMCs mounted
+on the phyCORE-|soc| SoMs. To check this on the running target:
+
+.. parsed-literal::
+
+   target$ mmc extcsd read /dev/mmcblk2 | grep -A 5 WR_REL_SET
+   Write reliability setting register [WR_REL_SET]: 0x1f
+    user area: the device protects existing data if a power failure occurs during a write o
+   peration
+    partition 1: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 2: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 3: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 4: the device protects existing data if a power failure occurs during a write
+    operation
+   --
+    Device supports writing EXT_CSD_WR_REL_SET
+    Device supports the enhanced def. of reliable write
+
+Otherwise, it can be enabled with the mmc tool:
+
+.. parsed-literal::
+
+   target$ mmc --help
+  
+   [...]
+   mmc write_reliability set <-y|-n> <partition> <device>
+
+The second Reliable Write option is the configuration bit Reliable Write Request
+parameter (bit 31) in command CMD23. It has been used in the kernel
+since v3.0 by file systems, e.g. ext4 for the journal and user space
+applications such as fdisk for the partition table. In the Linux kernel source
+code, it is handled via the flag REQ_META.
+
+**Conclusion**: ext4 file system with mount option data=journal should be safe
+against power cuts. The file system check can recover the file system after a
+power failure, but data that was written just before the power cut may be lost.
+In any case, a consistent state of the file system can be recovered. To ensure
+data consistency for the files of an application, the system functions fdatasync
+or fsync should be used in the application.
+
+Resizing ext4 Root Filesystem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When flashing the sdcard image to eMMC the ext4 root partition is not extended
+to the end of the eMMC. parted can be used to expand the root partition. The
+example works for any block device such as eMMC, SD card, or hard disk.
+
+* Get the current device size:
+
+.. parsed-literal::
+
+   target$ parted /dev/mmcblk2 print
+
+* The output looks like this:
+
+.. parsed-literal::
+
+   Model: MMC Q2J55L (sd/mmc)
+   Disk /dev/mmcblk2: 7617MB
+   Sect[ 1799.850385]  mmcblk2: p1 p2
+   or size (logical/physical): 512B/512B
+   Partition Table: msdos
+   Disk Flags:
+    
+   Number  Start   End     Size    Type     File system  Flags
+    1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+    2      72.4MB  537MB   465MB   primary  ext4
+
+* Use parted to resize the root partition to the max size of the device:
+
+.. parsed-literal::
+
+   target$ parted /dev/mmcblk2 resizepart 2 100%
+   Information: You may need to update /etc/fstab.
+
+   target$ parted /dev/mmcblk2 print                
+   Model: MMC Q2J55L (sd/mmc)
+   Disk /dev/mmcblk2: 7617MB
+   Sector size (logical/physical): 512[ 1974.191657]  mmcblk2: p1 p2
+   B/512B
+   Partition Table: msdos
+   Disk Flags:
+    
+   Number  Start   End     Size    Type     File system  Flags
+    1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+    2      72.4MB  7617MB  7545MB  primary  ext4
+
+Increasing the filesystem size can be done while it is mounted.  But you can
+also boot the board from an SD card and then resize the file system on the eMMC
+partition while it is not mounted.
+
+* Resize the filesystem to a new partition size:
+
+.. parsed-literal::
+
+   target$ resize2fs /dev/mmcblk2p2
+   resize2fs 1.46.1 (9-Feb-2021)
+   Filesystem at /dev/mmcblk2p2 is mounted on /; on-line resizing required
+   [ 131.609512] EXT4-fs (mmcblk2p2): resizing filesystem
+   from 454136 to 7367680 blocks
+   old_desc_blocks = 4, new_desc_blocks = 57
+   [ 131.970278] EXT4-fs (mmcblk2p2): resized filesystem to 7367680
+   The filesystem on /dev/mmcblk2p2 is now 7367680 (1k) blocks long
+
+Enable pseudo-SLC Mode
+~~~~~~~~~~~~~~~~~~~~~~
+
+eMMC devices use MLC memory cells
+(https://en.wikipedia.org/wiki/Multi-level_cell) to store the data. Compared
+with SLC memory cells used in NAND Flash, MLC memory cells have lower
+reliability and a higher error rate at lower costs.
+
+If you prefer reliability over storage capacity, you can enable
+the pseudo-SLC mode or SLC mode. The method used here employs the enhanced
+attribute, described in the JEDEC standard, which can be set for continuous
+regions of the device. The JEDEC standard does not specify the implementation
+details and the guarantees of the enhanced attribute. This is left to the
+chipmaker. For the Micron chips, the enhanced attribute increases the
+reliability but also halves the capacity.
+
+.. warning::
+
+   When enabling the enhanced attribute on the device, all data will be lost.
+
+The following sequence shows how to enable the enhanced attribute.
+
+* First obtain the current size of the eMMC device with:
+
+.. parsed-literal::
+
+   target$ parted -m /dev/mmcblk2 unit B print
+
+You will receive:
+
+.. parsed-literal::
+
+   BYT;
+   /dev/mmcblk2:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
+
+As you can see this device has 63652757504 Byte = 60704 MiB.
+
+* To get the maximum size of the device after pseudo-SLC is enabled use:
+
+.. parsed-literal::
+
+   target$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT -A 1
+
+which shows, for example:
+
+.. parsed-literal::
+
+   Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
+   i.e. 3719168 KiB
+   --
+   Enhanced User Data Area Size [ENH_SIZE_MULT]: 0x000000
+   i.e. 0 KiB
+
+Here the maximum size is 3719168 KiB = 3632 MiB.
+
+* Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB, by
+  typing:
+
+.. parsed-literal::
+
+   target$ mmc enh_area set -y 0 3719168 /dev/mmcblk2
+
+You will get:
+
+.. parsed-literal::
+
+   Done setting ENH_USR area on /dev/mmcblk2
+   setting OTP PARTITION_SETTING_COMPLETED!
+   Setting OTP PARTITION_SETTING_COMPLETED on /dev/mmcblk2 SUCCESS
+   Device power cycle needed for settings to take effect.
+   Confirm that PARTITION_SETTING_COMPLETED bit is set using 'extcsd read' after power cycle
+
+* To ensure that the new setting has taken over, shut down the system:
+
+.. parsed-literal::
+
+   target$ poweroff
+
+and perform a power cycle. It is recommended that you verify the settings now.
+
+* First, check the value of ENH_SIZE_MULT which must be 3719168 KiB:
+
+.. parsed-literal::
+
+   target$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT  -A 1
+
+You should receive:
+
+.. parsed-literal::
+
+   Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
+   i.e. 3719168 KiB
+   --
+   Enhanced User Data Area Size [ENH_SIZE_MULT]: 0x000764
+   i.e. 3719168 KiB
+
+* Finally, check the size of the device:
+
+.. parsed-literal::
+
+   target$ parted -m /dev/mmcblk2 unit B print
+   BYT;
+   /dev/mmcblk2:31742492672B:sd/mmc:512:512:unknown:MMC S0J58X:;
+
+Erasing the Device
+~~~~~~~~~~~~~~~~~~
+
+It is possible to erase the eMMC device directly rather than overwriting it with
+zeros. The eMMC block management algorithm will erase the underlying MLC memory
+cells or mark these blocks as discard. The data on the device is lost and will
+be read back as zeros.
+
+* After booting from SD Card execute:
+
+.. parsed-literal::
+
+   target$ blkdiscard -f --secure /dev/mmcblk2
+
+The option --secure ensures that the command waits until the eMMC device has
+erased all blocks. The -f  (force) option disables all checking before erasing
+and it is needed when the eMMC device contains existing partitions with data.
+
+.. tip::
+
+   dd if=/dev/zero of=/dev/mmcblk2 also destroys all information on the device,
+   but this command is bad for wear leveling and takes much longer!

@@ -34,7 +34,9 @@ extensions = [
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = [
+        '*/template.rst',
+        ]
 
 highlight_language = 'none'
 
@@ -56,6 +58,35 @@ html_css_files = [
 ]
 
 # -- Options for PDF output -------------------------------------------------
+latex_engine = 'xelatex'
+
 latex_elements = {
     'fontpkg': '\\usepackage{lmodern}'
 }
+
+latex_documents = [
+    (
+        'bsp/imx8/imx8mp/head',
+        'imx8mp-head.tex',
+        'L-1017e.A4 phyCORE-i.MX 8M Plus BSP Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
+        'bsp/imx8/imx8mp/PD22.1.0',
+        'imx8mp-pd22.1.0.tex',
+        'L-1017e.A4 phyCORE-i.MX 8M Plus BSP Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
+        'bsp/imx8/imx8mm/head',
+        'imx8mm-head.tex',
+        'L-1002e.Ax phyCORE-i.MX 8M Mini BSP Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+]

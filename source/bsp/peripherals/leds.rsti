@@ -1,0 +1,34 @@
+LEDs
+....
+
+If any LEDs are connected to GPIOs, you have the possibility to access them by a
+special LED driver interface instead of the general GPIO interface (section
+GPIOs). You will then access them using /sys/class/leds/ instead
+of /sys/class/gpio/. The maximum brightness of the LEDs can be read from
+the max_brightness file. The brightness file will set the brightness of the LED
+(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
+brightness support and will just be turned on by all non-zero brightness
+settings.
+
+Below is a simple example.
+
+To get all available LEDs, type:
+
+.. parsed-literal::
+
+   target$ ls /sys/class/leds
+   mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
+
+Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
+
+* To toggle the LEDs ON:
+
+.. parsed-literal::
+
+   target$ echo 255 > /sys/class/leds/user-led1/brightness
+
+* To toggle OFF:
+
+.. parsed-literal::
+
+   target$ echo 0 > /sys/class/leds/user-led1/brightness
