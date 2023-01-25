@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  linkcheck:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repo
