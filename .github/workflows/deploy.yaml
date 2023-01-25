@@ -1,24 +1,21 @@
-name: Build and Deploy
+name: Deploy
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build_deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install dependencies
       run: pip3 install -r requirements/setup.txt
     - name: Render Documentation
       run: tox -e py3-html
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: ${{ github.ref_name == 'main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: build/html

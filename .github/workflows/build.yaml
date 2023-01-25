@@ -1,15 +1,15 @@
-name: Check External Links
+name: Build
 
 on:
   pull_request:
 
 jobs:
-  linkcheck:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install dependencies
       run: pip3 install -r requirements/setup.txt
-    - name: Check External Links
-      run: tox -e py3-linkcheck
+    - name: Render Documentation
+      run: tox -e py3-html
