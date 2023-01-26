@@ -1,0 +1,138 @@
+If an overlay should be applied or not can be set during runtime and will have
+an effect after a reboot. The overlays are applied in the bootloader after the
+boot command is called and before the kernel is loaded. The next sections
+explain how it is done.
+
+Set ``${overlays}`` variable
+****************************
+
+The ``${overlays}`` U-Boot environment variable contains a space-separated list
+of overlays that will be applied during boot. Depending on the boot source the
+overlays have to either be placed in the boot partition of eMMC/SD-Card or are
+loaded over tftp. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable
+will be automatically added to the boot partition of the final SD Card image.
+
+The ``${overlays}`` variable can be either set directly in the U-Boot
+environment. Or be a part of the external bootenv.txt environment. The
+``${overlays}`` variable loaded from the external environment will always
+overwrite the value from the environment saved directly in the flash. On
+default, the ${overlays} variable is not set directly in the U-Boot environment
+but comes from the external bootenv.txt environment file. It is also located in
+the boot partition of the sdcard image. You can read and write the file on
+booted target:
+
+.. parsed-literal::
+
+   target$ cat /boot/bootenv.txt                                 
+   overlays=\ |dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
+
+Changes will then take effect after the next reboot. If no bootenv.txt file is
+available the overlays variable can be set directly in the U-Boot environment.
+
+.. parsed-literal::
+
+   u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> printenv overlays
+   overlays=\ |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> saveenv
+
+If you want to change the overlay variable in a non-persistent way, for example
+for testing::
+
+   u-boot=> setenv no_bootenv 1
+   u-boot=> setenv overlays <overlays you like to test>
+   u-boot=> boot
+
+.. note::
+
+   When the board is booted for the first time or when you reset the environment
+   to the default (u-boot=> env default -a), the environment is automatically
+   saved in flash, so the board must boot at least once until you can customize
+   the environment in a non-persistent way.
+
+More information about the external environment can be found in
+|ubootexternalenv|.
+
+We use the ${overlays} variable for overlays describing expansion boards and
+cameras that can not be detected during run time. To prevent applying overlays
+listed in the ${overlays} variable during boot the ${no_overlays} variable can
+be set to 1 in the bootloader environment. ::
+
+   u-boot=> setenv no_overlays 1
+   u-boot=> saveenv 
+
+Extension Command
+*****************
+
+The u-boot extension command makes it possible to easily apply overlays that
+have been detected and added to a list by the board code callback
+`extension_board_scan() <overlaycallback_>`_. In the BSP, the overlays applied
+in this way are used to disable components that are not populated on the SoM.
+The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
+SoM i2c EEPROM.
+
+The detection is so far implemented for SPI-NOR flash and ethernet PHY. It
+depends on the SoM variant if any device tree overlays will be applied. To check
+if an overlay will be applied on the running SoM run:
+
+.. parsed-literal::
+
+   u-boot=> extension scan
+   Found 1 extension board(s).
+   u-boot=> extension list
+   Extension 0: |som| no SPI flash
+           Manufacturer:           PHYTEC
+           Version:               
+           Devicetree overlay:     |kernel-socname|-phycore-no-spiflash.dtbo
+           Other information:      SPI flash not populated on SoM
+
+If the EEPROM data is not available, no device tree overlays are applied and the
+default status "okay" is preserved. To prevent running the extension command
+during boot the ${no_extensions} variable can be set to 1 in the bootloader
+environment. ::
+
+   u-boot=> setenv no_extensions 1
+   u-boot=> saveenv
+
+U-boot External Environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+During the start of the linux kernel the external text environment bootenv.txt
+text file will be loaded from the boot partition of an MMC device or from tftp.
+The main intention of this file is to store the ${overlays} variable. This makes
+it easy to pre-define the overlays in Yocto depending on the machine used. The
+content from the file is defined in the Yocto recipe bootenv found in
+meta-phytec:
+https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=hardknott
+
+Other variables can be set in this file. They will overwrite the existing
+settings in the environment. But only variables evaluated after the boot command
+is issued can be overwritten such as ${nfsroot} or ${mmcargs}. Changing other
+variables in that file will not have an effect. See the usage during netboot as
+an example.
+
+If the external environment can not be loaded the boot process will be anyway
+continued with the values of the existing environment settings.
+
+Change U-boot Environment from Linux on Target
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Libubootenv is a tool included in our images to modify the u-boot environment of
+Linux on the target machine.
+
+Print the u-boot environment using the following command::
+
+   target$ fw_printenv
+
+Modify a u-boot environment variable using the following command::
+
+   Modify a u-boot environment variable using the following command:
+
+.. caution::
+   Libubootenv takes the environment selected in a configuration file. The
+   environment to use is inserted there, and by default it is configured to use
+   the EMMC environment (known as the default used environment).
+
+   If the EMMC is not flashed or the EMMC environment is deleted, libubootenv
+   will not work. You should modify the /etc/fw_env.config file to match the
+   environment source that you want to use.

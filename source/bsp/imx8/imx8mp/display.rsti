@@ -1,0 +1,182 @@
+Display
+~~~~~~~
+
+The |sbc| supports up to 4 different display outputs. Three can be used
+simultaneously. The following table shows the required extensions and devicetree
+overlays for the different interfaces.
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+HDMI      |sbc|                    no overlay needed (enabled by default)
+LVDS0     PEB-AV-10                imx8mp-phyboard-pollux-peb-av-010.dtbo
+                                   (loaded by default)
+LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
+MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo
+========= ======================== ======================================
+
+.. note::
+
+   *  HDMI will not work if LVDS1 (onboard) is enabled.
+   *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
+
+HDMI is always enabled in the devicetree. The other interfaces can be enabled
+with Device Tree Overlay.
+
+The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
+10'' edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-12.
+
+.. note::
+
+   The current display driver limits the pixel clock for a display connected to
+   LVDS to 74.25Mhz (or a divider of it).  If this does not fit your display
+   requirements, please contact Support for further help.
+
+Weston Configuration
+^^^^^^^^^^^^^^^^^^^^
+
+In order to get an output from Weston on the correct display, it still needs to
+be configured correctly. This will be done at /etc/xdg/weston/weston.ini.
+
+Single Display
+**************
+
+In our BSP, the default Weston output is set to HDMI. ::
+
+   [output]
+   name=HDMI-A-1
+   mode=current
+    
+   [output]
+   name=LVDS-1
+   mode=off
+
+When using the LVDS0 (PEB-AV-10) as output, set the output mode to off for
+HDMI-A-1 and for LVDS-1 to current. ::
+
+   [output]
+   name=HDMI-A-1
+   mode=off
+    
+   [output]
+   name=LVDS-1
+   mode=current
+
+If you want to use LVDS1 (onboard) then you need to load no overlay. Remove the
+imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
+
+Dual Display
+************
+
+For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
+have to be set to current::
+
+   [output]
+   name=HDMI-A-1
+   mode=current
+     
+   [output]
+   name=LVDS-1
+   mode=current
+
+For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
+be loaded at the bootenv.txt and the weston.ini should look like this::
+
+   [output]
+   name=HDMI-A-1
+   mode=off
+     
+   [output]
+   name=LVDS-1
+   mode=current
+
+.. note::
+
+   For dual and triple display output you can not use LVDS1 (onboard) and HDMI
+   together.
+
+Triple Display
+**************
+
+Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
+load both dtbos for LVDS interfaces. ::
+
+   [output]
+   name=HDMI-A-1
+   mode=current
+     
+   [output]
+   name=LVDS-1
+   mode=current
+    
+   [output]
+   name=LVDS-2
+   mode=current
+
+phytec-qtdemo
+^^^^^^^^^^^^^
+
+With the phytec-qt5demo-image Weston, the phytec-qt5demo starts during boot. The
+phytec-qt5demo can be stopped with::
+
+   target$ systemctl stop phytec-qtdemo
+
+*  To start the demo again, run::
+
+      target$ systemctl start phytec-qtdemo
+
+*  To disable autostart of the demo run::
+
+      target$ systemctl disable phytec-qtdemo
+
+*  To enable autostart of the demo, run::
+
+      target$ systemctl enable phytec-qtdemo
+
+*  Weston can be stopped with::
+
+      target$ systemctl stop weston@root
+
+Device tree description of LVDS-1 and HDMI can be found here:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9
+
+The device tree of LVDS-0 on PEB-AV-10 can be found here:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9
+
+Backlight Control
+^^^^^^^^^^^^^^^^^
+
+If a display is connected to the PHYTEC board, you can control its backlight
+with the Linux kernel sysfs interface. All available backlight devices in the
+system can be found in the folder /sys/class/backlight. Reading the appropriate
+files and writing to them allows you to control the backlight.
+
+*  To get, for example, the maximum brightness level (max_brightness) execute::
+
+      target$ cat /sys/class/backlight/backlight/max_brightness
+
+which will result in::
+
+   7
+
+Valid brightness values are 0 to <max_brightness>.
+
+*  To obtain the current brightness level, type::
+
+      target$ cat /sys/class/backlight/backlight/brightness
+
+you will get for example::
+
+   6
+
+* Write to the file brightness to change the brightness::
+
+      target$ echo 0 > /sys/class/backlight/backlight/brightness
+
+turns the backlight off, ::
+
+   target$ echo 5 > /sys/class/backlight/backlight/brightness
+
+sets the brightness to the third-highest brightness level. For documentation of
+all files, see
+https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.

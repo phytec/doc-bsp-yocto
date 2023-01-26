@@ -56,7 +56,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.Â
 
    If you cannot identify your board with the information given in the selector,
    have a look at the invoice for the product. And have look at
-   |dlpage-bsp|.
+   |dlpage-bsp|_.
 
 *  It is also possible to pass this information directly using command line
    parameters:
