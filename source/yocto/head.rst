@@ -357,18 +357,24 @@ components. It provides a base for your specific development scenarios. The
 current features are:
 
 -  `systemd <http://www.freedesktop.org/wiki/Software/systemd/>`_ init system
--  `Qt5 with eglfs backend <http://doc.qt.io/qt-5/embedded-linux.html>`_ for
-   PHYTEC's AM335x, i.MX 6 and RK3288 platforms
--  Two different images: ``phytec-headless-image`` for non-graphics applications
-   and *phytec-qt5demo-image* for *Qt5* and video applications
+-  Images: ``phytec-headless-image`` for non-graphics applications
 -  Camera integration with OpenCV and GStreamer examples for the i.MX 6 platform
    bundled in a ``phytec-vision-image``
+-  RAUC integration: we setup basic support for an over-the-air A/B system image
+   update
+
+meta-qt5-phytec
+~~~~~~~~~~~~~~~
+
+This is our layer for Qt5 board integration and examples. The features are:
+
+-  `Qt5 with eglfs backend <http://doc.qt.io/qt-5/embedded-linux.html>`_ for
+   PHYTEC's AM335x, i.MX 6 and RK3288 platforms
+-  Images: ``phytec-qt5demo-image`` for *Qt5* and video applications
 -  A *Qt5* demo application demonstrating how to create a *Qt5* project using
    *QML* widgets and a *Bitbake* recipe for the *Yocto* and *systemd*
    integration. It can be found in
-   ``sources/meta-ampliphy/recipes-qt/examples/phytec-qtdemo_git.bb``
--  RAUC integration: we setup basic support for an over-the-air A/B system image
-   update
+   ``sources/meta-qt5-phytec/recipes-qt/examples/phytec-qtdemo_git.bb``
 
 meta-virtualization
 ~~~~~~~~~~~~~~~~~~~
