@@ -1,0 +1,55 @@
+RS232/RS485
+-----------
+
+The |soc| SoC provides up to 4 UART units. PHYTEC boards support different
+numbers of these UART units. UART1 can also be used as RS-485. For this,
+|ref-bootswitch| needs to be set correctly:
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   *  - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS485.png
+
+            **UART1 RS485**
+
+      - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS232.jpg
+
+           **UART1 RS232**
+
+The device tree representation for RS232 and RS485:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171
+
+RS232
+.....
+
+* Display the current settings of a terminal in a human-readable format::
+
+      target$ stty -a
+
+* Configuration of the UART interface can be done with stty. For example::
+
+      target$ stty -F /dev/ttymxc1 115200 crtscts raw -echo
+
+* With a simple echo and cat, basic communication can be tested. Example::
+
+      target$ echo 123 > /dev/ttymxc1
+
+::
+
+   host$ cat /dev/ttyUSB2
+
+The host should print out "123".
+
+RS485
+.....
+
+For easy testing, look at the linux-serial-test. This tool is called the IOCTL
+for RS485 and sends a constant stream of data. ::
+
+   target$ linux-serial-test -p /dev/ttymxc1 -b 115200 --rs485 0
+
+More information about the linux-serial-test tool and its parameters can be
+found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
+
+Documentation for calling the IOCTL within c-code is described in the Linux
+kernel documentation:
+https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt

@@ -1,0 +1,33 @@
+Mini
+....
+
+Hardware revision baseboard: 1532.1
+
+.. list-table:: Bootmode Selection
+
+   * - .. figure:: images/eMMC.jpg
+
+	  Default SOM Boot (eMMC boot)
+
+     - .. figure:: images/SPI_NOR.png
+
+	  QSPI NOR boot
+
+   * - .. figure:: images/USB_Serial_Download.png
+
+          Serial Download (USB boot)
+
+     - .. figure:: images/SD_Card_Boot.jpg
+
+          SD Card boot
+
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   * - .. figure:: images/UART1_RS485.png
+
+	  UART1 RS485
+
+     - .. figure:: images/UART1_RS232.jpg
+
+	  UART1 RS232
