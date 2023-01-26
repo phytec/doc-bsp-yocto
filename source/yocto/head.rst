@@ -213,20 +213,20 @@ There are several use cases where the installation and maintenance of
 a *Toaster* instance are beneficial. PHYTEC did not add or remove any features
 to the upstream *Toaster*, provided by *Poky*. The best source for more
 information is the official documentation:
-https://docs.yoctoproject.org/toaster-manual/index.html
+https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html
 
 Official Documentation
 ----------------------
 
 For more general questions about *Bitbake* and *Poky* consult the mega-manual:
-https://docs.yoctoproject.org/4.0.2/singleindex.html
+https://docs.yoctoproject.org/4.0.6/singleindex.html
 
 Compatible Linux Distributions
 ==============================
 
 To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
-https://docs.yoctoproject.org/4.0.2/ref-manual/system-requirements.html#supported-linux-distributions
+https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions
 
 PHYTEC BSP Introduction
 =======================
@@ -335,7 +335,7 @@ meta-phytec
 
 This layer contains all machines and common features for all our BSPs. It is
 PHYTEC's `Yocto Board Support Package
-<https://docs.yoctoproject.org/4.0.2/bsp-guide/index.html>`_ for all supported
+<https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ for all supported
 hardware (since *fido*) and is designed to be standalone with *Poky*. Only these
 two parts are required if you want to integrate the PHYTEC's hardware into your
 existing *Yocto* workflow. The features are:
@@ -505,7 +505,7 @@ Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu
          python3-subunit mesa-common-dev zstd liblz4-tool
 
 For other distributions you can find information in the *Yocto* Quick Build:
-https://docs.yoctoproject.org/4.0.2/brief-yoctoprojectqs/index.html
+https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html
 
 .. _git-config:
 
@@ -1002,8 +1002,7 @@ Maybe you need to install some requirements, first::
 You can then point your browser to *http://0.0.0.0:8000/* and continue working
 with *Bitbake*. All build activity can be monitored and analyzed from this web
 server. If you want to learn more about *Toaster*, look at
-https://docs.yoctoproject.org/toaster-manual/index.html
-
+https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html
 To shut down the *Toaster* web GUI again, execute::
 
    host$ source toaster stop
@@ -1253,8 +1252,8 @@ If you can not find your software in the layers provided in the folder
 *sources*, see the next section to include another layer into the *Yocto*
 build.
 
-References: `Yocto 4.0.2 Docu - Customizing Yocto builds
-<https://docs.yoctoproject.org/4.0.2/singleindex.html#user-configuration>`_
+References: `Yocto 4.0.6 Documentation - Customizing Yocto builds
+<https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_
 
 Add an Additional Layer
 .......................
@@ -1620,7 +1619,7 @@ If you want to learn more about *devtool*, visit:
 `Yocto 4.0 - Devtool
 <https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
 or `Devtool Quick Reference
-<https://docs.yoctoproject.org/4.0.2/ref-manual/devtool-reference.html>`_
+<https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
 
 Patch the Kernel or Bootloader using the "Temporary Method"
 ...........................................................
@@ -2699,4 +2698,4 @@ https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks
 
 The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
-https://docs.yoctoproject.org/4.0.2/singleindex.html
+https://docs.yoctoproject.org/4.0.6/singleindex.html
