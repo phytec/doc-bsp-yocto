@@ -1370,16 +1370,14 @@ Kernel and Bootloader Recipe and Version
 ........................................
 
 First, you need to know which kernel and version are used for your target
-machine. PHYTEC provides two kernel recipes *linux-mainline* and *linux-ti*. The
-first one provides support for PHYTEC's i.MX 6 modules and is based on the
-*Linux* kernel stable releases from `kernel.org <https://kernel.org/>`_. The
-second one provides support for PHYTEC's AM335x modules and is based on the *TI*
-vendor kernel.
-
+machine. PHYTEC provides multiple kernel recipes *linux-mainline*, *linux-ti*
+and *linux-imx*. The first one provides support for PHYTEC's i.MX 6 and AM335x
+modules and is based on the *Linux* kernel stable releases from `kernel.org
+<https://kernel.org/>`_.
 The *Git* repositories URLs are:
 
--  *linux-ti*: git://git.phytec.de/linux-ti
 -  *linux-mainline*: git://git.phytec.de/linux-mainline
+-  *linux-ti*: git://git.phytec.de/linux-ti
 -  *linux-imx:* git://git.phytec.de/linux-imx
 -  *barebox*: git://git.phytec.de/barebox
 -  *u-boot-imx*: git://git.phytec.de/u-boot-imx
@@ -1412,9 +1410,7 @@ recipe name on the left and the version on the right::
 As you can see, the recipe *linux-mainline* has version *4.19.100-phy1-r0*. In
 the PHYTEC's *linux-mainline*  *Git* repository, you will find a corresponding
 tag *v4.19.100-phy1*. The version of the *barebox* recipe is 2019.11.0-phy1-r7.
-If your machine has an AM335x module the output of *bitbake -s* contains a line
-starting with *linux-ti*. On i.MX8M\* modules the output will contain
-*linux-imx* and *u-boot-imx*.
+On i.MX8M\* modules the output will contain *linux-imx* and *u-boot-imx*.
 
 Kernel and Bootloader Configuration
 ...................................
@@ -1425,7 +1421,7 @@ the kernel and bootloader. To configure the kernel or bootloader, execute one of
 the following commands::
 
    host$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
-   host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly (If you use an AM335x Module)
+   host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly
    host$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
    host$ bitbake -c menuconfig linux-imx       # Or use the recipe name directly (If you use an i.MX 8M*)
    host$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
@@ -1597,11 +1593,11 @@ shell environment. *Devtool* can be used to:
 -  integrate software projects into your build setup
 -  build software and deploy software modifications to your target
 
-Here we will use *devtool* to patch the kernel. We use *linux-ti* as an example
-for the AM335x TI Kernel. The first command we use is *devtool modify - x
+Here we will use *devtool* to patch the kernel. We use *linux-mainline* as an
+example for the AM335x Kernel. The first command we use is *devtool modify - x
 <recipe> <directory>*::
 
-   host$ devtool modify -x linux-ti linux-ti
+   host$ devtool modify -x linux-mainline linux-mainline
 
 *Devtool* will create a layer in *build/workspace* where you can see all
 modifications done by *devtool* . It will extract the sources corresponding to
@@ -1610,15 +1606,15 @@ workspace directing the SRC_URI to this directory. Building an image with
 *Bitbake* will now use the sources in this directory. Now you can modify lines
 in the kernel::
 
-   host$ vim linux-ti/arch/arm/boot/dts/am335x-phycore-som.dtsi
+   host$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
          -> make a change
    host$ bitbake phytec-qt5demo-image
 
 Your changes will now be recompiled and added to the image. If you want to store
 your changes permanently, it is advisable to create a patch from the changes,
-then store and backup only the patch. You can go into the *linux-ti* directory
-and create a patch using *Git*. How to create a patch is described in the middle
-of the next section and is the same for all methods.
+then store and backup only the patch. You can go into the *linux-mainline*
+directory and create a patch using *Git*. How to create a patch is described in
+:ref:`temporary-method` and is the same for all methods.
 
 If you want to learn more about *devtool*, visit:
 
@@ -1626,6 +1622,8 @@ If you want to learn more about *devtool*, visit:
 <https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
 or `Devtool Quick Reference
 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
+
+.. _temporary-method:
 
 Patch the Kernel or Bootloader using the "Temporary Method"
 ...........................................................
