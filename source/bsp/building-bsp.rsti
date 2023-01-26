@@ -24,8 +24,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
 
 * Create a fresh project folder, get phyLinux, and make the script executable:
 
-.. parsed-literal::
-
+::
    host$ mkdir ~/yocto
    host$ cd yocto/
    host$ wget https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
@@ -39,7 +38,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
 
 * Run phyLinux
 
-.. parsed-literal::
+::
 
    host$ ./phyLinux init
 
@@ -61,7 +60,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
 * It is also possible to pass this information directly using command line
   parameters:
 
-.. parsed-literal::
+::
 
    host$ DISTRO=\ |distro| MACHINE=\ |machinename| ./phyLinux init -p |shortboardname| -r |manifestbspname|
 
@@ -73,7 +72,7 @@ Starting the Build Process
 
 * Set up the shell environment variables:
 
-.. parsed-literal::
+::
 
    host$ source sources/poky/oe-init-build-env
 
@@ -85,7 +84,7 @@ Starting the Build Process
 * Open the main configuration file and accept the GPU and VPU binary license
   agreements. You have to uncomment the corresponding line.
 
-.. parsed-literal::
+::
 
    host$ vim conf/local.conf
    # Uncomment to accept NXP EULA                                                  
@@ -94,7 +93,7 @@ Starting the Build Process
 
 * Build your image:
 
-.. parsed-literal::
+::
 
    host$ bitbake |imagename|
 

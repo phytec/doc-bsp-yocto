@@ -1,22 +1,16 @@
 To check if your soundcard driver is loaded correctly and what the device is
-called, type for playback devices:
-
-.. parsed-literal::
+called, type for playback devices::
 
    target$ aplay -L
 
-Or type for recording devices:
-
-.. parsed-literal::
+Or type for recording devices::
 
    target$ arecord -L
 
 Alsamixer
 ~~~~~~~~~
 
-To inspect the capabilities of your soundcard, call:
-
-.. parsed-literal::
+To inspect the capabilities of your soundcard, call::
 
    target$ alsamixer
 
@@ -33,15 +27,11 @@ ALSA configuration
 Our BSP comes with a ALSA configuration file /etc/asound.conf. 
 
 The ALSA configuration file can be edited as desired or deleted since it is not
-required for ALSA to work properly.
-
-.. parsed-literal::
+required for ALSA to work properly. ::
 
    target$ vi /etc/asound.conf
 
-To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10":
-
-.. parsed-literal::
+To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
 
    [...]
     
@@ -56,39 +46,29 @@ To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10":
 Pulseaudio Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-For applications using Pulseaudio, check for available sinks:
-
-.. parsed-literal::
+For applications using Pulseaudio, check for available sinks::
 
    target$ pactl list short sinks
    0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
    1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
 
-To select PEB-AV-10, type:
-
-.. parsed-literal::
+To select PEB-AV-10, type::
 
    target$ pactl set-default-sink 1
 
 Playback
 ~~~~~~~~
 
-Run speaker-test to check playback availability:
-
-.. parsed-literal::
+Run speaker-test to check playback availability::
 
    target$ speaker-test -c 2 -t wav
 
 To playback simple audio streams, you can use aplay. For example to play the
-ALSA test sounds:
-
-.. parsed-literal::
+ALSA test sounds::
 
    target$ aplay /usr/share/sounds/alsa/*
 
-To playback other formats like mp3 for example, you can use Gstreamer:
-
-.. parsed-literal::
+To playback other formats like mp3 for example, you can use Gstreamer::
 
    target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
 
@@ -99,14 +79,12 @@ arecord is a command-line tool for capturing audio streams which use Line In a
 the default input source. To select a different audio source you can
 use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
 Mic3R in order to capture the audio from the microphone input of the
-TLV320-Codec using the 3.5mm jack.
-
-.. parsed-literal::
+TLV320-Codec using the 3.5mm jack. ::
 
    target$ amixer -c1 sset 'Left PGA Mixer Mic3R' on
    target$ amixer -c1 sset 'Right PGA Mixer Mic3R' on
 
-.. parsed-literal::
+::
 
    target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
 

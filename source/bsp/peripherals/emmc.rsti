@@ -23,13 +23,11 @@ see manufacturer datasheets and the JEDEC standard.
 
 * In the Linux user space, you can query the registers:
 
-.. parsed-literal::
+::
 
    target$ mmc extcsd read /dev/mmcblk2
 
-You will see:
-
-.. parsed-literal::
+You will see::
 
    =============================================
       Extended CSD rev 1.7 (MMC 5.0)
@@ -76,13 +74,11 @@ features.
 
 * To check whether *BKOPS_EN* is set, execute:
 
-.. parsed-literal::
+::
 
    target$ mmc extcsd read /dev/mmcblk2 | grep BKOPS_EN
 
-The output will be, for example:
-
-.. parsed-literal::
+The output will be, for example::
 
    Enable background operations handshake [BKOPS_EN]: 0x01
    #OR
@@ -94,14 +90,14 @@ background operations from time to time.
 
 * To set the BKOPS_EN bit, execute:
 
-.. parsed-literal::
+::
 
    target$ mmc bkops enable /dev/mmcblk2
 
 * To ensure that the new setting is taken over and the kernel triggers BKOPS by
   itself, shut down the system:
 
-.. parsed-literal::
+::
 
    target$ poweroff
 
@@ -123,9 +119,7 @@ There are two different Reliable Write options:
    partition table (see the previous section).
 
 The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-|soc| SoMs. To check this on the running target:
-
-.. parsed-literal::
+on the phyCORE-|soc| SoMs. To check this on the running target: ::
 
    target$ mmc extcsd read /dev/mmcblk2 | grep -A 5 WR_REL_SET
    Write reliability setting register [WR_REL_SET]: 0x1f
@@ -143,9 +137,7 @@ on the phyCORE-|soc| SoMs. To check this on the running target:
     Device supports writing EXT_CSD_WR_REL_SET
     Device supports the enhanced def. of reliable write
 
-Otherwise, it can be enabled with the mmc tool:
-
-.. parsed-literal::
+Otherwise, it can be enabled with the mmc tool::
 
    target$ mmc --help
   
@@ -174,13 +166,13 @@ example works for any block device such as eMMC, SD card, or hard disk.
 
 * Get the current device size:
 
-.. parsed-literal::
+::
 
    target$ parted /dev/mmcblk2 print
 
 * The output looks like this:
 
-.. parsed-literal::
+::
 
    Model: MMC Q2J55L (sd/mmc)
    Disk /dev/mmcblk2: 7617MB
@@ -195,7 +187,7 @@ example works for any block device such as eMMC, SD card, or hard disk.
 
 * Use parted to resize the root partition to the max size of the device:
 
-.. parsed-literal::
+::
 
    target$ parted /dev/mmcblk2 resizepart 2 100%
    Information: You may need to update /etc/fstab.
@@ -218,7 +210,7 @@ partition while it is not mounted.
 
 * Resize the filesystem to a new partition size:
 
-.. parsed-literal::
+::
 
    target$ resize2fs /dev/mmcblk2p2
    resize2fs 1.46.1 (9-Feb-2021)
@@ -253,13 +245,11 @@ The following sequence shows how to enable the enhanced attribute.
 
 * First obtain the current size of the eMMC device with:
 
-.. parsed-literal::
+::
 
    target$ parted -m /dev/mmcblk2 unit B print
 
-You will receive:
-
-.. parsed-literal::
+You will receive::
 
    BYT;
    /dev/mmcblk2:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
@@ -268,13 +258,11 @@ As you can see this device has 63652757504 Byte = 60704 MiB.
 
 * To get the maximum size of the device after pseudo-SLC is enabled use:
 
-.. parsed-literal::
+::
 
    target$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT -A 1
 
-which shows, for example:
-
-.. parsed-literal::
+which shows, for example::
 
    Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
    i.e. 3719168 KiB
@@ -287,13 +275,11 @@ Here the maximum size is 3719168 KiB = 3632 MiB.
 * Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB, by
   typing:
 
-.. parsed-literal::
+::
 
    target$ mmc enh_area set -y 0 3719168 /dev/mmcblk2
 
-You will get:
-
-.. parsed-literal::
+You will get::
 
    Done setting ENH_USR area on /dev/mmcblk2
    setting OTP PARTITION_SETTING_COMPLETED!
@@ -303,7 +289,7 @@ You will get:
 
 * To ensure that the new setting has taken over, shut down the system:
 
-.. parsed-literal::
+::
 
    target$ poweroff
 
@@ -311,13 +297,11 @@ and perform a power cycle. It is recommended that you verify the settings now.
 
 * First, check the value of ENH_SIZE_MULT which must be 3719168 KiB:
 
-.. parsed-literal::
+::
 
    target$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT  -A 1
 
-You should receive:
-
-.. parsed-literal::
+You should receive::
 
    Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
    i.e. 3719168 KiB
@@ -327,7 +311,7 @@ You should receive:
 
 * Finally, check the size of the device:
 
-.. parsed-literal::
+::
 
    target$ parted -m /dev/mmcblk2 unit B print
    BYT;
@@ -343,7 +327,7 @@ be read back as zeros.
 
 * After booting from SD Card execute:
 
-.. parsed-literal::
+::
 
    target$ blkdiscard -f --secure /dev/mmcblk2
 
