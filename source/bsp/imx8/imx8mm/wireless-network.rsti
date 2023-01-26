@@ -1,0 +1,102 @@
+WLAN
+....
+
+For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
+
+Enabling WLAN
+~~~~~~~~~~~~~
+
+The firmware should be loaded by the kernel. The country code needs to be set
+before WIFI can be used. It can be changed under::
+
+   target$ vi /lib/firmware/brcm/brcmfmac43430-sdio.txt
+   [...]
+   ccode=<country>
+   [...]
+
+More information about how to set up a WIFI connection can be found in Changing
+the Wireless Network Configuration.
+
+Bluetooth
+.........
+
+Bluetooth is connected to UART2 interface. More information about the module can
+be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
+The Bluetooth device needs to be set up manually::
+
+   target$ hciconfig hci0 up
+
+   target$ hciconfig
+     
+   hci0:   Type: Primary  Bus: UART
+           BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+           UP RUNNING PSCAN
+           RX bytes:1392 acl:0 sco:0 events:76 errors:0
+           TX bytes:1198 acl:0 sco:0 commands:76 errors:0
+     
+   target$ hciconfig -a
+     
+   hci0:   Type: Primary  Bus: UART
+           BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+           UP RUNNING PSCAN
+           RX bytes:3179 acl:8 sco:0 events:104 errors:0
+           TX bytes:1599 acl:8 sco:0 commands:85 errors:0
+           Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+           Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
+           Link policy: RSWITCH SNIFF
+           Link mode: SLAVE ACCEPT
+           Name: 'phyboard-polaris-imx8m-2'
+           Class: 0x200000
+           Service Classes: Audio
+           Device Class: Miscellaneous,
+           HCI Version: 4.1 (0x7)  Revision: 0x60
+           LMP Version: 4.1 (0x7)  Subversion: 0x2209
+           Manufacturer: Broadcom Corporation (15)
+
+Now you can scan your environment for visible Bluetooth devices. Bluetooth is
+not visible during a default startup. ::
+
+   target$ hcitool scan
+   Scanning ...
+          XX:XX:XX:XX:XX:XX       <SSID>
+
+Visibility
+~~~~~~~~~~
+
+To activate visibility::
+
+   target$ hciconfig hciX piscan
+
+To disable visibility::
+
+   target$ hciconfig hciX noscan
+
+Connect
+~~~~~~~
+
+::
+
+   target$ bluetoothctl
+   [bluetooth]# discoverable on
+   Changing discoverable on succeeded
+   [bluetooth]# pairable on
+   Changing pairable on succeeded
+   [bluetooth]# agent on
+   Agent registered
+   [bluetooth]# default-agent
+   Default agent request successful
+   [bluetooth]# scan on
+   [NEW] Device XX:XX:XX:XX:XX:XX <name>
+   [bluetooth]# connect XX:XX:XX:XX:XX:XX
+
+.. note::
+
+   If the connection fails with the error message: "Failed to connect:
+   org.bluez.Error.Failed" try restarting PulseAudio with::
+
+      target$ pulseaudio --start
