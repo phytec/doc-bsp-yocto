@@ -1,0 +1,59 @@
+RS232/RS485
+~~~~~~~~~~~
+
+The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
+of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
+to USB converter expansion. This USB is brought out at Micro-USB connector X1.
+UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
+multi-protocol transceiver for RS-232 and RS-485, available at pin header
+connector |ref-usb-otg| at the RS-232 level, or at the RS-485 level. The
+configuration of the multi-protocol transceiver is done by jumpers JP3 and JP4
+on the baseboard. For more information about the correct setup please refer to
+the phyCORE-|soc|/|sbc| Hardware Manual section UARTs. 
+
+The device tree representation for RS232 and RS485:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337
+
+RS232
+^^^^^
+
+*  Display the current settings of a terminal in a human-readable format::
+
+      target$ stty -a
+
+*  Configuration of the UART interface can be done with stty. For example::
+
+      target$ stty -F /dev/ttymxc1 115200 crtscts raw -echo
+
+*  With a simple echo and cat, basic communication can be tested. Example::
+
+      host$ cat /dev/ttyUSB2
+
+*  Make sure that the jumpers JP3 and JP4 on the |sbc| are set correctly and
+   that the baudrate configuration has been set correctly on the host side.
+   Then::
+
+      target$ echo 123 > /dev/ttymxc1
+
+The host should print out "123".
+
+RS485
+^^^^^
+
+We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
+enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
+using ioctls. Have a look at our small example application rs485test, which is
+also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
+correctly.
+
+For easy testing, look at the linux-serial-test. This tool is called the IOCTL
+for RS485 and sends a constant stream of data. ::
+
+   target$ linux-serial-test -p /dev/ttymxc1 -b 115200 --rs485 0
+
+More information about the linux-serial-test tool and its parameters can be
+found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
+
+Documentation for calling the IOCTL within c-code is described in the Linux
+kernel documentation:
+https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt
