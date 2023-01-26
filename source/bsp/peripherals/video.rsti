@@ -4,15 +4,13 @@ Video
 Videos with Gstreamer
 ~~~~~~~~~~~~~~~~~~~~~
 
-The video is installed by default in the BSP:
-
-.. parsed-literal::
+The video is installed by default in the BSP::
 
    target$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
 
 * Or
 
-.. parsed-literal::
+::
 
    target$ gst-launch-1.0 -v filesrc location=<video.mp4> \
    \! qtdemux  \! h264parse \! queue \! vpudec \! waylandsink async=false enable-last-sample=false \
@@ -20,7 +18,7 @@ The video is installed by default in the BSP:
 
 * Or
 
-.. parsed-literal::
+::
 
    target$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
 
@@ -28,15 +26,11 @@ kmssink Plugin ID Evaluation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The kmssink plugin needs a connector ID. To get the connector ID, you can use
-the tool modetest.
-
-.. parsed-literal::
+the tool modetest. ::
 
    target$ modetest -c imx-drm
 
-The output will show something like:
-
-.. parsed-literal::
+The output will show something like::
 
    Connectors:
    id  encoder status      name        size (mm)   modes   encoders

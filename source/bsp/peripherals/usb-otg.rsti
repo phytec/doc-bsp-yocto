@@ -12,9 +12,7 @@ USB Device
 In order to connect the board's USB device to a USB host port (for example a
 PC), you need to configure the appropriate USB gadget. With USB configfs you can
 define the parameters and functions of the USB gadget. The BSP includes
-USB configfs support as a kernel module.
-
-.. parsed-literal::
+USB configfs support as a kernel module. ::
 
    target$ modprobe libcomposite
 
@@ -27,7 +25,7 @@ USB configfs support as a kernel module.
 
    To save time, copy these commands and execute them in a script
 
-.. parsed-literal::
+::
 
    cd /sys/kernel/config/usb_gadget/
    mkdir g1
@@ -41,13 +39,13 @@ USB configfs support as a kernel module.
 
 * Next, create a file for the mass storage gadget:
 
-.. parsed-literal::
+::
 
    target$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
 
 * Now you should create the functions you want to use:
 
-.. parsed-literal::
+::
 
    cd /sys/kernel/config/usb_gadget/g1
    mkdir functions/acm.GS0
@@ -62,7 +60,7 @@ USB configfs support as a kernel module.
 
 * Bind the defined functions to a configuration:
 
-.. parsed-literal::
+::
 
    cd /sys/kernel/config/usb_gadget/g1
    mkdir configs/c.1
@@ -74,7 +72,7 @@ USB configfs support as a kernel module.
 
 * Finally, start the USB gadget with the following commands:
 
-.. parsed-literal::
+::
 
    target$ cd /sys/kernel/config/usb_gadget/g1
    target$ ls /sys/class/udc/
@@ -86,6 +84,6 @@ one to the USB Device Controller (UDC).
 
 * To stop the USB gadget and unbind the used functions, execute:
 
-.. parsed-literal::
+::
 
    target$ echo "" > /sys/kernel/config/usb_gadget/g1/UDC

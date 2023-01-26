@@ -7,13 +7,13 @@ can use the command lspci to see all PCIe devices recognized.
 
 * Type:
 
-.. parsed-literal::
+::
 
    target$ lspci -v
 
 * You will receive:
 
-.. parsed-literal::
+::
 
    00:00.0 PCI bridge: Synopsys, Inc. Device abcd (rev 01) (prog-if 00 [Normal decode])
            Flags: bus master, fast devsel, latency 0, IRQ 218
@@ -61,19 +61,19 @@ device can be used.
 
 * Type:
 
-.. parsed-literal::
+::
 
    host$ scp -r <firmware> root@192.168.3.11:/lib/firmware
 
 * For example, if you try to bring up the network interface:
 
-.. parsed-literal::
+::
 
    target$ ip link set up wlp1s0
 
 * You will get the following output on the serial console:
 
-.. parsed-literal::
+::
 
    [   58.682104] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
    [   58.690822] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled

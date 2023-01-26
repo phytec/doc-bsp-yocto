@@ -12,9 +12,7 @@ settings.
 
 Below is a simple example.
 
-To get all available LEDs, type:
-
-.. parsed-literal::
+To get all available LEDs, type: ::
 
    target$ ls /sys/class/leds
    mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
@@ -23,12 +21,12 @@ Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
 
 * To toggle the LEDs ON:
 
-.. parsed-literal::
+::
 
    target$ echo 255 > /sys/class/leds/user-led1/brightness
 
 * To toggle OFF:
 
-.. parsed-literal::
+::
 
    target$ echo 0 > /sys/class/leds/user-led1/brightness

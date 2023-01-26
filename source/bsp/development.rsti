@@ -16,9 +16,7 @@ following tools will be needed to boot the Kernel from Ethernet:
 
 * A TFTP server
 
-For *Ubuntu*, install:
-
-.. parsed-literal::
+For *Ubuntu*, install::
 
    host$ sudo apt-get install tftpd-hpa xinetd
 
@@ -32,7 +30,7 @@ TFTP Server Setup
 
 * First, create a directory to store the TFTP files:
 
-.. parsed-literal::
+::
 
    host$ sudo mkdir /tftpboot
    host$ sudo chmod -R 777 /tftpboot
@@ -43,13 +41,13 @@ TFTP Server Setup
   PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
   with netmask 255.255.255.0 is a good choice.
 
-.. parsed-literal::
+::
 
    host$ ifconfig eth1
 
 * You will receive:
 
-.. parsed-literal::
+::
 
    eth1     Link encap:Ethernet   HWadr 00:11:6b:98:e3:47
             inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
@@ -59,7 +57,7 @@ TFTP as a Stand-alone Daemon
 
 * Create or edit /etc/default/tftpd-hpa:
 
-.. parsed-literal::
+::
 
    # /etc/default/tftpd-hpa
   
@@ -73,13 +71,13 @@ TFTP as a Stand-alone Daemon
   0.0.0.0:69 to listen to all local IPs)
 * Set TFTP_OPTIONS, the following command shows the available options:
 
-.. parsed-literal::
+::
 
    host$ man tftpd
 
 * Restart the services to pick up the configuration changes:
 
-.. parsed-literal::
+::
 
    host$ sudo service tftpd-hpa restart
 
@@ -98,7 +96,7 @@ NFS Server Setup
 * After the installation of the TFTP server, an NFS server needs to be
   installed, too.
 
-.. parsed-literal::
+::
 
    host$ sudo apt-get install nfs-kernel-server
 
@@ -108,7 +106,7 @@ NFS Server Setup
   directory is exported and the "lab network" address of the development host is
   192.168.3.10. The IP address has to be adapted to the local needs:
 
-.. parsed-literal::
+::
 
    /home/<user>/<rootfspath> 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 
@@ -118,7 +116,7 @@ extracted with sudo.
 
 * Now the NFS-Server has to read the /etc/exportfs file again:
 
-.. parsed-literal::
+::
 
    host$ sudo exportfs -ra
 
@@ -127,13 +125,13 @@ Place Images on Host for Netboot
 
 * Copy the kernel image to your tftpboot directory:
 
-.. parsed-literal::
+::
 
    cp Image /tftpboot
 
 * Copy the devicetree  to your tftpboot directory:
 
-.. parsed-literal::
+::
 
    cp oftree /tftpboot
 
@@ -159,7 +157,7 @@ Boot the board into the U-boot prompt and press any key to hold.
 
 * To boot from a network, call:
 
-.. parsed-literal::
+::
 
    u-boot=> run netboot
 
@@ -175,7 +173,7 @@ detailed information visit https://github.com/NXPmicro/mfgtools or download the
 Host preparations for UUU-Tool Usage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. parsed-literal::
+::
 
    host$ sudo apt-get install libusb-1.0-0-dev libzstd-dev libzip-dev libbz2-dev pkg-config cmake
    host$ git clone https://github.com/NXPmicro/mfgtools.git
@@ -188,9 +186,7 @@ Get _flash.bin
 
 Download imx-boot from our server or get it from your Yocto build directory at
 ../build/deploy/images/|machinename|/ and copy the U-boot image (imx-boot) to
-the UUU directory:
-
-.. parsed-literal::
+the UUU directory::
 
    host$ cd mfgtools
    host$ cp -v imx-boot uuu/_flash.bin
@@ -207,7 +203,7 @@ Starting bootloader via UUU-Tool
 
 * Execute and  Power up the board:
 
-.. parsed-literal::
+::
 
    host$ cd mfgtools/uuu
    host$ sudo ./uuu _flash.bin
@@ -242,7 +238,7 @@ Make sure that the U-Boot image is also available!
 
 * Execute and power up the board:
 
-.. parsed-literal::
+::
 
    host$ cd mfgtools/uuu
    host$ sudo ./uuu -b emmc_burn_all.lst _flash.bin _rootfs.sdcard
@@ -264,21 +260,21 @@ Git Repositories
 
 * Used U-Boot repository:
 
-.. parsed-literal::
+::
 
    git://git.phytec.de/u-boot-imx
 
 * Our U-Boot is based on the u-boot-imx and adds board-specific patches.
 * Used Linux kernel repository:
 
-.. parsed-literal::
+::
 
    git://git.phytec.de/linux-imx
 
 * Our |soc| kernel is based on the linux-imx kernel. To find out which tag is
   used for a specific board, have a look at your BSP source folder:
 
-.. parsed-literal::
+::
 
    meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
    meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
@@ -347,6 +343,7 @@ mentioned here: |bsp-images-ref|
 Or you can download the files here: |boottoolslink|
 
 .. warning::
+
    Make sure you rename the files you need so that they are compatible with the
    *mkimage tool*.
 
@@ -355,7 +352,7 @@ Build U-Boot
 
 * Get the U-Boot sources:
 
-.. parsed-literal::
+::
 
    host$ git clone git://git.phytec.de/u-boot-imx
 
@@ -375,7 +372,7 @@ Build U-Boot
 
    * Create your own development branch:
 
-.. parsed-literal::
+::
 
    host$ git checkout -b <new-branch>
 
@@ -402,7 +399,7 @@ Set this environment variable before building the Image:
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed. E.g. flash SD card:
 
-.. parsed-literal::
+::
 
    host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync
 
@@ -424,7 +421,7 @@ Build Kernel
 * Set up a build environment (mentioned here)
 * Build the linux kernel:
 
-.. parsed-literal::
+::
 
    host$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
    host$ make -j16
@@ -461,9 +458,7 @@ command line:
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
-our Git repositories.:
-
-.. parsed-literal::
+our Git repositories::
 
    host$ repo sync
 
@@ -507,13 +502,13 @@ Gparted
 
 * Get GParted:
 
-.. parsed-literal::
+::
 
    host$ sudo apt install gparted
 
 * Insert the SD Card into your host and get the device name:
 
-.. parsed-literal::
+::
 
    host$ dmesg | tail
    ...
@@ -524,7 +519,7 @@ Gparted
 * Unmount all SD Card partitions.
 * Launch GParted:
 
-.. parsed-literal::
+::
 
    host$ sudo gparted
 
