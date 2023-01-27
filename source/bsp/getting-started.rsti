@@ -14,7 +14,7 @@ The \*.sdcard image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
 command dd. It can be built by Yocto or downloaded from our download server.
 
-* Get the *\*.sdcard* file from our download server:
+*  Get the *\*.sdcard* file from our download server:
 
 .. parsed-literal::
 
@@ -35,15 +35,15 @@ To create your bootable SD card, you must first find out the correct device name
 of your SD card and possible partitions. Then unmount the partitions before you
 start copying the image to the SD card.
 
-* In order to get the correct device name, first remove your SD card and
-  execute ls /dev.
-* Now insert your SD card and execute ls /dev again.
-* Compare the two outputs to find the new device name(s) listed in the second
-  output. These are the device names of the SD card (device and partitions if
-  the SD card is formatted).
-* In order to verify the device names found, execute the command dmesg. Within
-  the last lines of its output, you should also find the device names, for
-  example, sde (depending on your system).
+*  In order to get the correct device name, first remove your SD card and
+   execute ls /dev.
+*  Now insert your SD card and execute ls /dev again.
+*  Compare the two outputs to find the new device name(s) listed in the second
+   output. These are the device names of the SD card (device and partitions if
+   the SD card is formatted).
+*  In order to verify the device names found, execute the command dmesg. Within
+   the last lines of its output, you should also find the device names, for
+   example, sde (depending on your system).
 
 Now that you have the device name /dev/<your_device> (e.g. /dev/sde), you can
 see the partitions which must be unmounted if the SD card is formatted. In this
@@ -51,14 +51,14 @@ case, you will also find /dev/<your_device> with an appended number
 (e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
 unmounted.
 
-* Unmount all partitions:
+*  Unmount all partitions:
 
 ::
 
    host$ umount /dev/<your_device><number>
 
-* After having unmounted all devices with an appended number
-  (<your_device><number>), you can create your bootable SD card:
+*  After having unmounted all devices with an appended number
+   (<your_device><number>), you can create your bootable SD card:
 
 ::
 

@@ -18,8 +18,8 @@ USB configfs support as a kernel module. ::
 
 **Example**:
 
-* First, define the parameters such as the USB vendor and product IDs, and set
-  the information strings for the English (0x409) language:
+*  First, define the parameters such as the USB vendor and product IDs, and set
+   the information strings for the English (0x409) language:
 
 .. hint::
 
@@ -37,13 +37,13 @@ USB configfs support as a kernel module. ::
    echo "Foo Inc." > strings/0x409/manufacturer
    echo "Bar Gadget" > strings/0x409/product
 
-* Next, create a file for the mass storage gadget:
+*  Next, create a file for the mass storage gadget:
 
 ::
 
    target$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
 
-* Now you should create the functions you want to use:
+*  Now you should create the functions you want to use:
 
 ::
 
@@ -53,12 +53,12 @@ USB configfs support as a kernel module. ::
    mkdir functions/mass_storage.0
    echo /tmp/file.img > functions/mass_storage.0/lun.0/file
 
-- *acm*: Serial gadget, creates serial interface like /dev/ttyGS0.
-- *ecm*: Ethernet gadget, creates ethernet interface, e.g. usb0
-- *mass_storage*: The host can partition, format, and mount the gadget mass
-  storage the same way as any other USB mass storage.
+-  *acm*: Serial gadget, creates serial interface like /dev/ttyGS0.
+-  *ecm*: Ethernet gadget, creates ethernet interface, e.g. usb0
+-  *mass_storage*: The host can partition, format, and mount the gadget mass
+   storage the same way as any other USB mass storage.
 
-* Bind the defined functions to a configuration:
+*  Bind the defined functions to a configuration:
 
 ::
 
@@ -70,7 +70,7 @@ USB configfs support as a kernel module. ::
    ln -s functions/ecm.usb0 configs/c.1/
    ln -s functions/mass_storage.0 configs/c.1/
 
-* Finally, start the USB gadget with the following commands:
+*  Finally, start the USB gadget with the following commands:
 
 ::
 
@@ -82,7 +82,7 @@ USB configfs support as a kernel module. ::
 If your system has more than one USB Device or OTG port, you can pass the right
 one to the USB Device Controller (UDC).
 
-* To stop the USB gadget and unbind the used functions, execute:
+*  To stop the USB gadget and unbind the used functions, execute:
 
 ::
 

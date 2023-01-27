@@ -19,13 +19,13 @@ To get all available LEDs, type: ::
 
 Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
 
-* To toggle the LEDs ON:
+*  To toggle the LEDs ON:
 
 ::
 
    target$ echo 255 > /sys/class/leds/user-led1/brightness
 
-* To toggle OFF:
+*  To toggle OFF:
 
 ::
 

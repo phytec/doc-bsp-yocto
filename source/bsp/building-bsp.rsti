@@ -22,7 +22,7 @@ with Yocto. This is particularly useful if you want to make customizations. 
 The phyLinux script is a basic management tool for PHYTEC Yocto BSP releases
 written in Python. It is mainly a helper to get started with the BSP structure. 
 
-* Create a fresh project folder, get phyLinux, and make the script executable:
+*  Create a fresh project folder, get phyLinux, and make the script executable:
 
 ::
 
@@ -37,7 +37,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
    directory. Calling phyLinux from a directory that isn't empty will result in
    a warning.
 
-* Run phyLinux
+*  Run phyLinux
 
 ::
 
@@ -48,9 +48,9 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
    On the first initialization, the phyLinux script will ask you to install
    the Repo tool in your /usr/local/bin directory. 
 
-* During the execution of the init command, you need to choose your processor
-  platform (SoC), PHYTEC's BSP release number, and the hardware you are working
-  on.
+*  During the execution of the init command, you need to choose your processor
+   platform (SoC), PHYTEC's BSP release number, and the hardware you are working
+   on.
 
 .. note::
 
@@ -58,8 +58,8 @@ written in Python. It is mainly a helper to get started with the BSP structure.�
    have a look at the invoice for the product. And have look at
    |dlpage-bsp|.
 
-* It is also possible to pass this information directly using command line
-  parameters:
+*  It is also possible to pass this information directly using command line
+   parameters:
 
 .. parsed-literal::
 
@@ -71,7 +71,7 @@ notes as well as information for the next steps in the build process.
 Starting the Build Process
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Set up the shell environment variables:
+*  Set up the shell environment variables:
 
 ::
 
@@ -81,9 +81,9 @@ Starting the Build Process
 
    This needs to be done every time you open a new shell for starting builds.
 
-* The current working directory of the shell should change to build/.
-* Open the main configuration file and accept the GPU and VPU binary license
-  agreements. You have to uncomment the corresponding line.
+*  The current working directory of the shell should change to build/.
+*  Open the main configuration file and accept the GPU and VPU binary license
+   agreements. You have to uncomment the corresponding line.
 
 ::
 
@@ -92,7 +92,7 @@ Starting the Build Process
    # EULA can be found under ../sources/meta-freescale/EULA                        
    ACCEPT_FSL_EULA = "1"
 
-* Build your image:
+*  Build your image:
 
 .. parsed-literal::
 
