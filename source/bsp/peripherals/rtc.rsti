@@ -4,13 +4,13 @@ RTC
 RTCs can be accessed via /dev/rtc\*. Because PHYTEC boards have often more than
 one RTC, there might be more than one RTC device file.
 
-* To find the name of the RTC device, you can read its sysfs entry with:
+*  To find the name of the RTC device, you can read its sysfs entry with:
 
 ::
 
    target$ cat /sys/class/rtc/rtc*/name
 
-* You will get, for example:
+*  You will get, for example:
 
 ::
 

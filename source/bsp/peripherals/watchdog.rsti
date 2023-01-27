@@ -13,8 +13,8 @@ Watchdog Support in systemd
 
 Systemd has included hardware watchdog support since version 183.
 
-* To activate watchdog support, the file system.conf in /etc/systemd/ has to be
-  adapted by enabling the options::
+*  To activate watchdog support, the file system.conf in /etc/systemd/ has to be
+   adapted by enabling the options::
 
    RuntimeWatchdogSec=60s
    ShutdownWatchdogSec=10min

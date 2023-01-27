@@ -5,13 +5,13 @@ The phyCORE-|soc| has one Mini-PCIe slot. In general, PCIe autodetects new
 devices on the bus. After connecting the device and booting up the system, you
 can use the command lspci to see all PCIe devices recognized.
 
-* Type:
+*  Type:
 
 ::
 
    target$ lspci -v
 
-* You will receive:
+*  You will receive:
 
 ::
 
@@ -49,29 +49,29 @@ option for the driver, which must be enabled, is named CONFIG_IWLWIFI and can 
 found under Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat in
 the kernel configuration.
 
-* In order to activate the driver, follow the instructions from our Yocto
-  manual: `Kernel and Bootloader Configuration
-  <https://www.phytec.de/cdocuments/?doc=UIHsG#L813e-A12YoctoReferenceManualHeadHardknott-KernelandBootloaderConfiguration>`__
+*  In order to activate the driver, follow the instructions from our Yocto
+   manual: `Kernel and Bootloader Configuration
+   <https://www.phytec.de/cdocuments/?doc=UIHsG#L813e-A12YoctoReferenceManualHeadHardknott-KernelandBootloaderConfiguration>`__
 
-   - The linux-imx is represented by: virtual/kernel
+   -  The linux-imx is represented by: virtual/kernel
 
 For some devices like the WLAN card, additional binary firmware blobs are
 needed. These firmware blobs have to be placed in /lib/firmware/ before the
 device can be used.
 
-* Type:
+*  Type:
 
 ::
 
    host$ scp -r <firmware> root@192.168.3.11:/lib/firmware
 
-* For example, if you try to bring up the network interface:
+*  For example, if you try to bring up the network interface:
 
 ::
 
    target$ ip link set up wlp1s0
 
-* You will get the following output on the serial console:
+*  You will get the following output on the serial console:
 
 ::
 

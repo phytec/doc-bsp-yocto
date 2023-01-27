@@ -132,7 +132,7 @@ Important Tasks When Extending the Documentation
 
 When creating a new documentation document e.g. for a new release, it is
 important to add a tuple to the *latex_documents* variable in the *conf.py*
-file. This ensures a seperate pdf file is generated for the newly added release.
+file. This ensures a separate pdf file is generated for the newly added release.
 
 .. tip::
    Use `grep <https://www.man7.org/linux/man-pages/man1/grep.1.html>`__
@@ -220,7 +220,7 @@ Quickstart for Creation of a New BSP Manual
 
 5. Fill out the substitutions in the template.
 6. Add the tuple for the <release>.rst file in the conf.py file to
-   latex_documents, so that a seperate pdf file for your document will be built.
+   latex_documents, so that a separate pdf file for your document will be built.
 7. Add custom content needed for the final doc (use content from other platforms
    if applicable).
 
@@ -258,11 +258,11 @@ Organization:
    text is board specific, it needs to be removed from the "generic" file to a
    more specific file. E.g. move from bsp/ to bsp/imx8
 
--  For now the individual L-* documents are kept as a single continuos html
+-  For now the individual L-* documents are kept as a single continuous html
    page. This means that all content is included using the include reST
    directive and is not added by using the toctree sphinx reST directive.
    (Using toctree is more complex in terms of file structure and arguably adds
-   the benefit to not have everything in one large html file, but seperated
+   the benefit to not have everything in one large html file, but separated
    into e.g. one per section)
 
 -  Improve quality control for manuals. Due to the nature of contributing
@@ -273,6 +273,6 @@ Organization:
 Unresolved Issues
 =================
 
-*  Substitutions require the highest priority i.e. cant do **|<text>|** to
+*  Substitutions require the highest priority i.e. can't do **|<text>|** to
    highlight substitution text in bold for only one case.
    https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#recognition-order

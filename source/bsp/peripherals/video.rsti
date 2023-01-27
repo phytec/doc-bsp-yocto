@@ -8,7 +8,7 @@ The video is installed by default in the BSP::
 
    target$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
 
-* Or
+*  Or
 
 ::
 
@@ -16,7 +16,7 @@ The video is installed by default in the BSP::
    \! qtdemux  \! h264parse \! queue \! vpudec \! waylandsink async=false enable-last-sample=false \
    qos=false sync=false
 
-* Or
+*  Or
 
 ::
 
