@@ -51,6 +51,6 @@ status of a node depending on if it is mounted or not. The device tree overlays
 are placed next to the other device tree files in our Linux kernel repository in
 the subfolder arch/arm64/boot/dts/freescale/overlays.
 
-Available overlays for |machinename|.conf are:
+Available overlays for |yocto-machinename|.conf are:
 
 .. Add overlay files in leaf file

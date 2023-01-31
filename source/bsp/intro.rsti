@@ -1,6 +1,6 @@
 This BSP manual guides you through the installation and creation steps for the
 Board Support Package (BSP) and describes how to handle the interfaces for the
-|Kit|. Furthermore, this document describes how to create BSP images from the
+|kit|. Furthermore, this document describes how to create BSP images from the
 source code. This is useful for those who need to change the default image and
 need a way to implement these changes in a simple and reproducible way. 
 
@@ -59,4 +59,4 @@ all of our products. This includes any or all of the following:
 On top of these standard manuals and guides, PHYTEC will also
 provide Product Change Notifications, Application Notes, and
 Technical Notes. These will be done on a case-by-case basis. Most
-of the documentation can be found on the |dl-page| of our product.
+of the documentation can be found on the |dlpage-product| of our product.

@@ -139,7 +139,7 @@ Place Images on Host for Netboot
 
 .. parsed-literal::
 
-   sudo tar -xvzf |imagename|-|machinename|.tar.gz -C <path_to_your_NFSROOT>
+   sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C <path_to_your_NFSROOT>
 
 .. note::
    Check the destination path when unpacking the rootfs. 
@@ -148,7 +148,7 @@ Network Settings on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To customize the targets ethernet configuration, please follow the description
-here: |network-ref|
+here: |ref-network|
 
 Booting from an Embedded Board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -185,7 +185,7 @@ Get _flash.bin
 ~~~~~~~~~~~~~~
 
 Download imx-boot from our server or get it from your Yocto build directory at
-../build/deploy/images/|machinename|/ and copy the U-boot image (imx-boot) to
+../build/deploy/images/|yocto-machinename|/ and copy the U-boot image (imx-boot) to
 the UUU directory::
 
    host$ cd mfgtools
@@ -194,7 +194,7 @@ the UUU directory::
 Prepare Target
 ~~~~~~~~~~~~~~
 
-For UUU boot, set the |bootswitch| to **Serial downloader (USB boot)** (Boot
+For UUU boot, set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
 Configuration Options). Also, connect USB A Male to USB  Male cable from the
 host to the top connector of **X5**.
 
@@ -208,8 +208,8 @@ Starting bootloader via UUU-Tool
    host$ cd mfgtools/uuu
    host$ sudo ./uuu _flash.bin
 
-You can see the bootlog on the console via the debug USB |debugusbconnector|, as
-usual. 
+You can see the bootlog on the console via the debug USB
+|ref-debugusbconnector|, as usual. 
 
 .. note::
    The default boot command when booting with UUU-Tool is set to fastboot. If
@@ -222,17 +222,17 @@ usual. 
 Flashing SD Card Image to eMMC via UUU-Tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Set the |bootswitch| to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG |usb-otg-ref| to your host. 
+Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
 
-Download |imagename|-|machinename|.sdcard and imx-boot image from our server or
-get them from your Yocto build directory at
-../build/deploy/images/|machinename|/ and copy them to the UUU directory:
+Download |yocto-imagename|-|yocto-machinename|.sdcard and imx-boot image from
+our server or get them from your Yocto build directory at
+../build/deploy/images/|yocto-machinename|/ and copy them to the UUU directory:
 
 .. parsed-literal::
 
    host$ cd mfgtools
-   host$ cp -v |imagename|-|machinename|.sdcard uuu/_rootfs.sdcard
+   host$ cp -v |yocto-imagename|-|yocto-machinename|.sdcard uuu/_rootfs.sdcard
 
 Make sure that the U-Boot image is also available!
 
@@ -289,7 +289,7 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
 .. parsed-literal::
 
    host$ source sources/poky/oe-init-build-env
-   host$ bitbake -c populate_sdk |imagename| # or another image
+   host$ bitbake -c populate_sdk |yocto-imagename| # or another image
 
 Install the SDK
 ~~~~~~~~~~~~~~~
@@ -298,10 +298,10 @@ Install the SDK
 
 .. parsed-literal::
 
-   host$ chmod +x phytec-|distro|-glibc-x86_64-|imagename|-cortexa53-crypto-toolchain-|manifestbspname|.sh
-   host$ ./phytec-|distro|-glibc-x86_64-|imagename|-cortexa53-crypto-toolchain-|manifestbspname|.sh ============================================================================================================
-   Enter target directory for SDK (default: /opt/|distro|/|manifestbspname|):
-   You are about to install the SDK to "/opt/|distro|/|manifestbspname|". Proceed [Y/n]?
+   host$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
+   host$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh ============================================================================================================
+   Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-manifestname|):
+   You are about to install the SDK to "/opt/|yocto-distro|/|yocto-manifestname|". Proceed [Y/n]?
    Extracting SDK...done
    Setting it up...done
    SDK has been successfully set up and is ready to be used.
@@ -314,7 +314,7 @@ in the toolchain directory:
 
 .. parsed-literal::
 
-   host$ source /opt/|distro|/|manifestbspname|/environment-setup-cortexa53-crypto-phytec-linux
+   host$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
 Build imx-boot
 ~~~~~~~~~~~~~~
@@ -330,17 +330,17 @@ To build the imx-boot, you need to **copy** these **files** to your **u-boot-imx
 build directory** and rename them to fit with *mkimage tool* script:
 
 * **ARM Trusted firmware binary** (*mkimage tool* compatible format
-  **bl31.bin**): bl31-|shortboardname|.bin
+  **bl31.bin**): bl31-|kernel-socname|.bin
 * **DDR firmware files** (*mkimage tool* compatible format
   **lpddr4_pmu_train_\*d_\*mem.bin**): *lpddr4_pmu_train_2d_dmem_202006.bin,
   lpddr4_pmu_train_2d_imem_202006.bin; (lpddr4_pmu_train_1d_dmem_202006.bin,
   lpddr4_pmu_train_1d_imem_202006.bin)*
 
 If you already build our BSP with Yocto, you can get
-the bl31-|shortboardname|.bin and lpddr4_pmu_train*.bin from the directory
-mentioned here: |bsp-images-ref|
+the bl31-|kernel-socname|.bin and lpddr4_pmu_train*.bin from the directory
+mentioned here: |ref-bsp-images|
 
-Or you can download the files here: |boottoolslink|
+Or you can download the files here: |link-boot-tools|
 
 .. warning::
 
@@ -358,14 +358,14 @@ Build U-Boot
 
 * To get the correct *U-Boot* **tag** you need to take a look at our release
   notes, which can be found here: `release notes <releasenotes_>`_
-* The **tag** needed at this release is called |uboottag|
+* The **tag** needed at this release is called |uboot-tag|
 * Check out the needed *U-Boot* **tag**:
 
 .. parsed-literal::
 
    host$ cd ~/u-boot-imx/
    host$ git fetch --all --tags
-   host$ git checkout tags/|uboottag|
+   host$ git checkout tags/|uboot-tag|
 
 * Technically, you can now build the U-Boot, but practically there are some
   further steps necessary:
@@ -393,7 +393,7 @@ Set this environment variable before building the Image:
 
 .. parsed-literal::
 
-   host$ make phycore-|shortboardname|\ _defconfig
+   host$ make phycore-|kernel-socname|\ _defconfig
    host$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
@@ -407,7 +407,7 @@ Build Kernel
 ~~~~~~~~~~~~
 
 * The used linux-imx branch can be found in the release notes: release notes
-* The tag needed for this release is called |kerneltag|
+* The tag needed for this release is called |kernel-tag|
 * Check out the needed linux-imx tag:
 
 .. parsed-literal::
@@ -415,7 +415,7 @@ Build Kernel
    host$ git clone git://git.phytec.de/linux-imx
    host$ cd ~/linux-imx/
    host$ git fetch --all --tags
-   host$ git checkout tags/|kerneltag|
+   host$ git checkout tags/|kernel-tag|
    host$ git checkout -b <new-branch>
 
 * Set up a build environment (mentioned here)
@@ -428,7 +428,7 @@ Build Kernel
 
 * The Image can be found at ~/linux-imx/arch/arm64/boot/Image
 * The dtb can be found at
-  ~/linux-imx/arch/arm64/boot/dts/freescale/|dtcarrierboard|.dtb
+  ~/linux-imx/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
 
 .. note::
 
@@ -454,7 +454,7 @@ command line:
 
 .. parsed-literal::
 
-   host$ ./phyLinux init -p |shortboardname| -r |yoctocodename|
+   host$ ./phyLinux init -p |kernel-socname| -r |yocto-codename|
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
@@ -471,7 +471,7 @@ development state on a regular basis.
 
 .. parsed-literal::
 
-   host$ ./phyLinux init -p |shortboardname| -r kirkstone
+   host$ ./phyLinux init -p |kernel-socname| -r |yocto-codename|
 
 Accessing the Latest Upstream Support
 .....................................
@@ -487,7 +487,7 @@ kernel/u-boot.
 
 .. parsed-literal::
 
-   host$ ./phyLinux init -p |shortboardname| -r BSP-Yocto-Ampliphy-i.MX8MP-master
+   host$ ./phyLinux init -p |kernel-socname| -r BSP-Yocto-Ampliphy-i.MX8MP-master
 
 Format SD-Card
 ..............
@@ -544,11 +544,11 @@ Expand rootfs
 
 * To apply your changes, press the green tick. 
 * Now you can mount the root partition and copy e.g. the
-  |imagename|-|machinename|.sdcard image to it. Then unmount it again:
+  |yocto-imagename|-|yocto-machinename|.sdcard image to it. Then unmount it again:
 
 .. parsed-literal::
 
-   host$ sudo cp |imagename|-|machinename|.sdcard /mnt/ ; sync
+   host$ sudo cp |yocto-imagename|-|yocto-machinename|.sdcard /mnt/ ; sync
    host$ umount /mnt
 
 Create the Third Partition
@@ -571,10 +571,10 @@ Create the Third Partition
 .. image:: /bsp/images/gparted8.png
 
 * Now you can mount the new partition and copy e.g.
-  |imagename|-|machinename|.sdcard image to it. Then unmount it again:
+  |yocto-imagename|-|yocto-machinename|.sdcard image to it. Then unmount it again:
 
 .. parsed-literal::
 
    host$ sudo mount /dev/sde3 /mnt
-   host$ sudo cp |imagename|-|machinename|.sdcard /mnt/ ; sync
+   host$ sudo cp |yocto-imagename|-|yocto-machinename|.sdcard /mnt/ ; sync
    host$ umount /mnt
