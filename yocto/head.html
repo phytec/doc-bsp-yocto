@@ -349,20 +349,20 @@ There are several use cases where the installation and maintenance of
 a <em>Toaster</em> instance are beneficial. PHYTEC did not add or remove any features
 to the upstream <em>Toaster</em>, provided by <em>Poky</em>. The best source for more
 information is the official documentation:
-<a class="reference external" href="https://docs.yoctoproject.org/toaster-manual/index.html">https://docs.yoctoproject.org/toaster-manual/index.html</a></p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html">https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html</a></p>
 </section>
 </section>
 <section id="official-documentation">
 <h3>Official Documentation<a class="headerlink" href="#official-documentation" title="Permalink to this heading"></a></h3>
 <p>For more general questions about <em>Bitbake</em> and <em>Poky</em> consult the mega-manual:
-<a class="reference external" href="https://docs.yoctoproject.org/4.0.2/singleindex.html">https://docs.yoctoproject.org/4.0.2/singleindex.html</a></p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/singleindex.html">https://docs.yoctoproject.org/4.0.6/singleindex.html</a></p>
 </section>
 </section>
 <section id="compatible-linux-distributions">
 <h2>Compatible Linux Distributions<a class="headerlink" href="#compatible-linux-distributions" title="Permalink to this heading"></a></h2>
 <p>To build <em>Yocto</em> you need a compatible <em>Linux</em> host development machine. The
 list of supported distributions can be found in the reference manual:
-<a class="reference external" href="https://docs.yoctoproject.org/4.0.2/ref-manual/system-requirements.html#supported-linux-distributions">https://docs.yoctoproject.org/4.0.2/ref-manual/system-requirements.html#supported-linux-distributions</a></p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions">https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions</a></p>
 </section>
 <section id="phytec-bsp-introduction">
 <h2>PHYTEC BSP Introduction<a class="headerlink" href="#phytec-bsp-introduction" title="Permalink to this heading"></a></h2>
@@ -452,7 +452,7 @@ other update systems can be found here: <a class="reference external" href="http
 <section id="meta-phytec">
 <h5>meta-phytec<a class="headerlink" href="#meta-phytec" title="Permalink to this heading"></a></h5>
 <p>This layer contains all machines and common features for all our BSPs. It is
-PHYTEC’s <a class="reference external" href="https://docs.yoctoproject.org/4.0.2/bsp-guide/index.html">Yocto Board Support Package</a> for all supported
+PHYTEC’s <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html">Yocto Board Support Package</a> for all supported
 hardware (since <em>fido</em>) and is designed to be standalone with <em>Poky</em>. Only these
 two parts are required if you want to integrate the PHYTEC’s hardware into your
 existing <em>Yocto</em> workflow. The features are:</p>
@@ -627,7 +627,7 @@ using build-container can be found in this manual after
 </pre></div>
 </div>
 <p>For other distributions you can find information in the <em>Yocto</em> Quick Build:
-<a class="reference external" href="https://docs.yoctoproject.org/4.0.2/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/4.0.2/brief-yoctoprojectqs/index.html</a></p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html</a></p>
 </section>
 <section id="git-configuration">
 <span id="git-config"></span><h3>Git Configuration<a class="headerlink" href="#git-configuration" title="Permalink to this heading"></a></h3>
@@ -1102,8 +1102,8 @@ build details with the Toaster web GUI:</p>
 <p>You can then point your browser to <em>http://0.0.0.0:8000/</em> and continue working
 with <em>Bitbake</em>. All build activity can be monitored and analyzed from this web
 server. If you want to learn more about <em>Toaster</em>, look at
-<a class="reference external" href="https://docs.yoctoproject.org/toaster-manual/index.html">https://docs.yoctoproject.org/toaster-manual/index.html</a></p>
-<p>To shut down the <em>Toaster</em> web GUI again, execute:</p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html">https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html</a>
+To shut down the <em>Toaster</em> web GUI again, execute:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ source toaster stop
 </pre></div>
 </div>
@@ -1340,7 +1340,7 @@ all PACKAGES variables. A tool such as <em>Toaster</em> can be helpful in some c
 <p>If you can not find your software in the layers provided in the folder
 <em>sources</em>, see the next section to include another layer into the <em>Yocto</em>
 build.</p>
-<p>References: <a class="reference external" href="https://docs.yoctoproject.org/4.0.2/singleindex.html#user-configuration">Yocto 4.0.2 Docu - Customizing Yocto builds</a></p>
+<p>References: <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration">Yocto 4.0.6 Documentation - Customizing Yocto builds</a></p>
 </section>
 </section>
 <section id="add-an-additional-layer">
@@ -1699,7 +1699,7 @@ and create a patch using <em>Git</em>. How to create a patch is described in the
 of the next section and is the same for all methods.</p>
 <p>If you want to learn more about <em>devtool</em>, visit:</p>
 <p><a class="reference external" href="https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow">Yocto 4.0 - Devtool</a>
-or <a class="reference external" href="https://docs.yoctoproject.org/4.0.2/ref-manual/devtool-reference.html">Devtool Quick Reference</a></p>
+or <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html">Devtool Quick Reference</a></p>
 </section>
 <section id="patch-the-kernel-or-bootloader-using-the-temporary-method">
 <h4>Patch the Kernel or Bootloader using the “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Permalink to this heading"></a></h4>
@@ -2751,7 +2751,7 @@ developer manual.
 <a class="reference external" href="https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks">https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks</a></p>
 <p>The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
-<a class="reference external" href="https://docs.yoctoproject.org/4.0.2/singleindex.html">https://docs.yoctoproject.org/4.0.2/singleindex.html</a></p>
+<a class="reference external" href="https://docs.yoctoproject.org/4.0.6/singleindex.html">https://docs.yoctoproject.org/4.0.6/singleindex.html</a></p>
 </section>
 </section>
 
