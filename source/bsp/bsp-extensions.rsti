@@ -5,7 +5,7 @@ Chromium
 ........
 
 Our BSP for the |sbc|-|soc| supports Chromium. You can include it in the
-|imagename| with only a few steps.
+|yocto-imagename| with only a few steps.
 
 Adding Chromium to Your local.conf
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

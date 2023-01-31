@@ -1,11 +1,11 @@
 Getting Started
 ---------------
 
-The |Kit|\s are shipped with a pre-flashed SD-Card.  It contains the |imagename|
-and can be used directly as a boot source. The eMMC is programmed with only a
-U-boot as default. You can get all the sources from our `download server
-<dl-server_>`_. This chapter explains how to flash a BSP image to SD Card and
-how to start the board.
+The |kit|\s are shipped with a pre-flashed SD-Card.  It contains the
+|yocto-imagename| and can be used directly as a boot source. The eMMC is
+programmed with only a U-boot as default. You can get all the sources from our
+`download server <dl-server_>`_. This chapter explains how to flash a BSP image
+to SD Card and how to start the board.
 
 Get the Image
 .............
@@ -18,7 +18,7 @@ command dd. It can be built by Yocto or downloaded from our download server.
 
 .. parsed-literal::
 
-   host$ wget |imagelink|
+   host$ wget |link-image|
 
 
 Write the Image to SD Card
@@ -71,8 +71,9 @@ card and are not still in memory. The parameter status=progress will print ou
 information on how much data is and still has to be copied until it is finished.
 
 .. note::
-   The created file |imagename|-|machinename|.sdcard is only a link to a file
-   like |imagename|-|machinename|-<BUILD-TIME>.rootfs.sdcard.
+   The created file |yocto-imagename|-|yocto-machinename|.sdcard is only a link
+   to a file like
+   |yocto-imagename|-|yocto-machinename|-<BUILD-TIME>.rootfs.sdcard.
 
 <BUILD-TIME> has the format: YYYYMMDDHHMMSS
 

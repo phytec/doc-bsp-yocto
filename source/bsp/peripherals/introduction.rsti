@@ -2,8 +2,8 @@ Accessing Peripherals
 ---------------------
 
 To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-|soc| BSP described herein, visit our web page |dl-page| and click the
-corresponding BSP release in the download section. Here you can find all
+phyCORE-|soc| BSP described herein, visit our web page |dlpage-bsp| and click
+the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns "Hardware Article Number" and the correct
 machine name in the corresponding cell under "Machine Name".
 
@@ -20,7 +20,7 @@ Linux kernel, especially of the ARM implementation which always has to fight
 with an insane number of possibilities of the System-on-Chip CPUs. The whole
 board-specific hardware is described in DTs and is not part of the kernel image
 itself. The hardware description is in its own separate binary, called the
-Device Tree Blob (DTB) (section |dt-ref|). 
+Device Tree Blob (DTB) (section |ref-dt|). 
 
 Please read section PHYTEC |soc| BSP Device Tree Concept to get an understanding
 of our |socfamily| BSP device tree model. 
