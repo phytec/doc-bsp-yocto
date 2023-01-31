@@ -1,5 +1,5 @@
 #!/bin/bash
-# Check for whitespaces in filesnames. Exit with error, if found.
+# Check for whitespaces in filenames. Exit with error, if found.
 
 DIR=source
 
