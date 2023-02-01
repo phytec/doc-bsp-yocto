@@ -875,6 +875,18 @@ duckerhub space:
 If you try to run a container, which is not pulled/downloaded, it will be
 pulled/downloaded automatically.
 
+On some distributions, you may need to add search registries on your own.
+
+:: 
+
+    /etc/containers/registries.conf
+    unqualified-search-registries = ["registry.fedoraproject.org", "registry.access.redhat.com", "docker.io", "quay.io"]
+
+At least docker.io needs to be added, so our container can be found and pulled.
+
+
+    
+
 Run container
 -------------
 
