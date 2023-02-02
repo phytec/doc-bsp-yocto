@@ -1620,8 +1620,8 @@ directory and create a patch using *Git*. How to create a patch is described in
 
 If you want to learn more about *devtool*, visit:
 
-`Yocto 4.0 - Devtool
-<https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
+`Yocto 4.0.6 - Devtool
+<https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
 or `Devtool Quick Reference
 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
 
@@ -1744,9 +1744,9 @@ be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto*
 and most of the documentation assumes the *Yocto* kernel approach.
 
 -  `Yocto - Kernel Development Manual
-   <https://docs.yoctoproject.org/kernel-dev/index.html>`_
+   <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_
 -  `Yocto - Development Manual
-   <https://docs.yoctoproject.org/dev-manual/index.html>`_
+   <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_
 
 Working with the Kernel and Bootloader using SRC_URI in *local.conf*
 ....................................................................
@@ -2589,7 +2589,7 @@ directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)::
    host$ make install DESTDIR=$PWD/build/
 
 Refer to the official *Yocto* documentation for more information:
-https://docs.yoctoproject.org/singleindex.html#autotools-based-projects
+https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects
 
 Working with Kernel Modules
 ...........................
@@ -2699,10 +2699,10 @@ Yocto Documentation
 
 The most important piece of documentation for a BSP user is probably the
 developer manual.
-https://docs.yoctoproject.org/dev-manual/index.html
+https://docs.yoctoproject.org/4.0.6/dev-manual/index.html
 
 The chapter about common tasks is a good starting point.
-https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks
+https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks
 
 The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
