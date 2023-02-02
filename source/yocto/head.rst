@@ -170,7 +170,7 @@ You can add one or many layers of each category in your build.
 
 A collection of OpenEmbedded layers can be found here. The search function is
 very helpful to see if a software package can be retrieved and integrated
-easily: http://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+easily: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/
 
 Machine
 .......
@@ -2110,8 +2110,8 @@ and the interface files in the folder
 *meta-ampliphy/recipes-core/systemd/systemd-machine-units/* where the static IP
 address configuration for *eth0* (and optionally *eth1*) is done.
 
-For more information, see https://wiki.archlinux.org/index.php/Systemd-networkd
-and http://www.freedesktop.org/software/systemd/man/systemd.network.html.
+For more information, see https://wiki.archlinux.org/title/Systemd-networkd
+and https://www.freedesktop.org/software/systemd/man/systemd.network.html.
 
 Changing the Wireless Network Configuration
 ...........................................
@@ -2268,7 +2268,7 @@ phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX
 Add OpenCV Libraries and Examples
 .................................
 
-*OpenCV* (Opensource Computer Vision http://opencv.org/) is an open-source
+*OpenCV* (Opensource Computer Vision https://opencv.org/) is an open-source
 library for computer vision applications.
 
 To install the libraries and examples edit the file *conf/local.conf* in the
@@ -2633,7 +2633,7 @@ in */etc/udev/rules.d* (sysadmin configuration space) and\  */lib/udev/rules.d/*
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="input:*-e0*,3,*a0,1,*18,*", SYMLINK+="input/touchscreen0"
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="ads7846", SYMLINK+="input/touchscreen0"
 
-See http://www.freedesktop.org/software/systemd/man/udev.html for more details
+See https://www.freedesktop.org/software/systemd/man/udev.html for more details
 about the syntax and usage. To get the list of attributes for a specific device
 that can be used in an *udev* rule you can use the *udevadm info* tool. It
 prints all existing attributes of the device node and its parents. The key-value
@@ -2661,7 +2661,7 @@ especially if the rule executes external scripts. Execute::
 .. tip::
 
    You cannot start daemons or heavy scripts in a *RUN* attribute. See
-   http://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D .
+   https://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D .
 
    This can only be used for very short-running foreground tasks. Running an
    event process for a long period of time may block all further events for this
@@ -2672,7 +2672,7 @@ especially if the rule executes external scripts. Execute::
    *systemd*\ service instead.
 
    See
-   http://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.
+   https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.
 
 Troubleshooting
 ===============
