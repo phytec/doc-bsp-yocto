@@ -2253,7 +2253,6 @@ You should see::
 Further information about AP settings and the userspace daemon
 *hostapd* can be found at::
 
-   http://processors.wiki.ti.com/index.php/OMAP_Wireless_Connectivity_NLCP_WLAN_AP_Configuration_Scripts
    https://wireless.wiki.kernel.org/en/users/documentation/hostapd
    https://w1.fi/hostapd/
 
