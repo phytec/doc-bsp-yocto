@@ -475,18 +475,24 @@ components. It provides a base for your specific development scenarios. The
 current features are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.freedesktop.org/wiki/Software/systemd/">systemd</a> init system</p></li>
-<li><p><a class="reference external" href="http://doc.qt.io/qt-5/embedded-linux.html">Qt5 with eglfs backend</a> for
-PHYTEC’s AM335x, i.MX 6 and RK3288 platforms</p></li>
-<li><p>Two different images: <code class="docutils literal notranslate"><span class="pre">phytec-headless-image</span></code> for non-graphics applications
-and <em>phytec-qt5demo-image</em> for <em>Qt5</em> and video applications</p></li>
+<li><p>Images: <code class="docutils literal notranslate"><span class="pre">phytec-headless-image</span></code> for non-graphics applications</p></li>
 <li><p>Camera integration with OpenCV and GStreamer examples for the i.MX 6 platform
 bundled in a <code class="docutils literal notranslate"><span class="pre">phytec-vision-image</span></code></p></li>
+<li><p>RAUC integration: we set up basic support for an A/B system image update,
+which is possible locally and over-the-air</p></li>
+</ul>
+</section>
+<section id="meta-qt5-phytec">
+<h5>meta-qt5-phytec<a class="headerlink" href="#meta-qt5-phytec" title="Permalink to this heading"></a></h5>
+<p>This is our layer for Qt5 board integration and examples. The features are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://doc.qt.io/qt-5/embedded-linux.html">Qt5 with eglfs backend</a> for
+PHYTEC’s AM335x, i.MX 6 and RK3288 platforms</p></li>
+<li><p>Images: <code class="docutils literal notranslate"><span class="pre">phytec-qt5demo-image</span></code> for <em>Qt5</em> and video applications</p></li>
 <li><p>A <em>Qt5</em> demo application demonstrating how to create a <em>Qt5</em> project using
 <em>QML</em> widgets and a <em>Bitbake</em> recipe for the <em>Yocto</em> and <em>systemd</em>
 integration. It can be found in
-<code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/recipes-qt/examples/phytec-qtdemo_git.bb</span></code></p></li>
-<li><p>RAUC integration: we setup basic support for an over-the-air A/B system image
-update</p></li>
+<code class="docutils literal notranslate"><span class="pre">sources/meta-qt5-phytec/recipes-qt/examples/phytec-qtdemo_git.bb</span></code></p></li>
 </ul>
 </section>
 <section id="meta-virtualization">
@@ -1447,15 +1453,13 @@ host$ git init &amp;&amp; git add . &amp;&amp; git commit -s
 <section id="kernel-and-bootloader-recipe-and-version">
 <h4>Kernel and Bootloader Recipe and Version<a class="headerlink" href="#kernel-and-bootloader-recipe-and-version" title="Permalink to this heading"></a></h4>
 <p>First, you need to know which kernel and version are used for your target
-machine. PHYTEC provides two kernel recipes <em>linux-mainline</em> and <em>linux-ti</em>. The
-first one provides support for PHYTEC’s i.MX 6 modules and is based on the
-<em>Linux</em> kernel stable releases from <a class="reference external" href="https://kernel.org/">kernel.org</a>. The
-second one provides support for PHYTEC’s AM335x modules and is based on the <em>TI</em>
-vendor kernel.</p>
-<p>The <em>Git</em> repositories URLs are:</p>
+machine. PHYTEC provides multiple kernel recipes <em>linux-mainline</em>, <em>linux-ti</em>
+and <em>linux-imx</em>. The first one provides support for PHYTEC’s i.MX 6 and AM335x
+modules and is based on the <em>Linux</em> kernel stable releases from <a class="reference external" href="https://kernel.org/">kernel.org</a>.
+The <em>Git</em> repositories URLs are:</p>
 <ul class="simple">
-<li><p><em>linux-ti</em>: git://git.phytec.de/linux-ti</p></li>
 <li><p><em>linux-mainline</em>: git://git.phytec.de/linux-mainline</p></li>
+<li><p><em>linux-ti</em>: git://git.phytec.de/linux-ti</p></li>
 <li><p><em>linux-imx:</em> git://git.phytec.de/linux-imx</p></li>
 <li><p><em>barebox</em>: git://git.phytec.de/barebox</p></li>
 <li><p><em>u-boot-imx</em>: git://git.phytec.de/u-boot-imx</p></li>
@@ -1488,9 +1492,7 @@ linux-mainline             :4.19.100-phy1-r0.0
 <p>As you can see, the recipe <em>linux-mainline</em> has version <em>4.19.100-phy1-r0</em>. In
 the PHYTEC’s <em>linux-mainline</em>  <em>Git</em> repository, you will find a corresponding
 tag <em>v4.19.100-phy1</em>. The version of the <em>barebox</em> recipe is 2019.11.0-phy1-r7.
-If your machine has an AM335x module the output of <em>bitbake -s</em> contains a line
-starting with <em>linux-ti</em>. On i.MX8M* modules the output will contain
-<em>linux-imx</em> and <em>u-boot-imx</em>.</p>
+On i.MX8M* modules the output will contain <em>linux-imx</em> and <em>u-boot-imx</em>.</p>
 </section>
 <section id="kernel-and-bootloader-configuration">
 <h4>Kernel and Bootloader Configuration<a class="headerlink" href="#kernel-and-bootloader-configuration" title="Permalink to this heading"></a></h4>
@@ -1499,7 +1501,7 @@ starting with <em>linux-ti</em>. On i.MX8M* modules the output will contain
 the kernel and bootloader. To configure the kernel or bootloader, execute one of
 the following commands:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
-host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly (If you use an AM335x Module)
+host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly
 host$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
 host$ bitbake -c menuconfig linux-imx       # Or use the recipe name directly (If you use an i.MX 8M*)
 host$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
@@ -1676,10 +1678,10 @@ shell environment. <em>Devtool</em> can be used to:</p>
 <li><p>integrate software projects into your build setup</p></li>
 <li><p>build software and deploy software modifications to your target</p></li>
 </ul>
-<p>Here we will use <em>devtool</em> to patch the kernel. We use <em>linux-ti</em> as an example
-for the AM335x TI Kernel. The first command we use is <em>devtool modify - x
+<p>Here we will use <em>devtool</em> to patch the kernel. We use <em>linux-mainline</em> as an
+example for the AM335x Kernel. The first command we use is <em>devtool modify - x
 &lt;recipe&gt; &lt;directory&gt;</em>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ devtool modify -x linux-ti linux-ti
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ devtool modify -x linux-mainline linux-mainline
 </pre></div>
 </div>
 <p><em>Devtool</em> will create a layer in <em>build/workspace</em> where you can see all
@@ -1688,22 +1690,22 @@ the recipe to the specified directory. A <em>bbappend</em> will be created in th
 workspace directing the SRC_URI to this directory. Building an image with
 <em>Bitbake</em> will now use the sources in this directory. Now you can modify lines
 in the kernel:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ vim linux-ti/arch/arm/boot/dts/am335x-phycore-som.dtsi
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
       -&gt; make a change
 host$ bitbake phytec-qt5demo-image
 </pre></div>
 </div>
 <p>Your changes will now be recompiled and added to the image. If you want to store
 your changes permanently, it is advisable to create a patch from the changes,
-then store and backup only the patch. You can go into the <em>linux-ti</em> directory
-and create a patch using <em>Git</em>. How to create a patch is described in the middle
-of the next section and is the same for all methods.</p>
+then store and backup only the patch. You can go into the <em>linux-mainline</em>
+directory and create a patch using <em>Git</em>. How to create a patch is described in
+<a class="reference internal" href="#temporary-method"><span class="std std-ref">Patch the Kernel or Bootloader using the “Temporary Method”</span></a> and is the same for all methods.</p>
 <p>If you want to learn more about <em>devtool</em>, visit:</p>
 <p><a class="reference external" href="https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow">Yocto 4.0 - Devtool</a>
 or <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html">Devtool Quick Reference</a></p>
 </section>
 <section id="patch-the-kernel-or-bootloader-using-the-temporary-method">
-<h4>Patch the Kernel or Bootloader using the “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Permalink to this heading"></a></h4>
+<span id="temporary-method"></span><h4>Patch the Kernel or Bootloader using the “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Permalink to this heading"></a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
