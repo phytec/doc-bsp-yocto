@@ -360,8 +360,8 @@ current features are:
 -  Images: ``phytec-headless-image`` for non-graphics applications
 -  Camera integration with OpenCV and GStreamer examples for the i.MX 6 platform
    bundled in a ``phytec-vision-image``
--  RAUC integration: we setup basic support for an over-the-air A/B system image
-   update
+-  RAUC integration: we set up basic support for an A/B system image update,
+   which is possible locally and over-the-air
 
 meta-qt5-phytec
 ~~~~~~~~~~~~~~~
