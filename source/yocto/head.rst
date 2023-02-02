@@ -570,9 +570,9 @@ directory::
 If you have already created a download directory and want to fix the permissions
 afterward, you can do so with::
 
-   host$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \\{\\} \\;
-   host$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \\{\\} \\;
-   host$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \\{\\} \\;
+   host$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
+   host$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
+   host$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
 
 The cache directory stores all stages of the build process. *Poky* has quite an
 involved caching infrastructure. It is advisable to create a shared directory,
@@ -1556,7 +1556,9 @@ and add the following lines to the *bbappend* file (here
 
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\ file://defconfig \\ "
+   SRC_URI:append = " \
+       file://defconfig \
+   "
 
 .. tip::
 
@@ -1720,7 +1722,9 @@ After that use your favorite editor to add the following snipped into the
 
    # contents of the file barebox_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\ file://0001-important-modification.patch \\ "
+   SRC_URI:append = " \
+       file://0001-important-modification.patch \
+   "
 
 Save the file and rebuild the *barebox* recipe with::
 
@@ -1903,18 +1907,18 @@ header file corresponding to the processor located in
 *include/configs/phycore_imx8m\**. New environment variables should be added at
 the end of *CONFIG_EXTRA_ENV_SETTINGS*::
 
-   #define CONFIG_EXTRA_ENV_SETTINGS \\
+   #define CONFIG_EXTRA_ENV_SETTINGS \
    [...]
-   PHYCORE_FITIMAGE_ENV_BOOTLOGIC \\
-   "newvariable=1\\0"
+   PHYCORE_FITIMAGE_ENV_BOOTLOGIC \
+   "newvariable=1\0"
 
 Commit the changes and and create the file *u-boot-imx_%.bbappend* in your layer
 at *<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend*::
 
    # contents of the file u-boot-imx_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\
-       file://0001-environment-addition.patch \\
+   SRC_URI:append = " \
+       file://0001-environment-addition.patch \
    "
 
 Change the *barebox* Environment via *bbappend* Files
