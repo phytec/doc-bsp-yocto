@@ -1516,7 +1516,7 @@ your favorite editor and add the following lines::
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
    SRC_URI:append = " \
-      file://enable-r8169.cfg \
+       file://enable-r8169.cfg \
    "
 
 .. warning::
