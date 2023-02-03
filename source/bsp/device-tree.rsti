@@ -1,8 +1,8 @@
 Device Tree (DT)
-----------------
+================
 
 Introduction
-............
+------------
 
 The following text briefly describes the Device Tree and can be found in
 the Linux kernel Documentation
@@ -18,13 +18,13 @@ overview of the device tree data format can be found on the device tree usage
 page at `devicetree.org <https://www.devicetree.org/>`_.
 
 PHYTEC |soc| BSP Device Tree Concept
-....................................
+------------------------------------
 
 The following sections explain some rules PHYTEC has defined on how to set up
 device trees for our |soc| SoC-based boards.
 
 Device Tree Structure
-~~~~~~~~~~~~~~~~~~~~~
+.....................
 
 *  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
    and RAM.
@@ -41,7 +41,7 @@ From the root directory of the Linux Kernel our devicetree files for |socfamily|
 platforms can be found in arch/arm64/boot/dts/freescale/.
 
 Device Tree Overlay
-~~~~~~~~~~~~~~~~~~~
+...................
 
 Device Tree overlays are device tree fragments that can be merged into a device
 tree during boot time. These are for example hardware descriptions of an

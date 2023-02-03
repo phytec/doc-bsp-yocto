@@ -1,5 +1,5 @@
 RTC
-...
+---
 
 RTCs can be accessed via /dev/rtc\*. Because PHYTEC boards have often more than
 one RTC, there might be more than one RTC device file.
@@ -58,7 +58,7 @@ To set the time and date from the RTC use::
    Wed Mar  2 10:45:01 UTC 2022
 
 RTC Wakealarm
-~~~~~~~~~~~~~
+.............
 
 It is possible to issue an interrupt from the RTC to wake up the system. The
 format uses the Unix epoch time, which is the number of seconds since UTC

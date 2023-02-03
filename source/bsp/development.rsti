@@ -1,15 +1,15 @@
 Development
------------
+===========
 
 Booting the Kernel from a Network
-.................................
+---------------------------------
 
 Booting from a network means loading the kernel over TFTP and the root file
 system over NFS. The bootloader itself must already be loaded from another boot
 device that is available.
 
 Host Preparation
-~~~~~~~~~~~~~~~~
+................
 
 On the development host, a TFTP server must be installed and configured. The
 following tools will be needed to boot the Kernel from Ethernet:
@@ -23,7 +23,7 @@ For *Ubuntu*, install::
 After the installation, there are two ways to configure the TFTP server.
 
 TFTP Server Setup
-~~~~~~~~~~~~~~~~~
+.................
 
 1. As a stand-alone daemon
 2. Controlled and handled by xinetd
@@ -53,7 +53,7 @@ TFTP Server Setup
             inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
 
 TFTP as a Stand-alone Daemon
-****************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Create or edit /etc/default/tftpd-hpa:
 
@@ -91,7 +91,7 @@ board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.
 
 NFS Server Setup
-****************
+~~~~~~~~~~~~~~~~
 
 *  After the installation of the TFTP server, an NFS server needs to be
    installed, too.
@@ -121,7 +121,7 @@ extracted with sudo.
    host$ sudo exportfs -ra
 
 Place Images on Host for Netboot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+................................
 
 *  Copy the kernel image to your tftpboot directory:
 
@@ -145,13 +145,13 @@ Place Images on Host for Netboot
    Check the destination path when unpacking the rootfs. 
 
 Network Settings on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+..........................
 
 To customize the targets ethernet configuration, please follow the description
 here: |ref-network|
 
 Booting from an Embedded Board
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..............................
 
 Boot the board into the U-boot prompt and press any key to hold.
 
@@ -162,7 +162,7 @@ Boot the board into the U-boot prompt and press any key to hold.
    u-boot=> run netboot
 
 Working with UUU-Tool
-.....................
+---------------------
 
 The Universal Update Utility Tool (UUU-Tool) from NXP is software to execute
 from the host to load and run the bootloader on the board through SDP. For
@@ -171,7 +171,7 @@ detailed information visit https://github.com/NXPmicro/mfgtools or download the
 <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
 
 Host preparations for UUU-Tool Usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+....................................
 
 ::
 
@@ -182,7 +182,7 @@ Host preparations for UUU-Tool Usage
    host$ make
 
 Get _flash.bin
-~~~~~~~~~~~~~~
+..............
 
 Download imx-boot from our server or get it from your Yocto build directory at
 ../build/deploy/images/|yocto-machinename|/ and copy the U-boot image (imx-boot) to
@@ -192,14 +192,14 @@ the UUU directory::
    host$ cp -v imx-boot uuu/_flash.bin
 
 Prepare Target
-~~~~~~~~~~~~~~
+..............
 
 For UUU boot, set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
 Configuration Options). Also, connect USB A Male to USB  Male cable from the
 host to the top connector of **X5**.
 
 Starting bootloader via UUU-Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+................................
 
 *  Execute and  Power up the board:
 
@@ -220,7 +220,7 @@ You can see the bootlog on the console via the debug USB
    this in U-boot code.
 
 Flashing SD Card Image to eMMC via UUU-Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...........................................
 
 Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
 Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
@@ -244,7 +244,7 @@ Make sure that the U-Boot image is also available!
    host$ sudo ./uuu -b emmc_burn_all.lst _flash.bin _rootfs.sdcard
 
 Standalone Build
-................
+----------------
 
 In this section, we describe how to build the U-Boot and the Linux kernel
 without using the *Yocto Project*. This procedure makes the most sense for
@@ -256,7 +256,7 @@ repositories are available on our *Git* server at git://git.phytec.de.
    HTTP or HTTPS instead (e.g. git clone https://git.phytec.de/u-boot-imx)
 
 Git Repositories
-~~~~~~~~~~~~~~~~
+................
 
 *  Used U-Boot repository:
 
@@ -280,7 +280,7 @@ Git Repositories
    meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 
 Get the SDK
-~~~~~~~~~~~
+...........
 
 You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
 
@@ -292,7 +292,7 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
    host$ bitbake -c populate_sdk |yocto-imagename| # or another image
 
 Install the SDK
-~~~~~~~~~~~~~~~
+...............
 
 *  Set correct permissions and install the SDK:
 
@@ -307,7 +307,7 @@ Install the SDK
    SDK has been successfully set up and is ready to be used.
 
 Using the SDK
-~~~~~~~~~~~~~
+.............
 
 Activate the toolchain for your shell by sourcing the file *environment-setup*
 in the toolchain directory:
@@ -317,14 +317,14 @@ in the toolchain directory:
    host$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
 Build imx-boot
-~~~~~~~~~~~~~~
+..............
 
 With *U-Boot* version v2021.04, the *mkimage tool* from NXP is finally
 integrated. This means that you can create the imx-boot without manually using
 the imx *mkimage tool*.
 
 Get the needed binaries
-***********************
+~~~~~~~~~~~~~~~~~~~~~~~
 
 To build the imx-boot, you need to **copy** these **files** to your **u-boot-imx
 build directory** and rename them to fit with *mkimage tool* script:
@@ -348,7 +348,7 @@ Or you can download the files here: |link-boot-tools|
    *mkimage tool*.
 
 Build U-Boot
-************
+~~~~~~~~~~~~
 
 *  Get the U-Boot sources:
 
@@ -404,7 +404,7 @@ chip-specific offset is needed. E.g. flash SD card:
    host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync
 
 Build Kernel
-~~~~~~~~~~~~
+............
 
 *  The used linux-imx branch can be found in the release notes: release notes
 *  The tag needed for this release is called |kernel-tag|
@@ -445,7 +445,7 @@ Build Kernel
       sudo apt install libghc-libyaml-dev
 
 Accessing the Development States between Releases
-.................................................
+-------------------------------------------------
 
 Special release manifests exist to give you access to the current development
 states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
@@ -463,7 +463,7 @@ our Git repositories::
    host$ repo sync
 
 Accessing Development State of Upcoming Major Release
-.....................................................
+-----------------------------------------------------
 
 We are already working on the next major release update based on NXP BSP
 rel_imx_5.15.52_2.1.0 (kirkstone). We are trying to update the public
@@ -474,7 +474,7 @@ development state on a regular basis.
    host$ ./phyLinux init -p |kernel-socname| -r |yocto-codename|
 
 Accessing the Latest Upstream Support
-.....................................
+-------------------------------------
 
 We have a vanilla manifest that makes use of the Yocto master branches (not an
 NXP release), Linux, and u-boot. This can be used to test the latest upstream
@@ -490,7 +490,7 @@ kernel/u-boot.
    host$ ./phyLinux init -p |kernel-socname| -r BSP-Yocto-Ampliphy-i.MX8MP-master
 
 Format SD-Card
-..............
+--------------
 
 Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
@@ -498,7 +498,7 @@ needs to be created. There are some different ways to format the SD Card.  The
 easiest way to do this is to use the UI program Gparted. 
 
 Gparted
-~~~~~~~
+.......
 
 *  Get GParted:
 
@@ -526,7 +526,7 @@ Gparted
 .. image:: /bsp/images/gparted1.png
 
 Expand rootfs
-*************
+~~~~~~~~~~~~~
 
 *  Choose your SD Card device at the drop-down menu on the top right
 *  Choose the ext4 root partition and click on resize:
@@ -552,7 +552,7 @@ Expand rootfs
    host$ umount /mnt
 
 Create the Third Partition
-**************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Choose your SD Card device at the drop-down menu on the top right
 

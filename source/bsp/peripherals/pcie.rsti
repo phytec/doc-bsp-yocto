@@ -1,5 +1,5 @@
 PCIe
-....
+----
 
 The phyCORE-|soc| has one Mini-PCIe slot. In general, PCIe autodetects new
 devices on the bus. After connecting the device and booting up the system, you

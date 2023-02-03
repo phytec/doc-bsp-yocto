@@ -1,5 +1,5 @@
 LEDs
-....
+----
 
 If any LEDs are connected to GPIOs, you have the possibility to access them by a
 special LED driver interface instead of the general GPIO interface (section

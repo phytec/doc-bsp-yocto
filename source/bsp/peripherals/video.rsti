@@ -1,8 +1,8 @@
 Video
-.....
+-----
 
 Videos with Gstreamer
-~~~~~~~~~~~~~~~~~~~~~
+.....................
 
 The video is installed by default in the BSP::
 
@@ -23,7 +23,7 @@ The video is installed by default in the BSP::
    target$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
 
 kmssink Plugin ID Evaluation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+............................
 
 The kmssink plugin needs a connector ID. To get the connector ID, you can use
 the tool modetest. ::

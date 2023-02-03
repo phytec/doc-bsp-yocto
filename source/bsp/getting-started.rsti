@@ -1,5 +1,5 @@
 Getting Started
----------------
+===============
 
 The |kit|\s are shipped with a pre-flashed SD-Card.  It contains the
 |yocto-imagename| and can be used directly as a boot source. The eMMC is
@@ -8,7 +8,7 @@ programmed with only a U-boot as default. You can get all the sources from our
 to SD Card and how to start the board.
 
 Get the Image
-.............
+-------------
 
 The \*.sdcard image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
@@ -22,7 +22,7 @@ command dd. It can be built by Yocto or downloaded from our download server.
 
 
 Write the Image to SD Card
-..........................
+--------------------------
 
 .. warning::
    To create your bootable SD card with the dd command, you must have root
