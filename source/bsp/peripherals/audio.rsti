@@ -8,7 +8,7 @@ Or type for recording devices::
    target$ arecord -L
 
 Alsamixer
-~~~~~~~~~
+.........
 
 To inspect the capabilities of your soundcard, call::
 
@@ -22,7 +22,7 @@ mono or stereo gain controls for all mix points. "MM" means the feature is muted
 toggle by hitting '<' for left and ''>' for right output.
 
 ALSA configuration
-~~~~~~~~~~~~~~~~~~
+..................
 
 Our BSP comes with a ALSA configuration file /etc/asound.conf. 
 
@@ -44,7 +44,7 @@ To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
    [...]
 
 Pulseaudio Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~
+........................
 
 For applications using Pulseaudio, check for available sinks::
 
@@ -57,7 +57,7 @@ To select PEB-AV-10, type::
    target$ pactl set-default-sink 1
 
 Playback
-~~~~~~~~
+........
 
 Run speaker-test to check playback availability::
 
@@ -73,7 +73,7 @@ To playback other formats like mp3 for example, you can use Gstreamer::
    target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
 
 Capture
-~~~~~~~
+.......
 
 arecord is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can

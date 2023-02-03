@@ -1,14 +1,14 @@
 BSP Extensions
---------------
+==============
 
 Chromium
-........
+--------
 
 Our BSP for the |sbc|-|soc| supports Chromium. You can include it in the
 |yocto-imagename| with only a few steps.
 
 Adding Chromium to Your local.conf
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..................................
 
 To include Chromium you have to add the following line into your local.conf. You
 can find it in <yocto_dir>/build/conf/local.conf. This adds Chromium to your
@@ -21,7 +21,7 @@ next image build. ::
    Compiling Chromium takes a long time. 
 
 Get Chromium Running on the Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..................................
 
 To run Chromium, it needs a few arguments to use the hardware graphics
 acceleration::

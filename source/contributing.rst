@@ -107,20 +107,21 @@ denote headings. See `reference manual
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#sections>`_.
 For this project, headings are to be used in the following order::
 
-   Chapter
-   =======
+   =====
+   Title
+   =====
 
    Section Title 1
-   ---------------
+   ===============
 
    Subsection Title 1.1
-   ....................
+   --------------------
 
    Subsubsection Title 1.1.1
-   ~~~~~~~~~~~~~~~~~~~~~~~~~
+   .........................
 
    Subsubsubsection Title 1.1.1.1
-   ******************************
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 

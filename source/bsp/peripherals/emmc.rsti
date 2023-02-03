@@ -1,5 +1,5 @@
 eMMC Devices
-............
+------------
 
 PHYTEC modules like phyCORE-|soc| is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
@@ -15,7 +15,7 @@ together with the supported version of the JEDEC eMMC standard.
 PHYTEC currently utilizes the eMMC chips with JEDEC Version 5.0 and 5.1
 
 Extended CSD Register
-~~~~~~~~~~~~~~~~~~~~~
+.....................
 
 eMMC devices have an extensive amount of extra information and settings that are
 available via the Extended CSD registers. For a detailed list of the registers,
@@ -37,7 +37,7 @@ You will see::
     [...]
 
 Enabling Background Operations (BKOPS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......................................
 
 In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
@@ -106,7 +106,7 @@ background operations from time to time.
    The BKOPS_EN bit is one-time programmable only. It cannot be reversed.
 
 Reliable Write
-~~~~~~~~~~~~~~
+..............
 
 There are two different Reliable Write options:
 
@@ -158,7 +158,7 @@ data consistency for the files of an application, the system functions fdatasyn
 or fsync should be used in the application.
 
 Resizing ext4 Root Filesystem
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.............................
 
 When flashing the sdcard image to eMMC the ext4 root partition is not extended
 to the end of the eMMC. parted can be used to expand the root partition. The
@@ -222,7 +222,7 @@ partition while it is not mounted.
    The filesystem on /dev/mmcblk2p2 is now 7367680 (1k) blocks long
 
 Enable pseudo-SLC Mode
-~~~~~~~~~~~~~~~~~~~~~~
+......................
 
 eMMC devices use MLC memory cells
 (https://en.wikipedia.org/wiki/Multi-level_cell) to store the data. Compared
@@ -318,7 +318,7 @@ You should receive::
    /dev/mmcblk2:31742492672B:sd/mmc:512:512:unknown:MMC S0J58X:;
 
 Erasing the Device
-~~~~~~~~~~~~~~~~~~
+..................
 
 It is possible to erase the eMMC device directly rather than overwriting it with
 zeros. The eMMC block management algorithm will erase the underlying MLC memory

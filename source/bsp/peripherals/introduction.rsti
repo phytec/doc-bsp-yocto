@@ -1,5 +1,5 @@
 Accessing Peripherals
----------------------
+=====================
 
 To find out which boards and modules are supported by the release of PHYTEC’s
 phyCORE-|soc| BSP described herein, visit our web page |dlpage-bsp| and click

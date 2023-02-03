@@ -1,5 +1,5 @@
 Watchdog
-........
+--------
 
 The PHYTEC |som| modules include a hardware watchdog that is able to reset the
 board when the system hangs. The watchdog is started on default in U-Boot with a
@@ -9,7 +9,7 @@ sure that it is fed. This section explains how to configure the watchdog in
 Linux using systemd to check for system hangs and during reboot.
 
 Watchdog Support in systemd
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...........................
 
 Systemd has included hardware watchdog support since version 183.
 

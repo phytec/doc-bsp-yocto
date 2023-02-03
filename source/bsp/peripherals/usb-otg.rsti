@@ -1,5 +1,5 @@
 USB OTG
-.......
+-------
 
 Most PHYTEC boards provide a USB OTG interface. USB OTG ports automatically act
 as a USB device or USB host. The mode depends on the USB hardware attached to
@@ -7,7 +7,7 @@ the USB OTG port. If, for example, a USB mass storage device is attached to the
 USB OTG port, the device will show up as /dev/sda.
 
 USB Device
-~~~~~~~~~~
+..........
 
 In order to connect the board's USB device to a USB host port (for example a
 PC), you need to configure the appropriate USB gadget. With USB configfs you can
