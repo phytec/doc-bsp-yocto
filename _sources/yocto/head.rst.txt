@@ -170,7 +170,7 @@ You can add one or many layers of each category in your build.
 
 A collection of OpenEmbedded layers can be found here. The search function is
 very helpful to see if a software package can be retrieved and integrated
-easily: http://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+easily: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/
 
 Machine
 .......
@@ -570,9 +570,9 @@ directory::
 If you have already created a download directory and want to fix the permissions
 afterward, you can do so with::
 
-   host$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \\{\\} \\;
-   host$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \\{\\} \\;
-   host$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \\{\\} \\;
+   host$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
+   host$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
+   host$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
 
 The cache directory stores all stages of the build process. *Poky* has quite an
 involved caching infrastructure. It is advisable to create a shared directory,
@@ -1516,7 +1516,7 @@ your favorite editor and add the following lines::
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
    SRC_URI:append = " \
-      file://enable-r8169.cfg \
+       file://enable-r8169.cfg \
    "
 
 .. warning::
@@ -1556,7 +1556,9 @@ and add the following lines to the *bbappend* file (here
 
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\ file://defconfig \\ "
+   SRC_URI:append = " \
+       file://defconfig \
+   "
 
 .. tip::
 
@@ -1618,8 +1620,8 @@ directory and create a patch using *Git*. How to create a patch is described in
 
 If you want to learn more about *devtool*, visit:
 
-`Yocto 4.0 - Devtool
-<https://docs.yoctoproject.org/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
+`Yocto 4.0.6 - Devtool
+<https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
 or `Devtool Quick Reference
 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
 
@@ -1720,7 +1722,9 @@ After that use your favorite editor to add the following snipped into the
 
    # contents of the file barebox_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\ file://0001-important-modification.patch \\ "
+   SRC_URI:append = " \
+       file://0001-important-modification.patch \
+   "
 
 Save the file and rebuild the *barebox* recipe with::
 
@@ -1740,9 +1744,9 @@ be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto*
 and most of the documentation assumes the *Yocto* kernel approach.
 
 -  `Yocto - Kernel Development Manual
-   <https://docs.yoctoproject.org/kernel-dev/index.html>`_
+   <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_
 -  `Yocto - Development Manual
-   <https://docs.yoctoproject.org/dev-manual/index.html>`_
+   <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_
 
 Working with the Kernel and Bootloader using SRC_URI in *local.conf*
 ....................................................................
@@ -1903,18 +1907,18 @@ header file corresponding to the processor located in
 *include/configs/phycore_imx8m\**. New environment variables should be added at
 the end of *CONFIG_EXTRA_ENV_SETTINGS*::
 
-   #define CONFIG_EXTRA_ENV_SETTINGS \\
+   #define CONFIG_EXTRA_ENV_SETTINGS \
    [...]
-   PHYCORE_FITIMAGE_ENV_BOOTLOGIC \\
-   "newvariable=1\\0"
+   PHYCORE_FITIMAGE_ENV_BOOTLOGIC \
+   "newvariable=1\0"
 
 Commit the changes and and create the file *u-boot-imx_%.bbappend* in your layer
 at *<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend*::
 
    # contents of the file u-boot-imx_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
-   SRC_URI:append = " \\
-       file://0001-environment-addition.patch \\
+   SRC_URI:append = " \
+       file://0001-environment-addition.patch \
    "
 
 Change the *barebox* Environment via *bbappend* Files
@@ -2106,8 +2110,8 @@ and the interface files in the folder
 *meta-ampliphy/recipes-core/systemd/systemd-machine-units/* where the static IP
 address configuration for *eth0* (and optionally *eth1*) is done.
 
-For more information, see https://wiki.archlinux.org/index.php/Systemd-networkd
-and http://www.freedesktop.org/software/systemd/man/systemd.network.html.
+For more information, see https://wiki.archlinux.org/title/Systemd-networkd
+and https://www.freedesktop.org/software/systemd/man/systemd.network.html.
 
 Changing the Wireless Network Configuration
 ...........................................
@@ -2249,7 +2253,6 @@ You should see::
 Further information about AP settings and the userspace daemon
 *hostapd* can be found at::
 
-   http://processors.wiki.ti.com/index.php/OMAP_Wireless_Connectivity_NLCP_WLAN_AP_Configuration_Scripts
    https://wireless.wiki.kernel.org/en/users/documentation/hostapd
    https://w1.fi/hostapd/
 
@@ -2264,7 +2267,7 @@ phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX
 Add OpenCV Libraries and Examples
 .................................
 
-*OpenCV* (Opensource Computer Vision http://opencv.org/) is an open-source
+*OpenCV* (Opensource Computer Vision https://opencv.org/) is an open-source
 library for computer vision applications.
 
 To install the libraries and examples edit the file *conf/local.conf* in the
@@ -2585,7 +2588,7 @@ directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)::
    host$ make install DESTDIR=$PWD/build/
 
 Refer to the official *Yocto* documentation for more information:
-https://docs.yoctoproject.org/singleindex.html#autotools-based-projects
+https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects
 
 Working with Kernel Modules
 ...........................
@@ -2629,7 +2632,7 @@ in */etc/udev/rules.d* (sysadmin configuration space) and\  */lib/udev/rules.d/*
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="input:*-e0*,3,*a0,1,*18,*", SYMLINK+="input/touchscreen0"
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="ads7846", SYMLINK+="input/touchscreen0"
 
-See http://www.freedesktop.org/software/systemd/man/udev.html for more details
+See https://www.freedesktop.org/software/systemd/man/udev.html for more details
 about the syntax and usage. To get the list of attributes for a specific device
 that can be used in an *udev* rule you can use the *udevadm info* tool. It
 prints all existing attributes of the device node and its parents. The key-value
@@ -2657,7 +2660,7 @@ especially if the rule executes external scripts. Execute::
 .. tip::
 
    You cannot start daemons or heavy scripts in a *RUN* attribute. See
-   http://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D .
+   https://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D .
 
    This can only be used for very short-running foreground tasks. Running an
    event process for a long period of time may block all further events for this
@@ -2668,7 +2671,7 @@ especially if the rule executes external scripts. Execute::
    *systemd*\ service instead.
 
    See
-   http://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.
+   https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.
 
 Troubleshooting
 ===============
@@ -2695,10 +2698,10 @@ Yocto Documentation
 
 The most important piece of documentation for a BSP user is probably the
 developer manual.
-https://docs.yoctoproject.org/dev-manual/index.html
+https://docs.yoctoproject.org/4.0.6/dev-manual/index.html
 
 The chapter about common tasks is a good starting point.
-https://docs.yoctoproject.org/dev-manual/common-tasks.html#common-tasks
+https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks
 
 The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
