@@ -1,23 +1,3 @@
-RS232/RS485
------------
-
-The |soc| SoC provides up to 4 UART units. PHYTEC boards support different
-numbers of these UART units. UART1 can also be used as RS-485. For this,
-|ref-bootswitch| needs to be set correctly:
-
-.. list-table:: Switch between UART1 RS485/RS232
-
-   *  - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS485.png
-
-            **UART1 RS485**
-
-      - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS232.jpg
-
-           **UART1 RS232**
-
-The device tree representation for RS232 and RS485:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171
-
 RS232
 .....
 
