@@ -121,13 +121,13 @@ edit the bootenv.txt file located in the /boot directory on the target by adding
 
    overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010.dtbo imx8mm-phycore-rpmsg.dtbo
 
-Firmware .elf files for the M4 core can be found under /lib/firmware. To load
+Firmware .elf files for the |mcore| can be found under /lib/firmware. To load
 the firmware, type::
 
    target$ echo firmware.elf > /sys/class/remoteproc/remoteproc0/firmware
    target$ echo start > /sys/class/remoteproc/remoteproc0/state
 
-To load a different firmware, the M4 core needs to be stopped::
+To load a different firmware, the |mcore| needs to be stopped::
 
    target$ echo stop > /sys/class/remoteproc/remoteproc0/state
 
@@ -137,7 +137,7 @@ Debugging Using J-Link
 The Segger software can be obtained from https://www.segger.com/downloads/jlink/.
 
 Together with the J-Link, a GDB Server can be used for running and debugging the
-software.  On the |sbc|-Mini, the JTAG-Pins are accessible via the X8 Expansion
+software.  On the |sbc|, the JTAG-Pins are accessible via the X8 Expansion
 Connector. The simplest way is to use a PEB-EVAL-01 board that has the JTAG-Pins
 reachable with a pin header on the top.
 

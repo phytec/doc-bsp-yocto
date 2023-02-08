@@ -240,7 +240,29 @@ right) defines different modes of the pad, for example, if internal pull
 resistors are activated or not. In this case, the internal resistors are
 disabled.
 
-.. include:: rs232-485.rsti
+RS232/RS485
+-----------
+
+The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
+of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
+to USB converter expansion. This USB is brought out at Micro-USB connector X1.
+UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
+multi-protocol transceiver for RS-232 and RS-485, available at pin header
+connector |ref-usb-otg| at the RS-232 level, or at the RS-485 level. The
+configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
+|ref-jp4| on the baseboard. For more information about the correct setup please
+refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs. 
+
+We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
+enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
+using ioctls. Have a look at our small example application rs485test, which is
+also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
+correctly.
+
+.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+
+The device tree representation for RS232 and RS485:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337
 
 .. _imx8mp-head-network:
 .. include:: ../peripherals/network.rsti
@@ -277,7 +299,14 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycor
 Device tree configuration for the User I/O configuration can be found here:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224
 
-.. include:: i2c-bus.rsti
+.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100
+
+General I²C2 bus configuration (e.g. |dt-carrierboard|.dts):
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209
+
 
 EEPROM
 ------
@@ -297,7 +326,17 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycor
 DT representation for I²C RTCs:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194
 
-.. include:: ../peripherals/usb-host.rsti
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
+'SS'). The USB subsystem has two independent USB controller cores. Both cores
+are capable of acting as a USB peripheral device or a USB host. Each is
+connected to a USB 3.0 PHY.
+
+.. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354
@@ -338,6 +377,14 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
+
+.. include:: /bsp/imx8/peripherals/display.rsti
+
+Device tree description of LVDS-1 and HDMI can be found here:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9
+
+The device tree of LVDS-0 on PEB-AV-10 can be found here:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9
 
 .. include:: ../peripherals/pm.rsti
 

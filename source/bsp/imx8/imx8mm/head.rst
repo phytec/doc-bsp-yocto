@@ -230,7 +230,27 @@ SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the desired muxing o
 The pad setting value (hex value on the right) defines different modes of the pad, for example, if
 internal pull resistors are activated or not. In this case, the internal resistors are disabled.
 
-.. include:: rs232-485.rsti
+RS232/RS485
+-----------
+
+The |soc| SoC provides up to 4 UART units. PHYTEC boards support different
+numbers of these UART units. UART1 can also be used as RS-485. For this,
+|ref-bootswitch| needs to be set correctly:
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   *  - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS485.png
+
+            **UART1 RS485**
+
+      - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS232.jpg
+
+           **UART1 RS232**
+
+.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+
+The device tree representation for RS232 and RS485:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171
 
 .. _imx8mm-head-network:
 .. include:: ../peripherals/network.rsti
@@ -270,7 +290,14 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 Device tree configuration for the User I/O configuration can be found here:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37
 
-.. include:: i2c-bus.rsti
+.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97
+
+General I²C2 bus configuration (e.g. |dt-carrierboard|.dtsi):
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137
+
 
 EEPROM
 ------
@@ -290,7 +317,27 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycor
 DT representation for I²C RTCs:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194
 
-.. include:: usb-host.rsti
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
+'HS'). The USB subsystem has two independent USB controller cores. Both cores
+are On-The-Go (OTG) controller cores and are capable of acting as a USB
+peripheral device or a USB host. Each is connected to a USB 2.0 PHY.
+
+.. include:: /bsp/peripherals/usb-host.rsti
+
+User USB2 (host) configuration is in the kernel device tree
+|kernel-socname|.dtsi::
+
+   &usbotg2 {
+           dr_mode = "host";
+           picophy,pre-emp-curr-control = <3>;
+           picophy,dc-vol-level-adjust = <7>;
+           status = "okay";
+   };
 
 DT representation for USB Host:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354
@@ -336,7 +383,16 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8
 
 .. include:: /bsp/peripherals/video.rsti
 
-.. include:: display.rsti
+Display
+-------
+
+The 10" Display is always active. If the PEB-AV-Connector is not connected, an
+error message may occur at boot.
+
+.. include:: /bsp/imx8/peripherals/display.rsti
+
+The device tree of PEB-AV-10 can be found here:
+https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4
 
 .. include:: ../peripherals/pm.rsti
 

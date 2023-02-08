@@ -1,10 +1,7 @@
-Display
--------
+QT Demo
+.......
 
-The 10" Display is always active. If the PEB-AV-Connector is not connected, an
-error message may occur at boot.
-
-With the |yocto-imagename|, Weston starts during boot. The phytec-qt5demo can be
+With the phytec-qt5demo-image, Weston starts during boot. The phytec-qt5demo can be
 stopped with::
 
    target$ systemctl stop phytec-qtdemo
@@ -28,9 +25,6 @@ stopped with::
 .. note::
 
    The Qt demo must be closed before Weston can be closed.
-
-The device tree of PEB-AV-10 can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4
 
 Backlight Control
 .................

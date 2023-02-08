@@ -102,7 +102,7 @@ For firmware built to run in the DRAM::
    u-boot=> bootaux 0x80000000
    ## Starting auxiliary core stack = 0x80400000, pc = 0x80000539...
 
-The program's output should appear on the M7's debug UART.
+The program's output should appear on the |mcore|'s debug UART.
 
 Debugging Using J-Link
 ......................
