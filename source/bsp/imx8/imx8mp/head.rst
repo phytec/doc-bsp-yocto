@@ -11,8 +11,6 @@
 
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163
-.. _dtsomnetwork: https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41
-.. _dtsbcnetwork: https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149
 
 
 .. General Substitutions
@@ -35,6 +33,8 @@
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 
+.. IMX8(MP) specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41`
 
 .. Yocto
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone).
@@ -63,9 +63,10 @@
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy7
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
-.. |pollux-som-network| replace::
+.. |pollux-sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
-   on the |sbc| can be found `here <dtsbcnetwork_>`_.
+   on the |sbc| can be found here:
+   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149`.
 
 
 +-----------------------+----------------------+
@@ -262,7 +263,7 @@ correctly.
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337`
 
 .. _imx8mp-head-network:
 .. include:: ../peripherals/network.rsti
@@ -277,10 +278,10 @@ PEB-WLBT-05.
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n381
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n381`
 
 DT configuration for the eMMC interface can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n207
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n207`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -290,22 +291,22 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycor
 
 The definition of the SPI master node in the device tree can be found here:
 
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67`
 
 .. include:: ../peripherals/gpios.rsti
 
 .. include:: ../../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100`
 
-General I²C2 bus configuration (e.g. |dt-carrierboard|.dts):
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209
+General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209`
 
 
 EEPROM
@@ -319,12 +320,12 @@ I2C EEPROM populated on the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n188
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n188`
 
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194`
 
 USB Host Controller
 -------------------
@@ -339,7 +340,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354`
 
 CAN FD
 ------
@@ -354,12 +355,12 @@ documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of imx8mm-phyboard-polis.dts:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285`
 
 Audio
 -----
@@ -372,7 +373,7 @@ speaker, headphones, and line in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -381,17 +382,17 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9`
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9`
 
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
 
 The device tree description of PWM Fan can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37`
 
 .. include:: /bsp/peripherals/watchdog.rsti
 

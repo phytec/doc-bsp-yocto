@@ -10,7 +10,7 @@
 
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2021.04_2.2.0-phy#n188
-.. _dtsomnetwork: https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44`
 
 
 .. General Replacements
@@ -60,7 +60,7 @@
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy5
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
-.. |pollux-som-network| replace:: \
+.. |pollux-sbc-network| replace:: \
 
 
 =======================
@@ -250,7 +250,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171`
 
 .. _imx8mm-head-network:
 .. include:: ../peripherals/network.rsti
@@ -260,10 +260,10 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboa
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249`
 
 DT configuration for the eMMC interface can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -271,7 +271,7 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycor
 
 The definition of the SPI master node in the device tree can be found here:
 
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67`
 
 .. include:: ../peripherals/gpios.rsti
 
@@ -288,15 +288,15 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97`
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dtsi):
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137`
 
 
 EEPROM
@@ -310,12 +310,12 @@ the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
 found in our PHYTEC git:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194`
 
 USB Host Controller
 -------------------
@@ -340,13 +340,13 @@ User USB2 (host) configuration is in the kernel device tree
    };
 
 DT representation for USB Host:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240`
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
 imx8mm-phyboard-polis.dtsi. See:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211`
 
 CAN FD
 ------
@@ -361,7 +361,7 @@ documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94
+:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
@@ -379,7 +379,7 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56
+:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -392,7 +392,7 @@ error message may occur at boot.
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 The device tree of PEB-AV-10 can be found here:
-https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4
+:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4`
 
 .. include:: ../peripherals/pm.rsti
 

@@ -39,7 +39,12 @@ exclude_patterns = [
         '*/template.rst',
         ]
 
+extlinks = {'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s',
+                       None)}
+extlinks_detect_hardcoded_links = True
+
 highlight_language = 'none'
+
 
 # -- Options for HTML output -------------------------------------------------
 
