@@ -27,9 +27,9 @@ and netmask for eth0 is::
 The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found `here <dtsomnetwork_>`_.
+be found here: |dt-somnetwork|.
 
-|pollux-som-network|
+|pollux-sbc-network|
 
 Network Environment Customization
 .................................
