@@ -29,6 +29,7 @@ release = '0.1.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.extlinks',
 ]
 
 # List of patterns, relative to source directory, that match files and
