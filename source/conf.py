@@ -45,8 +45,23 @@ highlight_language = 'none'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
+html_logo = 'sphinx/static/logo-phytec.svg'
+html_favicon = 'sphinx/static/favicon.ico'
+html_title = 'PHYTEC BSP Documentation'
+html_show_sphinx = False
+
+html_theme_options = {
+    'logo_only': False,
+}
+
+html_context = {
+    "display_github": True,
+    "github_user": "phytec",
+    "github_repo": "doc-bsp-yocto",
+    "github_version": "main",
+    "conf_py_path": "/source/",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -55,6 +70,7 @@ html_static_path = ['sphinx/static']
 
 html_css_files = [
     'css/code-block.css',
+    'css/phytec-theme.css',
 ]
 
 # -- Options for PDF output -------------------------------------------------
