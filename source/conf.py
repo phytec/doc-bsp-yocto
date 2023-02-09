@@ -106,3 +106,9 @@ latex_documents = [
         False,
     ),
 ]
+
+# -- Linkcheck options ----------------------------------------------------
+
+linkcheck_timeout = 30
+linkcheck_workers = 10
+linkcheck_anchors = False
