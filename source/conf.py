@@ -16,7 +16,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 project = 'PHYTEC BSP Documentation'
-copyright = '2022, PHYTEC Messtechnik GmbH'
+copyright = '2023, PHYTEC Messtechnik GmbH'
 author = 'PHYTEC'
 
 # The full version, including alpha/beta/rc tags
