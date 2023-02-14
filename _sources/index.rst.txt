@@ -28,6 +28,8 @@ to this package.
    :maxdepth: 3
    :caption: BSP Manuals
 
+   bsp/imx8/imx8.rst
+
 .. toctree::
    :caption: Contribute
 
