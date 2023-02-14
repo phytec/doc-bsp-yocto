@@ -1,5 +1,5 @@
 RS232/RS485
-~~~~~~~~~~~
+-----------
 
 The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
 of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
@@ -15,7 +15,7 @@ The device tree representation for RS232 and RS485:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337
 
 RS232
-^^^^^
+.....
 
 *  Display the current settings of a terminal in a human-readable format::
 
@@ -38,7 +38,7 @@ RS232
 The host should print out "123".
 
 RS485
-^^^^^
+.....
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured

@@ -1,5 +1,5 @@
 SPI Master
-~~~~~~~~~~
+----------
 
 The |soc| controller has a FlexSPI and an ECSPI IP core included. The FlexSPI
 host controller supports two SPI channels with up to 4 devices. Each channel
@@ -9,7 +9,7 @@ selected for each interface. As chip selects should be realized with GPIOs, more
 than one device on each channel is possible.
 
 SPI NOR Flash
-^^^^^^^^^^^^^
+.............
 
 phyCORE-|soc| is equipped with a QSPI NOR Flash which connects to the |soc|'s
 FlexSPI interface. The QSPI NOR Flash is suitable for booting. Please see

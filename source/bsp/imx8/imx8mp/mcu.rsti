@@ -1,5 +1,5 @@
 |soc| |mcore|
--------------
+=============
 
 In addition to the Cortex-A53 cores, there is a Cortex-|mcore| as MCU integrated
 into the |soc| SoC. Our Yocto-Linux-BSP runs on the A53-Cores and the |mcore|
@@ -11,13 +11,13 @@ examples and how to run them on
 |sbc|.
 
 Getting the Firmware Examples
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 The firmware can be built using the NXP MCUxpresso SDK with a compatible
 compiler toolchain using command-line tools.
 
 Getting the Sources
-^^^^^^^^^^^^^^^^^^^
+...................
 
 The SDK and the examples for the |soc| are not yet available on Github and can
 only be obtained from NXP's web page: https://mcuxpresso.nxp.com/
@@ -56,7 +56,7 @@ directory::
    $ export ARMGCC_DIR=~/gcc-arm-none-eabi-10-2020-q4-major
 
 Building the Firmware
-^^^^^^^^^^^^^^^^^^^^^
+.....................
 
 The scripts to build the firmware are located in
 <sdk-directory>/phytec-mcux-boards/phyboard-pollux/<example_category>/<example>/armgcc.
@@ -69,7 +69,7 @@ release/ in the armgcc directory. .bin files and can be run in U-Boot and .elf
 files within Linux.
 
 Running |mcore| Examples
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 To receive debug messages start your favorite terminal software (e.g. Minicom,
 Tio, or Tera Term) on your host PC and configure it for 115200 baud, 8 data
@@ -80,7 +80,7 @@ ttyUSB devices are registered. One prints messages from A53-Core's debug UART
 and the other one from the |mcore|'s debug UART.
 
 Running Examples from U-Boot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+............................
 
 To load firmware using the bootloader U-Boot, the bootaux command can be used:
 
@@ -105,7 +105,7 @@ For firmware built to run in the DRAM::
 The program's output should appear on the M7's debug UART.
 
 Debugging Using J-Link
-^^^^^^^^^^^^^^^^^^^^^^
+......................
 
 The Segger software can be obtained from
 https://www.segger.com/downloads/jlink/. As of version V7.20a of the Segger

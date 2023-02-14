@@ -1,5 +1,5 @@
 Network
-~~~~~~~
+-------
 
 |som| provides two ethernet interfaces. A gigabit Ethernet is provided by our
 module and board.
@@ -32,10 +32,10 @@ be found `here <dtsomnetwork_>`_.
 |pollux-som-network|
 
 Network Environment Customization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.................................
 
 U-boot network-environment
-**************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  To find the Ethernet settings in the target bootloader:
 
@@ -93,7 +93,7 @@ Please note that these modifications will only affect the bootloader settings.
    set when the external environment is being loaded.
 
 Kernel network-environment
-**************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Find the ethernet settings for eth0 in the target kernel::
 

@@ -1,5 +1,5 @@
 On-Chip OTP Controller (OCOTP_CTRL) - eFuses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 The |soc| provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings ("On-Chip OTP
@@ -26,7 +26,7 @@ the boot/mac/... configuration are available in the section "Fuse Map" of the
 |soc| Security Reference Manual.
 
 Reading Fuse Values in uBoot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+............................
 
 You can read the content of a fuse using memory-mapped shadow registers. To
 calculate the memory address, use the fuse Bank and Word in the following
@@ -37,7 +37,7 @@ OCOTP_MAC_ADDR::
    u-boot=> fuse read 9 0
 
 Reading Fuse Values in Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+............................
 
 To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via

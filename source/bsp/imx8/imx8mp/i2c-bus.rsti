@@ -1,5 +1,5 @@
 I²C Bus
-~~~~~~~
+-------
 
 The |soc| contains three Multimaster fast-mode I²C modules called I2C1, I2C2,
 I2C3, and I2C4. PHYTEC boards provide plenty of different I²C devices connected

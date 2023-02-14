@@ -1,5 +1,5 @@
 ISP
-~~~
+---
 
 The |soc| SoC contains an Image Signal Processor (ISP). For more information see
 Using the ISPs on the |sbc| |soc| documentation. This documentation is also

@@ -4,7 +4,7 @@ boot command is called and before the kernel is loaded. The next sections
 explain how it is done.
 
 Set ``${overlays}`` variable
-****************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``${overlays}`` U-Boot environment variable contains a space-separated list
 of overlays that will be applied during boot. Depending on the boot source the
@@ -62,7 +62,7 @@ be set to 1 in the bootloader environment. ::
    u-boot=> saveenv 
 
 Extension Command
-*****************
+~~~~~~~~~~~~~~~~~
 
 The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
@@ -95,7 +95,7 @@ environment. ::
    u-boot=> saveenv
 
 U-boot External Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...........................
 
 During the start of the linux kernel the external text environment bootenv.txt
 text file will be loaded from the boot partition of an MMC device or from tftp.
@@ -115,7 +115,7 @@ If the external environment can not be loaded the boot process will be anyway
 continued with the values of the existing environment settings.
 
 Change U-boot Environment from Linux on Target
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..............................................
 
 Libubootenv is a tool included in our images to modify the u-boot environment of
 Linux on the target machine.

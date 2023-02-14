@@ -1,5 +1,5 @@
 eMMC Boot Partitions
-^^^^^^^^^^^^^^^^^^^^
+....................
 
 An eMMC device contains four different hardware partitions: user, boot1, boot2,
 and rpmb.
@@ -36,7 +36,7 @@ Below is an example, to flash the bootloader to one of the two boot partitions
 and switch the boot device via userspace commands.
 
 Via userspace Commands
-^^^^^^^^^^^^^^^^^^^^^^
+......................
 
 On the host, run::
 
@@ -85,7 +85,7 @@ To choose back to the user area u-boot environment::
    target$ mmc bootpart enable 7 0 /dev/mmcblk2
 
 Resizing ext4 Root Filesystem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.............................
 
 fdisk can be used to expand the root filesystem. The example works for any block
 device such as eMMC, SD Card, or hard disk.

@@ -1,5 +1,5 @@
 USB Host Controller
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
