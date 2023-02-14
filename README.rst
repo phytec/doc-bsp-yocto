@@ -1,10 +1,10 @@
 .. image:: https://github.com/phytec/doc-bsp-yocto/workflows/Documentation/badge.svg
    :target: https://github.com/phytec/doc-bsp-yocto/actions/workflows/documentation.yaml
 
-.. inclusion-marker-do-not-remove
-
 PHYTEC Yocto BSP Documentation
 ==============================
+
+.. inclusion-marker-do-not-remove
 
 Getting the Source Code
 -----------------------
