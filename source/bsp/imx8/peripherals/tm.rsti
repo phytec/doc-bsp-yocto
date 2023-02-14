@@ -1,8 +1,8 @@
 Thermal Management
-~~~~~~~~~~~~~~~~~~
+------------------
 
 U-boot
-^^^^^^
+......
 
 The previous temperature control in the u-boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
@@ -15,7 +15,7 @@ the boot log::
    CPU:   Industrial temperature grade (-40C to 105C) at 33C
 
 Kernel
-^^^^^^
+......
 
 The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
@@ -62,7 +62,7 @@ trip_point_0 again, the throttling is released.
    with different temperature grades.
 
 PWM Fan
-^^^^^^^
+.......
 
 A PWM fan can be connected to the |sbc|-|soc|. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The

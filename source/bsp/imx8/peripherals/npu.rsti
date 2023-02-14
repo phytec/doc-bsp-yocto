@@ -1,5 +1,5 @@
 NPU
-~~~
+---
 
 The |soc| SoC contains a Neural Processing Unit up to 2.3 TOPS as an accelerator
 for artificial intelligence operations. Refer to our latest phyCORE-|soc| AI Kit
@@ -8,7 +8,7 @@ NPU: `L-1015e.A0 phyCORE-i.MX 8M Plus AI Kit Guide
 <https://www.phytec.de/cdocuments/?doc=ZQBhDw>`_
 
 NXP Examples for eIQ
-^^^^^^^^^^^^^^^^^^^^
+....................
 
 NXP provides a set of machine learning examples for eIQ using Python3. To add a
 pre-configured machine learning package group, add to your local.conf and build

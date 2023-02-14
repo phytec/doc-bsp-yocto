@@ -1,11 +1,11 @@
 Flash eMMC
-~~~~~~~~~~
+----------
 
 To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
 and the |ref-bootswitch| is set to **Default SOM boot**. 
 
 Flash eMMC from Network
-^^^^^^^^^^^^^^^^^^^^^^^
+.......................
 
 |soc| boards have an Ethernet connector and can be updated over a network. Be
 sure to set up the development host correctly. The IP needs to be set to
@@ -16,7 +16,7 @@ the Yocto build system directly to the eMMC. The SD card image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
 Flash eMMC from Network in u-boot on Target
-*******************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These steps will show how to update the eMMC via a network. However, they only
 work if the size of the image file is less than 1GB. If the image file is
@@ -62,7 +62,7 @@ prompt.
    MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash eMMC via Network in Linux on Target
-*****************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can update the eMMC from your target.
 
@@ -78,7 +78,7 @@ You can update the eMMC from your target.
    target$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.sdcard" \| dd of=/dev/mmcblk2
 
 Flash eMMC via Network in Linux on Host
-***************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is also possible to install the OS at eMMC from your Linux host. As before,
 you need a complete image on your host.
@@ -103,7 +103,7 @@ you need a complete image on your host.
    | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
 
 Flash eMMC u-boot image via Network from running u-boot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.......................................................
 
 Update the standalone u-boot image imx-boot is also possible from u-boot. This
 can be used if the bootloader on eMMC is located in the eMMC user area.
@@ -121,10 +121,10 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
    u-boot=> mmc write ${loadaddr} 0x40 ${filesize}
 
 Flash eMMC from USB
-^^^^^^^^^^^^^^^^^^^
+...................
 
 Flash eMMC from USB in u-boot on Target
-***************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
 
@@ -162,7 +162,7 @@ to the USB slot.
    u-boot=> boot
 
 Flash eMMC from USB in Linux
-****************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable sdcard. (e.g.
@@ -223,7 +223,7 @@ need a complete image saved on the USB stick and a bootable sdcard. (e.g.
    to **Default SOM Boot** to |ref-bootswitch|.
 
 Flash eMMC from SD Card
-^^^^^^^^^^^^^^^^^^^^^^^
+.......................
 
 Even if there is no network available, you can update the eMMC. For that, you
 only need a ready-to-use image file (*\*.sdcard*) located on the SD card.
@@ -232,7 +232,7 @@ its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.
 
 Flash eMMC from SD card in u-boot on Target
-*******************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
 
@@ -276,7 +276,7 @@ Flash eMMC from SD card in u-boot on Target
    boot from eMMC.
 
 Flash eMMC from SD card in Linux on Target
-******************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also flash the eMMC on Linux. You only need a complete image saved on
 the SD card (e.g. |yocto-imagename|-|yocto-machinename|.sdcard).
@@ -320,7 +320,7 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.sdcard).
    SOM Boot to boot from eMMC.
 
 Flash SPI NOR Flash
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
 Flash, set |ref-bootswitch| to **QSPI boot** to boot from QSPI. The SPI Flash is
@@ -337,7 +337,7 @@ device tree, and file system are taken from eMMC by default.
    mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env:redund),-(none)
 
 Flash SPI NOR Flash from Network
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+................................
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
@@ -348,7 +348,7 @@ populated on the phyCORE-|soc|.
    A working network is necessary! Setup Network Host.
 
 Flash SPI NOR from Network in u-boot on Target
-**********************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to updating the eMMC over a network, be sure to set up the development
 host correctly. The IP needs to be set to 192.168.3.10, the netmask to
@@ -386,7 +386,7 @@ writing is possible, the SPI-NOR flash needs to be probed:
    full flash in Linux.
 
 Flash SPI NOR from Network in kernel on Target
-**********************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the image from the host to the target:
 
@@ -418,12 +418,12 @@ Flash SPI NOR from Network in kernel on Target
    target$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 Flash SPI NOR Flash from SD Card
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+................................
 
 The bootloader on SPI NOR flash can be also flashed with SD Card.
 
 Flash SPI NOR from SD Card in u-boot on Target
-**********************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the SPI NOR flash U-boot image
    imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the FAT partition
@@ -460,7 +460,7 @@ Flash SPI NOR from SD Card in u-boot on Target
    full flash in Linux.
 
 Flash SPI NOR from SD Card in kernel on Target
-**********************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Mount the SD Card:
 
@@ -492,7 +492,7 @@ Erase the u-boot partition and flash it:
    target$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 RAUC
-~~~~
+----
 
 The RAUC (Robust Auto-Update Controller) mechanism support has been added to
 meta-ampliphy. It controls the procedure of updating a device with new firmware.

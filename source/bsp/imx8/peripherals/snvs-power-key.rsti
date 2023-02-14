@@ -1,5 +1,5 @@
 snvs Power Key
-~~~~~~~~~~~~~~
+--------------
 
 The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
 Power OFF without SW intervention or used to wake up the system out of suspend.
@@ -10,4 +10,3 @@ suspend are not configured. Triggering a power off with systemd when pushing the
 ON/OFF button can be configured under /etc/systemd/logind.conf  and set using::
 
    HandlePowerKey=poweroff
-

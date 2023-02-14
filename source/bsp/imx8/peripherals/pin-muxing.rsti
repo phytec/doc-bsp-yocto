@@ -1,5 +1,5 @@
 |soc| Pin Muxing
-~~~~~~~~~~~~~~~~
+----------------
 
 The |soc| SoC contains many peripheral interfaces. In order to reduce package
 size and lower overall system cost while maintaining maximum functionality, many

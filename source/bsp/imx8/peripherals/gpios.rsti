@@ -1,5 +1,5 @@
 GPIOs
-~~~~~
+-----
 
 The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
 connected directly to |soc| pins and are muxed as GPIOs. They are directly

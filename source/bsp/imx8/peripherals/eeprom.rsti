@@ -1,5 +1,5 @@
 I2C EEPROM on |som|
-^^^^^^^^^^^^^^^^^^^
+...................
 
 The I2C EEPROM on the |som| SoM is connected to I2C address 0x51 on the I2C-0
 bus. It is possible to read and write directly to the device populated::
@@ -24,7 +24,7 @@ bus. It is possible to read and write directly to the device populated::
    The first 256 bytes are reserved for future purposes!
 
 EEPROM SoM Detection
-^^^^^^^^^^^^^^^^^^^^
+....................
 
 The I2C EEPROM, populated on the |som|, has a separate ID page that is
 addressable over I2C address 0x59 on bus 0 and a normal area that is addressable
@@ -61,7 +61,7 @@ about the module in the early stage::
    ...
 
 Rescue EEPROM Data
-^^^^^^^^^^^^^^^^^^
+..................
 
 The hardware introspection data is pre-written on both EEPROM data spaces. If
 you have accidentally deleted or overwritten the normal area, you can copy the

@@ -1,8 +1,8 @@
 Power Management
-~~~~~~~~~~~~~~~~
+----------------
 
 CPU Core Frequency Scaling
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+..........................
 
 The CPU in the |soc| SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
@@ -75,7 +75,7 @@ For more detailed information about the governors, refer to the Linux kernel
 documentation in linux/Documentation/cpu-freq/governors.txt.
 
 CPU Core Management
-^^^^^^^^^^^^^^^^^^^
+...................
 
 The |soc| SoC can have multiple processor cores on the die. The |soc|, for
 example, has 4 ARM Cores which can be turned on and off individually at runtime.
@@ -112,7 +112,7 @@ Now the core is powered down and no more processes are scheduled on this core.
       target$ echo 1 > /sys/devices/system/cpu/cpu3/online
 
 Suspend to RAM
-^^^^^^^^^^^^^^
+..............
 
 The |som| supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with::

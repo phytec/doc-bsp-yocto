@@ -1,5 +1,5 @@
 SD/MMC Card
-~~~~~~~~~~~
+-----------
 
 The |soc| supports a slot for Secure Digital Cards and MultiMedia Cards to be
 used as general-purpose block devices. These devices can be used in the same way

@@ -7,11 +7,13 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.sdcard
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/ 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
-.. Devicetree
-.. |dtcarrierboard| replace:: imx8mp-phyboard-pollux-rdk
-.. |dtsom| replace:: imx8mp-phycore-som
+.. IMX8(MP) specific
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163
+.. _dtsomnetwork: https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41
+.. _dtsbcnetwork: https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149
+
 
 .. General Substitutions
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
@@ -27,6 +29,7 @@
 .. Linux Kernel
 .. |kernel-tag| replace:: v5.10.72_2.2.0-phy9
 .. |kernel-socname| replace:: imx8mp
+
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
@@ -91,16 +94,12 @@
 .. include:: ../../intro.rsti
 
 Supported Hardware
-~~~~~~~~~~~~~~~~~~
+------------------
 
 The |sbc| with 2GB RAM  is supported. 
 
 On our web page, you can see all supported Machines with the available Article
-<<<<<<< HEAD
-Numbers for this release: |manifestbspname| download.
-=======
 Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
->>>>>>> f04101e (bsp: imx8: fixup)
 
 If you choose a specific Machine Name in the section Supported Machines, you can
 see which Article Numbers are available under this machine and also a short
@@ -116,18 +115,18 @@ Name for your specific hardware
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. include:: ../../getting-started.rsti
+.. include:: /bsp/getting-started.rsti
 
 First Start-up
-~~~~~~~~~~~~~~
+--------------
 
-* To boot from an SD card, |bootswitch| needs to be set to the following
+* To boot from an SD card, |ref-bootswitch| needs to be set to the following
   position:
 
 .. image:: images/SD_Card_Boot.png
 
 * Insert the SD card
-* Connect the target and the host with **mirco USB** on |debugusbconnector|
+* Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
   debug USB
 * Power up the board
 
@@ -135,7 +134,7 @@ First Start-up
 .. Building the BSP
 .. +---------------------------------------------------------------------------+
 
-.. include:: ../../building-bsp.rsti
+.. include:: /bsp/building-bsp.rsti
 
 .. _imx8mp-head-images:
 
@@ -161,10 +160,10 @@ First Start-up
 .. +---------------------------------------------------------------------------+
 
 Installing the OS
------------------
+=================
 
 Bootmode Switch (S3)
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 .. tip::
 
@@ -183,14 +182,14 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-head-development:
-.. include:: ../../development.rsti
+.. include:: /bsp/development.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-head-device-tree:
-.. include:: ../../device-tree.rsti
+.. include:: /bsp/device-tree.rsti
 
 ::
 
@@ -225,7 +224,7 @@ select the phyCORE-|soc| default bootsource.
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-.. include:: ../../peripherals/introduction.rsti
+.. include:: /bsp/peripherals/introduction.rsti
 
 .. include:: ../peripherals/pin-muxing.rsti
 
@@ -251,7 +250,7 @@ disabled.
 .. include:: ../peripherals/network.rsti
 
 WLAN and Bluetooth
-^^^^^^^^^^^^^^^^^^
+..................
 
 WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
 The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install and use the
@@ -285,7 +284,7 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboa
 .. include:: i2c-bus.rsti
 
 EEPROM
-~~~~~~
+------
 
 There are two different i2c EEPROM flashes populated on |som| SoM and on the
 |sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
@@ -308,7 +307,7 @@ DT representation for USB Host:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354
 
 CAN FD
-~~~~~~
+------
 
 The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the
 Linux standard CAN framework which builds upon then the Linux network layer.
@@ -322,25 +321,25 @@ documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173
 
-.. include:: ../../peripherals/pcie.rsti
+.. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of imx8mm-phyboard-polis.dts:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285
 
 Audio
-~~~~~
+-----
 
 Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
 codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
 jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
 speaker, headphones, and line in signals.
 
-.. include:: ../../peripherals/audio.rsti
+.. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43
 
-.. include:: ../../peripherals/video.rsti
+.. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
 
@@ -351,7 +350,7 @@ https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8
 The device tree description of PWM Fan can be found here:
 https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37
 
-.. include:: ../../peripherals/watchdog.rsti
+.. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: ../peripherals/snvs-power-key.rsti
 
@@ -379,4 +378,4 @@ tree::
 .. BSP EXTENSIONS
 .. +---------------------------------------------------------------------------+
 
-.. include:: ../../bsp-extensions.rsti
+.. include:: /bsp/bsp-extensions.rsti
