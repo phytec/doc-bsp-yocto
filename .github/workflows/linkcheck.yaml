@@ -10,6 +10,9 @@ jobs:
     - name: Clone repo
       uses: actions/checkout@v2
     - name: Install dependencies
-      run: pip3 install -r requirements/setup.txt
+      run: |
+          sudo apt update
+          sudo apt install python3-pip -y
+          pip3 install -r requirements/setup.txt
     - name: Check External Links
       run: tox -e py3-linkcheck
