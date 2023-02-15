@@ -93,6 +93,10 @@ latex_documents = [
 
 # -- Linkcheck options ----------------------------------------------------
 
+linkcheck_ignore = [
+    "https://github.com/phytec/doc-bsp-yocto"
+]
+
 linkcheck_timeout = 30
 linkcheck_workers = 10
 linkcheck_anchors = False
