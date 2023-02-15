@@ -4,7 +4,7 @@
 PHYTEC Yocto BSP Documentation
 ==============================
 
-.. inclusion-marker-do-not-remove
+* **Contributing**: see `Contribution Guide`_
 
 Getting the Source Code
 -----------------------
@@ -40,36 +40,5 @@ Open the locally built HTML pages in your webbrowser::
 
    xdg-open build/index.html
 
-Contributing
-------------
 
-To propose changes, open a pull-request with your WIP branch. This WIP branch
-should be pushed to this repository, without forking. It must be named after the
-following scheme::
-
-   WIP/your-github-account-name/feature-description
-
-E.g. if your GitHub account is named ``john-smith`` and your pull-request
-contains a new chapter about the SPI on the i.MX8M, then name the branch like
-the following::
-
-   WIP/john-smith/imx8m-spi-chapter
-
-To create this branch, use ``checkout`` and specify the remote ``main`` branch
-to be the base of your changes::
-
-   git checkout -b WIP/your-github-account-name/feature-description origin/main
-
-Push your changes regularly to the remote repository. When pushing the branch
-for first time, you have to specify the upstream using ``-u``::
-
-   git push -u origin WIP/your-github-account-name/feature-description
-
-For subsequent commits you do not have to do this and simply use ``push`` while
-being on your WIP branch::
-
-   git push
-
-When committing, make sure to add a sign-off using the option ``-s``::
-
-   git commit -s
+.. _Contribution Guide: https://github.com/phytec/doc-bsp-yocto/wiki
