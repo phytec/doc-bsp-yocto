@@ -13,7 +13,6 @@ Welcome to the Documentation for our Yocto BSPs.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Documentation & Contributing
+   :caption: Contribute
 
-   quickstart
-   contributing
+   contributing_links
