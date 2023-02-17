@@ -2,8 +2,11 @@
 Yocto Reference Manuals
 =======================
 
-.. toctree::
-   :caption: Yocto Reference Manuals
-   :maxdepth: 2
+Yocto Reference Manual HEAD
+===========================
 
-   Yocto Reference Manual HEAD <head>
+.. toctree::
+   :numbered:
+   :maxdepth: 1
+
+   head

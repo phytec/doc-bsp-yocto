@@ -68,10 +68,6 @@
    on the |sbc| can be found `here <dtsbcnetwork_>`_.
 
 
-==============================
-|doc-id| |soc| BSP Manual Head
-==============================
-
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
 | ManualHead            |                      |
