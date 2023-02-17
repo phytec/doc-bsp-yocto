@@ -8,10 +8,6 @@
 .. |yocto-ref-manual| replace:: |doc-art-no| Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
 
-========================================
-|doc-art-no| Yocto Reference Manual HEAD
-========================================
-
 +---------------------------------------------------------------+
 | |yocto-ref-manual|                                            |
 +=======================+=======================================+

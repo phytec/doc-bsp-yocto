@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L813e.Ax Yocto Reference Manual HEAD &mdash; PHYTEC BSP Documentation</title>
+  <title>1. The Yocto Project &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/code-block.css" type="text/css" />
@@ -49,58 +49,58 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../devtools/hostsetup.html">Development Host Setup</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="manual-index.html">Yocto Reference Manuals</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Yocto Reference Manual HEAD</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-yocto-project">The Yocto Project</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#yocto-introduction">Yocto Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#core-components">Core Components</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vocabulary">Vocabulary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#poky">Poky</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#official-documentation">Official Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="manual-index.html#yocto-reference-manual-head">Yocto Reference Manual HEAD</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. The Yocto Project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">1.1. PHYTEC Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yocto-introduction">1.2. Yocto Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#core-components">1.3. Core Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vocabulary">1.4. Vocabulary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#poky">1.5. Poky</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#official-documentation">1.6. Official Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#compatible-linux-distributions">Compatible Linux Distributions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phytec-bsp-introduction">PHYTEC BSP Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-structure">BSP Structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#build-configuration">Build Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-structure">3.1. BSP Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-configuration">3.2. Build Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#pre-built-images">Pre-built Images</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bsp-workspace-installation">BSP Workspace Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-host">Setting Up the Host</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#git-configuration">Git Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#site-conf-setup">site.conf Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-workspace-installation">5. BSP Workspace Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-host">5.1. Setting Up the Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git-configuration">5.2. Git Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#site-conf-setup">5.3. site.conf Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#phylinux-documentation">phyLinux Documentation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-phylinux">Get phyLinux</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#initialization">Initialization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phylinux-documentation">6. phyLinux Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-phylinux">6.1. Get phyLinux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-usage">6.2. Basic Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialization">6.3. Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-usage">6.4. Advanced Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#using-build-container">Using build-container</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#available-container">Available container</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#download-pull-container">Download/Pull container</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-container">Run container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-build-container">7. Using build-container</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">7.1. Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#available-container">7.2. Available container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-pull-container">7.3. Download/Pull container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-container">7.4. Run container</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#working-with-poky-and-bitbake">Working with Poky and Bitbake</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#start-the-build">Start the Build</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#images-images">Images images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-the-development-states-between-releases">Accessing the Development States between Releases</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#inspect-your-build-configuration">Inspect your Build Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">BSP Features of meta-phytec and meta-ampliphy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-customization">BSP Customization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#common-tasks">Common Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#start-the-build">8.1. Start the Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#images-images">8.2. Images images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-the-development-states-between-releases">8.3. Accessing the Development States between Releases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inspect-your-build-configuration">8.4. Inspect your Build Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-customization">8.6. BSP Customization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-tasks">8.7. Common Tasks</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#setscene-task-warning">Setscene Task Warning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">9. Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setscene-task-warning">9.1. Setscene Task Warning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#yocto-documentation">Yocto Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yocto-documentation">10. Yocto Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -127,7 +127,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="manual-index.html">Yocto Reference Manuals</a></li>
-      <li class="breadcrumb-item active">L813e.Ax Yocto Reference Manual HEAD</li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>The Yocto Project</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/yocto/head.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -137,9 +137,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="doc-art-no-yocto-reference-manual-head">
-<h1>L813e.Ax Yocto Reference Manual HEAD<a class="headerlink" href="#doc-art-no-yocto-reference-manual-head" title="Permalink to this heading"></a></h1>
-<table class="docutils align-default">
+  <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p>L813e.Ax Yocto Reference Manual</p></th>
 </tr>
@@ -187,9 +185,9 @@ Date</p></th>
 </table>
 <p>This manual applies to all kirkstone based PHYTEC releases.</p>
 <section id="the-yocto-project">
-<h2>The Yocto Project<a class="headerlink" href="#the-yocto-project" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">1. </span>The Yocto Project<a class="headerlink" href="#the-yocto-project" title="Permalink to this heading"></a></h1>
 <section id="phytec-documentation">
-<h3>PHYTEC Documentation<a class="headerlink" href="#phytec-documentation" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.1. </span>PHYTEC Documentation<a class="headerlink" href="#phytec-documentation" title="Permalink to this heading"></a></h2>
 <p>PHYTEC will provide a variety of hardware and software documentation for all of
 our products. This includes any or all of the following:</p>
 <ul class="simple">
@@ -225,7 +223,7 @@ on a case-by-case basis. Most of the documentation can be found in the
 applicable download page of our products.</p>
 </section>
 <section id="yocto-introduction">
-<h3>Yocto Introduction<a class="headerlink" href="#yocto-introduction" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.2. </span>Yocto Introduction<a class="headerlink" href="#yocto-introduction" title="Permalink to this heading"></a></h2>
 <p>Yocto is the smallest SI metric system prefix. Like milli equates to <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span>
 <span class="pre">10^-3</span></code>, and so is yocto <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">10^-24</span></code>. Yocto is also a project working group
 of the <a class="reference external" href="https://www.linuxfoundation.org/">Linux Foundation</a> and therefore
@@ -251,7 +249,7 @@ codename. The release list can be found here:
 <a class="reference external" href="https://wiki.yoctoproject.org/wiki/Releases">https://wiki.yoctoproject.org/wiki/Releases</a></p>
 </section>
 <section id="core-components">
-<h3>Core Components<a class="headerlink" href="#core-components" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.3. </span>Core Components<a class="headerlink" href="#core-components" title="Permalink to this heading"></a></h2>
 <p>The most important tools or subprojects of the <em>Yocto</em> Project are:</p>
 <ul class="simple">
 <li><p>Bitbake: build engine, a task scheduler like make, interprets metadata</p></li>
@@ -272,9 +270,9 @@ bootstrap a new distribution based on <em>Yocto</em></p></li>
 </ul>
 </section>
 <section id="vocabulary">
-<h3>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.4. </span>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this heading"></a></h2>
 <section id="recipes">
-<h4>Recipes<a class="headerlink" href="#recipes" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.4.1. </span>Recipes<a class="headerlink" href="#recipes" title="Permalink to this heading"></a></h3>
 <p>Recipes contain information about the software project (author, homepage, and
 license). A recipe is versioned, defines dependencies, contains the URL of the
 source code, and describes how to fetch, configure, and compile the sources. It
@@ -284,11 +282,11 @@ own programming language, which has a simple syntax. However, a recipe can
 contain <em>Python</em> as well as a bash code.</p>
 </section>
 <section id="classes">
-<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.4.2. </span>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h3>
 <p>Classes combine functionality used inside recipes into reusable blocks.</p>
 </section>
 <section id="layers">
-<h4>Layers<a class="headerlink" href="#layers" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.4.3. </span>Layers<a class="headerlink" href="#layers" title="Permalink to this heading"></a></h3>
 <p>A layer is a collection of recipes, classes, and configuration metadata.
 A layer can depend on other layers and can be included or excluded one
 by one. It encapsulates a specific functionality and fulfills a specific
@@ -308,18 +306,18 @@ very helpful to see if a software package can be retrieved and integrated
 easily: <a class="reference external" href="https://layers.openembedded.org/layerindex/branch/kirkstone/layers/">https://layers.openembedded.org/layerindex/branch/kirkstone/layers/</a></p>
 </section>
 <section id="machine">
-<h4>Machine<a class="headerlink" href="#machine" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.4.4. </span>Machine<a class="headerlink" href="#machine" title="Permalink to this heading"></a></h3>
 <p>Machines are configuration variables that describe the aspects of the target
 hardware.</p>
 </section>
 <section id="distribution-distro">
-<h4>Distribution (Distro)<a class="headerlink" href="#distribution-distro" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.4.5. </span>Distribution (Distro)<a class="headerlink" href="#distribution-distro" title="Permalink to this heading"></a></h3>
 <p>Distribution describes the software configuration and comes with a set of
 software features.</p>
 </section>
 </section>
 <section id="poky">
-<h3>Poky<a class="headerlink" href="#poky" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.5. </span>Poky<a class="headerlink" href="#poky" title="Permalink to this heading"></a></h2>
 <p><em>Poky</em> is the reference system to define <em>Yocto</em> Project compatibility. It
 combines several subprojects into releases:</p>
 <ul class="simple">
@@ -330,14 +328,14 @@ combines several subprojects into releases:</p>
 <li><p><em>Yocto</em> Reference BSP</p></li>
 </ul>
 <section id="bitbake">
-<h4>Bitbake<a class="headerlink" href="#bitbake" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.5.1. </span>Bitbake<a class="headerlink" href="#bitbake" title="Permalink to this heading"></a></h3>
 <p><em>Bitbake</em> is the task scheduler. It is written in <em>Python</em> and interprets
 recipes that contain code in <em>Bitbake’s</em> own programming language, <em>Python</em>, and
 bash code. The official documentation can be found here:
 <a class="reference external" href="https://docs.yoctoproject.org/bitbake/2.0/index.html">https://docs.yoctoproject.org/bitbake/2.0/index.html</a></p>
 </section>
 <section id="toaster">
-<h4>Toaster<a class="headerlink" href="#toaster" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">1.5.2. </span>Toaster<a class="headerlink" href="#toaster" title="Permalink to this heading"></a></h3>
 <p><em>Toaster</em> is a web frontend for <em>Bitbake</em> to start and investigate builds. It
 provides information about the build history and statistics on created images.
 There are several use cases where the installation and maintenance of
@@ -348,27 +346,27 @@ information is the official documentation:
 </section>
 </section>
 <section id="official-documentation">
-<h3>Official Documentation<a class="headerlink" href="#official-documentation" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">1.6. </span>Official Documentation<a class="headerlink" href="#official-documentation" title="Permalink to this heading"></a></h2>
 <p>For more general questions about <em>Bitbake</em> and <em>Poky</em> consult the mega-manual:
 <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/singleindex.html">https://docs.yoctoproject.org/4.0.6/singleindex.html</a></p>
 </section>
 </section>
 <section id="compatible-linux-distributions">
-<h2>Compatible Linux Distributions<a class="headerlink" href="#compatible-linux-distributions" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">2. </span>Compatible Linux Distributions<a class="headerlink" href="#compatible-linux-distributions" title="Permalink to this heading"></a></h1>
 <p>To build <em>Yocto</em> you need a compatible <em>Linux</em> host development machine. The
 list of supported distributions can be found in the reference manual:
 <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions">https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions</a></p>
 </section>
 <section id="phytec-bsp-introduction">
-<h2>PHYTEC BSP Introduction<a class="headerlink" href="#phytec-bsp-introduction" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">3. </span>PHYTEC BSP Introduction<a class="headerlink" href="#phytec-bsp-introduction" title="Permalink to this heading"></a></h1>
 <section id="bsp-structure">
-<h3>BSP Structure<a class="headerlink" href="#bsp-structure" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">3.1. </span>BSP Structure<a class="headerlink" href="#bsp-structure" title="Permalink to this heading"></a></h2>
 <p>The BSP consists roughly of three parts. BSP management, BSP metadata, and BSP
 content. The management consists of <em>Repo</em> and phyLinux while the metadata
 depends on the SOC, which describes how to build the software. The content
 comprises PHYTEC’s <em>Git</em> repositories and external sources.</p>
 <section id="bsp-management">
-<h4>BSP Management<a class="headerlink" href="#bsp-management" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">3.1.1. </span>BSP Management<a class="headerlink" href="#bsp-management" title="Permalink to this heading"></a></h3>
 <p><em>Yocto</em> is an umbrella project. Naturally, this will force the user to base
 their work on several external repositories. They need to be managed in a
 deterministic way. We use manifest files, which contain an XML data structure,
@@ -376,12 +374,12 @@ to describe all git repositories with pinned-down versions. The <em>Repo</em> to
 our phyLinux wrapper script are used to manage the manifests and set up the BSP,
 as described in the manifest file.</p>
 <section id="phylinux">
-<h5>phyLinux<a class="headerlink" href="#phylinux" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.1.1. </span>phyLinux<a class="headerlink" href="#phylinux" title="Permalink to this heading"></a></h4>
 <p>phyLinux is a wrapper for <em>Repo</em> to handle downloading and setting up the BSP
 with an “out of the box” experience.</p>
 </section>
 <section id="repo">
-<h5>Repo<a class="headerlink" href="#repo" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.1.2. </span>Repo<a class="headerlink" href="#repo" title="Permalink to this heading"></a></h4>
 <p><em>Repo</em> is a wrapper around the <em>Repo</em> toolset. The phyLinux script will install
 the wrapper in a global path. This is only a wrapper, though. Whenever you run
 <code class="docutils literal notranslate"><span class="pre">repo</span> <span class="pre">init</span> <span class="pre">-u</span> <span class="pre">&lt;url&gt;</span></code>, you first download the <em>Repo</em> tools from <em>Googles</em> Git
@@ -407,45 +405,45 @@ repository which will be used for the manifest selection.</p>
 </section>
 </section>
 <section id="bsp-metadata">
-<h4>BSP Metadata<a class="headerlink" href="#bsp-metadata" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">3.1.2. </span>BSP Metadata<a class="headerlink" href="#bsp-metadata" title="Permalink to this heading"></a></h3>
 <p>We include several third-party layers in our BSP to get a complete <em>Linux</em>
 distribution up and running without the need to integrate external projects. All
 used repositories are described in the following section.</p>
 <section id="id1">
-<h5>Poky<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.1. </span>Poky<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
 <p>The PHYTEC BSP is built on top of <em>Poky</em>. It comes with a specific version,
 defined in the <em>Repo</em> manifest. <em>Poky</em> comes with a specific version of
 <em>Bitbake</em>. The OpenEmbedded-core layer “meta” is used as a base for our <em>Linux</em>
 system.</p>
 </section>
 <section id="meta-openembedded">
-<h5>meta-openembedded<a class="headerlink" href="#meta-openembedded" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.2. </span>meta-openembedded<a class="headerlink" href="#meta-openembedded" title="Permalink to this heading"></a></h4>
 <p>OpenEmbedded is a collection of different layers containing the meta description
 for many open-source software projects. We ship all OpenEmbedded layers with our
 BSP, but not all of them are activated. Our example images pull several software
 packages generated from OpenEmbedded recipes.</p>
 </section>
 <section id="meta-qt5">
-<h5>meta-qt5<a class="headerlink" href="#meta-qt5" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.3. </span>meta-qt5<a class="headerlink" href="#meta-qt5" title="Permalink to this heading"></a></h4>
 <p>This layer provides a community-supported integration of <em>Qt5</em> in the
 <em>Poky</em>-based root filesystem and is integrated into our BSP.</p>
 </section>
 <section id="meta-nodejs">
-<h5>meta-nodejs<a class="headerlink" href="#meta-nodejs" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.4. </span>meta-nodejs<a class="headerlink" href="#meta-nodejs" title="Permalink to this heading"></a></h4>
 <p>This is an application layer to add recent Node.js versions.</p>
 </section>
 <section id="meta-gstreamer1-0">
-<h5>meta-gstreamer1.0<a class="headerlink" href="#meta-gstreamer1-0" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.5. </span>meta-gstreamer1.0<a class="headerlink" href="#meta-gstreamer1-0" title="Permalink to this heading"></a></h4>
 <p>This is an application layer to add recent GStreamer versions.</p>
 </section>
 <section id="meta-rauc">
-<h5>meta-rauc<a class="headerlink" href="#meta-rauc" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.6. </span>meta-rauc<a class="headerlink" href="#meta-rauc" title="Permalink to this heading"></a></h4>
 <p>This layer contains the tools required to build an updated infrastructure with
 <a class="reference external" href="https://rauc.readthedocs.io/en/latest/index.html">RAUC</a>. A comparison with
 other update systems can be found here: <a class="reference external" href="https://wiki.yoctoproject.org/wiki/System_Update">Yocto update tools</a>.</p>
 </section>
 <section id="meta-phytec">
-<h5>meta-phytec<a class="headerlink" href="#meta-phytec" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.7. </span>meta-phytec<a class="headerlink" href="#meta-phytec" title="Permalink to this heading"></a></h4>
 <p>This layer contains all machines and common features for all our BSPs. It is
 PHYTEC’s <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html">Yocto Board Support Package</a> for all supported
 hardware (since <em>fido</em>) and is designed to be standalone with <em>Poky</em>. Only these
@@ -462,7 +460,7 @@ platforms</p></li>
 </ul>
 </section>
 <section id="meta-ampliphy">
-<h5>meta-ampliphy<a class="headerlink" href="#meta-ampliphy" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.8. </span>meta-ampliphy<a class="headerlink" href="#meta-ampliphy" title="Permalink to this heading"></a></h4>
 <p>This is our example distribution and BSP layer. It extends the basic
 configuration of <em>Poky</em> with software projects described by all the other BSP
 components. It provides a base for your specific development scenarios. The
@@ -477,7 +475,7 @@ which is possible locally and over-the-air</p></li>
 </ul>
 </section>
 <section id="meta-qt5-phytec">
-<h5>meta-qt5-phytec<a class="headerlink" href="#meta-qt5-phytec" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.9. </span>meta-qt5-phytec<a class="headerlink" href="#meta-qt5-phytec" title="Permalink to this heading"></a></h4>
 <p>This is our layer for Qt5 board integration and examples. The features are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://doc.qt.io/qt-5/embedded-linux.html">Qt5 with eglfs backend</a> for
@@ -490,21 +488,21 @@ integration. It can be found in
 </ul>
 </section>
 <section id="meta-virtualization">
-<h5>meta-virtualization<a class="headerlink" href="#meta-virtualization" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.10. </span>meta-virtualization<a class="headerlink" href="#meta-virtualization" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer provides support for building Xen, KVM, Libvirt, and associated
 packages necessary for constructing OE-based virtualized solutions.</p></li>
 </ul>
 </section>
 <section id="meta-security">
-<h5>meta-security<a class="headerlink" href="#meta-security" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.11. </span>meta-security<a class="headerlink" href="#meta-security" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer provides security tools, hardening tools for Linux kernels, and
 libraries for implementing security mechanisms.</p></li>
 </ul>
 </section>
 <section id="meta-selinux">
-<h5>meta-selinux<a class="headerlink" href="#meta-selinux" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.12. </span>meta-selinux<a class="headerlink" href="#meta-selinux" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer’s purpose is to enable SE Linux support. The majority of this
 layer’s work is accomplished in <em>bbappend</em> files, used to enable SE Linux
@@ -512,60 +510,60 @@ support in existing recipes.</p></li>
 </ul>
 </section>
 <section id="meta-browser">
-<h5>meta-browser<a class="headerlink" href="#meta-browser" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.13. </span>meta-browser<a class="headerlink" href="#meta-browser" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This is an application layer to add recent web browsers (Chromium, Firefox,
 etc.).</p></li>
 </ul>
 </section>
 <section id="meta-rust">
-<h5>meta-rust<a class="headerlink" href="#meta-rust" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.14. </span>meta-rust<a class="headerlink" href="#meta-rust" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Includes the Rust compiler and the Cargo package manager for Rust.</p></li>
 </ul>
 </section>
 <section id="meta-timesys">
-<h5>meta-timesys<a class="headerlink" href="#meta-timesys" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.15. </span>meta-timesys<a class="headerlink" href="#meta-timesys" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Timesys layer for Vigiles Yocto CVE monitoring, security notifications, and
 image manifest generation.</p></li>
 </ul>
 </section>
 <section id="meta-freescale">
-<h5>meta-freescale<a class="headerlink" href="#meta-freescale" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.16. </span>meta-freescale<a class="headerlink" href="#meta-freescale" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer provides support for the i.MX, Layerscape, and QorIQ product
 lines.</p></li>
 </ul>
 </section>
 <section id="meta-freescale-3rdparty">
-<h5>meta-freescale-3rdparty<a class="headerlink" href="#meta-freescale-3rdparty" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.17. </span>meta-freescale-3rdparty<a class="headerlink" href="#meta-freescale-3rdparty" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Provides support for boards from various vendors.</p></li>
 </ul>
 </section>
 <section id="meta-freescale-distro">
-<h5>meta-freescale-distro<a class="headerlink" href="#meta-freescale-distro" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.18. </span>meta-freescale-distro<a class="headerlink" href="#meta-freescale-distro" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer provides support for Freescale’s Demonstration images for use with
 OpenEmbedded and/or Yocto Freescale’s BSP layer.</p></li>
 </ul>
 </section>
 <section id="base-fsl-community-bsp-base">
-<h5>base (fsl-community-bsp-base)<a class="headerlink" href="#base-fsl-community-bsp-base" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.19. </span>base (fsl-community-bsp-base)<a class="headerlink" href="#base-fsl-community-bsp-base" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This layer provides BSP base files of NXP.</p></li>
 </ul>
 </section>
 <section id="meta-fsl-bsp-release">
-<h5>meta-fsl-bsp-release<a class="headerlink" href="#meta-fsl-bsp-release" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">3.1.2.20. </span>meta-fsl-bsp-release<a class="headerlink" href="#meta-fsl-bsp-release" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>This is the i.MX Yocto Project Release Layer.</p></li>
 </ul>
 </section>
 </section>
 <section id="bsp-content">
-<h4>BSP Content<a class="headerlink" href="#bsp-content" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">3.1.3. </span>BSP Content<a class="headerlink" href="#bsp-content" title="Permalink to this heading"></a></h3>
 <p>The BSP content gets pulled from different online sources when you first start
 using <em>Bitbake</em>. All files will be downloaded and cloned in a local directory
 configured as <code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code> in <em>Yocto</em>. If you backup your BSP with the complete
@@ -574,7 +572,7 @@ explained in the chapter <a class="reference internal" href="#gen-source-mirrors
 </section>
 </section>
 <section id="build-configuration">
-<h3>Build Configuration<a class="headerlink" href="#build-configuration" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">3.2. </span>Build Configuration<a class="headerlink" href="#build-configuration" title="Permalink to this heading"></a></h2>
 <p>The BSP initializes a build folder that will contain all files you
 create by running <em>Bitbake</em> commands. It contains a <code class="docutils literal notranslate"><span class="pre">conf</span></code> folder
 that handles build input variables.</p>
@@ -594,7 +592,7 @@ webpage for a description of the hardware.</p>
 </section>
 </section>
 <section id="pre-built-images">
-<h2>Pre-built Images<a class="headerlink" href="#pre-built-images" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">4. </span>Pre-built Images<a class="headerlink" href="#pre-built-images" title="Permalink to this heading"></a></h1>
 <p>For each BSP we provide pre-built target images that can be downloaded from the
 PHYTEC FTP server: <a class="reference external" href="https://download.phytec.de/Software/Linux/">https://download.phytec.de/Software/Linux/</a></p>
 <p>These images are also used for the BSP tests, which are flashed to the boards
@@ -604,9 +602,9 @@ to an empty SD card using <code class="docutils literal notranslate"><span class
 about the correct usage of the command.</p>
 </section>
 <section id="bsp-workspace-installation">
-<h2>BSP Workspace Installation<a class="headerlink" href="#bsp-workspace-installation" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">5. </span>BSP Workspace Installation<a class="headerlink" href="#bsp-workspace-installation" title="Permalink to this heading"></a></h1>
 <section id="setting-up-the-host">
-<h3>Setting Up the Host<a class="headerlink" href="#setting-up-the-host" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">5.1. </span>Setting Up the Host<a class="headerlink" href="#setting-up-the-host" title="Permalink to this heading"></a></h2>
 <p>You can set up the host or use one of our build-container to run a Yocto build.
 You need to have a running <em>Linux</em> distribution. It should be running on a
 powerful machine since a lot of compiling will need to be done.</p>
@@ -631,7 +629,7 @@ using build-container can be found in this manual after
 <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html</a></p>
 </section>
 <section id="git-configuration">
-<span id="git-config"></span><h3>Git Configuration<a class="headerlink" href="#git-configuration" title="Permalink to this heading"></a></h3>
+<span id="git-config"></span><h2><span class="section-number">5.2. </span>Git Configuration<a class="headerlink" href="#git-configuration" title="Permalink to this heading"></a></h2>
 <p>The BSP heavily utilizes <em>Git</em>. <em>Git</em> needs some information from
 you as a user to identify who made changes. Create a <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code> with the
 following content, if you do not have one:</p>
@@ -664,7 +662,7 @@ host$ git config --global user.name &quot;name surname&quot;
 </div>
 </section>
 <section id="site-conf-setup">
-<h3>site.conf Setup<a class="headerlink" href="#site-conf-setup" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">5.3. </span>site.conf Setup<a class="headerlink" href="#site-conf-setup" title="Permalink to this heading"></a></h2>
 <p>Before starting the <em>Yocto</em> build, it is advisable to configure the development
 setup. Two things are most important: the download directory and the cache
 directory. PHYTEC strongly recommends configuring the setup as it will reduce
@@ -705,7 +703,7 @@ sources/poky/meta-yocto/conf/local.conf.sample.extended
 </section>
 </section>
 <section id="phylinux-documentation">
-<h2>phyLinux Documentation<a class="headerlink" href="#phylinux-documentation" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">6. </span>phyLinux Documentation<a class="headerlink" href="#phylinux-documentation" title="Permalink to this heading"></a></h1>
 <p>The phyLinux script is a basic management tool for PHYTEC <em>Yocto</em> BSP releases
 written in <em>Python</em>. It is mainly a helper to get started with the BSP
 structure. You can get all the BSP sources without the need of interacting with
@@ -717,12 +715,12 @@ manually. <em>Repo</em> will be automatically detected by phyLinux if it is foun
 the PATH. The <em>Repo</em> tool will be used to manage the different <em>Git</em>
 repositories of the <em>Yocto</em> BSP.</p>
 <section id="get-phylinux">
-<h3>Get phyLinux<a class="headerlink" href="#get-phylinux" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">6.1. </span>Get phyLinux<a class="headerlink" href="#get-phylinux" title="Permalink to this heading"></a></h2>
 <p>The phyLinux script can be found on the PHYTEC download server:
 <a class="reference external" href="https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux">https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux</a></p>
 </section>
 <section id="basic-usage">
-<h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">6.2. </span>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
 <p>For the basic usage of phyLinux, type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ ./phyLinux --help
 </pre></div>
@@ -748,7 +746,7 @@ optional arguments:
 </div>
 </section>
 <section id="initialization">
-<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">6.3. </span>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h2>
 <p>Create a fresh project folder:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ mkdir ~/yocto
 </pre></div>
@@ -927,7 +925,7 @@ options:
 notes as well as information for the next steps in the build process.</p>
 </section>
 <section id="advanced-usage">
-<span id="phylinux-advanced-usage"></span><h3>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this heading"></a></h3>
+<span id="phylinux-advanced-usage"></span><h2><span class="section-number">6.4. </span>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this heading"></a></h2>
 <p>phyLinux can be used to transport software states over any medium. The state of
 the software is uniquely identified by <em>manifest.xml</em>. You can create a
 manifest, send it to another place and recover the software state with:</p>
@@ -943,17 +941,17 @@ master branch for different usage. Use phyLinux to check out the states:</p>
 </section>
 </section>
 <section id="using-build-container">
-<h2>Using build-container<a class="headerlink" href="#using-build-container" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">7. </span>Using build-container<a class="headerlink" href="#using-build-container" title="Permalink to this heading"></a></h1>
 <p>There are various possibilities to run a build-container. Commonly used is
 docker and podman, though we prefer podman as it does not need root privileges
 to run.</p>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">7.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>How to install podman: <a class="reference external" href="https://podman.io/getting-started/installation">https://podman.io/getting-started/installation</a></p>
 <p>How to install docker: <a class="reference external" href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></p>
 </section>
 <section id="available-container">
-<h3>Available container<a class="headerlink" href="#available-container" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">7.2. </span>Available container<a class="headerlink" href="#available-container" title="Permalink to this heading"></a></h2>
 <p>Right now we provide 4 different container based on Ubuntu LTS versions:
 <a class="reference external" href="https://hub.docker.com/u/phybuilder">https://hub.docker.com/u/phybuilder</a></p>
 <ul class="simple">
@@ -965,7 +963,7 @@ to run.</p>
 <p>These containers can be run with podman or docker.</p>
 </section>
 <section id="download-pull-container">
-<h3>Download/Pull container<a class="headerlink" href="#download-pull-container" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">7.3. </span>Download/Pull container<a class="headerlink" href="#download-pull-container" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ podman pull phybuilder/yocto-ubuntu-22.04:phy1
 </pre></div>
 </div>
@@ -982,7 +980,7 @@ duckerhub space:</p>
 pulled/downloaded automatically.</p>
 </section>
 <section id="run-container">
-<h3>Run container<a class="headerlink" href="#run-container" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">7.4. </span>Run container<a class="headerlink" href="#run-container" title="Permalink to this heading"></a></h2>
 <p>To run and use container for a Yocto build, first enter to your folder, where
 you run phyLinux init before. Then start the container:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it phybuilder/yocto-ubuntu-22.04:phy1 bash
@@ -1002,9 +1000,9 @@ just call:</p>
 </section>
 </section>
 <section id="working-with-poky-and-bitbake">
-<h2>Working with Poky and Bitbake<a class="headerlink" href="#working-with-poky-and-bitbake" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">8. </span>Working with Poky and Bitbake<a class="headerlink" href="#working-with-poky-and-bitbake" title="Permalink to this heading"></a></h1>
 <section id="start-the-build">
-<h3>Start the Build<a class="headerlink" href="#start-the-build" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.1. </span>Start the Build<a class="headerlink" href="#start-the-build" title="Permalink to this heading"></a></h2>
 <p>After you download all the metadata with phyLinux init, you have to set up the
 shell environment variables. This needs to be done every time you open a new
 shell for starting builds. We use the shell script provided by <em>Poky</em> in its
@@ -1040,7 +1038,7 @@ working correctly:</p>
 subsequent builds will use the filled caches and should take about 3 minutes.</p>
 </section>
 <section id="images-images">
-<h3>Images images<a class="headerlink" href="#images-images" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.2. </span>Images images<a class="headerlink" href="#images-images" title="Permalink to this heading"></a></h2>
 <p>If everything worked, the images can be found under:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd deploy/images/&lt;MACHINE&gt;
 </pre></div>
@@ -1063,7 +1061,7 @@ you uncomment the line:</p>
 <p>the debug settings, like setting an empty root password, will not be applied.</p>
 </section>
 <section id="accessing-the-development-states-between-releases">
-<h3>Accessing the Development States between Releases<a class="headerlink" href="#accessing-the-development-states-between-releases" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.3. </span>Accessing the Development States between Releases<a class="headerlink" href="#accessing-the-development-states-between-releases" title="Permalink to this heading"></a></h2>
 <p>Special release manifests exist to give you access to the current development
 states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
@@ -1079,7 +1077,7 @@ now on running:</p>
 <p>this folder will pull all the latest changes from our Git repositories.</p>
 </section>
 <section id="inspect-your-build-configuration">
-<h3>Inspect your Build Configuration<a class="headerlink" href="#inspect-your-build-configuration" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.4. </span>Inspect your Build Configuration<a class="headerlink" href="#inspect-your-build-configuration" title="Permalink to this heading"></a></h2>
 <p><em>Poky</em> includes several tools to inspect your build layout. You can inspect the
 commands of the layer tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake-layers
@@ -1110,9 +1108,9 @@ To shut down the <em>Toaster</em> web GUI again, execute:</p>
 </div>
 </section>
 <section id="bsp-features-of-meta-phytec-and-meta-ampliphy">
-<h3>BSP Features of meta-phytec and meta-ampliphy<a class="headerlink" href="#bsp-features-of-meta-phytec-and-meta-ampliphy" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.5. </span>BSP Features of meta-phytec and meta-ampliphy<a class="headerlink" href="#bsp-features-of-meta-phytec-and-meta-ampliphy" title="Permalink to this heading"></a></h2>
 <section id="buildinfo">
-<h4><em>Buildinfo</em><a class="headerlink" href="#buildinfo" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.5.1. </span><em>Buildinfo</em><a class="headerlink" href="#buildinfo" title="Permalink to this heading"></a></h3>
 <p>The <em>buildinfo</em> task is a feature in our recipes that prints instructions to
 fetch the source code from the public repositories. So you do not have to look
 into the recipes yourself. To see the instructions, e.g. for the <em>barebox</em>
@@ -1191,7 +1189,7 @@ source directory, run the line:</p>
 </section>
 </section>
 <section id="bsp-customization">
-<h3>BSP Customization<a class="headerlink" href="#bsp-customization" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.6. </span>BSP Customization<a class="headerlink" href="#bsp-customization" title="Permalink to this heading"></a></h2>
 <p>To get you started with the BSP, we have summarized some basic tasks from the
 <em>Yocto</em> official documentation. It describes how to add additional software to
 the image, change the kernel and bootloader configuration, and integrate
@@ -1206,7 +1204,7 @@ and make small modifications to recipes.</p>
 </ol>
 <p>Creating your own layer is described in the section Create your own Layer.</p>
 <section id="disable-qt-demo">
-<h4>Disable Qt Demo<a class="headerlink" href="#disable-qt-demo" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.1. </span>Disable Qt Demo<a class="headerlink" href="#disable-qt-demo" title="Permalink to this heading"></a></h3>
 <p>By default, the BSP image <em>phytec-qt5demo-image</em> starts a Qt5 Demo application
 on the attached display or monitor. If you want to stop the demo and use the
 <em>Linux</em> framebuffer console behind it, connect to the target via serial cable
@@ -1243,7 +1241,7 @@ SYSTEMD_AUTO_ENABLE:pn-phytec-qtdemo = &quot;disable&quot;
 </div>
 </section>
 <section id="framebuffer-console">
-<h4>Framebuffer Console<a class="headerlink" href="#framebuffer-console" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.2. </span>Framebuffer Console<a class="headerlink" href="#framebuffer-console" title="Permalink to this heading"></a></h3>
 <p>On boards with a display interface, the framebuffer console is enabled per
 default. You can attach a USB keyboard and log in. To change the keyboard
 layout from the English default to German, type:</p>
@@ -1263,9 +1261,9 @@ configuration option:</p>
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/fb/fbcon.txt">https://www.kernel.org/doc/Documentation/fb/fbcon.txt</a></p>
 </section>
 <section id="tools-provided-in-the-prebuild-image">
-<h4>Tools Provided in the Prebuild Image<a class="headerlink" href="#tools-provided-in-the-prebuild-image" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.3. </span>Tools Provided in the Prebuild Image<a class="headerlink" href="#tools-provided-in-the-prebuild-image" title="Permalink to this heading"></a></h3>
 <section id="ram-benchmark">
-<h5>RAM Benchmark<a class="headerlink" href="#ram-benchmark" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.3.1. </span>RAM Benchmark<a class="headerlink" href="#ram-benchmark" title="Permalink to this heading"></a></h4>
 <p>Performing RAM and cache performance tests can best be done by using <em>pmbw</em>
 (Parallel Memory Bandwidth Benchmark/Measurement Tool). <em>Pmbw</em> runs several
 assembly routines which all use different access patterns to the caches and RAM
@@ -1296,7 +1294,7 @@ host$ gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r150 -sOutputFile=&#39;page-%00d.png
 </section>
 </section>
 <section id="add-additional-software-for-the-bsp-image">
-<h4>Add Additional Software for the BSP Image<a class="headerlink" href="#add-additional-software-for-the-bsp-image" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.4. </span>Add Additional Software for the BSP Image<a class="headerlink" href="#add-additional-software-for-the-bsp-image" title="Permalink to this heading"></a></h3>
 <p>To add additional software to the image, look at the OpenEmbedded layer index:
 <a class="reference external" href="https://layers.openembedded.org/layerindex/branch/kirkstone/layers/">https://layers.openembedded.org/layerindex/branch/kirkstone/layers/</a></p>
 <p>First, select the <em>Yocto</em> version of the BSP you have from the drop-down list in
@@ -1330,7 +1328,7 @@ The general syntax to add additional software to an image is:</p>
 tools are now included in both images phytec-headless-image and
 phytec-qt5demo-image.</p>
 <section id="notes-about-packages-and-recipes">
-<h5>Notes about Packages and Recipes<a class="headerlink" href="#notes-about-packages-and-recipes" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.4.1. </span>Notes about Packages and Recipes<a class="headerlink" href="#notes-about-packages-and-recipes" title="Permalink to this heading"></a></h4>
 <p>You are adding packages to the IMAGE_INSTALL variable. Those are not necessarily
 equivalent to the recipes in your meta-layers. A recipe defines per default a
 package with the same name. But a recipe can set the PACKAGES variable to
@@ -1345,7 +1343,7 @@ build.</p>
 </section>
 </section>
 <section id="add-an-additional-layer">
-<h4>Add an Additional Layer<a class="headerlink" href="#add-an-additional-layer" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.5. </span>Add an Additional Layer<a class="headerlink" href="#add-an-additional-layer" title="Permalink to this heading"></a></h3>
 <p>This is a step-by-step guide on how to add another layer to your <em>Yocto</em> build
 and install additional software from it. As an example, we include the network
 security scanner <em>nmap</em> in the layer <em>meta-security</em>. First, you must locate the
@@ -1405,7 +1403,7 @@ IMAGE_INSTALL:append = &quot; nmap&quot;
 </div>
 </section>
 <section id="create-your-own-layer-create-layer">
-<h4>Create your own Layer create layer<a class="headerlink" href="#create-your-own-layer-create-layer" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.6. </span>Create your own Layer create layer<a class="headerlink" href="#create-your-own-layer-create-layer" title="Permalink to this heading"></a></h3>
 <p>Creating your layer should be one of the first tasks when customizing the BSP.
 You have two basic options. You can either copy and rename our <em>meta-ampliphy</em>,
 or you can create a new layer that will contain your changes. The better option
@@ -1445,7 +1443,7 @@ host$ git init &amp;&amp; git add . &amp;&amp; git commit -s
 </div>
 </section>
 <section id="kernel-and-bootloader-recipe-and-version">
-<h4>Kernel and Bootloader Recipe and Version<a class="headerlink" href="#kernel-and-bootloader-recipe-and-version" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.7. </span>Kernel and Bootloader Recipe and Version<a class="headerlink" href="#kernel-and-bootloader-recipe-and-version" title="Permalink to this heading"></a></h3>
 <p>First, you need to know which kernel and version are used for your target
 machine. PHYTEC provides multiple kernel recipes <em>linux-mainline</em>, <em>linux-ti</em>
 and <em>linux-imx</em>. The first one provides support for PHYTEC’s i.MX 6 and AM335x
@@ -1489,7 +1487,7 @@ tag <em>v4.19.100-phy1</em>. The version of the <em>barebox</em> recipe is 2019.
 On i.MX8M* modules the output will contain <em>linux-imx</em> and <em>u-boot-imx</em>.</p>
 </section>
 <section id="kernel-and-bootloader-configuration">
-<h4>Kernel and Bootloader Configuration<a class="headerlink" href="#kernel-and-bootloader-configuration" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.8. </span>Kernel and Bootloader Configuration<a class="headerlink" href="#kernel-and-bootloader-configuration" title="Permalink to this heading"></a></h3>
 <p>The bootloader used by PHYTEC, <em>barebox</em>, uses the same build system as the
 <em>Linux</em> kernel. Therefore, all commands in this section can be used to configure
 the kernel and bootloader. To configure the kernel or bootloader, execute one of
@@ -1536,7 +1534,7 @@ cases. A fully assembled kernel configuration will be deployed in the directory
 <em>build/deploy/images/&lt;machine&gt;</em>. If you do not have any of those requirements,
 it might be simpler to just manage a separate <em>defconfig</em> file.</p>
 <section id="add-a-configuration-fragment-to-a-recipe">
-<h5>Add a Configuration Fragment to a Recipe<a class="headerlink" href="#add-a-configuration-fragment-to-a-recipe" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.8.1. </span>Add a Configuration Fragment to a Recipe<a class="headerlink" href="#add-a-configuration-fragment-to-a-recipe" title="Permalink to this heading"></a></h4>
 <p>The following steps can be used for both kernel and bootloader. Just replace the
 recipe name <em>linux-mainline</em> in the commands with <em>linux-ti</em>, or <em>barebox</em> for
 the bootloader. If you did not already take care of this, start with a clean
@@ -1600,7 +1598,7 @@ pick up the recipe changes automatically and generate a new image:</p>
 </div>
 </section>
 <section id="add-a-complete-default-configuration-defconfig-to-a-recipe">
-<h5>Add a Complete Default Configuration (<em>defconfig</em>) to a Recipe<a class="headerlink" href="#add-a-complete-default-configuration-defconfig-to-a-recipe" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.8.2. </span>Add a Complete Default Configuration (<em>defconfig</em>) to a Recipe<a class="headerlink" href="#add-a-complete-default-configuration-defconfig-to-a-recipe" title="Permalink to this heading"></a></h4>
 <p>This approach is similar to the one above, but instead of adding a fragment, a
 <em>defconfig</em> is used. First, create the necessary folders in the layer you want
 to use, either your own layer or <em>meta-ampliphy</em>:</p>
@@ -1641,7 +1639,7 @@ folder <em>recipes-bsp/barebox/</em> !</p>
 </section>
 </section>
 <section id="patch-the-kernel-or-bootloader-with-devtool">
-<h4>Patch the Kernel or Bootloader with <em>devtool</em><a class="headerlink" href="#patch-the-kernel-or-bootloader-with-devtool" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.9. </span>Patch the Kernel or Bootloader with <em>devtool</em><a class="headerlink" href="#patch-the-kernel-or-bootloader-with-devtool" title="Permalink to this heading"></a></h3>
 <p><em>Apart from using the standard versions of kernel and bootloader which are
 provided in the recipes, you can modify the source code or use our own
 repositories to build your customized kernel.</em></p>
@@ -1697,7 +1695,7 @@ directory and create a patch using <em>Git</em>. How to create a patch is descri
 or <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html">Devtool Quick Reference</a></p>
 </section>
 <section id="patch-the-kernel-or-bootloader-using-the-temporary-method">
-<span id="temporary-method"></span><h4>Patch the Kernel or Bootloader using the “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Permalink to this heading"></a></h4>
+<span id="temporary-method"></span><h3><span class="section-number">8.6.10. </span>Patch the Kernel or Bootloader using the “Temporary Method”<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>PRO</p></td>
@@ -1816,7 +1814,7 @@ and most of the documentation assumes the <em>Yocto</em> kernel approach.</p>
 </ul>
 </section>
 <section id="working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">
-<h4>Working with the Kernel and Bootloader using SRC_URI in <em>local.conf</em><a class="headerlink" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.11. </span>Working with the Kernel and Bootloader using SRC_URI in <em>local.conf</em><a class="headerlink" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf" title="Permalink to this heading"></a></h3>
 <p><em>Here we present a third option to make kernel and bootloader changes. You have
 external checkouts of the linux-mainline, linux-ti, or barebox  Git
 repositories. You will overwrite the URL of the source code fetcher, the
@@ -1895,7 +1893,7 @@ host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/ph
 repository and rebuild <em>barebox</em> again.</p>
 </section>
 <section id="add-existing-software-with-sustainable-method">
-<h4>Add Existing Software with “Sustainable Method”<a class="headerlink" href="#add-existing-software-with-sustainable-method" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.12. </span>Add Existing Software with “Sustainable Method”<a class="headerlink" href="#add-existing-software-with-sustainable-method" title="Permalink to this heading"></a></h3>
 <p>Now that you have created your own layer, you have a second option to add
 existing software to existing image definitions. Our standard image is defined
 in meta-ampliphy:</p>
@@ -1916,7 +1914,7 @@ IMAGE_INSTALL variable:</p>
 </div>
 </section>
 <section id="add-linux-firmware-files-to-the-root-filesystem">
-<h4>Add Linux Firmware Files to the Root Filesystem<a class="headerlink" href="#add-linux-firmware-files-to-the-root-filesystem" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.13. </span>Add Linux Firmware Files to the Root Filesystem<a class="headerlink" href="#add-linux-firmware-files-to-the-root-filesystem" title="Permalink to this heading"></a></h3>
 <p>It is a common task to add an extra firmware file to your root filesystem into
 <em>/lib/firmware/</em>. For example, WiFi adapters or PCIe Ethernet cards might need
 proprietary firmware. As a solution, we use a <em>bbappend</em> in our layer. To create
@@ -1962,7 +1960,7 @@ the name you assigned in <em>linux-firmware_%.bbappend</em>.</p>
 </div>
 </section>
 <section id="change-the-u-boot-environment-via-bbappend-files">
-<h4>Change the <em>u-boot</em> Environment via <em>bbappend</em> Files<a class="headerlink" href="#change-the-u-boot-environment-via-bbappend-files" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.14. </span>Change the <em>u-boot</em> Environment via <em>bbappend</em> Files<a class="headerlink" href="#change-the-u-boot-environment-via-bbappend-files" title="Permalink to this heading"></a></h3>
 <p>All i.MX8M* products use the u-boot bootloader. The u-boot environment can be
 modified using the Temporary Method. In the <em>u-boot-imx</em> sources modify the
 header file corresponding to the processor located in
@@ -1985,7 +1983,7 @@ SRC_URI:append = &quot; \
 </div>
 </section>
 <section id="change-the-barebox-environment-via-bbappend-files">
-<h4>Change the <em>barebox</em> Environment via <em>bbappend</em> Files<a class="headerlink" href="#change-the-barebox-environment-via-bbappend-files" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.15. </span>Change the <em>barebox</em> Environment via <em>bbappend</em> Files<a class="headerlink" href="#change-the-barebox-environment-via-bbappend-files" title="Permalink to this heading"></a></h3>
 <p>Since <em>BSP-Yocto-AM335x-16.2.0</em> and <em>BSP-Yocto-i.MX6-PD16.1.0</em>, the <em>barebox</em>
 environment handling in <em>meta-phytec</em> has changed. Now it is possible to add,
 change, and remove files in the <em>barebox</em> environment via the <em>Python</em> bitbake
@@ -2037,7 +2035,7 @@ python do_env:append() {
 </pre></div>
 </div>
 <section id="debugging-the-environment">
-<h5>Debugging the Environment<a class="headerlink" href="#debugging-the-environment" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.15.1. </span>Debugging the Environment<a class="headerlink" href="#debugging-the-environment" title="Permalink to this heading"></a></h4>
 <p>If you want to see all environment files that are added in the build process,
 you can enable a debug flag in the <em>local.conf</em>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file local.conf
@@ -2060,7 +2058,7 @@ WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.r
 </div>
 </section>
 <section id="changing-the-environment-depending-on-machines">
-<h5>Changing the Environment (depending on Machines)<a class="headerlink" href="#changing-the-environment-depending-on-machines" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.15.2. </span>Changing the Environment (depending on Machines)<a class="headerlink" href="#changing-the-environment-depending-on-machines" title="Permalink to this heading"></a></h4>
 <p>If you need to apply some <em>barebox</em> environment modifications only to a single
 or only a few machines, you can use <em>Bitbake’</em> s machine overwrite syntax. For
 the machine overwrite syntax, you append a machine name or SoC name (such as
@@ -2081,7 +2079,7 @@ python do_env:append:phyboard-mira-imx6-4() {
 <a class="reference external" href="https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata">https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata</a></p>
 </section>
 <section id="upgrading-the-barebox-environment-from-previous-bsp-releases">
-<h5>Upgrading the <em>barebox</em> Environment from Previous BSP Releases<a class="headerlink" href="#upgrading-the-barebox-environment-from-previous-bsp-releases" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.15.3. </span>Upgrading the <em>barebox</em> Environment from Previous BSP Releases<a class="headerlink" href="#upgrading-the-barebox-environment-from-previous-bsp-releases" title="Permalink to this heading"></a></h4>
 <p>Prior to BSP version <em>BSP-Yocto-AM335x-16.2.0</em> and <em>BSP-Yocto-i.MX6-PD16.1.0</em> ,
 <em>barebox</em> environment changes via <em>bbappend</em> file were done differently. For
 example, the directory structure in your meta layer (here <em>meta-skeleton</em> ) may
@@ -2122,7 +2120,7 @@ python do_env:append() {
 </section>
 </section>
 <section id="changing-the-network-configuration">
-<span id="changing-net-config"></span><h4>Changing the Network Configuration<a class="headerlink" href="#changing-the-network-configuration" title="Permalink to this heading"></a></h4>
+<span id="changing-net-config"></span><h3><span class="section-number">8.6.16. </span>Changing the Network Configuration<a class="headerlink" href="#changing-the-network-configuration" title="Permalink to this heading"></a></h3>
 <p>To tweak IP addresses, routes, and gateways at runtime you can use the tools
 <em>ifconfig</em> and <em>ip</em> . Some examples:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ ip addr                                         # Show all network interfaces
@@ -2171,9 +2169,9 @@ address configuration for <em>eth0</em> (and optionally <em>eth1</em>) is done.<
 and <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd.network.html">https://www.freedesktop.org/software/systemd/man/systemd.network.html</a>.</p>
 </section>
 <section id="changing-the-wireless-network-configuration">
-<h4>Changing the Wireless Network Configuration<a class="headerlink" href="#changing-the-wireless-network-configuration" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.17. </span>Changing the Wireless Network Configuration<a class="headerlink" href="#changing-the-wireless-network-configuration" title="Permalink to this heading"></a></h3>
 <section id="connecting-to-a-wlan-network">
-<h5>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.17.1. </span>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Permalink to this heading"></a></h4>
 <ul>
 <li><p>First set the correct regulatory domain for your country:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ iw reg set DE target$ iw reg get
@@ -2244,7 +2242,7 @@ DHCP=yes
 </ul>
 </section>
 <section id="creating-a-wlan-access-point">
-<h5>Creating a WLAN Access Point<a class="headerlink" href="#creating-a-wlan-access-point" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.17.2. </span>Creating a WLAN Access Point<a class="headerlink" href="#creating-a-wlan-access-point" title="Permalink to this heading"></a></h4>
 <p>This section provides a basic access point (AP) configuration for a
 secured <em>WPA2</em> network.</p>
 <p>Find the name of the WLAN interface with:</p>
@@ -2319,14 +2317,14 @@ https://w1.fi/hostapd/
 </div>
 </section>
 <section id="phycore-i-mx-6ul-ull-bluetooth">
-<h5>phyCORE-i.MX 6UL/ULL Bluetooth<a class="headerlink" href="#phycore-i-mx-6ul-ull-bluetooth" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.6.17.3. </span>phyCORE-i.MX 6UL/ULL Bluetooth<a class="headerlink" href="#phycore-i-mx-6ul-ull-bluetooth" title="Permalink to this heading"></a></h4>
 <p>Special consideration must be paid when working with any Bluetooth on a
 phyCORE-i.MX 6UL/ULL. For further information, please check <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=xoJEEQ#L844e-A5i-MX6ULULLBSPManual-Bluetooth">L-844e.A5 i.MX
 6UL/ULL BSP Manual - Bluetooth</a>.</p>
 </section>
 </section>
 <section id="add-opencv-libraries-and-examples">
-<h4>Add OpenCV Libraries and Examples<a class="headerlink" href="#add-opencv-libraries-and-examples" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.18. </span>Add OpenCV Libraries and Examples<a class="headerlink" href="#add-opencv-libraries-and-examples" title="Permalink to this heading"></a></h3>
 <p><em>OpenCV</em> (Opensource Computer Vision <a class="reference external" href="https://opencv.org/">https://opencv.org/</a>) is an open-source
 library for computer vision applications.</p>
 <p>To install the libraries and examples edit the file <em>conf/local.conf</em> in the
@@ -2369,7 +2367,7 @@ graphics library. The BSP only supports <em>Qt5</em> .</p>
 </div>
 </section>
 <section id="add-minimal-php-web-runtime-with-lightpd">
-<h4>Add Minimal PHP web runtime with <em>lightpd</em><a class="headerlink" href="#add-minimal-php-web-runtime-with-lightpd" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.6.19. </span>Add Minimal PHP web runtime with <em>lightpd</em><a class="headerlink" href="#add-minimal-php-web-runtime-with-lightpd" title="Permalink to this heading"></a></h3>
 <p>This is one example of how to add a small runtime for PHP applications and a web
 server on your target. Lighttpd can be used together with the PHP command line
 tool over cgi. This solution weights only 5.5 MiB of disk storage. It is already
@@ -2398,9 +2396,9 @@ and the phpinfo should show up.</p>
 </section>
 </section>
 <section id="common-tasks">
-<h3>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">8.7. </span>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this heading"></a></h2>
 <section id="debugging-a-user-space-application">
-<h4>Debugging a User Space Application<a class="headerlink" href="#debugging-a-user-space-application" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.7.1. </span>Debugging a User Space Application<a class="headerlink" href="#debugging-a-user-space-application" title="Permalink to this heading"></a></h3>
 <p>The phytec-qt5demo-image can be cross-debugged without any change. For
 cross-debugging, you just have to match the host sysroot with the image in use.
 So you need to create a toolchain for your image:</p>
@@ -2448,7 +2446,7 @@ from the host side and the dbg-pkgs are included in the SDK of your image
 anyway.</p>
 </section>
 <section id="generating-source-mirrors-working-offline">
-<span id="gen-source-mirrors"></span><h4>Generating Source Mirrors, working Offline<a class="headerlink" href="#generating-source-mirrors-working-offline" title="Permalink to this heading"></a></h4>
+<span id="gen-source-mirrors"></span><h3><span class="section-number">8.7.2. </span>Generating Source Mirrors, working Offline<a class="headerlink" href="#generating-source-mirrors-working-offline" title="Permalink to this heading"></a></h3>
 <p>Modify your <em>site.conf</em> (or <em>local.conf</em> if you do not use a <em>site.conf</em> ) as
 follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#DL_DIR ?= &quot;&quot; don&#39;t set it! It will default to a directory inside /build
@@ -2490,14 +2488,14 @@ SCONF_VERSION = &quot;1&quot;
 <p>where filename and folder should be the full BSP Name.</p>
 </section>
 <section id="compiling-on-the-target">
-<h4>Compiling on the Target<a class="headerlink" href="#compiling-on-the-target" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.7.3. </span>Compiling on the Target<a class="headerlink" href="#compiling-on-the-target" title="Permalink to this heading"></a></h3>
 <p>To your <em>local.conf</em> add:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_FEATURES:append = &quot; tools-sdk dev-pkgs&quot;
 </pre></div>
 </div>
 </section>
 <section id="different-toolchains">
-<h4>Different Toolchains<a class="headerlink" href="#different-toolchains" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.7.4. </span>Different Toolchains<a class="headerlink" href="#different-toolchains" title="Permalink to this heading"></a></h3>
 <p>There are several ways to create a toolchain installer in <em>Poky</em>. One option is
 to run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake meta-toolchain
@@ -2525,7 +2523,7 @@ simulator.</p>
 </div>
 <p>The ADT is untested for our BSP at the moment.</p>
 <section id="using-the-sdk">
-<h5>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.7.4.1. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h4>
 <p>After generating the SDK with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ source sources/poky/oe-init-build-env
 host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image
@@ -2608,7 +2606,7 @@ root filesystem</p>
 </div>
 </section>
 <section id="using-the-sdk-with-gnu-autotools">
-<h5>Using the SDK with GNU Autotools<a class="headerlink" href="#using-the-sdk-with-gnu-autotools" title="Permalink to this heading"></a></h5>
+<h4><span class="section-number">8.7.4.2. </span>Using the SDK with GNU Autotools<a class="headerlink" href="#using-the-sdk-with-gnu-autotools" title="Permalink to this heading"></a></h4>
 <p><em>Yocto</em> SDK is a straightforward tool for a project that uses the <em>GNU
 Autotools</em>. The traditional compile steps for the host are usually:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ ./autogen.sh # maybe not needed
@@ -2632,7 +2630,7 @@ host$ make install DESTDIR=$PWD/build/
 </section>
 </section>
 <section id="working-with-kernel-modules">
-<h4>Working with Kernel Modules<a class="headerlink" href="#working-with-kernel-modules" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.7.5. </span>Working with Kernel Modules<a class="headerlink" href="#working-with-kernel-modules" title="Permalink to this heading"></a></h3>
 <p>You will come to the point where you either need to set some options for a
 kernel module or you want to blacklist a module. Those things are handled by
 <em>udev</em> and go into <em>*.conf</em> files in:</p>
@@ -2661,7 +2659,7 @@ module_conf_your-module = &quot;blacklist your-module&quot;
 </div>
 </section>
 <section id="working-with-udev">
-<h4>Working with <em>udev</em><a class="headerlink" href="#working-with-udev" title="Permalink to this heading"></a></h4>
+<h3><span class="section-number">8.7.6. </span>Working with <em>udev</em><a class="headerlink" href="#working-with-udev" title="Permalink to this heading"></a></h3>
 <p>Udev (Linux dynamic device management) is a system daemon that handles dynamic
 device management in /dev. It is controlled by <em>udev</em> rules that are located
 in <em>/etc/udev/rules.d</em> (sysadmin configuration space) and <em>/lib/udev/rules.d/</em>
@@ -2715,9 +2713,9 @@ special attribute <em>ENV{SYSTEMD_WANTS}=”service-name.service”</em> and a
 </section>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">9. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
 <section id="setscene-task-warning">
-<h3>Setscene Task Warning<a class="headerlink" href="#setscene-task-warning" title="Permalink to this heading"></a></h3>
+<h2><span class="section-number">9.1. </span>Setscene Task Warning<a class="headerlink" href="#setscene-task-warning" title="Permalink to this heading"></a></h2>
 <p>This warning occurs when the Yocto cache is in a dirty state.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING: Setscene task X ([...]) failed with exit code &#39;1&#39; - real task
 </pre></div>
@@ -2731,7 +2729,7 @@ just clean the sstate cache and remove the build folders.</p>
 </section>
 </section>
 <section id="yocto-documentation">
-<h2>Yocto Documentation<a class="headerlink" href="#yocto-documentation" title="Permalink to this heading"></a></h2>
+<h1><span class="section-number">10. </span>Yocto Documentation<a class="headerlink" href="#yocto-documentation" title="Permalink to this heading"></a></h1>
 <p>The most important piece of documentation for a BSP user is probably the
 developer manual.
 <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/dev-manual/index.html">https://docs.yoctoproject.org/4.0.6/dev-manual/index.html</a></p>
@@ -2740,7 +2738,6 @@ developer manual.
 <p>The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
 <a class="reference external" href="https://docs.yoctoproject.org/4.0.6/singleindex.html">https://docs.yoctoproject.org/4.0.6/singleindex.html</a></p>
-</section>
 </section>
 
 
