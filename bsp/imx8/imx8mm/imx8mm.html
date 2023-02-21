@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>i.MX 8M Plus Manuals &mdash; PHYTEC BSP Documentation</title>
+  <title>i.MX 8M Mini Manuals &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/code-block.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="1. PHYTEC Documentation" href="head.html" />
-    <link rel="prev" title="i.MX 8 Manuals" href="../imx8.html" /> 
+    <link rel="next" title="L-1002e.Ax i.MX 8M Mini BSP Head" href="head.html" />
+    <link rel="prev" title="1. PHYTEC Documentation" href="../imx8mp/head.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,22 +50,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../devtools/hostsetup.html">Development Host Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Yocto Reference Manuals</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../imx8.html">i.MX 8 Manuals</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">i.MX 8M Plus Manuals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#i-mx-8m-plus-bsp-manual-head">i.MX 8M Plus BSP Manual HEAD</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="head.html">1. PHYTEC Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#getting-started">2. Getting Started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#building-the-bsp">3. Building the BSP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#installing-the-os">4. Installing the OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#development">5. Development</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#device-tree-dt">6. Device Tree (DT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 8M Plus M7 Core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="head.html#bsp-extensions">9. BSP Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../imx8mp/imx8mp.html">i.MX 8M Plus Manuals</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">i.MX 8M Mini Manuals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="head.html">HEAD</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../imx8mm/imx8mm.html">i.MX 8M Mini Manuals</a></li>
 </ul>
 </li>
 </ul>
@@ -89,9 +78,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../imx8.html">i.MX 8 Manuals</a></li>
-      <li class="breadcrumb-item active">i.MX 8M Plus Manuals</li>
+      <li class="breadcrumb-item active">i.MX 8M Mini Manuals</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx8/imx8mp/imx8mp.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx8/imx8mm/imx8mm.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -99,32 +88,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="i-mx-8m-plus-manuals">
-<h1>i.MX 8M Plus Manuals<a class="headerlink" href="#i-mx-8m-plus-manuals" title="Permalink to this heading"></a></h1>
-<section id="i-mx-8m-plus-bsp-manual-head">
-<h2>i.MX 8M Plus BSP Manual HEAD<a class="headerlink" href="#i-mx-8m-plus-bsp-manual-head" title="Permalink to this heading"></a></h2>
+  <section id="i-mx-8m-mini-manuals">
+<h1>i.MX 8M Mini Manuals<a class="headerlink" href="#i-mx-8m-mini-manuals" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="head.html">1. PHYTEC Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#getting-started">2. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#building-the-bsp">3. Building the BSP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#installing-the-os">4. Installing the OS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#development">5. Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#device-tree-dt">6. Device Tree (DT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 8M Plus M7 Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="head.html#bsp-extensions">9. BSP Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="head.html">HEAD</a></li>
 </ul>
 </div>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../imx8.html" class="btn btn-neutral float-left" title="i.MX 8 Manuals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="head.html" class="btn btn-neutral float-right" title="1. PHYTEC Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../imx8mp/head.html" class="btn btn-neutral float-left" title="1. PHYTEC Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="head.html" class="btn btn-neutral float-right" title="L-1002e.Ax i.MX 8M Mini BSP Head" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
