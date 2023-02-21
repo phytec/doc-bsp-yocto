@@ -10,18 +10,17 @@
 
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2021.04_2.2.0-phy#n188
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44`
 
 
 .. General Replacements
 .. |atfloadaddr| replace:: 0x920000..
+.. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |mcore| replace:: M4 Core
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Mini
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-i.MX8MM
-.. |doc-id| replace:: L-1002e.Ax
 
 
 .. Linux Kernel
@@ -33,6 +32,8 @@
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som
 
+.. IMX8(MM) specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44`
 
 .. Yocto
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
@@ -48,19 +49,19 @@
 
 .. Refs
 .. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S1) <imx8mm-head-bootswitch>`
-.. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mm-head-components>`
-.. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mm-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mm-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mm-head-device-tree>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-development>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mm-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
 
 
 .. IMX8(MM) specific replacements
+.. |pollux-sbc-network| replace:: \
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy5
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
-.. |pollux-sbc-network| replace:: \
 
 
 =======================

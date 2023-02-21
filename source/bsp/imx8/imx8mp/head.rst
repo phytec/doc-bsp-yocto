@@ -7,26 +7,25 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.sdcard
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/ 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163
 
 
 .. General Substitutions
+.. |atfloadaddr| replace:: 0x970000
+.. |doc-id| replace:: L-1017e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
+.. |mcore| replace:: M7 Core
+.. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-i.MX8MP
-.. |sbc| replace:: phyBOARD-Pollux
-.. |mcore| replace:: M7 Core
-.. |atfloadaddr| replace:: 0x970000
-.. |doc-id| replace:: L-1017e.Ax
 
 
 .. Linux Kernel
-.. |kernel-tag| replace:: v5.10.72_2.2.0-phy9
 .. |kernel-socname| replace:: imx8mp
+.. |kernel-tag| replace:: v5.10.72_2.2.0-phy9
 
 
 .. Devicetree
@@ -37,36 +36,37 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41`
 
 .. Yocto
-.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone).
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-distro| replace:: ampliphy-vendor-xwayland
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
 .. |yocto-codename| replace:: hardknott
+.. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S3) <imx8mp-head-bootswitch>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-head-components>`
-.. |ref-usb-otg| replace:: :ref:`X2 <imx8mp-head-components>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-head-device-tree>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X2 <imx8mp-head-components>`
 
 
 .. IMX8(MP) specific
+.. |pollux-sbc-network| replace::
+   The device tree set up for EQOS Ethernet IP core where the PHY is populated
+   on the |sbc| can be found here:
+   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149`.
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy7
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
-.. |pollux-sbc-network| replace::
-   The device tree set up for EQOS Ethernet IP core where the PHY is populated
-   on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149`.
 
 
 +-----------------------+----------------------+
