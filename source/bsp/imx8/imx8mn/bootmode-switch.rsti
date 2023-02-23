@@ -1,0 +1,36 @@
+Hardware revision baseboard: 1532.1
+
+.. list-table:: Bootmode Selection
+   :align: center
+   :widths: auto
+
+   *  -  .. figure:: images/eMMC.jpg
+            :width: 250px
+
+            Default Boot (eMMC boot)
+
+      -  .. figure:: ../imx8mm/images/USB_Serial_Download.png
+            :width: 250px
+
+            Serial Download (USB boot)
+
+   *  -  .. figure:: images/SD_Card.jpg
+            :width: 250px
+
+            SD Card boot
+
+      -  \
+
+
+.. list-table:: Switch between UART1 RS485/RS232
+   :align: center
+
+   *  -  .. figure:: ../imx8mm/images/UART1_RS485.png
+            :width: 250px
+
+            UART1 RS485
+
+      -  .. figure:: ../imx8mm/images/UART1_RS232.jpg
+            :width: 250px
+
+            UART1 RS232

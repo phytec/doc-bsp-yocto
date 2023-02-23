@@ -102,7 +102,15 @@ latex_documents = [
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
-    )
+    ),
+    (
+        'bsp/imx8/imx8mn/head',
+        'imx8mn-head.tex',
+        'L-1002e.Ax i.MX 8M Mini BSP Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------
