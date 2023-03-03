@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L-1002e.Ax i.MX 8M Mini BSP Head &mdash; PHYTEC BSP Documentation</title>
+  <title>L-1002e.Ax i.MX 8M Nano BSP Head &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/code-block.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="i.MX 8M Nano Manuals" href="../imx8mn/imx8mn.html" />
-    <link rel="prev" title="i.MX 8M Mini Manuals" href="imx8mm.html" /> 
+    <link rel="next" title="Contribute" href="../../../contributing_links.html" />
+    <link rel="prev" title="i.MX 8M Nano Manuals" href="imx8mn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,7 +51,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Yocto Reference Manuals</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../imx8.html">i.MX 8 Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../imx8mp/imx8mp.html">i.MX 8M Plus Manuals</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="imx8mm.html">i.MX 8M Mini Manuals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../imx8mm/imx8mm.html">i.MX 8M Mini Manuals</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="imx8mn.html">i.MX 8M Nano Manuals</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">HEAD</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting Started</a></li>
@@ -60,13 +61,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#development">Development</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">Device Tree (DT)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#accessing-peripherals">Accessing Peripherals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#soc-mcore">i.MX 8M Mini M4 Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#soc-mcore">i.MX 8M Nano M4 Core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">BSP Extensions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../imx8mn/imx8mn.html">i.MX 8M Nano Manuals</a></li>
 </ul>
 </li>
 </ul>
@@ -90,10 +90,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../imx8.html">i.MX 8 Manuals</a></li>
-          <li class="breadcrumb-item"><a href="imx8mm.html">i.MX 8M Mini Manuals</a></li>
-      <li class="breadcrumb-item active">L-1002e.Ax i.MX 8M Mini BSP Head</li>
+          <li class="breadcrumb-item"><a href="imx8mn.html">i.MX 8M Nano Manuals</a></li>
+      <li class="breadcrumb-item active">L-1002e.Ax i.MX 8M Nano BSP Head</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx8/imx8mm/head.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx8/imx8mn/head.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -102,14 +102,14 @@
            <div itemprop="articleBody">
              
   <section id="doc-id-soc-bsp-head">
-<h1>L-1002e.Ax i.MX 8M Mini BSP Head<a class="headerlink" href="#doc-id-soc-bsp-head" title="Permalink to this heading"></a></h1>
+<h1>L-1002e.Ax i.MX 8M Nano BSP Head<a class="headerlink" href="#doc-id-soc-bsp-head" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td colspan="2"><p>L-1002e.Ax i.MX 8M Mini BSP
+<tr class="row-odd"><td colspan="2"><p>L-1002e.Ax i.MX 8M Nano BSP
 Manual Head</p></td>
 </tr>
 <tr class="row-even"><td><p>Document Title</p></td>
-<td><p>L-1002e.Ax i.MX 8M Mini BSP
+<td><p>L-1002e.Ax i.MX 8M Nano BSP
 Manual Head</p></td>
 </tr>
 <tr class="row-odd"><td><p>Document Type</p></td>
@@ -125,14 +125,14 @@ Manual Head</p></td>
 <td><p>XXXX/XX/XX</p></td>
 </tr>
 <tr class="row-odd"><td><p>Is Branch of</p></td>
-<td><p>L-1002e.Ax i.MX 8M Mini BSP
+<td><p>L-1002e.Ax i.MX 8M Nano BSP
 Manual Head</p></td>
 </tr>
 </tbody>
 </table>
 <p>This BSP manual guides you through the installation and creation steps for the
 Board Support Package (BSP) and describes how to handle the interfaces for the
-<strong>phyCORE-i.MX8M Mini Kit</strong>. Furthermore, this document describes how to create BSP images from the
+<strong>phyCORE-i.MX8M Nano Kit</strong>. Furthermore, this document describes how to create BSP images from the
 source code. This is useful for those who need to change the default image and
 need a way to implement these changes in a simple and reproducible way.</p>
 <p>The table below shows the Compatible BSPs for this manual:</p>
@@ -200,8 +200,7 @@ Technical Notes. These will be done on a case-by-case basis. Most
 of the documentation can be found on the <a class="reference external" href="https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads">https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads</a> of our product.</p>
 <section id="supported-hardware">
 <h3>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this heading"></a></h3>
-<p>The phyBOARD-Polis populated with either the i.MX 8M Mini SoC or i.MX 8M Nano SoC, is
-supported.</p>
+<p>The phyBOARD-Polis populated with the i.MX 8M Nano SoC is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
 Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.0 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">download</a>.
 If you choose a specific <strong>Machine Namein the section **Supported Machines</strong>,
@@ -211,7 +210,7 @@ the <strong>Article Number</strong> of your hardware, you can leave the <stro
 Name</strong> drop-down menu empty and only choose your <strong>Article Number</strong>. Now it
 should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
 <section id="sbc-components">
-<span id="imx8mm-head-components"></span><h4>phyBOARD-Polis Components<a class="headerlink" href="#sbc-components" title="Permalink to this heading"></a></h4>
+<span id="imx8mn-head-components"></span><h4>phyBOARD-Polis Components<a class="headerlink" href="#sbc-components" title="Permalink to this heading"></a></h4>
 <table class="docutils align-center">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id1">
@@ -236,8 +235,8 @@ should show you the necessary <strong>Machine Name</strong> for your specific 
 </section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
-<p>The <strong>phyCORE-i.MX8M Mini Kit</strong>s are shipped with a pre-flashed SD-Card.  It contains the
-phytec-qt5demo-image and can be used directly as a boot source. The eMMC is
+<p>The <strong>phyCORE-i.MX8M Nano Kit</strong>s are shipped with a pre-flashed SD-Card.  It contains the
+phytec-headless-image and can be used directly as a boot source. The eMMC is
 programmed with only a U-boot as default. You can get all the sources from our
 <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">download server</a>. This chapter explains how to flash a BSP image
 to SD Card and how to start the board.</p>
@@ -249,7 +248,7 @@ command dd. It can be built by Yocto or downloaded from our download server.</p
 <ul class="simple">
 <li><p>Get the <em>*.sdcard</em> file from our download server:</p></li>
 </ul>
-<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard</a></pre>
+<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</a></pre>
 </section>
 <section id="write-the-image-to-sd-card">
 <h3>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Permalink to this heading"></a></h3>
@@ -300,9 +299,9 @@ card and are not still in memory. The parameter status=progress will print ou
 information on how much data is and still has to be copied until it is finished.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The created file phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard is only a link
+<p>The created file phytec-headless-image-phyboard-polis-imx8mn-1.sdcard is only a link
 to a file like
-phytec-qt5demo-image-phyboard-polis-imx8mm-4-&lt;BUILD-TIME&gt;.rootfs.sdcard.</p>
+phytec-headless-image-phyboard-polis-imx8mn-1-&lt;BUILD-TIME&gt;.rootfs.sdcard.</p>
 </div>
 <p>&lt;BUILD-TIME&gt; has the format: YYYYMMDDHHMMSS</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>example:
@@ -315,16 +314,16 @@ phytec-qt5demo-image-phyboard-polis-imx8mm-4-&lt;BUILD-TIME&gt;.rootfs.sdcard.</
 <section id="first-start-up">
 <h3>First Start-up<a class="headerlink" href="#first-start-up" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>To boot from an SD card, <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> needs to be set to the following
+<li><p>To boot from an SD card, <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> needs to be set to the following
 position:</p></li>
 </ul>
-<table class="docutils align-default" id="id3">
+<table class="docutils align-center" id="id3">
 <caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/SD_Card_Boot.jpg" src="../../../_images/SD_Card_Boot.jpg" />
+<a class="reference internal image-reference" href="../../../_images/SD_Card.jpg"><img alt="../../../_images/SD_Card.jpg" src="../../../_images/SD_Card.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">Mini</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">SD Card Boot</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -333,7 +332,7 @@ position:</p></li>
 </table>
 <ul class="simple">
 <li><p>Insert the SD card</p></li>
-<li><p>Connect the target and the host with <strong>mirco USB</strong> on <a class="reference internal" href="#imx8mm-head-components"><span class="std std-ref">(X30)</span></a>
+<li><p>Connect the target and the host with <strong>mirco USB</strong> on <a class="reference internal" href="#imx8mn-head-components"><span class="std std-ref">(X30)</span></a>
 debug USB</p></li>
 <li><p>Power up the board</p></li>
 </ul>
@@ -398,7 +397,7 @@ have a look at the invoice for the product. And have look at
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p></li>
 </ul>
-<pre class="literal-block">host$ DISTRO=ampliphy-vendor-xwayland MACHINE=phyboard-polis-imx8mm-4 ./phyLinux init -p imx8mm -r BSP-Yocto-NXP-i.MX8MM-PD22.1.0</pre>
+<pre class="literal-block">host$ DISTRO=ampliphy-vendor MACHINE=phyboard-polis-imx8mn-1 ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD22.1.0</pre>
 <p>After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.</p>
 <section id="starting-the-build-process">
@@ -427,7 +426,7 @@ ACCEPT_FSL_EULA = &quot;1&quot;
 <ul class="simple">
 <li><p>Build your image:</p></li>
 </ul>
-<pre class="literal-block">host$ bitbake phytec-qt5demo-image</pre>
+<pre class="literal-block">host$ bitbake phytec-headless-image</pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We suggest starting with our smaller non-graphical
@@ -438,9 +437,9 @@ subsequent builds will use the filled caches and should take about 3 minutes.</p
 </section>
 <section id="bsp-images">
 <h4>BSP Images<a class="headerlink" href="#bsp-images" title="Permalink to this heading"></a></h4>
-<p>All images generated by Bitbake are deployed to ~/yocto_imx8mm/build/deploy/images/&lt;machine&gt;. The following list shows for
-example all files generated for the i.MX 8M Mini phyboard-polis-imx8mm-4 machine:</p>
-<ul class="simple" id="imx8mm-head-images">
+<p>All images generated by Bitbake are deployed to ~/yocto_imx8mn/build/deploy/images/&lt;machine&gt;. The following list shows for
+example all files generated for the i.MX 8M Nano phyboard-polis-imx8mn-1 machine:</p>
+<ul class="simple" id="imx8mn-head-images">
 <li><p><strong>u-boot.bin</strong>: Binary compiled U-boot bootloader (U-Boot). Not the final
 Bootloader image!</p></li>
 <li><p><strong>oftree</strong>: Default kernel device tree</p></li>
@@ -453,10 +452,10 @@ Trusted Firmware and DDR firmware. This is the final bootloader image which is
 bootable.</p></li>
 <li><p><strong>Image</strong>: Linux kernel image</p></li>
 <li><p><strong>Image.config</strong>: Kernel configuration</p></li>
-<li><p><strong>imx8mm-phyboard-polis-rdk*.dtb</strong>: Kernel device tree file</p></li>
-<li><p><strong>imx8mm-phy*.dtbo</strong>: Kernel device tree overlay files</p></li>
-<li><p><strong>phytec-qt5demo-image*.tar.gz</strong>: Root file system</p></li>
-<li><p><strong>phytec-qt5demo-image*.sdcard</strong>: SD card image</p></li>
+<li><p><strong>imx8mn-phyboard-polis-rdk*.dtb</strong>: Kernel device tree file</p></li>
+<li><p><strong>imx8mn-phy*.dtbo</strong>: Kernel device tree overlay files</p></li>
+<li><p><strong>phytec-headless-image*.tar.gz</strong>: Root file system</p></li>
+<li><p><strong>phytec-headless-image*.sdcard</strong>: SD card image</p></li>
 </ul>
 </section>
 </section>
@@ -467,77 +466,68 @@ bootable.</p></li>
 <h3>Bootmode Switch (S1)<a class="headerlink" href="#bootmode-switch-s1" title="Permalink to this heading"></a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Hardware revision baseboard: 1552.2</p>
+<p>Hardware revision baseboard: 1552.1</p>
 </div>
 <p>The phyBOARD-Polis features a boot switch with four individually switchable ports to
-select the phyCORE-i.MX 8M Mini default bootsource.</p>
-<section id="mini">
-<span id="imx8mm-head-bootswitch"></span><h4>Mini<a class="headerlink" href="#mini" title="Permalink to this heading"></a></h4>
-<p>Hardware revision baseboard: 1532.1</p>
-<table class="docutils align-default" id="id5">
+select the phyCORE-i.MX 8M Nano default bootsource.</p>
+<p id="imx8mn-head-bootswitch">Hardware revision baseboard: 1532.1</p>
+<table class="docutils align-center" id="id5">
 <caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id6">
-<img alt="../../../_images/eMMC.jpg" src="../../../_images/eMMC.jpg" />
+<a class="reference internal image-reference" href="../../../_images/eMMC1.jpg"><img alt="../../../_images/eMMC1.jpg" src="../../../_images/eMMC1.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">Default SOM Boot (eMMC boot)</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Default Boot (eMMC boot)</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
+<a class="reference internal image-reference" href="../../../_images/USB_Serial_Download.png"><img alt="../../../_images/USB_Serial_Download.png" src="../../../_images/USB_Serial_Download.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">QSPI NOR boot</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Serial Download (USB boot)</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download.png" src="../../../_images/USB_Serial_Download.png" />
+<a class="reference internal image-reference" href="../../../_images/SD_Card.jpg"><img alt="../../../_images/SD_Card.jpg" src="../../../_images/SD_Card.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">Serial Download (USB boot)</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">SD Card boot</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id9">
-<img alt="../../../_images/SD_Card_Boot.jpg" src="../../../_images/SD_Card_Boot.jpg" />
-<figcaption>
-<p><span class="caption-text">SD Card boot</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id10">
-<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<table class="docutils align-center" id="id9">
+<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id11">
-<img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" />
+<tr class="row-odd"><td><figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../../_images/UART1_RS485.png"><img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">UART1 RS485</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">UART1 RS485</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id12">
-<img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" />
+<td><figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../../_images/UART1_RS232.jpg"><img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">UART1 RS232</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">UART1 RS232</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 <section id="flash-emmc">
 <h3>Flash eMMC<a class="headerlink" href="#flash-emmc" title="Permalink to this heading"></a></h3>
 <p>To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
-and the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> is set to <strong>Default SOM boot</strong>.</p>
+and the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> is set to <strong>Default SOM boot</strong>.</p>
 <section id="flash-emmc-from-network">
 <h4>Flash eMMC from Network<a class="headerlink" href="#flash-emmc-from-network" title="Permalink to this heading"></a></h4>
-<p>i.MX 8M Mini boards have an Ethernet connector and can be updated over a network. Be
+<p>i.MX 8M Nano boards have an Ethernet connector and can be updated over a network. Be
 sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
@@ -548,20 +538,20 @@ bootloader, kernel, device tree, device tree overlays, and root file system.</p>
 <h5>Flash eMMC from Network in u-boot on Target<a class="headerlink" href="#flash-emmc-from-network-in-u-boot-on-target" title="Permalink to this heading"></a></h5>
 <p>These steps will show how to update the eMMC via a network. However, they only
 work if the size of the image file is less than 1GB. If the image file is
-larger, go to the section Format SD Card. Configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to boot
+larger, go to the section Format SD Card. Configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> to boot
 from SD Card and put in an SD card. Power on the board and stop in U-Boot
 prompt.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
+<p>A working network is necessary! <a class="reference internal" href="#imx8mn-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
 <ul class="simple">
 <li><p>Load your image via network to RAM:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard
+<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-1.sdcard
 Using <a class="reference external" href="mailto:ethernet&#37;&#52;&#48;30be0000">ethernet<span>&#64;</span>30be0000</a> device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-Filename 'phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard'.
+Filename 'phytec-headless-image-phyboard-polis-imx8mn-1.sdcard'.
 Load address: 0x40480000
 Loading: #################################################################
          #################################################################
@@ -599,7 +589,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 with ssh through the network (then uncompress it, if necessary) to the eMMC
 of the target with a one-line command:</p></li>
 </ul>
-<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard&quot; | dd of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard&quot; | dd of=/dev/mmcblk2</pre>
 </section>
 <section id="flash-emmc-via-network-in-linux-on-host">
 <h5>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Permalink to this heading"></a></h5>
@@ -613,12 +603,12 @@ you need a complete image on your host.</p>
 <li><p>Show your available image files on the host:</p></li>
 </ul>
 <pre class="literal-block">host$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</pre>
 <ul class="simple">
 <li><p>Send the image with the command dd command combined with ssh through the
 network to the eMMC of your device:</p></li>
 </ul>
-<pre class="literal-block">host$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
+<pre class="literal-block">host$ dd if=phytec-headless-image-phyboard-polis-imx8mn-1.sdcard status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
 </section>
 </section>
 <section id="flash-emmc-u-boot-image-via-network-from-running-u-boot">
@@ -648,7 +638,7 @@ u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}
 space of the Bootloader.</p>
 </div>
 <p>These steps will show how to update the eMMC via a USB device. Configure the
-bootmode switch to <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> and put in an SD card. Power on the board
+bootmode switch to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> and put in an SD card. Power on the board
 and stop in u-boot prompt. Insert a USB device with the copied <em>*.sdcard</em> image
 to the USB slot.</p>
 <ul class="simple">
@@ -681,8 +671,8 @@ u-boot=&gt; boot
 <h5>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Permalink to this heading"></a></h5>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable sdcard. (e.g.
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard). Set the bootmode switch to
-<em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard). Set the bootmode switch to
+<em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 <ul class="simple">
 <li><p>Insert and mount the USB stick:</p></li>
 </ul>
@@ -703,7 +693,7 @@ target$ mount /dev/sda1 /mnt
 </ul>
 <pre class="literal-block">target$ cd /mnt
 target$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -722,16 +712,16 @@ mmcblk2rpmb
 <ul class="simple">
 <li><p>The eMMC device can be recognized by the fact that it contains two boot
 partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
-<li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 without partition):</p></li>
+<li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 without partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-1.sdcard of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Before this will work, you need to configure the multi-port switch
-to <strong>Default SOM Boot</strong> to <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
+to <strong>Default SOM Boot</strong> to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 </div>
 </section>
 </section>
@@ -752,17 +742,17 @@ eMMC from SD card in Linux on Target</cite> subsection.</p>
 </div>
 <ul class="simple">
 <li><p>Flash an SD card with a working image and create a third FAT partition. Copy
-the  *.sdcard image (for example phytec-qt5demo-image.sdcard) to this
+the  *.sdcard image (for example phytec-headless-image.sdcard) to this
 partition.</p></li>
 <li><p>Configure the bootmode switch  to boot from the SD Card and insert the SD
 card.</p></li>
 <li><p>Power on the board and stop in u-boot.</p></li>
-<li><p>Flash your &lt;YOUR_IMAGE&gt;.sdcard image (for example phytec-qt5demo-image.sdcard)
+<li><p>Flash your &lt;YOUR_IMAGE&gt;.sdcard image (for example phytec-headless-image.sdcard)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p></li>
 <li><p>Load the image:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard
+<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-1.sdcard
 reading
 911842304 bytes read in 39253 ms (22.2 MiB/s)</pre>
 <ul class="simple">
@@ -788,12 +778,12 @@ boot from eMMC.</p></li>
 <section id="flash-emmc-from-sd-card-in-linux-on-target">
 <h5>Flash eMMC from SD card in Linux on Target<a class="headerlink" href="#flash-emmc-from-sd-card-in-linux-on-target" title="Permalink to this heading"></a></h5>
 <p>You can also flash the eMMC on Linux. You only need a complete image saved on
-the SD card (e.g. phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard).</p>
+the SD card (e.g. phytec-headless-image-phyboard-polis-imx8mn-1.sdcard).</p>
 <ul class="simple">
 <li><p>Show your saved image files on the SD card:</p></li>
 </ul>
 <pre class="literal-block">target$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -812,16 +802,16 @@ mmcblk2rpmb
 <ul class="simple">
 <li><p>The eMMC device can be recognized by the fact that it contains two boot
 partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></li>
-<li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 <strong>without</strong>
+<li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 <strong>without</strong>
 partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-1.sdcard of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Before this will work, you need to configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to Default
+<p>Before this will work, you need to configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> to Default
 SOM Boot to boot from eMMC.</p>
 </div>
 </section>
@@ -830,7 +820,7 @@ SOM Boot to boot from eMMC.</p>
 <section id="flash-spi-nor-flash">
 <h3>Flash SPI NOR Flash<a class="headerlink" href="#flash-spi-nor-flash" title="Permalink to this heading"></a></h3>
 <p>The phyCORE-i.MX8MM modules are optionally equipped with SPI NOR Flash. To boot from SPI
-Flash, set <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>QSPI boot</strong> to boot from QSPI. The SPI Flash is
+Flash, set <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>QSPI boot</strong> to boot from QSPI. The SPI Flash is
 usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
 populated. Only the bootloader and the environment can be stored. The kernel,
 device tree, and file system are taken from eMMC by default.</p>
@@ -846,7 +836,7 @@ mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env:redund),-(none)
 <h4>Flash SPI NOR Flash from Network<a class="headerlink" href="#flash-spi-nor-flash-from-network" title="Permalink to this heading"></a></h4>
 <p>The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-i.MX 8M Mini.</p>
+populated on the phyCORE-i.MX 8M Nano.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! Setup Network Host.</p>
@@ -867,7 +857,7 @@ use the correct image file. Load the image over tftp, erase and write the
 bootloader to the flash:</p></li>
 </ul>
 <blockquote>
-<div><pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi
+<div><pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi
 u-boot=&gt; sf erase 0 0x400000
 SF: 4194304 bytes &#64; 0x0 Erased: OK u-boot=&gt; sf write ${loadaddr} 0 0x400000
 u-boot=&gt; sf write ${loadaddr} 0x400000
@@ -892,7 +882,7 @@ full flash in Linux.</p>
 <ul class="simple">
 <li><p>Copy the image from the host to the target:</p></li>
 </ul>
-<pre class="literal-block">host$ scp imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a>:/root</pre>
+<pre class="literal-block">host$ scp imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a>:/root</pre>
 <ul class="simple">
 <li><p>Find the number of erase blocks of the U-boot partition:</p></li>
 </ul>
@@ -913,7 +903,7 @@ Device is writable:             true
 <li><p>Erase the u-boot partition and flash it:</p></li>
 </ul>
 <pre class="literal-block">target$ flash_erase /dev/mtd0 0x0 60
-target$ flashcp imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
+target$ flashcp imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
 </section>
 </section>
 <section id="flash-spi-nor-flash-from-sd-card">
@@ -923,7 +913,7 @@ target$ flashcp imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi /dev
 <h5>Flash SPI NOR from SD Card in u-boot on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-u-boot-on-target" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p>Copy the SPI NOR flash U-boot image
-imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi to the FAT partition
+imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi to the FAT partition
 on the SD Card. Before reading and writing are possible, the SPI-NOR flash
 needs to be probed:</p></li>
 </ul>
@@ -937,7 +927,7 @@ use the correct image file. Load the image from the SD Card, erase and write
 the bootloader to the flash:</p></li>
 </ul>
 <pre class="literal-block">u-boot=&gt; mmc dev 1
-u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi
+u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi
 u-boot=&gt; sf erase 0 0x400000
 u-boot=&gt; sf write ${loadaddr} 0 0x400000</pre>
 <ul class="simple">
@@ -980,7 +970,7 @@ Device is writable:             true
 </div>
 <p>Erase the u-boot partition and flash it:</p>
 <pre class="literal-block">target$ flash_erase /dev/mtd0 0x0 64
-target$ flashcp /mnt/imx-boot-phyboard-polis-imx8mm-4-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
+target$ flashcp /mnt/imx-boot-phyboard-polis-imx8mn-1-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
 </section>
 </section>
 </section>
@@ -994,7 +984,7 @@ BSPs: L-1006e.A3 RAUC Update &amp; Device Management Manual.</p>
 </section>
 </section>
 <section id="development">
-<span id="imx8mm-head-development"></span><h2>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h2>
+<span id="imx8mn-head-development"></span><h2>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h2>
 <section id="booting-the-kernel-from-a-network">
 <h3>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Permalink to this heading"></a></h3>
 <p>Booting from a network means loading the kernel over TFTP and the root file
@@ -1128,7 +1118,7 @@ extracted with sudo.</p>
 <ul class="simple">
 <li><p>Extract the rootfs to your nfsroot:</p></li>
 </ul>
-<pre class="literal-block">sudo tar -xvzf phytec-qt5demo-image-phyboard-polis-imx8mm-4.tar.gz -C &lt;path_to_your_NFSROOT&gt;</pre>
+<pre class="literal-block">sudo tar -xvzf phytec-headless-image-phyboard-polis-imx8mn-1.tar.gz -C &lt;path_to_your_NFSROOT&gt;</pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Check the destination path when unpacking the rootfs.</p>
@@ -1137,7 +1127,7 @@ extracted with sudo.</p>
 <section id="network-settings-on-target">
 <h4>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Permalink to this heading"></a></h4>
 <p>To customize the targets ethernet configuration, please follow the description
-here: <a class="reference internal" href="#imx8mm-head-network"><span class="std std-ref">Network Environment Customization</span></a></p>
+here: <a class="reference internal" href="#imx8mn-head-network"><span class="std std-ref">Network Environment Customization</span></a></p>
 </section>
 <section id="booting-from-an-embedded-board">
 <h4>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Permalink to this heading"></a></h4>
@@ -1169,7 +1159,7 @@ host$ make
 <section id="get-flash-bin">
 <h4>Get _flash.bin<a class="headerlink" href="#get-flash-bin" title="Permalink to this heading"></a></h4>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
-../build/deploy/images/phyboard-polis-imx8mm-4/ and copy the U-boot image (imx-boot) to
+../build/deploy/images/phyboard-polis-imx8mn-1/ and copy the U-boot image (imx-boot) to
 the UUU directory:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools
 host$ cp -v imx-boot uuu/_flash.bin
@@ -1178,7 +1168,7 @@ host$ cp -v imx-boot uuu/_flash.bin
 </section>
 <section id="prepare-target">
 <h4>Prepare Target<a class="headerlink" href="#prepare-target" title="Permalink to this heading"></a></h4>
-<p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
+<p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
 Configuration Options). Also, connect USB A Male to USB  Male cable from the
 host to the top connector of <strong>X5</strong>.</p>
 </section>
@@ -1192,7 +1182,7 @@ host$ sudo ./uuu _flash.bin
 </pre></div>
 </div>
 <p>You can see the bootlog on the console via the debug USB
-<a class="reference internal" href="#imx8mm-head-components"><span class="std std-ref">(X30)</span></a>, as usual.</p>
+<a class="reference internal" href="#imx8mn-head-components"><span class="std std-ref">(X30)</span></a>, as usual.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default boot command when booting with UUU-Tool is set to fastboot. If
@@ -1205,13 +1195,13 @@ this in U-boot code.</p>
 </section>
 <section id="flashing-sd-card-image-to-emmc-via-uuu-tool">
 <h4>Flashing SD Card Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-sd-card-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h4>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mm-head-components"><span class="std std-ref">X2</span></a> to your host.</p>
-<p>Download phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard and imx-boot image from
+<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mn-head-components"><span class="std std-ref">X2</span></a> to your host.</p>
+<p>Download phytec-headless-image-phyboard-polis-imx8mn-1.sdcard and imx-boot image from
 our server or get them from your Yocto build directory at
-../build/deploy/images/phyboard-polis-imx8mm-4/ and copy them to the UUU directory:</p>
+../build/deploy/images/phyboard-polis-imx8mn-1/ and copy them to the UUU directory:</p>
 <pre class="literal-block">host$ cd mfgtools
-host$ cp -v phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard uuu/_rootfs.sdcard</pre>
+host$ cp -v phytec-headless-image-phyboard-polis-imx8mn-1.sdcard uuu/_rootfs.sdcard</pre>
 <p>Make sure that the U-Boot image is also available!</p>
 <ul class="simple">
 <li><p>Execute and power up the board:</p></li>
@@ -1249,7 +1239,7 @@ HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Our i.MX 8M Mini kernel is based on the linux-imx kernel. To find out which tag is
+<li><p>Our i.MX 8M Nano kernel is based on the linux-imx kernel. To find out which tag is
 used for a specific board, have a look at your BSP source folder:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
@@ -1264,17 +1254,17 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <li><p>Move to the Yocto build directory:</p></li>
 </ul>
 <pre class="literal-block">host$ source sources/poky/oe-init-build-env
-host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image</pre>
+host$ bitbake -c populate_sdk phytec-headless-image # or another image</pre>
 </section>
 <section id="install-the-sdk">
 <h4>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Set correct permissions and install the SDK:</p></li>
 </ul>
-<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.0.sh
-host$ ./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.0.sh ============================================================================================================
-Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.0):
-You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.0&quot;. Proceed [Y/n]?
+<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.0.sh
+host$ ./phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.0.sh ============================================================================================================
+Enter target directory for SDK (default: /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.0):
+You are about to install the SDK to &quot;/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.0&quot;. Proceed [Y/n]?
 Extracting SDK...done
 Setting it up...done
 SDK has been successfully set up and is ready to be used.</pre>
@@ -1283,7 +1273,7 @@ SDK has been successfully set up and is ready to be used.</pre>
 <h4>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h4>
 <p>Activate the toolchain for your shell by sourcing the file <em>environment-setup</em>
 in the toolchain directory:</p>
-<pre class="literal-block">host$ source /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/environment-setup-cortexa53-crypto-phytec-linux</pre>
+<pre class="literal-block">host$ source /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/environment-setup-cortexa53-crypto-phytec-linux</pre>
 </section>
 <section id="build-imx-boot">
 <h4>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Permalink to this heading"></a></h4>
@@ -1296,16 +1286,16 @@ the imx <em>mkimage tool</em>.</p>
 build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
 <ul class="simple">
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
-<strong>bl31.bin</strong>): bl31-imx8mm.bin</p></li>
+<strong>bl31.bin</strong>): bl31-imx8mn.bin</p></li>
 <li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
 <strong>lpddr4_pmu_train_*d_*mem.bin</strong>): <em>lpddr4_pmu_train_2d_dmem_202006.bin,
 lpddr4_pmu_train_2d_imem_202006.bin; (lpddr4_pmu_train_1d_dmem_202006.bin,
 lpddr4_pmu_train_1d_imem_202006.bin)</em></p></li>
 </ul>
 <p>If you already build our BSP with Yocto, you can get
-the bl31-imx8mm.bin and lpddr4_pmu_train*.bin from the directory
-mentioned here: <a class="reference internal" href="#imx8mm-head-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/imx-boot-tools/</a></p>
+the bl31-imx8mn.bin and lpddr4_pmu_train*.bin from the directory
+mentioned here: <a class="reference internal" href="#imx8mn-head-images"><span class="std std-ref">BSP Images</span></a></p>
+<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/imx-boot-tools/</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you rename the files you need so that they are compatible with the
@@ -1349,11 +1339,11 @@ further steps necessary:</p>
 </ul>
 </div>
 <p>Set this environment variable before building the Image:</p>
-<pre class="literal-block">host$ export ATF_LOAD_ADDR=0x920000..</pre>
+<pre class="literal-block">host$ export ATF_LOAD_ADDR=0x960000</pre>
 <ul class="simple">
 <li><p>build flash.bin (imx-boot):</p></li>
 </ul>
-<pre class="literal-block">host$ make phycore-imx8mm_defconfig
+<pre class="literal-block">host$ make phycore-imx8mn_defconfig
 host$ make flash.bin</pre>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed. E.g. flash SD card:</p>
@@ -1385,7 +1375,7 @@ host$ make -j16
 <ul class="simple">
 <li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
 <li><p>The dtb can be found at
-~/linux-imx/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dtb</p></li>
+~/linux-imx/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis-rdk.dtb</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1406,7 +1396,7 @@ host$ make -j16
 states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mm -r hardknott</pre>
+<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r hardknott</pre>
 <p>This will initialize a BSP that will track the latest development state. From
 now on <em>repo sync</em> in this folder will pull all the latest changes from
 our Git repositories:</p>
@@ -1419,7 +1409,7 @@ our Git repositories:</p>
 <p>We are already working on the next major release update based on NXP BSP
 rel_imx_5.15.52_2.1.0 (kirkstone). We are trying to update the public
 development state on a regular basis.</p>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mm -r hardknott</pre>
+<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r hardknott</pre>
 </section>
 <section id="accessing-the-latest-upstream-support">
 <h3>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Permalink to this heading"></a></h3>
@@ -1431,7 +1421,7 @@ kernel/u-boot.</p>
 <p>The master manifest reflects the latest state of development. This tends to
 be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mm -r BSP-Yocto-Ampliphy-i.MX8MP-master</pre>
+<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r BSP-Yocto-Ampliphy-i.MX8MP-master</pre>
 </section>
 <section id="format-sd-card">
 <h3>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Permalink to this heading"></a></h3>
@@ -1484,9 +1474,9 @@ easiest way to do this is to use the UI program Gparted.</p>
 <ul class="simple">
 <li><p>To apply your changes, press the green tick.</p></li>
 <li><p>Now you can mount the root partition and copy e.g. the
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard image to it. Then unmount it again:</p></li>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard image to it. Then unmount it again:</p></li>
 </ul>
-<pre class="literal-block">host$ sudo cp phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard /mnt/ ; sync
+<pre class="literal-block">host$ sudo cp phytec-headless-image-phyboard-polis-imx8mn-1.sdcard /mnt/ ; sync
 host$ umount /mnt</pre>
 </section>
 <section id="create-the-third-partition">
@@ -1509,17 +1499,17 @@ host$ umount /mnt</pre>
 <img alt="../../../_images/gparted8.png" src="../../../_images/gparted8.png" />
 <ul class="simple">
 <li><p>Now you can mount the new partition and copy e.g.
-phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard image to it. Then unmount it again:</p></li>
+phytec-headless-image-phyboard-polis-imx8mn-1.sdcard image to it. Then unmount it again:</p></li>
 </ul>
 <pre class="literal-block">host$ sudo mount /dev/sde3 /mnt
-host$ sudo cp phytec-qt5demo-image-phyboard-polis-imx8mm-4.sdcard /mnt/ ; sync
+host$ sudo cp phytec-headless-image-phyboard-polis-imx8mn-1.sdcard /mnt/ ; sync
 host$ umount /mnt</pre>
 </section>
 </section>
 </section>
 </section>
 <section id="device-tree-dt">
-<span id="imx8mm-head-device-tree"></span><h2>Device Tree (DT)<a class="headerlink" href="#device-tree-dt" title="Permalink to this heading"></a></h2>
+<span id="imx8mn-head-device-tree"></span><h2>Device Tree (DT)<a class="headerlink" href="#device-tree-dt" title="Permalink to this heading"></a></h2>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h3>
 <p>The following text briefly describes the Device Tree and can be found in
@@ -1534,20 +1524,20 @@ overview of the device tree data format can be found on the device tree usage
 page at <a class="reference external" href="https://www.devicetree.org/">devicetree.org</a>.</p>
 </section>
 <section id="phytec-soc-bsp-device-tree-concept">
-<h3>PHYTEC i.MX 8M Mini BSP Device Tree Concept<a class="headerlink" href="#phytec-soc-bsp-device-tree-concept" title="Permalink to this heading"></a></h3>
+<h3>PHYTEC i.MX 8M Nano BSP Device Tree Concept<a class="headerlink" href="#phytec-soc-bsp-device-tree-concept" title="Permalink to this heading"></a></h3>
 <p>The following sections explain some rules PHYTEC has defined on how to set up
-device trees for our i.MX 8M Mini SoC-based boards.</p>
+device trees for our i.MX 8M Nano SoC-based boards.</p>
 <section id="device-tree-structure">
 <h4>Device Tree Structure<a class="headerlink" href="#device-tree-structure" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p><em>Module.dtsi</em> - Module includes all devices mounted on the SoM, such as PMIC
 and RAM.</p></li>
-<li><p><em>Carrierboard.dtsi</em> - Devices that come from the i.MX 8M Mini SoC but are just routed
+<li><p><em>Carrierboard.dtsi</em> - Devices that come from the i.MX 8M Nano SoC but are just routed
 down to the carrier board and used there are included in this dtsi.</p></li>
 <li><p><em>Board.dts</em> - include the carrier board and module dtsi files. There may also
 be some hardware configuration nodes enabled on the carrier board or the
 module (i.e. the Board .dts shows the special characteristics of the board
-configuration). For example, there are phyCORE-i.MX 8M Mini SOMs which may or may not
+configuration). For example, there are phyCORE-i.MX 8M Nano SOMs which may or may not
 have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
 available) in the Board .dts and not in the Module .dtsi</p></li>
 </ul>
@@ -1563,20 +1553,20 @@ include, now applied as an overlay. They also may only contain setting the
 status of a node depending on if it is mounted or not. The device tree overlays
 are placed next to the other device tree files in our Linux kernel repository in
 the subfolder arch/arm64/boot/dts/freescale/overlays.</p>
-<p>Available overlays for phyboard-polis-imx8mm-4.conf are:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>imx8mm-phyboard-polis-peb-eval-01.dtbo
-imx8mm-phyboard-polis-peb-av-010.dtbo
-imx8mm-phycore-rpmsg.dtbo
-imx8mm-phycore-no-eth.dtbo
-imx8mm-phycore-no-spiflash.dtbo
-imx8mm-vm016.dtbo
-imx8mm-vm016-fpdlink.dtbo
-imx8mm-vm017.dtbo
-imx8mm-vm017-fpdlink.dtbo
-imx8mm-dual-vm017-fpdlink.dtbo
+<p>Available overlays for phyboard-polis-imx8mn-1.conf are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>imx8mn-phyboard-polis-peb-eval-01.dtbo
+imx8mn-phyboard-polis-peb-av-010.dtbo
+imx8mn-phycore-rpmsg.dtbo
+imx8mn-phycore-no-eth.dtbo
+imx8mn-phycore-no-spiflash.dtbo
+imx8mn-vm016.dtbo
+imx8mn-vm016-fpdlink.dtbo
+imx8mn-vm017.dtbo
+imx8mn-vm017-fpdlink.dtbo
+imx8mn-dual-vm017-fpdlink.dtbo
 </pre></div>
 </div>
-<p id="imx8mm-head-ubootexternalenv">If an overlay should be applied or not can be set during runtime and will have
+<p id="imx8mn-head-ubootexternalenv">If an overlay should be applied or not can be set during runtime and will have
 an effect after a reboot. The overlays are applied in the bootloader after the
 boot command is called and before the kernel is loaded. The next sections
 explain how it is done.</p>
@@ -1596,12 +1586,12 @@ but comes from the external bootenv.txt environment file. It is also located in
 the boot partition of the sdcard image. You can read and write the file on
 booted target:</p>
 <pre class="literal-block">target$ cat /boot/bootenv.txt
-overlays=imx8mm-phyboard-polis-rdk-peb-eval-01.dtbo imx8mm-phyboard-polis-rdk-peb-av-010.dtbo</pre>
+overlays=imx8mn-phyboard-polis-rdk-peb-eval-01.dtbo imx8mn-phyboard-polis-rdk-peb-av-010.dtbo</pre>
 <p>Changes will then take effect after the next reboot. If no bootenv.txt file is
 available the overlays variable can be set directly in the U-Boot environment.</p>
-<pre class="literal-block">u-boot=&gt; setenv overlays imx8mm-phyboard-polis-rdk-peb-av-010.dtbo
+<pre class="literal-block">u-boot=&gt; setenv overlays imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
 u-boot=&gt; printenv overlays
-overlays=imx8mm-phyboard-polis-rdk-peb-av-010.dtbo
+overlays=imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
 u-boot=&gt; saveenv</pre>
 <p>If you want to change the overlay variable in a non-persistent way, for example
 for testing:</p>
@@ -1619,7 +1609,7 @@ the environment in a non-persistent way.</p>
 </div>
 <p>More information about the external environment can be found in
 U-boot External Environment subsection of the
-<a class="reference internal" href="#imx8mm-head-ubootexternalenv"><span class="std std-ref">device tree overlay section</span></a>.</p>
+<a class="reference internal" href="#imx8mn-head-ubootexternalenv"><span class="std std-ref">device tree overlay section</span></a>.</p>
 <p>We use the ${overlays} variable for overlays describing expansion boards and
 cameras that can not be detected during run time. To prevent applying overlays
 listed in the ${overlays} variable during boot the ${no_overlays} variable can
@@ -1633,7 +1623,7 @@ u-boot=&gt; saveenv
 <h5>Extension Command<a class="headerlink" href="#extension-command" title="Permalink to this heading"></a></h5>
 <p>The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2021.04_2.2.0-phy#n188">extension_board_scan()</a>. In the BSP, the overlays applied
+<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy">extension_board_scan()</a>. In the BSP, the overlays applied
 in this way are used to disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
@@ -1646,7 +1636,7 @@ u-boot=&gt; extension list
 Extension 0: phyCORE-i.MX8MM no SPI flash
         Manufacturer:           PHYTEC
         Version:
-        Devicetree overlay:     imx8mm-phycore-no-spiflash.dtbo
+        Devicetree overlay:     imx8mn-phycore-no-spiflash.dtbo
         Other information:      SPI flash not populated on SoM</pre>
 <p>If the EEPROM data is not available, no device tree overlays are applied and the
 default status “okay” is preserved. To prevent running the extension command
@@ -1702,7 +1692,7 @@ environment source that you want to use.</p>
 <section id="accessing-peripherals">
 <h2>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Permalink to this heading"></a></h2>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-i.MX 8M Mini BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">our bsp</a> web page and click
+phyCORE-i.MX 8M Nano BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">our bsp</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns “Hardware Article Number” and the correct
 machine name in the corresponding cell under “Machine Name”.</p>
@@ -1718,28 +1708,28 @@ Linux kernel, especially of the ARM implementation which always has to fight
 with an insane number of possibilities of the System-on-Chip CPUs. The whole
 board-specific hardware is described in DTs and is not part of the kernel image
 itself. The hardware description is in its own separate binary, called the
-Device Tree Blob (DTB) (section <a class="reference internal" href="#imx8mm-head-device-tree"><span class="std std-ref">device tree</span></a>).</p>
-<p>Please read section PHYTEC i.MX 8M Mini BSP Device Tree Concept to get an understanding
+Device Tree Blob (DTB) (section <a class="reference internal" href="#imx8mn-head-device-tree"><span class="std std-ref">device tree</span></a>).</p>
+<p>Please read section PHYTEC i.MX 8M Nano BSP Device Tree Concept to get an understanding
 of our i.MX 8 BSP device tree model.</p>
 <p>The following sections provide an overview of the supported hardware components
 and their operating system drivers on the i.MX 8 platform. Further changes
 can be ported upon customer request.</p>
 <section id="soc-pin-muxing">
-<h3>i.MX 8M Mini Pin Muxing<a class="headerlink" href="#soc-pin-muxing" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini SoC contains many peripheral interfaces. In order to reduce package
+<h3>i.MX 8M Nano Pin Muxing<a class="headerlink" href="#soc-pin-muxing" title="Permalink to this heading"></a></h3>
+<p>The i.MX 8M Nano SoC contains many peripheral interfaces. In order to reduce package
 size and lower overall system cost while maintaining maximum functionality, many
-of the i.MX 8M Mini terminals can multiplex up to eight signal functions. Although
+of the i.MX 8M Nano terminals can multiplex up to eight signal functions. Although
 there are many combinations of pin multiplexing that are possible, only a
 certain number of sets, called IO sets, are valid due to timing limitations.
 These valid IO sets were carefully chosen to provide many possible application
 scenarios for the user.</p>
-<p>Please refer to our Hardware Manual or the NXP i.MX 8M Mini Reference Manual for more
+<p>Please refer to our Hardware Manual or the NXP i.MX 8M Nano Reference Manual for more
 information about the specific pins and the muxing capabilities.</p>
 <p>The IO set configuration, also called muxing, is done in the Device Tree. The
 driver pinctrl-single reads the DT’s node fsl,pins, and does the appropriate pin
 muxing.</p>
 <p>The following is an example of the pin muxing of the UART1 device in
-imx8mm-phyboard-polis-rdk.dtsi:</p>
+imx8mn-phyboard-polis-rdk.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_uart1: uart1grp {
     fsl,pins = &lt;
         MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
@@ -1757,23 +1747,23 @@ internal pull resistors are activated or not. In this case, the internal resisto
 </section>
 <section id="rs232-rs485">
 <h3>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini SoC provides up to 4 UART units. PHYTEC boards support different
+<p>The i.MX 8M Nano SoC provides up to 4 UART units. PHYTEC boards support different
 numbers of these UART units. UART1 can also be used as RS-485. For this,
-<em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> needs to be set correctly:</p>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> needs to be set correctly:</p>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id14">
+<tr class="row-odd"><td><figure class="align-default" id="id13">
 <img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id15">
+<td><figure class="align-default" id="id14">
 <img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -1817,11 +1807,11 @@ found here: <a class="reference external" href="https://github.com/cbrake/linux
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
 <p>The device tree representation for RS232 and RS485:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171</a></p>
 </section>
 </section>
 <section id="network">
-<span id="imx8mm-head-network"></span><h3>Network<a class="headerlink" href="#network" title="Permalink to this heading"></a></h3>
+<span id="imx8mn-head-network"></span><h3>Network<a class="headerlink" href="#network" title="Permalink to this heading"></a></h3>
 <p>phyCORE-i.MX8MM provides two ethernet interfaces. A gigabit Ethernet is provided by our
 module and board.</p>
 <div class="admonition warning">
@@ -1847,7 +1837,7 @@ and netmask for eth0 is:</p>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44</a>.</p>
+be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44</a>.</p>
 <p></p>
 <section id="network-environment-customization">
 <h4>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Permalink to this heading"></a></h4>
@@ -2041,7 +2031,7 @@ org.bluez.Error.Failed” try restarting PulseAudio with:</p>
 </section>
 <section id="sd-mmc-card">
 <h3>SD/MMC Card<a class="headerlink" href="#sd-mmc-card" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini supports a slot for Secure Digital Cards and MultiMedia Cards to be
+<p>The i.MX 8M Nano supports a slot for Secure Digital Cards and MultiMedia Cards to be
 used as general-purpose block devices. These devices can be used in the same way
 as any other block device.</p>
 <div class="admonition warning">
@@ -2068,16 +2058,16 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296</a></p>
 </section>
 <section id="emmc-devices">
 <h3>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Permalink to this heading"></a></h3>
-<p>PHYTEC modules like phyCORE-i.MX 8M Mini is populated with an eMMC memory chip as the
+<p>PHYTEC modules like phyCORE-i.MX 8M Nano is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
 controller that handles ECC and wear leveling. They are connected via an SD/MMC
-interface to the i.MX 8M Mini and are represented as block devices in the Linux kernel
+interface to the i.MX 8M Nano and are represented as block devices in the Linux kernel
 like SD cards, flash drives, or hard disks.</p>
 <p>The electric and protocol specifications are provided by JEDEC
 (<a class="reference external" href="https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc">https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc</a>).
@@ -2180,7 +2170,7 @@ itself, shut down the system:</p></li>
 partition table (see the previous section).</p>
 </div>
 <p>The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-i.MX 8M Mini SoMs. To check this on the running target:</p>
+on the phyCORE-i.MX 8M Nano SoMs. To check this on the running target:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc extcsd read /dev/mmcblk2 | grep -A 5 WR_REL_SET
 Write reliability setting register [WR_REL_SET]: 0x1f
  user area: the device protects existing data if a power failure occurs during a write o
@@ -2393,7 +2383,7 @@ but this command is bad for wear leveling and takes much longer!</p>
 </section>
 <section id="spi-master">
 <h3>SPI Master<a class="headerlink" href="#spi-master" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini controller has a FlexSPI and an ECSPI IP core included. The FlexSPI
+<p>The i.MX 8M Nano controller has a FlexSPI and an ECSPI IP core included. The FlexSPI
 host controller supports two SPI channels with up to 4 devices. Each channel
 supports Single/Dual/Quad/Octal mode data transfer (1/2/4/8 bidirectional data
 lines). The ECSPI controller supports 3 SPI interfaces with one dedicated chip
@@ -2401,7 +2391,7 @@ selected for each interface. As chip selects should be realized with GPIOs, more
 than one device on each channel is possible.</p>
 <section id="spi-nor-flash">
 <h4>SPI NOR Flash<a class="headerlink" href="#spi-nor-flash" title="Permalink to this heading"></a></h4>
-<p>phyCORE-i.MX 8M Mini is equipped with a QSPI NOR Flash which connects to the i.MX 8M Mini’s
+<p>phyCORE-i.MX 8M Nano is equipped with a QSPI NOR Flash which connects to the i.MX 8M Nano’s
 FlexSPI interface. The QSPI NOR Flash is suitable for booting. Please see
 different sections for flashing and bootmode setup. Due to limited space on the
 SPI NOR Flash, only the bootloader is stored inside. By default, the kernel,
@@ -2425,7 +2415,7 @@ for a partition, run on the target:</p>
 <pre class="literal-block">Count of MTD devices:           4
 Present MTD devices:            mtd0, mtd1, mtd2, mtd3
 Sysfs interface supported:      yes
-root&#64;phyboard-polis-imx8mm-4:~# mtdinfo --all
+root&#64;phyboard-polis-imx8mn-1:~# mtdinfo --all
 Count of MTD devices:           4
 Present MTD devices:            mtd0, mtd1, mtd2, mtd3
 Sysfs interface supported:      yes
@@ -2478,17 +2468,17 @@ is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67</a></p>
+<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n76">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n76</a></p>
 </section>
 </section>
 <section id="gpios">
 <h3>GPIOs<a class="headerlink" href="#gpios" title="Permalink to this heading"></a></h3>
 <p>The phyBOARD-Polis has a set of pins especially dedicated to user I/Os. Those pins are
-connected directly to i.MX 8M Mini pins and are muxed as GPIOs. They are directly
+connected directly to i.MX 8M Nano pins and are muxed as GPIOs. They are directly
 usable in Linux userspace. The processor has organized its GPIOs into five banks
 of 32 GPIOs each (GPIO1 – GPIO5)
 GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
-the sysfs representation of these internal i.MX 8M Mini GPIO banks GPIO1 – GPIO5.</p>
+the sysfs representation of these internal i.MX 8M Nano GPIO banks GPIO1 – GPIO5.</p>
 <p>The GPIOs are identified as GPIO&lt;X&gt;_&lt;Y&gt; (e.g. GPIO5_07). &lt;X&gt; identifies the GPIO
 bank and counts from 1 to 5, while &lt;Y&gt; stands for the GPIO within the bank. &lt;Y&gt;
 is being counted from 0 to 31 (32 GPIOs on each bank).</p>
@@ -2566,7 +2556,7 @@ as undefined behavior.
 refer to the schematic or the hardware manual of your board to ensure that it
 is not already in use.</p>
 </div>
-<p>Pinmuxing of some GPIO pins in the device tree imx8mm-phyboard-polis-rdk.dtsi:</p>
+<p>Pinmuxing of some GPIO pins in the device tree imx8mn-phyboard-polis-rdk.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_leds: leds1grp {
         fsl,pins = &lt;
                 MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
@@ -2607,21 +2597,21 @@ mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
 </pre></div>
 </div>
 <p>Device tree configuration for the User I/O configuration can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37</a></p>
 </section>
 <section id="i2c-bus">
 <h3>I²C Bus<a class="headerlink" href="#i2c-bus" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini contains several Multimaster fast-mode I²C modules. PHYTEC boards
+<p>The i.MX 8M Nano contains several Multimaster fast-mode I²C modules. PHYTEC boards
 provide plenty of different I²C devices connected to the I²C modules of the
-i.MX 8M Mini. This section describes the basic device usage and its DT representation
+i.MX 8M Nano. This section describes the basic device usage and its DT representation
 of some I²C devices integrated into our phyBOARD-Polis.</p>
 <p>The device tree node for i2c contains settings such as clock-frequency to set
 the bus frequency and the pin control settings including scl-gpios and sda-gpios
 which are alternate pin configurations used for bus recovery.</p>
-<p>General I²C1 bus configuration (e.g. imx8mm-phycore-som.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97</a></p>
-<p>General I²C2 bus configuration (e.g. imx8mm-phyboard-polis-rdk.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137</a></p>
+<p>General I²C1 bus configuration (e.g. imx8mn-phycore-som.dtsi):
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97</a></p>
+<p>General I²C2 bus configuration (e.g. imx8mn-phyboard-polis-rdk.dtsi):
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137</a></p>
 </section>
 <section id="eeprom">
 <h3>EEPROM<a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h3>
@@ -2699,9 +2689,9 @@ hardware introspection from the ID area to the normal area. :</p>
 <p class="admonition-title">Note</p>
 <p>If you deleted both EEPROM spaces, please contact our support!</p>
 </div>
-<p>DT representation, e.g. in phyCORE-i.MX 8M Mini file imx8mm-phycore-som.dtsi can be
+<p>DT representation, e.g. in phyCORE-i.MX 8M Nano file imx8mn-phycore-som.dtsi can be
 found in our PHYTEC git:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -2776,24 +2766,25 @@ target$ echo mem &gt; /sys/power/state
 the alarm function doesn’t support seconds.</p>
 </div>
 <p>DT representation for I²C RTCs:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
 <h3>USB Host Controller<a class="headerlink" href="#usb-host-controller" title="Permalink to this heading"></a></h3>
-<p>The USB controller of the i.MX 8M Mini SoC provides a low-cost connectivity solution
+<p>The USB controller of the i.MX 8M Nano SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
 transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
-‘HS’). The USB subsystem has two independent USB controller cores. Both cores
-are On-The-Go (OTG) controller cores and are capable of acting as a USB
-peripheral device or a USB host. Each is connected to a USB 2.0 PHY.</p>
+‘HS’). The i.MX 8M Nano SoC has a single USB controller core that is set to OTG mode.
+To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on. Due to
+current hardware limitations, the OTG cable has to be plugged in to use the
+Type-A port.</p>
 <p>The unified BSP includes support for mass storage devices and keyboards. Other
 USB-related device drivers must be enabled in the kernel configuration on
 demand. Due to udev, all mass storage devices connected get unique IDs and can
 be found in /dev/disk/by-id. These IDs can be used in /etc/fstab to mount the
 different USB memory devices in different ways.</p>
 <p>User USB2 (host) configuration is in the kernel device tree
-imx8mm.dtsi:</p>
+imx8mn.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;usbotg2 {
         dr_mode = &quot;host&quot;;
         picophy,pre-emp-curr-control = &lt;3&gt;;
@@ -2803,7 +2794,7 @@ imx8mm.dtsi:</p>
 </pre></div>
 </div>
 <p>DT representation for USB Host:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240</a></p>
 </section>
 <section id="usb-otg">
 <h3>USB OTG<a class="headerlink" href="#usb-otg" title="Permalink to this heading"></a></h3>
@@ -2893,7 +2884,7 @@ one to the USB Device Controller (UDC).</p>
 </div>
 <p>Both USB interfaces are configured as host in the kernel device tree
 imx8mm-phyboard-polis.dtsi. See:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211</a></p>
 </section>
 </section>
 <section id="can-fd">
@@ -3015,98 +3006,7 @@ on options and usage.</p>
 Slower rates can be selected but may not work correctly.</p>
 </div>
 <p>Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94</a></p>
-</section>
-<section id="pcie">
-<h3>PCIe<a class="headerlink" href="#pcie" title="Permalink to this heading"></a></h3>
-<p>The phyCORE-i.MX 8M Mini has one Mini-PCIe slot. In general, PCIe autodetects new
-devices on the bus. After connecting the device and booting up the system, you
-can use the command lspci to see all PCIe devices recognized.</p>
-<ul class="simple">
-<li><p>Type:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ lspci -v
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>You will receive:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>00:00.0 PCI bridge: Synopsys, Inc. Device abcd (rev 01) (prog-if 00 [Normal decode])
-        Flags: bus master, fast devsel, latency 0, IRQ 218
-        Memory at 18000000 (64-bit, non-prefetchable) [size=1M]
-        Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
-        I/O behind bridge: None
-        Memory behind bridge: 18100000-181fffff [size=1M]
-        Prefetchable memory behind bridge: None
-        [virtual] Expansion ROM at 18200000 [disabled] [size=64K]
-        Capabilities: [40] Power Management version 3
-        Capabilities: [50] MSI: Enable+ Count=1/1 Maskable+ 64bit+
-        Capabilities: [70] Express Root Port (Slot-), MSI 00
-        Capabilities: [100] Advanced Error Reporting
-        Capabilities: [148] L1 PM Substates
-        Kernel driver in use: dwc3-haps
-
-01:00.0 Network controller: Intel Corporation WiFi Link 5100
-        Subsystem: Intel Corporation WiFi Link 5100 AGN
-        Flags: fast devsel
-        Memory at 18100000 (64-bit, non-prefetchable) [disabled] [size=8K]
-        Capabilities: [c8] Power Management version 3
-        Capabilities: [d0] MSI: Enable- Count=1/1 Maskable- 64bit+
-        Capabilities: [e0] Express Endpoint, MSI 00
-        Capabilities: [100] Advanced Error Reporting
-        Capabilities: [140] Device Serial Number 00-24-d6-ff-ff-84-0d-1e
-        Kernel modules: iwlwifi
-</pre></div>
-</div>
-<p>In this example, the PCIe device is the Intel Corporation WiFi Link 5100.</p>
-<p>For PCIe devices, you have to enable the correct driver in the kernel
-configuration. This WLAN card, for example, is manufactured by IntelKconfig. The
-option for the driver, which must be enabled, is named CONFIG_IWLWIFI and can be
-found under Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat in
-the kernel configuration.</p>
-<ul class="simple">
-<li><p>In order to activate the driver, follow the instructions from our Yocto
-manual: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG#L813e-A12YoctoReferenceManualHeadHardknott-KernelandBootloaderConfiguration">Kernel and Bootloader Configuration</a></p>
-<ul>
-<li><p>The linux-imx is represented by: virtual/kernel</p></li>
-</ul>
-</li>
-</ul>
-<p>For some devices like the WLAN card, additional binary firmware blobs are
-needed. These firmware blobs have to be placed in /lib/firmware/ before the
-device can be used.</p>
-<ul class="simple">
-<li><p>Type:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ scp -r &lt;firmware&gt; root@192.168.3.11:/lib/firmware
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>For example, if you try to bring up the network interface:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ ip link set up wlp1s0
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>You will get the following output on the serial console:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[   58.682104] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
-[   58.690822] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
-[   58.696577] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0
-[   58.831022] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
-[   58.839679] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
-[   58.845435] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0
-[   58.902797] IPv6: ADDRCONF(NETDEV_UP): wlp1s0: link is not ready
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Some PCIe devices, e.g. the Ethernet card, may function properly even if no
-firmware blob is loaded from /lib/firmware/ and you received an error message
-as shown in the first line of the output above. This is because some
-manufacturers provide the firmware as a fallback on the card itself. In this
-case, the behavior and output depend strongly on the manufacturer’s firmware.</p>
-</div>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94</a></p>
 </section>
 <section id="audio">
 <h3>Audio<a class="headerlink" href="#audio" title="Permalink to this heading"></a></h3>
@@ -3209,7 +3109,7 @@ use different sampling rates and formats for simultaneous playback and
 capture operations.</p>
 </div>
 <p>Device Tree Audio configuration:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56</a></p>
 </section>
 </section>
 <section id="video">
@@ -3358,17 +3258,17 @@ files and writing to them allows you to control the backlight.</p>
 all files, see
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
 <p>The device tree of PEB-AV-10 can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4</a></p>
 </section>
 </section>
 <section id="power-management">
 <h3>Power Management<a class="headerlink" href="#power-management" title="Permalink to this heading"></a></h3>
 <section id="cpu-core-frequency-scaling">
 <h4>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Permalink to this heading"></a></h4>
-<p>The CPU in the i.MX 8M Mini SoC is able to scale the clock frequency and the voltage.
+<p>The CPU in the i.MX 8M Nano SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
 Scaling the frequency and the voltage is referred to as ‘Dynamic Voltage and
-Frequency Scaling’ (DVFS). The i.MX 8M Mini BSP supports the DVFS feature.
+Frequency Scaling’ (DVFS). The i.MX 8M Nano BSP supports the DVFS feature.
 The Linux kernel provides a DVFS framework that allows each CPU core to have a
 min/max frequency and a governor that governs it. Depending on the i.MX 8
 variant used, several different frequencies are supported.</p>
@@ -3449,7 +3349,7 @@ documentation in linux/Documentation/cpu-freq/governors.txt.</p>
 </section>
 <section id="cpu-core-management">
 <h4>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Permalink to this heading"></a></h4>
-<p>The i.MX 8M Mini SoC can have multiple processor cores on the die. The i.MX 8M Mini, for
+<p>The i.MX 8M Nano SoC can have multiple processor cores on the die. The i.MX 8M Nano, for
 example, has 4 ARM Cores which can be turned on and off individually at runtime.</p>
 <ul>
 <li><p>To see all available cores in the system, execute:</p>
@@ -3529,7 +3429,7 @@ drivers to reduce the power consumption of devices, and – worst-case – shutt
 down the system gracefully
 (<a class="reference external" href="https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt">https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt</a>).</p>
 <p>This section describes how the thermal management kernel API is used for the
-i.MX 8M Mini SoC platform. The i.MX 8 has internal temperature sensors for the
+i.MX 8M Nano SoC platform. The i.MX 8 has internal temperature sensors for the
 SoC.</p>
 <ul>
 <li><p>The current temperature can be read in millicelsius with:</p>
@@ -3580,11 +3480,11 @@ with different temperature grades.</p>
 </section>
 <section id="pwm-fan">
 <h4>PWM Fan<a class="headerlink" href="#pwm-fan" title="Permalink to this heading"></a></h4>
-<p>A PWM fan can be connected to the phyBOARD-Polis-i.MX 8M Mini. The SoC only contains one
+<p>A PWM fan can be connected to the phyBOARD-Polis-i.MX 8M Nano. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The
 fan can not be controlled by the kernel. We use lmsensors with hwmon for this
 instead. lmsensors reads the temperature periodically and enables or disables
-the fan at a configurable threshold. For the phyBOARD-Polis-i.MX 8M Mini, this is 60°C.</p>
+the fan at a configurable threshold. For the phyBOARD-Polis-i.MX 8M Nano, this is 60°C.</p>
 <p>The settings can be configured in the configuration file:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/fancontrol
 </pre></div>
@@ -3628,10 +3528,10 @@ after a reboot or run:</p>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
 <h3>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Permalink to this heading"></a></h3>
-<p>The i.MX 8M Mini provides one-time programmable fuses to store information such as the
+<p>The i.MX 8M Nano provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings (“On-Chip OTP
-Controller (OCOTP_CTRL)” in the i.MX 8M Mini Reference Manual). The following list is
-an abstract from the i.MX 8M Mini Reference Manual and includes some useful registers
+Controller (OCOTP_CTRL)” in the i.MX 8M Nano Reference Manual). The following list is
+an abstract from the i.MX 8M Nano Reference Manual and includes some useful registers
 in the OCOTP_CTRL (at base address 0x30350000):</p>
 <table class="docutils align-default">
 <thead>
@@ -3671,7 +3571,7 @@ of ENET1 MAC address</p></td>
 </table>
 <p>A complete list and a detailed mapping between the fuses in the OCOTP_CTRL and
 the boot/mac/… configuration are available in the section “Fuse Map” of the
-i.MX 8M Mini Security Reference Manual.</p>
+i.MX 8M Nano Security Reference Manual.</p>
 <section id="reading-fuse-values-in-uboot">
 <h4>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Permalink to this heading"></a></h4>
 <p>You can read the content of a fuse using memory-mapped shadow registers. To
@@ -3694,9 +3594,9 @@ sysfs:</p>
 </section>
 </section>
 <section id="soc-mcore">
-<h2>i.MX 8M Mini M4 Core<a class="headerlink" href="#soc-mcore" title="Permalink to this heading"></a></h2>
+<h2>i.MX 8M Nano M4 Core<a class="headerlink" href="#soc-mcore" title="Permalink to this heading"></a></h2>
 <p>In addition to the Cortex-A53 cores, there is a Cortex-M4 Core as MCU integrated
-into the i.MX 8M Mini SoC. Our Yocto-Linux-BSP runs on the A53-Cores and the M4 Core
+into the i.MX 8M Nano SoC. Our Yocto-Linux-BSP runs on the A53-Cores and the M4 Core
 can be used as a secondary core for additional tasks using bare-metal or RTOS
 firmware. Both cores have access to the same peripherals and thus peripheral
 usage needs to be limited either in the M4 Core’s firmware or the devicetree for
@@ -3708,7 +3608,7 @@ examples and how to run them on phyBOARD-Polis.</p>
 compiler toolchain using command-line tools.</p>
 <section id="getting-the-sources">
 <h4>Getting the Sources<a class="headerlink" href="#getting-the-sources" title="Permalink to this heading"></a></h4>
-<p>The SDK and the examples for the i.MX 8M Mini can be obtained from NXP’s web page:</p>
+<p>The SDK and the examples for the i.MX 8M Nano can be obtained from NXP’s web page:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://mcuxpresso.nxp.com/">https://mcuxpresso.nxp.com/</a></p></li>
 </ul>
@@ -3800,7 +3700,7 @@ u-boot=&gt; bootaux 0x80000000
 runtime. Firmware built for TCM can be loaded and the execution started or
 stopped. To use Remoteproc a devicetree overlay needs to be set:</p>
 <p>edit the bootenv.txt file located in the /boot directory on the target by adding
-imx8mm-phycore-rpmsg.dtbo:</p>
+imx8mn-phycore-rpmsg.dtbo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010.dtbo imx8mm-phycore-rpmsg.dtbo
 </pre></div>
 </div>
@@ -3850,8 +3750,8 @@ Waiting for GDB connection...
 <h2>BSP Extensions<a class="headerlink" href="#bsp-extensions" title="Permalink to this heading"></a></h2>
 <section id="chromium">
 <h3>Chromium<a class="headerlink" href="#chromium" title="Permalink to this heading"></a></h3>
-<p>Our BSP for the phyBOARD-Polis-i.MX 8M Mini supports Chromium. You can include it in the
-phytec-qt5demo-image with only a few steps.</p>
+<p>Our BSP for the phyBOARD-Polis-i.MX 8M Nano supports Chromium. You can include it in the
+phytec-headless-image with only a few steps.</p>
 <section id="adding-chromium-to-your-local-conf">
 <h4>Adding Chromium to Your local.conf<a class="headerlink" href="#adding-chromium-to-your-local-conf" title="Permalink to this heading"></a></h4>
 <p>To include Chromium you have to add the following line into your local.conf. You
@@ -3888,8 +3788,8 @@ shown above.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="imx8mm.html" class="btn btn-neutral float-left" title="i.MX 8M Mini Manuals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../imx8mn/imx8mn.html" class="btn btn-neutral float-right" title="i.MX 8M Nano Manuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="imx8mn.html" class="btn btn-neutral float-left" title="i.MX 8M Nano Manuals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../contributing_links.html" class="btn btn-neutral float-right" title="Contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
