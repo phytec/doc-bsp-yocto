@@ -5,15 +5,15 @@ To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
 and the |ref-bootswitch| is set to **Default SOM boot**. 
 
 .. warning::
-   When eMMC and SD Card are flashed with the same (identical) image, the UUIDs
-   of the boot partitions are also identical. If the SD Card is connected when
-   booting, this leads to non-deterministic behaviour as linux mounts the boot
+   When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+   of the boot partitions are also identical. If the SD card is connected when
+   booting, this leads to non-deterministic behavior as Linux mounts the boot
    partition based on UUID. ::
 
       target:~# blkid
 
-   can be run to inspect whether the current setup is affected (mmcblk2p1 and
-   mmcblk1p1 have an identical UUID).
+   can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
+   and ``mmcblk1p1`` have an identical UUID, the setup is affected.
 
 Flash eMMC from Network
 .......................
