@@ -1780,7 +1780,7 @@ kernel. If you do not have one, use the commands::
 Add the following snippet to the file build/conf/local.conf::
 
    # Use your own path to the git repository
-   # NOTE: Branche name in variable "BRANCH_pn-barebox" should be the same as the
+   # NOTE: Branch name in variable "BRANCH_pn-barebox" should be the same as the
    # branch which is used in the repository folder. Otherwise your commits won't be recognized later.
    BRANCH:pn-barebox = "v2019.11.0-phy"
    SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
