@@ -42,7 +42,7 @@
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
