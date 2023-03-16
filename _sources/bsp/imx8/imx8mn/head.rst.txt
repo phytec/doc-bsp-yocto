@@ -41,8 +41,8 @@
 .. |yocto-codename| replace:: hardknott
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-headless-image
-.. |yocto-machinename| replace:: phyboard-polis-imx8mn-1
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.0
+.. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
