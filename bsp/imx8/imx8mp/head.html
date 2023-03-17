@@ -200,7 +200,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this heading"></a></h2>
 <p>The phyBOARD-Pollux with 2GB RAM  is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-NXP-i.MX8MP-PD22.1.0 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0">download</a>.</p>
+Numbers for this release: BSP-Yocto-NXP-i.MX8MP-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0">download</a>.</p>
 <p>If you choose a specific Machine Name in the section Supported Machines, you can
 see which Article Numbers are available under this machine and also a short
 description of the hardware information. In case you only have the Article
@@ -376,7 +376,7 @@ have a look at the invoice for the product. And have look at
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p></li>
 </ul>
-<pre class="literal-block">host$ DISTRO=ampliphy-vendor-xwayland MACHINE=phyboard-pollux-imx8mp-3 ./phyLinux init -p imx8mp -r BSP-Yocto-NXP-i.MX8MP-PD22.1.0</pre>
+<pre class="literal-block">host$ DISTRO=ampliphy-vendor-xwayland MACHINE=phyboard-pollux-imx8mp-3 ./phyLinux init -p imx8mp -r BSP-Yocto-NXP-i.MX8MP-PD22.1.1</pre>
 <p>After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.</p>
 <section id="starting-the-build-process">
@@ -1250,10 +1250,10 @@ host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image</pre>
 <ul class="simple">
 <li><p>Set correct permissions and install the SDK:</p></li>
 </ul>
-<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD22.1.0.sh
-host$ ./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD22.1.0.sh ============================================================================================================
-Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.0):
-You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.0&quot;. Proceed [Y/n]?
+<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD22.1.1.sh
+host$ ./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD22.1.1.sh ============================================================================================================
+Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.1):
+You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.1&quot;. Proceed [Y/n]?
 Extracting SDK...done
 Setting it up...done
 SDK has been successfully set up and is ready to be used.</pre>
@@ -1262,7 +1262,7 @@ SDK has been successfully set up and is ready to be used.</pre>
 <h3><span class="section-number">5.3.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h3>
 <p>Activate the toolchain for your shell by sourcing the file <em>environment-setup</em>
 in the toolchain directory:</p>
-<pre class="literal-block">host$ source /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/environment-setup-cortexa53-crypto-phytec-linux</pre>
+<pre class="literal-block">host$ source /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux</pre>
 </section>
 <section id="build-imx-boot">
 <h3><span class="section-number">5.3.5. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Permalink to this heading"></a></h3>
