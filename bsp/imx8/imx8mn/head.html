@@ -524,6 +524,18 @@ select the phyCORE-i.MX 8M Nano default bootsource.</p>
 <h3>Flash eMMC<a class="headerlink" href="#flash-emmc" title="Permalink to this heading"></a></h3>
 <p>To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
 and the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> is set to <strong>Default SOM boot</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+of the boot partitions are also identical. If the SD card is connected when
+booting, this leads to non-deterministic behavior as Linux mounts the boot
+partition based on UUID.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target:~# blkid
+</pre></div>
+</div>
+<p>can be run to inspect whether the current setup is affected. If <code class="docutils literal notranslate"><span class="pre">mmcblk2p1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">mmcblk1p1</span></code> have an identical UUID, the setup is affected.</p>
+</div>
 <section id="flash-emmc-from-network">
 <h4>Flash eMMC from Network<a class="headerlink" href="#flash-emmc-from-network" title="Permalink to this heading"></a></h4>
 <p>i.MX 8M Nano boards have an Ethernet connector and can be updated over a network. Be
