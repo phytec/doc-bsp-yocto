@@ -36,8 +36,8 @@ extensions = [
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-        '*/template.rst',
-        ]
+    '*/template.rst',
+]
 
 extlinks = {'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s',
                        None)}
@@ -59,6 +59,7 @@ html_show_sphinx = False
 
 html_theme_options = {
     'logo_only': False,
+    'navigation_depth': 5,
 }
 
 html_context = {
