@@ -53,14 +53,30 @@
 <li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">1.1. PHYTEC Documentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yocto-introduction">1.2. Yocto Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#core-components">1.3. Core Components</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vocabulary">1.4. Vocabulary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#poky">1.5. Poky</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vocabulary">1.4. Vocabulary</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#recipes">1.4.1. Recipes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#classes">1.4.2. Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#layers">1.4.3. Layers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#machine">1.4.4. Machine</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#distribution-distro">1.4.5. Distribution (Distro)</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#poky">1.5. Poky</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bitbake">1.5.1. Bitbake</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#toaster">1.5.2. Toaster</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#official-documentation">1.6. Official Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-structure">3.1. BSP Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-structure">3.1. BSP Structure</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bsp-management">3.1.1. BSP Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bsp-metadata">3.1.2. BSP Metadata</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bsp-content">3.1.3. BSP Content</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#build-configuration">3.2. Build Configuration</a></li>
 </ul>
 </li>
@@ -90,9 +106,41 @@
 <li class="toctree-l4"><a class="reference internal" href="#images-images">8.2. Images images</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#accessing-the-development-states-between-releases">8.3. Accessing the Development States between Releases</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#inspect-your-build-configuration">8.4. Inspect your Build Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-customization">8.6. BSP Customization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#common-tasks">8.7. Common Tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#buildinfo">8.5.1. <em>Buildinfo</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-customization">8.6. BSP Customization</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#disable-qt-demo">8.6.1. Disable Qt Demo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#framebuffer-console">8.6.2. Framebuffer Console</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#tools-provided-in-the-prebuild-image">8.6.3. Tools Provided in the Prebuild Image</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-additional-software-for-the-bsp-image">8.6.4. Add Additional Software for the BSP Image</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-an-additional-layer">8.6.5. Add an Additional Layer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#create-your-own-layer-create-layer">8.6.6. Create your own Layer create layer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kernel-and-bootloader-recipe-and-version">8.6.7. Kernel and Bootloader Recipe and Version</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kernel-and-bootloader-configuration">8.6.8. Kernel and Bootloader Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#patch-the-kernel-or-bootloader-with-devtool">8.6.9. Patch the Kernel or Bootloader with <em>devtool</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#patch-the-kernel-or-bootloader-using-the-temporary-method">8.6.10. Patch the Kernel or Bootloader using the “Temporary Method”</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">8.6.11. Working with the Kernel and Bootloader using SRC_URI in <em>local.conf</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-existing-software-with-sustainable-method">8.6.12. Add Existing Software with “Sustainable Method”</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-linux-firmware-files-to-the-root-filesystem">8.6.13. Add Linux Firmware Files to the Root Filesystem</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#change-the-u-boot-environment-via-bbappend-files">8.6.14. Change the <em>u-boot</em> Environment via <em>bbappend</em> Files</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#change-the-barebox-environment-via-bbappend-files">8.6.15. Change the <em>barebox</em> Environment via <em>bbappend</em> Files</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#changing-the-network-configuration">8.6.16. Changing the Network Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#changing-the-wireless-network-configuration">8.6.17. Changing the Wireless Network Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-opencv-libraries-and-examples">8.6.18. Add OpenCV Libraries and Examples</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-minimal-php-web-runtime-with-lightpd">8.6.19. Add Minimal PHP web runtime with <em>lightpd</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#common-tasks">8.7. Common Tasks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#debugging-a-user-space-application">8.7.1. Debugging a User Space Application</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#generating-source-mirrors-working-offline">8.7.2. Generating Source Mirrors, working Offline</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#compiling-on-the-target">8.7.3. Compiling on the Target</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#different-toolchains">8.7.4. Different Toolchains</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-kernel-modules">8.7.5. Working with Kernel Modules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-udev">8.7.6. Working with <em>udev</em></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">9. Troubleshooting</a><ul>

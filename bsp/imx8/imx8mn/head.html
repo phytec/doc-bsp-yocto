@@ -53,15 +53,76 @@
 <li class="toctree-l2"><a class="reference internal" href="../imx8mm/imx8mm.html">i.MX 8M Mini Manuals</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="imx8mn.html">i.MX 8M Nano Manuals</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">HEAD</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting Started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#building-the-bsp">Building the BSP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installing-the-os">Installing the OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#development">Development</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">Device Tree (DT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-peripherals">Accessing Peripherals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#soc-mcore">i.MX 8M Nano M4 Core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">BSP Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phytec-documentation">PHYTEC Documentation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#supported-hardware">Supported Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#get-the-image">Get the Image</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#write-the-image-to-sd-card">Write the Image to SD Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#first-start-up">First Start-up</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#building-the-bsp">Building the BSP</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#basic-set-up">Basic Set-Up</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-the-bsp">Get the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-the-os">Installing the OS</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bootmode-switch-s1">Bootmode Switch (S1)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#flash-emmc">Flash eMMC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#flash-spi-nor-flash">Flash SPI NOR Flash</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rauc">RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#development">Development</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">Booting the Kernel from a Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">Working with UUU-Tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#standalone-build">Standalone Build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states-between-releases">Accessing the Development States between Releases</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-development-state-of-upcoming-major-release">Accessing Development State of Upcoming Major Release</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">Format SD-Card</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">Device Tree (DT)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#phytec-soc-bsp-device-tree-concept">PHYTEC i.MX 8M Nano BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-peripherals">Accessing Peripherals</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#soc-pin-muxing">i.MX 8M Nano Pin Muxing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">RS232/RS485</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network">Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#sd-mmc-card">SD/MMC Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#emmc-devices">eMMC Devices</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#spi-master">SPI Master</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#gpios">GPIOs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#leds">LEDs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#i2c-bus">I²C Bus</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#eeprom">EEPROM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rtc">RTC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">USB Host Controller</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usb-otg">USB OTG</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#can-fd">CAN FD</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio">Audio</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#video">Video</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">Display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">Power Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">Thermal Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">Watchdog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#soc-mcore">i.MX 8M Nano M4 Core</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#getting-the-firmware-examples">Getting the Firmware Examples</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#running-mcore-examples">Running M4 Core Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">BSP Extensions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#chromium">Chromium</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
