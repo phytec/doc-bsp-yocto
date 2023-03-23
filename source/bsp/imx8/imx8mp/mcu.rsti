@@ -104,6 +104,28 @@ For firmware built to run in the DRAM::
 
 The program's output should appear on the |mcore|'s debug UART.
 
+Running Examples from Linux using Remoteproc
+............................................
+
+Remoteproc is a module that allows you to control the |mcore| from Linux
+during runtime. Firmware built for TCM can be loaded and the execution started
+or stopped. To use Remoteproc a devicetree overlay needs to be set:
+
+Edit the bootenv.txt file located in the /boot directory on the target by
+adding imx8mp-phycore-rpmsg.dtbo::
+
+   overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phycore-rpmsg.dtbo
+
+Firmware .elf files for the M7 core can be found under /lib/firmware.
+To load the firmware, type::
+
+   target$ echo firmware.elf > /sys/class/remoteproc/remoteproc0/firmware
+   target$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+To load a different firmware, the |mcore| needs to be stopped::
+
+   target$ echo stop > /sys/class/remoteproc/remoteproc0/state
+
 Debugging Using J-Link
 ......................
 
