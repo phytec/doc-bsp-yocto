@@ -84,6 +84,12 @@ Once a micro-USB cable is connected to the USB-debug port on the |sbc|, two
 ttyUSB devices are registered. One prints messages from A53-Core's debug UART
 and the other one from the |mcore|'s debug UART.
 
+.. Hint::
+
+   Only the newer revision (1532.2) of the phyBOARD-Polis-MINI registers the
+   debug UART as ttyUSB on the USB-debug port. With the older revision (1532.1)
+   the debug UART is on the X8 connector.
+
 Running Examples from U-Boot
 ............................
 
