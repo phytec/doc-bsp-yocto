@@ -404,7 +404,7 @@ The device tree of PEB-AV-10 can be found here:
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
 .. +---------------------------------------------------------------------------+
-..                                M Core
+..                                i.MX 8M Mini M4 Core
 .. +---------------------------------------------------------------------------+
 
 .. include:: mcu.rsti
