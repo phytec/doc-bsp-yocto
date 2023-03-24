@@ -3742,6 +3742,12 @@ bits, no parity, and 1 stop bit (8n1) with no handshake.</p>
 <p>Once a micro-USB cable is connected to the USB-debug port on the phyBOARD-Polis, two
 ttyUSB devices are registered. One prints messages from A53-Core’s debug UART
 and the other one from the M4 Core’s debug UART.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Only the newer revision (1532.2) of the phyBOARD-Polis-MINI registers the
+debug UART as ttyUSB on the USB-debug port. With the older revision (1532.1)
+the debug UART is on the X8 connector.</p>
+</div>
 <section id="running-examples-from-u-boot">
 <h4>Running Examples from U-Boot<a class="headerlink" href="#running-examples-from-u-boot" title="Permalink to this heading"></a></h4>
 <p>To load firmware using the bootloader U-Boot, the bootaux command can be used:</p>
