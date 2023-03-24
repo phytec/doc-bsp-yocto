@@ -3997,8 +3997,29 @@ u-boot=&gt; bootaux 0x80000000
 </div>
 <p>The program’s output should appear on the M7 Core’s debug UART.</p>
 </section>
+<section id="running-examples-from-linux-using-remoteproc">
+<h3><span class="section-number">8.2.2. </span>Running Examples from Linux using Remoteproc<a class="headerlink" href="#running-examples-from-linux-using-remoteproc" title="Permalink to this heading"></a></h3>
+<p>Remoteproc is a module that allows you to control the M7 Core from Linux
+during runtime. Firmware built for TCM can be loaded and the execution started
+or stopped. To use Remoteproc a devicetree overlay needs to be set:</p>
+<p>Edit the bootenv.txt file located in the /boot directory on the target by
+adding imx8mp-phycore-rpmsg.dtbo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phycore-rpmsg.dtbo
+</pre></div>
+</div>
+<p>Firmware .elf files for the M7 core can be found under /lib/firmware.
+To load the firmware, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo firmware.elf &gt; /sys/class/remoteproc/remoteproc0/firmware
+target$ echo start &gt; /sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+<p>To load a different firmware, the M7 Core needs to be stopped:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo stop &gt; /sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+</section>
 <section id="debugging-using-j-link">
-<h3><span class="section-number">8.2.2. </span>Debugging Using J-Link<a class="headerlink" href="#debugging-using-j-link" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">8.2.3. </span>Debugging Using J-Link<a class="headerlink" href="#debugging-using-j-link" title="Permalink to this heading"></a></h3>
 <p>The Segger software can be obtained from
 <a class="reference external" href="https://www.segger.com/downloads/jlink/">https://www.segger.com/downloads/jlink/</a>. As of version V7.20a of the Segger
 software, accessing the i.MX 8M Plus’ M7 Core requires additional configuration files
