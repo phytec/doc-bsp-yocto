@@ -121,7 +121,7 @@ First Start-up
 .. list-table:: Bootmode Selection
    :align: center
 
-   *  -  .. figure:: images/SD_Card.jpg
+   *  -  .. figure:: images/Nano_SD_BOOT.jpg
             :width: 250px
 
             SD Card Boot
@@ -170,7 +170,7 @@ Bootmode Switch (S1)
 
    Hardware revision baseboard: 1552.1
 
-The |sbc| features a boot switch with four individually switchable ports to
+The |sbc| features a boot switch with six individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
 .. _imx8mn-head-bootswitch:
@@ -326,9 +326,7 @@ The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
 transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
 'HS'). The |soc| SoC has a single USB controller core that is set to OTG mode.
-To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on. Due to
-current hardware limitations, the OTG cable has to be plugged in to use the
-Type-A port.
+To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
 
 .. include:: /bsp/peripherals/usb-host.rsti
 

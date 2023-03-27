@@ -1,36 +1,59 @@
-Hardware revision baseboard: 1532.1
+Hardware revision baseboard: 1532.2
 
 .. list-table:: Bootmode Selection
    :align: center
    :widths: auto
 
-   *  -  .. figure:: images/eMMC.jpg
+   *  -  .. figure:: images/Nano_eMMC_BOOT.png
             :width: 250px
 
-            Default Boot (eMMC boot)
+            Default Boot (eMMC Boot)
 
-      -  .. figure:: ../imx8mm/images/USB_Serial_Download.png
+      -  .. figure:: images/Nano_Serial_downloader_BOOT.png
             :width: 250px
 
-            Serial Download (USB boot)
+            Serial Downloader Boot
 
-   *  -  .. figure:: images/SD_Card.jpg
+   *  -  .. figure:: images/Nano_SD_BOOT.jpg
             :width: 250px
 
-            SD Card boot
+            SD Card Boot
+
+      -  .. figure:: images/Nano_Fuse_BOOT.png
+            :width: 250px
+
+            Fuse Boot
+
+   *  -  .. figure:: images/Nano_QSPI_BOOT.png
+            :width: 250px
+
+            QSPI Boot
 
       -  \
 
 
-.. list-table:: Switch between UART1 RS485/RS232
+.. list-table:: Switch between USB HOST/OTG using Pos5 of switch(S1)
    :align: center
 
-   *  -  .. figure:: ../imx8mm/images/UART1_RS485.png
+   *  -  .. figure:: images/USB_HOST.jpg
+            :width: 250px
+
+            USB HOST
+
+      -  .. figure:: images/USB_OTG.png
+            :width: 250px
+
+            USB OTG
+
+.. list-table:: Switch between UART1 RS485/RS232 using Pos4 of switch(S1)
+   :align: center
+
+   *  -  .. figure:: images/UART1_RS485.png
             :width: 250px
 
             UART1 RS485
 
-      -  .. figure:: ../imx8mm/images/UART1_RS232.jpg
+      -  .. figure:: images/UART1_RS232.jpg
             :width: 250px
 
             UART1 RS232
