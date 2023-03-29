@@ -169,7 +169,7 @@ Bootmode Switch (S1)
 
    Hardware revision baseboard: 1552.2
 
-The |sbc| features a boot switch with four individually switchable ports to
+The |sbc| features a boot switch with six individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
 .. _imx8mm-head-bootswitch:
