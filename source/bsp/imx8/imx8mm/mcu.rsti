@@ -130,7 +130,7 @@ edit the bootenv.txt file located in the /boot directory on the target by adding
 Firmware .elf files for the |mcore| can be found under /lib/firmware. To load
 the firmware, type::
 
-   target$ echo firmware.elf > /sys/class/remoteproc/remoteproc0/firmware
+   target$ echo /lib/firmware/<firmware>.elf > /sys/class/remoteproc/remoteproc0/firmware
    target$ echo start > /sys/class/remoteproc/remoteproc0/state
 
 To load a different firmware, the |mcore| needs to be stopped::
