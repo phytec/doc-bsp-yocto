@@ -119,7 +119,7 @@ adding imx8mp-phycore-rpmsg.dtbo::
 Firmware .elf files for the M7 core can be found under /lib/firmware.
 To load the firmware, type::
 
-   target$ echo firmware.elf > /sys/class/remoteproc/remoteproc0/firmware
+   target$ echo /lib/firmware/<firmware>.elf > /sys/class/remoteproc/remoteproc0/firmware
    target$ echo start > /sys/class/remoteproc/remoteproc0/state
 
 To load a different firmware, the |mcore| needs to be stopped::
