@@ -566,11 +566,11 @@ Expand rootfs
 
 *  To apply your changes, press the green tick. 
 *  Now you can mount the root partition and copy e.g. the
-   |yocto-imagename|-|yocto-machinename|.sdcard image to it. Then unmount it again:
+   |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
 .. parsed-literal::
 
-   host$ sudo cp |yocto-imagename|-|yocto-machinename|.sdcard /mnt/ ; sync
+   host$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
    host$ umount /mnt
 
 Create the Third Partition
@@ -593,10 +593,10 @@ Create the Third Partition
 .. image:: /bsp/images/gparted8.png
 
 *  Now you can mount the new partition and copy e.g.
-   |yocto-imagename|-|yocto-machinename|.sdcard image to it. Then unmount it again:
+   |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
 .. parsed-literal::
 
    host$ sudo mount /dev/sde3 /mnt
-   host$ sudo cp |yocto-imagename|-|yocto-machinename|.sdcard /mnt/ ; sync
+   host$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
    host$ umount /mnt
