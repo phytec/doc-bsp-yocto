@@ -219,29 +219,51 @@ You can see the bootlog on the console via the debug USB
    want to change the boot command permanently for UUU-boot, you need to change
    this in U-boot code.
 
-Flashing SD Card Image to eMMC via UUU-Tool
+Flashing wic Image to eMMC via UUU-Tool
 ...........................................
 
 Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
 Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
 
-Download |yocto-imagename|-|yocto-machinename|.sdcard and imx-boot image from
+Download |yocto-imagename|-|yocto-machinename|.wic and imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/|yocto-machinename|/ and copy them to the UUU directory:
 
 .. parsed-literal::
 
    host$ cd mfgtools
-   host$ cp -v |yocto-imagename|-|yocto-machinename|.sdcard uuu/_rootfs.sdcard
-
-Make sure that the U-Boot image is also available!
+   host$ cp -v imx-boot uuu/_flash.bin
+   host$ cp -v |yocto-imagename|-|yocto-machinename|.wic uuu/_rootfs.wic
 
 *  Execute and power up the board:
 
 ::
 
    host$ cd mfgtools/uuu
-   host$ sudo ./uuu -b emmc_burn_all.lst _flash.bin _rootfs.sdcard
+   host$ sudo ./uuu -b emmc_burn_all.lst _flash.bin _rootfs.wic
+
+Flashing U-boot Image to eMMC via UUU-Tool
+...........................................
+
+Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
+
+Download the imx-boot image from
+our server or get them from your Yocto build directory at
+../build/deploy/images/|yocto-machinename|/ and copy them to the UUU directory:
+
+.. parsed-literal::
+
+   host$ cd mfgtools
+   host$ cp -v imx-boot uuu/_flash.bin
+
+*  Execute and power up the board:
+
+::
+
+   host$ cd mfgtools/uuu
+   host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin _rootfs.wic
+
 
 Standalone Build
 ----------------
