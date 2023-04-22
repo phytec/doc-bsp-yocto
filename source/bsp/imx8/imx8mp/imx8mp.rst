@@ -2,8 +2,8 @@
 i.MX 8M Plus Manuals
 ====================
 
-i.MX 8M Plus BSP Manual HEAD
-============================
+HEAD
+====
 
 .. toctree::
    :numbered:

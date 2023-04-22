@@ -2,8 +2,8 @@
 Yocto Reference Manuals
 =======================
 
-Yocto Reference Manual HEAD
-===========================
+HEAD
+====
 
 .. toctree::
    :numbered:
