@@ -112,6 +112,14 @@ latex_documents = [
         'manual',
         False,
     ),
+    (
+        'bsp/am57x/pd20.1.1',
+        'am57x-pd20.1.1.tex',
+        'L-xxxxx.Ax AM57x BSP Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------

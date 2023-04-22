@@ -1,0 +1,71 @@
+This document describes open todo points.
+
+Suggestion:
+- It makes sense to have one place where we host the documentation
+- We can currently not use the same infrastructure for both teams, but we could
+  try to merge it.
+- Who would be responsible for the documentation framework?
+	US:
+	DE: Jonas Remmert
+- If there is a will from both sides to migrate to one infrastructure, we
+  should go for it.
+
+Major:
+######
+- Can the documentation differ in their style?
+	- US:
+		- Multiple Page Layout without numbering
+		- No, or very less substitutions
+	- DE:
+		- One Page Layout with numbering
+		- Use of substitutions
+	- Solutions:
+		- Every team can decide for themselves how they want to
+		  structure the documentation?
+		- No common documentation parts inbetween different platforms (teams)
+		- Basic infrastructure is the same for both teams:
+			- Sphinx
+			- HTML/PDF generation
+			- Github Actions
+		- Alternative is to find compromises and document them.
+			- Can we identify common parts?
+			- More work, requires flexibility from German/US teams
+			- That can help new teams as they have a guideline.
+			- Helps customers to understnad the documentation for different platforms.
+- How BSP Versions are handled
+	- Only one version visible as of now
+	[] How does US do the versioning?
+	[] Do you want to adapt the DE model of having seperate files?
+- Common Files for BSPs:
+	- DE uses common files, at least for i.MX8 BSPs
+	- Solutions: 
+		- Can decide to use or not to use those common files
+		- Maybe common files should be placed in a different location,
+		  to make clear they are only suitable for German BSP/Doc
+		  Structure.
+- Release Files:
+	- US handles them in documentation
+	- DE handles them seperately in release file
+	- Solutions:
+		[] US: Can we point to release file?
+		[] DE: Add a link to release files
+- Where to host?
+	- DE: Github Pages
+	- US: Selfhosted
+
+Minor:
+######
+- Style:
+	- No character-limit per line in US
+	[] Is it ok to limit the max number of characters per line to 80?
+- Maintainers:
+	- If we merge things, we would need one maintainer for US, one for DE team
+- Images:
+	- US: in own imagedir
+	- DE: imagedir per module variant
+	[] Image dir per module variant makes the filenames shorter, as they
+	have their own namespace - can we change it?
+- For what did you define quickstart labels e.g. _Quickstart-62 in
+  phycore-am62x/quickstart/index.rst
+- Inside am57 BSP there is the phyCORE-AM64x mentioned most of the time. Is
+  this a bug?

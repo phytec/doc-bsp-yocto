@@ -10,6 +10,7 @@ Welcome to the Documentation for our Yocto BSPs.
    devtools/hostsetup
    yocto/manual-index
    bsp/imx8/imx8
+   bsp/am57x/am57x
 
 .. toctree::
    :maxdepth: 1
