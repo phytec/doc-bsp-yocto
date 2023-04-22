@@ -3885,7 +3885,7 @@ imx8mm-phycore-rpmsg.dtbo:</p>
 </div>
 <p>Firmware .elf files for the M4 Core can be found under /lib/firmware. To load
 the firmware, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo firmware.elf &gt; /sys/class/remoteproc/remoteproc0/firmware
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo /lib/firmware/&lt;firmware&gt;.elf &gt; /sys/class/remoteproc/remoteproc0/firmware
 target$ echo start &gt; /sys/class/remoteproc/remoteproc0/state
 </pre></div>
 </div>
