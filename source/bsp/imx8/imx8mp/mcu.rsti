@@ -116,6 +116,10 @@ adding imx8mp-phycore-rpmsg.dtbo::
 
    overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phycore-rpmsg.dtbo
 
+Restart the target and execute in U-Boot::
+
+   u-boot=> run prepare_mcore
+
 Firmware .elf files for the M7 core can be found under /lib/firmware.
 To load the firmware, type::
 
