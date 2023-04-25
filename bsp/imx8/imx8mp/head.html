@@ -4026,6 +4026,10 @@ adding imx8mp-phycore-rpmsg.dtbo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phycore-rpmsg.dtbo
 </pre></div>
 </div>
+<p>Restart the target and execute in U-Boot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; run prepare_mcore
+</pre></div>
+</div>
 <p>Firmware .elf files for the M7 core can be found under /lib/firmware.
 To load the firmware, type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo /lib/firmware/&lt;firmware&gt;.elf &gt; /sys/class/remoteproc/remoteproc0/firmware
