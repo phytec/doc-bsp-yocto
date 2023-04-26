@@ -64,6 +64,10 @@ trip_point_0 again, the throttling is released.
 GPIO Fan
 ........
 
+.. note::
+
+   |pollux-fan-note|
+
 A GPIO fan can be connected to the |sbc|-|soc|. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The
 fan can not be controlled by the kernel. We use lmsensors with hwmon for this
