@@ -488,7 +488,7 @@ Flash SPI NOR from SD Card in kernel on Target
    Name:                           u-boot
    Type:                           nor
    Eraseblock size:                65536 bytes, 64.0 KiB
-   Amount of eraseblocks:          64 (4194304 bytes, 4.0 MiB)
+   Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
    Minimum input/output unit size: 1 byte
    Sub-page size:                  1 byte
    Character device major/minor:   90:0
@@ -499,7 +499,7 @@ Erase the u-boot partition and flash it:
 
 .. parsed-literal::
 
-   target$ flash_erase /dev/mtd0 0x0 64
+   target$ flash_erase /dev/mtd0 0x0 60
    target$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 RAUC
