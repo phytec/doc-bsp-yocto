@@ -70,6 +70,16 @@ To build the firmware for the |mcore|'s TCM. The output will be placed under
 release/ in the armgcc directory. .bin files and can be run in U-Boot and .elf
 files within Linux.
 
+To build the firmware for the DRAM, run the script
+build_ddr_release.
+Script to build the firmware::
+
+   host$ ./build_ddr_release.sh
+
+The output will be placed under ddr_release/ in the armgcc
+directory. .bin files and can be run in U-Boot and .elf
+files within Linux.
+
 Running |mcore| Examples
 ------------------------
 
