@@ -61,10 +61,10 @@ trip_point_0 again, the throttling is released.
    The actual values of the thermal trip points may differ since we mount CPUs
    with different temperature grades.
 
-PWM Fan
-.......
+GPIO Fan
+........
 
-A PWM fan can be connected to the |sbc|-|soc|. The SoC only contains one
+A GPIO fan can be connected to the |sbc|-|soc|. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The
 fan can not be controlled by the kernel. We use lmsensors with hwmon for this
 instead. lmsensors reads the temperature periodically and enables or disables
