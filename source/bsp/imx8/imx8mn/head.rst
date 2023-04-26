@@ -57,7 +57,7 @@
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
 
 
-.. IMX8(MM) specific replacements
+.. IMX8(MN) specific replacements
 .. |pollux-sbc-network| replace:: \
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy5
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
