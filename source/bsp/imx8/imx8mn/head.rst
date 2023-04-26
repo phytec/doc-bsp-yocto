@@ -59,6 +59,7 @@
 
 .. IMX8(MN) specific replacements
 .. |pollux-sbc-network| replace:: \
+.. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy5
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mn-head-ubootexternalenv>`
