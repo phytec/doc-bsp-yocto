@@ -3982,6 +3982,14 @@ There are scripts for each location the firmware is supposed to run, e.g. :</p>
 <p>to build the firmware for the M7 Core’s TCM. The output will be placed under
 release/ in the armgcc directory. .bin files and can be run in U-Boot and .elf
 files within Linux.</p>
+<p>To build the firmware for the DRAM, run the script build_ddr_release.
+The script of the firmware that is supposed to run, e.g. :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./build_ddr_release.sh
+</pre></div>
+</div>
+<p>The output will be placed under ddr_release/ in the armgcc
+directory. .bin files and can be run in U-Boot and .elf
+files within Linux.</p>
 </section>
 </section>
 <section id="running-mcore-examples">
