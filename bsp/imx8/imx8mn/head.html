@@ -3602,9 +3602,13 @@ trip_point_0 again, the throttling is released.</p>
 with different temperature grades.</p>
 </div>
 </section>
-<section id="pwm-fan">
-<h4>PWM Fan<a class="headerlink" href="#pwm-fan" title="Permalink to this heading"></a></h4>
-<p>A PWM fan can be connected to the phyBOARD-Polis-i.MX 8M Nano. The SoC only contains one
+<section id="gpio-fan">
+<h4>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Permalink to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only GPIO fan supported.</p>
+</div>
+<p>A GPIO fan can be connected to the phyBOARD-Polis-i.MX 8M Nano. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The
 fan can not be controlled by the kernel. We use lmsensors with hwmon for this
 instead. lmsensors reads the temperature periodically and enables or disables

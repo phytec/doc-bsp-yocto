@@ -3736,9 +3736,15 @@ trip_point_0 again, the throttling is released.</p>
 with different temperature grades.</p>
 </div>
 </section>
-<section id="pwm-fan">
-<h3><span class="section-number">7.19.3. </span>PWM Fan<a class="headerlink" href="#pwm-fan" title="Permalink to this heading"></a></h3>
-<p>A PWM fan can be connected to the phyBOARD-Pollux-i.MX 8M Plus. The SoC only contains one
+<section id="gpio-fan">
+<h3><span class="section-number">7.19.3. </span>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
+to GPIO fan due to availability. The PWM fan will not be supported
+anymore and will not function with the new release.</p>
+</div>
+<p>A GPIO fan can be connected to the phyBOARD-Pollux-i.MX 8M Plus. The SoC only contains one
 temperature sensor which is already used by the thermal frequency scaling. The
 fan can not be controlled by the kernel. We use lmsensors with hwmon for this
 instead. lmsensors reads the temperature periodically and enables or disables

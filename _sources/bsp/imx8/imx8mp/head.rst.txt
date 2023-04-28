@@ -62,6 +62,11 @@
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
    :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149`.
+.. |pollux-fan-note| replace::
+   Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
+   to GPIO fan due to availability. The PWM fan will not be supported
+   anymore and will not function with the new release.
+
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy7
