@@ -30,6 +30,7 @@ release = '0.1.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.extlinks',
+    'sphinx_rtd_theme',
 ]
 
 # List of patterns, relative to source directory, that match files and
