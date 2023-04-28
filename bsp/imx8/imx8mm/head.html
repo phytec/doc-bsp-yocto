@@ -719,8 +719,8 @@ u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}
 <h5>Flash eMMC from USB in u-boot on Target<a class="headerlink" href="#flash-emmc-from-usb-in-u-boot-on-target" title="Permalink to this heading"></a></h5>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This step only works if the site of the image file fits into the free RAM
-space of the Bootloader.</p>
+<p>This step only works if the size of the image file is less than 1GB due to
+limited usage of RAM size in Bootloader after enabling the OPTEE.</p>
 </div>
 <p>These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> and put in an SD card. Power on the board
@@ -821,9 +821,10 @@ Resizing ext4 Root Filesystem.</p>
 <h5>Flash eMMC from SD card in u-boot on Target<a class="headerlink" href="#flash-emmc-from-sd-card-in-u-boot-on-target" title="Permalink to this heading"></a></h5>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This step only works if the size of the image file fits into the free RAM
-space of the Bootloader. If the image file is too large use the <cite>Updating
-eMMC from SD card in Linux on Target</cite> subsection.</p>
+<p>This step only works if the size of the image file is less than 1GB due to
+limited usage of RAM size in Bootloader after enabling the OPTEE. If the
+image file is too large use the <cite>Updating eMMC from SD card in
+Linux on Target</cite> subsection.</p>
 </div>
 <ul class="simple">
 <li><p>Flash an SD card with a working image and create a third FAT partition. Copy
