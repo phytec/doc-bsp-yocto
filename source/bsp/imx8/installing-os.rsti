@@ -139,8 +139,8 @@ Flash eMMC from USB in u-boot on Target
 
 .. tip::
 
-   This step only works if the site of the image file fits into the free RAM
-   space of the Bootloader.
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in Bootloader after enabling the OPTEE.
 
 These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
@@ -247,9 +247,10 @@ Flash eMMC from SD card in u-boot on Target
 
 .. tip::
 
-   This step only works if the size of the image file fits into the free RAM
-   space of the Bootloader. If the image file is too large use the `Updating
-   eMMC from SD card in Linux on Target` subsection.
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in Bootloader after enabling the OPTEE. If the
+   image file is too large use the `Updating eMMC from SD card in
+   Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third FAT partition. Copy
    the  \*.sdcard image (for example |yocto-imagename|.sdcard) to this
