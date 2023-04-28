@@ -6,7 +6,8 @@ HEAD
 ====
 
 .. toctree::
+   :caption: Table of Contents
    :numbered:
-   :maxdepth: 1
+   :maxdepth: 2
 
-   head.rst
+   head
