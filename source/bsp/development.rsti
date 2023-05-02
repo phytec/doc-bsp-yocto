@@ -421,9 +421,9 @@ Set this environment variable before building the Image:
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed. E.g. flash SD card:
 
-::
+.. parsed-literal::
 
-   host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync
+   host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
 
 Build Kernel
 ............
