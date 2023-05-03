@@ -28,6 +28,10 @@
 .. |kernel-tag| replace:: v5.10.72_2.2.0-phy9
 
 
+.. Bootloader
+.. |u-boot-offset| replace:: 32
+
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mn-phycore-som

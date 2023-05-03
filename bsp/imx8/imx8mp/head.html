@@ -1422,9 +1422,7 @@ further steps necessary:</p>
 host$ make flash.bin</pre>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed. E.g. flash SD card:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync
-</pre></div>
-</div>
+<pre class="literal-block">host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync</pre>
 </section>
 </section>
 <section id="build-kernel">
