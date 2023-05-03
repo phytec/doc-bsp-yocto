@@ -5,14 +5,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    timeout-minutes: 5
     steps:
     - name: Clone repo
       uses: actions/checkout@v3
     - name: Install dependencies
       run: |
           sudo apt update
-          sudo apt install texlive-latex-extra texlive-xetex latexmk python3-pip -y
+          sudo apt install tox texlive-latex-extra texlive-xetex latexmk python3-pip -y
           pip3 install -r requirements/setup.txt
           pip3 install -r requirements/build.txt
     - name: Render HTML Documentation
