@@ -69,10 +69,6 @@
    :ref:`device tree overlay section <imx8mn-head-ubootexternalenv>`
 
 
-=======================
-|doc-id| |soc| BSP Head
-=======================
-
 +----------------------+----------------------+
 | |doc-id| |soc| BSP                          |
 | Manual Head                                 |

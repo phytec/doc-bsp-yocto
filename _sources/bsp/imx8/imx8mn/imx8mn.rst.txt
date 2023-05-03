@@ -2,7 +2,12 @@
 i.MX 8M Nano Manuals
 ====================
 
-.. toctree::
-   :maxdepth: 1
+HEAD
+====
 
-   HEAD <head.rst>
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   head

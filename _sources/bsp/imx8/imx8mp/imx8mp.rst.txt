@@ -2,11 +2,12 @@
 i.MX 8M Plus Manuals
 ====================
 
-i.MX 8M Plus BSP Manual HEAD
-============================
+HEAD
+====
 
 .. toctree::
+   :caption: Table of Contents
    :numbered:
-   :maxdepth: 1
+   :maxdepth: 2
 
    head
