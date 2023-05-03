@@ -360,6 +360,11 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 
+.. Hint::
+
+   On phyBOARD-Polis-i.MX8MM a terminating resistor can be enabled by setting
+   S5 to ON if required.
+
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
