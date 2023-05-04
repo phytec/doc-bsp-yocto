@@ -362,6 +362,12 @@ documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. Hint::
 
+   phyBOARD-Polis has an external CANFD chip MCP2518FD connected over SPI.
+   There are different interfaces involved, which limits the datarate
+   capabilities of CANFD.
+
+.. Hint::
+
    On phyBOARD-Polis-i.MX8MN a terminating resistor can be enabled by setting
    S5 to ON if required.
 
