@@ -379,6 +379,11 @@ codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
 jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
 speaker, headphones, and line in signals.
 
+.. note::
+
+   Using the PEB-AV-10 connector for display output along HDMI as audio output
+   is not supported. The audio output device must match the video output device.
+
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
