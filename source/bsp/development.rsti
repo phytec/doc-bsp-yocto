@@ -476,7 +476,7 @@ command line:
 
 .. parsed-literal::
 
-   host$ ./phyLinux init -p |kernel-socname| -r |yocto-codename|
+   host$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y|
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
@@ -493,7 +493,7 @@ development state on a regular basis.
 
 .. parsed-literal::
 
-   host$ ./phyLinux init -p |kernel-socname| -r |yocto-codename|
+   host$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y-upcoming|
 
 Accessing the Latest Upstream Support
 -------------------------------------
