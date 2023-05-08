@@ -841,7 +841,7 @@ to run.
 Installation
 ------------
 
-How to install podman: https://podman.io/getting-started/installation
+How to install podman: https://podman.io
 
 How to install docker: https://docs.docker.com/engine/install/
 
