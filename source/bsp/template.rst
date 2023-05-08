@@ -79,6 +79,11 @@
    release images
 .. |yocto-manifestname| replace::
 .. Name of the Yocto Reference manual accompanying this BSP release.
+.. |yocto-manifestname-y| replace::
+.. Name of the existing y manifest of the current development state of
+   Yocto BSP.
+.. |yocto-manifestname-y-upcoming| replace::
+.. Name of the upcoming y manifest of the upcoming release of Yocto BSP.
 .. |yocto-ref-manual| replace::
 .. _yocto-ref-manual:
 
