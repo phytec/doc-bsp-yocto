@@ -1879,15 +1879,11 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 </pre></div>
 </div>
 </li>
-<li><p>Configuration of the UART interface can be done with stty. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ stty -F /dev/ttymxc1 115200 crtscts raw -echo
-</pre></div>
-</div>
+<li><p>Configuration of the UART interface can be done with stty. For example</p>
+<pre class="literal-block">target$ stty -F /dev/ttymxc0 115200 crtscts raw -echo</pre>
 </li>
-<li><p>With a simple echo and cat, basic communication can be tested. Example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo 123 &gt; /dev/ttymxc1
-</pre></div>
-</div>
+<li><p>With a simple echo and cat, basic communication can be tested. Example</p>
+<pre class="literal-block">target$ echo 123 &gt; /dev/ttymxc0</pre>
 </li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cat /dev/ttyUSB2
@@ -1899,9 +1895,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 <h3><span class="section-number">7.2.2. </span>RS485<a class="headerlink" href="#rs485" title="Permalink to this heading"></a></h3>
 <p>For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ linux-serial-test -p /dev/ttymxc1 -b 115200 --rs485 0
-</pre></div>
-</div>
+<pre class="literal-block">target$ linux-serial-test -p /dev/ttymxc0 -b 115200 --rs485 0</pre>
 <p>More information about the linux-serial-test tool and its parameters can be
 found here: <a class="reference external" href="https://github.com/cbrake/linux-serial-test">linux-serial-test</a></p>
 <p>Documentation for calling the IOCTL within c-code is described in the Linux
@@ -3602,11 +3596,9 @@ used. Suspend/resume is possible with:</p>
 #resume with pressing reset button
 </pre></div>
 </div>
-<p>To wake up with serial console run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo enabled &gt; /sys/class/tty/ttymxc0/power/wakeup
-target$ echo mem &gt; /sys/power/state
-</pre></div>
-</div>
+<p>To wake up with serial console run</p>
+<pre class="literal-block">target$ echo enabled &gt; /sys/class/tty/ttymxc2/power/wakeup
+target$ echo mem &gt; /sys/power/state</pre>
 </section>
 </section>
 <section id="thermal-management">

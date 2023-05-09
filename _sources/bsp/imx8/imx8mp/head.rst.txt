@@ -21,6 +21,8 @@
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-i.MX8MP
+.. |debug-uart| replace:: ttymxc0
+.. |serial-uart| replace:: ttymxc1
 
 
 .. Linux Kernel
