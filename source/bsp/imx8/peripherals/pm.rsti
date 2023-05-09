@@ -120,7 +120,9 @@ used. Suspend/resume is possible with::
    target$ echo mem > /sys/power/state
    #resume with pressing reset button
 
-To wake up with serial console run::
+To wake up with serial console run
 
-   target$ echo enabled > /sys/class/tty/ttymxc0/power/wakeup
+.. parsed-literal::
+
+   target$ echo enabled > /sys/class/tty/|debug-uart|/power/wakeup
    target$ echo mem > /sys/power/state
