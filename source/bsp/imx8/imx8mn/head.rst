@@ -188,7 +188,7 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mn-head-development:
-.. include:: /bsp/development.rsti
+.. include:: /bsp/imx8/development.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE

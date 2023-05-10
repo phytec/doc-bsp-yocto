@@ -137,9 +137,6 @@ BSP documentation name
 .. _sbc-release-building-bsp:
 .. include:: /bsp/building-bsp.rsti
 
-.. _sbc-release-development:
-.. include:: /bsp/development.rsti
-
 .. _sbc-release-device-tree:
 .. include:: /bsp/device-tree.rsti
 
