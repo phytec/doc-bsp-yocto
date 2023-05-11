@@ -49,6 +49,7 @@
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master-next
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
@@ -62,7 +63,7 @@
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-head-device-tree>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X2 <imx8mp-head-components>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
 
 
 .. IMX8(MP) specific
@@ -75,6 +76,7 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
 .. |uboot-tag| replace:: v2021.04_2.2.0-phy7
@@ -262,7 +264,7 @@ of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
 UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
 multi-protocol transceiver for RS-232 and RS-485, available at pin header
-connector |ref-usb-otg| at the RS-232 level, or at the RS-485 level. The
+connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
 configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
 |ref-jp4| on the baseboard. For more information about the correct setup please
 refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs. 
