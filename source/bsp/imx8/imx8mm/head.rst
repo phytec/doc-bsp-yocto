@@ -49,6 +49,7 @@
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master-next
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.y
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
