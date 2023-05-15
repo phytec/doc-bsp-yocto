@@ -32,6 +32,7 @@
 
 .. Bootloader
 .. |u-boot-offset| replace:: 32
+.. |u-boot-mmc-flash-offset| replace:: 0x40
 
 
 .. Devicetree
