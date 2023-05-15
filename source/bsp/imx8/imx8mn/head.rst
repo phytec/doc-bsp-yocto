@@ -34,6 +34,8 @@
 .. |u-boot-offset| replace:: 32
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 
+.. IMX8(MN) specific
+.. |u-boot-socname-config| replace:: IMX8MN
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis-rdk
