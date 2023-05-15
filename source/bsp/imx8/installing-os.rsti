@@ -129,7 +129,7 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
 
    u-boot=> tftp ${loadaddr} imx-boot
    u-boot=> mmc dev 2
-   u-boot=> mmc write ${loadaddr} 0x40 ${filesize}
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${filesize}
 
 Flash eMMC from USB
 ...................
