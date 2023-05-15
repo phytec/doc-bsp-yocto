@@ -423,6 +423,30 @@ chip-specific offset is needed. E.g. flash SD card:
 
    host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
 
+Build a U-Boot with a Fixed RAM Size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you cannot boot your system anymore because the hardware introspection in the
+EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
+You should still contact support and flash the correct EEPROM data, as this
+could lead to unexpected behavior.
+
+Follow the steps to get the U-boot sources and check the correct branch in the
+**Build U-Boot** section.
+
+Choose the correct RAM size as populated on the board.
+
+.. parsed-literal::
+
+   CONFIG_TARGET_PHYCORE\_\ |u-boot-socname-config|\=y
+   # CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
+   CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_4GB=y
+
+After saving the changes, follow the remaining steps from Build U-Boot.
+
 Build Kernel
 ............
 
