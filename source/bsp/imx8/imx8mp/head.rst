@@ -1,15 +1,15 @@
 .. Download links
 .. |dlpage-bsp| replace:: our bsp
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/sdk/ampliphy-vendor-xwayland/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.sdcard
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/ 
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/sdk/ampliphy-vendor-xwayland/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/ 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 
 .. IMX8(MP) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy13#n239
 
 
 .. General Substitutions
@@ -27,7 +27,7 @@
 
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v5.10.72_2.2.0-phy9
+.. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
 
 
 .. Bootloader
@@ -37,14 +37,15 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
-.. |u-boot-tag| replace:: v2021.04_2.2.0-phy7
+.. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
+
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41`
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41`
 
 .. Yocto
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
@@ -57,8 +58,8 @@
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master-next
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
-.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
+.. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 
 
 .. Ref Substitutions
@@ -75,7 +76,7 @@
 .. |pollux-sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149`.
+   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n141`.
 .. |pollux-fan-note| replace::
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
@@ -282,7 +283,7 @@ correctly.
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
 
 .. _imx8mp-head-network:
 .. include:: ../peripherals/network.rsti
@@ -297,10 +298,10 @@ PEB-WLBT-05.
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n381`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n207`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -310,22 +311,22 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72`
 
 .. include:: ../peripherals/gpios.rsti
 
 .. include:: ../../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105`
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n201`
 
 
 EEPROM
@@ -339,12 +340,12 @@ I2C EEPROM populated on the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n188`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201`
 
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207`
 
 USB Host Controller
 -------------------
@@ -359,7 +360,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341`
 
 CAN FD
 ------
@@ -374,12 +375,12 @@ documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
-Device Tree PCIe configuration of imx8mm-phyboard-polis.dts:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285`
+Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277`
 
 Audio
 -----
@@ -397,7 +398,7 @@ speaker, headphones, and line in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43`
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -406,17 +407,18 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n180`
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9`
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132`
 
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
 
-The device tree description of PWM Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37`
+The device tree description of GPIO Fan can be found here:
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26`
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
