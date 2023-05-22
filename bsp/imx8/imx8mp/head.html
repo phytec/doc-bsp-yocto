@@ -1418,8 +1418,36 @@ further steps necessary:</p>
 <pre class="literal-block">host$ make phycore-imx8mp_defconfig
 host$ make flash.bin</pre>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
-chip-specific offset is needed. E.g. flash SD card:</p>
+chip-specific offset is needed:</p>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">Offset Table</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SoC</p></th>
+<th class="head"><p>Offset User Area</p></th>
+<th class="head"><p>Offset Boot Partition</p></th>
+<th class="head"><p>eMMC Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i.MX 8M Plus</p></td>
+<td><p>32 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk2</p></td>
+</tr>
+</tbody>
+</table>
+<p>E.g. flash SD card:</p>
 <pre class="literal-block">host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync</pre>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The specific offset values are also declared in the Yocto variables “BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
+</div>
 </section>
 <section id="build-a-u-boot-with-a-fixed-ram-size">
 <h4><span class="section-number">5.3.5.3. </span>Build a U-Boot with a Fixed RAM Size<a class="headerlink" href="#build-a-u-boot-with-a-fixed-ram-size" title="Permalink to this heading"></a></h4>

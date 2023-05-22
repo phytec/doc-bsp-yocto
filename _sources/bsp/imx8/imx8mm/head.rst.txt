@@ -32,6 +32,7 @@
 
 .. Bootloader
 .. |u-boot-offset| replace:: 33
+.. |u-boot-offset-boot-part| replace:: 33
 .. |u-boot-mmc-flash-offset| replace:: 0x42
 
 .. IMX8(MM) specific
