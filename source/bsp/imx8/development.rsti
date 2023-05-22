@@ -417,11 +417,29 @@ Set this environment variable before building the Image:
    host$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
-chip-specific offset is needed. E.g. flash SD card:
+chip-specific offset is needed:
+
+.. list-table:: Offset Table
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - SoC
+     - Offset User Area
+     - Offset Boot Partition
+     - eMMC Device
+   * - |soc|
+     - |u-boot-offset| kiB
+     - |u-boot-offset-boot-part| kiB
+     - /dev/mmcblk2
+
+E.g. flash SD card:
 
 .. parsed-literal::
 
    host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
 Build a U-Boot with a Fixed RAM Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
