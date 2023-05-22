@@ -677,11 +677,9 @@ can be used if the bootloader on eMMC is located in the eMMC user area.</p>
 <ul class="simple">
 <li><p>Load image over tftp into RAM and then write it to eMMC:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} imx-boot
+<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot
 u-boot=&gt; mmc dev 2
-u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}
-</pre></div>
-</div>
+u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}</pre>
 </section>
 <section id="flash-emmc-from-usb">
 <h3><span class="section-number">4.2.3. </span>Flash eMMC from USB<a class="headerlink" href="#flash-emmc-from-usb" title="Permalink to this heading"></a></h3>
@@ -1225,8 +1223,7 @@ host$ cp -v imx-boot uuu/_flash.bin
 <section id="prepare-target">
 <h3><span class="section-number">5.2.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Permalink to this heading"></a></h3>
 <p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">(S3)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
-Configuration Options). Also, connect USB A Male to USB  Male cable from the
-host to the top connector of <strong>X5</strong>.</p>
+Configuration Options). Also, connect <strong>USB OTG</strong> <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
 <h3><span class="section-number">5.2.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Permalink to this heading"></a></h3>
@@ -1249,28 +1246,10 @@ want to change the boot command permanently for UUU-boot, you need to change
 this in U-boot code.</p>
 </div>
 </section>
-<section id="flashing-wic-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.2.5. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">(S3)</span></a> to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X2</span></a> to your host.</p>
-<p>Download phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic and imx-boot image from
-our server or get them from your Yocto build directory at
-../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy them to the UUU directory:</p>
-<pre class="literal-block">host$ cd mfgtools
-host$ cp -v imx-boot uuu/_flash.bin
-host$ cp -v phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic uuu/_rootfs.wic</pre>
-<ul class="simple">
-<li><p>Execute and power up the board:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools/uuu
-host$ sudo ./uuu -b emmc_burn_all.lst _flash.bin _rootfs.wic
-</pre></div>
-</div>
-</section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.2.6. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">5.2.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
 <p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">(S3)</span></a> to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X2</span></a> to your host.</p>
+Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
 <p>Download the imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy them to the UUU directory:</p>
@@ -1278,6 +1257,24 @@ our server or get them from your Yocto build directory at
 host$ cp -v imx-boot uuu/_flash.bin
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Execute and power up the board:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools/uuu
+host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin
+</pre></div>
+</div>
+</section>
+<section id="flashing-wic-image-to-emmc-via-uuu-tool">
+<h3><span class="section-number">5.2.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
+<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">(S3)</span></a> to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
+<p>Download phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic and imx-boot image from
+our server or get them from your Yocto build directory at
+../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy them to the UUU directory:</p>
+<pre class="literal-block">host$ cd mfgtools
+host$ cp -v imx-boot uuu/_flash.bin
+host$ cp -v phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic uuu/_rootfs.wic</pre>
 <ul class="simple">
 <li><p>Execute and power up the board:</p></li>
 </ul>
@@ -1363,9 +1360,9 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
 <strong>bl31.bin</strong>): bl31-imx8mp.bin</p></li>
 <li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
-<strong>lpddr4_pmu_train_*d_*mem.bin</strong>): <em>lpddr4_pmu_train_2d_dmem_202006.bin,
-lpddr4_pmu_train_2d_imem_202006.bin; (lpddr4_pmu_train_1d_dmem_202006.bin,
-lpddr4_pmu_train_1d_imem_202006.bin)</em></p></li>
+<strong>lpddr4_pmu_train_*d_*mem.bin</strong>):
+<em>lpddr4_pmu_train_2d_dmem</em>.bin, lpddr4_pmu_train_2d_imem*.bin,
+(lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*</p></li>
 </ul>
 <p>If you already build our BSP with Yocto, you can get
 the bl31-imx8mp.bin and lpddr4_pmu_train*.bin from the directory
@@ -1408,11 +1405,11 @@ further steps necessary:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can name your development branch as you like, this is just an example.</p>
-<ul class="simple">
-<li><p>Copy all binaries (mentioned here) into the U-Boot build directory</p></li>
-<li><p>Set up a build environment (mentioned here)</p></li>
-</ul>
 </div>
+<ul class="simple">
+<li><p>Copy all binaries into the U-Boot build directory</p></li>
+<li><p>Set up a build environment</p></li>
+</ul>
 <p>Set this environment variable before building the Image:</p>
 <pre class="literal-block">host$ export ATF_LOAD_ADDR=0x970000</pre>
 <ul class="simple">
@@ -1424,11 +1421,28 @@ host$ make flash.bin</pre>
 chip-specific offset is needed. E.g. flash SD card:</p>
 <pre class="literal-block">host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync</pre>
 </section>
+<section id="build-a-u-boot-with-a-fixed-ram-size">
+<h4><span class="section-number">5.3.5.3. </span>Build a U-Boot with a Fixed RAM Size<a class="headerlink" href="#build-a-u-boot-with-a-fixed-ram-size" title="Permalink to this heading"></a></h4>
+<p>If you cannot boot your system anymore because the hardware introspection in the
+EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
+You should still contact support and flash the correct EEPROM data, as this
+could lead to unexpected behavior.</p>
+<p>Follow the steps to get the U-boot sources and check the correct branch in the
+<strong>Build U-Boot</strong> section.</p>
+<p>Choose the correct RAM size as populated on the board.</p>
+<pre class="literal-block">CONFIG_TARGET_PHYCORE_IMX8MP=y
+# CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
+CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+# CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+# CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
+# CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y</pre>
+<p>After saving the changes, follow the remaining steps from Build U-Boot.</p>
+</section>
 </section>
 <section id="build-kernel">
 <h3><span class="section-number">5.3.6. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>The used linux-imx branch can be found in the release notes: release notes</p></li>
+<li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
 <li><p>The tag needed for this release is called v5.10.72_2.2.0-phy9</p></li>
 <li><p>Check out the needed linux-imx tag:</p></li>
 </ul>
@@ -1438,7 +1452,7 @@ host$ git fetch --all --tags
 host$ git checkout tags/v5.10.72_2.2.0-phy9
 host$ git checkout -b &lt;new-branch&gt;</pre>
 <ul class="simple">
-<li><p>Set up a build environment (mentioned here)</p></li>
+<li><p>Set up a build environment</p></li>
 <li><p>Build the linux kernel:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
@@ -1494,7 +1508,7 @@ kernel/u-boot.</p>
 <p>The master manifest reflects the latest state of development. This tends to
 be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mp -r BSP-Yocto-Ampliphy-i.MX8MP-master</pre>
+<pre class="literal-block">host$ ./phyLinux init -p imx8mp -r BSP-Yocto-Ampliphy-i.MX8MP-master-next</pre>
 </section>
 <section id="format-sd-card">
 <h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Permalink to this heading"></a></h2>
