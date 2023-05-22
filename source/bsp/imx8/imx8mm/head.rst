@@ -37,6 +37,8 @@
 
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: IMX8MM
+.. |u-boot-tag| replace:: v2021.04_2.2.0-phy5
+
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk

@@ -39,7 +39,6 @@
 .. |socfamily| replace::
 .. Name of the PHYTEC System on Module
 .. |som| replace::
-.. |uboot-tag| replace::
 .. debug uart on the board; Example: ttymxc0
 .. |debug-uart| replace::
 .. serial uart on the board used for e.g. RS232; Example: ttymxc0

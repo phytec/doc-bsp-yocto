@@ -37,6 +37,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
+.. |u-boot-tag| replace:: v2021.04_2.2.0-phy7
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
@@ -83,7 +84,6 @@
 .. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
-.. |uboot-tag| replace:: v2021.04_2.2.0-phy7
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
 
