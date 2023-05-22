@@ -419,18 +419,13 @@ Set this environment variable before building the Image:
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:
 
-.. list-table:: Offset Table
-   :widths: 25 25 25 25
-   :header-rows: 1
+.. _offset-table:
 
-   * - SoC
-     - Offset User Area
-     - Offset Boot Partition
-     - eMMC Device
-   * - |soc|
-     - |u-boot-offset| kiB
-     - |u-boot-offset-boot-part| kiB
-     - /dev/mmcblk2
+===== =================== ============================= ============
+SoC   Offset User Area    Offset Boot Partition         eMMC Device
+===== =================== ============================= ============
+|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/mmcblk2
+===== =================== ============================= ============
 
 E.g. flash SD card:
 

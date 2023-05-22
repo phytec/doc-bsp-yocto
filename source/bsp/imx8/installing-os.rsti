@@ -131,6 +131,11 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
    u-boot=> mmc dev 2
    u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${filesize}
 
+.. hint::
+   The hexadecimal value represents the offset as a multiple of 512 byte
+   blocks. See the `offset table <#offset-table>`__ for the correct value
+   of the corresponding SoC.
+
 Flash eMMC from USB
 ...................
 
