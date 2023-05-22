@@ -387,14 +387,14 @@ Build U-Boot
 
 *  To get the correct *U-Boot* **tag** you need to take a look at our release
    notes, which can be found here: `release notes <releasenotes_>`_
-*  The **tag** needed at this release is called |uboot-tag|
+*  The **tag** needed at this release is called |u-boot-tag|
 *  Check out the needed *U-Boot* **tag**:
 
 .. parsed-literal::
 
    host$ cd ~/u-boot-imx/
    host$ git fetch --all --tags
-   host$ git checkout tags/|uboot-tag|
+   host$ git checkout tags/|u-boot-tag|
 
 *  Technically, you can now build the U-Boot, but practically there are some
    further steps necessary:
