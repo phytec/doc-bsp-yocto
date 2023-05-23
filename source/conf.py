@@ -105,6 +105,8 @@ latex_documents = [
         'manual',
         False,
     ),
+    ('bsp/imx8/imx8mm/pd22.1.1', 'imx8mm-pd22.1.1.tex', 'L-1002e.A5 i.MX 8M Mini BSP Manual',
+        'PHYTEC Messtechnik GmbH', 'manual', False,),
     (
         'bsp/imx8/imx8mn/head',
         'imx8mn-head.tex',
