@@ -164,7 +164,7 @@ First Start-up
 * **imx8mn-phyboard-polis-rdk*.dtb**: Kernel device tree file
 * **imx8mn-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-headless-image\*.tar.gz**: Root file system 
-* **phytec-headless-image\*.sdcard**: SD card image
+* **phytec-headless-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS
