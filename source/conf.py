@@ -113,6 +113,9 @@ latex_documents = [
         'manual',
         False,
     ),
+    ('bsp/imx8/imx8mn/pd22.1.1', 'imx8mn-pd22.1.1.tex', 'L-1002e.A5 i.MX 8M Nano BSP Manual',
+        'PHYTEC Messtechnik GmbH', 'manual', False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------
