@@ -10,11 +10,11 @@ to SD Card and how to start the board.
 Get the Image
 -------------
 
-The \*.wic image contains all BSP files in several, correctly pre-formatted
+The WIC image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
 command dd. It can be built by Yocto or downloaded from our download server.
 
-*  Get the *\*.wic* file from our download server:
+*  Get the ``\*.wic`` file from our download server:
 
 .. parsed-literal::
 

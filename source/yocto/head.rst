@@ -946,7 +946,7 @@ If everything worked, the images can be found under::
 The easiest way to test your image is to configure your board for SD card boot
 and to flash the build image to the SD card::
 
-   host$ sudo dd if=phytec-headless-image-<MACHINE>.sdcard of=/dev/<your_device> bs=1M conv=fsync
+   host$ sudo dd if=phytec-headless-image-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync
 
 Here <your_device> could be "sde", for example, depending on your system. Be
 very careful when selecting the right drive! Selecting the wrong drive can
@@ -1665,7 +1665,7 @@ If the build fails, execute the devshell command again and fix it. If the build
 is successful, you can deploy the package and create a new SD card image::
 
    host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
-   host$ bitbake phytec-headless-image # new sdcard image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+   host$ bitbake phytec-headless-image # new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 
 .. warning::
 
@@ -1819,7 +1819,7 @@ even create a new SD card image.
 ::
 
    host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
-   host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+   host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 
 If you want to make additional changes, just make another commit in the
 repository and rebuild *barebox* again.

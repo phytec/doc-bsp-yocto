@@ -22,7 +22,7 @@ Flash eMMC from Network
 sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
-Therefore, it is possible to flash the **image** *(<name>.wic)* from
+Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
 the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
@@ -144,7 +144,7 @@ Flash eMMC from USB in u-boot on Target
 
 These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied *\*.wic* image
+and stop in u-boot prompt. Insert a USB device with the copied WIC image
 to the USB slot.
 
 *  Load your image from the USB device to RAM:
@@ -176,7 +176,7 @@ Flash eMMC from USB in Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
-need a complete image saved on the USB stick and a bootable.wic. (e.g.
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 |yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
 |ref-bootswitch|.
 
@@ -237,7 +237,7 @@ Flash eMMC from SD Card
 .......................
 
 Even if there is no network available, you can update the eMMC. For that, you
-only need a ready-to-use image file (*\*.wic*) located on the SD card.
+only need a ready-to-use image file (``\*.wic``) located on the SD card.
 Because the image file is quite large, you have to enlarge your SD card to use
 its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.
@@ -253,12 +253,12 @@ Flash eMMC from SD card in u-boot on Target
    Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third FAT partition. Copy
-   the  \*.wic image (for example |yocto-imagename|.wic) to this
+   the WIC image (for example |yocto-imagename|.wic) to this
    partition.
 *  Configure the bootmode switch  to boot from the SD Card and insert the SD
    card.
 *  Power on the board and stop in u-boot.
-*  Flash your <YOUR_IMAGE>.wic image (for example |yocto-imagename|.wic)
+*  Flash your WIC image (for example |yocto-imagename|.wic)
    from the SD card to eMMC. This will partition the card and copy imx-boot,
    Image, dtb, dtbo, and root file system to eMMC. 
 *  Load the image:
