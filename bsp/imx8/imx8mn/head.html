@@ -732,6 +732,12 @@ can be used if the bootloader on eMMC is located in the eMMC user area.</p>
 <pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot
 u-boot=&gt; mmc dev 2
 u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}</pre>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The hexadecimal value represents the offset as a multiple of 512 byte
+blocks. See the <a class="reference external" href="#offset-table">offset table</a> for the correct value
+of the corresponding SoC.</p>
+</div>
 </section>
 <section id="flash-emmc-from-usb">
 <h3><span class="section-number">4.2.3. </span>Flash eMMC from USB<a class="headerlink" href="#flash-emmc-from-usb" title="Permalink to this heading"></a></h3>
@@ -1471,14 +1477,7 @@ further steps necessary:</p>
 host$ make flash.bin</pre>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:</p>
-<table class="docutils align-default" id="id17">
-<caption><span class="caption-text">Offset Table</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+<table class="docutils align-default" id="offset-table">
 <thead>
 <tr class="row-odd"><th class="head"><p>SoC</p></th>
 <th class="head"><p>Offset User Area</p></th>
@@ -1917,20 +1916,20 @@ internal pull resistors are activated or not. In this case, the internal resisto
 <p>The i.MX 8M Nano SoC provides up to 4 UART units. PHYTEC boards support different
 numbers of these UART units. UART1 can also be used as RS-485. For this,
 <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> needs to be set correctly:</p>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id19">
+<tr class="row-odd"><td><figure class="align-default" id="id18">
 <img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id20">
+<td><figure class="align-default" id="id19">
 <img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </td>
