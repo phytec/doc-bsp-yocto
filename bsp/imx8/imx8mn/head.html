@@ -302,11 +302,11 @@ programmed with only a U-boot as default. You can get all the sources from our
 to SD Card and how to start the board.</p>
 <section id="get-the-image">
 <h2><span class="section-number">2.1. </span>Get the Image<a class="headerlink" href="#get-the-image" title="Permalink to this heading"></a></h2>
-<p>The *.sdcard image contains all BSP files in several, correctly pre-formatted
+<p>The WIC image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
 command dd. It can be built by Yocto or downloaded from our download server.</p>
 <ul class="simple">
-<li><p>Get the <em>*.sdcard</em> file from our download server:</p></li>
+<li><p>Get the <code class="docutils literal notranslate"><span class="pre">\*.wic</span></code> file from our download server:</p></li>
 </ul>
 <pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</a></pre>
 </section>
@@ -349,7 +349,7 @@ unmounted.</p>
 <li><p>After having unmounted all devices with an appended number
 (&lt;your_device&gt;&lt;number&gt;), you can create your bootable SD card:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.sdcard of=/dev/&lt;your_device&gt; bs=1M conv=fsync status=progress
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic of=/dev/&lt;your_device&gt; bs=1M conv=fsync status=progress
 </pre></div>
 </div>
 <p>Using the device name (&lt;your_device&gt;) without appended number (e.g. sde) which
@@ -359,9 +359,9 @@ card and are not still in memory. The parameter status=progress will print ou
 information on how much data is and still has to be copied until it is finished.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The created file phytec-headless-image-phyboard-polis-imx8mn-2.sdcard is only a link
+<p>The created file phytec-headless-image-phyboard-polis-imx8mn-2.wic is only a link
 to a file like
-phytec-headless-image-phyboard-polis-imx8mn-2-&lt;BUILD-TIME&gt;.rootfs.sdcard.</p>
+phytec-headless-image-phyboard-polis-imx8mn-2-&lt;BUILD-TIME&gt;.rootfs.wic.</p>
 </div>
 <p>&lt;BUILD-TIME&gt; has the format: YYYYMMDDHHMMSS</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>example:
@@ -515,7 +515,7 @@ bootable.</p></li>
 <li><p><strong>imx8mn-phyboard-polis-rdk*.dtb</strong>: Kernel device tree file</p></li>
 <li><p><strong>imx8mn-phy*.dtbo</strong>: Kernel device tree overlay files</p></li>
 <li><p><strong>phytec-headless-image*.tar.gz</strong>: Root file system</p></li>
-<li><p><strong>phytec-headless-image*.sdcard</strong>: SD card image</p></li>
+<li><p><strong>phytec-headless-image*.wic</strong>: SD card image</p></li>
 </ul>
 </section>
 </section>
@@ -638,8 +638,8 @@ and <code class="docutils literal notranslate"><span class="pre">mmcblk1p1</span
 sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
-Therefore, it is possible to flash the <strong>SD card image</strong> <em>(&lt;name&gt;.sdcard)</em> from
-the Yocto build system directly to the eMMC. The SD card image contains the
+Therefore, it is possible to flash the <strong>WIC image</strong> (<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.wic</span></code>) from
+the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.</p>
 <section id="flash-emmc-from-network-in-u-boot-on-target">
 <h4><span class="section-number">4.2.1.1. </span>Flash eMMC from Network in u-boot on Target<a class="headerlink" href="#flash-emmc-from-network-in-u-boot-on-target" title="Permalink to this heading"></a></h4>
@@ -655,10 +655,10 @@ prompt.</p>
 <ul class="simple">
 <li><p>Load your image via network to RAM:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.sdcard
+<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
 Using <a class="reference external" href="mailto:ethernet&#37;&#52;&#48;30be0000">ethernet<span>&#64;</span>30be0000</a> device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-Filename 'phytec-headless-image-phyboard-polis-imx8mn-2.sdcard'.
+Filename 'phytec-headless-image-phyboard-polis-imx8mn-2.wic'.
 Load address: 0x40480000
 Loading: #################################################################
          #################################################################
@@ -696,7 +696,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 with ssh through the network (then uncompress it, if necessary) to the eMMC
 of the target with a one-line command:</p></li>
 </ul>
-<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.sdcard&quot; | dd of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.wic&quot; | dd of=/dev/mmcblk2</pre>
 </section>
 <section id="flash-emmc-via-network-in-linux-on-host">
 <h4><span class="section-number">4.2.1.3. </span>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Permalink to this heading"></a></h4>
@@ -710,12 +710,12 @@ you need a complete image on your host.</p>
 <li><p>Show your available image files on the host:</p></li>
 </ul>
 <pre class="literal-block">host$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
 <ul class="simple">
 <li><p>Send the image with the command dd command combined with ssh through the
 network to the eMMC of your device:</p></li>
 </ul>
-<pre class="literal-block">host$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.sdcard status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
+<pre class="literal-block">host$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
 </section>
 </section>
 <section id="flash-emmc-u-boot-image-via-network-from-running-u-boot">
@@ -744,7 +744,7 @@ limited usage of RAM size in Bootloader after enabling the OPTEE.</p>
 </div>
 <p>These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a> and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied <em>*.sdcard</em> image
+and stop in u-boot prompt. Insert a USB device with the copied WIC image
 to the USB slot.</p>
 <ul class="simple">
 <li><p>Load your image from the USB device to RAM:</p></li>
@@ -754,7 +754,7 @@ starting USB...
 USB0:   USB EHCI 1.00
 scanning bus 0 for devices... 2 USB Device(s) found
        scanning usb for storage devices... 1 Storage Device(s) found
-u-boot=&gt; fatload usb 0:1 ${loadaddr} \*.sdcard
+u-boot=&gt; fatload usb 0:1 ${loadaddr} \*.wic
 497444864 bytes read in 31577 ms (15 MiB/s)
 </pre></div>
 </div>
@@ -775,8 +775,8 @@ u-boot=&gt; boot
 <section id="flash-emmc-from-usb-in-linux">
 <h4><span class="section-number">4.2.3.2. </span>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Permalink to this heading"></a></h4>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
-need a complete image saved on the USB stick and a bootable sdcard. (e.g.
-phytec-headless-image-phyboard-polis-imx8mn-2.sdcard). Set the bootmode switch to
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
+phytec-headless-image-phyboard-polis-imx8mn-2.wic). Set the bootmode switch to
 <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 <ul class="simple">
 <li><p>Insert and mount the USB stick:</p></li>
@@ -798,7 +798,7 @@ target$ mount /dev/sda1 /mnt
 </ul>
 <pre class="literal-block">target$ cd /mnt
 target$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -819,7 +819,7 @@ mmcblk2rpmb
 partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 without partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.sdcard of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
@@ -833,7 +833,7 @@ to <strong>Default SOM Boot</strong> to <em>bootmode switch</em> <a class="ref
 <section id="flash-emmc-from-sd-card">
 <h3><span class="section-number">4.2.4. </span>Flash eMMC from SD Card<a class="headerlink" href="#flash-emmc-from-sd-card" title="Permalink to this heading"></a></h3>
 <p>Even if there is no network available, you can update the eMMC. For that, you
-only need a ready-to-use image file (<em>*.sdcard</em>) located on the SD card.
+only need a ready-to-use image file (<code class="docutils literal notranslate"><span class="pre">\*.wic</span></code>) located on the SD card.
 Because the image file is quite large, you have to enlarge your SD card to use
 its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.</p>
@@ -848,17 +848,17 @@ Linux on Target</cite> subsection.</p>
 </div>
 <ul class="simple">
 <li><p>Flash an SD card with a working image and create a third FAT partition. Copy
-the  *.sdcard image (for example phytec-headless-image.sdcard) to this
+the WIC image (for example phytec-headless-image.wic) to this
 partition.</p></li>
 <li><p>Configure the bootmode switch  to boot from the SD Card and insert the SD
 card.</p></li>
 <li><p>Power on the board and stop in u-boot.</p></li>
-<li><p>Flash your &lt;YOUR_IMAGE&gt;.sdcard image (for example phytec-headless-image.sdcard)
+<li><p>Flash your WIC image (for example phytec-headless-image.wic)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p></li>
 <li><p>Load the image:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.sdcard
+<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
 reading
 911842304 bytes read in 39253 ms (22.2 MiB/s)</pre>
 <ul class="simple">
@@ -884,12 +884,12 @@ boot from eMMC.</p></li>
 <section id="flash-emmc-from-sd-card-in-linux-on-target">
 <h4><span class="section-number">4.2.4.2. </span>Flash eMMC from SD card in Linux on Target<a class="headerlink" href="#flash-emmc-from-sd-card-in-linux-on-target" title="Permalink to this heading"></a></h4>
 <p>You can also flash the eMMC on Linux. You only need a complete image saved on
-the SD card (e.g. phytec-headless-image-phyboard-polis-imx8mn-2.sdcard).</p>
+the SD card (e.g. phytec-headless-image-phyboard-polis-imx8mn-2.wic).</p>
 <ul class="simple">
 <li><p>Show your saved image files on the SD card:</p></li>
 </ul>
 <pre class="literal-block">target$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.sdcard</pre>
+phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -911,7 +911,7 @@ partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 <strong>without</strong>
 partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.sdcard of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>

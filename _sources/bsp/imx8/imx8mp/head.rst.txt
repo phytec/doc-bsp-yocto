@@ -169,7 +169,7 @@ First Start-up
 * **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
 * **imx8mp-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-qt5demo-image\*.tar.gz**: Root file system 
-* **phytec-qt5demo-image\*.sdcard**: SD card image
+* **phytec-qt5demo-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS

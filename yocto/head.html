@@ -1094,7 +1094,7 @@ subsequent builds will use the filled caches and should take about 3 minutes.</p
 </div>
 <p>The easiest way to test your image is to configure your board for SD card boot
 and to flash the build image to the SD card:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=phytec-headless-image-&lt;MACHINE&gt;.sdcard of=/dev/&lt;your_device&gt; bs=1M conv=fsync
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=phytec-headless-image-&lt;MACHINE&gt;.wic of=/dev/&lt;your_device&gt; bs=1M conv=fsync
 </pre></div>
 </div>
 <p>Here &lt;your_device&gt; could be “sde”, for example, depending on your system. Be
@@ -1787,7 +1787,7 @@ to leave it first.</p>
 <p>If the build fails, execute the devshell command again and fix it. If the build
 is successful, you can deploy the package and create a new SD card image:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
-host$ bitbake phytec-headless-image # new sdcard image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+host$ bitbake phytec-headless-image # new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -1935,7 +1935,7 @@ source code was changed and fetches and configures everything from scratch.</p>
 recommit your changes. If the build was successful, you can deploy <em>barebox</em> and
 even create a new SD card image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
-host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.sdcard
+host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 </pre></div>
 </div>
 <p>If you want to make additional changes, just make another commit in the
