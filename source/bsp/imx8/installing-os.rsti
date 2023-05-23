@@ -22,8 +22,8 @@ Flash eMMC from Network
 sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
-Therefore, it is possible to flash the **SD card image** *(<name>.sdcard)* from
-the Yocto build system directly to the eMMC. The SD card image contains the
+Therefore, it is possible to flash the **image** *(<name>.wic)* from
+the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
 Flash eMMC from Network in u-boot on Target
@@ -43,10 +43,10 @@ prompt.
 
 .. parsed-literal::
 
-   u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.sdcard
+   u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
    Using ethernet@30be0000 device
    TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-   Filename '|yocto-imagename|-|yocto-machinename|.sdcard'.
+   Filename '|yocto-imagename|-|yocto-machinename|.wic'.
    Load address: 0x40480000
    Loading: #################################################################
             #################################################################
@@ -86,7 +86,7 @@ You can update the eMMC from your target.
 
 .. parsed-literal::
 
-   target$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.sdcard" \| dd of=/dev/mmcblk2
+   target$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" \| dd of=/dev/mmcblk2
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,14 +103,14 @@ you need a complete image on your host.
 .. parsed-literal::
 
    host$ ls
-   |yocto-imagename|-|yocto-machinename|.sdcard
+   |yocto-imagename|-|yocto-machinename|.wic
 
 * Send the image with the command dd command combined with ssh through the
   network to the eMMC of your device:
 
 .. parsed-literal::
 
-   host$ dd if=\ |yocto-imagename|-|yocto-machinename|.sdcard status=progress \
+   host$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic status=progress \
    | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
 
 Flash eMMC u-boot image via Network from running u-boot
@@ -144,7 +144,7 @@ Flash eMMC from USB in u-boot on Target
 
 These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied *\*.sdcard* image
+and stop in u-boot prompt. Insert a USB device with the copied *\*.wic* image
 to the USB slot.
 
 *  Load your image from the USB device to RAM:
@@ -156,7 +156,7 @@ to the USB slot.
    USB0:   USB EHCI 1.00
    scanning bus 0 for devices... 2 USB Device(s) found
           scanning usb for storage devices... 1 Storage Device(s) found
-   u-boot=> fatload usb 0:1 ${loadaddr} \*.sdcard
+   u-boot=> fatload usb 0:1 ${loadaddr} \*.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
 *  Write the image to the eMMC:
@@ -176,8 +176,8 @@ Flash eMMC from USB in Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
-need a complete image saved on the USB stick and a bootable sdcard. (e.g.
-|yocto-imagename|-|yocto-machinename|.sdcard). Set the bootmode switch to
+need a complete image saved on the USB stick and a bootable.wic. (e.g.
+|yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
 |ref-bootswitch|.
 
 *  Insert and mount the USB stick:
@@ -201,7 +201,7 @@ need a complete image saved on the USB stick and a bootable sdcard. (e.g.
 
    target$ cd /mnt
    target$ ls
-   |yocto-imagename|-|yocto-machinename|.sdcard
+   |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
 
@@ -224,7 +224,7 @@ need a complete image saved on the USB stick and a bootable sdcard. (e.g.
 
 .. parsed-literal::
 
-   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.sdcard of=/dev/mmcblk2
+   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -237,7 +237,7 @@ Flash eMMC from SD Card
 .......................
 
 Even if there is no network available, you can update the eMMC. For that, you
-only need a ready-to-use image file (*\*.sdcard*) located on the SD card.
+only need a ready-to-use image file (*\*.wic*) located on the SD card.
 Because the image file is quite large, you have to enlarge your SD card to use
 its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.
@@ -253,19 +253,19 @@ Flash eMMC from SD card in u-boot on Target
    Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third FAT partition. Copy
-   the  \*.sdcard image (for example |yocto-imagename|.sdcard) to this
+   the  \*.wic image (for example |yocto-imagename|.wic) to this
    partition.
 *  Configure the bootmode switch  to boot from the SD Card and insert the SD
    card.
 *  Power on the board and stop in u-boot.
-*  Flash your <YOUR_IMAGE>.sdcard image (for example |yocto-imagename|.sdcard)
+*  Flash your <YOUR_IMAGE>.wic image (for example |yocto-imagename|.wic)
    from the SD card to eMMC. This will partition the card and copy imx-boot,
    Image, dtb, dtbo, and root file system to eMMC. 
 *  Load the image:
 
 .. parsed-literal::
 
-   u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.sdcard
+   u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
    reading
    911842304 bytes read in 39253 ms (22.2 MiB/s)
 
@@ -291,14 +291,14 @@ Flash eMMC from SD card in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also flash the eMMC on Linux. You only need a complete image saved on
-the SD card (e.g. |yocto-imagename|-|yocto-machinename|.sdcard).
+the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  Show your saved image files on the SD card:
 
 .. parsed-literal::
 
    target$ ls
-   |yocto-imagename|-|yocto-machinename|.sdcard
+   |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
 
@@ -322,7 +322,7 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.sdcard).
 
 .. parsed-literal::
 
-   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.sdcard of=/dev/mmcblk2
+   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 

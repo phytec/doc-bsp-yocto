@@ -10,11 +10,11 @@ to SD Card and how to start the board.
 Get the Image
 -------------
 
-The \*.sdcard image contains all BSP files in several, correctly pre-formatted
+The \*.wic image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
 command dd. It can be built by Yocto or downloaded from our download server.
 
-*  Get the *\*.sdcard* file from our download server:
+*  Get the *\*.wic* file from our download server:
 
 .. parsed-literal::
 
@@ -62,7 +62,7 @@ unmounted.
 
 ::
 
-   host$ sudo dd if=<IMAGENAME>-<MACHINE>.sdcard of=/dev/<your_device> bs=1M conv=fsync status=progress
+   host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
 
 Using the device name (<your_device>) without appended number (e.g. sde) which
 stands for the whole device. The parameter conv=fsync forces a sync operation on
@@ -71,9 +71,9 @@ card and are not still in memory. The parameter status=progress will print ou
 information on how much data is and still has to be copied until it is finished.
 
 .. note::
-   The created file |yocto-imagename|-|yocto-machinename|.sdcard is only a link
+   The created file |yocto-imagename|-|yocto-machinename|.wic is only a link
    to a file like
-   |yocto-imagename|-|yocto-machinename|-<BUILD-TIME>.rootfs.sdcard.
+   |yocto-imagename|-|yocto-machinename|-<BUILD-TIME>.rootfs.wic.
 
 <BUILD-TIME> has the format: YYYYMMDDHHMMSS
 
