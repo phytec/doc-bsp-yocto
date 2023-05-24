@@ -336,6 +336,14 @@ in the toolchain directory:
 
    host$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
+Installing Required Tools
+.........................
+
+Building Linux and U-Boot out-of-tree requires some additional host tool
+dependencies to be installed. For Ubuntu you can install them with::
+
+   host$ sudo apt install bison flex
+
 Build imx-boot
 ..............
 
