@@ -266,7 +266,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this heading"></a></h2>
 <p>The phyBOARD-Pollux with 2GB RAM  is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-NXP-i.MX8MP-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0">download</a>.</p>
+Numbers for this release: BSP-Yocto-NXP-i.MX8MP-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1">download</a>.</p>
 <p>If you choose a specific Machine Name in the section Supported Machines, you can
 see which Article Numbers are available under this machine and also a short
 description of the hardware information. In case you only have the Article
@@ -305,7 +305,7 @@ command dd. It can be built by Yocto or downloaded from our download server.</p
 <ul class="simple">
 <li><p>Get the <code class="docutils literal notranslate"><span class="pre">\*.wic</span></code> file from our download server:</p></li>
 </ul>
-<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.sdcard">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.sdcard</a></pre>
+<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic</a></pre>
 </section>
 <section id="write-the-image-to-sd-card">
 <h2><span class="section-number">2.2. </span>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Permalink to this heading"></a></h2>
@@ -387,12 +387,12 @@ debug USB</p></li>
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Permalink to this heading"></a></h1>
 <p>This section will guide you through the general build process of the i.MX 8M
 Plus BSP using Yocto and the phyLinux script. For more information about our
-meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=PoDEHw">L-813e.A13 Yocto Reference Manual (kirkstone)</a>.</p>
+meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Permalink to this heading"></a></h2>
 <p>If you have never created a Phytec BSP with Yocto on your computer, you should
 take a closer look at the chapter BSP Workspace Installation in the
-<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=PoDEHw">L-813e.A13 Yocto Reference Manual (kirkstone)</a>.</p>
+<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
 </section>
 <section id="get-the-bsp">
 <h2><span class="section-number">3.2. </span>Get the BSP<a class="headerlink" href="#get-the-bsp" title="Permalink to this heading"></a></h2>
@@ -436,7 +436,7 @@ on.</p></li>
 <p class="admonition-title">Note</p>
 <p>If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. And have look at
-<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0">our bsp</a>.</p>
+<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1">our bsp</a>.</p>
 </div>
 <ul class="simple">
 <li><p>It is also possible to pass this information directly using command line
@@ -1327,7 +1327,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </section>
 <section id="get-the-sdk">
 <h3><span class="section-number">5.3.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Permalink to this heading"></a></h3>
-<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
+<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
 <ul class="simple">
 <li><p>Move to the Yocto build directory:</p></li>
 </ul>
@@ -1382,7 +1382,7 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 <p>If you already build our BSP with Yocto, you can get
 the bl31-imx8mp.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
 mentioned here: <a class="reference internal" href="#imx8mp-head-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
+<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you rename the files you need so that they are compatible with the
@@ -1400,12 +1400,12 @@ mentioned here: <a class="reference internal" href="#imx8mp-head-images"><span 
 <ul class="simple">
 <li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
 notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
-<li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy7</p></li>
+<li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy13</p></li>
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
 </ul>
 <pre class="literal-block">host$ cd ~/u-boot-imx/
 host$ git fetch --all --tags
-host$ git checkout tags/v2021.04_2.2.0-phy7</pre>
+host$ git checkout tags/v2021.04_2.2.0-phy13</pre>
 <ul class="simple">
 <li><p>Technically, you can now build the U-Boot, but practically there are some
 further steps necessary:</p>
@@ -1479,13 +1479,13 @@ CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
 <h3><span class="section-number">5.3.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
-<li><p>The tag needed for this release is called v5.10.72_2.2.0-phy9</p></li>
+<li><p>The tag needed for this release is called v5.10.72_2.2.0-phy17</p></li>
 <li><p>Check out the needed linux-imx tag:</p></li>
 </ul>
 <pre class="literal-block">host$ git clone git://git.phytec.de/linux-imx
 host$ cd ~/linux-imx/
 host$ git fetch --all --tags
-host$ git checkout tags/v5.10.72_2.2.0-phy9
+host$ git checkout tags/v5.10.72_2.2.0-phy17
 host$ git checkout -b &lt;new-branch&gt;</pre>
 <ul class="simple">
 <li><p>Set up a build environment</p></li>
@@ -1760,7 +1760,7 @@ u-boot=&gt; saveenv
 <h4><span class="section-number">6.2.2.2. </span>Extension Command<a class="headerlink" href="#extension-command" title="Permalink to this heading"></a></h4>
 <p>The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy#n163">extension_board_scan()</a>. In the BSP, the overlays applied
+<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy13#n239">extension_board_scan()</a>. In the BSP, the overlays applied
 in this way are used to disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
@@ -1829,7 +1829,7 @@ environment source that you want to use.</p>
 <section id="accessing-peripherals">
 <h1><span class="section-number">7. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Permalink to this heading"></a></h1>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-i.MX 8M Plus BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.0">our bsp</a> web page and click
+phyCORE-i.MX 8M Plus BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1">our bsp</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns “Hardware Article Number” and the correct
 machine name in the corresponding cell under “Machine Name”.</p>
@@ -1929,7 +1929,7 @@ found here: <a class="reference external" href="https://github.com/cbrake/linux
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
 <p>The device tree representation for RS232 and RS485:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n337</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331</a></p>
 </section>
 </section>
 <section id="network">
@@ -1959,10 +1959,10 @@ and netmask for eth0 is:</p>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n41</a>.</p>
+be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41</a>.</p>
 <p>The device tree set up for EQOS Ethernet IP core where the PHY is populated
 on the phyBOARD-Pollux can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n149</a>.</p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n141">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n141</a>.</p>
 <section id="network-environment-customization">
 <h3><span class="section-number">7.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Permalink to this heading"></a></h3>
 <section id="u-boot-network-environment">
@@ -2087,9 +2087,9 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n381">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n381</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n207">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n207</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Permalink to this heading"></a></h2>
@@ -2666,7 +2666,7 @@ is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n67</a></p>
+<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72</a></p>
 </section>
 </section>
 <section id="gpios">
@@ -2785,7 +2785,7 @@ mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
 </pre></div>
 </div>
 <p>Device tree configuration for the User I/O configuration can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n224</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216</a></p>
 </section>
 <section id="i2c-bus">
 <h2><span class="section-number">7.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Permalink to this heading"></a></h2>
@@ -2797,9 +2797,9 @@ of some I²C devices integrated into our phyBOARD-Pollux.</p>
 the bus frequency and the pin control settings including scl-gpios and sda-gpios
 which are alternate pin configurations used for bus recovery.</p>
 <p>General I²C1 bus configuration (e.g. imx8mp-phycore-som.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n100</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105</a></p>
 <p>General I²C2 bus configuration (e.g. imx8mp-phyboard-pollux-rdk.dts)
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n209</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n201">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n201</a></p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h2>
@@ -2879,7 +2879,7 @@ hardware introspection from the ID area to the normal area. :</p>
 </div>
 <p>DT representation, e.g. in phyCORE-i.MX 8M Plus file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n188">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n188</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -2954,7 +2954,7 @@ target$ echo mem &gt; /sys/power/state
 the alarm function doesn’t support seconds.</p>
 </div>
 <p>DT representation for I²C RTCs:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
@@ -2971,7 +2971,7 @@ demand. Due to udev, all mass storage devices connected get unique IDs and can
 be found in /dev/disk/by-id. These IDs can be used in /etc/fstab to mount the
 different USB memory devices in different ways.</p>
 <p>DT representation for USB Host:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n354</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341</a></p>
 </section>
 <section id="can-fd">
 <h2><span class="section-number">7.13. </span>CAN FD<a class="headerlink" href="#can-fd" title="Permalink to this heading"></a></h2>
@@ -3092,7 +3092,7 @@ on options and usage.</p>
 Slower rates can be selected but may not work correctly.</p>
 </div>
 <p>Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n173</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165</a></p>
 </section>
 <section id="pcie">
 <h2><span class="section-number">7.14. </span>PCIe<a class="headerlink" href="#pcie" title="Permalink to this heading"></a></h2>
@@ -3184,8 +3184,8 @@ as shown in the first line of the output above. This is because some
 manufacturers provide the firmware as a fallback on the card itself. In this
 case, the behavior and output depend strongly on the manufacturer’s firmware.</p>
 </div>
-<p>Device Tree PCIe configuration of imx8mm-phyboard-polis.dts:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n285</a></p>
+<p>Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277</a></p>
 </section>
 <section id="audio">
 <h2><span class="section-number">7.15. </span>Audio<a class="headerlink" href="#audio" title="Permalink to this heading"></a></h2>
@@ -3291,7 +3291,7 @@ use different sampling rates and formats for simultaneous playback and
 capture operations.</p>
 </div>
 <p>Device Tree Audio configuration:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9#n43</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57</a></p>
 </section>
 </section>
 <section id="video">
@@ -3565,9 +3565,10 @@ files and writing to them allows you to control the backlight.</p>
 all files, see
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
 <p>Device tree description of LVDS-1 and HDMI can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255</a>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n180">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n180</a></p>
 <p>The device tree of LVDS-0 on PEB-AV-10 can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy9</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132</a></p>
 </section>
 </section>
 <section id="power-management">
@@ -3807,8 +3808,8 @@ with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl disable fancontrol
 </pre></div>
 </div>
-<p>The device tree description of PWM Fan can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy9#n37</a></p>
+<p>The device tree description of GPIO Fan can be found here:
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26</a></p>
 </section>
 </section>
 <section id="watchdog">
