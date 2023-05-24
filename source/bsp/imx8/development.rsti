@@ -359,13 +359,14 @@ build directory** and rename them to fit with *mkimage tool* script:
 
 *  **ARM Trusted firmware binary** (*mkimage tool* compatible format
    **bl31.bin**): bl31-|kernel-socname|.bin
+*  **OPTEE image** (optional): tee.bin
 *  **DDR firmware files** (*mkimage tool* compatible format
    **lpddr4_pmu_train_\*d_\*mem.bin**):
    *lpddr4_pmu_train_2d_dmem*.bin, lpddr4_pmu_train_2d_imem*.bin,
    (lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*
 
 If you already build our BSP with Yocto, you can get
-the bl31-|kernel-socname|.bin and lpddr4_pmu_train*.bin from the directory
+the bl31-|kernel-socname|.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
 mentioned here: |ref-bsp-images|
 
 Or you can download the files here: |link-boot-tools|
