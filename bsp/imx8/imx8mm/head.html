@@ -1381,25 +1381,34 @@ SDK has been successfully set up and is ready to be used.</pre>
 in the toolchain directory:</p>
 <pre class="literal-block">host$ source /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux</pre>
 </section>
+<section id="installing-required-tools">
+<h3><span class="section-number">5.3.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Permalink to this heading"></a></h3>
+<p>Building Linux and U-Boot out-of-tree requires some additional host tool
+dependencies to be installed. For Ubuntu you can install them with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install bison flex
+</pre></div>
+</div>
+</section>
 <section id="build-imx-boot">
-<h3><span class="section-number">5.3.5. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">5.3.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Permalink to this heading"></a></h3>
 <p>With <em>U-Boot</em> version v2021.04, the <em>mkimage tool</em> from NXP is finally
 integrated. This means that you can create the imx-boot without manually using
 the imx <em>mkimage tool</em>.</p>
 <section id="get-the-needed-binaries">
-<h4><span class="section-number">5.3.5.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Permalink to this heading"></a></h4>
+<h4><span class="section-number">5.3.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Permalink to this heading"></a></h4>
 <p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your <strong>u-boot-imx
 build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
 <ul class="simple">
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
 <strong>bl31.bin</strong>): bl31-imx8mm.bin</p></li>
+<li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
 <li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
 <strong>lpddr4_pmu_train_*d_*mem.bin</strong>):
 <em>lpddr4_pmu_train_2d_dmem</em>.bin, lpddr4_pmu_train_2d_imem*.bin,
 (lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*</p></li>
 </ul>
 <p>If you already build our BSP with Yocto, you can get
-the bl31-imx8mm.bin and lpddr4_pmu_train*.bin from the directory
+the bl31-imx8mm.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
 mentioned here: <a class="reference internal" href="#imx8mm-head-images"><span class="std std-ref">BSP Images</span></a></p>
 <p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-4/imx-boot-tools/</a></p>
 <div class="admonition warning">
@@ -1409,7 +1418,7 @@ mentioned here: <a class="reference internal" href="#imx8mm-head-images"><span 
 </div>
 </section>
 <section id="build-u-boot">
-<h4><span class="section-number">5.3.5.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Permalink to this heading"></a></h4>
+<h4><span class="section-number">5.3.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Get the U-Boot sources:</p></li>
 </ul>
@@ -1477,7 +1486,7 @@ chip-specific offset is needed:</p>
 </div>
 </section>
 <section id="build-a-u-boot-with-a-fixed-ram-size">
-<h4><span class="section-number">5.3.5.3. </span>Build a U-Boot with a Fixed RAM Size<a class="headerlink" href="#build-a-u-boot-with-a-fixed-ram-size" title="Permalink to this heading"></a></h4>
+<h4><span class="section-number">5.3.6.3. </span>Build a U-Boot with a Fixed RAM Size<a class="headerlink" href="#build-a-u-boot-with-a-fixed-ram-size" title="Permalink to this heading"></a></h4>
 <p>If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
 You should still contact support and flash the correct EEPROM data, as this
@@ -1495,7 +1504,7 @@ CONFIG_PHYCORE_IMX8MM_RAM_SIZE_FIX=y
 </section>
 </section>
 <section id="build-kernel">
-<h3><span class="section-number">5.3.6. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">5.3.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm">release notes</a></p></li>
 <li><p>The tag needed for this release is called v5.10.72_2.2.0-phy9</p></li>
