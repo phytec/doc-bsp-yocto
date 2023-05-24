@@ -107,13 +107,10 @@
 <li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.12. USB Host Controller</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#usb-otg">7.13. USB OTG</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#can-fd">7.14. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio">7.15. Audio</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#video">7.16. Video</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">7.17. Display</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#power-management">7.18. Power Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.19. Thermal Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.20. Watchdog</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.21. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">7.15. Power Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.16. Thermal Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.17. Watchdog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.18. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#soc-mcore">8. i.MX 8M Nano M4 Core</a><ul>
@@ -262,7 +259,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this heading"></a></h2>
 <p>The phyBOARD-Polis populated with the i.MX 8M Nano SoC is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">download</a>.
+Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">download</a>.
 If you choose a specific <strong>Machine Namein the section **Supported Machines</strong>,
 you can see which <strong>Article Numbers</strong> are available under this machine and also
 a short description of the hardware information. In case you only have
@@ -308,7 +305,7 @@ command dd. It can be built by Yocto or downloaded from our download server.</p
 <ul class="simple">
 <li><p>Get the <code class="docutils literal notranslate"><span class="pre">\*.wic</span></code> file from our download server:</p></li>
 </ul>
-<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/phytec-headless-image-phyboard-polis-imx8mn-1.sdcard</a></pre>
+<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic</a></pre>
 </section>
 <section id="write-the-image-to-sd-card">
 <h2><span class="section-number">2.2. </span>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Permalink to this heading"></a></h2>
@@ -402,12 +399,12 @@ debug USB</p></li>
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Permalink to this heading"></a></h1>
 <p>This section will guide you through the general build process of the i.MX 8M
 Plus BSP using Yocto and the phyLinux script. For more information about our
-meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=PoDEHw">L-813e.A13 Yocto Reference Manual (kirkstone)</a>.</p>
+meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Permalink to this heading"></a></h2>
 <p>If you have never created a Phytec BSP with Yocto on your computer, you should
 take a closer look at the chapter BSP Workspace Installation in the
-<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=PoDEHw">L-813e.A13 Yocto Reference Manual (kirkstone)</a>.</p>
+<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
 </section>
 <section id="get-the-bsp">
 <h2><span class="section-number">3.2. </span>Get the BSP<a class="headerlink" href="#get-the-bsp" title="Permalink to this heading"></a></h2>
@@ -451,7 +448,7 @@ on.</p></li>
 <p class="admonition-title">Note</p>
 <p>If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. And have look at
-<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">our bsp</a>.</p>
+<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">our bsp</a>.</p>
 </div>
 <ul class="simple">
 <li><p>It is also possible to pass this information directly using command line
@@ -1379,7 +1376,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </section>
 <section id="get-the-sdk">
 <h3><span class="section-number">5.3.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Permalink to this heading"></a></h3>
-<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
+<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
 <ul class="simple">
 <li><p>Move to the Yocto build directory:</p></li>
 </ul>
@@ -1434,7 +1431,7 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 <p>If you already build our BSP with Yocto, you can get
 the bl31-imx8mn.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
 mentioned here: <a class="reference internal" href="#imx8mn-head-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-1/imx-boot-tools/</a></p>
+<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you rename the files you need so that they are compatible with the
@@ -1452,12 +1449,12 @@ mentioned here: <a class="reference internal" href="#imx8mn-head-images"><span 
 <ul class="simple">
 <li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
 notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm">release notes</a></p></li>
-<li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy5</p></li>
+<li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy13</p></li>
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
 </ul>
 <pre class="literal-block">host$ cd ~/u-boot-imx/
 host$ git fetch --all --tags
-host$ git checkout tags/v2021.04_2.2.0-phy5</pre>
+host$ git checkout tags/v2021.04_2.2.0-phy13</pre>
 <ul class="simple">
 <li><p>Technically, you can now build the U-Boot, but practically there are some
 further steps necessary:</p>
@@ -1531,13 +1528,13 @@ CONFIG_PHYCORE_IMX8MN_RAM_SIZE_FIX=y
 <h3><span class="section-number">5.3.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm">release notes</a></p></li>
-<li><p>The tag needed for this release is called v5.10.72_2.2.0-phy9</p></li>
+<li><p>The tag needed for this release is called v5.10.72_2.2.0-phy17</p></li>
 <li><p>Check out the needed linux-imx tag:</p></li>
 </ul>
 <pre class="literal-block">host$ git clone git://git.phytec.de/linux-imx
 host$ cd ~/linux-imx/
 host$ git fetch --all --tags
-host$ git checkout tags/v5.10.72_2.2.0-phy9
+host$ git checkout tags/v5.10.72_2.2.0-phy17
 host$ git checkout -b &lt;new-branch&gt;</pre>
 <ul class="simple">
 <li><p>Set up a build environment</p></li>
@@ -1798,7 +1795,7 @@ u-boot=&gt; saveenv
 <h4><span class="section-number">6.2.2.2. </span>Extension Command<a class="headerlink" href="#extension-command" title="Permalink to this heading"></a></h4>
 <p>The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy">extension_board_scan()</a>. In the BSP, the overlays applied
+<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13">extension_board_scan()</a>. In the BSP, the overlays applied
 in this way are used to disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
@@ -1867,7 +1864,7 @@ environment source that you want to use.</p>
 <section id="accessing-peripherals">
 <h1><span class="section-number">7. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Permalink to this heading"></a></h1>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-i.MX 8M Nano BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.0">our bsp</a> web page and click
+phyCORE-i.MX 8M Nano BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">our bsp</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns “Hardware Article Number” and the correct
 machine name in the corresponding cell under “Machine Name”.</p>
@@ -1976,7 +1973,7 @@ found here: <a class="reference external" href="https://github.com/cbrake/linux
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
 <p>The device tree representation for RS232 and RS485:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n171</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n166">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n166</a></p>
 </section>
 </section>
 <section id="network">
@@ -2006,7 +2003,7 @@ and netmask for eth0 is:</p>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n44</a>.</p>
+be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47</a>.</p>
 <p></p>
 <section id="network-environment-customization">
 <h3><span class="section-number">7.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Permalink to this heading"></a></h3>
@@ -2227,9 +2224,9 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n249</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n238">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n238</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n296</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Permalink to this heading"></a></h2>
@@ -2637,7 +2634,7 @@ is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n76">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n76</a></p>
+<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75</a></p>
 </section>
 </section>
 <section id="gpios">
@@ -2766,7 +2763,7 @@ mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
 </pre></div>
 </div>
 <p>Device tree configuration for the User I/O configuration can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n37</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n35">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n35</a></p>
 </section>
 <section id="i2c-bus">
 <h2><span class="section-number">7.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Permalink to this heading"></a></h2>
@@ -2778,9 +2775,9 @@ of some I²C devices integrated into our phyBOARD-Polis.</p>
 the bus frequency and the pin control settings including scl-gpios and sda-gpios
 which are alternate pin configurations used for bus recovery.</p>
 <p>General I²C1 bus configuration (e.g. imx8mn-phycore-som.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n97</a></p>
-<p>General I²C2 bus configuration (e.g. imx8mn-phyboard-polis-rdk.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n137</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98</a></p>
+<p>General I²C3 bus configuration (e.g. imx8mn-phyboard-polis-rdk.dtsi):
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n147">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n147</a></p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h2>
@@ -2860,7 +2857,7 @@ hardware introspection from the ID area to the normal area. :</p>
 </div>
 <p>DT representation, e.g. in phyCORE-i.MX 8M Nano file imx8mn-phycore-som.dtsi can be
 found in our PHYTEC git:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy4#n247</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -2935,7 +2932,7 @@ target$ echo mem &gt; /sys/power/state
 the alarm function doesn’t support seconds.</p>
 </div>
 <p>DT representation for I²C RTCs:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n194</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
@@ -2943,7 +2940,8 @@ the alarm function doesn’t support seconds.</p>
 <p>The USB controller of the i.MX 8M Nano SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
 transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
-‘HS’). The i.MX 8M Nano SoC has a single USB controller core that is set to OTG mode.
+‘HS’).</p>
+<p>The i.MX 8M Nano SoC has a single USB controller core that is set to OTG mode.
 To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.</p>
 <p>The unified BSP includes support for mass storage devices and keyboards. Other
 USB-related device drivers must be enabled in the kernel configuration on
@@ -2960,8 +2958,6 @@ imx8mn.dtsi:</p>
 };
 </pre></div>
 </div>
-<p>DT representation for USB Host:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240</a></p>
 </section>
 <section id="usb-otg">
 <h2><span class="section-number">7.13. </span>USB OTG<a class="headerlink" href="#usb-otg" title="Permalink to this heading"></a></h2>
@@ -3051,7 +3047,7 @@ one to the USB Device Controller (UDC).</p>
 </div>
 <p>Both USB interfaces are configured as host in the kernel device tree
 imx8mm-phyboard-polis.dtsi. See:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n211</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n206">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n206</a></p>
 </section>
 </section>
 <section id="can-fd">
@@ -3184,265 +3180,12 @@ on options and usage.</p>
 Slower rates can be selected but may not work correctly.</p>
 </div>
 <p>Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy4#n94</a></p>
-</section>
-<section id="audio">
-<h2><span class="section-number">7.15. </span>Audio<a class="headerlink" href="#audio" title="Permalink to this heading"></a></h2>
-<p>The PEB-AV-10-Connector exists in two versions and the 1531.1 version is
-populated with a TI TLV320AIC3007 audio codec. Audio support is done via the I2S
-interface and controlled via I2C.</p>
-<p>There is a 3.5mm headset jack with OMTP standard and an 8-pin header to connect
-audio devices with the AV-Connector.  The 8-pin header contains a mono speaker,
-headphones, and line-in signals.</p>
-<p>To check if your soundcard driver is loaded correctly and what the device is
-called, type for playback devices:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ aplay -L
-</pre></div>
-</div>
-<p>Or type for recording devices:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ arecord -L
-</pre></div>
-</div>
-<section id="alsamixer">
-<h3><span class="section-number">7.15.1. </span>Alsamixer<a class="headerlink" href="#alsamixer" title="Permalink to this heading"></a></h3>
-<p>To inspect the capabilities of your soundcard, call:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ alsamixer
-</pre></div>
-</div>
-<p>You should see a lot of options as the audio-IC has many features you can
-experiment with. It might be better to open alsamixer via ssh instead of the
-serial console, as the console graphical effects are better. You have either
-mono or stereo gain controls for all mix points. “MM” means the feature is muted
-(both output, left &amp; right), which can be toggled by hitting m. You can also
-toggle by hitting ‘&lt;’ for left and ‘’&gt;’ for right output.</p>
-</section>
-<section id="alsa-configuration">
-<h3><span class="section-number">7.15.2. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Permalink to this heading"></a></h3>
-<p>Our BSP comes with a ALSA configuration file /etc/asound.conf.</p>
-<p>The ALSA configuration file can be edited as desired or deleted since it is not
-required for ALSA to work properly.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ vi /etc/asound.conf
-</pre></div>
-</div>
-<p>To set PEB-AV-10 as output, set playback.pcm from “dummy” to “pebav10”:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[...]
-
-pcm.asymed {
-        type asym
-        playback.pcm &quot;pebav10&quot;
-        capture.pcm &quot;dsnoop&quot;
-}
-
-[...]
-</pre></div>
-</div>
-</section>
-<section id="pulseaudio-configuration">
-<h3><span class="section-number">7.15.3. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Permalink to this heading"></a></h3>
-<p>For applications using Pulseaudio, check for available sinks:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ pactl list short sinks
-0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
-1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
-</pre></div>
-</div>
-<p>To select PEB-AV-10, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ pactl set-default-sink 1
-</pre></div>
-</div>
-</section>
-<section id="playback">
-<h3><span class="section-number">7.15.4. </span>Playback<a class="headerlink" href="#playback" title="Permalink to this heading"></a></h3>
-<p>Run speaker-test to check playback availability:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ speaker-test -c 2 -t wav
-</pre></div>
-</div>
-<p>To playback simple audio streams, you can use aplay. For example to play the
-ALSA test sounds:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ aplay /usr/share/sounds/alsa/*
-</pre></div>
-</div>
-<p>To playback other formats like mp3 for example, you can use Gstreamer:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
-</pre></div>
-</div>
-</section>
-<section id="capture">
-<h3><span class="section-number">7.15.5. </span>Capture<a class="headerlink" href="#capture" title="Permalink to this heading"></a></h3>
-<p>arecord is a command-line tool for capturing audio streams which use Line In as
-the default input source. To select a different audio source you can
-use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
-Mic3R in order to capture the audio from the microphone input of the
-TLV320-Codec using the 3.5mm jack.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ amixer -c1 sset &#39;Left PGA Mixer Mic3R&#39; on
-target$ amixer -c1 sset &#39;Right PGA Mixer Mic3R&#39; on
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
-</pre></div>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Since playback and capture share hardware interfaces, it is not possible to
-use different sampling rates and formats for simultaneous playback and
-capture operations.</p>
-</div>
-<p>Device Tree Audio configuration:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4#n56</a></p>
-</section>
-</section>
-<section id="video">
-<h2><span class="section-number">7.16. </span>Video<a class="headerlink" href="#video" title="Permalink to this heading"></a></h2>
-<section id="videos-with-gstreamer">
-<h3><span class="section-number">7.16.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Permalink to this heading"></a></h3>
-<p>The video is installed by default in the BSP:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Or</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ gst-launch-1.0 -v filesrc location=&lt;video.mp4&gt; \
-\! qtdemux  \! h264parse \! queue \! vpudec \! waylandsink async=false enable-last-sample=false \
-qos=false sync=false
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Or</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
-</pre></div>
-</div>
-</section>
-<section id="kmssink-plugin-id-evaluation">
-<h3><span class="section-number">7.16.2. </span>kmssink Plugin ID Evaluation<a class="headerlink" href="#kmssink-plugin-id-evaluation" title="Permalink to this heading"></a></h3>
-<p>The kmssink plugin needs a connector ID. To get the connector ID, you can use
-the tool modetest.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ modetest -c imx-drm
-</pre></div>
-</div>
-<p>The output will show something like:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Connectors:
-id  encoder status      name        size (mm)   modes   encoders
-35  34  connected   LVDS-1          216x135     1   34
-  modes:
-    index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
-  #0 1280x800 59.07 1280 1380 1399 1440 800 804 808 823 70000 flags: phsync, pvsync; type: preferred, driver
-  props:
-    1 EDID:
-        flags: immutable blob
-        blobs:
-
-        value:
-    2 DPMS:
-        flags: enum
-        enums: On=0 Standby=1 Suspend=2 Off=3
-        value: 0
-    5 link-status:
-        flags: enum
-        enums: Good=0 Bad=1
-        value: 0
-    6 non-desktop:
-        flags: immutable range
-        values: 0 1
-        value: 0
-    4 TILE:
-        flags: immutable blob
-        blobs:
-
-        value:
-</pre></div>
-</div>
-</section>
-</section>
-<section id="display">
-<h2><span class="section-number">7.17. </span>Display<a class="headerlink" href="#display" title="Permalink to this heading"></a></h2>
-<p>The 10” Display is always active. If the PEB-AV-Connector is not connected, an
-error message may occur at boot.</p>
-<section id="qt-demo">
-<h3><span class="section-number">7.17.1. </span>QT Demo<a class="headerlink" href="#qt-demo" title="Permalink to this heading"></a></h3>
-<p>With the phytec-qt5demo-image, Weston starts during boot. The phytec-qt5demo can be
-stopped with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop phytec-qtdemo
-</pre></div>
-</div>
-<ul>
-<li><p>To start the demo again, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl start phytec-qtdemo
-</pre></div>
-</div>
-</li>
-<li><p>To disable autostart of the demo run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl disable phytec-qtdemo
-</pre></div>
-</div>
-</li>
-<li><p>To enable autostart of the demo, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl enable phytec-qtdemo
-</pre></div>
-</div>
-</li>
-<li><p>Weston can be stopped with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop weston
-</pre></div>
-</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Qt demo must be closed before Weston can be closed.</p>
-</div>
-</section>
-<section id="backlight-control">
-<h3><span class="section-number">7.17.2. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Permalink to this heading"></a></h3>
-<p>If a display is connected to the PHYTEC board, you can control its backlight
-with the Linux kernel sysfs interface. All available backlight devices in the
-system can be found in the folder /sys/class/backlight. Reading the appropriate
-files and writing to them allows you to control the backlight.</p>
-<ul>
-<li><p>To get, for example, the maximum brightness level (max_brightness) execute:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ cat /sys/class/backlight/backlight/max_brightness
-</pre></div>
-</div>
-</li>
-</ul>
-<p>which will result in:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
-</pre></div>
-</div>
-<p>Valid brightness values are 0 to &lt;max_brightness&gt;.</p>
-<ul>
-<li><p>To obtain the current brightness level, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ cat /sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-</li>
-</ul>
-<p>you will get for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-<ul>
-<li><p>Write to the file brightness to change the brightness:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo 0 &gt; /sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-</li>
-</ul>
-<p>turns the backlight off,</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo 5 &gt; /sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>sets the brightness to the third-highest brightness level. For documentation of
-all files, see
-<a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
-<p>The device tree of PEB-AV-10 can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mn-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy4</a></p>
-</section>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104</a></p>
 </section>
 <section id="power-management">
-<h2><span class="section-number">7.18. </span>Power Management<a class="headerlink" href="#power-management" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.15. </span>Power Management<a class="headerlink" href="#power-management" title="Permalink to this heading"></a></h2>
 <section id="cpu-core-frequency-scaling">
-<h3><span class="section-number">7.18.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.15.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Permalink to this heading"></a></h3>
 <p>The CPU in the i.MX 8M Nano SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
 Scaling the frequency and the voltage is referred to as ‘Dynamic Voltage and
@@ -3526,7 +3269,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 documentation in linux/Documentation/cpu-freq/governors.txt.</p>
 </section>
 <section id="cpu-core-management">
-<h3><span class="section-number">7.18.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.15.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Permalink to this heading"></a></h3>
 <p>The i.MX 8M Nano SoC can have multiple processor cores on the die. The i.MX 8M Nano, for
 example, has 4 ARM Cores which can be turned on and off individually at runtime.</p>
 <ul>
@@ -3571,7 +3314,7 @@ system are enabled to get maximum performance.</p>
 </ul>
 </section>
 <section id="suspend-to-ram">
-<h3><span class="section-number">7.18.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.15.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Permalink to this heading"></a></h3>
 <p>The phyCORE-i.MX8MM supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo mem &gt; /sys/power/state
@@ -3584,9 +3327,9 @@ target$ echo mem &gt; /sys/power/state</pre>
 </section>
 </section>
 <section id="thermal-management">
-<h2><span class="section-number">7.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.16. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Permalink to this heading"></a></h2>
 <section id="u-boot">
-<h3><span class="section-number">7.19.1. </span>U-boot<a class="headerlink" href="#u-boot" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.16.1. </span>U-boot<a class="headerlink" href="#u-boot" title="Permalink to this heading"></a></h3>
 <p>The previous temperature control in the u-boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -3598,7 +3341,7 @@ the boot log:</p>
 </div>
 </section>
 <section id="kernel">
-<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.16.2. </span>Kernel<a class="headerlink" href="#kernel" title="Permalink to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
@@ -3655,7 +3398,7 @@ with different temperature grades.</p>
 </div>
 </section>
 <section id="gpio-fan">
-<h3><span class="section-number">7.19.3. </span>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.16.3. </span>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Permalink to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Only GPIO fan supported.</p>
@@ -3677,7 +3420,7 @@ with:</p>
 </section>
 </section>
 <section id="watchdog">
-<h2><span class="section-number">7.20. </span>Watchdog<a class="headerlink" href="#watchdog" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.17. </span>Watchdog<a class="headerlink" href="#watchdog" title="Permalink to this heading"></a></h2>
 <p>The PHYTEC phyCORE-i.MX8MM modules include a hardware watchdog that is able to reset the
 board when the system hangs. The watchdog is started on default in U-Boot with a
 timeout of 60s. So even during early kernel start, the watchdog is already up
@@ -3685,7 +3428,7 @@ and running. The Linux kernel driver takes control over the watchdog and makes
 sure that it is fed. This section explains how to configure the watchdog in
 Linux using systemd to check for system hangs and during reboot.</p>
 <section id="watchdog-support-in-systemd">
-<h3><span class="section-number">7.20.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.17.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Permalink to this heading"></a></h3>
 <p>Systemd has included hardware watchdog support since version 183.</p>
 <ul>
 <li><p>To activate watchdog support, the file system.conf in /etc/systemd/ has to be
@@ -3707,7 +3450,7 @@ after a reboot or run:</p>
 </section>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
-<h2><span class="section-number">7.21. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.18. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Permalink to this heading"></a></h2>
 <p>The i.MX 8M Nano provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings (“On-Chip OTP
 Controller (OCOTP_CTRL)” in the i.MX 8M Nano Reference Manual). The following list is
@@ -3753,7 +3496,7 @@ of ENET1 MAC address</p></td>
 the boot/mac/… configuration are available in the section “Fuse Map” of the
 i.MX 8M Nano Security Reference Manual.</p>
 <section id="reading-fuse-values-in-uboot">
-<h3><span class="section-number">7.21.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.18.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Permalink to this heading"></a></h3>
 <p>You can read the content of a fuse using memory-mapped shadow registers. To
 calculate the memory address, use the fuse Bank and Word in the following
 formula:</p>
@@ -3763,7 +3506,7 @@ formula:</p>
 </div>
 </section>
 <section id="reading-fuse-values-in-linux">
-<h3><span class="section-number">7.21.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.18.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Permalink to this heading"></a></h3>
 <p>To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:</p>
