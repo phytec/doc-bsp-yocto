@@ -98,6 +98,15 @@
 |                      | Manual Head          |
 +----------------------+----------------------+
 
+The table below shows the Compatible BSPs for this manual:
+
+================ ================ ================= ==========
+Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
+
+================ ================ ================= ==========
+..
+================ ================ ================= ==========
+
 .. include:: ../../intro.rsti
 
 Supported Hardware
