@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="1. PHYTEC Documentation" href="head.html" />
-    <link rel="prev" title="1. PHYTEC Documentation" href="../imx8mp/head.html" /> 
+    <link rel="prev" title="1. PHYTEC Documentation" href="../imx8mp/pd22.1.1.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,6 +63,18 @@
 <li class="toctree-l4"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 8M Mini M4 Core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="head.html#bsp-extensions">9. BSP Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pd22-1-1">PD22.1.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html">1. PHYTEC Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#getting-started">2. Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#building-the-bsp">3. Building the BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#installing-the-os">4. Installing the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#development">5. Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#device-tree-dt">6. Device Tree (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#accessing-peripherals">7. Accessing Peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#soc-mcore">8. i.MX 8M Mini M4 Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd22.1.1.html#bsp-extensions">9. BSP Extensions</a></li>
 </ul>
 </li>
 </ul>
@@ -182,13 +194,92 @@
 </ul>
 </div>
 </section>
+<section id="pd22-1-1">
+<h2>PD22.1.1<a class="headerlink" href="#pd22-1-1" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html">1. PHYTEC Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#supported-hardware">1.1. Supported Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#getting-started">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#get-the-image">2.1. Get the Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#write-the-image-to-sd-card">2.2. Write the Image to SD Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#first-start-up">2.3. First Start-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#building-the-bsp">3. Building the BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#basic-set-up">3.1. Basic Set-Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#get-the-bsp">3.2. Get the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#installing-the-os">4. Installing the OS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#bootmode-switch-s1">4.1. Bootmode Switch (S1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#flash-emmc">4.2. Flash eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#rauc">4.4. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#development">5. Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#standalone-build">5.3. Standalone Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-development-states-between-releases">5.4. Accessing the Development States between Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-development-state-of-upcoming-major-release">5.5. Accessing Development State of Upcoming Major Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#format-sd-card">5.7. Format SD-Card</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#device-tree-dt">6. Device Tree (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#introduction">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 8M Mini BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#accessing-peripherals">7. Accessing Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#soc-pin-muxing">7.1. i.MX 8M Mini Pin Muxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#rs232-rs485">7.2. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#network">7.3. Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#sd-mmc-card">7.4. SD/MMC Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#emmc-devices">7.5. eMMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#spi-master">7.6. SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#gpios">7.7. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#leds">7.8. LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#i2c-bus">7.9. I²C Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#rtc">7.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#usb-host-controller">7.12. USB Host Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#usb-otg">7.13. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#can-fd">7.14. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#pcie">7.15. PCIe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#audio">7.16. Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#video">7.17. Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#display">7.18. Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#power-management">7.19. Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#thermal-management">7.20. Thermal Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#watchdog">7.21. Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#soc-mcore">8. i.MX 8M Mini M4 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#getting-the-firmware-examples">8.1. Getting the Firmware Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#running-mcore-examples">8.2. Running M4 Core Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#bsp-extensions">9. BSP Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#chromium">9.1. Chromium</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../imx8mp/head.html" class="btn btn-neutral float-left" title="1. PHYTEC Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../imx8mp/pd22.1.1.html" class="btn btn-neutral float-left" title="1. PHYTEC Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="head.html" class="btn btn-neutral float-right" title="1. PHYTEC Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
