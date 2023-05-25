@@ -20,4 +20,4 @@ PD22.1.1
    :numbered:
    :maxdepth: 2
 
-   PD22.1.1
+   pd22.1.1

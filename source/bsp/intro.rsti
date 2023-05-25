@@ -4,15 +4,6 @@ Board Support Package (BSP) and describes how to handle the interfaces for the
 source code. This is useful for those who need to change the default image and
 need a way to implement these changes in a simple and reproducible way. 
 
-The table below shows the Compatible BSPs for this manual:
-
-================ ================ ================= ==========
-Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
-
-================ ================ ================= ==========
-..
-================ ================ ================= ==========
-
 .. note::
 
    This document contains code examples that describe the communication with the
