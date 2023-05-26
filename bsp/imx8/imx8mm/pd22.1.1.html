@@ -1524,7 +1524,12 @@ host$ git checkout -b &lt;new-branch&gt;</pre>
 host$ make -j16
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
+<li><p>Install kernel modules to e.g. NFS directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ make INSTALL_MOD_PATH=/home/&lt;user&gt;/&lt;rootfspath&gt; modules_install
+</pre></div>
+</div>
+</li>
 <li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
 <li><p>The dtb can be found at
 ~/linux-imx/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dtb</p></li>
@@ -1540,6 +1545,15 @@ host$ make -j16
 </pre></div>
 </div>
 </div>
+</section>
+<section id="copy-kernel-to-sd-card">
+<h3><span class="section-number">5.3.8. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Permalink to this heading"></a></h3>
+<p>When one-time boot via netboot is not sufficient, the kernel along with its
+modules and the corresponding device tree blob may be copied directly to a
+mounted SD card.</p>
+<pre class="literal-block">cp arch/arm64/boot/Image /path/to/sdcard/boot/
+cp arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dtb /path/to/sdcard/boot/oftree
+make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install</pre>
 </section>
 </section>
 <section id="accessing-the-development-states-between-releases">
