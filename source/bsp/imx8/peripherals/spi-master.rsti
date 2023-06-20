@@ -37,9 +37,6 @@ for a partition, run on the target:
 
 .. parsed-literal::
 
-   Count of MTD devices:           4
-   Present MTD devices:            mtd0, mtd1, mtd2, mtd3
-   Sysfs interface supported:      yes
    root@\ |yocto-machinename|:~# mtdinfo --all
    Count of MTD devices:           4
    Present MTD devices:            mtd0, mtd1, mtd2, mtd3
