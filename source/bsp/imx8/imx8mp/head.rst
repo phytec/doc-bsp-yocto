@@ -240,10 +240,6 @@ select the phyCORE-|soc| default bootsource.
    imx8mp-vm017-csi2.dtbo
    imx8mp-vm017-csi2-fpdlink.dtbo
 
-.. hint::
-   There is one more overlay available for phyboard-pollux-imx8mp-2.conf:
-   imx8mp-phyboard-pollux-1552.1.dtbo
-
 .. _imx8mp-head-ubootexternalenv:
 .. include:: ../dt-overlays.rsti
 
