@@ -48,28 +48,16 @@ errors...  Bus Error Statistics
 
 
 The CAN configuration is done in the systemd configuration
-file /lib/systemd/system/can0.service. For a persistent change of (as an
+file /lib/systemd/network/can0.network. For a persistent change of (as an
 example, the default bitrates), change the configuration in the BSP
-under ./meta-ampliphy/recipes-core/systemd/systemd-machine-units/can0.service in
+under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
 the root filesystem and rebuild the root filesystem. ::
 
-   [Unit]
-   Description=can0 interface setup
+   [Match]
+   Name=can0
      
-   [Service]
-   Type=simple
-   RemainAfterExit=yes
-   ExecStart=/sbin/ip link set can0 up type can bitrate 500000
-   ExecStop=/sbin/ip link set can0 down
-     
-   [Install]
-   WantedBy=basic.target
-
-The can0.service is started by default after boot. You can start and stop it
-using::
-
-   target$ systemctl stop can0.service
-   target$ systemctl start can0.service
+   [Can]
+   BitRate=500000
 
 The bitrate can also be changed manually, for example, to make use of the
 flexible bitrate::
