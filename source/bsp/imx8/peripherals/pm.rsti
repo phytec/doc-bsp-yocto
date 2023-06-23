@@ -98,8 +98,7 @@ system are enabled to get maximum performance.
 
 As confirmation, you will see::
 
-   [  110.502295] CPU3: shutdown
-   [  110.505012] psci: CPU3 killed.
+   [  110.505012] psci: CPU3 killed
 
 Now the core is powered down and no more processes are scheduled on this core.
 
