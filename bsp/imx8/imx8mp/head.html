@@ -3058,27 +3058,15 @@ the MAC address). The following output parameters contain useful information:</p
 </tbody>
 </table>
 <p>The CAN configuration is done in the systemd configuration
-file /lib/systemd/system/can0.service. For a persistent change of (as an
+file /lib/systemd/network/can0.network. For a persistent change of (as an
 example, the default bitrates), change the configuration in the BSP
-under ./meta-ampliphy/recipes-core/systemd/systemd-machine-units/can0.service in
+under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
 the root filesystem and rebuild the root filesystem.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Unit]
-Description=can0 interface setup
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Match]
+Name=can0
 
-[Service]
-Type=simple
-RemainAfterExit=yes
-ExecStart=/sbin/ip link set can0 up type can bitrate 500000
-ExecStop=/sbin/ip link set can0 down
-
-[Install]
-WantedBy=basic.target
-</pre></div>
-</div>
-<p>The can0.service is started by default after boot. You can start and stop it
-using:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop can0.service
-target$ systemctl start can0.service
+[Can]
+BitRate=500000
 </pre></div>
 </div>
 <p>The bitrate can also be changed manually, for example, to make use of the
@@ -3696,8 +3684,7 @@ system are enabled to get maximum performance.</p>
 </li>
 </ul>
 <p>As confirmation, you will see:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[  110.502295] CPU3: shutdown
-[  110.505012] psci: CPU3 killed.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[  110.505012] psci: CPU3 killed
 </pre></div>
 </div>
 <p>Now the core is powered down and no more processes are scheduled on this core.</p>

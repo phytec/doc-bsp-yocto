@@ -113,13 +113,8 @@
 <li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.18. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#soc-mcore">8. i.MX 8M Nano M4 Core</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#getting-the-firmware-examples">8.1. Getting the Firmware Examples</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#running-mcore-examples">8.2. Running M4 Core Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">9. BSP Extensions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#chromium">9.1. Chromium</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">8. BSP Extensions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#chromium">8.1. Chromium</a></li>
 </ul>
 </li>
 </ul>
@@ -3146,27 +3141,15 @@ the MAC address). The following output parameters contain useful information:</p
 </tbody>
 </table>
 <p>The CAN configuration is done in the systemd configuration
-file /lib/systemd/system/can0.service. For a persistent change of (as an
+file /lib/systemd/network/can0.network. For a persistent change of (as an
 example, the default bitrates), change the configuration in the BSP
-under ./meta-ampliphy/recipes-core/systemd/systemd-machine-units/can0.service in
+under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
 the root filesystem and rebuild the root filesystem.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Unit]
-Description=can0 interface setup
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Match]
+Name=can0
 
-[Service]
-Type=simple
-RemainAfterExit=yes
-ExecStart=/sbin/ip link set can0 up type can bitrate 500000
-ExecStop=/sbin/ip link set can0 down
-
-[Install]
-WantedBy=basic.target
-</pre></div>
-</div>
-<p>The can0.service is started by default after boot. You can start and stop it
-using:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop can0.service
-target$ systemctl start can0.service
+[Can]
+BitRate=500000
 </pre></div>
 </div>
 <p>The bitrate can also be changed manually, for example, to make use of the
@@ -3307,8 +3290,7 @@ system are enabled to get maximum performance.</p>
 </li>
 </ul>
 <p>As confirmation, you will see:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[  110.502295] CPU3: shutdown
-[  110.505012] psci: CPU3 killed.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[  110.505012] psci: CPU3 killed
 </pre></div>
 </div>
 <p>Now the core is powered down and no more processes are scheduled on this core.</p>
@@ -3528,182 +3510,14 @@ sysfs:</p>
 </section>
 </section>
 </section>
-<section id="soc-mcore">
-<h1><span class="section-number">8. </span>i.MX 8M Nano M4 Core<a class="headerlink" href="#soc-mcore" title="Permalink to this heading"></a></h1>
-<p>In addition to the Cortex-A53 cores, there is a Cortex-M4 Core as MCU integrated
-into the i.MX 8M Nano SoC. Our Yocto-Linux-BSP runs on the A53-Cores and the M4 Core
-can be used as a secondary core for additional tasks using bare-metal or RTOS
-firmware. Both cores have access to the same peripherals and thus peripheral
-usage needs to be limited either in the M4 Core’s firmware or the devicetree for
-the Linux operating system. This section describes how to build firmware
-examples and how to run them on phyBOARD-Polis.</p>
-<section id="getting-the-firmware-examples">
-<h2><span class="section-number">8.1. </span>Getting the Firmware Examples<a class="headerlink" href="#getting-the-firmware-examples" title="Permalink to this heading"></a></h2>
-<p>The firmware can be built using the NXP MCUxpresso SDK with a compatible
-compiler toolchain using command-line tools.</p>
-<section id="getting-the-sources">
-<h3><span class="section-number">8.1.1. </span>Getting the Sources<a class="headerlink" href="#getting-the-sources" title="Permalink to this heading"></a></h3>
-<p>The SDK and the examples for the i.MX 8M Nano can be obtained from NXP’s web page:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mcuxpresso.nxp.com/">https://mcuxpresso.nxp.com/</a></p></li>
-</ul>
-<ol class="arabic simple">
-<li><p>Register and log into the SDK Builder</p></li>
-<li><p>Select Board / Processor → Processors → i.MX → 8M Mini Quad → MIMX8MM6xxxLZ</p></li>
-<li><p>select version 2.10.0 and press “Build MCUXpresso SDK”</p></li>
-<li><p>On the SDK Builder page select Linux Host and GCC ARM Embedded toolchain</p></li>
-<li><p>Select the optional components (as of SDK v2.10.0) multicore, CMSIS DSP
-Library, FreeRTOS, and download the SDK archive</p></li>
-</ol>
-<p>The M4 Core examples ported for phyBOARD-Polis can be obtained in an additional
-repository, which can be cloned into the SDK once it is extracted:</p>
-<p>extract the SDK:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ tar -xf SDK_2_10_0_MIMX8MM6xxxLZ.tar.gz
-</pre></div>
-</div>
-<p>clone the repository:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ git clone https://git.phytec.de/phytec-mcux-boards --branch SDK_2.10.0-phy
-</pre></div>
-</div>
-<p>Phytec-mcux-boards contains all examples ported and tested for phyBOARD-Polis with
-version 2.10.0. of the NXP SDK.</p>
-<p>To build the firmware, a compiler toolchain and make/cmake are required. The GNU
-Arm Embedded Toolchain might be available in your distribution’s repositories,
-e.g. type for Ubuntu 20.04:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi make cmake
-host$ export ARMGCC_DIR=/usr
-</pre></div>
-</div>
-<p>Alternatively, the toolchain can also be obtained directly from
-<a class="reference external" href="https://developer.arm.com/">https://developer.arm.com/</a>. After the archive has been extracted, the
-ARMGCC_DIR has to be added to the environment, e.g. for the toolchain
-10-2020-q4-major release located in the home directory:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ export ARMGCC_DIR=~/gcc-arm-none-eabi-10-2020-q4-major
-</pre></div>
-</div>
-</section>
-<section id="building-the-firmware">
-<h3><span class="section-number">8.1.2. </span>Building the Firmware<a class="headerlink" href="#building-the-firmware" title="Permalink to this heading"></a></h3>
-<p>The scripts to build the firmware are located
-in&lt;sdk-directory&gt;/phytec-mcux-boards/phyboard-polis/&lt;example_category&gt;/&lt;example&gt;/armgcc.
-There are scripts in each location to build the firmware:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ ./build_release.sh
-</pre></div>
-</div>
-<p>To build the firmware for the M4 Core’s TCM. The output will be placed under
-release/ in the armgcc directory. .bin files and can be run in U-Boot and .elf
-files within Linux.</p>
-<p>To build the firmware for the DRAM, run the script
-build_ddr_release.
-Script to build the firmware:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ ./build_ddr_release.sh
-</pre></div>
-</div>
-<p>The output will be placed under ddr_release/ in the armgcc
-directory. .bin files and can be run in U-Boot and .elf
-files within Linux.</p>
-</section>
-</section>
-<section id="running-mcore-examples">
-<h2><span class="section-number">8.2. </span>Running M4 Core Examples<a class="headerlink" href="#running-mcore-examples" title="Permalink to this heading"></a></h2>
-<p>There are two ways to run the M4 Core with the built firmware, U-Boot and
-Remoteproc within a running Linux.</p>
-<p>To receive debug messages start your favorite terminal software (e.g. Minicom,
-Tio, or Tera Term) on your host PC and configure it for 115200 baud, 8 data
-bits, no parity, and 1 stop bit (8n1) with no handshake.</p>
-<p>Once a micro-USB cable is connected to the USB-debug port on the phyBOARD-Polis, two
-ttyUSB devices are registered. One prints messages from A53-Core’s debug UART
-and the other one from the M4 Core’s debug UART.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Only the newer revision (1532.2) of the phyBOARD-Polis-MINI registers the
-debug UART as ttyUSB on the USB-debug port. With the older revision (1532.1)
-the debug UART is on the X8 connector.</p>
-</div>
-<section id="running-examples-from-u-boot">
-<h3><span class="section-number">8.2.1. </span>Running Examples from U-Boot<a class="headerlink" href="#running-examples-from-u-boot" title="Permalink to this heading"></a></h3>
-<p>To load firmware using the bootloader U-Boot, the bootaux command can be used:</p>
-<ol class="arabic simple">
-<li><p>Prepare an SD card with our Yocto-BSP</p></li>
-<li><p>Copy the generated .bin file to the SD-Cards boot partition</p></li>
-<li><p>Stop the autoboot by pressing any key</p></li>
-<li><p>Type the command depending on the type of firmware:</p></li>
-</ol>
-<p>For firmware built to run in the M4 Core’s TCM:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fatload mmc 1:1 0x48000000 firmware.bin;cp.b 0x48000000 0x7e0000 20000;
-u-boot=&gt; bootaux 0x7e0000
-## Starting auxiliary core stack = 0x20020000, pc = 0x1FFE0379…
-</pre></div>
-</div>
-<p>For firmware built to run in the DRAM:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fatload mmc 1:1 0x80000000 firmware.bin
-u-boot=&gt; dcache flush
-u-boot=&gt; bootaux 0x80000000
-## Starting auxiliary core stack = 0x80400000, pc = 0x80000539...
-</pre></div>
-</div>
-<p>The program’s output should appear on the M4 Core’s debug UART</p>
-</section>
-<section id="running-examples-from-linux-using-remoteproc">
-<h3><span class="section-number">8.2.2. </span>Running Examples from Linux using Remoteproc<a class="headerlink" href="#running-examples-from-linux-using-remoteproc" title="Permalink to this heading"></a></h3>
-<p>Remoteproc is a module that allows you to control the M4 Core from Linux during
-runtime. Firmware built for TCM can be loaded and the execution started or
-stopped. To use Remoteproc a devicetree overlay needs to be set:</p>
-<p>edit the bootenv.txt file located in the /boot directory on the target by adding
-imx8mn-phycore-rpmsg.dtbo:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010.dtbo imx8mm-phycore-rpmsg.dtbo
-</pre></div>
-</div>
-<p>Firmware .elf files for the M4 Core can be found under /lib/firmware. To load
-the firmware, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo /lib/firmware/&lt;firmware&gt;.elf &gt; /sys/class/remoteproc/remoteproc0/firmware
-target$ echo start &gt; /sys/class/remoteproc/remoteproc0/state
-</pre></div>
-</div>
-<p>To load a different firmware, the M4 Core needs to be stopped:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo stop &gt; /sys/class/remoteproc/remoteproc0/state
-</pre></div>
-</div>
-</section>
-<section id="debugging-using-j-link">
-<h3><span class="section-number">8.2.3. </span>Debugging Using J-Link<a class="headerlink" href="#debugging-using-j-link" title="Permalink to this heading"></a></h3>
-<p>The Segger software can be obtained from <a class="reference external" href="https://www.segger.com/downloads/jlink/">https://www.segger.com/downloads/jlink/</a>.</p>
-<p>Together with the J-Link, a GDB Server can be used for running and debugging the
-software.  On the phyBOARD-Polis, the JTAG-Pins are accessible via the X8 Expansion
-Connector. The simplest way is to use a PEB-EVAL-01 board that has the JTAG-Pins
-reachable with a pin header on the top.</p>
-<p>Install the GDB server:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install gdb gdb-multiarch
-</pre></div>
-</div>
-<p>To start the J-Link software, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ JLinkGDBServer -if JTAG -device MIMX8MM6_M4
-...
-Connected to target
-Waiting for GDB connection...
-</pre></div>
-</div>
-<p>To start GDB with a firmware example in another window, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ $host gdb-multiarch firmware.elf
-...
-(gdb) target remote localhost:2331
-(gdb) monitor reset
-(gdb) load
-...
-(gdb) monitor go
-</pre></div>
-</div>
-</section>
-</section>
-</section>
 <section id="bsp-extensions">
-<h1><span class="section-number">9. </span>BSP Extensions<a class="headerlink" href="#bsp-extensions" title="Permalink to this heading"></a></h1>
+<h1><span class="section-number">8. </span>BSP Extensions<a class="headerlink" href="#bsp-extensions" title="Permalink to this heading"></a></h1>
 <section id="chromium">
-<h2><span class="section-number">9.1. </span>Chromium<a class="headerlink" href="#chromium" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">8.1. </span>Chromium<a class="headerlink" href="#chromium" title="Permalink to this heading"></a></h2>
 <p>Our BSP for the phyBOARD-Polis-i.MX 8M Nano supports Chromium. You can include it in the
 phytec-headless-image with only a few steps.</p>
 <section id="adding-chromium-to-your-local-conf">
-<h3><span class="section-number">9.1.1. </span>Adding Chromium to Your local.conf<a class="headerlink" href="#adding-chromium-to-your-local-conf" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">8.1.1. </span>Adding Chromium to Your local.conf<a class="headerlink" href="#adding-chromium-to-your-local-conf" title="Permalink to this heading"></a></h3>
 <p>To include Chromium you have to add the following line into your local.conf. You
 can find it in &lt;yocto_dir&gt;/build/conf/local.conf. This adds Chromium to your
 next image build.</p>
@@ -3716,7 +3530,7 @@ next image build.</p>
 </div>
 </section>
 <section id="get-chromium-running-on-the-target">
-<h3><span class="section-number">9.1.2. </span>Get Chromium Running on the Target<a class="headerlink" href="#get-chromium-running-on-the-target" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">8.1.2. </span>Get Chromium Running on the Target<a class="headerlink" href="#get-chromium-running-on-the-target" title="Permalink to this heading"></a></h3>
 <p>To run Chromium, it needs a few arguments to use the hardware graphics
 acceleration:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --no-sandbox
