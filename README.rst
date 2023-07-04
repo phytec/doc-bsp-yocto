@@ -25,6 +25,11 @@ dependencies are specified in ``requirements/``::
    source env/bin/activate
    pip3 install -r requirements/setup.txt
 
+Make also sure that your system has following tools installed
+(example for debian based systems)::
+
+   apt install latexmk texlive-xetex
+
 Building the Documentation
 --------------------------
 
