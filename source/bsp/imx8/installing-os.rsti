@@ -128,8 +128,9 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
 .. parsed-literal::
 
    u-boot=> tftp ${loadaddr} imx-boot
+   u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc dev 2
-   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${filesize}
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
 
 .. hint::
    The hexadecimal value represents the offset as a multiple of 512 byte
