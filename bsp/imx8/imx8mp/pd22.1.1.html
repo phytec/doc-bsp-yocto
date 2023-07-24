@@ -679,8 +679,9 @@ can be used if the bootloader on eMMC is located in the eMMC user area.</p>
 <li><p>Load image over tftp into RAM and then write it to eMMC:</p></li>
 </ul>
 <pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot
+u-boot=&gt; setexpr nblk ${filesize} / 0x200
 u-boot=&gt; mmc dev 2
-u-boot=&gt; mmc write ${loadaddr} 0x40 ${filesize}</pre>
+u-boot=&gt; mmc write ${loadaddr} 0x40 ${nblk}</pre>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The hexadecimal value represents the offset as a multiple of 512 byte
