@@ -511,11 +511,11 @@ Build Kernel
 
       scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
 
-   Make sure you installed the package *"libghc-libyaml-dev"* on your host system:
+   Make sure you installed the package *"libyaml-dev"* on your host system:
 
    .. parsed-literal::
 
-      sudo apt install libghc-libyaml-dev
+      host$ sudo apt install libyaml-dev
 
 Copy Kernel to SD Card
 ......................
