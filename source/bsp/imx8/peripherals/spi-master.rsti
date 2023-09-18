@@ -30,8 +30,8 @@ in the BSP is set to::
    mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env_redund),-(none)
 
 This is a bootloader environment variable that is defined here and can be
-changed during runtime. From Linux userspace, the NOR Flash partitions are
-accessible via /dev/mtd<N> devices where <N> is the MTD device number associated
+changed during runtime. From Linux userspace, the NOR Flash partitions are
+accessible via /dev/mtd<N> devices where <N> is the MTD device number associated
 with the NOR flash partition to access. To find the correct MTD device number
 for a partition, run on the target:
 
@@ -41,7 +41,7 @@ for a partition, run on the target:
    Count of MTD devices:           4
    Present MTD devices:            mtd0, mtd1, mtd2, mtd3
    Sysfs interface supported:      yes
-    
+
    mtd0
    Name:                           u-boot
    Type:                           nor
@@ -52,7 +52,7 @@ for a partition, run on the target:
    Character device major/minor:   90:0
    Bad blocks are allowed:         false
    Device is writable:             true
-    
+
    mtd1
    Name:                           env
    Type:                           nor
@@ -63,7 +63,7 @@ for a partition, run on the target:
    Character device major/minor:   90:2
    Bad blocks are allowed:         false
    Device is writable:             true
-    
+
    mtd2
    Name:                           env_redund
    Type:                           nor
@@ -74,7 +74,7 @@ for a partition, run on the target:
    Character device major/minor:   90:4
    Bad blocks are allowed:         false
    Device is writable:             true
-    
+
    mtd3
    Name:                           none
    Type:                           nor
@@ -86,7 +86,7 @@ for a partition, run on the target:
    Bad blocks are allowed:         false
    Device is writable:             true
 
-It lists all MTD devices and the corresponding partition names. The flash node
+It lists all MTD devices and the corresponding partition names. The flash node
 is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.

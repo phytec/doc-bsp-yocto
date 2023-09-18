@@ -23,10 +23,10 @@ booted target:
 
 .. parsed-literal::
 
-   target$ cat /boot/bootenv.txt                                 
+   target$ cat /boot/bootenv.txt
    overlays=\ |dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
 
-Changes will then take effect after the next reboot. If no bootenv.txt file is
+Changes will then take effect after the next reboot. If no bootenv.txt file is
 available the overlays variable can be set directly in the U-Boot environment.
 
 .. parsed-literal::
@@ -54,24 +54,24 @@ More information about the external environment can be found in
 |ubootexternalenv|.
 
 We use the ${overlays} variable for overlays describing expansion boards and
-cameras that can not be detected during run time. To prevent applying overlays
+cameras that can not be detected during run time. To prevent applying overlays
 listed in the ${overlays} variable during boot the ${no_overlays} variable can
 be set to 1 in the bootloader environment. ::
 
    u-boot=> setenv no_overlays 1
-   u-boot=> saveenv 
+   u-boot=> saveenv
 
 Extension Command
 ~~~~~~~~~~~~~~~~~
 
 The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-`extension_board_scan() <overlaycallback_>`_. In the BSP, the overlays applied
+`extension_board_scan() <overlaycallback_>`_. In the BSP, the overlays applied
 in this way are used to disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.
 
-The detection is so far implemented for SPI-NOR flash and ethernet PHY. It
+The detection is so far implemented for SPI-NOR flash and ethernet PHY. It
 depends on the SoM variant if any device tree overlays will be applied. To check
 if an overlay will be applied on the running SoM run:
 
@@ -81,13 +81,13 @@ if an overlay will be applied on the running SoM run:
    Found 1 extension board(s).
    u-boot=> extension list
    Extension 0: |som| no SPI flash
-           Manufacturer:           PHYTEC
-           Version:               
-           Devicetree overlay:     |kernel-socname|-phycore-no-spiflash.dtbo
-           Other information:      SPI flash not populated on SoM
+           Manufacturer:           PHYTEC
+           Version:
+           Devicetree overlay:     |kernel-socname|-phycore-no-spiflash.dtbo
+           Other information:      SPI flash not populated on SoM
 
 If the EEPROM data is not available, no device tree overlays are applied and the
-default status "okay" is preserved. To prevent running the extension command
+default status "okay" is preserved. To prevent running the extension command
 during boot the ${no_extensions} variable can be set to 1 in the bootloader
 environment. ::
 

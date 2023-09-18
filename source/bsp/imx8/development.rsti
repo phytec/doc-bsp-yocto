@@ -36,7 +36,7 @@ TFTP Server Setup
    host$ sudo chmod -R 777 /tftpboot
    host$ sudo chown -R nobody /tftpboot
 
-*  Then copy your BSP image files to this directory. You also need to configure a
+*  Then copy your BSP image files to this directory. You also need to configure a
    static IP address for the appropriate interface. The default IP address of the
    PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
    with netmask 255.255.255.0 is a good choice.
@@ -50,7 +50,7 @@ TFTP Server Setup
 ::
 
    eth1     Link encap:Ethernet   HWadr 00:11:6b:98:e3:47
-            inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
+            inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
 
 TFTP as a Stand-alone Daemon
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,7 +60,7 @@ TFTP as a Stand-alone Daemon
 ::
 
    # /etc/default/tftpd-hpa
-  
+
    TFTP_USERNAME="tftp"
    TFTP_DIRECTORY="/tftpboot"
    TFTP_ADDRESS=":69"
@@ -84,9 +84,9 @@ TFTP as a Stand-alone Daemon
 *  Now connect the ethernet port of the board to your host system, configure the
    board to network boot, and start it.
 
-Usually, TFTP servers fetch files from the /tftpboot directory. If you built
+Usually, TFTP servers fetch files from the /tftpboot directory. If you built
 your own images, please copy them from the BSP’s build directory to the
-/tftpboot directory. We also need a network connection between the embedded
+/tftpboot directory. We also need a network connection between the embedded
 board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.
 
@@ -101,7 +101,7 @@ NFS Server Setup
    host$ sudo apt-get install nfs-kernel-server
 
 *  The NFS server is not restricted to a certain file system location, so all we
-   have to do on most distributions is modify the file /etc/exports and export
+   have to do on most distributions is modify the file /etc/exports and export
    our root file system to the embedded network. In this example file, the whole
    directory is exported and the "lab network" address of the development host is
    192.168.3.10. The IP address has to be adapted to the local needs:
@@ -142,18 +142,18 @@ Place Images on Host for Netboot
    sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C <path_to_your_NFSROOT>
 
 .. note::
-   Check the destination path when unpacking the rootfs. 
+   Check the destination path when unpacking the rootfs.
 
 Network Settings on Target
 ..........................
 
 To customize the targets ethernet configuration, please follow the description
-here: |ref-network|
+here: |ref-network|
 
 Booting from an Embedded Board
 ..............................
 
-Boot the board into the U-boot prompt and press any key to hold.
+Boot the board into the U-boot prompt and press any key to hold.
 
 *  To boot from a network, call:
 
@@ -194,7 +194,7 @@ the UUU directory::
 Prepare Target
 ..............
 
-For UUU boot, set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
+For UUU boot, set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
 Configuration Options). Also, connect **USB OTG** |ref-usb-otg| to your host.
 
 Starting bootloader via UUU-Tool
@@ -208,7 +208,7 @@ Starting bootloader via UUU-Tool
    host$ sudo ./uuu _flash.bin
 
 You can see the bootlog on the console via the debug USB
-|ref-debugusbconnector|, as usual. 
+|ref-debugusbconnector|, as usual.
 
 .. note::
    The default boot command when booting with UUU-Tool is set to fastboot. If
@@ -221,8 +221,8 @@ You can see the bootlog on the console via the debug USB
 Flashing U-boot Image to eMMC via UUU-Tool
 ...........................................
 
-Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
+Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host.
 
 Download the imx-boot image from
 our server or get them from your Yocto build directory at
@@ -243,8 +243,8 @@ our server or get them from your Yocto build directory at
 Flashing wic Image to eMMC via UUU-Tool
 ...........................................
 
-Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host. 
+Set the |ref-bootswitch| to Serial downloader (USB boot) (Boot
+Configuration Options). Also, connect USB OTG |ref-usb-otg| to your host.
 
 Download |yocto-imagename|-|yocto-machinename|.wic and imx-boot image from
 our server or get them from your Yocto build directory at
@@ -268,12 +268,12 @@ Standalone Build
 
 In this section, we describe how to build the U-Boot and the Linux kernel
 without using the *Yocto Project*. This procedure makes the most sense for
-development. The U-Boot source code, the Linux kernel, and all other git
-repositories are available on our *Git* server at git://git.phytec.de.
+development. The U-Boot source code, the Linux kernel, and all other git
+repositories are available on our *Git* server at git://git.phytec.de.
 
 .. note::
    Should your company firewall/gateway inhibit the git protocol, you may use
-   HTTP or HTTPS instead (e.g. git clone https://git.phytec.de/u-boot-imx)
+   HTTP or HTTPS instead (e.g. git clone https://git.phytec.de/u-boot-imx)
 
 Git Repositories
 ................
@@ -329,7 +329,7 @@ Install the SDK
 Using the SDK
 .............
 
-Activate the toolchain for your shell by sourcing the file *environment-setup*
+Activate the toolchain for your shell by sourcing the file *environment-setup*
 in the toolchain directory:
 
 .. parsed-literal::
@@ -366,8 +366,8 @@ build directory** and rename them to fit with *mkimage tool* script:
    (lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*
 
 If you already build our BSP with Yocto, you can get
-the bl31-|kernel-socname|.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
-mentioned here: |ref-bsp-images|
+the bl31-|kernel-socname|.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
+mentioned here: |ref-bsp-images|
 
 Or you can download the files here: |link-boot-tools|
 
@@ -486,7 +486,7 @@ Build Kernel
    host$ git checkout -b <new-branch>
 
 *  Set up a build environment
-*  Build the linux kernel:
+*  Build the linux kernel:
 
 ::
 
@@ -532,7 +532,7 @@ Accessing the Development States between Releases
 -------------------------------------------------
 
 Special release manifests exist to give you access to the current development
-states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
+states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:
 
@@ -542,7 +542,7 @@ command line:
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
-our Git repositories::
+our Git repositories::
 
    host$ repo sync
 
@@ -579,7 +579,7 @@ Format SD-Card
 Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The
-easiest way to do this is to use the UI program Gparted. 
+easiest way to do this is to use the UI program Gparted.
 
 Gparted
 .......
@@ -621,12 +621,12 @@ Expand rootfs
 *  Drag the slider as far as you like or enter the size manually.
 
 .. image:: /bsp/imx8/images/gparted3.png
- 
+
 *  Confirm your entry by clicking on the "Change size" button.
 
 .. image:: /bsp/imx8/images/gparted4.png
 
-*  To apply your changes, press the green tick. 
+*  To apply your changes, press the green tick.
 *  Now you can mount the root partition and copy e.g. the
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 

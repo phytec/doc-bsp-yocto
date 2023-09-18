@@ -122,17 +122,17 @@ Compatible BSP'S     BSP Release Type BSP Release  Date BSP Status
 Supported Hardware
 ------------------
 
-The |sbc| with 2GB RAM  is supported. 
+The |sbc| with 2GB RAM  is supported.
 
 On our web page, you can see all supported Machines with the available Article
-Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
+Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
 
-If you choose a specific Machine Name in the section Supported Machines, you can
-see which Article Numbers are available under this machine and also a short
-description of the hardware information. In case you only have the Article
-Number of your hardware, you can leave the Machine Name drop-down menu empty and
-only choose your Article Number. Now it should show you the necessary Machine
-Name for your specific hardware
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware
 
 .. _imx8mp-pd22.1.1-components:
 .. include:: components.rsti
@@ -170,7 +170,7 @@ First Start-up
 * **u-boot-spl.bin**: Secondary program loader (SPL)
 * **bl31-imx8mp.bin**: ARM Trusted Firmware binary
 * **lpddr4_pmu_train_2d_dmem_202006.bin,
-  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
 * **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
   Trusted Firmware and DDR firmware. This is the final bootloader image which is
   bootable.
@@ -178,7 +178,7 @@ First Start-up
 * **Image.config**: Kernel configuration
 * **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
 * **imx8mp-phy*.dtbo**: Kernel device tree overlay files
-* **phytec-qt5demo-image\*.tar.gz**: Root file system 
+* **phytec-qt5demo-image\*.tar.gz**: Root file system
 * **phytec-qt5demo-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
@@ -257,13 +257,13 @@ select the phyCORE-|soc| default bootsource.
 ::
 
    pinctrl_uart1: uart1grp {
-       fsl,pins = <
-           MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX     0x49
-           MX8MP_IOMUXC_UART1_TXD_UART1_DCE_TX     0x49
-       >;
+           fsl,pins = <
+                   MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX     0x49
+                   MX8MP_IOMUXC_UART1_TXD_UART1_DCE_TX     0x49
+           >;
    };
 
-The first part of the string MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX names the pad
+The first part of the string MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX names the pad
 (in this example UART1_RXD). The second part of the string (UART1_DCE_RX) is the
 desired muxing option for this pad. The pad setting value (hex value on the
 right) defines different modes of the pad, for example, if internal pull
@@ -281,11 +281,11 @@ multi-protocol transceiver for RS-232 and RS-485, available at pin header
 connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
 configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
 |ref-jp4| on the baseboard. For more information about the correct setup please
-refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs. 
+refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs.
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
-using ioctls. Have a look at our small example application rs485test, which is
+using ioctls. Have a look at our small example application rs485test, which is
 also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
 correctly.
 
@@ -318,7 +318,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: ../peripherals/spi-master.rsti
 
-The definition of the SPI master node in the device tree can be found here:
+The definition of the SPI master node in the device tree can be found here:
 
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72`
 
@@ -361,7 +361,7 @@ USB Host Controller
 
 The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
-transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
+transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
 'SS'). The USB subsystem has two independent USB controller cores. Both cores
 are capable of acting as a USB peripheral device or a USB host. Each is
 connected to a USB 3.0 PHY.
@@ -375,11 +375,11 @@ CAN FD
 ------
 
 The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
-Using this framework, the CAN interfaces behave like an ordinary Linux network
+Linux standard CAN framework which builds upon then the Linux network layer.
+Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
-documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
@@ -444,7 +444,7 @@ ocotp_root_clk is enabled. To enable this clock permanent, add to the device
 tree::
 
    &clk {
-           init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;
+           init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;
    };
 
 .. +---------------------------------------------------------------------------+

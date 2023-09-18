@@ -2,7 +2,7 @@ Flash eMMC
 ----------
 
 To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
-and the |ref-bootswitch| is set to **Default SOM boot**. 
+and the |ref-bootswitch| is set to **Default SOM boot**.
 
 .. warning::
    When eMMC and SD card are flashed with the same (identical) image, the UUIDs
@@ -23,7 +23,7 @@ sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
 Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
-the Yocto build system directly to the eMMC. The image contains the
+the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
 Flash eMMC from Network in u-boot on Target
@@ -31,7 +31,7 @@ Flash eMMC from Network in u-boot on Target
 
 These steps will show how to update the eMMC via a network. However, they only
 work if the size of the image file is less than 1GB. If the image file is
-larger, go to the section Format SD Card. Configure the |ref-bootswitch| to boot
+larger, go to the section Format SD Card. Configure the |ref-bootswitch| to boot
 from SD Card and put in an SD card. Power on the board and stop in U-Boot
 prompt.
 
@@ -49,14 +49,14 @@ prompt.
    Filename '|yocto-imagename|-|yocto-machinename|.wic'.
    Load address: 0x40480000
    Loading: #################################################################
-            #################################################################
-            #################################################################
-            ...
-            ...
-            ...
-            #################################################################
-            #############
-            11.2 MiB/s
+            #################################################################
+            #################################################################
+            ...
+            ...
+            ...
+            #################################################################
+            #############
+            11.2 MiB/s
    done
    Bytes transferred = 911842304 (36599c00 hex)
 
@@ -69,7 +69,7 @@ prompt.
    mmc2(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
-    
+   
    MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash eMMC via Network in Linux on Target
@@ -81,7 +81,7 @@ You can update the eMMC from your target.
    A working network is necessary! Setup Network Host.
 
 *  Take a compressed or uncompressed image on the host and send it
-   with ssh through the network (then uncompress it, if necessary) to the eMMC
+   with ssh through the network (then uncompress it, if necessary) to the eMMC
    of the target with a one-line command:
 
 .. parsed-literal::
@@ -105,7 +105,7 @@ you need a complete image on your host.
    host$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
-* Send the image with the command dd command combined with ssh through the
+* Send the image with the command dd command combined with ssh through the
   network to the eMMC of your device:
 
 .. parsed-literal::
@@ -148,9 +148,9 @@ Flash eMMC from USB in u-boot on Target
    This step only works if the size of the image file is less than 1GB due to
    limited usage of RAM size in Bootloader after enabling the OPTEE.
 
-These steps will show how to update the eMMC via a USB device. Configure the
+These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied WIC image
+and stop in u-boot prompt. Insert a USB device with the copied WIC image
 to the USB slot.
 
 *  Load your image from the USB device to RAM:
@@ -161,7 +161,7 @@ to the USB slot.
    starting USB...
    USB0:   USB EHCI 1.00
    scanning bus 0 for devices... 2 USB Device(s) found
-          scanning usb for storage devices... 1 Storage Device(s) found
+          scanning usb for storage devices... 1 Storage Device(s) found
    u-boot=> fatload usb 0:1 ${loadaddr} \*.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
@@ -174,7 +174,7 @@ to the USB slot.
    mmc2(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
- 
+
    MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
    u-boot=> boot
 
@@ -183,7 +183,7 @@ Flash eMMC from USB in Linux
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-|yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
+|yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
 |ref-bootswitch|.
 
 *  Insert and mount the USB stick:
@@ -237,7 +237,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 .. warning::
 
    Before this will work, you need to configure the multi-port switch
-   to **Default SOM Boot** to |ref-bootswitch|.
+   to **Default SOM Boot** to |ref-bootswitch|.
 
 Flash eMMC from SD Card
 .......................
@@ -261,12 +261,12 @@ Flash eMMC from SD card in u-boot on Target
 *  Flash an SD card with a working image and create a third FAT partition. Copy
    the WIC image (for example |yocto-imagename|.wic) to this
    partition.
-*  Configure the bootmode switch  to boot from the SD Card and insert the SD
+*  Configure the bootmode switch to boot from the SD Card and insert the SD
    card.
-*  Power on the board and stop in u-boot.
-*  Flash your WIC image (for example |yocto-imagename|.wic)
+*  Power on the board and stop in u-boot.
+*  Flash your WIC image (for example |yocto-imagename|.wic)
    from the SD card to eMMC. This will partition the card and copy imx-boot,
-   Image, dtb, dtbo, and root file system to eMMC. 
+   Image, dtb, dtbo, and root file system to eMMC.
 *  Load the image:
 
 .. parsed-literal::
@@ -287,10 +287,10 @@ Flash eMMC from SD card in u-boot on Target
    mmc0(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
-   
+
    MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
-*  Power off the board and change the multi-port switch to Default SOM Boot to
+*  Power off the board and change the multi-port switch to Default SOM Boot to
    boot from eMMC.
 
 Flash eMMC from SD card in Linux on Target
@@ -335,13 +335,13 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 .. warning::
 
    Before this will work, you need to configure the |ref-bootswitch| to Default
-   SOM Boot to boot from eMMC.
+   SOM Boot to boot from eMMC.
 
-Flash SPI NOR Flash
+Flash SPI NOR Flash
 -------------------
 
 The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
-Flash, set |ref-bootswitch| to **QSPI boot** to boot from QSPI. The SPI Flash is
+Flash, set |ref-bootswitch| to **QSPI boot** to boot from QSPI. The SPI Flash is
 usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
 populated. Only the bootloader and the environment can be stored. The kernel,
 device tree, and file system are taken from eMMC by default.
