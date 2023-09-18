@@ -2,7 +2,7 @@ I2C EEPROM on |som|
 ...................
 
 The I2C EEPROM on the |som| SoM is connected to I2C address 0x51 on the I2C-0
-bus. It is possible to read and write directly to the device populated::
+bus. It is possible to read and write directly to the device populated::
 
    hexdump -c /sys/class/i2c-dev/i2c-0/device/0-0051/eeprom
 
@@ -65,7 +65,7 @@ Rescue EEPROM Data
 
 The hardware introspection data is pre-written on both EEPROM data spaces. If
 you have accidentally deleted or overwritten the normal area, you can copy the
-hardware introspection from the ID area to the normal area. ::
+hardware introspection from the ID area to the normal area. ::
 
    target$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
 

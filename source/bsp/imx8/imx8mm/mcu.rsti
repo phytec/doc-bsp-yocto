@@ -87,7 +87,7 @@ There are two ways to run the |mcore| with the built firmware, U-Boot and
 Remoteproc within a running Linux.
 
 To receive debug messages start your favorite terminal software (e.g. Minicom,
-Tio, or Tera Term) on your host PC and configure it for 115200 baud, 8 data
+Tio, or Tera Term) on your host PC and configure it for 115200 baud, 8 data
 bits, no parity, and 1 stop bit (8n1) with no handshake.
 
 Once a micro-USB cable is connected to the USB-debug port on the |sbc|, two

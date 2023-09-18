@@ -4,7 +4,7 @@ Getting Started
 The |kit|\s are shipped with a pre-flashed SD-Card.  It contains the
 |yocto-imagename| and can be used directly as a boot source. The eMMC is
 programmed with only a U-boot as default. You can get all the sources from our
-`download server <dl-server_>`_. This chapter explains how to flash a BSP image
+`download server <dl-server_>`_. This chapter explains how to flash a BSP image
 to SD Card and how to start the board.
 
 Get the Image
@@ -12,7 +12,7 @@ Get the Image
 
 The WIC image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
-command dd. It can be built by Yocto or downloaded from our download server.
+command dd. It can be built by Yocto or downloaded from our download server.
 
 *  Get the ``\*.wic`` file from our download server:
 
@@ -25,9 +25,9 @@ Write the Image to SD Card
 --------------------------
 
 .. warning::
-   To create your bootable SD card with the dd command, you must have root
+   To create your bootable SD card with the dd command, you must have root
    privileges. Because of this, you must be very careful when selecting the
-   destination device for the dd command! All files on the selected destination
+   destination device for the dd command! All files on the selected destination
    device will be erased immediately without any further query! Consequently,
    having selected the wrong device can also erase your hard drive!
 
@@ -36,19 +36,19 @@ of your SD card and possible partitions. Then unmount the partitions before you
 start copying the image to the SD card.
 
 *  In order to get the correct device name, first remove your SD card and
-   execute ls /dev.
-*  Now insert your SD card and execute ls /dev again.
+   execute ls /dev.
+*  Now insert your SD card and execute ls /dev again.
 *  Compare the two outputs to find the new device name(s) listed in the second
    output. These are the device names of the SD card (device and partitions if
    the SD card is formatted).
-*  In order to verify the device names found, execute the command dmesg. Within
+*  In order to verify the device names found, execute the command dmesg. Within
    the last lines of its output, you should also find the device names, for
-   example, sde (depending on your system).
+   example, sde (depending on your system).
 
-Now that you have the device name /dev/<your_device> (e.g. /dev/sde), you can
+Now that you have the device name /dev/<your_device> (e.g. /dev/sde), you can
 see the partitions which must be unmounted if the SD card is formatted. In this
-case, you will also find /dev/<your_device> with an appended number
-(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
+case, you will also find /dev/<your_device> with an appended number
+(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
 unmounted.
 
 *  Unmount all partitions:
@@ -64,10 +64,10 @@ unmounted.
 
    host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
 
-Using the device name (<your_device>) without appended number (e.g. sde) which
-stands for the whole device. The parameter conv=fsync forces a sync operation on
-the device before dd returns. This ensures that all blocks are written to the SD
-card and are not still in memory. The parameter status=progress will print out
+Using the device name (<your_device>) without appended number (e.g. sde) which
+stands for the whole device. The parameter conv=fsync forces a sync operation on
+the device before dd returns. This ensures that all blocks are written to the SD
+card and are not still in memory. The parameter status=progress will print out
 information on how much data is and still has to be copied until it is finished.
 
 .. note::
@@ -75,7 +75,7 @@ information on how much data is and still has to be copied until it is finished.
    to a file like
    |yocto-imagename|-|yocto-machinename|-<BUILD-TIME>.rootfs.wic.
 
-<BUILD-TIME> has the format: YYYYMMDDHHMMSS
+<BUILD-TIME> has the format: YYYYMMDDHHMMSS
 
 ::
 

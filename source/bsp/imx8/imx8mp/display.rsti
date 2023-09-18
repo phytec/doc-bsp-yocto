@@ -47,7 +47,7 @@ In our BSP, the default Weston output is set to HDMI. ::
    [output]
    name=HDMI-A-1
    mode=current
-    
+
    [output]
    name=LVDS-1
    mode=off
@@ -58,7 +58,7 @@ HDMI-A-1 and for LVDS-1 to current. ::
    [output]
    name=HDMI-A-1
    mode=off
-    
+
    [output]
    name=LVDS-1
    mode=current
@@ -75,7 +75,7 @@ have to be set to current::
    [output]
    name=HDMI-A-1
    mode=current
-     
+
    [output]
    name=LVDS-1
    mode=current
@@ -86,7 +86,7 @@ be loaded at the bootenv.txt and the weston.ini should look like this::
    [output]
    name=HDMI-A-1
    mode=off
-     
+
    [output]
    name=LVDS-1
    mode=current
@@ -105,11 +105,11 @@ load both dtbos for LVDS interfaces. ::
    [output]
    name=HDMI-A-1
    mode=current
-     
+
    [output]
    name=LVDS-1
    mode=current
-    
+
    [output]
    name=LVDS-2
    mode=current

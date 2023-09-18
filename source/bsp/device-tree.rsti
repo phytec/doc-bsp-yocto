@@ -5,7 +5,7 @@ Introduction
 ------------
 
 The following text briefly describes the Device Tree and can be found in
-the Linux kernel Documentation
+the Linux kernel Documentation
 (https://docs.kernel.org/devicetree/usage-model.html)
 
 *"The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
@@ -32,10 +32,10 @@ Device Tree Structure
    down to the carrier board and used there are included in this dtsi.
 *  *Board.dts* - include the carrier board and module dtsi files. There may also
    be some hardware configuration nodes enabled on the carrier board or the
-   module (i.e. the Board .dts shows the special characteristics of the board
+   module (i.e. the Board .dts shows the special characteristics of the board
    configuration). For example, there are phyCORE-|soc| SOMs which may or may not
    have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
-   available) in the Board .dts and not in the Module .dtsi
+   available) in the Board .dts and not in the Module .dtsi
 
 From the root directory of the Linux Kernel our devicetree files for |socfamily|
 platforms can be found in arch/arm64/boot/dts/freescale/.

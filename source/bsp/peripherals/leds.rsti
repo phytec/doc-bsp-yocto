@@ -3,10 +3,10 @@ LEDs
 
 If any LEDs are connected to GPIOs, you have the possibility to access them by a
 special LED driver interface instead of the general GPIO interface (section
-GPIOs). You will then access them using /sys/class/leds/ instead
-of /sys/class/gpio/. The maximum brightness of the LEDs can be read from
-the max_brightness file. The brightness file will set the brightness of the LED
-(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
+GPIOs). You will then access them using /sys/class/leds/ instead
+of /sys/class/gpio/. The maximum brightness of the LEDs can be read from
+the max_brightness file. The brightness file will set the brightness of the LED
+(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
 brightness support and will just be turned on by all non-zero brightness
 settings.
 

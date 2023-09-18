@@ -34,7 +34,7 @@ for RS485 and sends a constant stream of data.
    target$ linux-serial-test -p /dev/|serial-uart| -b 115200 --rs485 0
 
 More information about the linux-serial-test tool and its parameters can be
-found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
+found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
 
 Documentation for calling the IOCTL within c-code is described in the Linux
 kernel documentation:

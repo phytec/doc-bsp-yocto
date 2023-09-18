@@ -15,16 +15,16 @@ To inspect the capabilities of your soundcard, call::
    target$ alsamixer
 
 You should see a lot of options as the audio-IC has many features you can
-experiment with. It might be better to open alsamixer via ssh instead of the
+experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. "MM" means the feature is muted
-(both output, left & right), which can be toggled by hitting m. You can also
-toggle by hitting '<' for left and ''>' for right output.
+(both output, left & right), which can be toggled by hitting m. You can also
+toggle by hitting '<' for left and ''>' for right output.
 
 ALSA configuration
 ..................
 
-Our BSP comes with a ALSA configuration file /etc/asound.conf. 
+Our BSP comes with a ALSA configuration file /etc/asound.conf.
 
 The ALSA configuration file can be edited as desired or deleted since it is not
 required for ALSA to work properly. ::
@@ -34,13 +34,13 @@ required for ALSA to work properly. ::
 To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
 
    [...]
-    
+
    pcm.asymed {
-           type asym
-           playback.pcm "pebav10"
-           capture.pcm "dsnoop"
+           type asym
+           playback.pcm "pebav10"
+           capture.pcm "dsnoop"
    }
-    
+
    [...]
 
 Pulseaudio Configuration
@@ -59,11 +59,11 @@ To select PEB-AV-10, type::
 Playback
 ........
 
-Run speaker-test to check playback availability::
+Run speaker-test to check playback availability::
 
    target$ speaker-test -c 2 -t wav
 
-To playback simple audio streams, you can use aplay. For example to play the
+To playback simple audio streams, you can use aplay. For example to play the
 ALSA test sounds::
 
    target$ aplay /usr/share/sounds/alsa/*
@@ -75,9 +75,9 @@ To playback other formats like mp3 for example, you can use Gstreamer::
 Capture
 .......
 
-arecord is a command-line tool for capturing audio streams which use Line In as
-the default input source. To select a different audio source you can
-use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
+arecord is a command-line tool for capturing audio streams which use Line In as
+the default input source. To select a different audio source you can
+use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
 Mic3R in order to capture the audio from the microphone input of the
 TLV320-Codec using the 3.5mm jack. ::
 

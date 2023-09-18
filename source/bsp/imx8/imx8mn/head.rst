@@ -115,13 +115,13 @@ Supported Hardware
 The |sbc| populated with the |soc| SoC is supported.
 
 On our web page, you can see all supported Machines with the available Article
-Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
-If you choose a specific **Machine Namein the section **Supported Machines**,
-you can see which **Article Numbers** are available under this machine and also
-a short description of the hardware information. In case you only have
-the **Article Number** of your hardware, you can leave the **Machine
-Name** drop-down menu empty and only choose your **Article Number**. Now it
-should show you the necessary **Machine Name** for your specific hardware
+Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware
 
 .. _imx8mn-head-components:
 .. include:: ../imx8mm/components.rsti
@@ -165,7 +165,7 @@ First Start-up
 * **u-boot-spl.bin**: Secondary program loader (SPL)
 * **bl31-imx8mm.bin**: ARM Trusted Firmware binary
 * **lpddr4_pmu_train_2d_dmem_202006.bin,
-  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
 * **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
   Trusted Firmware and DDR firmware. This is the final bootloader image which is
   bootable.
@@ -173,7 +173,7 @@ First Start-up
 * **Image.config**: Kernel configuration
 * **imx8mn-phyboard-polis-rdk*.dtb**: Kernel device tree file
 * **imx8mn-phy*.dtbo**: Kernel device tree overlay files
-* **phytec-headless-image\*.tar.gz**: Root file system 
+* **phytec-headless-image\*.tar.gz**: Root file system
 * **phytec-headless-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
@@ -239,12 +239,12 @@ select the phyCORE-|soc| default bootsource.
 ::
 
    pinctrl_uart1: uart1grp {
-       fsl,pins = <
-           MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
-           MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
-           MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
-           MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
-       >;
+           fsl,pins = <
+                   MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                   MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                   MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                   MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+           >;
    };
 
 The first part of the string MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad (in this example
@@ -291,7 +291,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: ../peripherals/spi-master.rsti
 
-The definition of the SPI master node in the device tree can be found here:
+The definition of the SPI master node in the device tree can be found here:
 
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75`
 
@@ -300,11 +300,11 @@ The definition of the SPI master node in the device tree can be found here:
 Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 
    pinctrl_leds: leds1grp {
-           fsl,pins = <
-                   MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
-                   MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
-                   MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
-           >;
+           fsl,pins = <
+                   MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                   MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                   MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+           >;
    };
 
 .. include:: /bsp/peripherals/leds.rsti
@@ -352,14 +352,14 @@ To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
 
 .. include:: /bsp/peripherals/usb-host.rsti
 
-User USB2 (host) configuration is in the kernel device tree
+User USB2 (host) configuration is in the kernel device tree
 |kernel-socname|.dtsi::
 
    &usbotg2 {
-           dr_mode = "host";
-           picophy,pre-emp-curr-control = <3>;
-           picophy,dc-vol-level-adjust = <7>;
-           status = "okay";
+           dr_mode = "host";
+           picophy,pre-emp-curr-control = <3>;
+           picophy,dc-vol-level-adjust = <7>;
+           status = "okay";
    };
 
 .. include:: /bsp/peripherals/usb-otg.rsti
@@ -372,11 +372,11 @@ CAN FD
 ------
 
 The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
-Using this framework, the CAN interfaces behave like an ordinary Linux network
+Linux standard CAN framework which builds upon then the Linux network layer.
+Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
-documentation:  https://www.kernel.org/doc/html/latest/networking/can.html
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. Hint::
 
