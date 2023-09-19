@@ -85,7 +85,7 @@ TFTP as a Stand-alone Daemon
    board to network boot, and start it.
 
 Usually, TFTP servers fetch files from the /tftpboot directory. If you built
-your own images, please copy them from the BSP’s build directory to the
+your own images, please copy them from the BSP's build directory to the
 /tftpboot directory. We also need a network connection between the embedded
 board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.
