@@ -232,6 +232,11 @@ Build Kernel
       host:~$ cd ~/linux-imx/
       host:~$ git fetch --all --tags
       host:~$ git checkout tags/|kernel-tag|
+
+*  For committing changes, it is highly recommended to switch to a new branch:
+
+   .. code-block:: console
+
       host:~$ git checkout -b <new-branch>
 
 *  Set up a build environment:
@@ -257,6 +262,11 @@ Build Kernel
 *  The Image can be found at ~/linux-imx/arch/arm64/boot/Image
 *  The dtb can be found at
    ~/linux-imx/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
+*  For (re-)building only Devicetrees and -overlays, it is sufficient to run
+
+   .. code-block:: console
+
+      host:~$ make dtbs
 
 .. note::
 
