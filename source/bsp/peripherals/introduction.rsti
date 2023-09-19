@@ -1,7 +1,7 @@
 Accessing Peripherals
 =====================
 
-To find out which boards and modules are supported by the release of PHYTEC’s
+To find out which boards and modules are supported by the release of PHYTEC's
 phyCORE-|soc| BSP described herein, visit |dlpage-bsp|_ web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns "Hardware Article Number" and the correct
