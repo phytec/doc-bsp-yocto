@@ -230,33 +230,43 @@ Build Kernel
 
       host:~$ git clone git://git.phytec.de/linux-imx
       host:~$ cd ~/linux-imx/
-      host:~$ git fetch --all --tags
-      host:~$ git checkout tags/|kernel-tag|
-      host:~$ git checkout -b <new-branch>
+      host:~/linux-imx$ git fetch --all --tags
+      host:~/linux-imx$ git checkout tags/|kernel-tag|
+
+*  For committing changes, it is highly recommended to switch to a new branch:
+
+   .. code-block:: console
+
+      host:~/linux-imx$ git switch -c <new-branch>
 
 *  Set up a build environment:
 
    .. code-block:: console
       :substitutions:
 
-      host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
+      host:~/linux-imx$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
 *  Build the linux kernel:
 
    .. code-block:: console
 
-      host:~$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
-      host:~$ make -j${nproc}
+      host:~/linux-imx$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+      host:~/linux-imx$ make -j${nproc}
 
 *  Install kernel modules to e.g. NFS directory:
 
   .. code-block:: console
 
-      host:~$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+      host:~/linux-imx$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
 
 *  The Image can be found at ~/linux-imx/arch/arm64/boot/Image
 *  The dtb can be found at
    ~/linux-imx/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
+*  For (re-)building only Devicetrees and -overlays, it is sufficient to run
+
+   .. code-block:: console
+
+      host:~/linux-imx$ make dtbs
 
 .. note::
 
