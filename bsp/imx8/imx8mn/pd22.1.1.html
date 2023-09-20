@@ -74,7 +74,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#installing-the-os">4. Installing the OS</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#bootmode-switch-s1">4.1. Bootmode Switch (S1)</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#flash-emmc">4.2. Flash eMMC</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#rauc">4.4. RAUC</a></li>
 </ul>
 </li>
@@ -208,7 +208,7 @@ need a way to implement these changes in a simple and reproducible way.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document contains code examples that describe the communication with the
-board over the serial shell. The code examples lines begin with “host$”,
+board over the serial shell. The code examples lines begin with “host$”,
 “target$” or “u-boot=&gt;”. This describes where the commands are to be
 executed. Only after these keywords must the actual command be copied.</p>
 </div>
@@ -222,15 +222,15 @@ board along with brief informationon building a BSP, the device
 tree, and accessing peripherals.</p></li>
 <li><p><strong>Hardware Manual</strong>: A detailed description of the System on
 Module and accompanying carrierboard.</p></li>
-<li><p><strong>Yocto Guide</strong>:  A comprehensive guide for the Yocto version
+<li><p><strong>Yocto Guide</strong>: A comprehensive guide for the Yocto version
 the phyCORE uses. This guide contains an overview of Yocto;
 introducing, installing, and customizing the PHYTEC BSP; how to
 work with programs like Poky and Bitbake; and much more.&lt;/span&gt;</p></li>
-<li><p><strong>BSP Manual</strong>:  Amanual specific to the BSP version of the phyCORE.
+<li><p><strong>BSP Manual</strong>: Amanual specific to the BSP version of the phyCORE.
 Information such as howto build the BSP, booting, updating
 software, device tree, and accessing peripherals can be found
 here.</p></li>
-<li><p><strong>Development Environment Guide</strong>:  This guide shows how to work
+<li><p><strong>Development Environment Guide</strong>: This guide shows how to work
 with the Virtual Machine (VM) Host PHYTEC has developed and
 prepared to run various Development Environments. There are
 detailed step-by-step instructions for Eclipse and Qt Creator,
@@ -255,13 +255,13 @@ of the documentation can be found on the <a class="reference external" href="htt
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this heading"></a></h2>
 <p>The phyBOARD-Polis populated with the i.MX 8M Nano SoC is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">download</a>.
-If you choose a specific <strong>Machine Namein the section **Supported Machines</strong>,
-you can see which <strong>Article Numbers</strong> are available under this machine and also
-a short description of the hardware information. In case you only have
-the <strong>Article Number</strong> of your hardware, you can leave the <strong>Machine
-Name</strong> drop-down menu empty and only choose your <strong>Article Number</strong>. Now it
-should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
+Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">download</a>.
+If you choose a specific <strong>Machine Name</strong> in the section <strong>Supported Machines</strong>,
+you can see which <strong>Article Numbers</strong> are available under this machine and also
+a short description of the hardware information. In case you only have
+the <strong>Article Number</strong> of your hardware, you can leave the <strong>Machine
+Name</strong> drop-down menu empty and only choose your <strong>Article Number</strong>. Now it
+should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
 <section id="sbc-components">
 <span id="imx8mn-pd22-1-1-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Polis Components<a class="headerlink" href="#sbc-components" title="Permalink to this heading"></a></h3>
 <table class="docutils align-center">
@@ -291,13 +291,13 @@ should show you the necessary <strong>Machine Name</strong> for your specific 
 <p>The <strong>phyCORE-i.MX8M Nano Kit</strong>s are shipped with a pre-flashed SD-Card.  It contains the
 phytec-headless-image and can be used directly as a boot source. The eMMC is
 programmed with only a U-boot as default. You can get all the sources from our
-<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">download server</a>. This chapter explains how to flash a BSP image
+<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">download server</a>. This chapter explains how to flash a BSP image
 to SD Card and how to start the board.</p>
 <section id="get-the-image">
 <h2><span class="section-number">2.1. </span>Get the Image<a class="headerlink" href="#get-the-image" title="Permalink to this heading"></a></h2>
 <p>The WIC image contains all BSP files in several, correctly pre-formatted
 partitions and can be copied to the SD card easily using the single Linux
-command dd. It can be built by Yocto or downloaded from our download server.</p>
+command dd. It can be built by Yocto or downloaded from our download server.</p>
 <ul class="simple">
 <li><p>Get the <code class="docutils literal notranslate"><span class="pre">\*.wic</span></code> file from our download server:</p></li>
 </ul>
@@ -307,9 +307,9 @@ command dd. It can be built by Yocto or downloaded from our download server.</p
 <h2><span class="section-number">2.2. </span>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Permalink to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To create your bootable SD card with the dd command, you must have root
+<p>To create your bootable SD card with the dd command, you must have root
 privileges. Because of this, you must be very careful when selecting the
-destination device for the dd command! All files on the selected destination
+destination device for the dd command! All files on the selected destination
 device will be erased immediately without any further query! Consequently,
 having selected the wrong device can also erase your hard drive!</p>
 </div>
@@ -318,19 +318,19 @@ of your SD card and possible partitions. Then unmount the partitions before you
 start copying the image to the SD card.</p>
 <ul class="simple">
 <li><p>In order to get the correct device name, first remove your SD card and
-execute ls /dev.</p></li>
-<li><p>Now insert your SD card and execute ls /dev again.</p></li>
+execute ls /dev.</p></li>
+<li><p>Now insert your SD card and execute ls /dev again.</p></li>
 <li><p>Compare the two outputs to find the new device name(s) listed in the second
 output. These are the device names of the SD card (device and partitions if
 the SD card is formatted).</p></li>
-<li><p>In order to verify the device names found, execute the command dmesg. Within
+<li><p>In order to verify the device names found, execute the command dmesg. Within
 the last lines of its output, you should also find the device names, for
-example, sde (depending on your system).</p></li>
+example, sde (depending on your system).</p></li>
 </ul>
-<p>Now that you have the device name /dev/&lt;your_device&gt; (e.g. /dev/sde), you can
+<p>Now that you have the device name /dev/&lt;your_device&gt; (e.g. /dev/sde), you can
 see the partitions which must be unmounted if the SD card is formatted. In this
-case, you will also find /dev/&lt;your_device&gt; with an appended number
-(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
+case, you will also find /dev/&lt;your_device&gt; with an appended number
+(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
 unmounted.</p>
 <ul class="simple">
 <li><p>Unmount all partitions:</p></li>
@@ -345,10 +345,10 @@ unmounted.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic of=/dev/&lt;your_device&gt; bs=1M conv=fsync status=progress
 </pre></div>
 </div>
-<p>Using the device name (&lt;your_device&gt;) without appended number (e.g. sde) which
-stands for the whole device. The parameter conv=fsync forces a sync operation on
-the device before dd returns. This ensures that all blocks are written to the SD
-card and are not still in memory. The parameter status=progress will print out
+<p>Using the device name (&lt;your_device&gt;) without appended number (e.g. sde) which
+stands for the whole device. The parameter conv=fsync forces a sync operation on
+the device before dd returns. This ensures that all blocks are written to the SD
+card and are not still in memory. The parameter status=progress will print out
 information on how much data is and still has to be copied until it is finished.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -356,7 +356,7 @@ information on how much data is and still has to be copied until it is finished.
 to a file like
 phytec-headless-image-phyboard-polis-imx8mn-2-&lt;BUILD-TIME&gt;.rootfs.wic.</p>
 </div>
-<p>&lt;BUILD-TIME&gt; has the format: YYYYMMDDHHMMSS</p>
+<p>&lt;BUILD-TIME&gt; has the format: YYYYMMDDHHMMSS</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>example:
     Date = 14.01.2022
     Time = 10:42:11
@@ -394,7 +394,7 @@ debug USB</p></li>
 <section id="building-the-bsp">
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Permalink to this heading"></a></h1>
 <p>This section will guide you through the general build process of the i.MX 8M
-Plus BSP using Yocto and the phyLinux script. For more information about our
+Plus BSP using Yocto and the phyLinux script. For more information about our
 meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Permalink to this heading"></a></h2>
@@ -421,8 +421,8 @@ host$ chmod +x phyLinux
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A clean folder is important because phyLinux will clean its working
-directory. Calling phyLinux from a directory that isn’t empty will result in
-a warning.</p>
+directory. Calling phyLinux from a directory that isn’t empty will result in
+a warning.</p>
 </div>
 <ul class="simple">
 <li><p>Run phyLinux</p></li>
@@ -433,10 +433,10 @@ a warning.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On the first initialization, the phyLinux script will ask you to install
-the Repo tool in your /usr/local/bin directory.</p>
+the Repo tool in your /usr/local/bin directory.</p>
 </div>
 <ul class="simple">
-<li><p>During the execution of the init command, you need to choose your processor
+<li><p>During the execution of the init command, you need to choose your processor
 platform (SoC), PHYTEC’s BSP release number, and the hardware you are working
 on.</p></li>
 </ul>
@@ -451,7 +451,7 @@ have a look at the invoice for the product. And have look at
 parameters:</p></li>
 </ul>
 <pre class="literal-block">host$ DISTRO=ampliphy-vendor MACHINE=phyboard-polis-imx8mn-2 ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD22.1.1</pre>
-<p>After the execution of the init command, phyLinux will print a few important
+<p>After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.</p>
 <section id="starting-the-build-process">
 <h3><span class="section-number">3.2.1. </span>Starting the Build Process<a class="headerlink" href="#starting-the-build-process" title="Permalink to this heading"></a></h3>
@@ -466,7 +466,7 @@ notes as well as information for the next steps in the build process.</p>
 <p>This needs to be done every time you open a new shell for starting builds.</p>
 </div>
 <ul class="simple">
-<li><p>The current working directory of the shell should change to build/.</p></li>
+<li><p>The current working directory of the shell should change to build/.</p></li>
 <li><p>Open the main configuration file and accept the GPU and VPU binary license
 agreements. You have to uncomment the corresponding line.</p></li>
 </ul>
@@ -483,15 +483,15 @@ ACCEPT_FSL_EULA = &quot;1&quot;
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We suggest starting with our smaller non-graphical
-image phytec-headless-image to see if everything is working correctly. The
+image phytec-headless-image to see if everything is working correctly. The
 first compile process takes about 40 minutes on a modern Intel Core i7. All
 subsequent builds will use the filled caches and should take about 3 minutes.</p>
 </div>
 </section>
 <section id="bsp-images">
 <h3><span class="section-number">3.2.2. </span>BSP Images<a class="headerlink" href="#bsp-images" title="Permalink to this heading"></a></h3>
-<p>All images generated by Bitbake are deployed to ~/yocto_imx8mn/build/deploy/images/&lt;machine&gt;. The following list shows for
-example all files generated for the i.MX 8M Nano phyboard-polis-imx8mn-2 machine:</p>
+<p>All images generated by Bitbake are deployed to ~/yocto_imx8mn/build/deploy/images/&lt;machine&gt;. The following list shows for
+example all files generated for the i.MX 8M Nano phyboard-polis-imx8mn-2 machine:</p>
 <ul class="simple" id="imx8mn-pd22-1-1-images">
 <li><p><strong>u-boot.bin</strong>: Binary compiled U-boot bootloader (U-Boot). Not the final
 Bootloader image!</p></li>
@@ -499,7 +499,7 @@ Bootloader image!</p></li>
 <li><p><strong>u-boot-spl.bin</strong>: Secondary program loader (SPL)</p></li>
 <li><p><strong>bl31-imx8mm.bin</strong>: ARM Trusted Firmware binary</p></li>
 <li><p><strong>lpddr4_pmu_train_2d_dmem_202006.bin,
-lpddr4_pmu_train_2d_imem_202006.bin</strong>: DDR PHY firmware images</p></li>
+lpddr4_pmu_train_2d_imem_202006.bin</strong>: DDR PHY firmware images</p></li>
 <li><p><strong>imx-boot</strong>: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
 Trusted Firmware and DDR firmware. This is the final bootloader image which is
 bootable.</p></li>
@@ -632,13 +632,13 @@ sure to set up the development host correctly. The IP needs to be set to
 192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
 available. From a high-level point of view, an eMMC device is like an SD card.
 Therefore, it is possible to flash the <strong>WIC image</strong> (<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.wic</span></code>) from
-the Yocto build system directly to the eMMC. The image contains the
+the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.</p>
 <section id="flash-emmc-from-network-in-u-boot-on-target">
 <h4><span class="section-number">4.2.1.1. </span>Flash eMMC from Network in u-boot on Target<a class="headerlink" href="#flash-emmc-from-network-in-u-boot-on-target" title="Permalink to this heading"></a></h4>
 <p>These steps will show how to update the eMMC via a network. However, they only
 work if the size of the image file is less than 1GB. If the image file is
-larger, go to the section Format SD Card. Configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to boot
+larger, go to the section Format SD Card. Configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to boot
 from SD Card and put in an SD card. Power on the board and stop in U-Boot
 prompt.</p>
 <div class="admonition tip">
@@ -654,14 +654,14 @@ TFTP from server 192.168.3.10; our IP address is 192.168.3.11
 Filename 'phytec-headless-image-phyboard-polis-imx8mn-2.wic'.
 Load address: 0x40480000
 Loading: #################################################################
-         #################################################################
-         #################################################################
-         ...
-         ...
-         ...
-         #################################################################
-         #############
-         11.2 MiB/s
+         #################################################################
+         #################################################################
+         ...
+         ...
+         ...
+         #################################################################
+         #############
+         11.2 MiB/s
 done
 Bytes transferred = 911842304 (36599c00 hex)</pre>
 <ul class="simple">
@@ -686,7 +686,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 </div>
 <ul class="simple">
 <li><p>Take a compressed or uncompressed image on the host and send it
-with ssh through the network (then uncompress it, if necessary) to the eMMC
+with ssh through the network (then uncompress it, if necessary) to the eMMC
 of the target with a one-line command:</p></li>
 </ul>
 <pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.wic&quot; | dd of=/dev/mmcblk2</pre>
@@ -705,7 +705,7 @@ you need a complete image on your host.</p>
 <pre class="literal-block">host$ ls
 phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
 <ul class="simple">
-<li><p>Send the image with the command dd command combined with ssh through the
+<li><p>Send the image with the command dd command combined with ssh through the
 network to the eMMC of your device:</p></li>
 </ul>
 <pre class="literal-block">host$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
@@ -742,9 +742,9 @@ of the corresponding SoC.</p>
 <p>This step only works if the size of the image file is less than 1GB due to
 limited usage of RAM size in Bootloader after enabling the OPTEE.</p>
 </div>
-<p>These steps will show how to update the eMMC via a USB device. Configure the
+<p>These steps will show how to update the eMMC via a USB device. Configure the
 bootmode switch to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied WIC image
+and stop in u-boot prompt. Insert a USB device with the copied WIC image
 to the USB slot.</p>
 <ul class="simple">
 <li><p>Load your image from the USB device to RAM:</p></li>
@@ -753,7 +753,7 @@ to the USB slot.</p>
 starting USB...
 USB0:   USB EHCI 1.00
 scanning bus 0 for devices... 2 USB Device(s) found
-       scanning usb for storage devices... 1 Storage Device(s) found
+       scanning usb for storage devices... 1 Storage Device(s) found
 u-boot=&gt; fatload usb 0:1 ${loadaddr} \*.wic
 497444864 bytes read in 31577 ms (15 MiB/s)
 </pre></div>
@@ -776,7 +776,7 @@ u-boot=&gt; boot
 <h4><span class="section-number">4.2.3.2. </span>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Permalink to this heading"></a></h4>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-phytec-headless-image-phyboard-polis-imx8mn-2.wic). Set the bootmode switch to
+phytec-headless-image-phyboard-polis-imx8mn-2.wic). Set the bootmode switch to
 <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 <ul class="simple">
 <li><p>Insert and mount the USB stick:</p></li>
@@ -826,7 +826,7 @@ partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Before this will work, you need to configure the multi-port switch
-to <strong>Default SOM Boot</strong> to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
+to <strong>Default SOM Boot</strong> to <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 </div>
 </section>
 </section>
@@ -850,12 +850,12 @@ Linux on Target</cite> subsection.</p>
 <li><p>Flash an SD card with a working image and create a third FAT partition. Copy
 the WIC image (for example phytec-headless-image.wic) to this
 partition.</p></li>
-<li><p>Configure the bootmode switch  to boot from the SD Card and insert the SD
+<li><p>Configure the bootmode switch to boot from the SD Card and insert the SD
 card.</p></li>
-<li><p>Power on the board and stop in u-boot.</p></li>
-<li><p>Flash your WIC image (for example phytec-headless-image.wic)
+<li><p>Power on the board and stop in u-boot.</p></li>
+<li><p>Flash your WIC image (for example phytec-headless-image.wic)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
-Image, dtb, dtbo, and root file system to eMMC.</p></li>
+Image, dtb, dtbo, and root file system to eMMC.</p></li>
 <li><p>Load the image:</p></li>
 </ul>
 <pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
@@ -877,7 +877,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Power off the board and change the multi-port switch to Default SOM Boot to
+<li><p>Power off the board and change the multi-port switch to Default SOM Boot to
 boot from eMMC.</p></li>
 </ul>
 </section>
@@ -918,15 +918,15 @@ partition):</p></li>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Before this will work, you need to configure the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to Default
-SOM Boot to boot from eMMC.</p>
+SOM Boot to boot from eMMC.</p>
 </div>
 </section>
 </section>
 </section>
 <section id="flash-spi-nor-flash">
-<h2><span class="section-number">4.3. </span>Flash SPI NOR Flash<a class="headerlink" href="#flash-spi-nor-flash" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>Flash SPI NOR Flash<a class="headerlink" href="#flash-spi-nor-flash" title="Permalink to this heading"></a></h2>
 <p>The phyCORE-i.MX8MM modules are optionally equipped with SPI NOR Flash. To boot from SPI
-Flash, set <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>QSPI boot</strong> to boot from QSPI. The SPI Flash is
+Flash, set <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>QSPI boot</strong> to boot from QSPI. The SPI Flash is
 usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
 populated. Only the bootloader and the environment can be stored. The kernel,
 device tree, and file system are taken from eMMC by default.</p>
@@ -1124,7 +1124,7 @@ host$ sudo chown -R nobody /tftpboot
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Then copy your BSP image files to this directory. You also need to configure a
+<li><p>Then copy your BSP image files to this directory. You also need to configure a
 static IP address for the appropriate interface. The default IP address of the
 PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
 with netmask 255.255.255.0 is a good choice.</p></li>
@@ -1136,7 +1136,7 @@ with netmask 255.255.255.0 is a good choice.</p></li>
 <li><p>You will receive:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth1     Link encap:Ethernet   HWadr 00:11:6b:98:e3:47
-         inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
+         inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
 </pre></div>
 </div>
 <section id="tftp-as-a-stand-alone-daemon">
@@ -1171,9 +1171,9 @@ TFTP_OPTIONS=&quot;-s -c&quot;
 <li><p>Now connect the ethernet port of the board to your host system, configure the
 board to network boot, and start it.</p></li>
 </ul>
-<p>Usually, TFTP servers fetch files from the /tftpboot directory. If you built
+<p>Usually, TFTP servers fetch files from the /tftpboot directory. If you built
 your own images, please copy them from the BSP’s build directory to the
-/tftpboot directory. We also need a network connection between the embedded
+/tftpboot directory. We also need a network connection between the embedded
 board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
 </section>
@@ -1188,7 +1188,7 @@ installed, too.</p></li>
 </div>
 <ul class="simple">
 <li><p>The NFS server is not restricted to a certain file system location, so all we
-have to do on most distributions is modify the file /etc/exports and export
+have to do on most distributions is modify the file /etc/exports and export
 our root file system to the embedded network. In this example file, the whole
 directory is exported and the “lab network” address of the development host is
 192.168.3.10. The IP address has to be adapted to the local needs:</p></li>
@@ -1233,11 +1233,11 @@ extracted with sudo.</p>
 <section id="network-settings-on-target">
 <h3><span class="section-number">5.1.4. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Permalink to this heading"></a></h3>
 <p>To customize the targets ethernet configuration, please follow the description
-here: <a class="reference internal" href="#imx8mn-pd22-1-1-network"><span class="std std-ref">Network Environment Customization</span></a></p>
+here: <a class="reference internal" href="#imx8mn-pd22-1-1-network"><span class="std std-ref">Network Environment Customization</span></a></p>
 </section>
 <section id="booting-from-an-embedded-board">
 <h3><span class="section-number">5.1.5. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Permalink to this heading"></a></h3>
-<p>Boot the board into the U-boot prompt and press any key to hold.</p>
+<p>Boot the board into the U-boot prompt and press any key to hold.</p>
 <ul class="simple">
 <li><p>To boot from a network, call:</p></li>
 </ul>
@@ -1274,7 +1274,7 @@ host$ cp -v imx-boot uuu/_flash.bin
 </section>
 <section id="prepare-target">
 <h3><span class="section-number">5.2.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Permalink to this heading"></a></h3>
-<p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
+<p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
 Configuration Options). Also, connect <strong>USB OTG</strong> <a class="reference internal" href="#imx8mn-pd22-1-1-components"><span class="std std-ref">X2</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
@@ -1300,7 +1300,7 @@ this in U-boot code.</p>
 </section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.2.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
+<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
 Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mn-pd22-1-1-components"><span class="std std-ref">X2</span></a> to your host.</p>
 <p>Download the imx-boot image from
 our server or get them from your Yocto build directory at
@@ -1319,7 +1319,7 @@ host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin
 </section>
 <section id="flashing-wic-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.2.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Permalink to this heading"></a></h3>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
+<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mn-pd22-1-1-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
 Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mn-pd22-1-1-components"><span class="std std-ref">X2</span></a> to your host.</p>
 <p>Download phytec-headless-image-phyboard-polis-imx8mn-2.wic and imx-boot image from
 our server or get them from your Yocto build directory at
@@ -1340,12 +1340,12 @@ host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin _rootfs.wic
 <h2><span class="section-number">5.3. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Permalink to this heading"></a></h2>
 <p>In this section, we describe how to build the U-Boot and the Linux kernel
 without using the <em>Yocto Project</em>. This procedure makes the most sense for
-development. The U-Boot source code, the Linux kernel, and all other git
-repositories are available on our <em>Git</em> server at git://git.phytec.de.</p>
+development. The U-Boot source code, the Linux kernel, and all other git
+repositories are available on our <em>Git</em> server at git://git.phytec.de.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Should your company firewall/gateway inhibit the git protocol, you may use
-HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https://git.phytec.de/u-boot-imx">https://git.phytec.de/u-boot-imx</a>)</p>
+HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https://git.phytec.de/u-boot-imx">https://git.phytec.de/u-boot-imx</a>)</p>
 </div>
 <section id="git-repositories">
 <h3><span class="section-number">5.3.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Permalink to this heading"></a></h3>
@@ -1395,7 +1395,7 @@ SDK has been successfully set up and is ready to be used.</pre>
 </section>
 <section id="using-the-sdk">
 <h3><span class="section-number">5.3.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this heading"></a></h3>
-<p>Activate the toolchain for your shell by sourcing the file <em>environment-setup</em>
+<p>Activate the toolchain for your shell by sourcing the file <em>environment-setup</em>
 in the toolchain directory:</p>
 <pre class="literal-block">host$ source /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux</pre>
 </section>
@@ -1426,8 +1426,8 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 (lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*</p></li>
 </ul>
 <p>If you already build our BSP with Yocto, you can get
-the bl31-imx8mn.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
-mentioned here: <a class="reference internal" href="#imx8mn-pd22-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
+the bl31-imx8mn.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
+mentioned here: <a class="reference internal" href="#imx8mn-pd22-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
 <p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1535,7 +1535,7 @@ host$ git checkout tags/v5.10.72_2.2.0-phy17
 host$ git checkout -b &lt;new-branch&gt;</pre>
 <ul class="simple">
 <li><p>Set up a build environment</p></li>
-<li><p>Build the linux kernel:</p></li>
+<li><p>Build the linux kernel:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
 host$ make -j16
@@ -1576,13 +1576,13 @@ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install</pre>
 <section id="accessing-the-development-states-between-releases">
 <h2><span class="section-number">5.4. </span>Accessing the Development States between Releases<a class="headerlink" href="#accessing-the-development-states-between-releases" title="Permalink to this heading"></a></h2>
 <p>Special release manifests exist to give you access to the current development
-states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
+states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
 <pre class="literal-block">host$ ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD22.1.y</pre>
 <p>This will initialize a BSP that will track the latest development state. From
 now on <em>repo sync</em> in this folder will pull all the latest changes from
-our Git repositories:</p>
+our Git repositories:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ repo sync
 </pre></div>
 </div>
@@ -1696,7 +1696,7 @@ host$ umount /mnt</pre>
 <section id="introduction">
 <h2><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>The following text briefly describes the Device Tree and can be found in
-the Linux kernel Documentation
+the Linux kernel Documentation
 (<a class="reference external" href="https://docs.kernel.org/devicetree/usage-model.html">https://docs.kernel.org/devicetree/usage-model.html</a>)</p>
 <p><em>“The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
 structure and language for describing hardware. More specifically, it is a
@@ -1719,10 +1719,10 @@ and RAM.</p></li>
 down to the carrier board and used there are included in this dtsi.</p></li>
 <li><p><em>Board.dts</em> - include the carrier board and module dtsi files. There may also
 be some hardware configuration nodes enabled on the carrier board or the
-module (i.e. the Board .dts shows the special characteristics of the board
+module (i.e. the Board .dts shows the special characteristics of the board
 configuration). For example, there are phyCORE-i.MX 8M Nano SOMs which may or may not
 have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
-available) in the Board .dts and not in the Module .dtsi</p></li>
+available) in the Board .dts and not in the Module .dtsi</p></li>
 </ul>
 <p>From the root directory of the Linux Kernel our devicetree files for i.MX 8
 platforms can be found in arch/arm64/boot/dts/freescale/.</p>
@@ -1770,7 +1770,7 @@ the boot partition of the sdcard image. You can read and write the file on
 booted target:</p>
 <pre class="literal-block">target$ cat /boot/bootenv.txt
 overlays=imx8mn-phyboard-polis-rdk-peb-eval-01.dtbo imx8mn-phyboard-polis-rdk-peb-av-010.dtbo</pre>
-<p>Changes will then take effect after the next reboot. If no bootenv.txt file is
+<p>Changes will then take effect after the next reboot. If no bootenv.txt file is
 available the overlays variable can be set directly in the U-Boot environment.</p>
 <pre class="literal-block">u-boot=&gt; setenv overlays imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
 u-boot=&gt; printenv overlays
@@ -1794,7 +1794,7 @@ the environment in a non-persistent way.</p>
 U-boot External Environment subsection of the
 <a class="reference internal" href="#imx8mn-pd22-1-1-ubootexternalenv"><span class="std std-ref">device tree overlay section</span></a>.</p>
 <p>We use the ${overlays} variable for overlays describing expansion boards and
-cameras that can not be detected during run time. To prevent applying overlays
+cameras that can not be detected during run time. To prevent applying overlays
 listed in the ${overlays} variable during boot the ${no_overlays} variable can
 be set to 1 in the bootloader environment.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_overlays 1
@@ -1806,23 +1806,23 @@ u-boot=&gt; saveenv
 <h4><span class="section-number">6.2.2.2. </span>Extension Command<a class="headerlink" href="#extension-command" title="Permalink to this heading"></a></h4>
 <p>The u-boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13">extension_board_scan()</a>. In the BSP, the overlays applied
+<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13">extension_board_scan()</a>. In the BSP, the overlays applied
 in this way are used to disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
-<p>The detection is so far implemented for SPI-NOR flash and ethernet PHY. It
+<p>The detection is so far implemented for SPI-NOR flash and ethernet PHY. It
 depends on the SoM variant if any device tree overlays will be applied. To check
 if an overlay will be applied on the running SoM run:</p>
 <pre class="literal-block">u-boot=&gt; extension scan
 Found 1 extension board(s).
 u-boot=&gt; extension list
 Extension 0: phyCORE-i.MX8MM no SPI flash
-        Manufacturer:           PHYTEC
-        Version:
-        Devicetree overlay:     imx8mn-phycore-no-spiflash.dtbo
-        Other information:      SPI flash not populated on SoM</pre>
+        Manufacturer:           PHYTEC
+        Version:
+        Devicetree overlay:     imx8mn-phycore-no-spiflash.dtbo
+        Other information:      SPI flash not populated on SoM</pre>
 <p>If the EEPROM data is not available, no device tree overlays are applied and the
-default status “okay” is preserved. To prevent running the extension command
+default status “okay” is preserved. To prevent running the extension command
 during boot the ${no_extensions} variable can be set to 1 in the bootloader
 environment.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_extensions 1
@@ -1885,17 +1885,17 @@ BSP tries to modularize the kit features as much as possible. When a customized
 baseboard or even a customer-specific module is developed, most of the software
 support can be re-used without error-prone copy-and-paste. The kernel code
 corresponding to the boards can be found in device trees (DT)
-under linux/arch/arm64/boot/dts/freescale/<em>.dts</em>.</p>
+under linux/arch/arm64/boot/dts/freescale/<em>.dts</em>.</p>
 <p>In fact, software reuse is one of the most important features of the
-Linux kernel, especially of the ARM implementation which always has to fight
-with an insane number of possibilities of the System-on-Chip CPUs. The whole
+Linux kernel, especially of the ARM implementation which always has to fight
+with an insane number of possibilities of the System-on-Chip CPUs. The whole
 board-specific hardware is described in DTs and is not part of the kernel image
 itself. The hardware description is in its own separate binary, called the
-Device Tree Blob (DTB) (section <a class="reference internal" href="#imx8mn-pd22-1-1-device-tree"><span class="std std-ref">device tree</span></a>).</p>
-<p>Please read section PHYTEC i.MX 8M Nano BSP Device Tree Concept to get an understanding
+Device Tree Blob (DTB) (section <a class="reference internal" href="#imx8mn-pd22-1-1-device-tree"><span class="std std-ref">device tree</span></a>).</p>
+<p>Please read section PHYTEC i.MX 8M Nano BSP Device Tree Concept to get an understanding
 of our i.MX 8 BSP device tree model.</p>
 <p>The following sections provide an overview of the supported hardware components
-and their operating system drivers on the i.MX 8 platform. Further changes
+and their operating system drivers on the i.MX 8 platform. Further changes
 can be ported upon customer request.</p>
 <section id="soc-pin-muxing">
 <h2><span class="section-number">7.1. </span>i.MX 8M Nano Pin Muxing<a class="headerlink" href="#soc-pin-muxing" title="Permalink to this heading"></a></h2>
@@ -1906,20 +1906,20 @@ there are many combinations of pin multiplexing that are possible, only a
 certain number of sets, called IO sets, are valid due to timing limitations.
 These valid IO sets were carefully chosen to provide many possible application
 scenarios for the user.</p>
-<p>Please refer to our Hardware Manual or the NXP i.MX 8M Nano Reference Manual for more
+<p>Please refer to our Hardware Manual or the NXP i.MX 8M Nano Reference Manual for more
 information about the specific pins and the muxing capabilities.</p>
 <p>The IO set configuration, also called muxing, is done in the Device Tree. The
-driver pinctrl-single reads the DT’s node fsl,pins, and does the appropriate pin
+driver pinctrl-single reads the DT’s node fsl,pins, and does the appropriate pin
 muxing.</p>
 <p>The following is an example of the pin muxing of the UART1 device in
 imx8mn-phyboard-polis-rdk.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_uart1: uart1grp {
-    fsl,pins = &lt;
-        MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
-        MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
-        MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
-        MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
-    &gt;;
+        fsl,pins = &lt;
+                MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+        &gt;;
 };
 </pre></div>
 </div>
@@ -1979,7 +1979,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 for RS485 and sends a constant stream of data.</p>
 <pre class="literal-block">target$ linux-serial-test -p /dev/ttymxc0 -b 115200 --rs485 0</pre>
 <p>More information about the linux-serial-test tool and its parameters can be
-found here: <a class="reference external" href="https://github.com/cbrake/linux-serial-test">linux-serial-test</a></p>
+found here: <a class="reference external" href="https://github.com/cbrake/linux-serial-test">linux-serial-test</a></p>
 <p>Documentation for calling the IOCTL within c-code is described in the Linux
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
@@ -2001,18 +2001,18 @@ Linux. So, be aware of these differences:</p>
 <div class="line">ethernet0 = eth1</div>
 </div>
 </div>
-<p>All interfaces offer a standard Linux network port that can be programmed using
-the BSD socket interface. The whole network configuration is handled by
-the systemd-networkd daemon. The relevant configuration files can be found on
-the target in /lib/systemd/network/ as well as the BSP in
+<p>All interfaces offer a standard Linux network port that can be programmed using
+the BSD socket interface. The whole network configuration is handled by
+the systemd-networkd daemon. The relevant configuration files can be found on
+the target in /lib/systemd/network/ as well as the BSP in
 meta-yogurt/recipes-core/systemd/system-machine-units.</p>
-<p>IP addresses can be configured within *.network files. The default IP address
-and netmask for eth0 is:</p>
+<p>IP addresses can be configured within *.network files. The default IP address
+and netmask for eth0 is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth0: 192.168.3.11/24
 </pre></div>
 </div>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
-configuration: the module DT and the board-specific DT. The device tree set up
+configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
 be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47</a>.</p>
 <p></p>
@@ -2045,8 +2045,8 @@ netboot=echo Booting from net ...; if test ${ip_dyn} = yes; then setenv nfsip dh
 </pre></div>
 </div>
 </li>
-<li><p>&lt;parameter&gt; should be one of ipaddr, netmask, gateway, or severip.</p></li>
-<li><p>&lt;value&gt; will be the actual value of the chosen parameter.</p></li>
+<li><p>&lt;parameter&gt; should be one of ipaddr, netmask, gateway, or serverip.</p></li>
+<li><p>&lt;value&gt; will be the actual value of the chosen parameter.</p></li>
 <li><p>Make your changes and hit ‘Enter’.</p></li>
 <li><p>The changes you made are temporary for now. To save these:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; saveenv
@@ -2077,7 +2077,7 @@ locate the tftproot directory:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nfsroot=/home/user/nfssrc
 </pre></div>
 </div>
-<p>There is no need to store the info on the target. Please note that this does
+<p>There is no need to store the info on the target. Please note that this does
 not work for variables like ipaddr or serveraddr as they need to be already
 set when the external environment is being loaded.</p>
 </div>
@@ -2088,15 +2088,15 @@ set when the external environment is being loaded.</p>
 <li><p>Find the ethernet settings for eth0 in the target kernel:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ ifconfig eth0
 eth0      Link encap:Ethernet  HWaddr 50:2D:F4:19:D6:33
-          UP BROADCAST MULTICAST  MTU:1500  Metric:1
-          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 </pre></div>
 </div>
 </li>
-<li><p>Temporary adaption of the eth0 configuration:</p>
+<li><p>Temporary adaption of the eth0 configuration:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ ifconfig eth0 192.168.3.11 netmask 255.255.255.0 up
 </pre></div>
 </div>
@@ -2136,36 +2136,36 @@ The Bluetooth device needs to be set up manually:</p>
 target$ hciconfig
 
 hci0:   Type: Primary  Bus: UART
-        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
-        UP RUNNING PSCAN
-        RX bytes:1392 acl:0 sco:0 events:76 errors:0
-        TX bytes:1198 acl:0 sco:0 commands:76 errors:0
+        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+        UP RUNNING PSCAN
+        RX bytes:1392 acl:0 sco:0 events:76 errors:0
+        TX bytes:1198 acl:0 sco:0 commands:76 errors:0
 
 target$ hciconfig -a
 
 hci0:   Type: Primary  Bus: UART
-        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
-        UP RUNNING PSCAN
-        RX bytes:3179 acl:8 sco:0 events:104 errors:0
-        TX bytes:1599 acl:8 sco:0 commands:85 errors:0
-        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
-        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
-        Link policy: RSWITCH SNIFF
-        Link mode: SLAVE ACCEPT
-        Name: &#39;phyboard-polaris-imx8m-2&#39;
-        Class: 0x200000
-        Service Classes: Audio
-        Device Class: Miscellaneous,
-        HCI Version: 4.1 (0x7)  Revision: 0x60
-        LMP Version: 4.1 (0x7)  Subversion: 0x2209
-        Manufacturer: Broadcom Corporation (15)
+        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+        UP RUNNING PSCAN
+        RX bytes:3179 acl:8 sco:0 events:104 errors:0
+        TX bytes:1599 acl:8 sco:0 commands:85 errors:0
+        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
+        Link policy: RSWITCH SNIFF
+        Link mode: SLAVE ACCEPT
+        Name: &#39;phyboard-polaris-imx8m-2&#39;
+        Class: 0x200000
+        Service Classes: Audio
+        Device Class: Miscellaneous,
+        HCI Version: 4.1 (0x7)  Revision: 0x60
+        LMP Version: 4.1 (0x7)  Subversion: 0x2209
+        Manufacturer: Broadcom Corporation (15)
 </pre></div>
 </div>
 <p>Now you can scan your environment for visible Bluetooth devices. Bluetooth is
 not visible during a default startup.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hcitool scan
 Scanning ...
-       XX:XX:XX:XX:XX:XX       &lt;SSID&gt;
+       XX:XX:XX:XX:XX:XX       &lt;SSID&gt;
 </pre></div>
 </div>
 <section id="visibility">
@@ -2209,7 +2209,7 @@ org.bluez.Error.Failed” try restarting PulseAudio with:</p>
 <section id="sd-mmc-card">
 <h2><span class="section-number">7.4. </span>SD/MMC Card<a class="headerlink" href="#sd-mmc-card" title="Permalink to this heading"></a></h2>
 <p>The i.MX 8M Nano supports a slot for Secure Digital Cards and MultiMedia Cards to be
-used as general-purpose block devices. These devices can be used in the same way
+used as general-purpose block devices. These devices can be used in the same way
 as any other block device.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2217,14 +2217,14 @@ as any other block device.</p>
 to unplug the device while it is still mounted. This may result in data loss!</p>
 </div>
 <p>After inserting an SD/MMC card, the kernel will generate new device nodes
-in /dev. The full device can be reached via its /dev/mmcblk1 device node. SD/MMC
+in /dev. The full device can be reached via its /dev/mmcblk1 device node. SD/MMC
 card partitions will show up as:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/dev/mmcblk1p&lt;Y&gt;
 </pre></div>
 </div>
 <p>&lt;Y&gt; counts as the partition number starting from 1 to the max count of
-partitions on this device. The partitions can be formatted with any kind of file
-system and also handled in a standard manner, e.g. the mount and umount command
+partitions on this device. The partitions can be formatted with any kind of file
+system and also handled in a standard manner, e.g. the mount and umount command
 work as expected.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2244,7 +2244,7 @@ mounting. The cards are always mounted as being writable.</p>
 <p>PHYTEC modules like phyCORE-i.MX 8M Nano is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
 controller that handles ECC and wear leveling. They are connected via an SD/MMC
-interface to the i.MX 8M Nano and are represented as block devices in the Linux kernel
+interface to the i.MX 8M Nano and are represented as block devices in the Linux kernel
 like SD cards, flash drives, or hard disks.</p>
 <p>The electric and protocol specifications are provided by JEDEC
 (<a class="reference external" href="https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc">https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc</a>).
@@ -2254,21 +2254,21 @@ together with the supported version of the JEDEC eMMC standard.</p>
 <section id="extended-csd-register">
 <h3><span class="section-number">7.5.1. </span>Extended CSD Register<a class="headerlink" href="#extended-csd-register" title="Permalink to this heading"></a></h3>
 <p>eMMC devices have an extensive amount of extra information and settings that are
-available via the Extended CSD registers. For a detailed list of the registers,
+available via the Extended CSD registers. For a detailed list of the registers,
 see manufacturer datasheets and the JEDEC standard.</p>
 <ul class="simple">
-<li><p>In the Linux user space, you can query the registers:</p></li>
+<li><p>In the Linux user space, you can query the registers:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc extcsd read /dev/mmcblk2
 </pre></div>
 </div>
 <p>You will see:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>=============================================
-   Extended CSD rev 1.7 (MMC 5.0)
- =============================================
+   Extended CSD rev 1.7 (MMC 5.0)
+=============================================
 
- Card Supported Command sets [S_CMD_SET: 0x01]
- [...]
+ Card Supported Command sets [S_CMD_SET: 0x01]
+ [...]
 </pre></div>
 </div>
 </section>
@@ -2277,15 +2277,15 @@ see manufacturer datasheets and the JEDEC standard.</p>
 <p>In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
 cells. This requires some maintenance tasks (for example erasing unused blocks)
-that are performed regularly. These tasks are called <strong>Background
+that are performed regularly. These tasks are called <strong>Background
 Operations (BKOPS)</strong>.</p>
 <p>By default (depending on the chip), the background operations may or may not be
 executed periodically, impacting the worst-case read and write latency.</p>
 <p>The JEDEC Standard has specified a method since version v4.41 that the host can
-issue BKOPS manually. See the JEDEC Standard chapter Background Operations and
-the description of registers BKOPS_EN (Reg: 163) and BKOPS_START (Reg: 164) in
+issue BKOPS manually. See the JEDEC Standard chapter Background Operations and
+the description of registers BKOPS_EN (Reg: 163) and BKOPS_START (Reg: 164) in
 the eMMC datasheet for more details.</p>
-<p>Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):</p>
+<p>Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):</p>
 <ul class="simple">
 <li><p>Value 0: The host does not support the manual trigger of BKOPS. Device write
 performance suffers.</p></li>
@@ -2293,16 +2293,16 @@ performance suffers.</p></li>
 BKOPS from time to time when it does not need the device.</p></li>
 </ul>
 <p>The mechanism to issue background operations has been implemented in
-the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
+the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
 (see below for details).</p>
-<p>The JEDEC standard v5.1 introduces a new automatic BKOPS feature. It frees the
+<p>The JEDEC standard v5.1 introduces a new automatic BKOPS feature. It frees the
 host to trigger the background operations regularly because the device starts
-BKOPS itself when it is idle (see the description of bit AUTO_EN in
-register BKOPS_EN (Reg: 163)).</p>
+BKOPS itself when it is idle (see the description of bit AUTO_EN in
+register BKOPS_EN (Reg: 163)).</p>
 <p>The userspace tool mmc does not currently support enabling automatic BKOPS
 features.</p>
 <ul class="simple">
-<li><p>To check whether <em>BKOPS_EN</em> is set, execute:</p></li>
+<li><p>To check whether <em>BKOPS_EN</em> is set, execute:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc extcsd read /dev/mmcblk2 | grep BKOPS_EN
 </pre></div>
@@ -2313,11 +2313,11 @@ features.</p>
 Enable background operations handshake [BKOPS_EN]: 0x00
 </pre></div>
 </div>
-<p>Where value 0x00 means BKOPS_EN is disabled and device write performance
-suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
+<p>Where value 0x00 means BKOPS_EN is disabled and device write performance
+suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
 background operations from time to time.</p>
 <ul class="simple">
-<li><p>To set the BKOPS_EN bit, execute:</p></li>
+<li><p>To set the BKOPS_EN bit, execute:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc bkops enable /dev/mmcblk2
 </pre></div>
@@ -2331,58 +2331,58 @@ itself, shut down the system:</p></li>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The BKOPS_EN bit is one-time programmable only. It cannot be reversed.</p>
+<p>The BKOPS_EN bit is one-time programmable only. It cannot be reversed.</p>
 </div>
 </section>
 <section id="reliable-write">
 <h3><span class="section-number">7.5.3. </span>Reliable Write<a class="headerlink" href="#reliable-write" title="Permalink to this heading"></a></h3>
-<p>There are two different Reliable Write options:</p>
+<p>There are two different Reliable Write options:</p>
 <ol class="arabic simple">
-<li><p>Reliable Write option for a whole eMMC device/partition.</p></li>
-<li><p>Reliable Write for single write transactions.</p></li>
+<li><p>Reliable Write option for a whole eMMC device/partition.</p></li>
+<li><p>Reliable Write for single write transactions.</p></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Do not confuse eMMC partitions with partitions of a DOS, MBR, or GPT
 partition table (see the previous section).</p>
 </div>
-<p>The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-i.MX 8M Nano SoMs. To check this on the running target:</p>
+<p>The first Reliable Write option is mostly already enabled on the eMMCs mounted
+on the phyCORE-i.MX 8M Nano SoMs. To check this on the running target:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc extcsd read /dev/mmcblk2 | grep -A 5 WR_REL_SET
 Write reliability setting register [WR_REL_SET]: 0x1f
- user area: the device protects existing data if a power failure occurs during a write o
+ user area: the device protects existing data if a power failure occurs during a write o
 peration
- partition 1: the device protects existing data if a power failure occurs during a write
- operation
- partition 2: the device protects existing data if a power failure occurs during a write
- operation
- partition 3: the device protects existing data if a power failure occurs during a write
- operation
- partition 4: the device protects existing data if a power failure occurs during a write
- operation
+ partition 1: the device protects existing data if a power failure occurs during a write
+ operation
+ partition 2: the device protects existing data if a power failure occurs during a write
+ operation
+ partition 3: the device protects existing data if a power failure occurs during a write
+ operation
+ partition 4: the device protects existing data if a power failure occurs during a write
+ operation
 --
- Device supports writing EXT_CSD_WR_REL_SET
- Device supports the enhanced def. of reliable write
+ Device supports writing EXT_CSD_WR_REL_SET
+ Device supports the enhanced def. of reliable write
 </pre></div>
 </div>
-<p>Otherwise, it can be enabled with the mmc tool:</p>
+<p>Otherwise, it can be enabled with the mmc tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc --help
 
 [...]
 mmc write_reliability set &lt;-y|-n&gt; &lt;partition&gt; &lt;device&gt;
 </pre></div>
 </div>
-<p>The second Reliable Write option is the configuration bit Reliable Write Request
-parameter (bit 31) in command CMD23. It has been used in the kernel
-since v3.0 by file systems, e.g. ext4 for the journal and user space
-applications such as fdisk for the partition table. In the Linux kernel source
-code, it is handled via the flag REQ_META.</p>
-<p><strong>Conclusion</strong>: ext4 file system with mount option data=journal should be safe
+<p>The second Reliable Write option is the configuration bit Reliable Write Request
+parameter (bit 31) in command CMD23. It has been used in the kernel
+since v3.0 by file systems, e.g. ext4 for the journal and user space
+applications such as fdisk for the partition table. In the Linux kernel source
+code, it is handled via the flag REQ_META.</p>
+<p><strong>Conclusion</strong>: ext4 file system with mount option data=journal should be safe
 against power cuts. The file system check can recover the file system after a
 power failure, but data that was written just before the power cut may be lost.
 In any case, a consistent state of the file system can be recovered. To ensure
-data consistency for the files of an application, the system functions fdatasync
-or fsync should be used in the application.</p>
+data consistency for the files of an application, the system functions fdatasync
+or fsync should be used in the application.</p>
 </section>
 <section id="resizing-ext4-root-filesystem">
 <h3><span class="section-number">7.5.4. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#resizing-ext4-root-filesystem" title="Permalink to this heading"></a></h3>
@@ -2406,8 +2406,8 @@ Partition Table: msdos
 Disk Flags:
 
 Number  Start   End     Size    Type     File system  Flags
- 1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
- 2      72.4MB  537MB   465MB   primary  ext4
+ 1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+ 2      72.4MB  537MB   465MB   primary  ext4
 </pre></div>
 </div>
 <ul class="simple">
@@ -2425,8 +2425,8 @@ Partition Table: msdos
 Disk Flags:
 
 Number  Start   End     Size    Type     File system  Flags
- 1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
- 2      72.4MB  7617MB  7545MB  primary  ext4
+ 1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+ 2      72.4MB  7617MB  7545MB  primary  ext4
 </pre></div>
 </div>
 <p>Increasing the filesystem size can be done while it is mounted.  But you can
@@ -2453,17 +2453,17 @@ The filesystem on /dev/mmcblk2p2 is now 7367680 (1k) blocks long
 with SLC memory cells used in NAND Flash, MLC memory cells have lower
 reliability and a higher error rate at lower costs.</p>
 <p>If you prefer reliability over storage capacity, you can enable
-the pseudo-SLC mode or SLC mode. The method used here employs the enhanced
+the pseudo-SLC mode or SLC mode. The method used here employs the enhanced
 attribute, described in the JEDEC standard, which can be set for continuous
 regions of the device. The JEDEC standard does not specify the implementation
-details and the guarantees of the enhanced attribute. This is left to the
-chipmaker. For the Micron chips, the enhanced attribute increases the
+details and the guarantees of the enhanced attribute. This is left to the
+chipmaker. For the Micron chips, the enhanced attribute increases the
 reliability but also halves the capacity.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When enabling the enhanced attribute on the device, all data will be lost.</p>
+<p>When enabling the enhanced attribute on the device, all data will be lost.</p>
 </div>
-<p>The following sequence shows how to enable the enhanced attribute.</p>
+<p>The following sequence shows how to enable the enhanced attribute.</p>
 <ul class="simple">
 <li><p>First obtain the current size of the eMMC device with:</p></li>
 </ul>
@@ -2475,9 +2475,9 @@ reliability but also halves the capacity.</p>
 /dev/mmcblk2:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
 </pre></div>
 </div>
-<p>As you can see this device has 63652757504 Byte = 60704 MiB.</p>
+<p>As you can see this device has 63652757504 Byte = 60704 MiB.</p>
 <ul class="simple">
-<li><p>To get the maximum size of the device after pseudo-SLC is enabled use:</p></li>
+<li><p>To get the maximum size of the device after pseudo-SLC is enabled use:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT -A 1
 </pre></div>
@@ -2492,7 +2492,7 @@ i.e. 0 KiB
 </div>
 <p>Here the maximum size is 3719168 KiB = 3632 MiB.</p>
 <ul class="simple">
-<li><p>Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB, by
+<li><p>Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB, by
 typing:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ mmc enh_area set -y 0 3719168 /dev/mmcblk2
@@ -2512,7 +2512,7 @@ Confirm that PARTITION_SETTING_COMPLETED bit is set using &#39;extcsd read&#39; 
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ poweroff
 </pre></div>
 </div>
-<p>and perform a power cycle. It is recommended that you verify the settings now.</p>
+<p>and perform a power cycle. It is recommended that you verify the settings now.</p>
 <ul class="simple">
 <li><p>First, check the value of ENH_SIZE_MULT which must be 3719168 KiB:</p></li>
 </ul>
@@ -2540,7 +2540,7 @@ BYT;
 <h3><span class="section-number">7.5.6. </span>Erasing the Device<a class="headerlink" href="#erasing-the-device" title="Permalink to this heading"></a></h3>
 <p>It is possible to erase the eMMC device directly rather than overwriting it with
 zeros. The eMMC block management algorithm will erase the underlying MLC memory
-cells or mark these blocks as discard. The data on the device is lost and will
+cells or mark these blocks as discard. The data on the device is lost and will
 be read back as zeros.</p>
 <ul class="simple">
 <li><p>After booting from SD Card execute:</p></li>
@@ -2548,8 +2548,8 @@ be read back as zeros.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ blkdiscard -f --secure /dev/mmcblk2
 </pre></div>
 </div>
-<p>The option –secure ensures that the command waits until the eMMC device has
-erased all blocks. The -f  (force) option disables all checking before erasing
+<p>The option –secure ensures that the command waits until the eMMC device has
+erased all blocks. The -f (force) option disables all checking before erasing
 and it is needed when the eMMC device contains existing partitions with data.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2585,8 +2585,8 @@ in the BSP is set to:</p>
 </pre></div>
 </div>
 <p>This is a bootloader environment variable that is defined here and can be
-changed during runtime. From Linux userspace, the NOR Flash partitions are
-accessible via /dev/mtd&lt;N&gt; devices where &lt;N&gt; is the MTD device number associated
+changed during runtime. From Linux userspace, the NOR Flash partitions are
+accessible via /dev/mtd&lt;N&gt; devices where &lt;N&gt; is the MTD device number associated
 with the NOR flash partition to access. To find the correct MTD device number
 for a partition, run on the target:</p>
 <pre class="literal-block">root&#64;phyboard-polis-imx8mn-2:~# mtdinfo --all
@@ -2637,11 +2637,11 @@ Sub-page size:                  1 byte
 Character device major/minor:   90:6
 Bad blocks are allowed:         false
 Device is writable:             true</pre>
-<p>It lists all MTD devices and the corresponding partition names. The flash node
+<p>It lists all MTD devices and the corresponding partition names. The flash node
 is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
-<p>The definition of the SPI master node in the device tree can be found here:</p>
+<p>The definition of the SPI master node in the device tree can be found here:</p>
 <p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75</a></p>
 </section>
 </section>
@@ -2651,17 +2651,17 @@ SPI NOR Flash.</p>
 connected directly to i.MX 8M Nano pins and are muxed as GPIOs. They are directly
 usable in Linux userspace. The processor has organized its GPIOs into five banks
 of 32 GPIOs each (GPIO1 – GPIO5)
-GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
-the sysfs representation of these internal i.MX 8M Nano GPIO banks GPIO1 – GPIO5.</p>
+GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
+the sysfs representation of these internal i.MX 8M Nano GPIO banks GPIO1 – GPIO5.</p>
 <p>The GPIOs are identified as GPIO&lt;X&gt;_&lt;Y&gt; (e.g. GPIO5_07). &lt;X&gt; identifies the GPIO
 bank and counts from 1 to 5, while &lt;Y&gt; stands for the GPIO within the bank. &lt;Y&gt;
 is being counted from 0 to 31 (32 GPIOs on each bank).</p>
-<p>By contrast, the Linux kernel uses a single integer to enumerate all available
+<p>By contrast, the Linux kernel uses a single integer to enumerate all available
 GPIOs in the system. The formula to calculate the right number is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Linux GPIO number: &lt;N&gt; = (&lt;X&gt; - 1) * 32 + &lt;Y&gt;
 </pre></div>
 </div>
-<p>Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+<p>Accessing GPIOs from userspace will be done using the libgpiod. It provides a
 library and tools for interacting with the Linux GPIO character device. Examples
 of some usages of various tools:</p>
 <ul class="simple">
@@ -2695,27 +2695,27 @@ direction, active state, and additional flags:</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Help text of gpioset shows possible options:</p></li>
+<li><p>Help text of gpioset shows possible options:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ gpioset --help
 Usage: gpioset [OPTIONS] &lt;chip name/number&gt; &lt;offset1&gt;=&lt;value1&gt; &lt;offset2&gt;=&lt;value2&gt; ...
 Set GPIO line values of a GPIO chip
 
 Options:
-  -h, --help:           display this message and exit
-  -v, --version:        display the version and exit
-  -l, --active-low:     set the line active state to low
-  -m, --mode=[exit|wait|time|signal] (defaults to &#39;exit&#39;):
-                tell the program what to do after setting values
-  -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
-  -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
-  -b, --background:     after setting values: detach from the controlling terminal
+  -h, --help:           display this message and exit
+  -v, --version:        display the version and exit
+  -l, --active-low:     set the line active state to low
+  -m, --mode=[exit|wait|time|signal] (defaults to &#39;exit&#39;):
+                tell the program what to do after setting values
+  -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
+  -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
+  -b, --background:     after setting values: detach from the controlling terminal
 
 Modes:
-  exit:         set values and exit immediately
-  wait:         set values and wait for user to press ENTER
-  time:         set values and sleep for a specified amount of time
-  signal:       set values and wait for SIGINT or SIGTERM
+  exit:         set values and exit immediately
+  wait:         set values and wait for user to press ENTER
+  time:         set values and sleep for a specified amount of time
+  signal:       set values and wait for SIGINT or SIGTERM
 
 Note: the state of a GPIO line controlled over the character device reverts to default
 when the last process referencing the file descriptor representing the device file exits.
@@ -2732,11 +2732,11 @@ is not already in use.</p>
 </div>
 <p>Pinmuxing of some GPIO pins in the device tree imx8mn-phyboard-polis-rdk.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_leds: leds1grp {
-        fsl,pins = &lt;
-                MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
-                MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
-                MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
-        &gt;;
+        fsl,pins = &lt;
+                MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+        &gt;;
 };
 </pre></div>
 </div>
@@ -2745,10 +2745,10 @@ is not already in use.</p>
 <h2><span class="section-number">7.8. </span>LEDs<a class="headerlink" href="#leds" title="Permalink to this heading"></a></h2>
 <p>If any LEDs are connected to GPIOs, you have the possibility to access them by a
 special LED driver interface instead of the general GPIO interface (section
-GPIOs). You will then access them using /sys/class/leds/ instead
-of /sys/class/gpio/. The maximum brightness of the LEDs can be read from
-the max_brightness file. The brightness file will set the brightness of the LED
-(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
+GPIOs). You will then access them using /sys/class/leds/ instead
+of /sys/class/gpio/. The maximum brightness of the LEDs can be read from
+the max_brightness file. The brightness file will set the brightness of the LED
+(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
 brightness support and will just be turned on by all non-zero brightness
 settings.</p>
 <p>Below is a simple example.</p>
@@ -2795,7 +2795,7 @@ the SoM is also used for board detection.</p>
 <section id="i2c-eeprom-on-som">
 <h3><span class="section-number">7.10.1. </span>I2C EEPROM on phyCORE-i.MX8MM<a class="headerlink" href="#i2c-eeprom-on-som" title="Permalink to this heading"></a></h3>
 <p>The I2C EEPROM on the phyCORE-i.MX8MM SoM is connected to I2C address 0x51 on the I2C-0
-bus. It is possible to read and write directly to the device populated:</p>
+bus. It is possible to read and write directly to the device populated:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>hexdump -c /sys/class/i2c-dev/i2c-0/device/0-0051/eeprom
 </pre></div>
 </div>
@@ -2855,7 +2855,7 @@ Trying to boot from MMC1
 <h3><span class="section-number">7.10.3. </span>Rescue EEPROM Data<a class="headerlink" href="#rescue-eeprom-data" title="Permalink to this heading"></a></h3>
 <p>The hardware introspection data is pre-written on both EEPROM data spaces. If
 you have accidentally deleted or overwritten the normal area, you can copy the
-hardware introspection from the ID area to the normal area. :</p>
+hardware introspection from the ID area to the normal area.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
 </pre></div>
 </div>
@@ -2870,7 +2870,7 @@ found in our PHYTEC git:
 </section>
 <section id="rtc">
 <h2><span class="section-number">7.11. </span>RTC<a class="headerlink" href="#rtc" title="Permalink to this heading"></a></h2>
-<p>RTCs can be accessed via /dev/rtc*. Because PHYTEC boards have often more than
+<p>RTCs can be accessed via /dev/rtc*. Because PHYTEC boards have often more than
 one RTC, there might be more than one RTC device file.</p>
 <ul class="simple">
 <li><p>To find the name of the RTC device, you can read its sysfs entry with:</p></li>
@@ -2887,10 +2887,10 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
+<p>This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
 IDs based on the device tree/aliases entries if present.</p>
 </div>
-<p>Date and time can be manipulated with the hwclock tool and the date command. To
+<p>Date and time can be manipulated with the hwclock tool and the date command. To
 show the current date and time set on the target:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ date
 Thu Jan  1 00:01:26 UTC 1970
@@ -2904,14 +2904,14 @@ Wed Mar  2 10:15:00 UTC 2022
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
-we need to use the hwclock command. Write the current date and time (set with
+we need to use the hwclock command. Write the current date and time (set with
 the date command) to the RTC using the hwclock tool and reboot the target to
 check if the changes were applied to the RTC:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock -w
 target$ reboot
-    .
-    .
-    .
+    .
+    .
+    .
 target$ date
 Wed Mar  2 10:34:06 UTC 2022
 </pre></div>
@@ -2953,16 +2953,16 @@ transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
 To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.</p>
 <p>The unified BSP includes support for mass storage devices and keyboards. Other
 USB-related device drivers must be enabled in the kernel configuration on
-demand. Due to udev, all mass storage devices connected get unique IDs and can
-be found in /dev/disk/by-id. These IDs can be used in /etc/fstab to mount the
+demand. Due to udev, all mass storage devices connected get unique IDs and can
+be found in /dev/disk/by-id. These IDs can be used in /etc/fstab to mount the
 different USB memory devices in different ways.</p>
-<p>User USB2 (host) configuration is in the kernel device tree
+<p>User USB2 (host) configuration is in the kernel device tree
 imx8mn.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;usbotg2 {
-        dr_mode = &quot;host&quot;;
-        picophy,pre-emp-curr-control = &lt;3&gt;;
-        picophy,dc-vol-level-adjust = &lt;7&gt;;
-        status = &quot;okay&quot;;
+        dr_mode = &quot;host&quot;;
+        picophy,pre-emp-curr-control = &lt;3&gt;;
+        picophy,dc-vol-level-adjust = &lt;7&gt;;
+        status = &quot;okay&quot;;
 };
 </pre></div>
 </div>
@@ -2972,13 +2972,13 @@ imx8mn.dtsi:</p>
 <p>Most PHYTEC boards provide a USB OTG interface. USB OTG ports automatically act
 as a USB device or USB host. The mode depends on the USB hardware attached to
 the USB OTG port. If, for example, a USB mass storage device is attached to the
-USB OTG port, the device will show up as /dev/sda.</p>
+USB OTG port, the device will show up as /dev/sda.</p>
 <section id="usb-device">
 <h3><span class="section-number">7.13.1. </span>USB Device<a class="headerlink" href="#usb-device" title="Permalink to this heading"></a></h3>
 <p>In order to connect the board’s USB device to a USB host port (for example a
-PC), you need to configure the appropriate USB gadget. With USB configfs you can
+PC), you need to configure the appropriate USB gadget. With USB configfs you can
 define the parameters and functions of the USB gadget. The BSP includes
-USB configfs support as a kernel module.</p>
+USB configfs support as a kernel module.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ modprobe libcomposite
 </pre></div>
 </div>
@@ -3061,11 +3061,11 @@ imx8mm-phyboard-polis.dtsi. See:
 <section id="can-fd">
 <h2><span class="section-number">7.14. </span>CAN FD<a class="headerlink" href="#can-fd" title="Permalink to this heading"></a></h2>
 <p>The phyBOARD-Polis two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
-Using this framework, the CAN interfaces behave like an ordinary Linux network
+Linux standard CAN framework which builds upon then the Linux network layer.
+Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
-documentation:  <a class="reference external" href="https://www.kernel.org/doc/html/latest/networking/can.html">https://www.kernel.org/doc/html/latest/networking/can.html</a></p>
+documentation: <a class="reference external" href="https://www.kernel.org/doc/html/latest/networking/can.html">https://www.kernel.org/doc/html/latest/networking/can.html</a></p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>phyBOARD-Polis has an external CANFD chip MCP2518FD connected over SPI.
@@ -3086,26 +3086,26 @@ S5 to ON if required.</p>
 <p>to see the state of the interfaces. The two CAN interfaces should show up as
 can0 and can1.</p>
 <ul class="simple">
-<li><p>To get information on can0, such as bit rate and error counters, type:</p></li>
+<li><p>To get information on can0, such as bit rate and error counters, type:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ ip -d -s link show can0
 </pre></div>
 </div>
-<p>The information for can0 will look like:</p>
+<p>The information for can0 will look like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2: can0: &lt;NOARP,UP,LOWER_UP,ECHO&gt; mtu 16 qdisc pfifo_fast state UNKNOWN mode DEFAULT group default qlen 10
-    link/can  promiscuity 0 minmtu 0 maxmtu 0
-    can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
-          bitrate 500000 sample-point 0.875
-          tq 50 prop-seg 17 phase-seg1 17 phase-seg2 5 sjw 1
-          mcp25xxfd: tseg1 2..256 tseg2 1..128 sjw 1..128 brp 1..256 brp-inc 1
-          mcp25xxfd: dtseg1 1..32 dtseg2 1..16 dsjw 1..16 dbrp 1..256 dbrp-inc 1
-          clock 20000000
-          re-started bus-errors arbit-lost error-warn error-pass bus-off
-          0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
-    RX: bytes  packets  errors  dropped overrun mcast
-    0          0        0       0       0       0
-    TX: bytes  packets  errors  dropped carrier collsns
-    0          0        0       0       0       0
+    link/can  promiscuity 0 minmtu 0 maxmtu 0
+    can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+          bitrate 500000 sample-point 0.875
+          tq 50 prop-seg 17 phase-seg1 17 phase-seg2 5 sjw 1
+          mcp25xxfd: tseg1 2..256 tseg2 1..128 sjw 1..128 brp 1..256 brp-inc 1
+          mcp25xxfd: dtseg1 1..32 dtseg2 1..16 dsjw 1..16 dbrp 1..256 dbrp-inc 1
+          clock 20000000
+          re-started bus-errors arbit-lost error-warn error-pass bus-off
+          0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+    RX: bytes  packets  errors  dropped overrun mcast
+    0          0        0       0       0       0
+    TX: bytes  packets  errors  dropped carrier collsns
+    0          0        0       0       0       0
 </pre></div>
 </div>
 <p>The output contains a standard set of parameters also shown for Ethernet
@@ -3141,10 +3141,10 @@ the MAC address). The following output parameters contain useful information:</p
 </tr>
 </tbody>
 </table>
-<p>The CAN configuration is done in the systemd configuration
-file /lib/systemd/network/can0.network. For a persistent change of (as an
+<p>The CAN configuration is done in the systemd configuration
+file /lib/systemd/network/can0.network. For a persistent change of (as an
 example, the default bitrates), change the configuration in the BSP
-under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
+under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
 the root filesystem and rebuild the root filesystem.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Match]
 Name=can0
@@ -3159,7 +3159,7 @@ flexible bitrate:</p>
 target$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
 </pre></div>
 </div>
-<p>You can send messages with cansend or receive messages with candump:</p>
+<p>You can send messages with cansend or receive messages with candump:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ cansend can0 123#45.67
 target$ candump can0
 </pre></div>
@@ -3168,7 +3168,7 @@ target$ candump can0
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ cangen
 </pre></div>
 </div>
-<p>cansend –help and candump –help provide help messages for further information
+<p>cansend –help and candump –help provide help messages for further information
 on options and usage.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3186,7 +3186,7 @@ Slower rates can be selected but may not work correctly.</p>
 This is used to save power when the full performance of the CPU is not needed.
 Scaling the frequency and the voltage is referred to as ‘Dynamic Voltage and
 Frequency Scaling’ (DVFS). The i.MX 8M Nano BSP supports the DVFS feature.
-The Linux kernel provides a DVFS framework that allows each CPU core to have a
+The Linux kernel provides a DVFS framework that allows each CPU core to have a
 min/max frequency and a governor that governs it. Depending on the i.MX 8
 variant used, several different frequencies are supported.</p>
 <div class="admonition tip">
@@ -3229,15 +3229,15 @@ accordance with their goals.</p>
 </pre></div>
 </div>
 <ul>
-<li><p><strong>conservative</strong> is much like the ondemand governor. It differs in behavior in
+<li><p><strong>conservative</strong> is much like the ondemand governor. It differs in behavior in
 that it gracefully increases and decreases the CPU speed rather than jumping
 to max speed the moment there is any load on the CPU.</p></li>
-<li><p><strong>ondemand</strong> (default) switches between possible CPU core frequencies in
+<li><p><strong>ondemand</strong> (default) switches between possible CPU core frequencies in
 reference to the current system load. When the system load increases above a
 specific limit, it increases the CPU core frequency immediately.</p></li>
-<li><p><strong>powersave</strong> always selects the lowest possible CPU core frequency.</p></li>
-<li><p><strong>performance</strong> always selects the highest possible CPU core frequency.</p></li>
-<li><p><strong>userspace</strong> allows the user or userspace program running as root to set a
+<li><p><strong>powersave</strong> always selects the lowest possible CPU core frequency.</p></li>
+<li><p><strong>performance</strong> always selects the highest possible CPU core frequency.</p></li>
+<li><p><strong>userspace</strong> allows the user or userspace program running as root to set a
 specific frequency (e.g. to 1600000). Type:</p></li>
 <li><p>In order to ask for the current governor, type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -3250,7 +3250,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 </pre></div>
 </div>
 <ul>
-<li><p>Switching over to another governor (e.g. userspace) is done with:</p>
+<li><p>Switching over to another governor (e.g. userspace) is done with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo userspace &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 </pre></div>
 </div>
@@ -3261,7 +3261,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 </div>
 </li>
 </ul>
-<p>For more detailed information about the governors, refer to the Linux kernel
+<p>For more detailed information about the governors, refer to the Linux kernel
 documentation in linux/Documentation/cpu-freq/governors.txt.</p>
 </section>
 <section id="cpu-core-management">
@@ -3281,7 +3281,7 @@ example, has 4 ARM Cores which can be turned on and off individually at runtime.
 </div>
 </li>
 </ul>
-<p>Here the system has four processor cores. By default, all available cores in the
+<p>Here the system has four processor cores. By default, all available cores in the
 system are enabled to get maximum performance.</p>
 <ul>
 <li><p>To switch off a single-core, execute:</p>
@@ -3296,7 +3296,7 @@ system are enabled to get maximum performance.</p>
 </div>
 <p>Now the core is powered down and no more processes are scheduled on this core.</p>
 <ul>
-<li><p>You can use top to see a graphical overview of the cores and processes:</p>
+<li><p>You can use top to see a graphical overview of the cores and processes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ htop
 </pre></div>
 </div>
@@ -3311,7 +3311,7 @@ system are enabled to get maximum performance.</p>
 <section id="suspend-to-ram">
 <h3><span class="section-number">7.15.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Permalink to this heading"></a></h3>
 <p>The phyCORE-i.MX8MM supports basic suspend and resume. Different wake-up sources can be
-used. Suspend/resume is possible with:</p>
+used. Suspend/resume is possible with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ echo mem &gt; /sys/power/state
 #resume with pressing reset button
 </pre></div>
@@ -3337,7 +3337,7 @@ the boot log:</p>
 </section>
 <section id="kernel">
 <h3><span class="section-number">7.16.2. </span>Kernel<a class="headerlink" href="#kernel" title="Permalink to this heading"></a></h3>
-<p>The Linux kernel has integrated thermal management that is capable of monitoring
+<p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
 down the system gracefully
@@ -3357,7 +3357,7 @@ SoC.</p>
 </div>
 </li>
 </ul>
-<p>There are two trip points registered by the imx_thermal kernel driver. These
+<p>There are two trip points registered by the imx_thermal kernel driver. These
 differ depending on the CPU variant. A distinction is made between Industrial
 and Commercial.</p>
 <table class="docutils align-default">
@@ -3378,14 +3378,14 @@ and Commercial.</p>
 </tr>
 </tbody>
 </table>
-<p>(see kernel sysfs folder /sys/class/thermal/thermal_zone0/)</p>
+<p>(see kernel sysfs folder /sys/class/thermal/thermal_zone0/)</p>
 <p>The kernel thermal management uses these trip points to trigger events and
-change the cooling behavior. The following thermal policies (also named thermal
-governors) are available in the kernel: Step Wise, Fair Share, Bang Bang, and
-Userspace. The default policy used in the BSP is step_wise.  If the value of the
-SoC temperature in the sysfs file temp is above trip_point_0, the CPU frequency
+change the cooling behavior. The following thermal policies (also named thermal
+governors) are available in the kernel: Step Wise, Fair Share, Bang Bang, and
+Userspace. The default policy used in the BSP is step_wise. If the value of the
+SoC temperature in the sysfs file temp is above trip_point_0, the CPU frequency
 is set to the lowest CPU frequency. When the SoC temperature drops below
-trip_point_0 again, the throttling is released.</p>
+trip_point_0 again, the throttling is released.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The actual values of the thermal trip points may differ since we mount CPUs
@@ -3426,7 +3426,7 @@ Linux using systemd to check for system hangs and during reboot.</p>
 <h3><span class="section-number">7.17.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Permalink to this heading"></a></h3>
 <p>Systemd has included hardware watchdog support since version 183.</p>
 <ul>
-<li><p>To activate watchdog support, the file system.conf in /etc/systemd/ has to be
+<li><p>To activate watchdog support, the file system.conf in /etc/systemd/ has to be
 adapted by enabling the options:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RuntimeWatchdogSec=60s
 ShutdownWatchdogSec=10min
@@ -3434,10 +3434,10 @@ ShutdownWatchdogSec=10min
 </div>
 </li>
 </ul>
-<p>RuntimeWatchdogSec defines the timeout value of the watchdog,
-while ShutdownWatchdogSec defines the timeout when the system is rebooted. For
-more detailed information about hardware watchdogs under systemd can be found at
-<a class="reference external" href="http://0pointer.de/blog/projects/watchdog.html">http://0pointer.de/blog/projects/watchdog.html</a>. The changes will take effect
+<p>RuntimeWatchdogSec defines the timeout value of the watchdog,
+while ShutdownWatchdogSec defines the timeout when the system is rebooted. For
+more detailed information about hardware watchdogs under systemd can be found at
+<a class="reference external" href="http://0pointer.de/blog/projects/watchdog.html">http://0pointer.de/blog/projects/watchdog.html</a>. The changes will take effect
 after a reboot or run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$  systemctl daemon-reload
 </pre></div>
