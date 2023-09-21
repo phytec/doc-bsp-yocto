@@ -23,8 +23,8 @@ one RTC, there might be more than one RTC device file.
    This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
    IDs based on the device tree/aliases entries if present.
 
-Date and time can be manipulated with the hwclock tool and the date command. To
-show the current date and time set on the target::
+Date and time can be manipulated with the ``hwclock`` tool and the date command.
+To show the current date and time set on the target::
 
    target$ date
    Thu Jan  1 00:01:26 UTC 1970
@@ -37,9 +37,9 @@ with the following syntax "YYYYMMDDHHMM"::
 
 Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
-we need to use the hwclock command. Write the current date and time (set with
-the date command) to the RTC using the hwclock tool and reboot the target to
-check if the changes were applied to the RTC::
+we need to use the ``hwclock`` command. Write the current date and time (set
+with the date command) to the RTC using the ``hwclock`` tool and reboot the
+target to check if the changes were applied to the RTC::
 
    target$ hwclock -w
    target$ reboot
@@ -72,3 +72,52 @@ to ram state, type::
 
    Internally the wake alarm time will be rounded up to the next minute since
    the alarm function doesn't support seconds.
+
+.. rtc_parameter_start_label
+
+RTC Parameters
+..............
+
+RTCs have a few abilities which can be read/set with the help of ``hwclock``
+tool.
+
+*  We can check RTC supported features with::
+
+      target$ hwclock --param-get features
+      The RTC parameter 0x0 is set to 0x11.
+
+   What this value means is encoded in kernel, each set bit translates to::
+
+      #define RTC_FEATURE_ALARM              0
+      #define RTC_FEATURE_ALARM_RES_MINUTE   1
+      #define RTC_FEATURE_NEED_WEEK_DAY      2
+      #define RTC_FEATURE_ALARM_RES_2S       3
+      #define RTC_FEATURE_UPDATE_INTERRUPT   4
+      #define RTC_FEATURE_CORRECTION         5
+      #define RTC_FEATURE_BACKUP_SWITCH_MODE 6
+      #define RTC_FEATURE_CNT                7
+
+*  We can check RTC BSM (Backup Switchover Mode) with::
+
+      target$ hwclock --param-get bsm
+      The RTC parameter 0x2 is set to 0x1.
+
+*  We can set RTC BSM with::
+
+      target$ hwclock --param-set bsm=0x2
+      The RTC parameter 0x2 will be set to 0x2.
+
+   What BSM values mean translates to these values::
+
+      #define RTC_BSM_DISABLED   0
+      #define RTC_BSM_DIRECT     1
+      #define RTC_BSM_LEVEL      2
+      #define RTC_BSM_STANDBY    3
+
+.. tip::
+   You should set BSM mode to DSM or LSM for RTC to switch to backup power
+   source when the initial power source is not available. Check **RV-3028** RTC
+   datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
+   Mode) actually mean.
+
+.. rtc_parameter_end_label
