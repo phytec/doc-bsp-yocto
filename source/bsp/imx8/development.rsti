@@ -379,6 +379,8 @@ Or you can download the files here: |link-boot-tools|
 Build U-Boot
 ~~~~~~~~~~~~
 
+.. build-uboot-marker
+
 *  Get the U-Boot sources:
 
 ::
