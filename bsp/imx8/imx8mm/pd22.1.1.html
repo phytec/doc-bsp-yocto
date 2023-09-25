@@ -2874,8 +2874,8 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 <p>This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
 IDs based on the device tree/aliases entries if present.</p>
 </div>
-<p>Date and time can be manipulated with the hwclock tool and the date command. To
-show the current date and time set on the target:</p>
+<p>Date and time can be manipulated with the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> tool and the date command.
+To show the current date and time set on the target:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ date
 Thu Jan  1 00:01:26 UTC 1970
 </pre></div>
@@ -2888,9 +2888,9 @@ Wed Mar  2 10:15:00 UTC 2022
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
-we need to use the hwclock command. Write the current date and time (set with
-the date command) to the RTC using the hwclock tool and reboot the target to
-check if the changes were applied to the RTC:</p>
+we need to use the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> command. Write the current date and time (set
+with the date command) to the RTC using the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> tool and reboot the
+target to check if the changes were applied to the RTC:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock -w
 target$ reboot
     .

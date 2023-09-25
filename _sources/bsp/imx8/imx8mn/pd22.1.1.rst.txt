@@ -335,6 +335,7 @@ found in our PHYTEC git:
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248`
 
 .. include:: /bsp/peripherals/rtc.rsti
+   :end-before: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254`

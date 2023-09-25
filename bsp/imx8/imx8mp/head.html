@@ -2917,8 +2917,8 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 <p>This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
 IDs based on the device tree/aliases entries if present.</p>
 </div>
-<p>Date and time can be manipulated with the hwclock tool and the date command. To
-show the current date and time set on the target:</p>
+<p>Date and time can be manipulated with the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> tool and the date command.
+To show the current date and time set on the target:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ date
 Thu Jan  1 00:01:26 UTC 1970
 </pre></div>
@@ -2931,9 +2931,9 @@ Wed Mar  2 10:15:00 UTC 2022
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
-we need to use the hwclock command. Write the current date and time (set with
-the date command) to the RTC using the hwclock tool and reboot the target to
-check if the changes were applied to the RTC:</p>
+we need to use the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> command. Write the current date and time (set
+with the date command) to the RTC using the <code class="docutils literal notranslate"><span class="pre">hwclock</span></code> tool and reboot the
+target to check if the changes were applied to the RTC:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock -w
 target$ reboot
     .
@@ -2965,6 +2965,56 @@ target$ echo mem &gt; /sys/power/state
 <p class="admonition-title">Note</p>
 <p>Internally the wake alarm time will be rounded up to the next minute since
 the alarm function doesn’t support seconds.</p>
+</div>
+</section>
+<section id="rtc-parameters">
+<h3><span class="section-number">7.11.2. </span>RTC Parameters<a class="headerlink" href="#rtc-parameters" title="Permalink to this heading"></a></h3>
+<p>RTCs have a few abilities which can be read/set with the help of <code class="docutils literal notranslate"><span class="pre">hwclock</span></code>
+tool.</p>
+<ul>
+<li><p>We can check RTC supported features with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock --param-get features
+The RTC parameter 0x0 is set to 0x11.
+</pre></div>
+</div>
+<p>What this value means is encoded in kernel, each set bit translates to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define RTC_FEATURE_ALARM              0
+#define RTC_FEATURE_ALARM_RES_MINUTE   1
+#define RTC_FEATURE_NEED_WEEK_DAY      2
+#define RTC_FEATURE_ALARM_RES_2S       3
+#define RTC_FEATURE_UPDATE_INTERRUPT   4
+#define RTC_FEATURE_CORRECTION         5
+#define RTC_FEATURE_BACKUP_SWITCH_MODE 6
+#define RTC_FEATURE_CNT                7
+</pre></div>
+</div>
+</li>
+<li><p>We can check RTC BSM (Backup Switchover Mode) with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock --param-get bsm
+The RTC parameter 0x2 is set to 0x1.
+</pre></div>
+</div>
+</li>
+<li><p>We can set RTC BSM with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ hwclock --param-set bsm=0x2
+The RTC parameter 0x2 will be set to 0x2.
+</pre></div>
+</div>
+<p>What BSM values mean translates to these values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define RTC_BSM_DISABLED   0
+#define RTC_BSM_DIRECT     1
+#define RTC_BSM_LEVEL      2
+#define RTC_BSM_STANDBY    3
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You should set BSM mode to DSM or LSM for RTC to switch to backup power
+source when the initial power source is not available. Check <strong>RV-3028</strong> RTC
+datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
+Mode) actually mean.</p>
 </div>
 <p>DT representation for I²C RTCs:
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207</a></p>
