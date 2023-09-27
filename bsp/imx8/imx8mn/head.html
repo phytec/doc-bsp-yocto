@@ -964,10 +964,9 @@ bootloader to the flash:</p></li>
 </ul>
 <blockquote>
 <div><pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
-u-boot=&gt; sf erase 0 0x400000
-SF: 4194304 bytes &#64; 0x0 Erased: OK u-boot=&gt; sf write ${loadaddr} 0 0x400000
-u-boot=&gt; sf write ${loadaddr} 0x400000
-SF: 4194304 bytes &#64; 0x0 Written: OK</pre>
+u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
+device 0 offset 0x0, size 0x1c0b20
+1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s</pre>
 </div></blockquote>
 <ul class="simple">
 <li><p>Erase the environment partition as well. This way, the environment can be
@@ -1034,8 +1033,7 @@ the bootloader to the flash:</p></li>
 </ul>
 <pre class="literal-block">u-boot=&gt; mmc dev 1
 u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
-u-boot=&gt; sf erase 0 0x400000
-u-boot=&gt; sf write ${loadaddr} 0 0x400000</pre>
+u-boot=&gt; sf update ${loadaddr} 0 ${filesize}</pre>
 <ul class="simple">
 <li><p>Erase the environment partition as well. This way, the environment can be
 written after booting from SPI NOR flash:</p></li>
