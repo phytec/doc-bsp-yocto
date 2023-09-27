@@ -385,10 +385,9 @@ writing is possible, the SPI-NOR flash needs to be probed:
  .. parsed-literal::
 
    u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-   u-boot=> sf erase 0 0x400000
-   SF: 4194304 bytes @ 0x0 Erased: OK u-boot=> sf write ${loadaddr} 0 0x400000
-   u-boot=> sf write ${loadaddr} 0x400000
-   SF: 4194304 bytes @ 0x0 Written: OK
+   u-boot=> sf update ${loadaddr} 0 ${filesize}
+   device 0 offset 0x0, size 0x1c0b20
+   1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
 
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
@@ -461,8 +460,7 @@ Flash SPI NOR from SD Card in u-boot on Target
 
    u-boot=> mmc dev 1
    u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-   u-boot=> sf erase 0 0x400000
-   u-boot=> sf write ${loadaddr} 0 0x400000
+   u-boot=> sf update ${loadaddr} 0 ${filesize}
 
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
