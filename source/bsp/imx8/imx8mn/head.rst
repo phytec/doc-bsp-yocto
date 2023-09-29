@@ -51,7 +51,7 @@
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: hardknott
+.. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-headless-image
 .. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
