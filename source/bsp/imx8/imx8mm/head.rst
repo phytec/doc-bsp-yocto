@@ -48,6 +48,7 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53`
 
 .. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: hardknott
