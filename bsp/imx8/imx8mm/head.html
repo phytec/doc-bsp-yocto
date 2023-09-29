@@ -1419,6 +1419,18 @@ mentioned here: <a class="reference internal" href="#imx8mm-head-images"><span c
 </section>
 <section id="build-u-boot">
 <h4><span class="section-number">5.3.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Permalink to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The regulator for the SD card reset pin has been disabled to ensure
+compatibility with 1532.1 revision baseboards. If you have a revision
+1532.2(a) or higher baseboard, you may enable the device tree nodes for
+highest performance. In the imx8mm-phyboard-polis-rdk-u-boot.dtsi file,
+remove the following lines:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/delete-node/ &amp;reg_usdhc2_vmmc;
+/delete-property/ vmmc-supply;
+</pre></div>
+</div>
+</div>
 <ul class="simple">
 <li><p>Get the U-Boot sources:</p></li>
 </ul>

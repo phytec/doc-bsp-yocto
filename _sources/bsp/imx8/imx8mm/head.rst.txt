@@ -203,6 +203,20 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mm-head-development:
 .. include:: /bsp/imx8/development.rsti
+   :end-before: .. build-uboot-marker
+
+.. note::
+   The regulator for the SD card reset pin has been disabled to ensure
+   compatibility with 1532.1 revision baseboards. If you have a revision
+   1532.2(a) or higher baseboard, you may enable the device tree nodes for
+   highest performance. In the imx8mm-phyboard-polis-rdk-u-boot.dtsi file,
+   remove the following lines::
+
+      /delete-node/ &reg_usdhc2_vmmc;
+      /delete-property/ vmmc-supply;
+
+.. include:: /bsp/imx8/development.rsti
+   :start-after: .. build-uboot-marker
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
