@@ -85,7 +85,16 @@ html_css_files = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': '\\usepackage{lmodern}'
+    'fontpkg': '\\usepackage{lmodern}',
+    # The following additions to the latex preamble replace the literal
+    # environment "sphinxalltt" with "sphinxVerbatim" to get the same format.
+    # In addition this is a workaround to fix latex build errors related to
+    # pagebreaks in the sphinxalltt environment.
+    'preamble': r'''
+       \let\sphinxalltt\sphinxVerbatim
+       \let\endsphinxalltt\endsphinxVerbatim
+       \renewcommand{\sphinxhyphen}{}
+    ''',
 }
 
 latex_documents = [
