@@ -43,7 +43,7 @@ In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
 cells. This requires some maintenance tasks (for example erasing unused blocks)
 that are performed regularly. These tasks are called **Background
-Operations (BKOPS)**.
+Operations (BKOPS)**.
 
 By default (depending on the chip), the background operations may or may not be
 executed periodically, impacting the worst-case read and write latency.

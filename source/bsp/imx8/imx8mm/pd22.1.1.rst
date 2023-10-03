@@ -5,7 +5,7 @@
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
 .. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/sdk/ampliphy-vendor-xwayland/
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/ 
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
 
 .. IMX8(MM) specific
