@@ -69,7 +69,7 @@ prompt.
    mmc2(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
-   
+
    MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash eMMC via Network in Linux on Target
