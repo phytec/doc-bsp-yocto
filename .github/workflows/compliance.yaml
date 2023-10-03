@@ -1,8 +1,7 @@
 # This workflow will check for various agreements such as filesize, filenames.
 name: Compliance
 
-on:
-  pull_request:
+on: pull_request
 
 jobs:
   compliance:
@@ -11,9 +10,17 @@ jobs:
     steps:
     - name: Checkout the code
       uses: actions/checkout@v3
+    - name: Install ripgrep
+      run: |
+          sudo apt update
+          sudo apt install ripgrep -y
     - name: Check file sizes
       run: scripts/check_filesize.sh
     - name: Check file names
       # Run all checks so that the user can address errors after one run.
       if: always()
       run: scripts/check_filenames.sh
+    - name: Check for trailing whitespaces and undesired characters (e.g. nbst).
+      # Run all checks so that the user can address errors after one run.
+      if: always()
+      run: scripts/check_whitespaces_chars.sh
