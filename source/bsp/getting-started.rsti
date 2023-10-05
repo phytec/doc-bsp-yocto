@@ -1,74 +1,86 @@
 Getting Started
 ===============
 
-The |kit|\s are shipped with a pre-flashed SD-Card.  It contains the
+The |kit| is shipped with a pre-flashed SD card. It contains the
 |yocto-imagename| and can be used directly as a boot source. The eMMC is
-programmed with only a U-boot as default. You can get all the sources from our
-`download server <dl-server_>`_. This chapter explains how to flash a BSP image
-to SD Card and how to start the board.
+programmed with only a U-boot by default. You can get all sources from the
+`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
+image to SD card and how to start the board.
 
 Get the Image
 -------------
 
 The WIC image contains all BSP files in several, correctly pre-formatted
-partitions and can be copied to the SD card easily using the single Linux
-command dd. It can be built by Yocto or downloaded from our download server.
+partitions and can be copied to an SD card easily using the single Linux
+command ``dd``. It can be built by Yocto or downloaded from the PHYTEC download
+server.
 
-*  Get the ``\*.wic`` file from our download server:
+Get the WIC file from the download server:
 
 .. parsed-literal::
 
    host$ wget |link-image|
 
-
 Write the Image to SD Card
 --------------------------
 
 .. warning::
-   To create your bootable SD card with the dd command, you must have root
-   privileges. Because of this, you must be very careful when selecting the
-   destination device for the dd command! All files on the selected destination
-   device will be erased immediately without any further query! Consequently,
-   having selected the wrong device can also erase your hard drive!
+   To create your bootable SD card with the ``dd`` command, you must have root
+   privileges. Be very careful when specifying the destination device with
+   ``dd``! All files on the selected destination device will be erased
+   immediately without any further query!
 
-To create your bootable SD card, you must first find out the correct device name
-of your SD card and possible partitions. Then unmount the partitions before you
-start copying the image to the SD card.
+   Selecting the wrong device may result in **data loss** and e.g. could erase
+   your currently running system!
 
-*  In order to get the correct device name, first remove your SD card and
-   execute ls /dev.
-*  Now insert your SD card and execute ls /dev again.
-*  Compare the two outputs to find the new device name(s) listed in the second
+To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. Unmount any mounted partitions before
+you start copying the image to the SD card.
+
+#. In order to get the correct device name, remove your SD card and
+   execute::
+
+      host$ lsblk
+
+#. Now insert your SD card and execute the command again::
+
+      host$ lsblk
+
+#. Compare the two outputs to find the new device names listed in the second
    output. These are the device names of the SD card (device and partitions if
-   the SD card is formatted).
-*  In order to verify the device names found, execute the command dmesg. Within
-   the last lines of its output, you should also find the device names, for
-   example, sde (depending on your system).
+   the SD card was formatted).
+#. In order to verify the device names being found, execute the command
+   ``sudo dmesg``. Within the last lines of its output, you should also find the
+   device names, e.g. ``/dev/sde`` or ``/dev/mmcblk0`` (depending on your
+   system).
 
-Now that you have the device name /dev/<your_device> (e.g. /dev/sde), you can
-see the partitions which must be unmounted if the SD card is formatted. In this
-case, you will also find /dev/<your_device> with an appended number
-(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
-unmounted.
+Alternatively, you may use a graphical program of your choice, like `GNOME Disks
+<https://apps.gnome.org/en/DiskUtility/>`_ or `KDE Partition Manager
+<https://apps.kde.org/partitionmanager/>`_, to find the correct device.
 
-*  Unmount all partitions:
+Now that you have the correct device name, e.g. ``/dev/sde``,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. ``/dev/sde1``) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.
 
-::
+*  Unmount all partitions, e.g.::
 
-   host$ umount /dev/<your_device><number>
+      host$ sudo umount /dev/sde1
 
-*  After having unmounted all devices with an appended number
-   (<your_device><number>), you can create your bootable SD card:
+*  After having unmounted all partitions, you can create your bootable SD card::
 
-::
+      host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/sdX bs=1M conv=fsync status=progress
 
-   host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+   Again, make sure to replace ``/dev/sdX`` with your actual device name found
+   previously.
 
-Using the device name (<your_device>) without appended number (e.g. sde) which
-stands for the whole device. The parameter conv=fsync forces a sync operation on
-the device before dd returns. This ensures that all blocks are written to the SD
-card and are not still in memory. The parameter status=progress will print out
-information on how much data is and still has to be copied until it is finished.
+   The parameter ``conv=fsync`` forces a sync operation on the device before
+   ``dd`` returns. This ensures that all blocks are written to the SD card and
+   none are left in memory. The parameter ``status=progress`` will print out
+   information on how much data is and still has to be copied until it is
+   finished.
 
 An alternative and much faster way to prepare an SD card can be done by using
 `bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto automatically creates a block
