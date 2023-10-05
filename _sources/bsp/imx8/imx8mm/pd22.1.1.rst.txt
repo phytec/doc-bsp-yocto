@@ -48,6 +48,7 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53`
 
 .. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: hardknott
@@ -60,7 +61,6 @@
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
-
 
 .. Refs
 .. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S1) <imx8mm-pd22.1.1-bootswitch>`
@@ -77,6 +77,7 @@
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-pd22.1.1-ubootexternalenv>`
+
 
 
 +----------------------+----------------------+

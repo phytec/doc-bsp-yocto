@@ -48,6 +48,7 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41`
 
 .. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: hardknott
