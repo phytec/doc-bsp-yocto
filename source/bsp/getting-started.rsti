@@ -70,16 +70,18 @@ the device before dd returns. This ensures that all blocks are written to the SD
 card and are not still in memory. The parameter status=progress will print out
 information on how much data is and still has to be copied until it is finished.
 
-.. note::
-   The created file |yocto-imagename|-|yocto-machinename|.wic is only a link
-   to a file like
-   |yocto-imagename|-|yocto-machinename|-<BUILD-TIME>.rootfs.wic.
+An alternative and much faster way to prepare an SD card can be done by using
+`bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto automatically creates a block
+map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for the WIC image that describes the image content and
+includes checksums for data integrity. *bmaptool* is packaged by various Linux distributions.
+For Debian-based systems install it by issuing::
 
-<BUILD-TIME> has the format: YYYYMMDDHHMMSS
+   host$ sudo apt install bmap-tools
 
-::
+Flash a WIC image to SD card by calling::
 
-   example:
-       Date = 14.01.2022
-       Time = 10:42:11
-       <BUILD-TIME> = 20220114104211
+   host$ bmaptool copy <IMAGENAME>-<MACHINE>.wic /dev/<your_device>
+
+.. warning::
+   *bmaptool* only overwrites the areas of an SD card where image data is located. This means that
+   a previously written U-Boot environment is still available after an image update.
