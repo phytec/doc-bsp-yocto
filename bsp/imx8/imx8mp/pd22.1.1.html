@@ -355,18 +355,22 @@ stands for the whole device. The parameter conv=fsync forces a sync operation on
 the device before dd returns. This ensures that all blocks are written to the SD
 card and are not still in memory. The parameter status=progress will print out
 information on how much data is and still has to be copied until it is finished.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The created file phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic is only a link
-to a file like
-phytec-qt5demo-image-phyboard-pollux-imx8mp-3-&lt;BUILD-TIME&gt;.rootfs.wic.</p>
-</div>
-<p>&lt;BUILD-TIME&gt; has the format: YYYYMMDDHHMMSS</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>example:
-    Date = 14.01.2022
-    Time = 10:42:11
-    &lt;BUILD-TIME&gt; = 20220114104211
+<p>An alternative and much faster way to prepare an SD card can be done by using
+<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> from Intel. Yocto automatically creates a block
+map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for the WIC image that describes the image content and
+includes checksums for data integrity. <em>bmaptool</em> is packaged by various Linux distributions.
+For Debian-based systems install it by issuing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install bmap-tools
 </pre></div>
+</div>
+<p>Flash a WIC image to SD card by calling:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bmaptool copy &lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic /dev/&lt;your_device&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em>bmaptool</em> only overwrites the areas of an SD card where image data is located. This means that
+a previously written U-Boot environment is still available after an image update.</p>
 </div>
 </section>
 <section id="first-start-up">
