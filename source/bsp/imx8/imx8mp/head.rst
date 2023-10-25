@@ -248,9 +248,9 @@ select the phyCORE-|soc| default bootsource.
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-.. include:: /bsp/peripherals/introduction.rsti
+.. include:: /bsp/peripherals/head/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: ../peripherals/head/pin-muxing.rsti
 
 ::
 
@@ -287,13 +287,13 @@ using ioctls. Have a look at our small example application rs485test, which is
 also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
 correctly.
 
-.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+.. include:: /bsp/imx8/peripherals/head/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
 
 .. _imx8mp-head-network:
-.. include:: ../peripherals/network.rsti
+.. include:: ../peripherals/head/network.rsti
 
 WLAN and Bluetooth
 ..................
@@ -302,7 +302,7 @@ WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
 The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install and use the
 PEB-WLBT-05.
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: ../peripherals/head/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367`
@@ -310,24 +310,24 @@ DT configuration for the MMC (SD card slot) interface can be found here:
 DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220`
 
-.. include:: /bsp/peripherals/emmc.rsti
+.. include:: /bsp/peripherals/head/emmc.rsti
 
 .. include:: emmc.rsti
 
-.. include:: ../peripherals/spi-master.rsti
+.. include:: ../peripherals/head/spi-master.rsti
 
 The definition of the SPI master node in the device tree can be found here:
 
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: ../peripherals/head/gpios.rsti
 
-.. include:: ../../peripherals/leds.rsti
+.. include:: ../../peripherals/head/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216`
 
-.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+.. include:: /bsp/imx8/peripherals/head/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105`
@@ -343,13 +343,13 @@ There are two different i2c EEPROM flashes populated on |som| SoM and on the
 |sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
 I2C EEPROM populated on the SoM is also used for board detection.
 
-.. include:: ../peripherals/eeprom.rsti
+.. include:: ../peripherals/head/eeprom.rsti
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201`
 
-.. include:: ../../peripherals/rtc.rsti
+.. include:: ../../peripherals/head/rtc.rsti
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207`
@@ -364,7 +364,7 @@ transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
 are capable of acting as a USB peripheral device or a USB host. Each is
 connected to a USB 3.0 PHY.
 
-.. include:: /bsp/peripherals/usb-host.rsti
+.. include:: /bsp/peripherals/head/usb-host.rsti
 
 DT representation for USB Host:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341`
@@ -379,12 +379,12 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: ../peripherals/head/canfd.rsti
 
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165`
 
-.. include:: /bsp/peripherals/pcie.rsti
+.. include:: /bsp/peripherals/head/pcie.rsti
 
 Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277`
@@ -402,16 +402,16 @@ speaker, headphones, and line in signals.
    Using the PEB-AV-10 connector for display output along HDMI as audio output
    is not supported. The audio output device must match the video output device.
 
-.. include:: /bsp/peripherals/audio.rsti
+.. include:: /bsp/peripherals/head/audio.rsti
 
 Device Tree Audio configuration:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57`
 
-.. include:: /bsp/peripherals/video.rsti
+.. include:: /bsp/peripherals/head/video.rsti
 
 .. include:: display.rsti
 
-.. include:: /bsp/imx8/peripherals/display.rsti
+.. include:: /bsp/imx8/peripherals/head/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255`
@@ -420,22 +420,22 @@ Device tree description of LVDS-1 and HDMI can be found here:
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132`
 
-.. include:: ../peripherals/pm.rsti
+.. include:: ../peripherals/head/pm.rsti
 
-.. include:: ../peripherals/tm.rsti
+.. include:: ../peripherals/head/tm.rsti
 
 The device tree description of GPIO Fan can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26`
 
-.. include:: /bsp/peripherals/watchdog.rsti
+.. include:: /bsp/peripherals/head/watchdog.rsti
 
-.. include:: ../peripherals/snvs-power-key.rsti
+.. include:: ../peripherals/head/snvs-power-key.rsti
 
-.. include:: ../peripherals/npu.rsti
+.. include:: ../peripherals/head/npu.rsti
 
-.. include:: ../peripherals/isp.rsti
+.. include:: ../peripherals/head/isp.rsti
 
-.. include:: ../peripherals/ocotp-ctrl.rsti
+.. include:: ../peripherals/head/ocotp-ctrl.rsti
 
 Reading the registers using /dev/mem will cause the system to hang unless the
 ocotp_root_clk is enabled. To enable this clock permanent, add to the device

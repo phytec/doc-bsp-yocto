@@ -246,9 +246,9 @@ select the phyCORE-|soc| default bootsource.
 ..                        ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-.. include:: /bsp/peripherals/introduction.rsti
+.. include:: /bsp/peripherals/head/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: ../peripherals/head/pin-muxing.rsti
 
 ::
 
@@ -283,17 +283,17 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 
            **UART1 RS232**
 
-.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+.. include:: /bsp/imx8/peripherals/head/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188`
 
 .. _imx8mm-head-network:
-.. include:: ../peripherals/network.rsti
+.. include:: ../peripherals/head/network.rsti
 
 .. include:: wireless-network.rsti
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: ../peripherals/head/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266`
@@ -301,15 +301,15 @@ DT configuration for the MMC (SD card slot) interface can be found here:
 DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315`
 
-.. include:: /bsp/peripherals/emmc.rsti
+.. include:: /bsp/peripherals/head/emmc.rsti
 
-.. include:: ../peripherals/spi-master.rsti
+.. include:: ../peripherals/head/spi-master.rsti
 
 The definition of the SPI master node in the device tree can be found here:
 
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n80`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: ../peripherals/head/gpios.rsti
 
 Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 
@@ -321,12 +321,12 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
            >;
    };
 
-.. include:: /bsp/peripherals/leds.rsti
+.. include:: /bsp/peripherals/head/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37`
 
-.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+.. include:: /bsp/imx8/peripherals/head/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102`
@@ -342,13 +342,13 @@ There are two different i2c EEPROM flashes populated on |som|. Both can be used
 with the sysfs interface in Linux. The ID page of the I2C EEPROM populated on
 the SoM is also used for board detection.
 
-.. include:: ../peripherals/eeprom.rsti
+.. include:: ../peripherals/head/eeprom.rsti
 
 DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271`
 
-.. include:: /bsp/peripherals/rtc.rsti
+.. include:: /bsp/peripherals/head/rtc.rsti
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277`
@@ -363,7 +363,7 @@ transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
 are On-The-Go (OTG) controller cores and are capable of acting as a USB
 peripheral device or a USB host. Each is connected to a USB 2.0 PHY.
 
-.. include:: /bsp/peripherals/usb-host.rsti
+.. include:: /bsp/peripherals/head/usb-host.rsti
 
 User USB2 (host) configuration is in the kernel device tree
 |kernel-socname|.dtsi::
@@ -378,7 +378,7 @@ User USB2 (host) configuration is in the kernel device tree
 DT representation for USB Host:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240`
 
-.. include:: /bsp/peripherals/usb-otg.rsti
+.. include:: /bsp/peripherals/head/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
 imx8mm-phyboard-polis.dtsi. See:
@@ -405,12 +405,12 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
    On phyBOARD-Polis-i.MX8MM a terminating resistor can be enabled by setting
    S5 to ON if required.
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: ../peripherals/head/canfd.rsti
 
 Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106`
 
-.. include:: /bsp/peripherals/pcie.rsti
+.. include:: /bsp/peripherals/head/pcie.rsti
 
 Audio
 -----
@@ -423,12 +423,12 @@ There is a 3.5mm headset jack with OMTP standard and an 8-pin header to connect
 audio devices with the AV-Connector.  The 8-pin header contains a mono speaker,
 headphones, and line-in signals.
 
-.. include:: /bsp/peripherals/audio.rsti
+.. include:: /bsp/peripherals/head/audio.rsti
 
 Device Tree Audio configuration:
 :imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56`
 
-.. include:: /bsp/peripherals/video.rsti
+.. include:: /bsp/peripherals/head/video.rsti
 
 Display
 -------
@@ -436,18 +436,18 @@ Display
 The 10" Display is always active. If the PEB-AV-Connector is not connected, an
 error message may occur at boot.
 
-.. include:: /bsp/imx8/peripherals/display.rsti
+.. include:: /bsp/imx8/peripherals/head/display.rsti
 
 The device tree of PEB-AV-10 can be found here:
 :imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17`
 
-.. include:: ../peripherals/pm.rsti
+.. include:: ../peripherals/head/pm.rsti
 
-.. include:: ../peripherals/tm.rsti
+.. include:: ../peripherals/head/tm.rsti
 
-.. include:: /bsp/peripherals/watchdog.rsti
+.. include:: /bsp/peripherals/head/watchdog.rsti
 
-.. include:: ../peripherals/ocotp-ctrl.rsti
+.. include:: ../peripherals/head/ocotp-ctrl.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                                i.MX 8M Mini M4 Core

@@ -1,0 +1,92 @@
+SPI Master
+----------
+
+The |soc| controller has a FlexSPI and an ECSPI IP core included. The FlexSPI
+host controller supports two SPI channels with up to 4 devices. Each channel
+supports Single/Dual/Quad/Octal mode data transfer (1/2/4/8 bidirectional data
+lines). The ECSPI controller supports 3 SPI interfaces with one dedicated chip
+selected for each interface. As chip selects should be realized with GPIOs, more
+than one device on each channel is possible.
+
+SPI NOR Flash
+.............
+
+phyCORE-|soc| is equipped with a QSPI NOR Flash which connects to the |soc|'s
+FlexSPI interface. The QSPI NOR Flash is suitable for booting. Please see
+different sections for flashing and bootmode setup. Due to limited space on the
+SPI NOR Flash, only the bootloader is stored inside. By default, the kernel,
+device tree, and rootfs are taken from eMMC.
+
+The Bootloader does detect with the help of the EEPROM Introspection data if an
+SPI flash is mounted or not. If no SPI flash is mounted a device tree overlay is
+applied with the expansion command to disable the SPI flash device tree node
+during boot. If no introspection data is available the SPI NOR flash node is
+always enabled. Find more information in the device tree overlay section.
+
+The bootloader also passes the SPI MTD partition table to Linux by fixing up the
+device tree based on the mtdparts boot parameter. The default partition layout
+in the BSP is set to::
+
+   mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env_redund),-(none)
+
+This is a bootloader environment variable that is defined here and can be
+changed during runtime. From Linux userspace, the NOR Flash partitions are
+accessible via /dev/mtd<N> devices where <N> is the MTD device number associated
+with the NOR flash partition to access. To find the correct MTD device number
+for a partition, run on the target:
+
+.. parsed-literal::
+
+   root@\ |yocto-machinename|:~# mtdinfo --all
+   Count of MTD devices:           4
+   Present MTD devices:            mtd0, mtd1, mtd2, mtd3
+   Sysfs interface supported:      yes
+
+   mtd0
+   Name:                           u-boot
+   Type:                           nor
+   Eraseblock size:                65536 bytes, 64.0 KiB
+   Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+   Minimum input/output unit size: 1 byte
+   Sub-page size:                  1 byte
+   Character device major/minor:   90:0
+   Bad blocks are allowed:         false
+   Device is writable:             true
+
+   mtd1
+   Name:                           env
+   Type:                           nor
+   Eraseblock size:                65536 bytes, 64.0 KiB
+   Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)
+   Minimum input/output unit size: 1 byte
+   Sub-page size:                  1 byte
+   Character device major/minor:   90:2
+   Bad blocks are allowed:         false
+   Device is writable:             true
+
+   mtd2
+   Name:                           env_redund
+   Type:                           nor
+   Eraseblock size:                65536 bytes, 64.0 KiB
+   Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)
+   Minimum input/output unit size: 1 byte
+   Sub-page size:                  1 byte
+   Character device major/minor:   90:4
+   Bad blocks are allowed:         false
+   Device is writable:             true
+
+   mtd3
+   Name:                           none
+   Type:                           nor
+   Eraseblock size:                65536 bytes, 64.0 KiB
+   Amount of eraseblocks:          448 (29360128 bytes, 28.0 MiB)
+   Minimum input/output unit size: 1 byte
+   Sub-page size:                  1 byte
+   Character device major/minor:   90:6
+   Bad blocks are allowed:         false
+   Device is writable:             true
+
+It lists all MTD devices and the corresponding partition names. The flash node
+is defined inside of the SPI master node in the module DTS. The SPI node
+contains all devices connected to this SPI bus which is in this case only the
+SPI NOR Flash.

@@ -1,0 +1,84 @@
+*  Use:
+
+::
+
+   target$ ip link
+
+to see the state of the interfaces. The two CAN interfaces should show up as
+can0 and can1.
+
+*  To get information on can0, such as bit rate and error counters, type:
+
+::
+
+   target$ ip -d -s link show can0
+
+The information for can0 will look like::
+
+   2: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UNKNOWN mode DEFAULT group default qlen 10
+       link/can  promiscuity 0 minmtu 0 maxmtu 0
+       can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+             bitrate 500000 sample-point 0.875
+             tq 50 prop-seg 17 phase-seg1 17 phase-seg2 5 sjw 1
+             mcp25xxfd: tseg1 2..256 tseg2 1..128 sjw 1..128 brp 1..256 brp-inc 1
+             mcp25xxfd: dtseg1 1..32 dtseg2 1..16 dsjw 1..16 dbrp 1..256 dbrp-inc 1
+             clock 20000000
+             re-started bus-errors arbit-lost error-warn error-pass bus-off
+             0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+       RX: bytes  packets  errors  dropped overrun mcast
+       0          0        0       0       0       0
+       TX: bytes  packets  errors  dropped carrier collsns
+       0          0        0       0       0       0
+
+The output contains a standard set of parameters also shown for Ethernet
+interfaces, so not all of these are necessarily relevant for CAN (for example
+the MAC address). The following output parameters contain useful information:
+
+========== =============================
+can0       Interface Name
+========== =============================
+NOARP	     CAN cannot use ARP protocol
+MTU	     Maximum Transfer Unit
+RX packets Number of Received Packets
+TX packets Number of Transmitted Packets
+RX bytes   Number of Received Bytes
+TX bytes   Number of Transmitted Bytes
+errors...  Bus Error Statistics
+========== =============================
+
+
+The CAN configuration is done in the systemd configuration
+file /lib/systemd/network/can0.network. For a persistent change of (as an
+example, the default bitrates), change the configuration in the BSP
+under ./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network in
+the root filesystem and rebuild the root filesystem. ::
+
+   [Match]
+   Name=can0
+
+   [Can]
+   BitRate=500000
+
+The bitrate can also be changed manually, for example, to make use of the
+flexible bitrate::
+
+   target$ ip link set can0 down
+   target$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+
+You can send messages with cansend or receive messages with candump::
+
+   target$ cansend can0 123#45.67
+   target$ candump can0
+
+To generate random CAN traffic for testing purposes, use cangen::
+
+   target$ cangen
+
+cansend --help and candump --help provide help messages for further information
+on options and usage.
+
+.. warning::
+
+   The mcp2518fd SPI to CANfd supports only baudrates starting from 125kB/s.
+   Slower rates can be selected but may not work correctly.
+

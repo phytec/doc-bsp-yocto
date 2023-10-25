@@ -1,0 +1,110 @@
+Network
+-------
+
+|som| provides two ethernet interfaces. A gigabit Ethernet is provided by our
+module and board.
+
+.. warning::
+
+   The naming convention of the Ethernet interfaces in the hardware (ethernet0
+   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
+   Linux. So, be aware of these differences:
+
+   | ethernet1 = eth0
+   | ethernet0 = eth1
+
+All interfaces offer a standard Linux network port that can be programmed using
+the BSD socket interface. The whole network configuration is handled by
+the systemd-networkd daemon. The relevant configuration files can be found on
+the target in /lib/systemd/network/ as well as the BSP in
+meta-yogurt/recipes-core/systemd/system-machine-units.
+
+IP addresses can be configured within \*.network files. The default IP address
+and netmask for eth0 is::
+
+   eth0: 192.168.3.11/24
+
+The DT Ethernet setup might be split into two files depending on your hardware
+configuration: the module DT and the board-specific DT. The device tree set up
+for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
+be found here: |dt-somnetwork|.
+
+|pollux-sbc-network|
+
+Network Environment Customization
+.................................
+
+U-boot network-environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  To find the Ethernet settings in the target bootloader:
+
+::
+
+   u-boot=> printenv ipaddr serverip netmask ethaddr netargs netboot
+
+*  With your development host set to IP 192.168.3.10 and netmask 255.255.255.0,
+   the target should return:
+
+::
+
+   u-boot=> printenv ipaddr serverip netmask ethaddr netargs netboot
+   ipaddr=192.168.3.11
+   serverip=192.168.3.10
+   netmask=255.225.255.0
+   ethaddr=50:2d:f4:19:d3:38
+   netargs=setenv bootargs console=${console},${baudrate} root=/dev/nfs ip=${nfsip} nfsroot=${serverip}:${nfsroot},v3,tcp
+   netboot=echo Booting from net ...; if test ${ip_dyn} = yes; then setenv nfsip dhcp; setenv get_cmd dhcp; else setenv nfsip ${ipaddr}:${serverip}::${netmask}::eth0:on; setenv get_cmd tftp; fi; if run net_load_bootenv; then env import -t ${bootenv_addr} ${filesize};fi; run netargs; ${get_cmd} ${loadaddr} ${image}; if ${get_cmd} ${fdt_addr} ${fdt_file}; then run net_apply_overlays; booti ${loadaddr} - ${fdt_addr}; else echo WARN: Cannot load the DT; fi;
+
+*  If you need to make any changes::
+
+      u-boot=> setenv <parameter> <value>
+
+*  <parameter> should be one of ipaddr, netmask, gateway, or serverip.
+*  <value> will be the actual value of the chosen parameter.
+*  Make your changes and hit 'Enter'.
+*  The changes you made are temporary for now. To save these::
+
+      u-boot=> saveenv
+
+Here you can also change the IP address to DHCP instead of using a static one.
+
+*  Configure::
+
+      u-boot=> setenv ip dhcp
+
+*  Set up paths for TFTP and NFS. A modification could look like this::
+
+      u-boot=> setenv nfsroot /home/user/nfssrc
+
+Please note that these modifications will only affect the bootloader settings.
+
+.. tip::
+
+   Variables like nfsroot and netargs can be overwritten by the U-boot External
+   Environment. For netboot, the external environment will be loaded from tftp.
+   For example, to locally set the nfsroot variable in a bootenv.txt file,
+   locate the tftproot directory::
+
+      nfsroot=/home/user/nfssrc
+
+   There is no need to store the info on the target. Please note that this does
+   not work for variables like ipaddr or serveraddr as they need to be already
+   set when the external environment is being loaded.
+
+Kernel network-environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Find the ethernet settings for eth0 in the target kernel::
+
+      target$ ifconfig eth0
+      eth0      Link encap:Ethernet  HWaddr 50:2D:F4:19:D6:33
+                UP BROADCAST MULTICAST  MTU:1500  Metric:1
+                RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+                TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+                collisions:0 txqueuelen:1000
+                RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+* Temporary adaption of the eth0 configuration::
+
+      target$ ifconfig eth0 192.168.3.11 netmask 255.255.255.0 up

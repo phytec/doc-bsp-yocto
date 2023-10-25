@@ -1,0 +1,28 @@
+Watchdog
+--------
+
+The PHYTEC |som| modules include a hardware watchdog that is able to reset the
+board when the system hangs. The watchdog is started on default in U-Boot with a
+timeout of 60s. So even during early kernel start, the watchdog is already up
+and running. The Linux kernel driver takes control over the watchdog and makes
+sure that it is fed. This section explains how to configure the watchdog in
+Linux using systemd to check for system hangs and during reboot.
+
+Watchdog Support in systemd
+...........................
+
+Systemd has included hardware watchdog support since version 183.
+
+*  To activate watchdog support, the file system.conf in /etc/systemd/ has to be
+   adapted by enabling the options::
+
+      RuntimeWatchdogSec=60s
+      ShutdownWatchdogSec=10min
+
+RuntimeWatchdogSec defines the timeout value of the watchdog,
+while ShutdownWatchdogSec defines the timeout when the system is rebooted. For
+more detailed information about hardware watchdogs under systemd can be found at
+http://0pointer.de/blog/projects/watchdog.html. The changes will take effect
+after a reboot or run::
+
+   target$  systemctl daemon-reload

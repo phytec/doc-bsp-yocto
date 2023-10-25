@@ -1,0 +1,46 @@
+On-Chip OTP Controller (OCOTP_CTRL) - eFuses
+--------------------------------------------
+
+The |soc| provides one-time programmable fuses to store information such as the
+MAC address, boot configuration, and other permanent settings ("On-Chip OTP
+Controller (OCOTP_CTRL)" in the |soc| Reference Manual). The following list is
+an abstract from the |soc| Reference Manual and includes some useful registers
+in the OCOTP_CTRL (at base address 0x30350000):
+
+=============== ==== ==== ============= ======================
+Name            Bank Word Memory offset Description
+                          at 0x30350000
+=============== ==== ==== ============= ======================
+OCOTP_MAC_ADDR0	9    0    0x640	        contains lower 32 bits
+                                        of ENET0 MAC address
+OCOTP_MAC_ADDR1	9    1    0x650	        contains upper 16 bits
+                                        of ENET0 MAC address
+				        and the lower 16 bits
+					of ENET1 MAC address
+OCOTP_MAC_ADDR2	9    2    0x660	        contains upper 32 bits
+                                        of ENET1 MAC address
+=============== ==== ==== ============= ======================
+
+A complete list and a detailed mapping between the fuses in the OCOTP_CTRL and
+the boot/mac/... configuration are available in the section "Fuse Map" of the
+|soc| Security Reference Manual.
+
+Reading Fuse Values in uBoot
+............................
+
+You can read the content of a fuse using memory-mapped shadow registers. To
+calculate the memory address, use the fuse Bank and Word in the following
+formula:
+
+OCOTP_MAC_ADDR::
+
+   u-boot=> fuse read 9 0
+
+Reading Fuse Values in Linux
+............................
+
+To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
+module. All fuse content of the memory-mapped shadow registers is accessible via
+sysfs::
+
+   target$ hexdump /sys/devices/platform/soc@0/30000000.bus/30350000.efuse/imx-ocotp0/nvmem

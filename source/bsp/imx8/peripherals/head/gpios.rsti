@@ -1,0 +1,89 @@
+GPIOs
+-----
+
+The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
+connected directly to |soc| pins and are muxed as GPIOs. They are directly
+usable in Linux userspace. The processor has organized its GPIOs into five banks
+of 32 GPIOs each (GPIO1 – GPIO5)
+GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
+the sysfs representation of these internal |soc| GPIO banks GPIO1 – GPIO5.
+
+The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO5_07). <X> identifies the GPIO
+bank and counts from 1 to 5, while <Y> stands for the GPIO within the bank. <Y>
+is being counted from 0 to 31 (32 GPIOs on each bank).
+
+By contrast, the Linux kernel uses a single integer to enumerate all available
+GPIOs in the system. The formula to calculate the right number is::
+
+   Linux GPIO number: <N> = (<X> - 1) * 32 + <Y>
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+::
+
+   target$ gpiodetect
+   gpiochip0 [30200000.gpio] (32 lines)
+   gpiochip1 [30210000.gpio] (32 lines)
+   gpiochip2 [30220000.gpio] (32 lines)
+   gpiochip3 [30230000.gpio] (32 lines)
+   gpiochip4 [30240000.gpio] (32 lines)
+
+*  Show detailed information about the gpiochips. Like their names, consumers,
+   direction, active state, and additional flags:
+
+::
+
+   target$ gpioinfo gpiochip0
+
+*  Read the value of a GPIO (e.g GPIO 20 from chip0):
+
+::
+
+   target$ gpioget gpiochip0 20
+
+*  Set the value of GPIO 20 on chip0 to 0 and exit tool:
+
+::
+
+   target$ gpioset --mode=exit gpiochip0 20=0
+
+*  Help text of gpioset shows possible options:
+
+::
+
+   target$ gpioset --help
+   Usage: gpioset [OPTIONS] <chip name/number> <offset1>=<value1> <offset2>=<value2> ...
+   Set GPIO line values of a GPIO chip
+
+   Options:
+     -h, --help:           display this message and exit
+     -v, --version:        display the version and exit
+     -l, --active-low:     set the line active state to low
+     -m, --mode=[exit|wait|time|signal] (defaults to 'exit'):
+                   tell the program what to do after setting values
+     -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
+     -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
+     -b, --background:     after setting values: detach from the controlling terminal
+
+   Modes:
+     exit:         set values and exit immediately
+     wait:         set values and wait for user to press ENTER
+     time:         set values and sleep for a specified amount of time
+     signal:       set values and wait for SIGINT or SIGTERM
+
+   Note: the state of a GPIO line controlled over the character device reverts to default
+   when the last process referencing the file descriptor representing the device file exits.
+   This means that it's wrong to run gpioset, have it exit and expect the line to continue
+   being driven high or low. It may happen if given pin is floating but it must be interpreted
+   as undefined behavior.
+
+
+.. warning::
+
+   Some of the user IOs are used for special functions. Before using a user IO,
+   refer to the schematic or the hardware manual of your board to ensure that it
+   is not already in use.

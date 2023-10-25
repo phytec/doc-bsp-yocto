@@ -142,31 +142,31 @@ BSP documentation name
 
 .. Accessing Peripherals
 
-.. include:: /bsp/peripherals/introduction.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/introduction.rsti
 
-.. include:: /bsp/peripherals/emmc.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/emmc.rsti
 
-.. include:: /bsp/peripherals/leds.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/leds.rsti
 
-.. include:: /bsp/peripherals/rtc.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/rtc.rsti
 
 USB Host
 --------
 
-.. include:: /bsp/peripherals/usb-host.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/usb-host.rsti
 
-.. include:: /bsp/peripherals/usb-otg.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/usb-otg.rsti
 
-.. include:: /bsp/peripherals/pcie.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/pcie.rsti
 
 Audio
 -----
 
-.. include:: /bsp/peripherals/audio.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/audio.rsti
 
-.. include:: /bsp/peripherals/video.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/video.rsti
 
-.. include:: /bsp/peripherals/watchdog.rsti
+.. include:: /bsp/peripherals/PD22.1.1+/watchdog.rsti
 
 
 .. BSP Extensions

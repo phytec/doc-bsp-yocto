@@ -1,0 +1,65 @@
+QT Demo
+.......
+
+With the phytec-qt5demo-image, Weston starts during boot. The phytec-qt5demo can be
+stopped with::
+
+   target$ systemctl stop phytec-qtdemo
+
+* To start the demo again, run::
+
+      target$ systemctl start phytec-qtdemo
+
+* To disable autostart of the demo run::
+
+      target$ systemctl disable phytec-qtdemo
+
+* To enable autostart of the demo, run::
+
+      target$ systemctl enable phytec-qtdemo
+
+* Weston can be stopped with::
+
+      target$ systemctl stop weston
+
+.. note::
+
+   The Qt demo must be closed before Weston can be closed.
+
+Backlight Control
+.................
+
+If a display is connected to the PHYTEC board, you can control its backlight
+with the Linux kernel sysfs interface. All available backlight devices in the
+system can be found in the folder /sys/class/backlight. Reading the appropriate
+files and writing to them allows you to control the backlight.
+
+* To get, for example, the maximum brightness level (max_brightness) execute::
+
+      target$ cat /sys/class/backlight/backlight/max_brightness
+
+which will result in::
+
+   7
+
+Valid brightness values are 0 to <max_brightness>.
+
+* To obtain the current brightness level, type::
+
+      target$ cat /sys/class/backlight/backlight/brightness
+
+you will get for example::
+
+   6
+
+* Write to the file brightness to change the brightness::
+
+      target$ echo 0 > /sys/class/backlight/backlight/brightness
+
+turns the backlight off, ::
+
+   target$ echo 5 > /sys/class/backlight/backlight/brightness
+
+sets the brightness to the third-highest brightness level. For documentation of
+all files, see
+https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.
