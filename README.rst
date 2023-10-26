@@ -45,5 +45,4 @@ Open the locally built HTML pages in your webbrowser::
 
    xdg-open build/html/index.html
 
-
 .. _Contribution Guide: https://github.com/phytec/doc-bsp-yocto/wiki
