@@ -4,7 +4,8 @@
 PHYTEC Yocto BSP Documentation
 ==============================
 
-* **Contributing**: see `Contribution Guide`_
+Before making any changes and contributing, please read our `Contribution
+Guide`_.
 
 Getting the Source Code
 -----------------------
