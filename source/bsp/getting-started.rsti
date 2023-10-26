@@ -83,10 +83,11 @@ Before writing, however, these need to be unmounted to avoid data corruption.
    finished.
 
 An alternative and much faster way to prepare an SD card can be done by using
-`bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto automatically creates a block
-map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for the WIC image that describes the image content and
-includes checksums for data integrity. *bmaptool* is packaged by various Linux distributions.
-For Debian-based systems install it by issuing::
+`bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto
+automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
+the WIC image that describes the image content and includes checksums for data
+integrity. *bmaptool* is packaged by various Linux distributions. For
+Debian-based systems install it by issuing::
 
    host$ sudo apt install bmap-tools
 
@@ -95,5 +96,6 @@ Flash a WIC image to SD card by calling::
    host$ bmaptool copy <IMAGENAME>-<MACHINE>.wic /dev/<your_device>
 
 .. warning::
-   *bmaptool* only overwrites the areas of an SD card where image data is located. This means that
-   a previously written U-Boot environment is still available after an image update.
+   *bmaptool* only overwrites the areas of an SD card where image data is
+   located. This means that a previously written U-Boot environment is still
+   available after an image update.
