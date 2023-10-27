@@ -97,5 +97,5 @@ Flash a WIC image to SD card by calling::
 
 .. warning::
    *bmaptool* only overwrites the areas of an SD card where image data is
-   located. This means that a previously written U-Boot environment is still
-   available after an image update.
+   located. This means that a previously written U-Boot environment may still be
+   available after writing the image.
