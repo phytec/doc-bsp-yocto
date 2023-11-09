@@ -20,6 +20,7 @@
 .. _dl-server:
 .. Link to the downloadable image used in this documentation
 .. |link-image| replace::
+.. |link-partup-package| replace::
 .. |link-boot-tools| replace::
 .. _releasenotes:
 
