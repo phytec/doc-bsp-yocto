@@ -18,13 +18,13 @@
 .. |doc-id| replace:: L-1017e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
-.. |mcore| replace:: M7 Core
 .. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-i.MX8MP
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
+.. |expansion-connector| replace:: X6
 
 
 .. Linux Kernel
@@ -45,6 +45,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
+.. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41`
@@ -91,6 +92,12 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
 
+
+.. M-Core specific
+.. |mcore| replace:: M7 Core
+.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/arm/mimx8mp_phyboard_pollux/doc/index.html
+.. |mcore-jtag-dev| replace:: MIMX8MM6_M4
+.. |mcore-sdk-version| replace:: 2.13.0
 
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
@@ -512,4 +519,10 @@ tree:
 .. i.MX 8M Plus M7 Core
 .. +---------------------------------------------------------------------------+
 
-.. include:: mcu.rsti
+.. include:: ../mcu.rsti
+
+.. +---------------------------------------------------------------------------+
+.. BSP EXTENSIONS
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/bsp-extensions.rsti
