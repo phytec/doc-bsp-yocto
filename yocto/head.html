@@ -472,10 +472,10 @@ for many open-source software projects. We ship all OpenEmbedded layers with our
 BSP, but not all of them are activated. Our example images pull several software
 packages generated from OpenEmbedded recipes.</p>
 </section>
-<section id="meta-qt5">
-<h4><span class="section-number">3.1.2.3. </span>meta-qt5<a class="headerlink" href="#meta-qt5" title="Link to this heading"></a></h4>
-<p>This layer provides a community-supported integration of <em>Qt5</em> in the
-<em>Poky</em>-based root filesystem and is integrated into our BSP.</p>
+<section id="meta-qt6">
+<h4><span class="section-number">3.1.2.3. </span>meta-qt6<a class="headerlink" href="#meta-qt6" title="Link to this heading"></a></h4>
+<p>This layer provides an integration of <em>Qt6</em> in the <em>Poky</em>-based root filesystem
+and is integrated into our BSP.</p>
 </section>
 <section id="meta-nodejs">
 <h4><span class="section-number">3.1.2.4. </span>meta-nodejs<a class="headerlink" href="#meta-nodejs" title="Link to this heading"></a></h4>
@@ -523,17 +523,17 @@ bundled in a <code class="docutils literal notranslate"><span class="pre">phytec
 which is possible locally and over-the-air</p></li>
 </ul>
 </section>
-<section id="meta-qt5-phytec">
-<h4><span class="section-number">3.1.2.9. </span>meta-qt5-phytec<a class="headerlink" href="#meta-qt5-phytec" title="Link to this heading"></a></h4>
-<p>This is our layer for Qt5 board integration and examples. The features are:</p>
+<section id="meta-qt6-phytec">
+<h4><span class="section-number">3.1.2.9. </span>meta-qt6-phytec<a class="headerlink" href="#meta-qt6-phytec" title="Link to this heading"></a></h4>
+<p>This is our layer for Qt6 board integration and examples. The features are:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://doc.qt.io/qt-5/embedded-linux.html">Qt5 with eglfs backend</a> for
+<li><p><a class="reference external" href="http://doc.qt.io/qt-5/embedded-linux.html">Qt6 with eglfs backend</a> for
 PHYTEC’s AM335x, i.MX 6 and RK3288 platforms</p></li>
-<li><p>Images: <code class="docutils literal notranslate"><span class="pre">phytec-qt5demo-image</span></code> for <em>Qt5</em> and video applications</p></li>
-<li><p>A <em>Qt5</em> demo application demonstrating how to create a <em>Qt5</em> project using
+<li><p>Images: <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code> for <em>Qt6</em> and video applications</p></li>
+<li><p>A <em>Qt6</em> demo application demonstrating how to create a <em>Qt6</em> project using
 <em>QML</em> widgets and a <em>Bitbake</em> recipe for the <em>Yocto</em> and <em>systemd</em>
 integration. It can be found in
-<code class="docutils literal notranslate"><span class="pre">sources/meta-qt5-phytec/recipes-qt/examples/phytec-qtdemo_git.bb</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">sources/meta-qt6-phytec/recipes-qt/examples/phytec-qtdemo_git.bb</span></code></p></li>
 </ul>
 </section>
 <section id="meta-virtualization">
@@ -906,7 +906,7 @@ no:        machine: description and article number
                     1GiB RAM, 4GiB eMMC
                     PBA-C-06-002.A2, PCM-058-30242C0X.A0
                     distro: ampliphy
-                    target: phytec-qt5demo-image
+                    target: phytec-qt6demo-image
  2: phyboard-mira-imx6-15: PHYTEC phyBOARD-Mira full-featured i.MX6 Solo
                     256MiB RAM, NAND
                     PBA-C-06-002.A2, PCM-058-12000D0C.A4
@@ -916,9 +916,9 @@ no:        machine: description and article number
                     1GiB RAM, NAND
                     PB-01501-002.A2, PBA-C-06-002.A2, PCM-058-33230C0I.A3
                     distro: ampliphy
-                    target: -c populate_sdk phytec-qt5demo-image
+                    target: -c populate_sdk phytec-qt6demo-image
                     target: barebox-hosttools-native
-                    target: phytec-qt5demo-image
+                    target: phytec-qt6demo-image
 ...
 19: phyflex-imx6-2: PHYTEC phyFLEX-i.MX6 Quad PBA-B-01
                     1GiB RAM one bank, 16MiB SPI-NOR
@@ -929,7 +929,7 @@ no:        machine: description and article number
                     512MiB RAM one bank, no SPI-NOR
                     PFL-A-02-0200541.A0
                     distro: ampliphy
-                    target: phytec-qt5demo-image
+                    target: phytec-qt6demo-image
 </pre></div>
 </div>
 <p>If you cannot identify your board with the information given in the selector,
@@ -1226,7 +1226,7 @@ host$ bitbake barebox -c deploy
 </div>
 <p>To update the SD card image with a new kernel or image first force the
 compilation of it and then force a rebuild of the root filesystem. Use:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image -c rootfs --force
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt6demo-image -c rootfs --force
 </pre></div>
 </div>
 <p>Note that the build system is not modifying the external source directory. If
@@ -1254,7 +1254,7 @@ and make small modifications to recipes.</p>
 <p>Creating your own layer is described in the section Create your own Layer.</p>
 <section id="disable-qt-demo">
 <h3><span class="section-number">8.6.1. </span>Disable Qt Demo<a class="headerlink" href="#disable-qt-demo" title="Link to this heading"></a></h3>
-<p>By default, the BSP image <em>phytec-qt5demo-image</em> starts a Qt5 Demo application
+<p>By default, the BSP image <em>phytec-qt6demo-image</em> starts a Qt6 Demo application
 on the attached display or monitor. If you want to stop the demo and use the
 <em>Linux</em> framebuffer console behind it, connect to the target via serial cable
 or <em>ssh</em> and execute the shell command:</p>
@@ -1285,7 +1285,7 @@ SYSTEMD_AUTO_ENABLE:pn-phytec-qtdemo = &quot;disable&quot;
 </pre></div>
 </div>
 <p>After that, rebuild the image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt6demo-image
 </pre></div>
 </div>
 </section>
@@ -1375,7 +1375,7 @@ The general syntax to add additional software to an image is:</p>
 </div>
 <p>All configuration options in local.conf apply to all images. Consequently, the
 tools are now included in both images phytec-headless-image and
-phytec-qt5demo-image.</p>
+phytec-qt6demo-image.</p>
 <section id="notes-about-packages-and-recipes">
 <h4><span class="section-number">8.6.4.1. </span>Notes about Packages and Recipes<a class="headerlink" href="#notes-about-packages-and-recipes" title="Link to this heading"></a></h4>
 <p>You are adding packages to the IMAGE_INSTALL variable. Those are not necessarily
@@ -1447,7 +1447,7 @@ IMAGE_INSTALL:append = &quot; nmap&quot;
 </pre></div>
 </div>
 <p>to your <em>build/conf/local.conf</em>. Do not forget to rebuild the image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt6demo-image
 </pre></div>
 </div>
 </section>
@@ -1731,7 +1731,7 @@ workspace directing the SRC_URI to this directory. Building an image with
 in the kernel:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
       -&gt; make a change
-host$ bitbake phytec-qt5demo-image
+host$ bitbake phytec-qt6demo-image
 </pre></div>
 </div>
 <p>Your changes will now be recompiled and added to the image. If you want to store
@@ -2406,13 +2406,13 @@ IMAGE_INSTALL:append = &quot; \
 </pre></div>
 </div>
 <p>Then rebuild your image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt5demo-image
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake phytec-qt6demo-image
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Most examples do not work out of the box, because they depend on the <em>GTK</em>
-graphics library. The BSP only supports <em>Qt5</em> .</p>
+graphics library. The BSP only supports <em>Qt6</em> .</p>
 </div>
 </section>
 <section id="add-minimal-php-web-runtime-with-lightpd">
@@ -2448,10 +2448,10 @@ and the phpinfo should show up.</p>
 <h2><span class="section-number">8.7. </span>Common Tasks<a class="headerlink" href="#common-tasks" title="Link to this heading"></a></h2>
 <section id="debugging-a-user-space-application">
 <h3><span class="section-number">8.7.1. </span>Debugging a User Space Application<a class="headerlink" href="#debugging-a-user-space-application" title="Link to this heading"></a></h3>
-<p>The phytec-qt5demo-image can be cross-debugged without any change. For
+<p>The phytec-qt6demo-image can be cross-debugged without any change. For
 cross-debugging, you just have to match the host sysroot with the image in use.
 So you need to create a toolchain for your image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c populate_sdk phytec-qt5demo-image
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ bitbake -c populate_sdk phytec-qt6demo-image
 </pre></div>
 </div>
 <p>Additionally, if you want to have full debug and backtrace capabilities for all
@@ -2575,11 +2575,11 @@ simulator.</p>
 <h4><span class="section-number">8.7.4.1. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h4>
 <p>After generating the SDK with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ source sources/poky/oe-init-build-env
-host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image
+host$ bitbake -c populate_sdk phytec-qt6demo-image # or another image
 </pre></div>
 </div>
 <p>run the generated binary with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt5demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
 Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):
 You are about to install the SDK to &quot;/opt/ampliphy/i.MX6-PD15.3-rc&quot;. Proceed[Y/n]?
 Extracting SDK...done

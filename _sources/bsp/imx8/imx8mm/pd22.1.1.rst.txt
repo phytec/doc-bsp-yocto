@@ -423,6 +423,8 @@ Display
 The 10" Display is always active. If the PEB-AV-Connector is not connected, an
 error message may occur at boot.
 
+.. include:: /bsp/qt5.rsti
+
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 The device tree of PEB-AV-10 can be found here:

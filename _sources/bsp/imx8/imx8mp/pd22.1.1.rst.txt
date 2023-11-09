@@ -415,6 +415,8 @@ Device Tree Audio configuration:
 
 .. include:: display.rsti
 
+.. include:: /bsp/qt5.rsti
+
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:

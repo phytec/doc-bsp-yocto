@@ -299,7 +299,7 @@ should show you the necessary <strong>Machine Name</strong> for your specific ha
 <section id="getting-started">
 <h1><span class="section-number">2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
 <p>The <strong>phyCORE-i.MX8M Mini Kit</strong>s are shipped with a pre-flashed SD-Card.  It contains the
-phytec-qt5demo-image and can be used directly as a boot source. The eMMC is
+phytec-qt6demo-image and can be used directly as a boot source. The eMMC is
 programmed with only a U-boot as default. You can get all the sources from our
 <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">download server</a>. This chapter explains how to flash a BSP image
 to SD Card and how to start the board.</p>
@@ -493,7 +493,7 @@ ACCEPT_FSL_EULA = &quot;1&quot;
 <ul class="simple">
 <li><p>Build your image:</p></li>
 </ul>
-<pre class="literal-block">host$ bitbake phytec-qt5demo-image</pre>
+<pre class="literal-block">host$ bitbake phytec-qt6demo-image</pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We suggest starting with our smaller non-graphical
@@ -521,8 +521,8 @@ bootable.</p></li>
 <li><p><strong>Image.config</strong>: Kernel configuration</p></li>
 <li><p><strong>imx8mm-phyboard-polis-rdk*.dtb</strong>: Kernel device tree file</p></li>
 <li><p><strong>imx8mm-phy*.dtbo</strong>: Kernel device tree overlay files</p></li>
-<li><p><strong>phytec-qt5demo-image*.tar.gz</strong>: Root file system</p></li>
-<li><p><strong>phytec-qt5demo-image*.wic</strong>: SD card image</p></li>
+<li><p><strong>phytec-qt6demo-image*.tar.gz</strong>: Root file system</p></li>
+<li><p><strong>phytec-qt6demo-image*.wic</strong>: SD card image</p></li>
 </ul>
 </section>
 </section>
@@ -636,10 +636,10 @@ prompt.</p>
 <ul class="simple">
 <li><p>Load your image via network to RAM:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic
+<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
 Using <a class="reference external" href="mailto:ethernet&#37;&#52;&#48;30be0000">ethernet<span>&#64;</span>30be0000</a> device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-Filename 'phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic'.
+Filename 'phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic'.
 Load address: 0x40480000
 Loading: ######################################
          ######################################
@@ -677,7 +677,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 with ssh through the network (then uncompress it, if necessary) to the eMMC
 of the target with a one-line command:</p></li>
 </ul>
-<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic&quot; | dd of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic&quot; | dd of=/dev/mmcblk2</pre>
 </section>
 <section id="flash-emmc-via-network-in-linux-on-host">
 <h4><span class="section-number">4.2.1.3. </span>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Link to this heading"></a></h4>
@@ -691,12 +691,12 @@ you need a complete image on your host.</p>
 <li><p>Show your available image files on the host:</p></li>
 </ul>
 <pre class="literal-block">host$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic</pre>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</pre>
 <ul class="simple">
 <li><p>Send the image with the command dd command combined with ssh through the
 network to the eMMC of your device:</p></li>
 </ul>
-<pre class="literal-block">host$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
+<pre class="literal-block">host$ dd if=phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
 </section>
 </section>
 <section id="flash-emmc-u-boot-image-via-network-from-running-u-boot">
@@ -764,7 +764,7 @@ u-boot=&gt; boot
 <h4><span class="section-number">4.2.3.2. </span>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Link to this heading"></a></h4>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic). Set the bootmode switch to
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic). Set the bootmode switch to
 <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a>.</p>
 <ul class="simple">
 <li><p>Insert and mount the USB stick:</p></li>
@@ -786,7 +786,7 @@ target$ mount /dev/sda1 /mnt
 </ul>
 <pre class="literal-block">target$ cd /mnt
 target$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic</pre>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -807,7 +807,7 @@ mmcblk2rpmb
 partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 without partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
@@ -836,17 +836,17 @@ Linux on Target</cite> subsection.</p>
 </div>
 <ul class="simple">
 <li><p>Flash an SD card with a working image and create a third FAT partition. Copy
-the WIC image (for example phytec-qt5demo-image.wic) to this
+the WIC image (for example phytec-qt6demo-image.wic) to this
 partition.</p></li>
 <li><p>Configure the bootmode switch to boot from the SD Card and insert the SD
 card.</p></li>
 <li><p>Power on the board and stop in u-boot.</p></li>
-<li><p>Flash your WIC image (for example phytec-qt5demo-image.wic)
+<li><p>Flash your WIC image (for example phytec-qt6demo-image.wic)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p></li>
 <li><p>Load the image:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic
+<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
 reading
 911842304 bytes read in 39253 ms (22.2 MiB/s)</pre>
 <ul class="simple">
@@ -872,12 +872,12 @@ boot from eMMC.</p></li>
 <section id="flash-emmc-from-sd-card-in-linux-on-target">
 <h4><span class="section-number">4.2.4.2. </span>Flash eMMC from SD card in Linux on Target<a class="headerlink" href="#flash-emmc-from-sd-card-in-linux-on-target" title="Link to this heading"></a></h4>
 <p>You can also flash the eMMC on Linux. You only need a complete image saved on
-the SD card (e.g. phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic).</p>
+the SD card (e.g. phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic).</p>
 <ul class="simple">
 <li><p>Show your saved image files on the SD card:</p></li>
 </ul>
 <pre class="literal-block">target$ ls
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic</pre>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</pre>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -899,7 +899,7 @@ partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></
 <li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 <strong>without</strong>
 partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic of=/dev/mmcblk2</pre>
+<pre class="literal-block">target$ dd if=phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic of=/dev/mmcblk2</pre>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
@@ -1210,7 +1210,7 @@ extracted with sudo.</p>
 <ul class="simple">
 <li><p>Extract the rootfs to your nfsroot:</p></li>
 </ul>
-<pre class="literal-block">sudo tar -xvzf phytec-qt5demo-image-phyboard-polis-imx8mm-5.tar.gz -C &lt;path_to_your_NFSROOT&gt;</pre>
+<pre class="literal-block">sudo tar -xvzf phytec-qt6demo-image-phyboard-polis-imx8mm-5.tar.gz -C &lt;path_to_your_NFSROOT&gt;</pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Check the destination path when unpacking the rootfs.</p>
@@ -1307,12 +1307,12 @@ host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin
 <h3><span class="section-number">5.2.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">(S1)</span></a> to Serial downloader (USB boot) (Boot
 Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mm-head-components"><span class="std std-ref">X2</span></a> to your host.</p>
-<p>Download phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic and imx-boot image from
+<p>Download phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic and imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/phyboard-polis-imx8mm-5/ and copy them to the UUU directory:</p>
 <pre class="literal-block">host$ cd mfgtools
 host$ cp -v imx-boot uuu/_flash.bin
-host$ cp -v phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic uuu/_rootfs.wic</pre>
+host$ cp -v phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic uuu/_rootfs.wic</pre>
 <ul class="simple">
 <li><p>Execute and power up the board:</p></li>
 </ul>
@@ -1364,15 +1364,15 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <li><p>Move to the Yocto build directory:</p></li>
 </ul>
 <pre class="literal-block">host$ source sources/poky/oe-init-build-env
-host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image</pre>
+host$ bitbake -c populate_sdk phytec-qt6demo-image # or another image</pre>
 </section>
 <section id="install-the-sdk">
 <h3><span class="section-number">5.3.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Set correct permissions and install the SDK:</p></li>
 </ul>
-<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
-host$ ./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt5demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh ============================================================================================================
+<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
+host$ ./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh ============================================================================================================
 Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.1):
 You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MM-PD22.1.1&quot;. Proceed [Y/n]?
 Extracting SDK...done
@@ -1655,9 +1655,9 @@ easiest way to do this is to use the UI program Gparted.</p>
 <ul class="simple">
 <li><p>To apply your changes, press the green tick.</p></li>
 <li><p>Now you can mount the root partition and copy e.g. the
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it again:</p></li>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it again:</p></li>
 </ul>
-<pre class="literal-block">host$ sudo cp phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic /mnt/ ; sync
+<pre class="literal-block">host$ sudo cp phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic /mnt/ ; sync
 host$ umount /mnt</pre>
 </section>
 <section id="create-the-third-partition">
@@ -1680,10 +1680,10 @@ host$ umount /mnt</pre>
 <img alt="../../../_images/gparted8.png" src="../../../_images/gparted8.png" />
 <ul class="simple">
 <li><p>Now you can mount the new partition and copy e.g.
-phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it again:</p></li>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it again:</p></li>
 </ul>
 <pre class="literal-block">host$ sudo mount /dev/sde3 /mnt
-host$ sudo cp phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic /mnt/ ; sync
+host$ sudo cp phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic /mnt/ ; sync
 host$ umount /mnt</pre>
 </section>
 </section>
@@ -3479,25 +3479,25 @@ id  encoder status      name        size (mm)   modes   encoders
 <p>The 10” Display is always active. If the PEB-AV-Connector is not connected, an
 error message may occur at boot.</p>
 <section id="qt-demo">
-<h3><span class="section-number">7.18.1. </span>QT Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
-<p>With the phytec-qt5demo-image, Weston starts during boot. The phytec-qt5demo can be
-stopped with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop phytec-qtdemo
+<h3><span class="section-number">7.18.1. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
+<p>With the <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code>, Weston starts during boot. Our Qt6 demo application named
+“qtphy” can be stopped with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl stop qtphy
 </pre></div>
 </div>
 <ul>
 <li><p>To start the demo again, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl start phytec-qtdemo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl start qtphy
 </pre></div>
 </div>
 </li>
 <li><p>To disable autostart of the demo run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl disable phytec-qtdemo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl disable qtphy
 </pre></div>
 </div>
 </li>
 <li><p>To enable autostart of the demo, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl enable phytec-qtdemo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ systemctl enable qtphy
 </pre></div>
 </div>
 </li>
@@ -4065,7 +4065,7 @@ Waiting for GDB connection...
 <section id="chromium">
 <h2><span class="section-number">9.1. </span>Chromium<a class="headerlink" href="#chromium" title="Link to this heading"></a></h2>
 <p>Our BSP for the phyBOARD-Polis-i.MX 8M Mini supports Chromium. You can include it in the
-phytec-qt5demo-image with only a few steps.</p>
+phytec-qt6demo-image with only a few steps.</p>
 <section id="adding-chromium-to-your-local-conf">
 <h3><span class="section-number">9.1.1. </span>Adding Chromium to Your local.conf<a class="headerlink" href="#adding-chromium-to-your-local-conf" title="Link to this heading"></a></h3>
 <p>To include Chromium you have to add the following line into your local.conf. You

@@ -53,7 +53,7 @@
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
-.. |yocto-imagename| replace:: phytec-qt5demo-image
+.. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master-next
@@ -173,8 +173,8 @@ First Start-up
 * **Image.config**: Kernel configuration
 * **imx8mm-phyboard-polis-rdk*.dtb**: Kernel device tree file
 * **imx8mm-phy*.dtbo**: Kernel device tree overlay files
-* **phytec-qt5demo-image\*.tar.gz**: Root file system
-* **phytec-qt5demo-image\*.wic**: SD card image
+* **phytec-qt6demo-image\*.tar.gz**: Root file system
+* **phytec-qt6demo-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS
@@ -435,6 +435,8 @@ Display
 
 The 10" Display is always active. If the PEB-AV-Connector is not connected, an
 error message may occur at boot.
+
+.. include:: /bsp/qt6.rsti
 
 .. include:: /bsp/imx8/peripherals/display.rsti
 

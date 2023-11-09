@@ -302,11 +302,11 @@ for many open-source software projects. We ship all OpenEmbedded layers with our
 BSP, but not all of them are activated. Our example images pull several software
 packages generated from OpenEmbedded recipes.
 
-meta-qt5
+meta-qt6
 ~~~~~~~~
 
-This layer provides a community-supported integration of *Qt5* in the
-*Poky*-based root filesystem and is integrated into our BSP.
+This layer provides an integration of *Qt6* in the *Poky*-based root filesystem
+and is integrated into our BSP.
 
 meta-nodejs
 ~~~~~~~~~~~
@@ -359,18 +359,18 @@ current features are:
 -  RAUC integration: we set up basic support for an A/B system image update,
    which is possible locally and over-the-air
 
-meta-qt5-phytec
+meta-qt6-phytec
 ~~~~~~~~~~~~~~~
 
-This is our layer for Qt5 board integration and examples. The features are:
+This is our layer for Qt6 board integration and examples. The features are:
 
--  `Qt5 with eglfs backend <http://doc.qt.io/qt-5/embedded-linux.html>`_ for
+-  `Qt6 with eglfs backend <http://doc.qt.io/qt-5/embedded-linux.html>`_ for
    PHYTEC's AM335x, i.MX 6 and RK3288 platforms
--  Images: ``phytec-qt5demo-image`` for *Qt5* and video applications
--  A *Qt5* demo application demonstrating how to create a *Qt5* project using
+-  Images: ``phytec-qt6demo-image`` for *Qt6* and video applications
+-  A *Qt6* demo application demonstrating how to create a *Qt6* project using
    *QML* widgets and a *Bitbake* recipe for the *Yocto* and *systemd*
    integration. It can be found in
-   ``sources/meta-qt5-phytec/recipes-qt/examples/phytec-qtdemo_git.bb``
+   ``sources/meta-qt6-phytec/recipes-qt/examples/phytec-qtdemo_git.bb``
 
 meta-virtualization
 ~~~~~~~~~~~~~~~~~~~
@@ -748,7 +748,7 @@ release number, and the hardware you are working on::
                        1GiB RAM, 4GiB eMMC
                        PBA-C-06-002.A2, PCM-058-30242C0X.A0
                        distro: ampliphy
-                       target: phytec-qt5demo-image
+                       target: phytec-qt6demo-image
     2: phyboard-mira-imx6-15: PHYTEC phyBOARD-Mira full-featured i.MX6 Solo
                        256MiB RAM, NAND
                        PBA-C-06-002.A2, PCM-058-12000D0C.A4
@@ -758,9 +758,9 @@ release number, and the hardware you are working on::
                        1GiB RAM, NAND
                        PB-01501-002.A2, PBA-C-06-002.A2, PCM-058-33230C0I.A3
                        distro: ampliphy
-                       target: -c populate_sdk phytec-qt5demo-image
+                       target: -c populate_sdk phytec-qt6demo-image
                        target: barebox-hosttools-native
-                       target: phytec-qt5demo-image
+                       target: phytec-qt6demo-image
    ...
    19: phyflex-imx6-2: PHYTEC phyFLEX-i.MX6 Quad PBA-B-01
                        1GiB RAM one bank, 16MiB SPI-NOR
@@ -771,7 +771,7 @@ release number, and the hardware you are working on::
                        512MiB RAM one bank, no SPI-NOR
                        PFL-A-02-0200541.A0
                        distro: ampliphy
-                       target: phytec-qt5demo-image
+                       target: phytec-qt6demo-image
 
 If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. After the configuration is done,
@@ -1082,7 +1082,7 @@ As you can see, everything is explained in the output.
 To update the SD card image with a new kernel or image first force the
 compilation of it and then force a rebuild of the root filesystem. Use::
 
-   host$ bitbake phytec-qt5demo-image -c rootfs --force
+   host$ bitbake phytec-qt6demo-image -c rootfs --force
 
 Note that the build system is not modifying the external source directory. If
 you want to apply all patches the *Yocto* recipe is carrying to the external
@@ -1112,7 +1112,7 @@ Creating your own layer is described in the section Create your own Layer.
 Disable Qt Demo
 ...............
 
-By default, the BSP image *phytec-qt5demo-image* starts a Qt5 Demo application
+By default, the BSP image *phytec-qt6demo-image* starts a Qt6 Demo application
 on the attached display or monitor. If you want to stop the demo and use the
 *Linux* framebuffer console behind it, connect to the target via serial cable
 or *ssh* and execute the shell command::
@@ -1143,7 +1143,7 @@ If you want to disable the service by default, edit the file
 
 After that, rebuild the image::
 
-   host$ bitbake phytec-qt5demo-image
+   host$ bitbake phytec-qt6demo-image
 
 Framebuffer Console
 ...................
@@ -1237,7 +1237,7 @@ installs some helper programs on the target image.
 
 All configuration options in local.conf apply to all images. Consequently, the
 tools are now included in both images phytec-headless-image and
-phytec-qt5demo-image.
+phytec-qt6demo-image.
 
 Notes about Packages and Recipes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1318,7 +1318,7 @@ easiest way is to add the following line (here is the package *nmap*)::
 
 to your *build/conf/local.conf*. Do not forget to rebuild the image::
 
-   host$ bitbake phytec-qt5demo-image
+   host$ bitbake phytec-qt6demo-image
 
 Create your own Layer create layer
 ..................................
@@ -1606,7 +1606,7 @@ in the kernel::
 
    host$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
          -> make a change
-   host$ bitbake phytec-qt5demo-image
+   host$ bitbake phytec-qt6demo-image
 
 Your changes will now be recompiled and added to the image. If you want to store
 your changes permanently, it is advisable to create a patch from the changes,
@@ -2297,12 +2297,12 @@ To install the libraries and examples edit the file *conf/local.conf* in the
 
 Then rebuild your image::
 
-   host$ bitbake phytec-qt5demo-image
+   host$ bitbake phytec-qt6demo-image
 
 .. tip::
 
    Most examples do not work out of the box, because they depend on the *GTK*
-   graphics library. The BSP only supports *Qt5* .
+   graphics library. The BSP only supports *Qt6* .
 
 Add Minimal PHP web runtime with *lightpd*
 ..........................................
@@ -2339,11 +2339,11 @@ Common Tasks
 Debugging a User Space Application
 ..................................
 
-The phytec-qt5demo-image can be cross-debugged without any change. For
+The phytec-qt6demo-image can be cross-debugged without any change. For
 cross-debugging, you just have to match the host sysroot with the image in use.
 So you need to create a toolchain for your image::
 
-   host$ bitbake -c populate_sdk phytec-qt5demo-image
+   host$ bitbake -c populate_sdk phytec-qt6demo-image
 
 Additionally, if you want to have full debug and backtrace capabilities for all
 programs and libraries in the image, you could add::
@@ -2482,11 +2482,11 @@ Using the SDK
 After generating the SDK with::
 
    host$ source sources/poky/oe-init-build-env
-   host$ bitbake -c populate_sdk phytec-qt5demo-image # or another image
+   host$ bitbake -c populate_sdk phytec-qt6demo-image # or another image
 
 run the generated binary with::
 
-   host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt5demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+   host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
    Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):
    You are about to install the SDK to "/opt/ampliphy/i.MX6-PD15.3-rc". Proceed[Y/n]?
    Extracting SDK...done
