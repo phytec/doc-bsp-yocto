@@ -117,7 +117,7 @@ The |som| supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with::
 
    target$ echo mem > /sys/power/state
-   #resume with pressing reset button
+   #resume with pressing on/off button
 
 To wake up with serial console run
 
