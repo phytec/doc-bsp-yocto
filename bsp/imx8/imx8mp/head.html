@@ -293,73 +293,86 @@ should show you the necessary <strong>Machine Name</strong> for your specific ha
 </section>
 <section id="getting-started">
 <h1><span class="section-number">2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
-<p>The <strong>phyCORE-i.MX8M Plus Kit</strong>s are shipped with a pre-flashed SD-Card.  It contains the
+<p>The <strong>phyCORE-i.MX8M Plus Kit</strong> is shipped with a pre-flashed SD card. It contains the
 phytec-qt6demo-image and can be used directly as a boot source. The eMMC is
-programmed with only a U-boot as default. You can get all the sources from our
-<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/">download server</a>. This chapter explains how to flash a BSP image
-to SD Card and how to start the board.</p>
+programmed with only a U-boot by default. You can get all sources from the
+<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/">PHYTEC download server</a>. This chapter explains how to flash a BSP
+image to SD card and how to start the board.</p>
 <section id="get-the-image">
 <h2><span class="section-number">2.1. </span>Get the Image<a class="headerlink" href="#get-the-image" title="Link to this heading"></a></h2>
 <p>The WIC image contains all BSP files in several, correctly pre-formatted
-partitions and can be copied to the SD card easily using the single Linux
-command dd. It can be built by Yocto or downloaded from our download server.</p>
-<ul class="simple">
-<li><p>Get the <code class="docutils literal notranslate"><span class="pre">\*.wic</span></code> file from our download server:</p></li>
-</ul>
+partitions and can be copied to an SD card easily using the single Linux
+command <code class="docutils literal notranslate"><span class="pre">dd</span></code>. It can be built by Yocto or downloaded from the PHYTEC download
+server.</p>
+<p>Get the WIC file from the download server:</p>
 <pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic</a></pre>
 </section>
 <section id="write-the-image-to-sd-card">
 <h2><span class="section-number">2.2. </span>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To create your bootable SD card with the dd command, you must have root
-privileges. Because of this, you must be very careful when selecting the
-destination device for the dd command! All files on the selected destination
-device will be erased immediately without any further query! Consequently,
-having selected the wrong device can also erase your hard drive!</p>
+<p>To create your bootable SD card with the <code class="docutils literal notranslate"><span class="pre">dd</span></code> command, you must have root
+privileges. Be very careful when specifying the destination device with
+<code class="docutils literal notranslate"><span class="pre">dd</span></code>! All files on the selected destination device will be erased
+immediately without any further query!</p>
+<p>Selecting the wrong device may result in <strong>data loss</strong> and e.g. could erase
+your currently running system!</p>
 </div>
-<p>To create your bootable SD card, you must first find out the correct device name
-of your SD card and possible partitions. Then unmount the partitions before you
-start copying the image to the SD card.</p>
-<ul class="simple">
-<li><p>In order to get the correct device name, first remove your SD card and
-execute ls /dev.</p></li>
-<li><p>Now insert your SD card and execute ls /dev again.</p></li>
-<li><p>Compare the two outputs to find the new device name(s) listed in the second
+<p>To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. Unmount any mounted partitions before
+you start copying the image to the SD card.</p>
+<ol class="arabic">
+<li><p>In order to get the correct device name, remove your SD card and
+execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ lsblk
+</pre></div>
+</div>
+</li>
+<li><p>Now insert your SD card and execute the command again:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ lsblk
+</pre></div>
+</div>
+</li>
+<li><p>Compare the two outputs to find the new device names listed in the second
 output. These are the device names of the SD card (device and partitions if
-the SD card is formatted).</p></li>
-<li><p>In order to verify the device names found, execute the command dmesg. Within
-the last lines of its output, you should also find the device names, for
-example, sde (depending on your system).</p></li>
-</ul>
-<p>Now that you have the device name /dev/&lt;your_device&gt; (e.g. /dev/sde), you can
-see the partitions which must be unmounted if the SD card is formatted. In this
-case, you will also find /dev/&lt;your_device&gt; with an appended number
-(e.g. /dev/sde1) in the output. These represent the partition(s) that need to be
-unmounted.</p>
-<ul class="simple">
-<li><p>Unmount all partitions:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ umount /dev/&lt;your_device&gt;&lt;number&gt;
+the SD card was formatted).</p></li>
+<li><p>In order to verify the device names being found, execute the command
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span></code>. Within the last lines of its output, you should also find the
+device names, e.g. <code class="docutils literal notranslate"><span class="pre">/dev/sde</span></code> or <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0</span></code> (depending on your
+system).</p></li>
+</ol>
+<p>Alternatively, you may use a graphical program of your choice, like <a class="reference external" href="https://apps.gnome.org/en/DiskUtility/">GNOME Disks</a> or <a class="reference external" href="https://apps.kde.org/partitionmanager/">KDE Partition Manager</a>, to find the correct device.</p>
+<p>Now that you have the correct device name, e.g. <code class="docutils literal notranslate"><span class="pre">/dev/sde</span></code>,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. <code class="docutils literal notranslate"><span class="pre">/dev/sde1</span></code>) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.</p>
+<ul>
+<li><p>Unmount all partitions, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo umount /dev/sde1
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>After having unmounted all devices with an appended number
-(&lt;your_device&gt;&lt;number&gt;), you can create your bootable SD card:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic of=/dev/&lt;your_device&gt; bs=1M conv=fsync status=progress
+</li>
+<li><p>After having unmounted all partitions, you can create your bootable SD card:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo dd if=&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic of=/dev/sdX bs=1M conv=fsync status=progress
 </pre></div>
 </div>
-<p>Using the device name (&lt;your_device&gt;) without appended number (e.g. sde) which
-stands for the whole device. The parameter conv=fsync forces a sync operation on
-the device before dd returns. This ensures that all blocks are written to the SD
-card and are not still in memory. The parameter status=progress will print out
-information on how much data is and still has to be copied until it is finished.</p>
+<p>Again, make sure to replace <code class="docutils literal notranslate"><span class="pre">/dev/sdX</span></code> with your actual device name found
+previously.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">conv=fsync</span></code> forces a sync operation on the device before
+<code class="docutils literal notranslate"><span class="pre">dd</span></code> returns. This ensures that all blocks are written to the SD card and
+none are left in memory. The parameter <code class="docutils literal notranslate"><span class="pre">status=progress</span></code> will print out
+information on how much data is and still has to be copied until it is
+finished.</p>
+</li>
+</ul>
 <p>An alternative and much faster way to prepare an SD card can be done by using
-<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> from Intel. Yocto automatically creates a block
-map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for the WIC image that describes the image content and
-includes checksums for data integrity. <em>bmaptool</em> is packaged by various Linux distributions.
-For Debian-based systems install it by issuing:</p>
+<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> from Intel. Yocto
+automatically creates a block map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for
+the WIC image that describes the image content and includes checksums for data
+integrity. <em>bmaptool</em> is packaged by various Linux distributions. For
+Debian-based systems install it by issuing:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install bmap-tools
 </pre></div>
 </div>
@@ -369,8 +382,9 @@ For Debian-based systems install it by issuing:</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><em>bmaptool</em> only overwrites the areas of an SD card where image data is located. This means that
-a previously written U-Boot environment is still available after an image update.</p>
+<p><em>bmaptool</em> only overwrites the areas of an SD card where image data is
+located. This means that a previously written U-Boot environment may still be
+available after writing the image.</p>
 </div>
 </section>
 <section id="first-start-up">
