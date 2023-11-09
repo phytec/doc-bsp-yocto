@@ -7,31 +7,48 @@ programmed with only a U-boot by default. You can get all sources from the
 `PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
 image to SD card and how to start the board.
 
+There are several ways to flash an image to SD card or even eMMC. Most notably
+using simple, sequential writing with the Linux command line tool ``dd``. An
+alternative way is to use PHYTEC's system initialization program called
+`partup <https://github.com/phytec/partup>`_, which makes it especially easy to
+format more complex systems. You can get `prebuild Linux binaries of partup
+<https://github.com/phytec/partup/releases>`__ from its release page. Also read
+`partup's README <https://github.com/phytec/partup#readme>`__ for installation
+instructions.
+
 Get the Image
 -------------
 
-The WIC image contains all BSP files in several, correctly pre-formatted
-partitions and can be copied to an SD card easily using the single Linux
-command ``dd``. It can be built by Yocto or downloaded from the PHYTEC download
-server.
+The image contains all necessary files and makes sure partitions and any raw
+data are correctly writing. Both the partup package and the WIC image, which can
+be flashed using ``dd``, can be downloaded from the `PHYTEC download server
+<dl-server_>`_.
 
-Get the WIC file from the download server:
+Get either the partup package or the WIC image from the download server:
 
 .. parsed-literal::
 
+   host$ wget |link-partup-package|
    host$ wget |link-image|
+
+.. note::
+   For eMMC, more complex partitioning schemes or even just large images, we
+   recommend using the partup package, as it is faster in writing than ``dd``
+   and allows for a more flexible configuration of the target flash device.
 
 Write the Image to SD Card
 --------------------------
 
 .. warning::
-   To create your bootable SD card with the ``dd`` command, you must have root
-   privileges. Be very careful when specifying the destination device with
-   ``dd``! All files on the selected destination device will be erased
-   immediately without any further query!
+   To create your bootable SD card, you must have root privileges. Be very
+   careful when specifying the destination device! All files on the selected
+   device will be erased immediately without any further query!
 
    Selecting the wrong device may result in **data loss** and e.g. could erase
    your currently running system!
+
+Finding the Correct Device
+..........................
 
 To create your bootable SD card, you must first find the correct device name
 of your SD card and possible partitions. Unmount any mounted partitions before
@@ -65,24 +82,39 @@ In this case, you will also find the device name with an appended number
 distributions automatically mount partitions when the device gets plugged in.
 Before writing, however, these need to be unmounted to avoid data corruption.
 
-*  Unmount all partitions, e.g.::
+Unmount all partitions, e.g.::
 
-      host$ sudo umount /dev/sde1
+   host$ sudo umount /dev/sde1
 
-*  After having unmounted all partitions, you can create your bootable SD card::
+Now, the SD card is ready to be flashed with an image, using either partup,
+``dd`` or bmap-tools.
 
-      host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/sdX bs=1M conv=fsync status=progress
+Using partup
+............
 
-   Again, make sure to replace ``/dev/sdX`` with your actual device name found
-   previously.
+Writing to an SD card with partup is done in a single command::
 
-   The parameter ``conv=fsync`` forces a sync operation on the device before
-   ``dd`` returns. This ensures that all blocks are written to the SD card and
-   none are left in memory. The parameter ``status=progress`` will print out
-   information on how much data is and still has to be copied until it is
-   finished.
+   host$ sudo partup install <IMAGENAME>-<MACHINE>.partup /dev/sdX
 
-An alternative and much faster way to prepare an SD card can be done by using
+Make sure to replace ``/dev/sdX`` with your actual device name found previously.
+
+Further usage of partup is explained at its `official documentation website
+<https://partup.readthedocs.io/en/latest/>`__.
+
+.. note::
+   *partup* has the advantage of allowing to clear specific raw areas in the
+   MMC user area, which is used in our provided partup packages to erase any
+   existing U-Boot environments. This is a known issue *bmaptool* does not
+   solve, as mentioned below.
+
+   Another key advantage of partup over other flashing tools is that it allows
+   configuring MMC specific parts, like writing to eMMC boot partitions, without
+   the need to call multiple other commands when writing.
+
+Using bmap-tools
+................
+
+An alternative and also fast way to prepare an SD card can be done by using
 `bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
@@ -95,7 +127,26 @@ Flash a WIC image to SD card by calling::
 
    host$ bmaptool copy <IMAGENAME>-<MACHINE>.wic /dev/<your_device>
 
+Make sure to place the ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside the regular
+WIC image, so bmaptool knows which blocks to write and which to skip.
+
 .. warning::
    *bmaptool* only overwrites the areas of an SD card where image data is
    located. This means that a previously written U-Boot environment may still be
    available after writing the image.
+
+Using ``dd``
+............
+
+After having unmounted all partitions, you can create your bootable SD card::
+
+   host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/sdX bs=1M conv=fsync status=progress
+
+Again, make sure to replace ``/dev/sdX`` with your actual device name found
+previously.
+
+The parameter ``conv=fsync`` forces a sync operation on the device before
+``dd`` returns. This ensures that all blocks are written to the SD card and
+none are left in memory. The parameter ``status=progress`` will print out
+information on how much data is and still has to be copied until it is
+finished.
