@@ -31,6 +31,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.extlinks',
     'sphinx_rtd_theme',
+    'sphinx_substitution_extensions',
 ]
 
 # List of patterns, relative to source directory, that match files and
