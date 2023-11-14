@@ -195,7 +195,7 @@ Prepare Target
 ..............
 
 For UUU boot, set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
-Configuration Options). Also, connect **USB OTG** |ref-usb-otg| to your host.
+Configuration Options). Also, connect USB port |ref-usb-otg| to your host.
 
 Starting bootloader via UUU-Tool
 ................................
