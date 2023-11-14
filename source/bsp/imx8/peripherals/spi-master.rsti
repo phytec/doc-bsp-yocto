@@ -35,9 +35,10 @@ accessible via /dev/mtd<N> devices where <N> is the MTD device number associated
 with the NOR flash partition to access. To find the correct MTD device number
 for a partition, run on the target:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   root@\ |yocto-machinename|:~# mtdinfo --all
+   root@|yocto-machinename|:~$ mtdinfo --all
    Count of MTD devices:           4
    Present MTD devices:            mtd0, mtd1, mtd2, mtd3
    Sysfs interface supported:      yes

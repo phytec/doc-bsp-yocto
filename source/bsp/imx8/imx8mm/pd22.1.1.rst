@@ -147,9 +147,10 @@ server.
 
 Get the WIC file from the download server:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ wget |link-image|
+   host:~$ wget |link-image|
 
 Write the Image to SD Card
 --------------------------

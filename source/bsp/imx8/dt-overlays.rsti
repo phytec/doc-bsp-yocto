@@ -18,26 +18,29 @@ By default, the ``${overlays}`` variable comes from the external ``bootenv.txt``
 environment file which is located in the boot partition.
 You can read and write the file on booted target from linux:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ cat /boot/bootenv.txt
+   target:~$ cat /boot/bootenv.txt
    overlays=\ |dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
 
 Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
 available the overlays variable can be set directly in the U-Boot environment.
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
    u-boot=> printenv overlays
-   overlays=\ |dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dt-carrierboard|-peb-av-010.dtbo
    u-boot=> boot
 
 If a user defined ``${overlays}`` variable should be directly loaded from U-Boot
 environment but there is still an external ``bootenv.txt`` available, the ``${no_bootenv}``
 variable needs to be set as a flag:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> setenv no_bootenv 1
    u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
@@ -51,7 +54,8 @@ cameras that can not be detected during run time. To prevent applying overlays
 listed in the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can
 be set to `1` in the bootloader environment.
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> setenv no_overlays 1
    u-boot=> boot
@@ -69,7 +73,8 @@ SoM i2c EEPROM.
 It depends on the SoM variant if any device tree overlays will be applied. To check
 if an overlay will be applied on the running SoM in U-Boot, run:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> extension scan
    Found 1 extension board(s).

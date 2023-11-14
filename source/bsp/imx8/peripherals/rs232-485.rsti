@@ -7,15 +7,17 @@ RS232
 
 *  Configuration of the UART interface can be done with stty. For example
 
-   .. parsed-literal::
+   .. code-block:: console
+      :substitutions:
 
-      target$ stty -F /dev/|serial-uart| 115200 crtscts raw -echo
+      target:~$ stty -F /dev/|serial-uart| 115200 crtscts raw -echo
 
 *  With a simple echo and cat, basic communication can be tested. Example
 
-   .. parsed-literal::
+   .. code-block:: console
+      :substitutions:
 
-      target$ echo 123 > /dev/|serial-uart|
+      target:~$ echo 123 > /dev/|serial-uart|
 
 ::
 
@@ -29,9 +31,10 @@ RS485
 For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ linux-serial-test -p /dev/|serial-uart| -b 115200 --rs485 0
+   target:~$ linux-serial-test -p /dev/|serial-uart| -b 115200 --rs485 0
 
 More information about the linux-serial-test tool and its parameters can be
 found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
