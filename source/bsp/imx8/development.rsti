@@ -426,14 +426,14 @@ Set this environment variable before building the Image:
 .. code-block:: console
    :substitutions:
 
-   host:~$ export ATF_LOAD_ADDR=\ |atfloadaddr|
+   host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
 
 *  build flash.bin (imx-boot):
 
 .. code-block:: console
    :substitutions:
 
-   host:~$ make phycore-|kernel-socname|\ _defconfig
+   host:~$ make phycore-|kernel-socname|_defconfig
    host:~$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
@@ -452,7 +452,7 @@ E.g. flash SD card:
 .. code-block:: console
    :substitutions:
 
-   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
@@ -470,15 +470,15 @@ Follow the steps to get the U-boot sources and check the correct branch in the
 
 Choose the correct RAM size as populated on the board.
 
-.. code-block:: bash
+.. code-block:: kconfig
    :substitutions:
 
-   CONFIG_TARGET_PHYCORE\_\ |u-boot-socname-config|\=y
+   CONFIG_TARGET_PHYCORE_|u-boot-socname-config|=y
    # CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
-   CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_FIX=y
-   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_1GB=y
-   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_2GB=y
-   # CONFIG_PHYCORE\_\ |u-boot-socname-config|\_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_4GB=y
 
 After saving the changes, follow the remaining steps from Build U-Boot.
 

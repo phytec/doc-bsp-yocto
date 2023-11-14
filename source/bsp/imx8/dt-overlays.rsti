@@ -22,7 +22,7 @@ You can read and write the file on booted target from linux:
    :substitutions:
 
    target:~$ cat /boot/bootenv.txt
-   overlays=\ |dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
 
 Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
 available the overlays variable can be set directly in the U-Boot environment.
