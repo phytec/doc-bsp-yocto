@@ -41,7 +41,8 @@ prompt.
 
 *  Load your image via network to RAM:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
    Using ethernet@30be0000 device
@@ -84,9 +85,10 @@ You can update the eMMC from your target.
    with ssh through the network (then uncompress it, if necessary) to the eMMC
    of the target with a one-line command:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" \| dd of=/dev/mmcblk2
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" \| dd of=/dev/mmcblk2
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,17 +102,19 @@ you need a complete image on your host.
 
 *  Show your available image files on the host:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ ls
+   host:~$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
 * Send the image with the command dd command combined with ssh through the
   network to the eMMC of your device:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic status=progress \
+   host:~$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic status=progress \
    | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
 
 Flash eMMC u-boot image via Network from running u-boot
@@ -125,7 +129,8 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
 
 *  Load image over tftp into RAM and then write it to eMMC:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> tftp ${loadaddr} imx-boot
    u-boot=> setexpr nblk ${filesize} / 0x200
@@ -203,10 +208,11 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  Now show your saved image files on the USB Stick:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ cd /mnt
-   target$ ls
+   target:~$ cd /mnt
+   target:~$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
@@ -228,9 +234,10 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    partitions: (mmcblk2boot0; mmcblk2boot1)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+   target:~$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -269,7 +276,8 @@ Flash eMMC from SD card in u-boot on Target
    Image, dtb, dtbo, and root file system to eMMC.
 *  Load the image:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
    reading
@@ -301,9 +309,10 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  Show your saved image files on the SD card:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ ls
+   target:~$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
@@ -326,9 +335,10 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
    partition):
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+   target:~$ dd if=\ |yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -382,7 +392,8 @@ writing is possible, the SPI-NOR flash needs to be probed:
    use the correct image file. Load the image over tftp, erase and write the
    bootloader to the flash:
 
- .. parsed-literal::
+ .. code-block::
+   :substitutions:
 
    u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
    u-boot=> sf update ${loadaddr} 0 ${filesize}
@@ -407,9 +418,10 @@ Flash SPI NOR from Network in kernel on Target
 
 *  Copy the image from the host to the target:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
+   host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
 
 *  Find the number of erase blocks of the U-boot partition:
 
@@ -429,10 +441,11 @@ Flash SPI NOR from Network in kernel on Target
 
 *  Erase the u-boot partition and flash it:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ flash_erase /dev/mtd0 0x0 60
-   target$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+   target:~$ flash_erase /dev/mtd0 0x0 60
+   target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 Flash SPI NOR Flash from SD Card
 ................................
@@ -456,7 +469,8 @@ Flash SPI NOR from SD Card in u-boot on Target
    use the correct image file. Load the image from the SD Card, erase and write
    the bootloader to the flash:
 
-.. parsed-literal::
+.. code-block::
+   :substitutions:
 
    u-boot=> mmc dev 1
    u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
@@ -480,9 +494,10 @@ Flash SPI NOR from SD Card in kernel on Target
 
 *  Mount the SD Card:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ mount /dev/mmcblkp1 /mnt
+   host:~$ mount /dev/mmcblkp1 /mnt
 
 *  Find the number of erase blocks of the u-boot partition:
 
@@ -502,10 +517,11 @@ Flash SPI NOR from SD Card in kernel on Target
 
 Erase the u-boot partition and flash it:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ flash_erase /dev/mtd0 0x0 60
-   target$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+   target:~$ flash_erase /dev/mtd0 0x0 60
+   target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 RAUC
 ----

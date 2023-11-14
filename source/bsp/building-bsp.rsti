@@ -61,9 +61,10 @@ written in Python. It is mainly a helper to get started with the BSP structure.
 *  It is also possible to pass this information directly using command line
    parameters:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ DISTRO=\ |yocto-distro| MACHINE=\ |yocto-machinename| ./phyLinux init -p |kernel-socname| -r |yocto-manifestname|
+   host:~$ DISTRO=\ |yocto-distro| MACHINE=\ |yocto-machinename| ./phyLinux init -p |kernel-socname| -r |yocto-manifestname|
 
 After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.
@@ -94,9 +95,10 @@ Starting the Build Process
 
 *  Build your image:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ bitbake |yocto-imagename|
+   host:~$ bitbake |yocto-imagename|
 
 .. note::
 

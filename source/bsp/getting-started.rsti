@@ -26,10 +26,11 @@ be flashed using ``dd``, can be downloaded from the `PHYTEC download server
 
 Get either the partup package or the WIC image from the download server:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ wget |link-partup-package|
-   host$ wget |link-image|
+   host:~$ wget |link-partup-package|
+   host:~$ wget |link-image|
 
 .. note::
    For eMMC, more complex partitioning schemes or even just large images, we

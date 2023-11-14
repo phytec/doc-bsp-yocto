@@ -137,9 +137,10 @@ Place Images on Host for Netboot
 
 *  Extract the rootfs to your nfsroot:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C <path_to_your_NFSROOT>
+   host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C <path_to_your_NFSROOT>
 
 .. note::
    Check the destination path when unpacking the rootfs.
@@ -228,10 +229,11 @@ Download the imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/|yocto-machinename|/ and copy them to the UUU directory:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ cd mfgtools
-   host$ cp -v imx-boot uuu/_flash.bin
+   host:~$ cd mfgtools
+   host:~$ cp -v imx-boot uuu/_flash.bin
 
 *  Execute and power up the board:
 
@@ -250,11 +252,12 @@ Download |yocto-imagename|-|yocto-machinename|.wic and imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/|yocto-machinename|/ and copy them to the UUU directory:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ cd mfgtools
-   host$ cp -v imx-boot uuu/_flash.bin
-   host$ cp -v |yocto-imagename|-|yocto-machinename|.wic uuu/_rootfs.wic
+   host:~$ cd mfgtools
+   host:~$ cp -v imx-boot uuu/_flash.bin
+   host:~$ cp -v |yocto-imagename|-|yocto-machinename|.wic uuu/_rootfs.wic
 
 *  Execute and power up the board:
 
@@ -306,20 +309,22 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
 
 *  Move to the Yocto build directory:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ source sources/poky/oe-init-build-env
-   host$ bitbake -c populate_sdk |yocto-imagename| # or another image
+   host:~$ source sources/poky/oe-init-build-env
+   host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
 
 Install the SDK
 ...............
 
 *  Set correct permissions and install the SDK:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
-   host$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh ============================================================================================================
+   host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
+   host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh ============================================================================================================
    Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-manifestname|):
    You are about to install the SDK to "/opt/|yocto-distro|/|yocto-manifestname|". Proceed [Y/n]?
    Extracting SDK...done
@@ -332,9 +337,10 @@ Using the SDK
 Activate the toolchain for your shell by sourcing the file *environment-setup*
 in the toolchain directory:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
+   host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
 Installing Required Tools
 .........................
@@ -392,11 +398,12 @@ Build U-Boot
 *  The **tag** needed at this release is called |u-boot-tag|
 *  Check out the needed *U-Boot* **tag**:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ cd ~/u-boot-imx/
-   host$ git fetch --all --tags
-   host$ git checkout tags/|u-boot-tag|
+   host:~$ cd ~/u-boot-imx/
+   host:~$ git fetch --all --tags
+   host:~$ git checkout tags/|u-boot-tag|
 
 *  Technically, you can now build the U-Boot, but practically there are some
    further steps necessary:
@@ -416,16 +423,18 @@ Build U-Boot
 
 Set this environment variable before building the Image:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ export ATF_LOAD_ADDR=\ |atfloadaddr|
+   host:~$ export ATF_LOAD_ADDR=\ |atfloadaddr|
 
 *  build flash.bin (imx-boot):
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ make phycore-|kernel-socname|\ _defconfig
-   host$ make flash.bin
+   host:~$ make phycore-|kernel-socname|\ _defconfig
+   host:~$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:
@@ -440,9 +449,10 @@ SoC   Offset User Area    Offset Boot Partition         eMMC Device
 
 E.g. flash SD card:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=\ |u-boot-offset| conv=sync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
@@ -460,7 +470,8 @@ Follow the steps to get the U-boot sources and check the correct branch in the
 
 Choose the correct RAM size as populated on the board.
 
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    CONFIG_TARGET_PHYCORE\_\ |u-boot-socname-config|\=y
    # CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
@@ -479,13 +490,14 @@ Build Kernel
 *  The tag needed for this release is called |kernel-tag|
 *  Check out the needed linux-imx tag:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ git clone git://git.phytec.de/linux-imx
-   host$ cd ~/linux-imx/
-   host$ git fetch --all --tags
-   host$ git checkout tags/|kernel-tag|
-   host$ git checkout -b <new-branch>
+   host:~$ git clone git://git.phytec.de/linux-imx
+   host:~$ cd ~/linux-imx/
+   host:~$ git fetch --all --tags
+   host:~$ git checkout tags/|kernel-tag|
+   host:~$ git checkout -b <new-branch>
 
 *  Set up a build environment
 *  Build the linux kernel:
@@ -507,15 +519,15 @@ Build Kernel
 
    If you are facing the following build issue:
 
-   .. parsed-literal::
+   .. code-block::
 
       scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
 
    Make sure you installed the package *"libyaml-dev"* on your host system:
 
-   .. parsed-literal::
+   .. code-block:: console
 
-      host$ sudo apt install libyaml-dev
+      host:~$ sudo apt install libyaml-dev
 
 Copy Kernel to SD Card
 ......................
@@ -524,11 +536,12 @@ When one-time boot via netboot is not sufficient, the kernel along with its
 modules and the corresponding device tree blob may be copied directly to a
 mounted SD card.
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   cp arch/arm64/boot/Image /path/to/sdcard/boot/
-   cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
-   make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
+   host:~$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
+   host:~$ cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
+   host:~$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
 
 Accessing the Development States between Releases
 -------------------------------------------------
@@ -538,9 +551,10 @@ states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y|
+   host:~$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y|
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
@@ -555,9 +569,10 @@ We are already working on the next major release update based on NXP BSP
 rel_imx_5.15.52_2.1.0 (kirkstone). We are trying to update the public
 development state on a regular basis.
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y-upcoming|
+   host:~$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y-upcoming|
 
 Accessing the Latest Upstream Support
 -------------------------------------
@@ -571,9 +586,10 @@ kernel/u-boot.
    The master manifest reflects the latest state of development. This tends to
    be broken from time to time. We try to fix the master on a regular basis.
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-master|
+   host:~$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-master|
 
 Format SD-Card
 --------------
@@ -632,10 +648,11 @@ Expand rootfs
 *  Now you can mount the root partition and copy e.g. the
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
-   host$ umount /mnt
+   host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
+   host:~$ umount /mnt
 
 Create the Third Partition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -659,8 +676,9 @@ Create the Third Partition
 *  Now you can mount the new partition and copy e.g.
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   host$ sudo mount /dev/sde3 /mnt
-   host$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
-   host$ umount /mnt
+   host:~$ sudo mount /dev/sde3 /mnt
+   host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
+   host:~$ umount /mnt

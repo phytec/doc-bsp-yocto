@@ -121,7 +121,8 @@ used. Suspend/resume is possible with::
 
 To wake up with serial console run
 
-.. parsed-literal::
+.. code-block:: console
+   :substitutions:
 
-   target$ echo enabled > /sys/class/tty/|debug-uart|/power/wakeup
-   target$ echo mem > /sys/power/state
+   target:~$ echo enabled > /sys/class/tty/|debug-uart|/power/wakeup
+   target:~$ echo mem > /sys/power/state
