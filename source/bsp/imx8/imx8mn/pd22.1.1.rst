@@ -284,10 +284,6 @@ Installing the OS
 Bootmode Switch (S1)
 --------------------
 
-.. tip::
-
-   Hardware revision baseboard: 1552.1
-
 The |sbc| features a boot switch with six individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
