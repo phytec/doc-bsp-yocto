@@ -306,8 +306,10 @@ instructions.</p>
 data are correctly writing. Both the partup package and the WIC image, which can
 be flashed using <code class="docutils literal notranslate"><span class="pre">dd</span></code>, can be downloaded from the <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">PHYTEC download server</a>.</p>
 <p>Get either the partup package or the WIC image from the download server:</p>
-<pre class="literal-block">host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.partup">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.partup</a>
-host$ wget <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic</a></pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.partup
+<span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For eMMC, more complex partitioning schemes or even just large images, we
@@ -508,7 +510,9 @@ have a look at the invoice for the product. And have look at
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p></li>
 </ul>
-<pre class="literal-block">host$ DISTRO=ampliphy-vendor MACHINE=phyboard-polis-imx8mn-2 ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD22.1.1</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-vendor<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-polis-imx8mn-2<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+</pre></div>
+</div>
 <p>After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.</p>
 <section id="starting-the-build-process">
@@ -537,7 +541,9 @@ ACCEPT_FSL_EULA = &quot;1&quot;
 <ul class="simple">
 <li><p>Build your image:</p></li>
 </ul>
-<pre class="literal-block">host$ bitbake phytec-headless-image</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We suggest starting with our smaller non-graphical
@@ -706,10 +712,10 @@ prompt.</p>
 <ul class="simple">
 <li><p>Load your image via network to RAM:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
-Using <a class="reference external" href="mailto:ethernet&#37;&#52;&#48;30be0000">ethernet<span>&#64;</span>30be0000</a> device
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
+Using ethernet@30be0000 device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-Filename 'phytec-headless-image-phyboard-polis-imx8mn-2.wic'.
+Filename &#39;phytec-headless-image-phyboard-polis-imx8mn-2.wic&#39;.
 Load address: 0x40480000
 Loading: ######################################
          ######################################
@@ -721,7 +727,9 @@ Loading: ######################################
          #############
          11.2 MiB/s
 done
-Bytes transferred = 911842304 (36599c00 hex)</pre>
+Bytes transferred = 911842304 (36599c00 hex)
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Write the image to the eMMC:</p></li>
 </ul>
@@ -747,7 +755,9 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 with ssh through the network (then uncompress it, if necessary) to the eMMC
 of the target with a one-line command:</p></li>
 </ul>
-<pre class="literal-block">target$ ssh &lt;USER&gt;&#64;192.168.3.10 &quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.wic&quot; | dd of=/dev/mmcblk2</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ssh<span class="w"> </span>&lt;USER&gt;@192.168.3.10<span class="w"> </span><span class="s2">&quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.wic&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2
+</pre></div>
+</div>
 </section>
 <section id="flash-emmc-via-network-in-linux-on-host">
 <h4><span class="section-number">4.2.1.3. </span>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Link to this heading"></a></h4>
@@ -760,13 +770,17 @@ you need a complete image on your host.</p>
 <ul class="simple">
 <li><p>Show your available image files on the host:</p></li>
 </ul>
-<pre class="literal-block">host$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Send the image with the command dd command combined with ssh through the
 network to the eMMC of your device:</p></li>
 </ul>
-<pre class="literal-block">host$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic status=progress | ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a> &quot;dd of=/dev/mmcblk2&quot;</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress<span class="w"> </span><span class="p">|</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;dd of=/dev/mmcblk2&quot;</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="flash-emmc-u-boot-image-via-network-from-running-u-boot">
@@ -780,10 +794,12 @@ can be used if the bootloader on eMMC is located in the eMMC user area.</p>
 <ul class="simple">
 <li><p>Load image over tftp into RAM and then write it to eMMC:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} imx-boot
 u-boot=&gt; setexpr nblk ${filesize} / 0x200
 u-boot=&gt; mmc dev 2
-u-boot=&gt; mmc write ${loadaddr} 0x40 ${nblk}</pre>
+u-boot=&gt; mmc write ${loadaddr} 0x40 ${nblk}
+</pre></div>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The hexadecimal value represents the offset as a multiple of 512 byte
@@ -854,9 +870,11 @@ target$ mount /dev/sda1 /mnt
 <ul class="simple">
 <li><p>Now show your saved image files on the USB Stick:</p></li>
 </ul>
-<pre class="literal-block">target$ cd /mnt
-target$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/mnt
+<span class="gp">target:~$ </span>ls
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -877,7 +895,9 @@ mmcblk2rpmb
 partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 without partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic of=/dev/mmcblk2</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
@@ -916,9 +936,11 @@ from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p></li>
 <li><p>Load the image:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
 reading
-911842304 bytes read in 39253 ms (22.2 MiB/s)</pre>
+911842304 bytes read in 39253 ms (22.2 MiB/s)
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Switch the mmc dev:</p></li>
 </ul>
@@ -946,8 +968,10 @@ the SD card (e.g. phytec-headless-image-phyboard-polis-imx8mn-2.wic).</p>
 <ul class="simple">
 <li><p>Show your saved image files on the SD card:</p></li>
 </ul>
-<pre class="literal-block">target$ ls
-phytec-headless-image-phyboard-polis-imx8mn-2.wic</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Show list of available MMC devices:</p></li>
 </ul>
@@ -969,7 +993,9 @@ partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 <strong>without</strong>
 partition):</p></li>
 </ul>
-<pre class="literal-block">target$ dd if=phytec-headless-image-phyboard-polis-imx8mn-2.wic of=/dev/mmcblk2</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>After a complete write, your board can boot from eMMC.</p></li>
 </ul>
@@ -1021,10 +1047,12 @@ use the correct image file. Load the image over tftp, erase and write the
 bootloader to the flash:</p></li>
 </ul>
 <blockquote>
-<div><pre class="literal-block">u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
 u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
 device 0 offset 0x0, size 0x1c0b20
-1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s</pre>
+1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
+</pre></div>
+</div>
 </div></blockquote>
 <ul class="simple">
 <li><p>Erase the environment partition as well. This way, the environment can be
@@ -1045,7 +1073,9 @@ full flash in Linux.</p>
 <ul class="simple">
 <li><p>Copy the image from the host to the target:</p></li>
 </ul>
-<pre class="literal-block">host$ scp imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;3&#46;11">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>3<span>&#46;</span>11</a>:/root</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi<span class="w"> </span>root@192.168.3.11:/root
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Find the number of erase blocks of the U-boot partition:</p></li>
 </ul>
@@ -1065,8 +1095,10 @@ Device is writable:             true
 <ul class="simple">
 <li><p>Erase the u-boot partition and flash it:</p></li>
 </ul>
-<pre class="literal-block">target$ flash_erase /dev/mtd0 0x0 60
-target$ flashcp imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>flash_erase<span class="w"> </span>/dev/mtd0<span class="w"> </span>0x0<span class="w"> </span><span class="m">60</span>
+<span class="gp">target:~$ </span>flashcp<span class="w"> </span>imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi<span class="w"> </span>/dev/mtd0
+</pre></div>
+</div>
 </section>
 </section>
 <section id="flash-spi-nor-flash-from-sd-card">
@@ -1089,9 +1121,11 @@ SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 Mi
 use the correct image file. Load the image from the SD Card, erase and write
 the bootloader to the flash:</p></li>
 </ul>
-<pre class="literal-block">u-boot=&gt; mmc dev 1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; mmc dev 1
 u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
-u-boot=&gt; sf update ${loadaddr} 0 ${filesize}</pre>
+u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Erase the environment partition as well. This way, the environment can be
 written after booting from SPI NOR flash:</p></li>
@@ -1111,7 +1145,7 @@ full flash in Linux.</p>
 <ul class="simple">
 <li><p>Mount the SD Card:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ mount /dev/mmcblkp1 /mnt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mount<span class="w"> </span>/dev/mmcblkp1<span class="w"> </span>/mnt
 </pre></div>
 </div>
 <ul class="simple">
@@ -1131,8 +1165,10 @@ Device is writable:             true
 </pre></div>
 </div>
 <p>Erase the u-boot partition and flash it:</p>
-<pre class="literal-block">target$ flash_erase /dev/mtd0 0x0 60
-target$ flashcp /mnt/imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi /dev/mtd0</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>flash_erase<span class="w"> </span>/dev/mtd0<span class="w"> </span>0x0<span class="w"> </span><span class="m">60</span>
+<span class="gp">target:~$ </span>flashcp<span class="w"> </span>/mnt/imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi<span class="w"> </span>/dev/mtd0
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -1280,7 +1316,9 @@ extracted with sudo.</p>
 <ul class="simple">
 <li><p>Extract the rootfs to your nfsroot:</p></li>
 </ul>
-<pre class="literal-block">sudo tar -xvzf phytec-headless-image-phyboard-polis-imx8mn-2.tar.gz -C &lt;path_to_your_NFSROOT&gt;</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.tar.gz<span class="w"> </span>-C<span class="w"> </span>&lt;path_to_your_NFSROOT&gt;
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Check the destination path when unpacking the rootfs.</p>
@@ -1361,8 +1399,8 @@ Configuration Options). Also, connect USB OTG <a class="reference internal" href
 <p>Download the imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/phyboard-polis-imx8mn-2/ and copy them to the UUU directory:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools
-host$ cp -v imx-boot uuu/_flash.bin
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>mfgtools
+<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>imx-boot<span class="w"> </span>uuu/_flash.bin
 </pre></div>
 </div>
 <ul class="simple">
@@ -1380,9 +1418,11 @@ Configuration Options). Also, connect USB OTG <a class="reference internal" href
 <p>Download phytec-headless-image-phyboard-polis-imx8mn-2.wic and imx-boot image from
 our server or get them from your Yocto build directory at
 ../build/deploy/images/phyboard-polis-imx8mn-2/ and copy them to the UUU directory:</p>
-<pre class="literal-block">host$ cd mfgtools
-host$ cp -v imx-boot uuu/_flash.bin
-host$ cp -v phytec-headless-image-phyboard-polis-imx8mn-2.wic uuu/_rootfs.wic</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>mfgtools
+<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>imx-boot<span class="w"> </span>uuu/_flash.bin
+<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>uuu/_rootfs.wic
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Execute and power up the board:</p></li>
 </ul>
@@ -1433,27 +1473,33 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <ul class="simple">
 <li><p>Move to the Yocto build directory:</p></li>
 </ul>
-<pre class="literal-block">host$ source sources/poky/oe-init-build-env
-host$ bitbake -c populate_sdk phytec-headless-image # or another image</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># or another image</span>
+</pre></div>
+</div>
 </section>
 <section id="install-the-sdk">
 <h3><span class="section-number">5.3.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Set correct permissions and install the SDK:</p></li>
 </ul>
-<pre class="literal-block">host$ chmod +x phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
-host$ ./phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh ============================================================================================================
-Enter target directory for SDK (default: /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1):
-You are about to install the SDK to &quot;/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1&quot;. Proceed [Y/n]?
-Extracting SDK...done
-Setting it up...done
-SDK has been successfully set up and is ready to be used.</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
+<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh<span class="w"> </span><span class="o">============================================================================================================</span>
+<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1):</span>
+<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1&quot;. Proceed [Y/n]?</span>
+<span class="go">Extracting SDK...done</span>
+<span class="go">Setting it up...done</span>
+<span class="go">SDK has been successfully set up and is ready to be used.</span>
+</pre></div>
+</div>
 </section>
 <section id="using-the-sdk">
 <h3><span class="section-number">5.3.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
 <p>Activate the toolchain for your shell by sourcing the file <em>environment-setup</em>
 in the toolchain directory:</p>
-<pre class="literal-block">host$ source /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux
+</pre></div>
+</div>
 </section>
 <section id="installing-required-tools">
 <h3><span class="section-number">5.3.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Link to this heading"></a></h3>
@@ -1505,9 +1551,11 @@ notes, which can be found here: <a class="reference external" href="https://git.
 <li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy13</p></li>
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
 </ul>
-<pre class="literal-block">host$ cd ~/u-boot-imx/
-host$ git fetch --all --tags
-host$ git checkout tags/v2021.04_2.2.0-phy13</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
+<span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2021.04_2.2.0-phy13
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Technically, you can now build the U-Boot, but practically there are some
 further steps necessary:</p>
@@ -1528,12 +1576,16 @@ further steps necessary:</p>
 <li><p>Set up a build environment</p></li>
 </ul>
 <p>Set this environment variable before building the Image:</p>
-<pre class="literal-block">host$ export ATF_LOAD_ADDR=0x960000</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">ATF_LOAD_ADDR</span><span class="o">=</span>0x960000
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>build flash.bin (imx-boot):</p></li>
 </ul>
-<pre class="literal-block">host$ make phycore-imx8mn_defconfig
-host$ make flash.bin</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>make<span class="w"> </span>phycore-imx8mn_defconfig
+<span class="gp">host:~$ </span>make<span class="w"> </span>flash.bin
+</pre></div>
+</div>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:</p>
 <table class="docutils align-default" id="offset-table">
@@ -1553,7 +1605,9 @@ chip-specific offset is needed:</p>
 </tbody>
 </table>
 <p>E.g. flash SD card:</p>
-<pre class="literal-block">host$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=32 conv=sync</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
+</pre></div>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The specific offset values are also declared in the Yocto variables “BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
@@ -1568,12 +1622,14 @@ could lead to unexpected behavior.</p>
 <p>Follow the steps to get the U-boot sources and check the correct branch in the
 <strong>Build U-Boot</strong> section.</p>
 <p>Choose the correct RAM size as populated on the board.</p>
-<pre class="literal-block">CONFIG_TARGET_PHYCORE_IMX8MN=y
-# CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MN=y
+<span class="c1"># CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set</span>
 CONFIG_PHYCORE_IMX8MN_RAM_SIZE_FIX=y
-# CONFIG_PHYCORE_IMX8MN_RAM_SIZE_1GB=y
-# CONFIG_PHYCORE_IMX8MN_RAM_SIZE_2GB=y
-# CONFIG_PHYCORE_IMX8MN_RAM_SIZE_4GB=y</pre>
+<span class="c1"># CONFIG_PHYCORE_IMX8MN_RAM_SIZE_1GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MN_RAM_SIZE_2GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MN_RAM_SIZE_4GB=y</span>
+</pre></div>
+</div>
 <p>After saving the changes, follow the remaining steps from Build U-Boot.</p>
 </section>
 </section>
@@ -1584,11 +1640,13 @@ CONFIG_PHYCORE_IMX8MN_RAM_SIZE_FIX=y
 <li><p>The tag needed for this release is called v5.10.72_2.2.0-phy17</p></li>
 <li><p>Check out the needed linux-imx tag:</p></li>
 </ul>
-<pre class="literal-block">host$ git clone git://git.phytec.de/linux-imx
-host$ cd ~/linux-imx/
-host$ git fetch --all --tags
-host$ git checkout tags/v5.10.72_2.2.0-phy17
-host$ git checkout -b &lt;new-branch&gt;</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/linux-imx
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/linux-imx/
+<span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.10.72_2.2.0-phy17
+<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;new-branch&gt;
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Set up a build environment</p></li>
 <li><p>Build the linux kernel:</p></li>
@@ -1614,7 +1672,7 @@ host$ make -j16
 </pre></div>
 </div>
 <p>Make sure you installed the package <em>“libyaml-dev”</em> on your host system:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt install libyaml-dev
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libyaml-dev
 </pre></div>
 </div>
 </div>
@@ -1624,9 +1682,11 @@ host$ make -j16
 <p>When one-time boot via netboot is not sufficient, the kernel along with its
 modules and the corresponding device tree blob may be copied directly to a
 mounted SD card.</p>
-<pre class="literal-block">cp arch/arm64/boot/Image /path/to/sdcard/boot/
-cp arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis-rdk.dtb /path/to/sdcard/boot/oftree
-make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>arch/arm64/boot/Image<span class="w"> </span>/path/to/sdcard/boot/
+<span class="gp">host:~$ </span>cp<span class="w"> </span>arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis-rdk.dtb<span class="w"> </span>/path/to/sdcard/boot/oftree
+<span class="gp">host:~$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/path/to/sdcard/root/<span class="w"> </span>modules_install
+</pre></div>
+</div>
 </section>
 </section>
 <section id="accessing-the-development-states-between-releases">
@@ -1635,7 +1695,9 @@ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install</pre>
 states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD22.1.y</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD22.1.y
+</pre></div>
+</div>
 <p>This will initialize a BSP that will track the latest development state. From
 now on <em>repo sync</em> in this folder will pull all the latest changes from
 our Git repositories:</p>
@@ -1648,7 +1710,9 @@ our Git repositories:</p>
 <p>We are already working on the next major release update based on NXP BSP
 rel_imx_5.15.52_2.1.0 (kirkstone). We are trying to update the public
 development state on a regular basis.</p>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r BSP-Yocto-NXP-i.MX8MM-PD23.1.y</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD23.1.y
+</pre></div>
+</div>
 </section>
 <section id="accessing-the-latest-upstream-support">
 <h2><span class="section-number">5.6. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
@@ -1660,7 +1724,9 @@ kernel/u-boot.</p>
 <p>The master manifest reflects the latest state of development. This tends to
 be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
-<pre class="literal-block">host$ ./phyLinux init -p imx8mn -r BSP-Yocto-Ampliphy-i.MX8MM-master-next</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MM-master-next
+</pre></div>
+</div>
 </section>
 <section id="format-sd-card">
 <h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
@@ -1715,8 +1781,10 @@ easiest way to do this is to use the UI program Gparted.</p>
 <li><p>Now you can mount the root partition and copy e.g. the
 phytec-headless-image-phyboard-polis-imx8mn-2.wic image to it. Then unmount it again:</p></li>
 </ul>
-<pre class="literal-block">host$ sudo cp phytec-headless-image-phyboard-polis-imx8mn-2.wic /mnt/ ; sync
-host$ umount /mnt</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
+<span class="gp">host:~$ </span>umount<span class="w"> </span>/mnt
+</pre></div>
+</div>
 </section>
 <section id="create-the-third-partition">
 <h4><span class="section-number">5.7.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
@@ -1740,9 +1808,11 @@ host$ umount /mnt</pre>
 <li><p>Now you can mount the new partition and copy e.g.
 phytec-headless-image-phyboard-polis-imx8mn-2.wic image to it. Then unmount it again:</p></li>
 </ul>
-<pre class="literal-block">host$ sudo mount /dev/sde3 /mnt
-host$ sudo cp phytec-headless-image-phyboard-polis-imx8mn-2.wic /mnt/ ; sync
-host$ umount /mnt</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mount<span class="w"> </span>/dev/sde3<span class="w"> </span>/mnt
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
+<span class="gp">host:~$ </span>umount<span class="w"> </span>/mnt
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -1821,20 +1891,26 @@ environment or can be part of the external <code class="docutils literal notrans
 By default, the <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> variable comes from the external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code>
 environment file which is located in the boot partition.
 You can read and write the file on booted target from linux:</p>
-<pre class="literal-block">target$ cat /boot/bootenv.txt
-overlays=imx8mn-phyboard-polis-rdk-peb-eval-01.dtbo imx8mn-phyboard-polis-rdk-peb-av-010.dtbo</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/boot/bootenv.txt
+<span class="go">overlays=imx8mn-phyboard-polis-rdk-peb-eval-01.dtbo imx8mn-phyboard-polis-rdk-peb-av-010.dtbo</span>
+</pre></div>
+</div>
 <p>Changes will take effect after the next reboot. If no <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> file is
 available the overlays variable can be set directly in the U-Boot environment.</p>
-<pre class="literal-block">u-boot=&gt; setenv overlays imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv overlays imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
 u-boot=&gt; printenv overlays
 overlays=imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
-u-boot=&gt; boot</pre>
+u-boot=&gt; boot
+</pre></div>
+</div>
 <p>If a user defined <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> variable should be directly loaded from U-Boot
 environment but there is still an external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> available, the <code class="docutils literal notranslate"><span class="pre">${no_bootenv}</span></code>
 variable needs to be set as a flag:</p>
-<pre class="literal-block">u-boot=&gt; setenv no_bootenv 1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_bootenv 1
 u-boot=&gt; setenv overlays imx8mn-phyboard-polis-rdk-peb-av-010.dtbo
-u-boot=&gt; boot</pre>
+u-boot=&gt; boot
+</pre></div>
+</div>
 <p>More information about the external environment can be found in
 U-boot External Environment subsection of the
 <a class="reference internal" href="#imx8mn-head-ubootexternalenv"><span class="std std-ref">device tree overlay section</span></a>.</p>
@@ -1857,14 +1933,16 @@ The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
 <p>It depends on the SoM variant if any device tree overlays will be applied. To check
 if an overlay will be applied on the running SoM in U-Boot, run:</p>
-<pre class="literal-block">u-boot=&gt; extension scan
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; extension scan
 Found 1 extension board(s).
 u-boot=&gt; extension list
 Extension 0: phyCORE-i.MX8MM no SPI flash
         Manufacturer:           PHYTEC
         Version:
         Devicetree overlay:     imx8mn-phycore-no-spiflash.dtbo
-        Other information:      SPI flash not populated on SoM</pre>
+        Other information:      SPI flash not populated on SoM
+</pre></div>
+</div>
 <p>If the EEPROM data is not available, no device tree overlays are applied.</p>
 <p>To prevent running the extension command during boot the <code class="docutils literal notranslate"><span class="pre">${no_extensions}</span></code>
 variable can be set to <cite>1</cite> in the bootloader environment:</p>
@@ -2005,10 +2083,14 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 </div>
 </li>
 <li><p>Configuration of the UART interface can be done with stty. For example</p>
-<pre class="literal-block">target$ stty -F /dev/ttymxc0 115200 crtscts raw -echo</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/ttymxc0<span class="w"> </span><span class="m">115200</span><span class="w"> </span>crtscts<span class="w"> </span>raw<span class="w"> </span>-echo
+</pre></div>
+</div>
 </li>
 <li><p>With a simple echo and cat, basic communication can be tested. Example</p>
-<pre class="literal-block">target$ echo 123 &gt; /dev/ttymxc0</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">123</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/ttymxc0
+</pre></div>
+</div>
 </li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cat /dev/ttyUSB2
@@ -2020,7 +2102,9 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 <h3><span class="section-number">7.2.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
 <p>For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.</p>
-<pre class="literal-block">target$ linux-serial-test -p /dev/ttymxc0 -b 115200 --rs485 0</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/ttymxc0<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
 <p>More information about the linux-serial-test tool and its parameters can be
 found here: <a class="reference external" href="https://github.com/cbrake/linux-serial-test">linux-serial-test</a></p>
 <p>Documentation for calling the IOCTL within c-code is described in the Linux
@@ -2632,54 +2716,56 @@ changed during runtime. From Linux userspace, the NOR Flash partitions are
 accessible via /dev/mtd&lt;N&gt; devices where &lt;N&gt; is the MTD device number associated
 with the NOR flash partition to access. To find the correct MTD device number
 for a partition, run on the target:</p>
-<pre class="literal-block">root&#64;phyboard-polis-imx8mn-2:~# mtdinfo --all
-Count of MTD devices:           4
-Present MTD devices:            mtd0, mtd1, mtd2, mtd3
-Sysfs interface supported:      yes
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-polis-imx8mn-2:~$ </span>mtdinfo<span class="w"> </span>--all
+<span class="go">Count of MTD devices:           4</span>
+<span class="go">Present MTD devices:            mtd0, mtd1, mtd2, mtd3</span>
+<span class="go">Sysfs interface supported:      yes</span>
 
-mtd0
-Name:                           u-boot
-Type:                           nor
-Eraseblock size:                65536 bytes, 64.0 KiB
-Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
-Minimum input/output unit size: 1 byte
-Sub-page size:                  1 byte
-Character device major/minor:   90:0
-Bad blocks are allowed:         false
-Device is writable:             true
+<span class="go">mtd0</span>
+<span class="go">Name:                           u-boot</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                65536 bytes, 64.0 KiB</span>
+<span class="go">Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:0</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
 
-mtd1
-Name:                           env
-Type:                           nor
-Eraseblock size:                65536 bytes, 64.0 KiB
-Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)
-Minimum input/output unit size: 1 byte
-Sub-page size:                  1 byte
-Character device major/minor:   90:2
-Bad blocks are allowed:         false
-Device is writable:             true
+<span class="go">mtd1</span>
+<span class="go">Name:                           env</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                65536 bytes, 64.0 KiB</span>
+<span class="go">Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:2</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
 
-mtd2
-Name:                           env_redund
-Type:                           nor
-Eraseblock size:                65536 bytes, 64.0 KiB
-Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)
-Minimum input/output unit size: 1 byte
-Sub-page size:                  1 byte
-Character device major/minor:   90:4
-Bad blocks are allowed:         false
-Device is writable:             true
+<span class="go">mtd2</span>
+<span class="go">Name:                           env_redund</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                65536 bytes, 64.0 KiB</span>
+<span class="go">Amount of eraseblocks:          2 (131072 bytes, 128.0 KiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:4</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
 
-mtd3
-Name:                           none
-Type:                           nor
-Eraseblock size:                65536 bytes, 64.0 KiB
-Amount of eraseblocks:          448 (29360128 bytes, 28.0 MiB)
-Minimum input/output unit size: 1 byte
-Sub-page size:                  1 byte
-Character device major/minor:   90:6
-Bad blocks are allowed:         false
-Device is writable:             true</pre>
+<span class="go">mtd3</span>
+<span class="go">Name:                           none</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                65536 bytes, 64.0 KiB</span>
+<span class="go">Amount of eraseblocks:          448 (29360128 bytes, 28.0 MiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:6</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
+</pre></div>
+</div>
 <p>It lists all MTD devices and the corresponding partition names. The flash node
 is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
@@ -3410,8 +3496,10 @@ used. Suspend/resume is possible with:</p>
 </pre></div>
 </div>
 <p>To wake up with serial console run</p>
-<pre class="literal-block">target$ echo enabled &gt; /sys/class/tty/ttymxc2/power/wakeup
-target$ echo mem &gt; /sys/power/state</pre>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>enabled<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/tty/ttymxc2/power/wakeup
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>mem<span class="w"> </span>&gt;<span class="w"> </span>/sys/power/state
+</pre></div>
+</div>
 </section>
 </section>
 <section id="thermal-management">
