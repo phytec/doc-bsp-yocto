@@ -81,8 +81,8 @@ use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
 Mic3R in order to capture the audio from the microphone input of the
 TLV320-Codec using the 3.5mm jack. ::
 
-   target$ amixer -c1 sset 'Left PGA Mixer Mic3R' on
-   target$ amixer -c1 sset 'Right PGA Mixer Mic3R' on
+   target$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
+   target$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
 
 ::
 
