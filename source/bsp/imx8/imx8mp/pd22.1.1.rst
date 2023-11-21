@@ -503,7 +503,101 @@ speaker, headphones, and line in signals.
    Using the PEB-AV-10 connector for display output along HDMI as audio output
    is not supported. The audio output device must match the video output device.
 
-.. include:: /bsp/peripherals/audio.rsti
+To check if your soundcard driver is loaded correctly and what the device is
+called, type for playback devices::
+
+   target$ aplay -L
+
+Or type for recording devices::
+
+   target$ arecord -L
+
+Alsamixer
+.........
+
+To inspect the capabilities of your soundcard, call::
+
+   target$ alsamixer
+
+You should see a lot of options as the audio-IC has many features you can
+experiment with. It might be better to open alsamixer via ssh instead of the
+serial console, as the console graphical effects are better. You have either
+mono or stereo gain controls for all mix points. "MM" means the feature is muted
+(both output, left & right), which can be toggled by hitting m. You can also
+toggle by hitting '<' for left and ''>' for right output.
+
+ALSA configuration
+..................
+
+Our BSP comes with a ALSA configuration file /etc/asound.conf.
+
+The ALSA configuration file can be edited as desired or deleted since it is not
+required for ALSA to work properly. ::
+
+   target$ vi /etc/asound.conf
+
+To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
+
+   [...]
+
+   pcm.asymed {
+           type asym
+           playback.pcm "pebav10"
+           capture.pcm "dsnoop"
+   }
+
+   [...]
+
+Pulseaudio Configuration
+........................
+
+For applications using Pulseaudio, check for available sinks::
+
+   target$ pactl list short sinks
+   0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
+   1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
+
+To select PEB-AV-10, type::
+
+   target$ pactl set-default-sink 1
+
+Playback
+........
+
+Run speaker-test to check playback availability::
+
+   target$ speaker-test -c 2 -t wav
+
+To playback simple audio streams, you can use aplay. For example to play the
+ALSA test sounds::
+
+   target$ aplay /usr/share/sounds/alsa/*
+
+To playback other formats like mp3 for example, you can use Gstreamer::
+
+   target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
+
+Capture
+.......
+
+arecord is a command-line tool for capturing audio streams which use Line In as
+the default input source. To select a different audio source you can
+use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
+Mic3R in order to capture the audio from the microphone input of the
+TLV320-Codec using the 3.5mm jack. ::
+
+   target$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
+   target$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
+
+::
+
+   target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+
+.. hint::
+
+   Since playback and capture share hardware interfaces, it is not possible to
+   use different sampling rates and formats for simultaneous playback and
+   capture operations.
 
 Device Tree Audio configuration:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57`

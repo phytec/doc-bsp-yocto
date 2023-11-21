@@ -19,7 +19,20 @@ experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. "MM" means the feature is muted
 (both output, left & right), which can be toggled by hitting m. You can also
-toggle by hitting '<' for left and ''>' for right output.
+toggle by hitting '<' for left and ''>' for right output. With the tab key, you
+can switch between controls for playback and recording.
+
+Restore default volumes
+.......................
+
+There are some default settings stored in /var/lib/alsa/asound.state.
+You can save your current alsa settings with::
+
+   target$ alsactl --file </path/to/filename> store
+
+You can restore saved alsa settings with::
+
+   target$ alsactl --file </path/to/filename> restore
 
 ALSA configuration
 ..................
