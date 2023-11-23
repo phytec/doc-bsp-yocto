@@ -3427,8 +3427,8 @@ the default input source. To select a different audio source you can
 use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
 Mic3R in order to capture the audio from the microphone input of the
 TLV320-Codec using the 3.5mm jack.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ amixer -c1 sset &#39;Left PGA Mixer Mic3R&#39; on
-target$ amixer -c1 sset &#39;Right PGA Mixer Mic3R&#39; on
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ amixer -c &quot;sndpebav10&quot; sset &#39;Left PGA Mixer Mic3R&#39; on
+target$ amixer -c &quot;sndpebav10&quot; sset &#39;Right PGA Mixer Mic3R&#39; on
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav

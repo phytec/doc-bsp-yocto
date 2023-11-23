@@ -3470,10 +3470,23 @@ experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. “MM” means the feature is muted
 (both output, left &amp; right), which can be toggled by hitting m. You can also
-toggle by hitting ‘&lt;’ for left and ‘’&gt;’ for right output.</p>
+toggle by hitting ‘&lt;’ for left and ‘’&gt;’ for right output. With the tab key, you
+can switch between controls for playback and recording.</p>
+</section>
+<section id="restore-default-volumes">
+<h3><span class="section-number">7.16.2. </span>Restore default volumes<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
+<p>There are some default settings stored in /var/lib/alsa/asound.state.
+You can save your current alsa settings with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ alsactl --file &lt;/path/to/filename&gt; store
+</pre></div>
+</div>
+<p>You can restore saved alsa settings with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ alsactl --file &lt;/path/to/filename&gt; restore
+</pre></div>
+</div>
 </section>
 <section id="alsa-configuration">
-<h3><span class="section-number">7.16.2. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.3. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
 <p>Our BSP comes with a ALSA configuration file /etc/asound.conf.</p>
 <p>The ALSA configuration file can be edited as desired or deleted since it is not
 required for ALSA to work properly.</p>
@@ -3494,7 +3507,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="pulseaudio-configuration">
-<h3><span class="section-number">7.16.3. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.4. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
 <p>For applications using Pulseaudio, check for available sinks:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ pactl list short sinks
 0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
@@ -3507,7 +3520,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="playback">
-<h3><span class="section-number">7.16.4. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.5. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
 <p>Run speaker-test to check playback availability:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ speaker-test -c 2 -t wav
 </pre></div>
@@ -3523,14 +3536,14 @@ ALSA test sounds:</p>
 </div>
 </section>
 <section id="capture">
-<h3><span class="section-number">7.16.5. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.6. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
 <p>arecord is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can
 use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
 Mic3R in order to capture the audio from the microphone input of the
 TLV320-Codec using the 3.5mm jack.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ amixer -c1 sset &#39;Left PGA Mixer Mic3R&#39; on
-target$ amixer -c1 sset &#39;Right PGA Mixer Mic3R&#39; on
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ amixer -c &quot;sndpebav10&quot; sset &#39;Left PGA Mixer Mic3R&#39; on
+target$ amixer -c &quot;sndpebav10&quot; sset &#39;Right PGA Mixer Mic3R&#39; on
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
