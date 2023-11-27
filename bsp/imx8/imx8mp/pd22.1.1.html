@@ -1529,8 +1529,8 @@ chip-specific offset is needed:</p>
 <p>The specific offset values are also declared in the Yocto variables “BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
 </div>
 </section>
-<section id="build-a-u-boot-with-a-fixed-ram-size">
-<h4><span class="section-number">5.3.6.3. </span>Build a U-Boot with a Fixed RAM Size<a class="headerlink" href="#build-a-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h4>
+<section id="build-u-boot-with-a-fixed-ram-size">
+<h4><span class="section-number">5.3.6.3. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h4>
 <p>If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
 You should still contact support and flash the correct EEPROM data, as this
@@ -1539,7 +1539,6 @@ could lead to unexpected behavior.</p>
 <strong>Build U-Boot</strong> section.</p>
 <p>Choose the correct RAM size as populated on the board.</p>
 <div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
-<span class="c1"># CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set</span>
 CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
 <span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y</span>
 <span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y</span>
