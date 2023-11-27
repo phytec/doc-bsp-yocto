@@ -16,9 +16,11 @@ following tools will be needed to boot the Kernel from Ethernet:
 
 *  A TFTP server
 
-For *Ubuntu*, install::
+   For *Ubuntu*, install:
 
-   host$ sudo apt-get install tftpd-hpa xinetd
+   .. code-block:: console
+
+      host:~$ sudo apt-get install tftpd-hpa xinetd
 
 After the installation, there are two ways to configure the TFTP server.
 
@@ -30,63 +32,66 @@ TFTP Server Setup
 
 *  First, create a directory to store the TFTP files:
 
-::
+   .. code-block:: console
 
-   host$ sudo mkdir /tftpboot
-   host$ sudo chmod -R 777 /tftpboot
-   host$ sudo chown -R nobody /tftpboot
+      host:~$ sudo mkdir /srv/tftp
+      host:~$ sudo chmod -R 777 /srv/tftp
+      host:~$ sudo chown -R nobody /srv/tftp
 
 *  Then copy your BSP image files to this directory. You also need to configure a
    static IP address for the appropriate interface. The default IP address of the
    PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
    with netmask 255.255.255.0 is a good choice.
 
-::
+   .. code-block:: console
 
-   host$ ifconfig eth1
+      host:~$ ip addr show <network-interface>
 
-*  You will receive:
+   Replace <network-interface> with the network interface you configured and want to
+   connect the board to. You can show all network interfaces by not specifying a network
+   interface.
 
-::
+*  The message you receive should contain this:
 
-   eth1     Link encap:Ethernet   HWadr 00:11:6b:98:e3:47
-            inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
+   .. code-block::
+
+      inet 192.168.3.10/24 brd 192.168.3.255
 
 TFTP as a Stand-alone Daemon
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Create or edit /etc/default/tftpd-hpa:
 
-::
+   .. code-block::
 
-   # /etc/default/tftpd-hpa
+      # /etc/default/tftpd-hpa
 
-   TFTP_USERNAME="tftp"
-   TFTP_DIRECTORY="/tftpboot"
-   TFTP_ADDRESS=":69"
-   TFTP_OPTIONS="-s -c"
+      TFTP_USERNAME="tftp"
+      TFTP_DIRECTORY="/srv/tftp"
+      TFTP_ADDRESS=":69"
+      TFTP_OPTIONS="-s -c"
 
 *  Set TFTP_DIRECTORY to your TFTP server root directory
 *  Set TFTP_ADDRESS to the host address the server is listening to (set to
    0.0.0.0:69 to listen to all local IPs)
 *  Set TFTP_OPTIONS, the following command shows the available options:
 
-::
+   .. code-block:: console
 
-   host$ man tftpd
+      host:~$ man tftpd
 
 *  Restart the services to pick up the configuration changes:
 
-::
+   .. code-block:: console
 
-   host$ sudo service tftpd-hpa restart
+      host:~$ sudo service tftpd-hpa restart
 
 *  Now connect the ethernet port of the board to your host system, configure the
    board to network boot, and start it.
 
-Usually, TFTP servers fetch files from the /tftpboot directory. If you built
+Usually, TFTP servers fetch files from the tftp directory. If you built
 your own images, please copy them from the BSP's build directory to the
-/tftpboot directory. We also need a network connection between the embedded
+tftp directory. We also need a network connection between the embedded
 board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.
 
@@ -96,54 +101,88 @@ NFS Server Setup
 *  After the installation of the TFTP server, an NFS server needs to be
    installed, too.
 
-::
+   .. code-block:: console
 
-   host$ sudo apt-get install nfs-kernel-server
+      host:~$ sudo apt-get install nfs-kernel-server
+
+*  Create a nfs directory:
+
+   .. code-block:: console
+
+      host:~$ sudo mkdir /srv/nfs
 
 *  The NFS server is not restricted to a certain file system location, so all we
-   have to do on most distributions is modify the file /etc/exports and export
+   have to do on most distributions is modify the file ``/etc/exports`` and export
    our root file system to the embedded network. In this example file, the whole
    directory is exported and the "lab network" address of the development host is
    192.168.3.10. The IP address has to be adapted to the local needs:
 
-::
+   .. code-block::
 
-   /home/<user>/<rootfspath> 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+      /srv/nfs 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 
-<user> must be replaced with your home directory name.
-<rootfspath> can be set to a folder that contains a rootfs tar.gz image
-extracted with sudo.
+*  Now the NFS-Server has to read the ``/etc/exportfs`` file again:
 
-*  Now the NFS-Server has to read the /etc/exportfs file again:
+   .. code-block:: console
 
-::
-
-   host$ sudo exportfs -ra
+      host:~$ sudo exportfs -ra
 
 Place Images on Host for Netboot
 ................................
 
-*  Copy the kernel image to your tftpboot directory:
+*  Copy the kernel image to your tftp directory:
 
-::
+   .. code-block:: console
 
-   cp Image /tftpboot
+      host:~$ cp Image /srv/tftp
 
-*  Copy the devicetree  to your tftpboot directory:
+*  Copy the devicetree to your tftp directory:
 
-::
+   .. code-block:: console
 
-   cp oftree /tftpboot
+      host:~$ cp oftree /srv/tftp
 
-*  Extract the rootfs to your nfsroot:
+*  Copy all the overlays you want to use into your tftp directory:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
 
-   host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C <path_to_your_NFSROOT>
+      host:~$ cp *.dtbo /srv/tftp
+
+*  Make sure you have read and write access to all the files in the tftp directory,
+   otherwise they are not accessible from the target:
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R +r /srv/tftp
+
+*  Extract the rootfs to your nfs directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
 
 .. note::
-   Check the destination path when unpacking the rootfs.
+   Make sure you extract with sudo to preserve the correct ownership.
+
+Set the bootenv.txt for Netboot
+...............................
+
+Create a bootenv.txt file in your tftp directory and write the following variables into it.
+
+.. code-block::
+
+   bootfile=Image
+   fdt_file=oftree
+   nfsroot=/srv/nfs
+   overlays=<overlayfilenames>
+
+<overlayfilenames> has to be replaced with the devicetree overlay filenames that you want to use.
+Separate the filenames by spaces. For example:
+
+.. code-block::
+
+   overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010-sn65dsi83.dtbo
 
 Network Settings on Target
 ..........................
@@ -158,9 +197,9 @@ Boot the board into the U-boot prompt and press any key to hold.
 
 *  To boot from a network, call:
 
-::
+   .. code-block:: console
 
-   u-boot=> run netboot
+      u-boot=> run netboot
 
 Working with UUU-Tool
 ---------------------
