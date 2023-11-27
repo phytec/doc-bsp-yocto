@@ -635,4 +635,40 @@ The device tree of PEB-AV-10 can be found here:
 ..                          BSP EXTENSIONS
 .. +---------------------------------------------------------------------------+
 
-.. include:: /bsp/bsp-extensions.rsti
+BSP Extensions
+==============
+
+Chromium
+--------
+
+Our BSP for the |sbc|-|soc| supports Chromium. You can include it in the
+|yocto-imagename| with only a few steps.
+
+Adding Chromium to Your local.conf
+..................................
+
+To include Chromium you have to add the following line into your local.conf. You
+can find it in <yocto_dir>/build/conf/local.conf. This adds Chromium to your
+next image build. ::
+
+   IMAGE_INSTALL_append = " chromium-ozone-wayland"
+
+.. note::
+
+   Compiling Chromium takes a long time.
+
+Get Chromium Running on the Target
+..................................
+
+To run Chromium, it needs a few arguments to use the hardware graphics
+acceleration::
+
+   target$ chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --no-sandbox
+
+If you want to start Chromium via SSH, you must first define the display on
+which Chromium will run. For example::
+
+   target$ DISPLAY=:0
+
+After you have defined this, you can start it via virtual terminal on Weston as
+shown above.
