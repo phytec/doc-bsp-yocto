@@ -122,10 +122,6 @@
 <li class="toctree-l5"><a class="reference internal" href="#running-mcore-examples">8.2. Running M7 Core Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#bsp-extensions">9. BSP Extensions</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#chromium">9.1. Chromium</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="imx8mp.html#pd22-1-1">PD22.1.1</a></li>
@@ -4325,42 +4321,6 @@ Resetting target
 (gdb) monitor go
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="bsp-extensions">
-<h1><span class="section-number">9. </span>BSP Extensions<a class="headerlink" href="#bsp-extensions" title="Link to this heading"></a></h1>
-<section id="chromium">
-<h2><span class="section-number">9.1. </span>Chromium<a class="headerlink" href="#chromium" title="Link to this heading"></a></h2>
-<p>Our BSP for the phyBOARD-Pollux-i.MX 8M Plus supports Chromium. You can include it in the
-phytec-qt6demo-image with only a few steps.</p>
-<section id="adding-chromium-to-your-local-conf">
-<h3><span class="section-number">9.1.1. </span>Adding Chromium to Your local.conf<a class="headerlink" href="#adding-chromium-to-your-local-conf" title="Link to this heading"></a></h3>
-<p>To include Chromium you have to add the following line into your local.conf. You
-can find it in &lt;yocto_dir&gt;/build/conf/local.conf. This adds Chromium to your
-next image build.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL_append += &quot; chromium-ozone-wayland&quot;
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Compiling Chromium takes a long time.</p>
-</div>
-</section>
-<section id="get-chromium-running-on-the-target">
-<h3><span class="section-number">9.1.2. </span>Get Chromium Running on the Target<a class="headerlink" href="#get-chromium-running-on-the-target" title="Link to this heading"></a></h3>
-<p>To run Chromium, it needs a few arguments to use the hardware graphics
-acceleration:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --no-sandbox
-</pre></div>
-</div>
-<p>If you want to start Chromium via SSH, you must first define the display on
-which Chromium will run. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ DISPLAY=:0
-</pre></div>
-</div>
-<p>After you have defined this, you can start it via virtual terminal on Weston as
-shown above.</p>
 </section>
 </section>
 </section>

@@ -4241,7 +4241,7 @@ phytec-qt5demo-image with only a few steps.</p>
 <p>To include Chromium you have to add the following line into your local.conf. You
 can find it in &lt;yocto_dir&gt;/build/conf/local.conf. This adds Chromium to your
 next image build.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL_append += &quot; chromium-ozone-wayland&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL_append = &quot; chromium-ozone-wayland&quot;
 </pre></div>
 </div>
 <div class="admonition note">
