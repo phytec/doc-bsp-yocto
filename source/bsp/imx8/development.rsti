@@ -457,8 +457,8 @@ E.g. flash SD card:
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
-Build a U-Boot with a Fixed RAM Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Build U-Boot With a Fixed RAM Size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
@@ -474,7 +474,6 @@ Choose the correct RAM size as populated on the board.
    :substitutions:
 
    CONFIG_TARGET_PHYCORE_|u-boot-socname-config|=y
-   # CONFIG_PHYTEC_IMX8M_SOM_DETECTION is not set
    CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_FIX=y
    # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_1GB=y
    # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_2GB=y
