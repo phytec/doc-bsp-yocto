@@ -399,9 +399,3 @@ Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
-
-.. +---------------------------------------------------------------------------+
-..                          BSP EXTENSIONS
-.. +---------------------------------------------------------------------------+
-
-.. include:: /bsp/bsp-extensions.rsti
