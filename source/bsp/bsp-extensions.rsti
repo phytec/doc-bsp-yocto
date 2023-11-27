@@ -14,7 +14,7 @@ To include Chromium you have to add the following line into your local.conf. You
 can find it in <yocto_dir>/build/conf/local.conf. This adds Chromium to your
 next image build. ::
 
-   IMAGE_INSTALL_append += " chromium-ozone-wayland"
+   IMAGE_INSTALL:append = " chromium-ozone-wayland"
 
 .. note::
 
