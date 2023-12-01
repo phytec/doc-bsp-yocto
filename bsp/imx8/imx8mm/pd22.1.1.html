@@ -1910,23 +1910,23 @@ continued with the values of the existing environment settings.</p>
 </section>
 <section id="change-u-boot-environment-from-linux-on-target">
 <h3><span class="section-number">6.2.4. </span>Change U-boot Environment from Linux on Target<a class="headerlink" href="#change-u-boot-environment-from-linux-on-target" title="Link to this heading"></a></h3>
-<p>Libubootenv is a tool included in our images to modify the u-boot environment of
+<p>Libubootenv is a tool included in our images to modify the U-Boot environment of
 Linux on the target machine.</p>
-<p>Print the u-boot environment using the following command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ fw_printenv
+<p>Print the U-Boot environment using the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>fw_printenv
 </pre></div>
 </div>
-<p>Modify a u-boot environment variable using the following command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>target$ fw_setenv &lt;variable-you-want-to-modify&gt;
+<p>Modify a U-Boot environment variable using the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>fw_setenv<span class="w"> </span>&lt;variable&gt;<span class="w"> </span>&lt;value&gt;
 </pre></div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>Libubootenv takes the environment selected in a configuration file. The
 environment to use is inserted there, and by default it is configured to use
-the EMMC environment (known as the default used environment).</p>
-<p>If the EMMC is not flashed or the EMMC environment is deleted, libubootenv
-will not work. You should modify the /etc/fw_env.config file to match the
+the eMMC environment (known as the default used environment).</p>
+<p>If the eMMC is not flashed or the eMMC environment is deleted, libubootenv
+will not work. You should modify the <code class="docutils literal notranslate"><span class="pre">/etc/fw_env.config</span></code> file to match the
 environment source that you want to use.</p>
 </div>
 </section>
