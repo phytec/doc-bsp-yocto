@@ -1108,13 +1108,14 @@ device that is available.</p>
 <h3><span class="section-number">5.1.1. </span>Host Preparation<a class="headerlink" href="#host-preparation" title="Link to this heading"></a></h3>
 <p>On the development host, a TFTP server must be installed and configured. The
 following tools will be needed to boot the Kernel from Ethernet:</p>
-<ul class="simple">
-<li><p>A TFTP server</p></li>
-</ul>
+<ul>
+<li><p>A TFTP server</p>
 <p>For <em>Ubuntu</em>, install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install tftpd-hpa xinetd
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>tftpd-hpa<span class="w"> </span>xinetd
 </pre></div>
 </div>
+</li>
+</ul>
 <p>After the installation, there are two ways to configure the TFTP server.</p>
 </section>
 <section id="tftp-server-setup">
@@ -1123,177 +1124,204 @@ following tools will be needed to boot the Kernel from Ethernet:</p>
 <li><p>As a stand-alone daemon</p></li>
 <li><p>Controlled and handled by xinetd</p></li>
 </ol>
-<ul class="simple">
-<li><p>First, create a directory to store the TFTP files:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo mkdir /tftpboot
-host$ sudo chmod -R 777 /tftpboot
-host$ sudo chown -R nobody /tftpboot
+<ul>
+<li><p>First, create a directory to store the TFTP files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/tftp
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>/srv/tftp
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Then copy your BSP image files to this directory. You also need to configure a
 static IP address for the appropriate interface. The default IP address of the
 PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
-with netmask 255.255.255.0 is a good choice.</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ ifconfig eth1
+with netmask 255.255.255.0 is a good choice.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>&lt;network-interface&gt;
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>You will receive:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth1     Link encap:Ethernet   HWadr 00:11:6b:98:e3:47
-         inet addr:192.168.3.10 Bcast:192.168.3.255 Mask:255.255.255.0
+<p>Replace &lt;network-interface&gt; with the network interface you configured and want to
+connect the board to. You can show all network interfaces by not specifying a network
+interface.</p>
+</li>
+<li><p>The message you receive should contain this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>inet 192.168.3.10/24 brd 192.168.3.255
 </pre></div>
 </div>
+</li>
+</ul>
 <section id="tftp-as-a-stand-alone-daemon">
 <h4><span class="section-number">5.1.2.1. </span>TFTP as a Stand-alone Daemon<a class="headerlink" href="#tftp-as-a-stand-alone-daemon" title="Link to this heading"></a></h4>
-<ul class="simple">
-<li><p>Create or edit /etc/default/tftpd-hpa:</p></li>
-</ul>
+<ul>
+<li><p>Create or edit /etc/default/tftpd-hpa:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># /etc/default/tftpd-hpa
 
 TFTP_USERNAME=&quot;tftp&quot;
-TFTP_DIRECTORY=&quot;/tftpboot&quot;
+TFTP_DIRECTORY=&quot;/srv/tftp&quot;
 TFTP_ADDRESS=&quot;:69&quot;
 TFTP_OPTIONS=&quot;-s -c&quot;
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Set TFTP_DIRECTORY to your TFTP server root directory</p></li>
 <li><p>Set TFTP_ADDRESS to the host address the server is listening to (set to
 0.0.0.0:69 to listen to all local IPs)</p></li>
-<li><p>Set TFTP_OPTIONS, the following command shows the available options:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ man tftpd
+<li><p>Set TFTP_OPTIONS, the following command shows the available options:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>man<span class="w"> </span>tftpd
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Restart the services to pick up the configuration changes:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo service tftpd-hpa restart
+</li>
+<li><p>Restart the services to pick up the configuration changes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>service<span class="w"> </span>tftpd-hpa<span class="w"> </span>restart
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Now connect the ethernet port of the board to your host system, configure the
 board to network boot, and start it.</p></li>
 </ul>
-<p>Usually, TFTP servers fetch files from the /tftpboot directory. If you built
+<p>Usually, TFTP servers fetch files from the tftp directory. If you built
 your own images, please copy them from the BSP’s build directory to the
-/tftpboot directory. We also need a network connection between the embedded
+tftp directory. We also need a network connection between the embedded
 board and the TFTP server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
 </section>
 <section id="nfs-server-setup">
 <h4><span class="section-number">5.1.2.2. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
-<ul class="simple">
+<ul>
 <li><p>After the installation of the TFTP server, an NFS server needs to be
-installed, too.</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install nfs-kernel-server
+installed, too.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
 </pre></div>
 </div>
-<ul class="simple">
+</li>
+<li><p>Create a nfs directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/nfs
+</pre></div>
+</div>
+</li>
 <li><p>The NFS server is not restricted to a certain file system location, so all we
-have to do on most distributions is modify the file /etc/exports and export
+have to do on most distributions is modify the file <code class="docutils literal notranslate"><span class="pre">/etc/exports</span></code> and export
 our root file system to the embedded network. In this example file, the whole
 directory is exported and the “lab network” address of the development host is
-192.168.3.10. The IP address has to be adapted to the local needs:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home/&lt;user&gt;/&lt;rootfspath&gt; 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+192.168.3.10. The IP address has to be adapted to the local needs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/srv/nfs 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 </pre></div>
 </div>
-<p>&lt;user&gt; must be replaced with your home directory name.
-&lt;rootfspath&gt; can be set to a folder that contains a rootfs tar.gz image
-extracted with sudo.</p>
-<ul class="simple">
-<li><p>Now the NFS-Server has to read the /etc/exportfs file again:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo exportfs -ra
+</li>
+<li><p>Now the NFS-Server has to read the <code class="docutils literal notranslate"><span class="pre">/etc/exportfs</span></code> file again:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>exportfs<span class="w"> </span>-ra
 </pre></div>
 </div>
+</li>
+</ul>
 </section>
 </section>
 <section id="place-images-on-host-for-netboot">
 <h3><span class="section-number">5.1.3. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Copy the kernel image to your tftpboot directory:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp Image /tftpboot
+<ul>
+<li><p>Copy the kernel image to your tftp directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>Image<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Copy the devicetree  to your tftpboot directory:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp oftree /tftpboot
+</li>
+<li><p>Copy the devicetree to your tftp directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>oftree<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Extract the rootfs to your nfsroot:</p></li>
-</ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>phytec-qt5demo-image-phyboard-pollux-imx8mp-3.tar.gz<span class="w"> </span>-C<span class="w"> </span>&lt;path_to_your_NFSROOT&gt;
+</li>
+<li><p>Copy all the overlays you want to use into your tftp directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>*.dtbo<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
+</li>
+<li><p>Make sure you have read and write access to all the files in the tftp directory,
+otherwise they are not accessible from the target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span>+r<span class="w"> </span>/srv/tftp
+</pre></div>
+</div>
+</li>
+<li><p>Extract the rootfs to your nfs directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>phytec-qt5demo-image-phyboard-pollux-imx8mp-3.tar.gz<span class="w"> </span>-C<span class="w"> </span>/srv/nfs
+</pre></div>
+</div>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Check the destination path when unpacking the rootfs.</p>
+<p>Make sure you extract with sudo to preserve the correct ownership.</p>
+</div>
+</section>
+<section id="set-the-bootenv-txt-for-netboot">
+<h3><span class="section-number">5.1.4. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
+<p>Create a bootenv.txt file in your tftp directory and write the following variables into it.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bootfile=Image
+fdt_file=oftree
+nfsroot=/srv/nfs
+overlays=&lt;overlayfilenames&gt;
+</pre></div>
+</div>
+<p>&lt;overlayfilenames&gt; has to be replaced with the devicetree overlay filenames that you want to use.
+Separate the filenames by spaces. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010-sn65dsi83.dtbo
+</pre></div>
 </div>
 </section>
 <section id="network-settings-on-target">
-<h3><span class="section-number">5.1.4. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.1.5. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
 <p>To customize the targets ethernet configuration, please follow the description
 here: <a class="reference internal" href="#imx8mp-pd22-1-1-network"><span class="std std-ref">Network Environment Customization</span></a></p>
 </section>
 <section id="booting-from-an-embedded-board">
-<h3><span class="section-number">5.1.5. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.1.6. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
 <p>Boot the board into the U-boot prompt and press any key to hold.</p>
-<ul class="simple">
-<li><p>To boot from a network, call:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; run netboot
+<ul>
+<li><p>To boot from a network, call:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; run netboot</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </section>
 </section>
 <section id="working-with-uuu-tool">
 <h2><span class="section-number">5.2. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
 <p>The Universal Update Utility Tool (UUU-Tool) from NXP is software to execute
 from the host to load and run the bootloader on the board through SDP. For
-detailed information visit <a class="reference external" href="https://github.com/NXPmicro/mfgtools">https://github.com/NXPmicro/mfgtools</a> or download the
+detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the
 <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-tool-usage">
 <h3><span class="section-number">5.2.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ sudo apt-get install libusb-1.0-0-dev libzstd-dev libzip-dev libbz2-dev pkg-config cmake
-host$ git clone https://github.com/NXPmicro/mfgtools.git
-host$ cd mfgtools
-host$ cmake .
-host$ make
+<ul>
+<li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
+<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<p>This BASH command adds UUU only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it permanently, add this line to
+<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
 </pre></div>
 </div>
+</li>
+<li><p>Set udev rules (documented in <code class="docutils literal notranslate"><span class="pre">uuu</span> <span class="pre">-udev</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;uuu -udev &gt;&gt; /etc/udev/rules.d/70-uuu.rules&quot;</span>
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</pre></div>
+</div>
+</li>
+</ul>
 </section>
-<section id="get-flash-bin">
-<h3><span class="section-number">5.2.2. </span>Get _flash.bin<a class="headerlink" href="#get-flash-bin" title="Link to this heading"></a></h3>
+<section id="get-images">
+<h3><span class="section-number">5.2.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
-../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy the U-boot image (imx-boot) to
-the UUU directory:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools
-host$ cp -v imx-boot uuu/_flash.bin
-</pre></div>
-</div>
+../build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
+you will also need phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic.</p>
 </section>
 <section id="prepare-target">
 <h3><span class="section-number">5.2.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
-<p>For UUU boot, set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-pd22-1-1-bootswitch"><span class="std std-ref">(S3)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
+<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-pd22-1-1-bootswitch"><span class="std std-ref">(S3)</span></a> to <strong>Serial downloader (USB boot)</strong> (Boot
 Configuration Options). Also, connect USB port <a class="reference internal" href="#imx8mp-pd22-1-1-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
 <h3><span class="section-number">5.2.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Execute and  Power up the board:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools/uuu
-host$ sudo ./uuu _flash.bin
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
 </pre></div>
 </div>
 <p>You can see the bootlog on the console via the debug USB
@@ -1310,40 +1338,15 @@ this in U-boot code.</p>
 </section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.2.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-pd22-1-1-bootswitch"><span class="std std-ref">(S3)</span></a> to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-pd22-1-1-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
-<p>Download the imx-boot image from
-our server or get them from your Yocto build directory at
-../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy them to the UUU directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>mfgtools
-<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>imx-boot<span class="w"> </span>uuu/_flash.bin
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Execute and power up the board:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools/uuu
-host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc<span class="w"> </span>imx-boot
 </pre></div>
 </div>
 </section>
 <section id="flashing-wic-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.2.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
-<p>Set the <em>bootmode switch</em> <a class="reference internal" href="#imx8mp-pd22-1-1-bootswitch"><span class="std std-ref">(S3)</span></a> to Serial downloader (USB boot) (Boot
-Configuration Options). Also, connect USB OTG <a class="reference internal" href="#imx8mp-pd22-1-1-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
-<p>Download phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic and imx-boot image from
-our server or get them from your Yocto build directory at
-../build/deploy/images/phyboard-pollux-imx8mp-3/ and copy them to the UUU directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>mfgtools
-<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>imx-boot<span class="w"> </span>uuu/_flash.bin
-<span class="gp">host:~$ </span>cp<span class="w"> </span>-v<span class="w"> </span>phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic<span class="w"> </span>uuu/_rootfs.wic
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Execute and power up the board:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host$ cd mfgtools/uuu
-host$ sudo ./uuu -b emmc_burn_loader.lst _flash.bin _rootfs.wic
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span><span class="p">|</span>yocto-imagename<span class="p">|</span>-<span class="p">|</span>yocto-machinename<span class="p">|</span>.wic
 </pre></div>
 </div>
 </section>
