@@ -41,37 +41,37 @@ prompt.
 
 *  Load your image via network to RAM:
 
-.. code-block::
-   :substitutions:
+   .. code-block::
+      :substitutions:
 
-   u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
-   Using ethernet@30be0000 device
-   TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-   Filename '|yocto-imagename|-|yocto-machinename|.wic'.
-   Load address: 0x40480000
-   Loading: ######################################
-            ######################################
-            ######################################
-            ...
-            ...
-            ...
-            ######################################
-            #############
-            11.2 MiB/s
-   done
-   Bytes transferred = 911842304 (36599c00 hex)
+      u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      Using ethernet@30be0000 device
+      TFTP from server 192.168.3.10; our IP address is 192.168.3.11
+      Filename '|yocto-imagename|-|yocto-machinename|.wic'.
+      Load address: 0x40480000
+      Loading: ######################################
+               ######################################
+               ######################################
+               ...
+               ...
+               ...
+               ######################################
+               #############
+               11.2 MiB/s
+      done
+      Bytes transferred = 911842304 (36599c00 hex)
 
 *  Write the image to the eMMC:
 
-::
+   ::
 
-   u-boot=> mmc dev 2
-   switch to partitions #0, OK
-   mmc2(part 0) is current device
-   u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc2(part 0) is current device
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash eMMC via Network in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,9 +81,9 @@ You can update the eMMC from your target.
 .. tip::
    A working network is necessary! Setup Network Host.
 
-*  Take a compressed or uncompressed image on the host and send it
-   with ssh through the network (then uncompress it, if necessary) to the eMMC
-   of the target with a one-line command:
+Take a compressed or uncompressed image on the host and send it with ssh through
+the network (then uncompress it, if necessary) to the eMMC of the target with a
+one-line command:
 
 .. code-block:: console
    :substitutions:
@@ -100,7 +100,7 @@ you need a complete image on your host.
 
    A working network is necessary! Setup Network Host.
 
-*  Show your available image files on the host:
+Show your available image files on the host:
 
 .. code-block:: console
    :substitutions:
@@ -108,8 +108,8 @@ you need a complete image on your host.
    host:~$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
-* Send the image with the command dd command combined with ssh through the
-  network to the eMMC of your device:
+Send the image with the command dd command combined with ssh through the network
+to the eMMC of your device:
 
 .. code-block:: console
    :substitutions:
@@ -126,7 +126,7 @@ can be used if the bootloader on eMMC is located in the eMMC user area.
 
    A working network is necessary! Setup Network Host.
 
-*  Load image over tftp into RAM and then write it to eMMC:
+Load image over tftp into RAM and then write it to eMMC:
 
 .. code-block::
    :substitutions:
@@ -157,7 +157,7 @@ bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
 and stop in u-boot prompt. Insert a USB device with the copied WIC image
 to the USB slot.
 
-*  Load your image from the USB device to RAM:
+Load your image from the USB device to RAM:
 
 ::
 
@@ -169,7 +169,7 @@ to the USB slot.
    u-boot=> fatload usb 0:1 ${loadaddr} \*.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
-*  Write the image to the eMMC:
+Write the image to the eMMC:
 
 ::
 
@@ -192,51 +192,51 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  Insert and mount the USB stick:
 
-::
+   ::
 
-   [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
-   [   60.467286] scsi host0: usb-storage 1-1.1:1.0
-   [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
-   [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
-   [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
-   [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
-   [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
-   [   61.665969]  sda: sda1
-   [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
-   target$ mount /dev/sda1 /mnt
+      [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+      [   60.467286] scsi host0: usb-storage 1-1.1:1.0
+      [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
+      [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
+      [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
+      [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
+      [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
+      [   61.665969]  sda: sda1
+      [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
+      target:~$ mount /dev/sda1 /mnt
 
 *  Now show your saved image files on the USB Stick:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ cd /mnt
-   target:~$ ls
-   |yocto-imagename|-|yocto-machinename|.wic
+      target:~$ cd /mnt
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
 
-::
+   ::
 
-   target$ ls /dev \| grep mmc
-   mmcblk1
-   mmcblk1p1
-   mmcblk1p2
-   mmcblk2
-   mmcblk2boot0
-   mmcblk2boot1
-   mmcblk2p1
-   mmcblk2p2
-   mmcblk2rpmb
+      target$ ls /dev \| grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2boot0; mmcblk2boot1)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -275,27 +275,27 @@ Flash eMMC from SD card in u-boot on Target
    Image, dtb, dtbo, and root file system to eMMC.
 *  Load the image:
 
-.. code-block::
-   :substitutions:
+   .. code-block::
+      :substitutions:
 
-   u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
-   reading
-   911842304 bytes read in 39253 ms (22.2 MiB/s)
+      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      reading
+      911842304 bytes read in 39253 ms (22.2 MiB/s)
 
 *  Switch the mmc dev:
 
-::
+   ::
 
-   u-boot=> mmc list
-   FSL_SDHC: 1 (SD)
-   FSL_SDHC: 2 (eMMC)
-   u-boot=> mmc dev 2
-   switch to partitions #0, OK
-   mmc0(part 0) is current device
-   u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+      u-boot=> mmc list
+      FSL_SDHC: 1 (SD)
+      FSL_SDHC: 2 (eMMC)
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc0(part 0) is current device
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 *  Power off the board and change the multi-port switch to Default SOM Boot to
    boot from eMMC.
@@ -308,36 +308,36 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  Show your saved image files on the SD card:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ ls
-   |yocto-imagename|-|yocto-machinename|.wic
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
 
-::
+   ::
 
-   target$ ls /dev \| grep mmc
-   mmcblk1
-   mmcblk1p1
-   mmcblk1p2
-   mmcblk2
-   mmcblk2boot0
-   mmcblk2boot1
-   mmcblk2p1
-   mmcblk2p2
-   mmcblk2rpmb
+      target$ ls /dev \| grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
    partition):
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -355,8 +355,8 @@ usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
 populated. Only the bootloader and the environment can be stored. The kernel,
 device tree, and file system are taken from eMMC by default.
 
-*  The SPI NOR flash partition table is defined in the U-Boot environment. It
-   can be printed with:
+The SPI NOR flash partition table is defined in the U-Boot environment. It can
+be printed with:
 
 ::
 
@@ -391,20 +391,20 @@ writing is possible, the SPI-NOR flash needs to be probed:
    use the correct image file. Load the image over tftp, erase and write the
    bootloader to the flash:
 
- .. code-block::
-   :substitutions:
+   .. code-block::
+      :substitutions:
 
-   u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-   u-boot=> sf update ${loadaddr} 0 ${filesize}
-   device 0 offset 0x0, size 0x1c0b20
-   1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
+      u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> sf update ${loadaddr} 0 ${filesize}
+      device 0 offset 0x0, size 0x1c0b20
+      1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
 
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
-::
+   ::
 
-   u-boot=> sf erase 0x400000 0x100000
+      u-boot=> sf erase 0x400000 0x100000
 
 .. warning::
 
@@ -417,34 +417,34 @@ Flash SPI NOR from Network in kernel on Target
 
 *  Copy the image from the host to the target:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
+      host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
 
 *  Find the number of erase blocks of the U-boot partition:
 
-::
+   ::
 
-   target$ mtdinfo /dev/mtd0
-   mtd0
-   Name:                           u-boot
-   Type:                           nor
-   Eraseblock size:                65536 bytes, 64.0 KiB
-   Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
-   Minimum input/output unit size: 1 byte
-   Sub-page size:                  1 byte
-   Character device major/minor:   90:0
-   Bad blocks are allowed:         false
-   Device is writable:             true
+      target$ mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
 
 *  Erase the u-boot partition and flash it:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ flash_erase /dev/mtd0 0x0 60
-   target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 Flash SPI NOR Flash from SD Card
 ................................
@@ -459,28 +459,28 @@ Flash SPI NOR from SD Card in u-boot on Target
    on the SD Card. Before reading and writing are possible, the SPI-NOR flash
    needs to be probed:
 
-::
+   ::
 
-   u-boot=> sf probe
-   SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+      u-boot=> sf probe
+      SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
 
 *  A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
    use the correct image file. Load the image from the SD Card, erase and write
    the bootloader to the flash:
 
-.. code-block::
-   :substitutions:
+   .. code-block::
+      :substitutions:
 
-   u-boot=> mmc dev 1
-   u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-   u-boot=> sf update ${loadaddr} 0 ${filesize}
+      u-boot=> mmc dev 1
+      u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> sf update ${loadaddr} 0 ${filesize}
 
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
-::
+   ::
 
-   u-boot=> sf erase 0x400000 0x100000
+      u-boot=> sf erase 0x400000 0x100000
 
 .. warning::
 
@@ -493,34 +493,34 @@ Flash SPI NOR from SD Card in kernel on Target
 
 *  Mount the SD Card:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ mount /dev/mmcblkp1 /mnt
+      host:~$ mount /dev/mmcblkp1 /mnt
 
 *  Find the number of erase blocks of the u-boot partition:
 
-::
+   ::
 
-   target$  mtdinfo /dev/mtd0
-   mtd0
-   Name:                           u-boot
-   Type:                           nor
-   Eraseblock size:                65536 bytes, 64.0 KiB
-   Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
-   Minimum input/output unit size: 1 byte
-   Sub-page size:                  1 byte
-   Character device major/minor:   90:0
-   Bad blocks are allowed:         false
-   Device is writable:             true
+      target$  mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
 
-Erase the u-boot partition and flash it:
+*  Erase the u-boot partition and flash it:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   target:~$ flash_erase /dev/mtd0 0x0 60
-   target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
 RAUC
 ----
