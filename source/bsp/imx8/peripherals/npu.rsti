@@ -7,34 +7,3 @@ Guide on the phyCORE-|soc| download section to get information about the
 NPU: `L-1015e.A0 phyCORE-i.MX 8M Plus AI Kit Guide
 <https://www.phytec.de/cdocuments/?doc=ZQBhDw>`_
 
-NXP Examples for eIQ
-....................
-
-NXP provides a set of machine learning examples for eIQ using Python3. To add a
-pre-configured machine learning package group, add to your local.conf and build
-your BSP::
-
-   IMAGE_INSTALL_append = " packagegroup-imx-ml python3-pip python3-requests opencv"
-
-This will require about 1GB of additional space on the SD Card. Instructions
-on how to install and use the NXP examples can be found at
-https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998.
-
-.. hint::
-
-   The installation of the eiq examples with pip3 requires an internet
-   connection.
-
-.. note::
-
-   On some Ubuntu 20.04 hosts, cmake uses the host's Python 3 instead of Python
-   3.7 from Yocto when building python3-pybind11. (see
-   https://community.nxp.com/t5/i-MX-Processors/Yocto-L5-4-70-2-3-0-build-image-failed/m-p/1219619)
-
-   As a workaround edit, the python3-pybind11 recipe by::
-
-      $ devtool edit-recipe python3-pybind11
-
-   and add to the file::
-
-      EXTRA_OECMAKE += "-DPYTHON_EXECUTABLE=${RECIPE_SYSROOT_NATIVE}/usr/bin/python3-native/python3.7"
