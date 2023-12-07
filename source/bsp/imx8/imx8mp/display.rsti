@@ -17,7 +17,6 @@ MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo
 
 .. note::
 
-   *  HDMI will not work if LVDS1 (onboard) is enabled.
    *  When changing Weston output, make sure to match the audio output as well.
    *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
 
