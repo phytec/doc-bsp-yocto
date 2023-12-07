@@ -349,5 +349,5 @@ be read back as zeros.
 
 .. tip::
 
-   dd if=/dev/zero of=/dev/mmcblk2 also destroys all information on the device,
-   but this command is bad for wear leveling and takes much longer!
+   ``dd if=/dev/zero of=/dev/mmcblk2 conv=fsync`` also destroys all information
+   on the device, but this command is bad for wear leveling and takes much longer!
