@@ -92,7 +92,7 @@ one-line command:
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2 conv=fsync
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,7 +118,7 @@ to the eMMC of your device:
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
 
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
@@ -238,7 +238,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -357,7 +357,7 @@ image saved on the SD card.
       .. code-block:: console
          :substitutions:
 
-         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
 
       Keep in mind that the root partition does not make use of the full space when
       flashing with ``dd``.
