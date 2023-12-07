@@ -428,12 +428,6 @@ writing is possible, the SPI NOR flash needs to be probed:
 
       u-boot=> sf erase 0x400000 0x100000
 
-   .. warning::
-
-      Erasing the complete SPI NOR flash when it is fully written will take quite
-      some time. This can trigger the watchdog to reset. Due to this, erase the
-      full flash in Linux.
-
 Flash SPI NOR from Network in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -503,12 +497,6 @@ Flash SPI NOR from SD Card in U-Boot on Target
    .. code-block::
 
       u-boot=> sf erase 0x400000 0x100000
-
-   .. warning::
-
-      Erasing the complete SPI NOR flash when it is fully written will take quite
-      some time. This can trigger the watchdog to reset. Due to this, erase the
-      full flash in Linux.
 
 Flash SPI NOR from SD Card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
