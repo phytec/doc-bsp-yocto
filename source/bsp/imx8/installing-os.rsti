@@ -256,6 +256,9 @@ Because the image file is quite large, you have to enlarge your SD card to use
 its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.
 
+Alternatively, flash a partup package to the SD card, as described in
+|ref-getting-started|. This will ensure the full space of the SD card is used.
+
 Flash eMMC from SD card in u-boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
