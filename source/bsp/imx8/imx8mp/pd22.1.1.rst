@@ -124,8 +124,6 @@ Compatible BSP'S     BSP Release Type BSP Release  Date BSP Status
 Supported Hardware
 ------------------
 
-The |sbc| with 2GB RAM  is supported.
-
 On our web page, you can see all supported Machines with the available Article
 Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
 
