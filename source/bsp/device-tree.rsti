@@ -28,14 +28,11 @@ Device Tree Structure
 
 *  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
    and RAM.
-*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed
-   down to the carrier board and used there are included in this dtsi.
-*  *Board.dts* - include the carrier board and module dtsi files. There may also
-   be some hardware configuration nodes enabled on the carrier board or the
-   module (i.e. the Board .dts shows the special characteristics of the board
-   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
-   have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
-   available) in the Board .dts and not in the Module .dtsi
+*  *Board.dts* - include the module dtsi file. Devices that come from the |soc|
+   SoC but are just routed down to the carrier board and used there are included
+   in this dts.
+*  *Overlay.dtso* - enable/disable features depending on optional hardware that
+   may be mounted or missing on SoM or baseboard (e.g SPI flash or PEB-AV-10)
 
 From the root directory of the Linux Kernel our devicetree files for |socfamily|
 platforms can be found in ``arch/arm64/boot/dts/freescale/``.

@@ -837,9 +837,63 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mm-pd22.1.1-device-tree:
-.. include:: /bsp/device-tree.rsti
 
-::
+Device Tree (DT)
+================
+
+Introduction
+------------
+
+The following text briefly describes the Device Tree and can be found in
+the Linux kernel Documentation
+(https://docs.kernel.org/devicetree/usage-model.html)
+
+*"The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
+structure and language for describing hardware. More specifically, it is a
+description of hardware that is readable by an operating system so that the
+operating system doesn't need to hard code details of the machine."*
+
+The kernel documentation is a really good source for a DT introduction. An
+overview of the device tree data format can be found on the device tree usage
+page at `devicetree.org <https://www.devicetree.org/>`_.
+
+PHYTEC |soc| BSP Device Tree Concept
+------------------------------------
+
+The following sections explain some rules PHYTEC has defined on how to set up
+device trees for our |soc| SoC-based boards.
+
+Device Tree Structure
+.....................
+
+*  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
+   and RAM.
+*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed
+   down to the carrier board and used there are included in this dtsi.
+*  *Board.dts* - include the carrier board and module dtsi files. There may also
+   be some hardware configuration nodes enabled on the carrier board or the
+   module (i.e. the Board .dts shows the special characteristics of the board
+   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
+   have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
+   available) in the Board .dts and not in the Module .dtsi
+
+From the root directory of the Linux Kernel our devicetree files for |socfamily|
+platforms can be found in ``arch/arm64/boot/dts/freescale/``.
+
+Device Tree Overlay
+...................
+
+Device Tree overlays are device tree fragments that can be merged into a device
+tree during boot time. These are for example hardware descriptions of an
+expansion board. They are instead of being added to the device tree as an extra
+include, now applied as an overlay. They also may only contain setting the
+status of a node depending on if it is mounted or not. The device tree overlays
+are placed next to the other device tree files in our Linux kernel repository in
+the subfolder ``arch/arm64/boot/dts/freescale/overlays``.
+
+Available overlays for |yocto-machinename|.conf are:
+
+.. code-block::
 
    imx8mm-phyboard-polis-peb-eval-01.dtbo
    imx8mm-phyboard-polis-peb-av-010.dtbo
@@ -863,7 +917,10 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+The following is an example of the pin muxing of the UART1 device in
+imx8mm-phyboard-polis.dtsi:
+
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
