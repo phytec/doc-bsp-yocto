@@ -70,6 +70,22 @@ To set PEB-AV-10 as output, set *playback.pcm* from "dummy" to "pebav10":
 
    [...]
 
+If the sound is not audible change playback devices to the software volume control
+playback devices, set *playback.pcm* to the respective softvol playback device e.g.
+"softvol_pebav10". Use alsamixer controls to vary the volume levels.
+
+.. code-block::
+
+   [...]
+
+   pcm.asymed {
+           type asym
+           playback.pcm "softvol_pebav10"
+           capture.pcm "dsnoop"
+   }
+
+   [...]
+
 Pulseaudio Configuration
 ........................
 
