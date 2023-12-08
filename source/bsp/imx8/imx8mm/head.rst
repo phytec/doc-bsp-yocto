@@ -288,6 +288,12 @@ The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188`
 
 .. _imx8mm-head-network:
+
+Network
+-------
+
+|sbc|-|soc| provides one Gigabit Ethernet interface.
+
 .. include:: ../peripherals/network.rsti
 
 .. include:: wireless-network.rsti

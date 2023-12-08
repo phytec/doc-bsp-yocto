@@ -330,6 +330,22 @@ The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
 
 .. _imx8mp-head-network:
+
+Network
+-------
+
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
+module and board.
+
+.. warning::
+
+   The naming convention of the Ethernet interfaces in the hardware (ethernet0
+   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
+   Linux. So, be aware of these differences:
+
+   | ethernet1 = eth0
+   | ethernet0 = eth1
+
 .. include:: ../peripherals/network.rsti
 
 WLAN and Bluetooth
