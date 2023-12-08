@@ -1,18 +1,3 @@
-Network
--------
-
-|som| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
-
-.. warning::
-
-   The naming convention of the Ethernet interfaces in the hardware (ethernet0
-   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
-   Linux. So, be aware of these differences:
-
-   | ethernet1 = eth0
-   | ethernet0 = eth1
-
 All interfaces offer a standard Linux network port that can be programmed using
 the BSD socket interface. The whole network configuration is handled by
 the systemd-networkd daemon. The relevant configuration files can be found on
