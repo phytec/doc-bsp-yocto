@@ -8,7 +8,7 @@ The video is installed by default in the BSP:
 
 .. code-block:: console
 
-   target:~$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
+   target:~$ gst-launch-1.0 playbin uri=file:///usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
 
 *  Or:
 
@@ -22,7 +22,7 @@ The video is installed by default in the BSP:
 
 .. code-block:: console
 
-   target:~$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
+   target:~$ gplay-1.0 /usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
 
 kmssink Plugin ID Evaluation
 ............................
