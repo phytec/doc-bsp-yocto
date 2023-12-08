@@ -204,6 +204,10 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mn-head-development:
 .. include:: /bsp/imx8/development.rsti
+   :end-before: .. build-uboot-fixed-ram-size-marker
+
+.. include:: /bsp/imx8/development.rsti
+   :start-after: .. build-kernel-marker
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE

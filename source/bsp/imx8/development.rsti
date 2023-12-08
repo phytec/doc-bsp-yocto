@@ -483,6 +483,8 @@ E.g. flash SD card:
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
+.. build-uboot-fixed-ram-size-marker
+
 Build U-Boot With a Fixed RAM Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -508,6 +510,8 @@ Edit the file configs/phycore-|kernel-socname|\_defconfig:
 Choose the correct RAM size as populated on the board and uncomment the line for
 this ram size.
 After saving the changes, follow the remaining steps from Build U-Boot.
+
+.. build-kernel-marker
 
 Build Kernel
 ............
