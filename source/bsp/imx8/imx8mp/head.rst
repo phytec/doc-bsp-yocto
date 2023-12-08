@@ -212,6 +212,42 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mp-head-development:
 .. include:: /bsp/imx8/development.rsti
+   :end-before: .. build-kernel-marker
+
+Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
+newer also support 2GHz RAM-Timings. These will be enabled for supported boards
+automatically, but they can also be enabled or disabled manually. There are two
+possibilitys for setting these statically:
+
+*  Edit the file configs/phycore-|kernel-socname|\_defconfig.
+   The RAM size from EEPROM will be used, but with fixed 2GHz Timings:
+
+   .. code-block::
+
+      CONFIG_TARGET_PHYCORE_IMX8MP=y
+      CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+      CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
+*  Edit the file configs/phycore-|kernel-socname|\_defconfig.
+   The fixed RAM size with 2GHz Timings will be used:
+
+   .. code-block::
+
+      CONFIG_TARGET_PHYCORE_IMX8MP=y
+      CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
+      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+      CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
+   Choose the correct RAM size as populated on the board and uncomment the line
+   for this ram size.
+
+After saving the changes, follow the remaining steps from Build U-Boot.
+
+
+.. include:: /bsp/imx8/development.rsti
+   :start-after: .. build-kernel-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
