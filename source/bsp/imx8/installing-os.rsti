@@ -166,7 +166,7 @@ Load your image from the USB device to RAM:
    USB0:   USB EHCI 1.00
    scanning bus 0 for devices... 2 USB Device(s) found
           scanning usb for storage devices... 1 Storage Device(s) found
-   u-boot=> fatload usb 0:1 ${loadaddr} \*.wic
+   u-boot=> fatload usb 0:1 ${loadaddr} *.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
 Write the image to the eMMC:
@@ -218,7 +218,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
    ::
 
-      target$ ls /dev \| grep mmc
+      target$ ls /dev | grep mmc
       mmcblk1
       mmcblk1p1
       mmcblk1p2
@@ -249,7 +249,7 @@ Flash eMMC from SD Card
 .......................
 
 Even if there is no network available, you can update the eMMC. For that, you
-only need a ready-to-use image file (``\*.wic``) located on the SD card.
+only need a ready-to-use image file (``*.wic``) located on the SD card.
 Because the image file is quite large, you have to enlarge your SD card to use
 its full space (if it was not enlarged before). To enlarge your SD card, see
 Resizing ext4 Root Filesystem.
@@ -318,7 +318,7 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
    ::
 
-      target$ ls /dev \| grep mmc
+      target$ ls /dev | grep mmc
       mmcblk1
       mmcblk1p1
       mmcblk1p2
