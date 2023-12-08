@@ -8,9 +8,11 @@ and the |ref-bootswitch| is set to **Default SOM boot**.
    When eMMC and SD card are flashed with the same (identical) image, the UUIDs
    of the boot partitions are also identical. If the SD card is connected when
    booting, this leads to non-deterministic behavior as Linux mounts the boot
-   partition based on UUID. ::
+   partition based on UUID.
 
-      target:~# blkid
+   .. code-block:: console
+
+      target:~$ blkid
 
    can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
    and ``mmcblk1p1`` have an identical UUID, the setup is affected.
@@ -63,7 +65,7 @@ prompt.
 
 *  Write the image to the eMMC:
 
-   ::
+   .. code-block::
 
       u-boot=> mmc dev 2
       switch to partitions #0, OK
@@ -159,7 +161,7 @@ to the USB slot.
 
 Load your image from the USB device to RAM:
 
-::
+.. code-block::
 
    u-boot=> usb start
    starting USB...
@@ -171,7 +173,7 @@ Load your image from the USB device to RAM:
 
 Write the image to the eMMC:
 
-::
+.. code-block::
 
    u-boot=> mmc dev 2
    switch to partitions #0, OK
@@ -192,7 +194,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  Insert and mount the USB stick:
 
-   ::
+   .. code-block:: console
 
       [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
       [   60.467286] scsi host0: usb-storage 1-1.1:1.0
@@ -216,9 +218,9 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  Show list of available MMC devices:
 
-   ::
+   .. code-block:: console
 
-      target$ ls /dev | grep mmc
+      target:~$ ls /dev | grep mmc
       mmcblk1
       mmcblk1p1
       mmcblk1p2
@@ -284,7 +286,7 @@ Flash eMMC from SD card in u-boot on Target
 
 *  Switch the mmc dev:
 
-   ::
+   .. code-block::
 
       u-boot=> mmc list
       FSL_SDHC: 1 (SD)
@@ -316,9 +318,9 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  Show list of available MMC devices:
 
-   ::
+   .. code-block:: console
 
-      target$ ls /dev | grep mmc
+      target:~$ ls /dev | grep mmc
       mmcblk1
       mmcblk1p1
       mmcblk1p2
@@ -358,7 +360,7 @@ device tree, and file system are taken from eMMC by default.
 The SPI NOR flash partition table is defined in the U-Boot environment. It can
 be printed with:
 
-::
+.. code-block::
 
    u-boot=> printenv mtdparts
    mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env:redund),-(none)
@@ -382,7 +384,7 @@ host correctly. The IP needs to be set to 192.168.3.10, the netmask to
 255.255.255.0, and a TFTP server needs to be available. Before reading and
 writing is possible, the SPI-NOR flash needs to be probed:
 
-::
+.. code-block::
 
    u-boot=> sf probe
    SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
@@ -402,7 +404,7 @@ writing is possible, the SPI-NOR flash needs to be probed:
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
-   ::
+   .. code-block::
 
       u-boot=> sf erase 0x400000 0x100000
 
@@ -424,9 +426,9 @@ Flash SPI NOR from Network in kernel on Target
 
 *  Find the number of erase blocks of the U-boot partition:
 
-   ::
+   .. code-block:: console
 
-      target$ mtdinfo /dev/mtd0
+      target:~$ mtdinfo /dev/mtd0
       mtd0
       Name:                           u-boot
       Type:                           nor
@@ -459,7 +461,7 @@ Flash SPI NOR from SD Card in u-boot on Target
    on the SD Card. Before reading and writing are possible, the SPI-NOR flash
    needs to be probed:
 
-   ::
+   .. code-block::
 
       u-boot=> sf probe
       SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
@@ -478,7 +480,7 @@ Flash SPI NOR from SD Card in u-boot on Target
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
-   ::
+   .. code-block::
 
       u-boot=> sf erase 0x400000 0x100000
 
@@ -500,9 +502,9 @@ Flash SPI NOR from SD Card in kernel on Target
 
 *  Find the number of erase blocks of the u-boot partition:
 
-   ::
+   .. code-block:: console
 
-      target$  mtdinfo /dev/mtd0
+      target:~$  mtdinfo /dev/mtd0
       mtd0
       Name:                           u-boot
       Type:                           nor
