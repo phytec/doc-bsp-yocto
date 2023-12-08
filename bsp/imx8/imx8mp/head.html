@@ -4048,37 +4048,6 @@ ON/OFF button can be configured under /etc/systemd/logind.conf  and set using:</
 for artificial intelligence operations. Refer to our latest phyCORE-i.MX 8M Plus AI Kit
 Guide on the phyCORE-i.MX 8M Plus download section to get information about the
 NPU: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=ZQBhDw">L-1015e.A0 phyCORE-i.MX 8M Plus AI Kit Guide</a></p>
-<section id="nxp-examples-for-eiq">
-<h3><span class="section-number">7.22.1. </span>NXP Examples for eIQ<a class="headerlink" href="#nxp-examples-for-eiq" title="Link to this heading"></a></h3>
-<p>NXP provides a set of machine learning examples for eIQ using Python3. To add a
-pre-configured machine learning package group, add to your local.conf and build
-your BSP:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL_append = &quot; packagegroup-imx-ml python3-pip python3-requests opencv&quot;
-</pre></div>
-</div>
-<p>This will require about 1GB of additional space on the SD Card. Instructions
-on how to install and use the NXP examples can be found at
-<a class="reference external" href="https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998">https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998</a>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>The installation of the eiq examples with pip3 requires an internet
-connection.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On some Ubuntu 20.04 hosts, cmake uses the host’s Python 3 instead of Python
-3.7 from Yocto when building python3-pybind11. (see
-<a class="reference external" href="https://community.nxp.com/t5/i-MX-Processors/Yocto-L5-4-70-2-3-0-build-image-failed/m-p/1219619">https://community.nxp.com/t5/i-MX-Processors/Yocto-L5-4-70-2-3-0-build-image-failed/m-p/1219619</a>)</p>
-<p>As a workaround edit, the python3-pybind11 recipe by:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ devtool edit-recipe python3-pybind11
-</pre></div>
-</div>
-<p>and add to the file:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EXTRA_OECMAKE += &quot;-DPYTHON_EXECUTABLE=${RECIPE_SYSROOT_NATIVE}/usr/bin/python3-native/python3.7&quot;
-</pre></div>
-</div>
-</div>
-</section>
 </section>
 <section id="isp">
 <h2><span class="section-number">7.23. </span>ISP<a class="headerlink" href="#isp" title="Link to this heading"></a></h2>
