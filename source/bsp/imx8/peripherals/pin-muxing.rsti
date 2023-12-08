@@ -15,6 +15,3 @@ information about the specific pins and the muxing capabilities.
 The IO set configuration, also called muxing, is done in the Device Tree. The
 driver pinctrl-single reads the DT's node fsl,pins, and does the appropriate pin
 muxing.
-
-The following is an example of the pin muxing of the UART1 device in
-|dt-carrierboard|.dtsi:

@@ -79,7 +79,7 @@
 .. |pollux-sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n141`.
+   :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n141`.
 .. |pollux-fan-note| replace::
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
@@ -289,6 +289,9 @@ After saving the changes, follow the remaining steps from Build U-Boot.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
+The following is an example of the pin muxing of the UART1 device in
+|dt-carrierboard|.dts:
+
 .. code-block::
 
    pinctrl_uart1: uart1grp {
@@ -327,7 +330,7 @@ correctly.
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n331`
 
 .. _imx8mp-head-network:
 
@@ -358,7 +361,7 @@ PEB-WLBT-05.
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n367`
 
 DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220`
@@ -378,7 +381,7 @@ The definition of the SPI master node in the device tree can be found here:
 .. include:: ../../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n216`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
@@ -386,7 +389,7 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105`
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n201`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n201`
 
 
 EEPROM
@@ -420,7 +423,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n341`
 
 CAN FD
 ------
@@ -434,13 +437,13 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
-Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165`
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n165`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
-Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277`
+Device Tree PCIe configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n277`
 
 Audio
 -----
@@ -469,8 +472,8 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255`
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n180`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n255`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n180`
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132`
@@ -480,7 +483,7 @@ The device tree of LVDS-0 on PEB-AV-10 can be found here:
 .. include:: ../peripherals/tm.rsti
 
 The device tree description of GPIO Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26`
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.10.72_2.2.0-phy17#n26`
 
 .. include:: /bsp/peripherals/watchdog.rsti
 

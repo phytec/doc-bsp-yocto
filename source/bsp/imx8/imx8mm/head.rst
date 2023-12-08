@@ -249,7 +249,10 @@ select the phyCORE-|soc| default bootsource.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+The following is an example of the pin muxing of the UART1 device in
+|dt-carrierboard|.dts:
+
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
@@ -285,7 +288,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n188`
 
 .. _imx8mm-head-network:
 
@@ -301,7 +304,7 @@ Network
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n266`
 
 DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315`
@@ -316,7 +319,9 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. include:: ../peripherals/gpios.rsti
 
-Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
+Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
+
+.. code-block::
 
    pinctrl_leds: leds1grp {
            fsl,pins = <
@@ -329,15 +334,15 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n37`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102`
 
-General I²C4 bus configuration (e.g. |dt-carrierboard|.dtsi):
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149`
+General I²C4 bus configuration (e.g. |dt-carrierboard|.dts):
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n149`
 
 
 EEPROM
@@ -371,7 +376,9 @@ peripheral device or a USB host. Each is connected to a USB 2.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 User USB2 (host) configuration is in the kernel device tree
-|kernel-socname|.dtsi::
+|dt-carrierboard|.dts:
+
+.. code-block::
 
    &usbotg2 {
            dr_mode = "host";
@@ -381,13 +388,13 @@ User USB2 (host) configuration is in the kernel device tree
    };
 
 DT representation for USB Host:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy9#n240`
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
-imx8mm-phyboard-polis.dtsi. See:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n228`
+|dt-carrierboard|.dts. See:
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n228`
 
 CAN FD
 ------
@@ -412,8 +419,8 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
-Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
-:imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106`
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n106`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
