@@ -308,15 +308,16 @@ Flash eMMC from SD card in u-boot on Target
 Flash eMMC from SD card in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also flash the eMMC on Linux. You only need a complete image saved on
-the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
+You can also flash the eMMC on Linux. You only need a partup package or WIC
+image saved on the SD card.
 
-*  Show your saved image files on the SD card:
+*  Show your saved partup package or WIC image files on the SD card:
 
    .. code-block:: console
       :substitutions:
 
       target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.partup
       |yocto-imagename|-|yocto-machinename|.wic
 
 *  Show list of available MMC devices:
@@ -337,12 +338,27 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
-   partition):
+   partition) using `partup`_:
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/mmcblk2
+
+   Flashing the partup package has the advantage of using the full capacity of
+   the eMMC device, adjusting partitions accordingly.
+
+   .. note::
+
+      Alternatively, ``dd`` may be used instead:
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+
+      Keep in mind that the root partition does not make use of the full space when
+      flashing with ``dd``.
 
 *  After a complete write, your board can boot from eMMC.
 
