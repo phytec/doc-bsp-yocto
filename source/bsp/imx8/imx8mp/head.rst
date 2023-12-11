@@ -296,8 +296,8 @@ The following is an example of the pin muxing of the UART1 device in
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
-                   MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX     0x49
-                   MX8MP_IOMUXC_UART1_TXD_UART1_DCE_TX     0x49
+                   MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX     0x140
+                   MX8MP_IOMUXC_UART1_TXD_UART1_DCE_TX     0x140
            >;
    };
 
@@ -307,6 +307,9 @@ desired muxing option for this pad. The pad setting value (hex value on the
 right) defines different modes of the pad, for example, if internal pull
 resistors are activated or not. In this case, the internal resistors are
 disabled.
+
+The device tree representation for UART1:
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536`
 
 RS232/RS485
 -----------
