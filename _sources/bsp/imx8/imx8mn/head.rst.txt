@@ -69,6 +69,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mn-head-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mn-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
@@ -132,6 +133,7 @@ should show you the necessary **Machine Name** for your specific hardware
 ..                          Getting Started
 .. +---------------------------------------------------------------------------+
 
+.. _imx8mn-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
