@@ -89,3 +89,24 @@ of some usages of various tools:
    Some of the user IOs are used for special functions. Before using a user IO,
    refer to the schematic or the hardware manual of your board to ensure that it
    is not already in use.
+
+GPIOs via sysfs
+...............
+
+.. warning::
+
+   Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
+   instead.
+
+Support to access GPIOs via sysfs is not enabled by default any more.
+It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
+configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
+CONFIG_EXPERT has to be enabled first.
+
+You can also add this option for example to the
+imx8_phytec_distro.config config fragment in the linux kernel sources
+under arch/arm64/configs ::
+
+   ..
+   CONFIG_GPIO_SYSFS=y
+   ..
