@@ -4,8 +4,9 @@
 PHYTEC Yocto BSP Documentation
 ==============================
 
-Before making any changes and contributing, please read our `Contribution
-Guide`_.
+We welcome contributions to this documentation! Before making any changes,
+please read the `Contribution Guide
+<https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`_.
 
 Getting the Source Code
 -----------------------
@@ -45,5 +46,3 @@ To produce a LaTeX generated PDF documentation, specify the target explicitly::
 Open the locally built HTML pages in your webbrowser::
 
    xdg-open build/html/index.html
-
-.. _Contribution Guide: https://github.com/phytec/doc-bsp-yocto/wiki
