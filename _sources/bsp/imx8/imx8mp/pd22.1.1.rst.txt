@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
@@ -16,6 +16,7 @@
 .. |atfloadaddr| replace:: 0x970000
 .. |doc-id| replace:: L-1017e.A5
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
+.. |kit-ram-size| replace:: 2GiB
 .. |mcore| replace:: M7 Core
 .. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
@@ -64,7 +65,7 @@
 
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S3) <imx8mp-pd22.1.1-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd22.1.1-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd22.1.1-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd22.1.1-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-pd22.1.1-device-tree>`
@@ -122,8 +123,6 @@ Compatible BSP'S     BSP Release Type BSP Release  Date BSP Status
 
 Supported Hardware
 ------------------
-
-The |sbc| with 2GB RAM  is supported.
 
 On our web page, you can see all supported Machines with the available Article
 Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
@@ -846,9 +845,63 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-pd22.1.1-device-tree:
-.. include:: /bsp/device-tree.rsti
 
-::
+Device Tree (DT)
+================
+
+Introduction
+------------
+
+The following text briefly describes the Device Tree and can be found in
+the Linux kernel Documentation
+(https://docs.kernel.org/devicetree/usage-model.html)
+
+*"The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
+structure and language for describing hardware. More specifically, it is a
+description of hardware that is readable by an operating system so that the
+operating system doesn't need to hard code details of the machine."*
+
+The kernel documentation is a really good source for a DT introduction. An
+overview of the device tree data format can be found on the device tree usage
+page at `devicetree.org <https://www.devicetree.org/>`_.
+
+PHYTEC |soc| BSP Device Tree Concept
+------------------------------------
+
+The following sections explain some rules PHYTEC has defined on how to set up
+device trees for our |soc| SoC-based boards.
+
+Device Tree Structure
+.....................
+
+*  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
+   and RAM.
+*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed
+   down to the carrier board and used there are included in this dtsi.
+*  *Board.dts* - include the carrier board and module dtsi files. There may also
+   be some hardware configuration nodes enabled on the carrier board or the
+   module (i.e. the Board .dts shows the special characteristics of the board
+   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
+   have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
+   available) in the Board .dts and not in the Module .dtsi
+
+From the root directory of the Linux Kernel our devicetree files for |socfamily|
+platforms can be found in ``arch/arm64/boot/dts/freescale/``.
+
+Device Tree Overlay
+...................
+
+Device Tree overlays are device tree fragments that can be merged into a device
+tree during boot time. These are for example hardware descriptions of an
+expansion board. They are instead of being added to the device tree as an extra
+include, now applied as an overlay. They also may only contain setting the
+status of a node depending on if it is mounted or not. The device tree overlays
+are placed next to the other device tree files in our Linux kernel repository in
+the subfolder ``arch/arm64/boot/dts/freescale/overlays``.
+
+Available overlays for |yocto-machinename|.conf are:
+
+.. code-block::
 
    imx8mp-isi-csi1.dtbo
    imx8mp-isi-csi2.dtbo
@@ -885,7 +938,10 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+The following is an example of the pin muxing of the UART1 device in
+imx8mp-phyboard-pollux.dtsi:
+
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
@@ -926,6 +982,22 @@ The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
 
 .. _imx8mp-pd22.1.1-network:
+
+Network
+-------
+
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
+module and board.
+
+.. warning::
+
+   The naming convention of the Ethernet interfaces in the hardware (ethernet0
+   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
+   Linux. So, be aware of these differences:
+
+   | ethernet1 = eth0
+   | ethernet0 = eth1
+
 .. include:: ../peripherals/network.rsti
 
 WLAN and Bluetooth
@@ -1037,39 +1109,50 @@ speaker, headphones, and line in signals.
    is not supported. The audio output device must match the video output device.
 
 To check if your soundcard driver is loaded correctly and what the device is
-called, type for playback devices::
+called, type for playback devices:
 
-   target$ aplay -L
+.. code-block:: console
 
-Or type for recording devices::
+   target:~$ aplay -L
 
-   target$ arecord -L
+Or type for recording devices:
+
+.. code-block:: console
+
+   target:~$ arecord -L
 
 Alsamixer
 .........
 
-To inspect the capabilities of your soundcard, call::
+To inspect the capabilities of your soundcard, call:
 
-   target$ alsamixer
+.. code-block:: console
+
+   target:~$ alsamixer
 
 You should see a lot of options as the audio-IC has many features you can
 experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. "MM" means the feature is muted
-(both output, left & right), which can be toggled by hitting m. You can also
-toggle by hitting '<' for left and ''>' for right output.
+(both output, left & right), which can be toggled by hitting **m**. You can also
+toggle by hitting '**<**' for left and '**>**' for right output. With the **tab**
+key, you can switch between controls for playback and recording.
 
 ALSA configuration
 ..................
 
-Our BSP comes with a ALSA configuration file /etc/asound.conf.
+Our BSP comes with a ALSA configuration file ``/etc/asound.conf``.
 
 The ALSA configuration file can be edited as desired or deleted since it is not
-required for ALSA to work properly. ::
+required for ALSA to work properly.
 
-   target$ vi /etc/asound.conf
+.. code-block:: console
 
-To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
+   target:~$ vi /etc/asound.conf
+
+To set PEB-AV-10 as output, set *playback.pcm* from "dummy" to "pebav10":
+
+.. code-block::
 
    [...]
 
@@ -1081,50 +1164,78 @@ To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
 
    [...]
 
+If the sound is not audible change playback devices to the software volume control
+playback devices, set *playback.pcm* to the respective softvol playback device either
+"softvol_hdmi" or "softvol_pebav10". Use alsamixer controls to vary the volume levels.
+
+.. code-block::
+
+   [...]
+
+   pcm.asymed {
+           type asym
+           playback.pcm "softvol_hdmi"
+           capture.pcm "dsnoop"
+   }
+
+   [...]
+
 Pulseaudio Configuration
 ........................
 
-For applications using Pulseaudio, check for available sinks::
+For applications using Pulseaudio, check for available sinks:
 
-   target$ pactl list short sinks
+.. code-block:: console
+
+   target:~$ pactl list short sinks
    0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
    1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
 
-To select PEB-AV-10, type::
+To select PEB-AV-10, type:
 
-   target$ pactl set-default-sink 1
+.. code-block:: console
+
+   target:~$ pactl set-default-sink 1
 
 Playback
 ........
 
-Run speaker-test to check playback availability::
+Run speaker-test to check playback availability:
 
-   target$ speaker-test -c 2 -t wav
+.. code-block:: console
+
+   target:~$ speaker-test -c 2 -t wav
 
 To playback simple audio streams, you can use aplay. For example to play the
-ALSA test sounds::
+ALSA test sounds:
 
-   target$ aplay /usr/share/sounds/alsa/*
+.. code-block:: console
 
-To playback other formats like mp3 for example, you can use Gstreamer::
+   target:~$ aplay /usr/share/sounds/alsa/*
 
-   target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
+To playback other formats like mp3 for example, you can use Gstreamer:
+
+.. code-block:: console
+
+   target:~$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
 
 Capture
 .......
 
-arecord is a command-line tool for capturing audio streams which use Line In as
+``arecord`` is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can
-use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
-Mic3R in order to capture the audio from the microphone input of the
-TLV320-Codec using the 3.5mm jack. ::
+use ``alsamixer``. For example, switch on *Right PGA Mixer Mic3R* and *Left PGA Mixer
+Mic3R* in order to capture the audio from the microphone input of the
+TLV320-Codec using the 3.5mm jack.
 
-   target$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
-   target$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
+.. code-block:: console
 
-::
+   target:~$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
+   target:~$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
 
-   target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+.. code-block:: console
+
+   target:~$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
 
 .. hint::
 
@@ -1135,7 +1246,75 @@ TLV320-Codec using the 3.5mm jack. ::
 Device Tree Audio configuration:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57`
 
-.. include:: /bsp/peripherals/video.rsti
+Video
+-----
+
+Videos with Gstreamer
+.....................
+
+The video is installed by default in the BSP:
+
+.. code-block:: console
+
+   target:~$ gst-launch-1.0 playbin uri=file:///usr/share/phytec-qtdemo/videos/caminandes.webm
+
+*  Or:
+
+.. code-block:: console
+
+   target:~$ gst-launch-1.0 -v filesrc location=<video.mp4> \
+   \! qtdemux  \! h264parse \! queue \! vpudec \! waylandsink async=false enable-last-sample=false \
+   qos=false sync=false
+
+*  Or:
+
+.. code-block:: console
+
+   target:~$ gplay-1.0 /usr/share/phytec-qtdemo/videos/caminandes.webm
+
+kmssink Plugin ID Evaluation
+............................
+
+The kmssink plugin needs a connector ID. To get the connector ID, you can use
+the tool modetest.
+
+.. code-block:: console
+
+   target:~$ modetest -c imx-drm
+
+The output will show something like:
+
+.. code-block::
+
+   Connectors:
+   id  encoder status      name        size (mm)   modes   encoders
+   35  34  connected   LVDS-1          216x135     1   34
+     modes:
+       index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
+     #0 1280x800 59.07 1280 1380 1399 1440 800 804 808 823 70000 flags: phsync, pvsync; type: preferred, driver
+     props:
+       1 EDID:
+           flags: immutable blob
+           blobs:
+
+           value:
+       2 DPMS:
+           flags: enum
+           enums: On=0 Standby=1 Suspend=2 Off=3
+           value: 0
+       5 link-status:
+           flags: enum
+           enums: Good=0 Bad=1
+           value: 0
+       6 non-desktop:
+           flags: immutable range
+           values: 0 1
+           value: 0
+       4 TILE:
+           flags: immutable blob
+           blobs:
+
+           value:
 
 Display
 -------
@@ -1254,9 +1433,11 @@ https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998.
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-Reading the registers using /dev/mem will cause the system to hang unless the
-ocotp_root_clk is enabled. To enable this clock permanent, add to the device
-tree::
+Reading the registers using ``/dev/mem`` will cause the system to hang unless the
+*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
+tree:
+
+.. code-block::
 
    &clk {
            init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;

@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
@@ -16,11 +16,12 @@
 .. |atfloadaddr| replace:: 0x960000
 .. |doc-id| replace:: L-1002e.A5
 .. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
+.. |kit-ram-size| replace:: 1GiB
 .. |mcore| replace:: M4 Core
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Nano
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MM
+.. |som| replace:: phyCORE-i.MX8MN
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 
@@ -41,7 +42,7 @@
 
 
 .. Devicetree
-.. |dt-carrierboard| replace:: imx8mn-phyboard-polis-rdk
+.. |dt-carrierboard| replace:: imx8mn-phyboard-polis
 .. |dt-som| replace:: imx8mn-phycore-som
 
 .. IMX8(MN) specific
@@ -64,7 +65,7 @@
 
 
 .. Refs
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S1) <imx8mn-pd22.1.1-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-pd22.1.1-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-pd22.1.1-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-pd22.1.1-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mn-pd22.1.1-device-tree>`
@@ -269,7 +270,7 @@ First Start-up
   bootable.
 * **Image**: Linux kernel image
 * **Image.config**: Kernel configuration
-* **imx8mn-phyboard-polis-rdk*.dtb**: Kernel device tree file
+* **imx8mn-phyboard-polis-dsi*.dtb**: Kernel device tree file
 * **imx8mn-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-headless-image\*.tar.gz**: Root file system
 * **phytec-headless-image\*.wic**: SD card image
@@ -831,15 +832,73 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 
 .. _imx8mn-pd22.1.1-development:
 .. include:: /bsp/imx8/development.rsti
+   :end-before: .. build-uboot-fixed-ram-size-marker
+
+.. include:: /bsp/imx8/development.rsti
+   :start-after: .. build-kernel-marker
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mn-pd22.1.1-device-tree:
-.. include:: /bsp/device-tree.rsti
 
-::
+Device Tree (DT)
+================
+
+Introduction
+------------
+
+The following text briefly describes the Device Tree and can be found in
+the Linux kernel Documentation
+(https://docs.kernel.org/devicetree/usage-model.html)
+
+*"The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
+structure and language for describing hardware. More specifically, it is a
+description of hardware that is readable by an operating system so that the
+operating system doesn't need to hard code details of the machine."*
+
+The kernel documentation is a really good source for a DT introduction. An
+overview of the device tree data format can be found on the device tree usage
+page at `devicetree.org <https://www.devicetree.org/>`_.
+
+PHYTEC |soc| BSP Device Tree Concept
+------------------------------------
+
+The following sections explain some rules PHYTEC has defined on how to set up
+device trees for our |soc| SoC-based boards.
+
+Device Tree Structure
+.....................
+
+*  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
+   and RAM.
+*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed
+   down to the carrier board and used there are included in this dtsi.
+*  *Board.dts* - include the carrier board and module dtsi files. There may also
+   be some hardware configuration nodes enabled on the carrier board or the
+   module (i.e. the Board .dts shows the special characteristics of the board
+   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
+   have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
+   available) in the Board .dts and not in the Module .dtsi
+
+From the root directory of the Linux Kernel our devicetree files for |socfamily|
+platforms can be found in ``arch/arm64/boot/dts/freescale/``.
+
+Device Tree Overlay
+...................
+
+Device Tree overlays are device tree fragments that can be merged into a device
+tree during boot time. These are for example hardware descriptions of an
+expansion board. They are instead of being added to the device tree as an extra
+include, now applied as an overlay. They also may only contain setting the
+status of a node depending on if it is mounted or not. The device tree overlays
+are placed next to the other device tree files in our Linux kernel repository in
+the subfolder ``arch/arm64/boot/dts/freescale/overlays``.
+
+Available overlays for |yocto-machinename|.conf are:
+
+.. code-block::
 
    imx8mn-phyboard-polis-peb-eval-01.dtbo
    imx8mn-phyboard-polis-peb-av-010.dtbo
@@ -863,21 +922,25 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+The following is an example of the pin muxing of the UART1 device in
+imx8mn-phyboard-polis.dtsi:
+
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
-                   MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
-                   MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
-                   MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
-                   MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                   MX8MN_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                   MX8MN_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
            >;
    };
 
-The first part of the string MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad (in this example
-SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the desired muxing option for this pad.
-The pad setting value (hex value on the right) defines different modes of the pad, for example, if
-internal pull resistors are activated or not. In this case, the internal resistors are disabled.
+The first part of the string MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad
+(in this example SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the right)
+defines different modes of the pad, for example, if internal pull resistors are
+activated or not. In this case, the internal resistors are disabled.
 
 RS232/RS485
 -----------
@@ -902,6 +965,12 @@ The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n166`
 
 .. _imx8mn-pd22.1.1-network:
+
+Network
+-------
+
+|sbc|-|soc| provides one Gigabit Ethernet interface.
+
 .. include:: ../peripherals/network.rsti
 
 .. include:: ../imx8mm/wireless-network.rsti
@@ -928,9 +997,9 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 
    pinctrl_leds: leds1grp {
            fsl,pins = <
-                   MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
-                   MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
-                   MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+                   MX8MN_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                   MX8MN_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                   MX8MN_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
            >;
    };
 
@@ -980,20 +1049,10 @@ To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
 
 .. include:: /bsp/peripherals/usb-host.rsti
 
-User USB2 (host) configuration is in the kernel device tree
-|kernel-socname|.dtsi::
-
-   &usbotg2 {
-           dr_mode = "host";
-           picophy,pre-emp-curr-control = <3>;
-           picophy,dc-vol-level-adjust = <7>;
-           status = "okay";
-   };
-
 .. include:: /bsp/peripherals/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
-imx8mm-phyboard-polis.dtsi. See:
+|dt-carrierboard|.dtsi. See:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n206`
 
 CAN FD
@@ -1019,7 +1078,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
-Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
+Device Tree CAN configuration of |dt-carrierboard|.dtsi:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`
 
 .. include:: ../peripherals/pm.rsti
