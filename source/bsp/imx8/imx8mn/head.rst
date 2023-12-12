@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
@@ -17,11 +17,12 @@
 .. |atfloadaddr| replace:: 0x960000
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
+.. |kit-ram-size| replace:: 1GiB
 .. |mcore| replace:: M4 Core
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Nano
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MM
+.. |som| replace:: phyCORE-i.MX8MN
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 
@@ -63,9 +64,8 @@
 .. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 
-
 .. Refs
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S1) <imx8mn-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mn-head-device-tree>`
@@ -167,7 +167,7 @@ First Start-up
   Bootloader image!
 * **oftree**: Default kernel device tree
 * **u-boot-spl.bin**: Secondary program loader (SPL)
-* **bl31-imx8mm.bin**: ARM Trusted Firmware binary
+* **bl31-imx8mn.bin**: ARM Trusted Firmware binary
 * **lpddr4_pmu_train_2d_dmem_202006.bin,
   lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
 * **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
@@ -212,7 +212,7 @@ select the phyCORE-|soc| default bootsource.
 .. _imx8mn-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
-::
+.. code-block::
 
    imx8mn-phyboard-polis-peb-eval-01.dtbo
    imx8mn-phyboard-polis-peb-av-010.dtbo
@@ -236,21 +236,22 @@ select the phyCORE-|soc| default bootsource.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
-                   MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
-                   MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
-                   MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
-                   MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                   MX8MN_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                   MX8MN_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
            >;
    };
 
-The first part of the string MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad (in this example
-SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the desired muxing option for this pad.
-The pad setting value (hex value on the right) defines different modes of the pad, for example, if
-internal pull resistors are activated or not. In this case, the internal resistors are disabled.
+The first part of the string MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad
+(in this example SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the right)
+defines different modes of the pad, for example, if internal pull resistors are
+activated or not. In this case, the internal resistors are disabled.
 
 RS232/RS485
 -----------
@@ -301,9 +302,9 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
 
    pinctrl_leds: leds1grp {
            fsl,pins = <
-                   MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
-                   MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
-                   MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+                   MX8MN_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                   MX8MN_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                   MX8MN_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
            >;
    };
 
@@ -353,7 +354,9 @@ To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 User USB2 (host) configuration is in the kernel device tree
-|kernel-socname|.dtsi::
+|kernel-socname|.dtsi:
+
+.. code-block::
 
    &usbotg2 {
            dr_mode = "host";
@@ -365,7 +368,7 @@ User USB2 (host) configuration is in the kernel device tree
 .. include:: /bsp/peripherals/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
-imx8mm-phyboard-polis.dtsi. See:
+imx8mn-phyboard-polis.dtsi. See:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n206`
 
 CAN FD
@@ -391,7 +394,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
-Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
+Device Tree CAN configuration of imx8mn-phyboard-polis.dtsi:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`
 
 .. include:: ../peripherals/pm.rsti

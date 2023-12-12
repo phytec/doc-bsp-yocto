@@ -7,14 +7,14 @@ need a way to implement these changes in a simple and reproducible way.
 .. note::
 
    This document contains code examples that describe the communication with the
-   board over the serial shell. The code examples lines begin with "host$",
-   "target$" or "u-boot=>". This describes where the commands are to be
+   board over the serial shell. The code examples lines begin with "host:~$",
+   "target:~$" or "u-boot=>". This describes where the commands are to be
    executed. Only after these keywords must the actual command be copied.
 
 PHYTEC Documentation
 ====================
 
-PHYTEC provides a variety of hardwareand software documentation for
+PHYTEC provides a variety of hardware and software documentation for
 all of our products. This includes any or all of the following:
 
 -  **QS Guide**: A short guide on how to set up and boot a phyCORE
@@ -25,9 +25,9 @@ all of our products. This includes any or all of the following:
 -  **Yocto Guide**: A comprehensive guide for the Yocto version
    the phyCORE uses. This guide contains an overview of Yocto;
    introducing, installing, and customizing the PHYTEC BSP; how to
-   work with programs like Poky and Bitbake; and much more.</span>
+   work with programs like Poky and Bitbake; and much more.
 -  **BSP Manual**: Amanual specific to the BSP version of the phyCORE.
-   Information such as howto build the BSP, booting, updating
+   Information such as how to build the BSP, booting, updating
    software, device tree, and accessing peripherals can be found
    here.
 -  **Development Environment Guide**: This guide shows how to work
@@ -41,7 +41,7 @@ all of our products. This includes any or all of the following:
 -  **Pin Muxing Table**: phyCORE SOMs have an accompanying pin
    table (in Excel format). This table will show the complete
    default signal path, from the processor to the carrier board.
-   The default device tree muxing option will also be included. =
+   The default device tree muxing option will also be included.
    This gives a developer all the information needed in one location
    to make muxing changes and design options when developing a
    specialized carrier board or adapting a PHYTEC phyCORE SOM to an

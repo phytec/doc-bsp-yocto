@@ -16,11 +16,13 @@ module and board.
 All interfaces offer a standard Linux network port that can be programmed using
 the BSD socket interface. The whole network configuration is handled by
 the systemd-networkd daemon. The relevant configuration files can be found on
-the target in /lib/systemd/network/ as well as the BSP in
-meta-yogurt/recipes-core/systemd/system-machine-units.
+the target in ``/lib/systemd/network/`` as well as the BSP in
+``meta-yogurt/recipes-core/systemd/system-machine-units``.
 
 IP addresses can be configured within \*.network files. The default IP address
-and netmask for eth0 is::
+and netmask for eth0 is:
+
+.. code-block::
 
    eth0: 192.168.3.11/24
 
@@ -39,41 +41,46 @@ U-boot network-environment
 
 *  To find the Ethernet settings in the target bootloader:
 
-::
+   .. code-block::
 
-   u-boot=> printenv ipaddr serverip netmask ethaddr netargs netboot
+      u-boot=> printenv ipaddr serverip netmask
 
 *  With your development host set to IP 192.168.3.10 and netmask 255.255.255.0,
    the target should return:
 
-::
+   .. code-block::
 
-   u-boot=> printenv ipaddr serverip netmask ethaddr netargs netboot
-   ipaddr=192.168.3.11
-   serverip=192.168.3.10
-   netmask=255.225.255.0
-   ethaddr=50:2d:f4:19:d3:38
-   netargs=setenv bootargs console=${console},${baudrate} root=/dev/nfs ip=${nfsip} nfsroot=${serverip}:${nfsroot},v3,tcp
-   netboot=echo Booting from net ...; if test ${ip_dyn} = yes; then setenv nfsip dhcp; setenv get_cmd dhcp; else setenv nfsip ${ipaddr}:${serverip}::${netmask}::eth0:on; setenv get_cmd tftp; fi; if run net_load_bootenv; then env import -t ${bootenv_addr} ${filesize};fi; run netargs; ${get_cmd} ${loadaddr} ${image}; if ${get_cmd} ${fdt_addr} ${fdt_file}; then run net_apply_overlays; booti ${loadaddr} - ${fdt_addr}; else echo WARN: Cannot load the DT; fi;
+      u-boot=> printenv ipaddr serverip netmask
+      ipaddr=192.168.3.11
+      serverip=192.168.3.10
+      netmask=255.225.255.0
 
-*  If you need to make any changes::
+*  If you need to make any changes:
+
+   .. code-block::
 
       u-boot=> setenv <parameter> <value>
 
-*  <parameter> should be one of ipaddr, netmask, gateway, or serverip.
-*  <value> will be the actual value of the chosen parameter.
-*  Make your changes and hit 'Enter'.
-*  The changes you made are temporary for now. To save these::
+   <parameter> should be one of ipaddr, netmask, gateway, or serverip.
+   <value> will be the actual value of the chosen parameter.
+
+*  The changes you made are temporary for now. To save these:
+
+   .. code-block::
 
       u-boot=> saveenv
 
 Here you can also change the IP address to DHCP instead of using a static one.
 
-*  Configure::
+*  Configure:
+
+   .. code-block::
 
       u-boot=> setenv ip dhcp
 
-*  Set up paths for TFTP and NFS. A modification could look like this::
+*  Set up paths for TFTP and NFS. A modification could look like this:
+
+   .. code-block::
 
       u-boot=> setenv nfsroot /home/user/nfssrc
 
@@ -83,8 +90,10 @@ Please note that these modifications will only affect the bootloader settings.
 
    Variables like nfsroot and netargs can be overwritten by the U-boot External
    Environment. For netboot, the external environment will be loaded from tftp.
-   For example, to locally set the nfsroot variable in a bootenv.txt file,
-   locate the tftproot directory::
+   For example, to locally set the nfsroot variable in a ``bootenv.txt`` file,
+   locate the tftproot directory:
+
+   .. code-block::
 
       nfsroot=/home/user/nfssrc
 
@@ -95,9 +104,11 @@ Please note that these modifications will only affect the bootloader settings.
 Kernel network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Find the ethernet settings for eth0 in the target kernel::
+*  Find the ethernet settings for eth0 in the target kernel:
 
-      target$ ifconfig eth0
+   .. code-block:: console
+
+      target:~$ ifconfig eth0
       eth0      Link encap:Ethernet  HWaddr 50:2D:F4:19:D6:33
                 UP BROADCAST MULTICAST  MTU:1500  Metric:1
                 RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -105,6 +116,8 @@ Kernel network-environment
                 collisions:0 txqueuelen:1000
                 RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
-* Temporary adaption of the eth0 configuration::
+*  Temporary adaption of the eth0 configuration:
 
-      target$ ifconfig eth0 192.168.3.11 netmask 255.255.255.0 up
+   .. code-block:: console
+
+      target:~$ ifconfig eth0 192.168.3.11 netmask 255.255.255.0 up

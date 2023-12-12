@@ -31,6 +31,9 @@
 .. |atfloadaddr| replace::
 .. Name of the PHYTEC Kit
 .. |kit| replace::
+.. Kit RAM size; Example:
+   2GiB
+.. |kit-ram-size| replace::
 .. Name of the PHYTEC Single Board Computer without the SoM; Example:
    phyBOARD-Pollux
 .. |sbc| replace::
@@ -101,7 +104,7 @@
 
 .. Internal link to building the bsp section
 .. Descriptor for the bootmode switch
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`switch <sbc-release-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch switch <sbc-release-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <sbc-release-building-bsp>`
 .. Name of the connector for the debug interface.
 .. |ref-debugusbconnector| replace:: :ref:`name <sbc-release-components>`

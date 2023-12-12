@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
@@ -17,6 +17,7 @@
 .. |atfloadaddr| replace:: 0x920000
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
+.. |kit-ram-size| replace:: 2GiB
 .. |mcore| replace:: M4 Core
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Mini
@@ -63,9 +64,8 @@
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 
-
 .. Refs
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S1) <imx8mm-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mm-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mm-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mm-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mm-head-device-tree>`

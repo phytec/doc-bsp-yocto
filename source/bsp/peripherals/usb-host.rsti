@@ -1,5 +1,5 @@
 The unified BSP includes support for mass storage devices and keyboards. Other
 USB-related device drivers must be enabled in the kernel configuration on
 demand. Due to udev, all mass storage devices connected get unique IDs and can
-be found in /dev/disk/by-id. These IDs can be used in /etc/fstab to mount the
+be found in ``/dev/disk/by-id``. These IDs can be used in ``/etc/fstab`` to mount the
 different USB memory devices in different ways.

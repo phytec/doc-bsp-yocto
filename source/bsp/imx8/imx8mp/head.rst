@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
@@ -17,6 +17,7 @@
 .. |atfloadaddr| replace:: 0x970000
 .. |doc-id| replace:: L-1017e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
+.. |kit-ram-size| replace:: 2GiB
 .. |mcore| replace:: M7 Core
 .. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
@@ -63,9 +64,8 @@
 .. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 
-
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S3) <imx8mp-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-head-device-tree>`
@@ -151,15 +151,15 @@ should show you the necessary **Machine Name** for your specific hardware
 First Start-up
 --------------
 
-* To boot from an SD card, |ref-bootswitch| needs to be set to the following
-  position:
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
+   position:
 
 .. image:: images/SD_Card_Boot.png
 
-* Insert the SD card
-* Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
-  debug USB
-* Power up the board
+*  Insert the SD card
+*  Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
+   debug USB
+*  Power up the board
 
 .. +---------------------------------------------------------------------------+
 .. Building the BSP
@@ -169,22 +169,22 @@ First Start-up
 
 .. _imx8mp-head-images:
 
-* **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
-  Bootloader image!
-* **oftree**: Default kernel device tree
-* **u-boot-spl.bin**: Secondary program loader (SPL)
-* **bl31-imx8mp.bin**: ARM Trusted Firmware binary
-* **lpddr4_pmu_train_2d_dmem_202006.bin,
-  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
-* **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-  Trusted Firmware and DDR firmware. This is the final bootloader image which is
-  bootable.
-* **Image**: Linux kernel image
-* **Image.config**: Kernel configuration
-* **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
-* **imx8mp-phy*.dtbo**: Kernel device tree overlay files
-* **phytec-qt6demo-image\*.tar.gz**: Root file system
-* **phytec-qt6demo-image\*.wic**: SD card image
+*  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+   Bootloader image!
+*  **oftree**: Default kernel device tree
+*  **u-boot-spl.bin**: Secondary program loader (SPL)
+*  **bl31-imx8mp.bin**: ARM Trusted Firmware binary
+*  **lpddr4_pmu_train_2d_dmem_202006.bin,
+   lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+*  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+   Trusted Firmware and DDR firmware. This is the final bootloader image which is
+   bootable.
+*  **Image**: Linux kernel image
+*  **Image.config**: Kernel configuration
+*  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
+*  **imx8mp-phy*.dtbo**: Kernel device tree overlay files
+*  **phytec-qt6demo-image\*.tar.gz**: Root file system
+*  **phytec-qt6demo-image\*.wic**: SD card image
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
@@ -255,7 +255,7 @@ select the phyCORE-|soc| default bootsource.
 
 .. include:: ../peripherals/pin-muxing.rsti
 
-::
+.. code-block::
 
    pinctrl_uart1: uart1grp {
            fsl,pins = <
@@ -442,9 +442,11 @@ The device tree description of GPIO Fan can be found here:
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-Reading the registers using /dev/mem will cause the system to hang unless the
-ocotp_root_clk is enabled. To enable this clock permanent, add to the device
-tree::
+Reading the registers using ``/dev/mem`` will cause the system to hang unless the
+*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
+tree:
+
+.. code-block::
 
    &clk {
            init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;

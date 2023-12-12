@@ -22,10 +22,10 @@ Partition Management.
    partition table.
 
 The current PHYTEC BSP does not use the extra partitioning feature of eMMC
-devices. The u-boot is flashed at the beginning of the user partition.
-The u-boot environment is placed at a fixed location after the u-boot. An MBR
+devices. The U-Boot is flashed at the beginning of the user partition.
+The U-Boot environment is placed at a fixed location after the U-Boot. An MBR
 partition table is used to create two partitions, a FAT32 boot, and ext4 rootfs
-partition. They are located right after the u-boot and the u-boot environment.
+partition. They are located right after the U-Boot and the U-Boot environment.
 The FAT32 boot partition contains the kernel and device tree.
 
 With eMMC flash storage it is possible to use the dedicated boot partitions for
@@ -38,23 +38,29 @@ and switch the boot device via userspace commands.
 Via userspace Commands
 ......................
 
-On the host, run::
+On the host, run:
 
-   host$ scp imx-boot root@192.168.3.11:/tmp/
+.. code-block:: console
+
+   host:~$ scp imx-boot root@192.168.3.11:/tmp/
 
 The partitions boot1 and boot2 are read-only by default. To write to them from
 user space, you have to disable force_ro in the sysfs.
 
 To manually write the bootloader to the eMMC boot partitions, first disable the
-write protection::
+write protection:
 
-   target$ echo 0 > /sys/block/mmcblk2boot0/force_ro
-   target$ echo 0 > /sys/block/mmcblk2boot1/force_ro
+.. code-block:: console
 
-Write the bootloader to the eMMC boot partitions::
+   target:~$ echo 0 > /sys/block/mmcblk2boot0/force_ro
+   target:~$ echo 0 > /sys/block/mmcblk2boot1/force_ro
 
-   target$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot0
-   target$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot1
+Write the bootloader to the eMMC boot partitions:
+
+.. code-block:: console
+
+   target:~$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot0
+   target:~$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot1
 
 The following table is for the offset of the |soc| SoC:
 
@@ -67,22 +73,30 @@ SoC   Offset    Offset Boot eMMC Device  Bootloader Filename
 
 After that set the boot partition from user space using the mmc tool:
 
-(for 'boot0') ::
+(for 'boot0') :
 
-   target$ mmc bootpart enable 1 0 /dev/mmcblk2
+.. code-block:: console
 
-(for 'boot1') ::
+   target:~$ mmc bootpart enable 1 0 /dev/mmcblk2
 
-   target$ mmc bootpart enable 2 0 /dev/mmcblk2
+(for 'boot1') :
+
+.. code-block:: console
+
+   target:~$ mmc bootpart enable 2 0 /dev/mmcblk2
 
 To disable booting from the eMMC boot partitions simply enter the following
-command::
+command:
 
-   target$ mmc bootpart enable 0 0 /dev/mmcblk2
+.. code-block:: console
 
-To choose back to the user area u-boot environment::
+   target:~$ mmc bootpart enable 0 0 /dev/mmcblk2
 
-   target$ mmc bootpart enable 7 0 /dev/mmcblk2
+To choose back to the user area u-boot environment:
+
+.. code-block:: console
+
+   target:~$ mmc bootpart enable 7 0 /dev/mmcblk2
 
 Resizing ext4 Root Filesystem
 .............................
@@ -90,11 +104,15 @@ Resizing ext4 Root Filesystem
 fdisk can be used to expand the root filesystem. The example works for any block
 device such as eMMC, SD Card, or hard disk.
 
-*  Get the current device size::
+*  Get the current device size:
 
-      target$ fdisk -l /dev/mmcblk2
+   .. code-block:: console
 
-*  The output looks like::
+      target:~$ fdisk -l /dev/mmcblk2
+
+*  The output looks like:
+
+   .. code-block::
 
       Disk /dev/mmcblk2: 7264 MB, 7616856064 bytes, 14876672 sectors 116224 cylinders, 4 heads, 32 sectors/track
       Units: sectors of 1 * 512 = 512 bytes
@@ -103,9 +121,11 @@ device such as eMMC, SD Card, or hard disk.
       /dev/mmcblk2p1 *    128,0,1       1023,3,32    16384       140779     124396   60.7M   c Win95 FAT32 (LBA)
       /dev/mmcblk2p2      1023,3,32     1023,3,32    141312      2192013    2050702  1001M  83 Linux
 
-*  Use fdisk to delete and create a partition with a max size of the device::
+*  Use fdisk to delete and create a partition with a max size of the device:
 
-      target$ fdisk /dev/mmcblk2
+   .. code-block:: console
+
+      target:~$ fdisk /dev/mmcblk2
 
       The number of cylinders for this disk is set to 116224.
       There is nothing wrong with that, but this is larger than 1024,

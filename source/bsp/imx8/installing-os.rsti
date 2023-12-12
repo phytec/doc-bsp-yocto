@@ -2,7 +2,7 @@ Flash eMMC
 ----------
 
 To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
-and the |ref-bootswitch| is set to **Default SOM boot**.
+and the |ref-bootswitch| is set to **eMMC**.
 
 .. warning::
    When eMMC and SD card are flashed with the same (identical) image, the UUIDs
@@ -28,14 +28,15 @@ Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
 the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
-Flash eMMC from Network in u-boot on Target
+Flash eMMC from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These steps will show how to update the eMMC via a network. However, they only
-work if the size of the image file is less than 1GB. If the image file is
-larger, go to the section Format SD Card. Configure the |ref-bootswitch| to boot
-from SD Card and put in an SD card. Power on the board and stop in U-Boot
-prompt.
+These steps will show how to update the eMMC via a network.
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in the Bootloader after enabling OPTEE.
 
 .. tip::
 
@@ -81,7 +82,8 @@ Flash eMMC via Network in Linux on Target
 You can update the eMMC from your target.
 
 .. tip::
-   A working network is necessary! Setup Network Host.
+
+   A working network is necessary! |ref-setup-network-host|
 
 Take a compressed or uncompressed image on the host and send it with ssh through
 the network (then uncompress it, if necessary) to the eMMC of the target with a
@@ -100,7 +102,7 @@ you need a complete image on your host.
 
 .. tip::
 
-   A working network is necessary! Setup Network Host.
+   A working network is necessary! |ref-setup-network-host|
 
 Show your available image files on the host:
 
@@ -110,7 +112,7 @@ Show your available image files on the host:
    host:~$ ls
    |yocto-imagename|-|yocto-machinename|.wic
 
-Send the image with the command dd command combined with ssh through the network
+Send the image with the ``dd`` command combined with ssh through the network
 to the eMMC of your device:
 
 .. code-block:: console
@@ -118,15 +120,15 @@ to the eMMC of your device:
 
    host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
 
-Flash eMMC u-boot image via Network from running u-boot
+Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
 
-Update the standalone u-boot image imx-boot is also possible from u-boot. This
+Update the standalone U-Boot image imx-boot is also possible from U-Boot. This
 can be used if the bootloader on eMMC is located in the eMMC user area.
 
 .. tip::
 
-   A working network is necessary! Setup Network Host.
+   A working network is necessary! |ref-setup-network-host|
 
 Load image over tftp into RAM and then write it to eMMC:
 
@@ -146,18 +148,17 @@ Load image over tftp into RAM and then write it to eMMC:
 Flash eMMC from USB
 ...................
 
-Flash eMMC from USB in u-boot on Target
+Flash eMMC from USB in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
 
    This step only works if the size of the image file is less than 1GB due to
-   limited usage of RAM size in Bootloader after enabling the OPTEE.
+   limited usage of RAM size in the Bootloader after enabling OPTEE.
 
 These steps will show how to update the eMMC via a USB device. Configure the
-bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
-and stop in u-boot prompt. Insert a USB device with the copied WIC image
-to the USB slot.
+|ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
+in U-Boot prompt. Insert a USB device with the copied WIC image to the USB slot.
 
 Load your image from the USB device to RAM:
 
@@ -189,8 +190,7 @@ Flash eMMC from USB in Linux
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-|yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
-|ref-bootswitch|.
+|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
 
 *  Insert and mount the USB stick:
 
@@ -242,10 +242,10 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  After a complete write, your board can boot from eMMC.
 
-.. warning::
+   .. tip::
 
-   Before this will work, you need to configure the multi-port switch
-   to **Default SOM Boot** to |ref-bootswitch|.
+      Before this will work, you need to configure the |ref-bootswitch| to
+      **eMMC**.
 
 Flash eMMC from SD Card
 .......................
@@ -259,25 +259,21 @@ Resizing ext4 Root Filesystem.
 Alternatively, flash a partup package to the SD card, as described in
 |ref-getting-started|. This will ensure the full space of the SD card is used.
 
-Flash eMMC from SD card in u-boot on Target
+Flash eMMC from SD card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
 
    This step only works if the size of the image file is less than 1GB due to
-   limited usage of RAM size in Bootloader after enabling the OPTEE. If the
+   limited usage of RAM size in the Bootloader after enabling OPTEE. If the
    image file is too large use the `Updating eMMC from SD card in
    Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third FAT partition. Copy
    the WIC image (for example |yocto-imagename|.wic) to this
    partition.
-*  Configure the bootmode switch to boot from the SD Card and insert the SD
-   card.
-*  Power on the board and stop in u-boot.
-*  Flash your WIC image (for example |yocto-imagename|.wic)
-   from the SD card to eMMC. This will partition the card and copy imx-boot,
-   Image, dtb, dtbo, and root file system to eMMC.
+*  Configure the |ref-bootswitch| to SD Card and insert the SD Card.
+*  Power on the board and stop in U-Boot.
 *  Load the image:
 
    .. code-block::
@@ -287,7 +283,7 @@ Flash eMMC from SD card in u-boot on Target
       reading
       911842304 bytes read in 39253 ms (22.2 MiB/s)
 
-*  Switch the mmc dev:
+*  Switch the mmc dev to eMMC:
 
    .. code-block::
 
@@ -296,14 +292,20 @@ Flash eMMC from SD card in u-boot on Target
       FSL_SDHC: 2 (eMMC)
       u-boot=> mmc dev 2
       switch to partitions #0, OK
-      mmc0(part 0) is current device
+      mmc2(part 0) is current device
+
+*  Flash your WIC image (for example |yocto-imagename|.wic)
+   from the SD card to eMMC. This will partition the card and copy imx-boot,
+   Image, dtb, dtbo, and root file system to eMMC.
+
+   .. code-block::
+
       u-boot=> setexpr nblk ${filesize} / 0x200
       u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
       MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
-*  Power off the board and change the multi-port switch to Default SOM Boot to
-   boot from eMMC.
+*  Power off the board and change the |ref-bootswitch| to eMMC.
 
 Flash eMMC from SD card in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -362,19 +364,18 @@ image saved on the SD card.
 
 *  After a complete write, your board can boot from eMMC.
 
-.. warning::
+   .. warning::
 
-   Before this will work, you need to configure the |ref-bootswitch| to Default
-   SOM Boot to boot from eMMC.
+      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
 
 Flash SPI NOR Flash
 -------------------
 
 The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
-Flash, set |ref-bootswitch| to **QSPI boot** to boot from QSPI. The SPI Flash is
-usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
-populated. Only the bootloader and the environment can be stored. The kernel,
-device tree, and file system are taken from eMMC by default.
+Flash, set |ref-bootswitch| to **SPI NOR**. The SPI Flash is usually quite small.
+The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash populated. Only the
+bootloader and the environment can be stored. The kernel, device tree, and file
+system are taken from eMMC by default.
 
 The SPI NOR flash partition table is defined in the U-Boot environment. It can
 be printed with:
@@ -393,22 +394,22 @@ populated on the phyCORE-|soc|.
 
 .. tip::
 
-   A working network is necessary! Setup Network Host.
+   A working network is necessary! |ref-setup-network-host|
 
-Flash SPI NOR from Network in u-boot on Target
+Flash SPI NOR from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to updating the eMMC over a network, be sure to set up the development
 host correctly. The IP needs to be set to 192.168.3.10, the netmask to
 255.255.255.0, and a TFTP server needs to be available. Before reading and
-writing is possible, the SPI-NOR flash needs to be probed:
+writing is possible, the SPI NOR flash needs to be probed:
 
 .. code-block::
 
    u-boot=> sf probe
    SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
 
-*  A specially formatted u-boot image for the SPI NOR flash is used. Ensure you
+*  A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
    use the correct image file. Load the image over tftp, erase and write the
    bootloader to the flash:
 
@@ -427,11 +428,11 @@ writing is possible, the SPI-NOR flash needs to be probed:
 
       u-boot=> sf erase 0x400000 0x100000
 
-.. warning::
+   .. warning::
 
-   Erasing the complete SPI NOR flash when it is fully written will take quite
-   some time. This can trigger the watchdog to reset. Due to this, erase the
-   full flash in Linux.
+      Erasing the complete SPI NOR flash when it is fully written will take quite
+      some time. This can trigger the watchdog to reset. Due to this, erase the
+      full flash in Linux.
 
 Flash SPI NOR from Network in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -443,7 +444,7 @@ Flash SPI NOR from Network in kernel on Target
 
       host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
 
-*  Find the number of erase blocks of the U-boot partition:
+*  Find the number of blocks to erase of the U-boot partition:
 
    .. code-block:: console
 
@@ -459,7 +460,7 @@ Flash SPI NOR from Network in kernel on Target
       Bad blocks are allowed:         false
       Device is writable:             true
 
-*  Erase the u-boot partition and flash it:
+*  Erase the U-Boot partition and flash it:
 
    .. code-block:: console
       :substitutions:
@@ -472,7 +473,7 @@ Flash SPI NOR Flash from SD Card
 
 The bootloader on SPI NOR flash can be also flashed with SD Card.
 
-Flash SPI NOR from SD Card in u-boot on Target
+Flash SPI NOR from SD Card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the SPI NOR flash U-boot image
@@ -503,11 +504,11 @@ Flash SPI NOR from SD Card in u-boot on Target
 
       u-boot=> sf erase 0x400000 0x100000
 
-.. warning::
+   .. warning::
 
-   Erasing the complete SPI NOR flash when it is fully written will take quite
-   some time. This can trigger the watchdog to reset. Due to this, erase the
-   full flash in Linux.
+      Erasing the complete SPI NOR flash when it is fully written will take quite
+      some time. This can trigger the watchdog to reset. Due to this, erase the
+      full flash in Linux.
 
 Flash SPI NOR from SD Card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -519,11 +520,11 @@ Flash SPI NOR from SD Card in kernel on Target
 
       host:~$ mount /dev/mmcblkp1 /mnt
 
-*  Find the number of erase blocks of the u-boot partition:
+*  Find the number of blocks to erase of the U-Boot partition:
 
    .. code-block:: console
 
-      target:~$  mtdinfo /dev/mtd0
+      target:~$ mtdinfo /dev/mtd0
       mtd0
       Name:                           u-boot
       Type:                           nor
@@ -550,4 +551,5 @@ The RAUC (Robust Auto-Update Controller) mechanism support has been added to
 meta-ampliphy. It controls the procedure of updating a device with new firmware.
 This includes updating the Linux kernel, Device Tree, and root filesystem.
 PHYTEC has written an online manual on how we have intergraded RAUC into our
-BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
+BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
+<https://www.phytec.de/cdocuments/?doc=fgByJg>`__.

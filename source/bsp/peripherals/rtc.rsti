@@ -1,21 +1,21 @@
 RTC
 ---
 
-RTCs can be accessed via /dev/rtc\*. Because PHYTEC boards have often more than
+RTCs can be accessed via ``/dev/rtc*``. Because PHYTEC boards have often more than
 one RTC, there might be more than one RTC device file.
 
 *  To find the name of the RTC device, you can read its sysfs entry with:
 
-::
+   .. code-block:: console
 
-   target$ cat /sys/class/rtc/rtc*/name
+      target:~$ cat /sys/class/rtc/rtc*/name
 
 *  You will get, for example:
 
-::
+   .. code-block::
 
-   rtc-rv3028 0-0052
-   snvs_rtc 30370000.snvs:snvs-rtc-lp
+      rtc-rv3028 0-0052
+      snvs_rtc 30370000.snvs:snvs-rtc-lp
 
 
 .. tip::
@@ -24,37 +24,45 @@ one RTC, there might be more than one RTC device file.
    IDs based on the device tree/aliases entries if present.
 
 Date and time can be manipulated with the ``hwclock`` tool and the date command.
-To show the current date and time set on the target::
+To show the current date and time set on the target:
 
-   target$ date
+.. code-block:: console
+
+   target:~$ date
    Thu Jan  1 00:01:26 UTC 1970
 
 Change the date and time with the date command. The date command sets the time
-with the following syntax "YYYYMMDDHHMM"::
+with the following syntax "YYYYMMDDHHMM":
 
-   target$ date -s '202202031015'
+.. code-block:: console
+
+   target:~$ date -s '202202031015'
    Wed Mar  2 10:15:00 UTC 2022
 
 Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
 we need to use the ``hwclock`` command. Write the current date and time (set
 with the date command) to the RTC using the ``hwclock`` tool and reboot the
-target to check if the changes were applied to the RTC::
+target to check if the changes were applied to the RTC:
 
-   target$ hwclock -w
-   target$ reboot
+.. code-block:: console
+
+   target:~$ hwclock -w
+   target:~$ reboot
        .
        .
        .
-   target$ date
+   target:~$ date
    Wed Mar  2 10:34:06 UTC 2022
 
-To set the time and date from the RTC use::
+To set the time and date from the RTC use:
 
-   target$ date
+.. code-block:: console
+
+   target:~$ date
    Thu Jan  1 01:00:02 UTC 1970
-   target$ hwclock -s
-   target$ date
+   target:~$ hwclock -s
+   target:~$ date
    Wed Mar  2 10:45:01 UTC 2022
 
 RTC Wakealarm
@@ -63,10 +71,12 @@ RTC Wakealarm
 It is possible to issue an interrupt from the RTC to wake up the system. The
 format uses the Unix epoch time, which is the number of seconds since UTC
 midnight on 1 January 1970. To wake up the system after 4 minutes from suspend
-to ram state, type::
+to ram state, type:
 
-   target$ echo "+240" > /sys/class/rtc/rtc0/wakealarm
-   target$ echo mem > /sys/power/state
+.. code-block:: console
+
+   target:~$ echo "+240" > /sys/class/rtc/rtc0/wakealarm
+   target:~$ echo mem > /sys/power/state
 
 .. note::
 
@@ -81,12 +91,16 @@ RTC Parameters
 RTCs have a few abilities which can be read/set with the help of ``hwclock``
 tool.
 
-*  We can check RTC supported features with::
+*  We can check RTC supported features with:
 
-      target$ hwclock --param-get features
+   .. code-block:: console
+
+      target:~$ hwclock --param-get features
       The RTC parameter 0x0 is set to 0x11.
 
-   What this value means is encoded in kernel, each set bit translates to::
+   What this value means is encoded in kernel, each set bit translates to:
+
+   .. code-block::
 
       #define RTC_FEATURE_ALARM              0
       #define RTC_FEATURE_ALARM_RES_MINUTE   1
@@ -97,27 +111,33 @@ tool.
       #define RTC_FEATURE_BACKUP_SWITCH_MODE 6
       #define RTC_FEATURE_CNT                7
 
-*  We can check RTC BSM (Backup Switchover Mode) with::
+*  We can check RTC BSM (Backup Switchover Mode) with:
 
-      target$ hwclock --param-get bsm
+   .. code-block:: console
+
+      target:~$ hwclock --param-get bsm
       The RTC parameter 0x2 is set to 0x1.
 
-*  We can set RTC BSM with::
+*  We can set RTC BSM with:
 
-      target$ hwclock --param-set bsm=0x2
+   .. code-block:: console
+
+      target:~$ hwclock --param-set bsm=0x2
       The RTC parameter 0x2 will be set to 0x2.
 
-   What BSM values mean translates to these values::
+   What BSM values mean translates to these values:
+
+   .. code-block::
 
       #define RTC_BSM_DISABLED   0
       #define RTC_BSM_DIRECT     1
       #define RTC_BSM_LEVEL      2
       #define RTC_BSM_STANDBY    3
 
-.. tip::
-   You should set BSM mode to DSM or LSM for RTC to switch to backup power
-   source when the initial power source is not available. Check **RV-3028** RTC
-   datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
-   Mode) actually mean.
+   .. tip::
+      You should set BSM mode to DSM or LSM for RTC to switch to backup power
+      source when the initial power source is not available. Check **RV-3028** RTC
+      datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
+      Mode) actually mean.
 
 .. rtc_parameter_end_label

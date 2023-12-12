@@ -1,27 +1,29 @@
 RS232
 .....
 
-*  Display the current settings of a terminal in a human-readable format::
+*  Display the current settings of a terminal in a human-readable format:
 
-      target$ stty -a
+   .. code-block:: console
 
-*  Configuration of the UART interface can be done with stty. For example
+      target:~$ stty -a
+
+*  Configuration of the UART interface can be done with stty. For example:
 
    .. code-block:: console
       :substitutions:
 
       target:~$ stty -F /dev/|serial-uart| 115200 crtscts raw -echo
 
-*  With a simple echo and cat, basic communication can be tested. Example
+*  With a simple echo and cat, basic communication can be tested. Example:
 
    .. code-block:: console
       :substitutions:
 
       target:~$ echo 123 > /dev/|serial-uart|
 
-::
+   .. code-block:: console
 
-   host$ cat /dev/ttyUSB2
+      host:~$ cat /dev/ttyUSB2
 
 The host should print out "123".
 

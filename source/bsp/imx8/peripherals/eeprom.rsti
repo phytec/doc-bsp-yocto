@@ -1,23 +1,25 @@
 I2C EEPROM on |som|
-...................
+...........................
 
 The I2C EEPROM on the |som| SoM is connected to I2C address 0x51 on the I2C-0
-bus. It is possible to read and write directly to the device populated::
+bus. It is possible to read and write directly to the device populated:
 
-   hexdump -c /sys/class/i2c-dev/i2c-0/device/0-0051/eeprom
+.. code-block:: console
 
-*  To read and print the first 1024 bytes of the EEPROM as a hex number,
-   execute:
+   target:~$ hexdump -c /sys/class/i2c-dev/i2c-0/device/0-0051/eeprom
 
-::
+To read and print the first 1024 bytes of the EEPROM as a hex number,
+execute:
 
-   target$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1 count=1024  | od -x
+.. code-block:: console
 
-*  To fill the whole EEPROM with zeros, use:
+   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1 count=1024  | od -x
 
-::
+To fill the whole EEPROM with zeros, use:
 
-   target$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=4096 count=1
+.. code-block:: console
+
+   target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=4096 count=1
 
 .. warning::
 
@@ -38,7 +40,7 @@ automatically.
 
 If the EEPROM ID page data and the first 265 bytes of the normal area are
 deleted, the bootloader will fall back to the |som| Kit RAM setup, which
-requires 2GB of LPDDR4 RAM.
+is |kit-ram-size| RAM.
 
 .. warning::
 
@@ -48,26 +50,18 @@ requires 2GB of LPDDR4 RAM.
    might not boot correctly anymore.
 
 SoMs that are flashed with data format API revision 2 will print out information
-about the module in the early stage::
-
-   U-Boot SPL 2021.04 (Mar 21 2022 - 10:56:25 +0000)
-   phytec_eeprom_data_init: init successful
-   DDRINFO: start DRAM init
-   DDRINFO: DRAM rate 3000MTS
-   DDRINFO:ddrphy calibration done
-   DDRINFO: ddrmix config done
-   Normal Boot
-   Trying to boot from MMC1
-   ...
+about the module in the early stage.
 
 Rescue EEPROM Data
 ..................
 
 The hardware introspection data is pre-written on both EEPROM data spaces. If
 you have accidentally deleted or overwritten the normal area, you can copy the
-hardware introspection from the ID area to the normal area. ::
+hardware introspection from the ID area to the normal area.
 
-   target$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
 
 .. note::
 

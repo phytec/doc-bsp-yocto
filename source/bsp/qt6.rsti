@@ -2,25 +2,35 @@ Qt Demo
 .......
 
 With the ``phytec-qt6demo-image``, Weston starts during boot. Our Qt6 demo application named
-"qtphy" can be stopped with::
+"qtphy" can be stopped with:
 
-   target$ systemctl stop qtphy
+.. code-block:: console
 
-*  To start the demo again, run::
+   target:~$ systemctl stop qtphy
 
-      target$ systemctl start qtphy
+*  To start the demo again, run:
 
-*  To disable autostart of the demo run::
+   .. code-block:: console
 
-      target$ systemctl disable qtphy
+      target:~$ systemctl start qtphy
 
-*  To enable autostart of the demo, run::
+*  To disable autostart of the demo, run:
 
-      target$ systemctl enable qtphy
+   .. code-block:: console
 
-*  Weston can be stopped with::
+      target:~$ systemctl disable qtphy
 
-      target$ systemctl stop weston
+*  To enable autostart of the demo, run:
+
+   .. code-block:: console
+
+      target:~$ systemctl enable qtphy
+
+*  Weston can be stopped with:
+
+   .. code-block:: console
+
+      target:~$ systemctl stop weston
 
 .. note::
 

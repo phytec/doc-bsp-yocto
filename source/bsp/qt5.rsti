@@ -2,25 +2,35 @@ Qt Demo
 .......
 
 With the phytec-qt5demo-image, Weston starts during boot. The phytec-qt5demo can be
-stopped with::
+stopped with:
 
-   target$ systemctl stop phytec-qtdemo
+.. code-block:: console
 
-*  To start the demo again, run::
+   target:~$ systemctl stop phytec-qtdemo
 
-      target$ systemctl start phytec-qtdemo
+*  To start the demo again, run:
 
-*  To disable autostart of the demo run::
+   .. code-block:: console
 
-      target$ systemctl disable phytec-qtdemo
+      target:~$ systemctl start phytec-qtdemo
 
-*  To enable autostart of the demo, run::
+*  To disable autostart of the demo run:
 
-      target$ systemctl enable phytec-qtdemo
+   .. code-block:: console
 
-*  Weston can be stopped with::
+      target:~$ systemctl disable phytec-qtdemo
 
-      target$ systemctl stop weston
+*  To enable autostart of the demo, run:
+
+   .. code-block:: console
+
+      target:~$ systemctl enable phytec-qtdemo
+
+*  Weston can be stopped with:
+
+   .. code-block:: console
+
+      target:~$ systemctl stop weston
 
 .. note::
 
