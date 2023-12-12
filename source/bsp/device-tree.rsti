@@ -38,7 +38,7 @@ Device Tree Structure
    available) in the Board .dts and not in the Module .dtsi
 
 From the root directory of the Linux Kernel our devicetree files for |socfamily|
-platforms can be found in arch/arm64/boot/dts/freescale/.
+platforms can be found in ``arch/arm64/boot/dts/freescale/``.
 
 Device Tree Overlay
 ...................
@@ -49,7 +49,7 @@ expansion board. They are instead of being added to the device tree as an extra
 include, now applied as an overlay. They also may only contain setting the
 status of a node depending on if it is mounted or not. The device tree overlays
 are placed next to the other device tree files in our Linux kernel repository in
-the subfolder arch/arm64/boot/dts/freescale/overlays.
+the subfolder ``arch/arm64/boot/dts/freescale/overlays``.
 
 Available overlays for |yocto-machinename|.conf are:
 

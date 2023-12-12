@@ -41,7 +41,9 @@ be configured correctly. This will be done at /etc/xdg/weston/weston.ini.
 Single Display
 ~~~~~~~~~~~~~~
 
-In our BSP, the default Weston output is set to HDMI. ::
+In our BSP, the default Weston output is set to HDMI.
+
+.. code-block::
 
    [output]
    name=HDMI-A-1
@@ -52,7 +54,9 @@ In our BSP, the default Weston output is set to HDMI. ::
    mode=off
 
 When using the LVDS0 (PEB-AV-10) as output, set the output mode to off for
-HDMI-A-1 and for LVDS-1 to current. ::
+HDMI-A-1 and for LVDS-1 to current.
+
+.. code-block::
 
    [output]
    name=HDMI-A-1
@@ -69,7 +73,9 @@ Dual Display
 ~~~~~~~~~~~~
 
 For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
-have to be set to current::
+have to be set to current:
+
+.. code-block::
 
    [output]
    name=HDMI-A-1
@@ -80,7 +86,9 @@ have to be set to current::
    mode=current
 
 For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
-be loaded at the bootenv.txt and the weston.ini should look like this::
+be loaded at the bootenv.txt and the weston.ini should look like this:
+
+.. code-block::
 
    [output]
    name=HDMI-A-1
@@ -99,7 +107,9 @@ Triple Display
 ~~~~~~~~~~~~~~
 
 Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
-load both dtbos for LVDS interfaces. ::
+load both dtbos for LVDS interfaces.
+
+.. code-block::
 
    [output]
    name=HDMI-A-1

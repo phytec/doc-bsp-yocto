@@ -12,8 +12,8 @@ infrastructure that layers software components into board-specific parts. The
 BSP tries to modularize the kit features as much as possible. When a customized
 baseboard or even a customer-specific module is developed, most of the software
 support can be re-used without error-prone copy-and-paste. The kernel code
-corresponding to the boards can be found in device trees (DT)
-under linux/arch/arm64/boot/dts/freescale/*.dts*.
+corresponding to the boards can be found in device trees (DT) in the kernel
+repository under ``arch/arm64/boot/dts/freescale/*.dts``.
 
 In fact, software reuse is one of the most important features of the
 Linux kernel, especially of the ARM implementation which always has to fight

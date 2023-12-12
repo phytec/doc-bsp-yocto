@@ -7,27 +7,27 @@ Hardware revision baseboard: 1532.2
    *  -  .. figure:: images/Nano_eMMC_BOOT.png
             :width: 250px
 
-            Default Boot (eMMC Boot)
+            eMMC (Default SoM boot)
 
       -  .. figure:: images/Nano_Serial_downloader_BOOT.png
             :width: 250px
 
-            Serial Downloader Boot
+            USB Serial Downloader
 
    *  -  .. figure:: images/Nano_SD_BOOT.jpg
             :width: 250px
 
-            SD Card Boot
+            SD Card
 
       -  .. figure:: images/Nano_Fuse_BOOT.png
             :width: 250px
 
-            Fuse Boot
+            Internal Fuses
 
    *  -  .. figure:: images/Nano_QSPI_BOOT.png
             :width: 250px
 
-            QSPI Boot
+            SPI NOR
 
       -  \
 

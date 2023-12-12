@@ -25,7 +25,9 @@ always enabled. Find more information in the device tree overlay section.
 
 The bootloader also passes the SPI MTD partition table to Linux by fixing up the
 device tree based on the mtdparts boot parameter. The default partition layout
-in the BSP is set to::
+in the BSP is set to:
+
+.. code-block::
 
    mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env_redund),-(none)
 

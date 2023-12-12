@@ -60,7 +60,7 @@ TFTP Server Setup
 TFTP as a Stand-alone Daemon
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Create or edit /etc/default/tftpd-hpa:
+*  Create or edit the ``/etc/default/tftpd-hpa`` file:
 
    .. code-block::
 
@@ -182,7 +182,11 @@ Separate the filenames by spaces. For example:
 
 .. code-block::
 
-   overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010-sn65dsi83.dtbo
+   overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010.dtbo
+
+.. Tip::
+
+   All supported devicetree overlays are in the |ref-dt| chapter.
 
 Network Settings on Target
 ..........................
@@ -241,8 +245,8 @@ you will also need |yocto-imagename|-|yocto-machinename|.wic.
 Prepare Target
 ..............
 
-Set the |ref-bootswitch| to **Serial downloader (USB boot)** (Boot
-Configuration Options). Also, connect USB port |ref-usb-otg| to your host.
+Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
+|ref-usb-otg| to your host.
 
 Starting bootloader via UUU-Tool
 ................................
@@ -262,7 +266,7 @@ You can see the bootlog on the console via the debug USB
    in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
    UUU-tool the default environment is loaded. Saveenv has no effect. If you
    want to change the boot command permanently for UUU-boot, you need to change
-   this in U-boot code.
+   this in U-Boot code.
 
 Flashing U-boot Image to eMMC via UUU-Tool
 ...........................................
@@ -279,6 +283,7 @@ Flashing wic Image to eMMC via UUU-Tool
 Execute and power up the board:
 
 .. code-block:: console
+   :substitutions:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
 
@@ -286,9 +291,10 @@ Standalone Build
 ----------------
 
 In this section, we describe how to build the U-Boot and the Linux kernel
-without using the *Yocto Project*. This procedure makes the most sense for
-development. The U-Boot source code, the Linux kernel, and all other git
-repositories are available on our *Git* server at git://git.phytec.de.
+without using the `Yocto Project <https://www.yoctoproject.org/>`__. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on our
+`Git server <https://git.phytec.de/>`__ at git://git.phytec.de.
 
 .. note::
    Should your company firewall/gateway inhibit the git protocol, you may use
@@ -299,24 +305,24 @@ Git Repositories
 
 *  Used U-Boot repository:
 
-::
+   .. code-block::
 
-   git://git.phytec.de/u-boot-imx
+      git://git.phytec.de/u-boot-imx
 
 *  Our U-Boot is based on the u-boot-imx and adds board-specific patches.
 *  Used Linux kernel repository:
 
-::
+   .. code-block::
 
-   git://git.phytec.de/linux-imx
+      git://git.phytec.de/linux-imx
 
 *  Our |soc| kernel is based on the linux-imx kernel. To find out which tag is
    used for a specific board, have a look at your BSP source folder:
 
-::
+   .. code-block::
 
-   meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
-   meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+      meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+      meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 
 Get the SDK
 ...........
@@ -325,32 +331,33 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
 
 *  Move to the Yocto build directory:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ source sources/poky/oe-init-build-env
-   host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
+      host:~$ source sources/poky/oe-init-build-env
+      host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
 
 Install the SDK
 ...............
 
 *  Set correct permissions and install the SDK:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
-   host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh ============================================================================================================
-   Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-manifestname|):
-   You are about to install the SDK to "/opt/|yocto-distro|/|yocto-manifestname|". Proceed [Y/n]?
-   Extracting SDK...done
-   Setting it up...done
-   SDK has been successfully set up and is ready to be used.
+      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
+      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa53-crypto-toolchain-|yocto-manifestname|.sh
+      ============================================================================================================
+      Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-manifestname|):
+      You are about to install the SDK to "/opt/|yocto-distro|/|yocto-manifestname|". Proceed [Y/n]? Y
+      Extracting SDK...done
+      Setting it up...done
+      SDK has been successfully set up and is ready to be used.
 
 Using the SDK
 .............
 
-Activate the toolchain for your shell by sourcing the file *environment-setup*
+Activate the toolchain for your shell by sourcing the *environment-setup* file
 in the toolchain directory:
 
 .. code-block:: console
@@ -362,16 +369,14 @@ Installing Required Tools
 .........................
 
 Building Linux and U-Boot out-of-tree requires some additional host tool
-dependencies to be installed. For Ubuntu you can install them with::
+dependencies to be installed. For Ubuntu you can install them with:
 
-   host$ sudo apt install bison flex
+.. code-block:: console
+
+   host:~$ sudo apt install bison flex
 
 Build imx-boot
 ..............
-
-With *U-Boot* version v2021.04, the *mkimage tool* from NXP is finally
-integrated. This means that you can create the imx-boot without manually using
-the imx *mkimage tool*.
 
 Get the needed binaries
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -405,9 +410,9 @@ Build U-Boot
 
 *  Get the U-Boot sources:
 
-::
+   .. code-block:: console
 
-   host$ git clone git://git.phytec.de/u-boot-imx
+      host:~$ git clone git://git.phytec.de/u-boot-imx
 
 *  To get the correct *U-Boot* **tag** you need to take a look at our release
    notes, which can be found here: `release notes <releasenotes_>`_
@@ -426,31 +431,36 @@ Build U-Boot
 
    *  Create your own development branch:
 
-::
+      .. code-block:: console
 
-   host$ git checkout -b <new-branch>
+         host:~$ git checkout -b <new-branch>
 
-.. note::
+      .. note::
 
-   You can name your development branch as you like, this is just an example.
+         You can name your development branch as you like, this is just an example.
 
 *  Copy all binaries into the U-Boot build directory
-*  Set up a build environment
+*  Set up a build environment:
 
-Set this environment variable before building the Image:
+   .. code-block:: console
+      :substitutions:
 
-.. code-block:: console
-   :substitutions:
+      host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
-   host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
+*  Set this environment variable before building the Image:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
 
 *  build flash.bin (imx-boot):
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ make phycore-|kernel-socname|_defconfig
-   host:~$ make flash.bin
+      host:~$ make phycore-|kernel-socname|_defconfig
+      host:~$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:
@@ -484,7 +494,7 @@ could lead to unexpected behavior.
 Follow the steps to get the U-boot sources and check the correct branch in the
 **Build U-Boot** section.
 
-Choose the correct RAM size as populated on the board.
+Edit the file configs/phycore-|kernel-socname|\_defconfig:
 
 .. code-block:: kconfig
    :substitutions:
@@ -495,6 +505,8 @@ Choose the correct RAM size as populated on the board.
    # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_2GB=y
    # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_4GB=y
 
+Choose the correct RAM size as populated on the board and uncomment the line for
+this ram size.
 After saving the changes, follow the remaining steps from Build U-Boot.
 
 Build Kernel
@@ -505,26 +517,34 @@ Build Kernel
 *  The tag needed for this release is called |kernel-tag|
 *  Check out the needed linux-imx tag:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ git clone git://git.phytec.de/linux-imx
-   host:~$ cd ~/linux-imx/
-   host:~$ git fetch --all --tags
-   host:~$ git checkout tags/|kernel-tag|
-   host:~$ git checkout -b <new-branch>
+      host:~$ git clone git://git.phytec.de/linux-imx
+      host:~$ cd ~/linux-imx/
+      host:~$ git fetch --all --tags
+      host:~$ git checkout tags/|kernel-tag|
+      host:~$ git checkout -b <new-branch>
 
-*  Set up a build environment
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
+
 *  Build the linux kernel:
 
-::
+   .. code-block:: console
 
-   host$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
-   host$ make -j16
+      host:~$ make imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+      host:~$ make -j${nproc}
 
-*  Install kernel modules to e.g. NFS directory::
+*  Install kernel modules to e.g. NFS directory:
 
-      host$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+  .. code-block:: console
+
+      host:~$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
 
 *  The Image can be found at ~/linux-imx/arch/arm64/boot/Image
 *  The dtb can be found at
@@ -573,9 +593,11 @@ command line:
 
 This will initialize a BSP that will track the latest development state. From
 now on *repo sync* in this folder will pull all the latest changes from
-our Git repositories::
+our Git repositories:
 
-   host$ repo sync
+.. code-block:: console
+
+   host:~$ repo sync
 
 Accessing Development State of Upcoming Major Release
 -----------------------------------------------------
@@ -593,8 +615,8 @@ Accessing the Latest Upstream Support
 -------------------------------------
 
 We have a vanilla manifest that makes use of the Yocto master branches (not an
-NXP release), Linux, and u-boot. This can be used to test the latest upstream
-kernel/u-boot.
+NXP release), Linux, and U-Boot. This can be used to test the latest upstream
+kernel/U-Boot.
 
 .. note::
 
@@ -619,26 +641,26 @@ Gparted
 
 *  Get GParted:
 
-::
+   .. code-block:: console
 
-   host$ sudo apt install gparted
+      host:~$ sudo apt install gparted
 
 *  Insert the SD Card into your host and get the device name:
 
-::
+   .. code-block:: console
 
-   host$ dmesg | tail
-   ...
-   [30436.175412] sd 4:0:0:0: [sdb] 62453760 512-byte logical blocks: (32.0 GB/29.8 GiB)
-   [30436.179846]  sdb: sdb1 sdb2
-   ...
+      host:~$ dmesg | tail
+      ...
+      [30436.175412] sd 4:0:0:0: [sdb] 62453760 512-byte logical blocks: (32.0 GB/29.8 GiB)
+      [30436.179846]  sdb: sdb1 sdb2
+      ...
 
 *  Unmount all SD Card partitions.
 *  Launch GParted:
 
-::
+   .. code-block:: console
 
-   host$ sudo gparted
+      host:~$ sudo gparted
 
 .. image:: /bsp/imx8/images/gparted1.png
 
@@ -663,11 +685,11 @@ Expand rootfs
 *  Now you can mount the root partition and copy e.g. the
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
-   host:~$ umount /mnt
+      host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
+      host:~$ umount /mnt
 
 Create the Third Partition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -691,9 +713,9 @@ Create the Third Partition
 *  Now you can mount the new partition and copy e.g.
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ sudo mount /dev/sde3 /mnt
-   host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
-   host:~$ umount /mnt
+      host:~$ sudo mount /dev/sde3 /mnt
+      host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.wic /mnt/ ; sync
+      host:~$ umount /mnt

@@ -4,7 +4,7 @@ USB OTG
 Most PHYTEC boards provide a USB OTG interface. USB OTG ports automatically act
 as a USB device or USB host. The mode depends on the USB hardware attached to
 the USB OTG port. If, for example, a USB mass storage device is attached to the
-USB OTG port, the device will show up as /dev/sda.
+USB OTG port, the device will show up as ``/dev/sda``.
 
 USB Device
 ..........
@@ -12,9 +12,11 @@ USB Device
 In order to connect the board's USB device to a USB host port (for example a
 PC), you need to configure the appropriate USB gadget. With USB configfs you can
 define the parameters and functions of the USB gadget. The BSP includes
-USB configfs support as a kernel module. ::
+USB configfs support as a kernel module.
 
-   target$ modprobe libcomposite
+.. code-block:: console
+
+   target:~$ modprobe libcomposite
 
 **Example**:
 
@@ -25,7 +27,7 @@ USB configfs support as a kernel module. ::
 
    To save time, copy these commands and execute them in a script
 
-::
+.. code-block::
 
    cd /sys/kernel/config/usb_gadget/
    mkdir g1
@@ -39,13 +41,13 @@ USB configfs support as a kernel module. ::
 
 *  Next, create a file for the mass storage gadget:
 
-::
+.. code-block:: console
 
-   target$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
+   target:~$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
 
 *  Now you should create the functions you want to use:
 
-::
+.. code-block::
 
    cd /sys/kernel/config/usb_gadget/g1
    mkdir functions/acm.GS0
@@ -53,14 +55,14 @@ USB configfs support as a kernel module. ::
    mkdir functions/mass_storage.0
    echo /tmp/file.img > functions/mass_storage.0/lun.0/file
 
--  *acm*: Serial gadget, creates serial interface like /dev/ttyGS0.
+-  *acm*: Serial gadget, creates serial interface like ``/dev/ttyGS0``.
 -  *ecm*: Ethernet gadget, creates ethernet interface, e.g. usb0
 -  *mass_storage*: The host can partition, format, and mount the gadget mass
    storage the same way as any other USB mass storage.
 
 *  Bind the defined functions to a configuration:
 
-::
+.. code-block::
 
    cd /sys/kernel/config/usb_gadget/g1
    mkdir configs/c.1
@@ -72,18 +74,18 @@ USB configfs support as a kernel module. ::
 
 *  Finally, start the USB gadget with the following commands:
 
-::
+.. code-block:: console
 
-   target$ cd /sys/kernel/config/usb_gadget/g1
-   target$ ls /sys/class/udc/
+   target:~$ cd /sys/kernel/config/usb_gadget/g1
+   target:~$ ls /sys/class/udc/
    ci_hdrc.0
-   target$ echo "ci_hdrc.0" >UDC
+   target:~$ echo "ci_hdrc.0" >UDC
 
 If your system has more than one USB Device or OTG port, you can pass the right
 one to the USB Device Controller (UDC).
 
 *  To stop the USB gadget and unbind the used functions, execute:
 
-::
+.. code-block:: console
 
-   target$ echo "" > /sys/kernel/config/usb_gadget/g1/UDC
+   target:~$ echo "" > /sys/kernel/config/usb_gadget/g1/UDC

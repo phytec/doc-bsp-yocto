@@ -11,9 +11,11 @@ Enabling WLAN
 ~~~~~~~~~~~~~
 
 The firmware should be loaded by the kernel. The country code needs to be set
-before WIFI can be used. It can be changed under::
+before WIFI can be used. It can be changed under:
 
-   target$ vi /lib/firmware/brcm/brcmfmac43430-sdio.txt
+.. code-block:: console
+
+   target:~$ vi /lib/firmware/brcm/brcmfmac43430-sdio.txt
    [...]
    ccode=<country>
    [...]
@@ -27,11 +29,13 @@ Bluetooth
 Bluetooth is connected to UART2 interface. More information about the module can
 be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
-The Bluetooth device needs to be set up manually::
+The Bluetooth device needs to be set up manually:
 
-   target$ hciconfig hci0 up
+.. code-block:: console
 
-   target$ hciconfig
+   target:~$ hciconfig hci0 up
+
+   target:~$ hciconfig
 
    hci0:   Type: Primary  Bus: UART
            BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
@@ -39,7 +43,7 @@ The Bluetooth device needs to be set up manually::
            RX bytes:1392 acl:0 sco:0 events:76 errors:0
            TX bytes:1198 acl:0 sco:0 commands:76 errors:0
 
-   target$ hciconfig -a
+   target:~$ hciconfig -a
 
    hci0:   Type: Primary  Bus: UART
            BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
@@ -59,29 +63,35 @@ The Bluetooth device needs to be set up manually::
            Manufacturer: Broadcom Corporation (15)
 
 Now you can scan your environment for visible Bluetooth devices. Bluetooth is
-not visible during a default startup. ::
+not visible during a default startup.
 
-   target$ hcitool scan
+.. code-block:: console
+
+   target:~$ hcitool scan
    Scanning ...
           XX:XX:XX:XX:XX:XX       <SSID>
 
 Visibility
 ~~~~~~~~~~
 
-To activate visibility::
+To activate visibility:
 
-   target$ hciconfig hciX piscan
+.. code-block:: console
 
-To disable visibility::
+   target:~$ hciconfig hciX piscan
 
-   target$ hciconfig hciX noscan
+To disable visibility:
+
+.. code-block:: console
+
+   target:~$ hciconfig hciX noscan
 
 Connect
 ~~~~~~~
 
-::
+.. code-block:: console
 
-   target$ bluetoothctl
+   target:~$ bluetoothctl
    [bluetooth]# discoverable on
    Changing discoverable on succeeded
    [bluetooth]# pairable on
@@ -97,6 +107,8 @@ Connect
 .. note::
 
    If the connection fails with the error message: "Failed to connect:
-   org.bluez.Error.Failed" try restarting PulseAudio with::
+   org.bluez.Error.Failed" try restarting PulseAudio with:
 
-      target$ pulseaudio --start
+   .. code-block:: console
+
+      target:~$ pulseaudio --start

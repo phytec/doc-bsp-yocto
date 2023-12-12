@@ -1,5 +1,5 @@
 .. Download links
-.. |dlpage-bsp| replace:: our bsp
+.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
@@ -16,6 +16,7 @@
 .. |atfloadaddr| replace:: 0x970000
 .. |doc-id| replace:: L-1017e.A5
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
+.. |kit-ram-size| replace:: 2GiB
 .. |mcore| replace:: M7 Core
 .. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
@@ -64,7 +65,7 @@
 
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: *bootmode switch* :ref:`(S3) <imx8mp-pd22.1.1-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd22.1.1-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd22.1.1-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd22.1.1-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-pd22.1.1-device-tree>`
@@ -1037,39 +1038,50 @@ speaker, headphones, and line in signals.
    is not supported. The audio output device must match the video output device.
 
 To check if your soundcard driver is loaded correctly and what the device is
-called, type for playback devices::
+called, type for playback devices:
 
-   target$ aplay -L
+.. code-block:: console
 
-Or type for recording devices::
+   target:~$ aplay -L
 
-   target$ arecord -L
+Or type for recording devices:
+
+.. code-block:: console
+
+   target:~$ arecord -L
 
 Alsamixer
 .........
 
-To inspect the capabilities of your soundcard, call::
+To inspect the capabilities of your soundcard, call:
 
-   target$ alsamixer
+.. code-block:: console
+
+   target:~$ alsamixer
 
 You should see a lot of options as the audio-IC has many features you can
 experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. "MM" means the feature is muted
-(both output, left & right), which can be toggled by hitting m. You can also
-toggle by hitting '<' for left and ''>' for right output.
+(both output, left & right), which can be toggled by hitting **m**. You can also
+toggle by hitting '**<**' for left and '**>**' for right output. With the **tab**
+key, you can switch between controls for playback and recording.
 
 ALSA configuration
 ..................
 
-Our BSP comes with a ALSA configuration file /etc/asound.conf.
+Our BSP comes with a ALSA configuration file ``/etc/asound.conf``.
 
 The ALSA configuration file can be edited as desired or deleted since it is not
-required for ALSA to work properly. ::
+required for ALSA to work properly.
 
-   target$ vi /etc/asound.conf
+.. code-block:: console
 
-To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
+   target:~$ vi /etc/asound.conf
+
+To set PEB-AV-10 as output, set *playback.pcm* from "dummy" to "pebav10":
+
+.. code-block::
 
    [...]
 
@@ -1084,47 +1096,59 @@ To set PEB-AV-10 as output, set playback.pcm from "dummy" to "pebav10": ::
 Pulseaudio Configuration
 ........................
 
-For applications using Pulseaudio, check for available sinks::
+For applications using Pulseaudio, check for available sinks:
 
-   target$ pactl list short sinks
+.. code-block:: console
+
+   target:~$ pactl list short sinks
    0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
    1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
 
-To select PEB-AV-10, type::
+To select PEB-AV-10, type:
 
-   target$ pactl set-default-sink 1
+.. code-block:: console
+
+   target:~$ pactl set-default-sink 1
 
 Playback
 ........
 
-Run speaker-test to check playback availability::
+Run speaker-test to check playback availability:
 
-   target$ speaker-test -c 2 -t wav
+.. code-block:: console
+
+   target:~$ speaker-test -c 2 -t wav
 
 To playback simple audio streams, you can use aplay. For example to play the
-ALSA test sounds::
+ALSA test sounds:
 
-   target$ aplay /usr/share/sounds/alsa/*
+.. code-block:: console
 
-To playback other formats like mp3 for example, you can use Gstreamer::
+   target:~$ aplay /usr/share/sounds/alsa/*
 
-   target$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
+To playback other formats like mp3 for example, you can use Gstreamer:
+
+.. code-block:: console
+
+   target:~$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
 
 Capture
 .......
 
-arecord is a command-line tool for capturing audio streams which use Line In as
+``arecord`` is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can
-use alsamixer. For example, switch on Right PGA Mixer Mic3R and Left PGA Mixer
-Mic3R in order to capture the audio from the microphone input of the
-TLV320-Codec using the 3.5mm jack. ::
+use ``alsamixer``. For example, switch on *Right PGA Mixer Mic3R* and *Left PGA Mixer
+Mic3R* in order to capture the audio from the microphone input of the
+TLV320-Codec using the 3.5mm jack.
 
-   target$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
-   target$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
+.. code-block:: console
 
-::
+   target:~$ amixer -c "sndpebav10" sset 'Left PGA Mixer Mic3R' on
+   target:~$ amixer -c "sndpebav10" sset 'Right PGA Mixer Mic3R' on
 
-   target$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+.. code-block:: console
+
+   target:~$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
 
 .. hint::
 
@@ -1254,9 +1278,11 @@ https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998.
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-Reading the registers using /dev/mem will cause the system to hang unless the
-ocotp_root_clk is enabled. To enable this clock permanent, add to the device
-tree::
+Reading the registers using ``/dev/mem`` will cause the system to hang unless the
+*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
+tree:
+
+.. code-block::
 
    &clk {
            init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;

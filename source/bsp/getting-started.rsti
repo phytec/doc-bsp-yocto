@@ -3,7 +3,7 @@ Getting Started
 
 The |kit| is shipped with a pre-flashed SD card. It contains the
 |yocto-imagename| and can be used directly as a boot source. The eMMC is
-programmed with only a U-boot by default. You can get all sources from the
+programmed with only a U-Boot by default. You can get all sources from the
 `PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
 image to SD card and how to start the board.
 
@@ -56,13 +56,17 @@ of your SD card and possible partitions. Unmount any mounted partitions before
 you start copying the image to the SD card.
 
 #. In order to get the correct device name, remove your SD card and
-   execute::
+   execute:
 
-      host$ lsblk
+   .. code-block:: console
 
-#. Now insert your SD card and execute the command again::
+      host:~$ lsblk
 
-      host$ lsblk
+#. Now insert your SD card and execute the command again:
+
+   .. code-block:: console
+
+      host:~$ lsblk
 
 #. Compare the two outputs to find the new device names listed in the second
    output. These are the device names of the SD card (device and partitions if
@@ -83,9 +87,11 @@ In this case, you will also find the device name with an appended number
 distributions automatically mount partitions when the device gets plugged in.
 Before writing, however, these need to be unmounted to avoid data corruption.
 
-Unmount all partitions, e.g.::
+Unmount all partitions, e.g.:
 
-   host$ sudo umount /dev/sde1
+.. code-block:: console
+
+   host:~$ sudo umount /dev/sde1
 
 Now, the SD card is ready to be flashed with an image, using either partup,
 ``dd`` or bmap-tools.
@@ -93,11 +99,14 @@ Now, the SD card is ready to be flashed with an image, using either partup,
 Using partup
 ............
 
-Writing to an SD card with partup is done in a single command::
+Writing to an SD card with partup is done in a single command:
 
-   host$ sudo partup install <IMAGENAME>-<MACHINE>.partup /dev/sdX
+.. code-block:: console
+   :substitutions:
 
-Make sure to replace ``/dev/sdX`` with your actual device name found previously.
+   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
+
+Make sure to replace <your_device> with your actual device name found previously.
 
 Further usage of partup is explained at its `official documentation website
 <https://partup.readthedocs.io/en/latest/>`__.
@@ -120,13 +129,18 @@ An alternative and also fast way to prepare an SD card can be done by using
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
 integrity. *bmaptool* is packaged by various Linux distributions. For
-Debian-based systems install it by issuing::
+Debian-based systems install it by issuing:
 
-   host$ sudo apt install bmap-tools
+.. code-block:: console
 
-Flash a WIC image to SD card by calling::
+   host:~$ sudo apt install bmap-tools
 
-   host$ bmaptool copy <IMAGENAME>-<MACHINE>.wic /dev/<your_device>
+Flash a WIC image to SD card by calling:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.wic /dev/<your_device>
 
 Make sure to place the ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside the regular
 WIC image, so bmaptool knows which blocks to write and which to skip.
@@ -139,11 +153,14 @@ WIC image, so bmaptool knows which blocks to write and which to skip.
 Using ``dd``
 ............
 
-After having unmounted all partitions, you can create your bootable SD card::
+After having unmounted all partitions, you can create your bootable SD card:
 
-   host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/sdX bs=1M conv=fsync status=progress
+.. code-block:: console
+   :substitutions:
 
-Again, make sure to replace ``/dev/sdX`` with your actual device name found
+   host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Again, make sure to replace <your_device> with your actual device name found
 previously.
 
 The parameter ``conv=fsync`` forces a sync operation on the device before

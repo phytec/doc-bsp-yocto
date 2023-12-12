@@ -12,7 +12,9 @@ as any other block device.
 
 After inserting an SD/MMC card, the kernel will generate new device nodes
 in /dev. The full device can be reached via its /dev/mmcblk1 device node. SD/MMC
-card partitions will show up as::
+card partitions will show up as:
+
+.. code-block::
 
    /dev/mmcblk1p<Y>
 

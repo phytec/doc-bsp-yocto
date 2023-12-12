@@ -6,32 +6,44 @@ with the Linux kernel sysfs interface. All available backlight devices in the
 system can be found in the folder /sys/class/backlight. Reading the appropriate
 files and writing to them allows you to control the backlight.
 
-* To get, for example, the maximum brightness level (max_brightness) execute::
+*  To get, for example, the maximum brightness level (max_brightness) execute:
 
-      target$ cat /sys/class/backlight/backlight/max_brightness
+   .. code-block:: console
 
-which will result in::
+      target:~$ cat /sys/class/backlight/backlight/max_brightness
 
-   7
+   which will result in:
 
-Valid brightness values are 0 to <max_brightness>.
+   .. code-block::
 
-* To obtain the current brightness level, type::
+      7
 
-      target$ cat /sys/class/backlight/backlight/brightness
+   Valid brightness values are 0 to <max_brightness>.
 
-you will get for example::
+*  To obtain the current brightness level, type:
 
-   6
+   .. code-block:: console
 
-* Write to the file brightness to change the brightness::
+      target:~$ cat /sys/class/backlight/backlight/brightness
 
-      target$ echo 0 > /sys/class/backlight/backlight/brightness
+   you will get for example:
 
-turns the backlight off, ::
+   .. code-block::
 
-   target$ echo 5 > /sys/class/backlight/backlight/brightness
+      6
 
-sets the brightness to the third-highest brightness level. For documentation of
-all files, see
-https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.
+*  Write to the file brightness to change the brightness:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/class/backlight/backlight/brightness
+
+   turns the backlight off,
+
+   .. code-block:: console
+
+      target:~$ echo 5 > /sys/class/backlight/backlight/brightness
+
+   sets the brightness to the third-highest brightness level. For documentation of
+   all files, see
+   https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.

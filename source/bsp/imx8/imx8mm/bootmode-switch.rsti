@@ -7,27 +7,27 @@ Hardware revision baseboard: 1532.1
 
    * - .. figure:: images/eMMC.jpg
 
-	  Default SOM Boot (eMMC boot)
+          eMMC (Default SoM boot)
 
      - .. figure:: images/SPI_NOR.png
 
-	  QSPI NOR boot
+          SPI NOR
 
    * - .. figure:: images/USB_Serial_Download.png
 
-          Serial Download (USB boot)
+          USB Serial Download
 
      - .. figure:: images/SD_Card_Boot.jpg
 
-          SD Card boot
+          SD Card
 
 
 .. list-table:: Switch between UART1 RS485/RS232
 
    * - .. figure:: images/UART1_RS485.png
 
-	  UART1 RS485
+          UART1 RS485
 
      - .. figure:: images/UART1_RS232.jpg
 
-	  UART1 RS232
+          UART1 RS232
