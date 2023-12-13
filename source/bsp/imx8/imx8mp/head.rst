@@ -58,7 +58,7 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
-.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master-next
+.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
 .. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
