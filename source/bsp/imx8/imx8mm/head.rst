@@ -48,7 +48,7 @@
 .. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
 
 .. IMX8(MM) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53`
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n59`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
@@ -295,7 +295,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n188`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n291`
 
 .. _imx8mm-head-network:
 
@@ -311,10 +311,10 @@ Network
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n266`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n383`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n335`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -322,7 +322,7 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n80`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n87`
 
 .. include:: ../peripherals/gpios.rsti
 
@@ -341,15 +341,15 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n37`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n36`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n119`
 
 General I²C4 bus configuration (e.g. |dt-carrierboard|.dts):
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n149`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n244`
 
 
 EEPROM
@@ -363,12 +363,12 @@ the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n311`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n319`
 
 USB Host Controller
 -------------------
@@ -395,13 +395,13 @@ User USB2 (host) configuration is in the kernel device tree
    };
 
 DT representation for USB Host:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy9#n240`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n347`
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
 Both USB interfaces are configured as host in the kernel device tree
 |dt-carrierboard|.dts. See:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n228`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n335`
 
 CAN FD
 ------
@@ -427,7 +427,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.10.72_2.2.0-phy17#n106`
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
@@ -445,7 +445,7 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56`
+:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtsi?h=v5.15.71_2.2.2-phy3#n54`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -460,7 +460,7 @@ error message may occur at boot.
 .. include:: /bsp/imx8/peripherals/display.rsti
 
 The device tree of PEB-AV-10 can be found here:
-:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17`
+:imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtsi?h=v5.15.71_2.2.2-phy3`
 
 .. include:: ../peripherals/pm.rsti
 
