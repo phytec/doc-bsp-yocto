@@ -10,7 +10,7 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
 
 .. IMX8(MN) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2022.04_2.2.2-phy5#n66
 
 
 .. General Replacements
@@ -29,7 +29,7 @@
 
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mn
-.. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
+.. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
 
 
 .. Bootloader
@@ -39,7 +39,7 @@
 
 .. IMX8(MN) specific
 .. |u-boot-socname-config| replace:: IMX8MN
-.. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
+.. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 
 .. Devicetree
