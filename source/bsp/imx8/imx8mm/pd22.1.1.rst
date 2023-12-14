@@ -989,7 +989,7 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n80`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n71`
 
 .. include:: ../peripherals/gpios.rsti
 
@@ -1034,7 +1034,7 @@ found in our PHYTEC git:
    :end-before: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277`
+:imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277`
 
 USB Host Controller
 -------------------

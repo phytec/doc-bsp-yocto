@@ -47,7 +47,7 @@
 .. |dt-som| replace:: imx8mn-phycore-som
 
 .. IMX8(MN) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47`
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
@@ -280,7 +280,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n166`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n220`
 
 .. _imx8mn-head-network:
 
@@ -296,10 +296,10 @@ Network
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n238`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n301`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293`
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n309`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -307,7 +307,7 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75`
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n78`
 
 .. include:: ../peripherals/gpios.rsti
 
@@ -326,15 +326,15 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n35`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n45`
 
 .. include:: /bsp/imx8/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98`
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n106`
 
 General I²C3 bus configuration (e.g. |dt-carrierboard|.dts):
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n147`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n196`
 
 
 EEPROM
@@ -348,12 +348,12 @@ the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248`
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n259`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254`
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n267`
 
 USB Host Controller
 -------------------
@@ -370,9 +370,9 @@ To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
-Both USB interfaces are configured as host in the kernel device tree
+The USB interface is configured as host in the kernel device tree
 |dt-carrierboard|.dts. See:
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n206`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n264`
 
 CAN FD
 ------
@@ -398,7 +398,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n104`
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n125`
 
 .. include:: ../peripherals/pm.rsti
 
