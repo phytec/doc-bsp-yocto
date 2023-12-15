@@ -18,13 +18,13 @@
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB
-.. |mcore| replace:: M4 Core
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Mini
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-i.MX8MM
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
+.. |expansion-connector| replace:: X8
 
 
 .. Linux Kernel
@@ -45,6 +45,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som
+.. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
 
 .. IMX8(MM) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53`
@@ -81,6 +82,12 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
 
+
+.. M-Core specific
+.. |mcore| replace:: M4 Core
+.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/arm/mimx8mm_phyboard_polis/doc/index.html
+.. |mcore-jtag-dev| replace:: MIMX8MM6_M4
+.. |mcore-sdk-version| replace:: 2.13.0
 
 +----------------------+----------------------+
 | |doc-id| |soc| BSP                          |
@@ -467,4 +474,10 @@ The device tree of PEB-AV-10 can be found here:
 ..                                i.MX 8M Mini M4 Core
 .. +---------------------------------------------------------------------------+
 
-.. include:: mcu.rsti
+.. include:: ../mcu.rsti
+
+.. +---------------------------------------------------------------------------+
+..                          BSP EXTENSIONS
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/bsp-extensions.rsti
