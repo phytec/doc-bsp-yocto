@@ -291,7 +291,25 @@ Network
 
 .. include:: ../peripherals/network.rsti
 
-.. include:: ../imx8mm/wireless-network.rsti
+WLAN
+....
+
+For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
+
+.. include:: ../../peripherals/wireless-network.rsti
+
+.. note::
+
+   If the connection fails with the error message: "Failed to connect:
+   org.bluez.Error.Failed" try restarting PulseAudio with:
+
+   .. code-block:: console
+
+      target:~$ pulseaudio --start
 
 .. include:: ../peripherals/sd-card.rsti
 

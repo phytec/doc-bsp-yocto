@@ -1,27 +1,89 @@
-WLAN
-....
+Connecting to a WLAN Network
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
-module supports 2,4 GHz bandwidth and can be run in several modes, like client
-mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
-information about the module can be found at
-https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
-
-Enabling WLAN
-~~~~~~~~~~~~~
-
-The firmware should be loaded by the kernel. The country code needs to be set
-before WIFI can be used. It can be changed under:
+First set the correct regulatory domain for your country:
 
 .. code-block:: console
 
-   target:~$ vi /lib/firmware/brcm/brcmfmac43430-sdio.txt
-   [...]
-   ccode=<country>
-   [...]
+   target:~$ iw reg set DE
+   target:~$ iw reg get
 
-More information about how to set up a WIFI connection can be found in Changing
-the Wireless Network Configuration.
+You will see:
+
+.. code-block::
+
+   country DE: DFS-ETSI
+      (2400 - 2483 @ 40), (N/A, 20), (N/A)
+      (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+      (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+      (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+      (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+
+Set up the wireless interface:
+
+.. code-block:: console
+
+   target:~$ ip link
+   target:~$ ip link set up dev wlan0
+
+Now you can scan for available networks:
+
+.. code-block:: console
+
+   target:~$ iw wlan0 scan | grep SSID
+
+You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.
+
+To do so, add the network-credentials to the file ``/etc/wpa_supplicant.conf``:
+
+.. code-block::
+
+   country=DE
+   network={
+       ssid="<SSID>"
+       proto=WPA2
+       psk="<KEY>"
+   }
+
+Now a connection can be established:
+
+.. code-block:: console
+
+   target:~$ wpa_supplicant -D nl80211 -c /etc/wpa_supplicant.conf -i wlan0 -B
+
+This should result in the following output:
+
+.. code-block::
+
+   ...
+   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+
+To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
+
+First, create the directory:
+
+.. code-block:: console
+
+   target:~$ mkdir -p /etc/systemd/network/
+
+Then add the following configuration snippet in ``/etc/systemd/network/10-wlan0.network``:
+
+.. code-block::
+
+   # file /etc/systemd/network/10-wlan0.network
+   [Match]
+   Name=wlan0
+
+   [Network]
+   DHCP=yes
+
+Now, restart the network daemon so that the configuration takes effect:
+
+.. code-block:: console
+
+   target:~$ systemctl restart systemd-networkd
 
 Bluetooth
 .........
@@ -78,13 +140,13 @@ To activate visibility:
 
 .. code-block:: console
 
-   target:~$ hciconfig hciX piscan
+   target:~$ hciconfig hci0 piscan
 
 To disable visibility:
 
 .. code-block:: console
 
-   target:~$ hciconfig hciX noscan
+   target:~$ hciconfig hci0 noscan
 
 Connect
 ~~~~~~~
@@ -103,12 +165,3 @@ Connect
    [bluetooth]# scan on
    [NEW] Device XX:XX:XX:XX:XX:XX <name>
    [bluetooth]# connect XX:XX:XX:XX:XX:XX
-
-.. note::
-
-   If the connection fails with the error message: "Failed to connect:
-   org.bluez.Error.Failed" try restarting PulseAudio with:
-
-   .. code-block:: console
-
-      target:~$ pulseaudio --start
