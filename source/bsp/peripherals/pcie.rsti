@@ -51,7 +51,7 @@ the kernel configuration.
 
 *  In order to activate the driver, follow the instructions from our Yocto
    manual: `Kernel and Bootloader Configuration
-   <https://www.phytec.de/cdocuments/?doc=UIHsG#L813e-A12YoctoReferenceManualHeadHardknott-KernelandBootloaderConfiguration>`__
+   <https://www.phytec.de/cdocuments/?doc=IoBHIw#YoctoReferenceManualkirkstoneL813e-A14-KernelandBootloaderConfiguration>`__
 
    -  The linux-imx is represented by: **virtual/kernel**
 
