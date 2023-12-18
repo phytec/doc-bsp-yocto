@@ -94,14 +94,12 @@ For applications using *Pulseaudio*, check for available sinks:
 .. code-block:: console
 
    target:~$ pactl list short sinks
-   0   alsa_output.platform-snd_dummy.0.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
-   1   alsa_output.platform-sound-peb-av-10.stereo-fallback    module-alsa-card.c  s16le 2ch 44100Hz   SUSPENDED
 
-To select PEB-AV-10, type:
+To select the output device, type:
 
 .. code-block:: console
 
-   target:~$ pactl set-default-sink 1
+   target:~$ pactl set-default-sink <sink_number>
 
 Playback
 ........
