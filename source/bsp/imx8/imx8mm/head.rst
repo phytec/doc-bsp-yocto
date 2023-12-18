@@ -1,12 +1,12 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/sdk/ampliphy-vendor-xwayland/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt5demo-image-phyboard-polis-imx8mm-5.wic
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt5demo-image-phyboard-polis-imx8mm-5.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/sdk/ampliphy-vendor-xwayland/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
 
 .. IMX8(MM) specific
@@ -58,12 +58,12 @@
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
 .. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
-.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
+.. |yocto-ref-manual| replace:: L-813e.A14 Yocto Reference Manual (kirkstone)
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=IoBHIw
 
 .. Refs
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mm-head-bootswitch>`
