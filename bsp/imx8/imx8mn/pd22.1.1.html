@@ -2146,18 +2146,70 @@ module supports 2,4 GHz bandwidth and can be run in several modes, like client
 mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
 information about the module can be found at
 <a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a></p>
-<section id="enabling-wlan">
-<h4><span class="section-number">7.3.2.1. </span>Enabling WLAN<a class="headerlink" href="#enabling-wlan" title="Link to this heading"></a></h4>
-<p>The firmware should be loaded by the kernel. The country code needs to be set
-before WIFI can be used. It can be changed under:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/lib/firmware/brcm/brcmfmac43430-sdio.txt
-<span class="go">[...]</span>
-<span class="go">ccode=&lt;country&gt;</span>
-<span class="go">[...]</span>
+<section id="connecting-to-a-wlan-network">
+<h4><span class="section-number">7.3.2.1. </span>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Link to this heading"></a></h4>
+<p>First set the correct regulatory domain for your country:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
 </pre></div>
 </div>
-<p>More information about how to set up a WIFI connection can be found in Changing
-the Wireless Network Configuration.</p>
+<p>You will see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<p>Set up the wireless interface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link
+<span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>dev<span class="w"> </span>wlan0
+</pre></div>
+</div>
+<p>Now you can scan for available networks:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
+</pre></div>
+</div>
+<p>You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.</p>
+<p>To do so, add the network-credentials to the file <code class="docutils literal notranslate"><span class="pre">/etc/wpa_supplicant.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country=DE
+network={
+    ssid=&quot;&lt;SSID&gt;&quot;
+    proto=WPA2
+    psk=&quot;&lt;KEY&gt;&quot;
+}
+</pre></div>
+</div>
+<p>Now a connection can be established:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-D<span class="w"> </span>nl80211<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant.conf<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-B
+</pre></div>
+</div>
+<p>This should result in the following output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section <cite>Changing the Network Configuration</cite> in the <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
+<p>First, create the directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+</pre></div>
+</div>
+<p>Then add the following configuration snippet in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/network/10-wlan0.network</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<p>Now, restart the network daemon so that the configuration takes effect:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
 </section>
 </section>
 <section id="bluetooth">
@@ -2206,11 +2258,11 @@ not visible during a default startup.</p>
 <section id="visibility">
 <h4><span class="section-number">7.3.3.1. </span>Visibility<a class="headerlink" href="#visibility" title="Link to this heading"></a></h4>
 <p>To activate visibility:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hciX<span class="w"> </span>piscan
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>piscan
 </pre></div>
 </div>
 <p>To disable visibility:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hciX<span class="w"> </span>noscan
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>noscan
 </pre></div>
 </div>
 </section>

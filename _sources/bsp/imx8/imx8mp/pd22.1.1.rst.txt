@@ -1007,12 +1007,18 @@ module and board.
 
 .. include:: ../peripherals/network.rsti
 
-WLAN and Bluetooth
-..................
+.. include:: wireless-network.rsti
 
-WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
-The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install and use the
-PEB-WLBT-05.
+.. include:: ../../peripherals/wireless-network.rsti
+
+.. note::
+
+   If the connection fails with the error message: "Failed to connect:
+   org.bluez.Error.Failed" try restarting PulseAudio with:
+
+   .. code-block:: console
+
+      target:~$ pulseaudio --start
 
 .. include:: ../peripherals/sd-card.rsti
 

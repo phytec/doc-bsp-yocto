@@ -251,7 +251,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Polis populated with the i.MX 8M Nano SoC is supported.</p>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD22.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">download</a>.
+Numbers for this release: BSP-Yocto-NXP-i.MX8MM-PD23.1.0 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0">download</a>.
 If you choose a specific <strong>Machine Name</strong> in the section <strong>Supported Machines</strong>,
 you can see which <strong>Article Numbers</strong> are available under this machine and also
 a short description of the hardware information. In case you only have
@@ -303,7 +303,7 @@ data are correctly writing. Both the partup package and the WIC image, which can
 be flashed using <code class="docutils literal notranslate"><span class="pre">dd</span></code>, can be downloaded from the <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">PHYTEC download server</a>.</p>
 <p>Get either the partup package or the WIC image from the download server:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.partup
-<span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
+<span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
 </pre></div>
 </div>
 <div class="admonition note">
@@ -451,12 +451,12 @@ debug USB</p></li>
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Link to this heading"></a></h1>
 <p>This section will guide you through the general build process of the i.MX 8M
 Plus BSP using Yocto and the phyLinux script. For more information about our
-meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
+meta-layer or Yocto in general visit: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=IoBHIw">L-813e.A14 Yocto Reference Manual (kirkstone)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Link to this heading"></a></h2>
 <p>If you have never created a Phytec BSP with Yocto on your computer, you should
 take a closer look at the chapter BSP Workspace Installation in the
-<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
+<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=IoBHIw">L-813e.A14 Yocto Reference Manual (kirkstone)</a>.</p>
 </section>
 <section id="get-the-bsp">
 <h2><span class="section-number">3.2. </span>Get the BSP<a class="headerlink" href="#get-the-bsp" title="Link to this heading"></a></h2>
@@ -497,12 +497,12 @@ on.</p>
 <p class="admonition-title">Note</p>
 <p>If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. And have a look at
-<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">our BSP</a>.</p>
+<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0">our BSP</a>.</p>
 </div>
 </li>
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-vendor<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-polis-imx8mn-2<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-vendor<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-polis-imx8mn-2<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 </pre></div>
 </div>
 </li>
@@ -1443,7 +1443,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </section>
 <section id="get-the-sdk">
 <h3><span class="section-number">5.3.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
-<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
+<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
 <ul>
 <li><p>Move to the Yocto build directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
@@ -1457,11 +1457,11 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <h3><span class="section-number">5.3.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Set correct permissions and install the SDK:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
-<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD22.1.1.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD23.1.0.sh
+<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-glibc-x86_64-phytec-headless-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MM-PD23.1.0.sh
 <span class="go">============================================================================================================</span>
-<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1):</span>
-<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1&quot;. Proceed [Y/n]? Y</span>
+<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD23.1.0):</span>
+<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD23.1.0&quot;. Proceed [Y/n]? Y</span>
 <span class="go">Extracting SDK...done</span>
 <span class="go">Setting it up...done</span>
 <span class="go">SDK has been successfully set up and is ready to be used.</span>
@@ -1474,7 +1474,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <h3><span class="section-number">5.3.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
 <p>Activate the toolchain for your shell by sourcing the <em>environment-setup</em> file
 in the toolchain directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </section>
@@ -1504,7 +1504,7 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 <p>If you already build our BSP with Yocto, you can get
 the bl31-imx8mn.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
 mentioned here: <a class="reference internal" href="#imx8mn-head-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/</a></p>
+<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you rename the files you need so that they are compatible with the
@@ -1521,12 +1521,12 @@ mentioned here: <a class="reference internal" href="#imx8mn-head-images"><span c
 </li>
 <li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
 notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm">release notes</a></p></li>
-<li><p>The <strong>tag</strong> needed at this release is called v2021.04_2.2.0-phy13</p></li>
+<li><p>The <strong>tag</strong> needed at this release is called v2022.04_2.2.2-phy5</p></li>
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
 <span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2021.04_2.2.0-phy13
+<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2022.04_2.2.2-phy5
 </pre></div>
 </div>
 <ul>
@@ -1546,7 +1546,7 @@ further steps necessary:</p>
 </li>
 <li><p>Copy all binaries into the U-Boot build directory</p></li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
@@ -1594,18 +1594,18 @@ chip-specific offset is needed:</p>
 <h3><span class="section-number">5.3.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Link to this heading"></a></h3>
 <ul>
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm">release notes</a></p></li>
-<li><p>The tag needed for this release is called v5.10.72_2.2.0-phy17</p></li>
+<li><p>The tag needed for this release is called v5.15.71_2.2.2-phy3</p></li>
 <li><p>Check out the needed linux-imx tag:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/linux-imx
 <span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/linux-imx/
 <span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.10.72_2.2.0-phy17
+<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.15.71_2.2.2-phy3
 <span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;new-branch&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
@@ -1657,7 +1657,7 @@ mounted SD card.</p>
 states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD22.1.y
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mn<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD23.1.y
 </pre></div>
 </div>
 <p>This will initialize a BSP that will track the latest development state. From
@@ -1887,7 +1887,7 @@ u-boot=&gt; boot
 <h4><span class="section-number">6.2.2.2. </span>Extension Command<a class="headerlink" href="#extension-command" title="Link to this heading"></a></h4>
 <p>The U-Boot extension command makes it possible to easily apply overlays that
 have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13">extension_board_scan()</a>.
+<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2022.04_2.2.2-phy5#n66">extension_board_scan()</a>.
 Overlays applied this way disable components that are not populated on the SoM.
 The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
 SoM i2c EEPROM.</p>
@@ -1956,7 +1956,7 @@ environment source that you want to use.</p>
 <section id="accessing-peripherals">
 <h1><span class="section-number">7. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Link to this heading"></a></h1>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-i.MX 8M Nano BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1">our BSP</a> web page and click
+phyCORE-i.MX 8M Nano BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0">our BSP</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns “Hardware Article Number” and the correct
 machine name in the corresponding cell under “Machine Name”.</p>
@@ -2072,7 +2072,7 @@ found here: <a class="reference external" href="https://github.com/cbrake/linux-
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
 <p>The device tree representation for RS232 and RS485:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n166">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n166</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n220">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n220</a></p>
 </section>
 </section>
 <section id="network">
@@ -2091,7 +2091,7 @@ and netmask for eth0 is:</p>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47</a>.</p>
+be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50</a>.</p>
 <p></p>
 <section id="network-environment-customization">
 <h3><span class="section-number">7.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Link to this heading"></a></h3>
@@ -2182,18 +2182,70 @@ module supports 2,4 GHz bandwidth and can be run in several modes, like client
 mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
 information about the module can be found at
 <a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a></p>
-<section id="enabling-wlan">
-<h4><span class="section-number">7.3.2.1. </span>Enabling WLAN<a class="headerlink" href="#enabling-wlan" title="Link to this heading"></a></h4>
-<p>The firmware should be loaded by the kernel. The country code needs to be set
-before WIFI can be used. It can be changed under:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/lib/firmware/brcm/brcmfmac43430-sdio.txt
-<span class="go">[...]</span>
-<span class="go">ccode=&lt;country&gt;</span>
-<span class="go">[...]</span>
+<section id="connecting-to-a-wlan-network">
+<h4><span class="section-number">7.3.2.1. </span>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Link to this heading"></a></h4>
+<p>First set the correct regulatory domain for your country:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
 </pre></div>
 </div>
-<p>More information about how to set up a WIFI connection can be found in Changing
-the Wireless Network Configuration.</p>
+<p>You will see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<p>Set up the wireless interface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link
+<span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>dev<span class="w"> </span>wlan0
+</pre></div>
+</div>
+<p>Now you can scan for available networks:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
+</pre></div>
+</div>
+<p>You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.</p>
+<p>To do so, add the network-credentials to the file <code class="docutils literal notranslate"><span class="pre">/etc/wpa_supplicant.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country=DE
+network={
+    ssid=&quot;&lt;SSID&gt;&quot;
+    proto=WPA2
+    psk=&quot;&lt;KEY&gt;&quot;
+}
+</pre></div>
+</div>
+<p>Now a connection can be established:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-D<span class="w"> </span>nl80211<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant.conf<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-B
+</pre></div>
+</div>
+<p>This should result in the following output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section <cite>Changing the Network Configuration</cite> in the <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=IoBHIw">L-813e.A14 Yocto Reference Manual (kirkstone)</a>.</p>
+<p>First, create the directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+</pre></div>
+</div>
+<p>Then add the following configuration snippet in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/network/10-wlan0.network</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<p>Now, restart the network daemon so that the configuration takes effect:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
 </section>
 </section>
 <section id="bluetooth">
@@ -2242,11 +2294,11 @@ not visible during a default startup.</p>
 <section id="visibility">
 <h4><span class="section-number">7.3.3.1. </span>Visibility<a class="headerlink" href="#visibility" title="Link to this heading"></a></h4>
 <p>To activate visibility:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hciX<span class="w"> </span>piscan
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>piscan
 </pre></div>
 </div>
 <p>To disable visibility:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hciX<span class="w"> </span>noscan
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>noscan
 </pre></div>
 </div>
 </section>
@@ -2306,9 +2358,9 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n238">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n238</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n301">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n301</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n309">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n309</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
@@ -2709,7 +2761,7 @@ is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75</a></p>
+<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n78">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n78</a></p>
 </section>
 </section>
 <section id="gpios">
@@ -2835,7 +2887,7 @@ settings.</p>
 </li>
 </ul>
 <p>Device tree configuration for the User I/O configuration can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n35">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n35</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n45">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n45</a></p>
 </section>
 <section id="i2c-bus">
 <h2><span class="section-number">7.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Link to this heading"></a></h2>
@@ -2847,9 +2899,9 @@ of some I²C devices integrated into our phyBOARD-Polis.</p>
 the bus frequency and the pin control settings including scl-gpios and sda-gpios
 which are alternate pin configurations used for bus recovery.</p>
 <p>General I²C1 bus configuration (e.g. imx8mn-phycore-som.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n106">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n106</a></p>
 <p>General I²C3 bus configuration (e.g. imx8mn-phyboard-polis.dts):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n147">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n147</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n196">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n196</a></p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
@@ -2914,7 +2966,7 @@ hardware introspection from the ID area to the normal area.</p>
 </div>
 <p>DT representation, e.g. in phyCORE-i.MX 8M Nano file imx8mn-phycore-som.dtsi can be
 found in our PHYTEC git:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n259">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n259</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -3039,7 +3091,7 @@ Mode) actually mean.</p>
 </li>
 </ul>
 <p>DT representation for I²C RTCs:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n267">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n267</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
@@ -3142,9 +3194,9 @@ one to the USB Device Controller (UDC).</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/kernel/config/usb_gadget/g1/UDC
 </pre></div>
 </div>
-<p>Both USB interfaces are configured as host in the kernel device tree
+<p>The USB interface is configured as host in the kernel device tree
 imx8mn-phyboard-polis.dts. See:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n206">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n206</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n264</a></p>
 </section>
 </section>
 <section id="can-fd">
@@ -3265,7 +3317,7 @@ on options and usage.</p>
 Slower rates can be selected but may not work correctly.</p>
 </div>
 <p>Device Tree CAN configuration of imx8mn-phyboard-polis.dts:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n104">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.10.72_2.2.0-phy17#n104</a></p>
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n125">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n125</a></p>
 </section>
 <section id="power-management">
 <h2><span class="section-number">7.15. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>

@@ -2135,11 +2135,179 @@ set when the external environment is being loaded.</p>
 </ul>
 </section>
 </section>
-<section id="wlan-and-bluetooth">
-<h3><span class="section-number">7.3.2. </span>WLAN and Bluetooth<a class="headerlink" href="#wlan-and-bluetooth" title="Link to this heading"></a></h3>
+<section id="wlan">
+<h3><span class="section-number">7.3.2. </span>WLAN<a class="headerlink" href="#wlan" title="Link to this heading"></a></h3>
 <p>WLAN and Bluetooth on the phyBOARD-Pollux are provided by the PEB-WLBT-05 expansion card.
-The PEB-WLBT-05 for phyBOARD-Pollux Quickstart Guide shows you how to install and use the
+The PEB-WLBT-05 for phyBOARD-Pollux Quickstart Guide shows you how to install the
 PEB-WLBT-05.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With the BSP Version PD22.1 and newer, the PEB-WLBT-05 overlay needs to be activated first,
+otherwise the PEB-WLBT-05 won’t be recognized.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/boot/bootenv.txt
+</pre></div>
+</div>
+<p>Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
+overlays!):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+</pre></div>
+</div>
+<p>The changes will be applied after a reboot:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>reboot
+</pre></div>
+</div>
+<p>For further information about devicetree overlays, read the <a class="reference internal" href="#imx8mp-pd22-1-1-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
+</div>
+<p>For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+<a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a></p>
+<section id="connecting-to-a-wlan-network">
+<h4><span class="section-number">7.3.2.1. </span>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Link to this heading"></a></h4>
+<p>First set the correct regulatory domain for your country:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
+</pre></div>
+</div>
+<p>You will see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<p>Set up the wireless interface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link
+<span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>dev<span class="w"> </span>wlan0
+</pre></div>
+</div>
+<p>Now you can scan for available networks:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
+</pre></div>
+</div>
+<p>You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.</p>
+<p>To do so, add the network-credentials to the file <code class="docutils literal notranslate"><span class="pre">/etc/wpa_supplicant.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country=DE
+network={
+    ssid=&quot;&lt;SSID&gt;&quot;
+    proto=WPA2
+    psk=&quot;&lt;KEY&gt;&quot;
+}
+</pre></div>
+</div>
+<p>Now a connection can be established:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-D<span class="w"> </span>nl80211<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant.conf<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-B
+</pre></div>
+</div>
+<p>This should result in the following output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section <cite>Changing the Network Configuration</cite> in the <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG">L-813e.A12 Yocto Reference Manual (Hardknott)</a>.</p>
+<p>First, create the directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+</pre></div>
+</div>
+<p>Then add the following configuration snippet in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/network/10-wlan0.network</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<p>Now, restart the network daemon so that the configuration takes effect:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bluetooth">
+<h3><span class="section-number">7.3.3. </span>Bluetooth<a class="headerlink" href="#bluetooth" title="Link to this heading"></a></h3>
+<p>Bluetooth is connected to UART2 interface. More information about the module can
+be found at
+<a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a>.
+The Bluetooth device needs to be set up manually:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>up
+
+<span class="gp">target:~$ </span>hciconfig
+
+<span class="go">hci0:   Type: Primary  Bus: UART</span>
+<span class="go">        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1</span>
+<span class="go">        UP RUNNING PSCAN</span>
+<span class="go">        RX bytes:1392 acl:0 sco:0 events:76 errors:0</span>
+<span class="go">        TX bytes:1198 acl:0 sco:0 commands:76 errors:0</span>
+
+<span class="gp">target:~$ </span>hciconfig<span class="w"> </span>-a
+
+<span class="go">hci0:   Type: Primary  Bus: UART</span>
+<span class="go">        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1</span>
+<span class="go">        UP RUNNING PSCAN</span>
+<span class="go">        RX bytes:3179 acl:8 sco:0 events:104 errors:0</span>
+<span class="go">        TX bytes:1599 acl:8 sco:0 commands:85 errors:0</span>
+<span class="go">        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87</span>
+<span class="go">        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3</span>
+<span class="go">        Link policy: RSWITCH SNIFF</span>
+<span class="go">        Link mode: SLAVE ACCEPT</span>
+<span class="go">        Name: &#39;phyboard-polaris-imx8m-2&#39;</span>
+<span class="go">        Class: 0x200000</span>
+<span class="go">        Service Classes: Audio</span>
+<span class="go">        Device Class: Miscellaneous,</span>
+<span class="go">        HCI Version: 4.1 (0x7)  Revision: 0x60</span>
+<span class="go">        LMP Version: 4.1 (0x7)  Subversion: 0x2209</span>
+<span class="go">        Manufacturer: Broadcom Corporation (15)</span>
+</pre></div>
+</div>
+<p>Now you can scan your environment for visible Bluetooth devices. Bluetooth is
+not visible during a default startup.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hcitool<span class="w"> </span>scan
+<span class="go">Scanning ...</span>
+<span class="go">       XX:XX:XX:XX:XX:XX       &lt;SSID&gt;</span>
+</pre></div>
+</div>
+<section id="visibility">
+<h4><span class="section-number">7.3.3.1. </span>Visibility<a class="headerlink" href="#visibility" title="Link to this heading"></a></h4>
+<p>To activate visibility:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>piscan
+</pre></div>
+</div>
+<p>To disable visibility:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>noscan
+</pre></div>
+</div>
+</section>
+<section id="connect">
+<h4><span class="section-number">7.3.3.2. </span>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bluetoothctl
+<span class="gp">[bluetooth]# </span>discoverable<span class="w"> </span>on
+<span class="go">Changing discoverable on succeeded</span>
+<span class="gp">[bluetooth]# </span>pairable<span class="w"> </span>on
+<span class="go">Changing pairable on succeeded</span>
+<span class="gp">[bluetooth]# </span>agent<span class="w"> </span>on
+<span class="go">Agent registered</span>
+<span class="gp">[bluetooth]# </span>default-agent
+<span class="go">Default agent request successful</span>
+<span class="gp">[bluetooth]# </span>scan<span class="w"> </span>on
+<span class="go">[NEW] Device XX:XX:XX:XX:XX:XX &lt;name&gt;</span>
+<span class="gp">[bluetooth]# </span>connect<span class="w"> </span>XX:XX:XX:XX:XX:XX
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the connection fails with the error message: “Failed to connect:
+org.bluez.Error.Failed” try restarting PulseAudio with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>pulseaudio<span class="w"> </span>--start
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="sd-mmc-card">
@@ -3190,7 +3358,7 @@ found under <em>Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat
 the kernel configuration.</p>
 <ul class="simple">
 <li><p>In order to activate the driver, follow the instructions from our Yocto
-manual: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG#L813e-A12YoctoReferenceManualHeadHardknott-KernelandBootloaderConfiguration">Kernel and Bootloader Configuration</a></p>
+manual: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=IoBHIw#YoctoReferenceManualkirkstoneL813e-A14-KernelandBootloaderConfiguration">Kernel and Bootloader Configuration</a></p>
 <ul>
 <li><p>The linux-imx is represented by: <strong>virtual/kernel</strong></p></li>
 </ul>
