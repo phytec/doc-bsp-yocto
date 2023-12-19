@@ -603,17 +603,17 @@ our Git repositories:
 
    host:~$ repo sync
 
-Accessing Development State of Upcoming Major Release
------------------------------------------------------
+.. tip::
 
-We are already working on the next major release update based on NXP BSP
-rel_imx_5.15.52_2.1.0 (kirkstone). We are trying to update the public
-development state on a regular basis.
+   Also development states of upcoming releases can be accessed this way.
+   For this execute the following command and look for a release with a higher
+   PDXX.Y number than the latest one (|yocto-manifestname|) and ``.y`` at the
+   end:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y-upcoming|
+      host:~$ ./phyLinux init -p |kernel-socname|
 
 Accessing the Latest Upstream Support
 -------------------------------------
