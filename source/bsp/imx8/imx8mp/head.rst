@@ -226,35 +226,26 @@ select the phyCORE-|soc| default bootsource.
    :end-before: .. build-kernel-marker
 
 Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
-newer also support 2GHz RAM-Timings. These will be enabled for supported boards
-automatically, but they can also be enabled or disabled manually. There are two
-possibilitys for setting these statically:
+newer also support 2GHz RAM timings. These will be enabled for supported boards
+automatically, but they can also be enabled or disabled manually.
 
-*  Edit the file configs/phycore-|kernel-socname|\_defconfig.
-   The RAM size from EEPROM will be used, but with fixed 2GHz Timings:
+Edit the file configs/phycore-|kernel-socname|\_defconfig.
+The fixed RAM size with 2GHz timings will be used:
 
-   .. code-block::
+.. code-block:: kconfig
 
-      CONFIG_TARGET_PHYCORE_IMX8MP=y
-      CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
-      CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+   CONFIG_TARGET_PHYCORE_IMX8MP=y
+   CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
 
-*  Edit the file configs/phycore-|kernel-socname|\_defconfig.
-   The fixed RAM size with 2GHz Timings will be used:
-
-   .. code-block::
-
-      CONFIG_TARGET_PHYCORE_IMX8MP=y
-      CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
-      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
-      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
-      # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
-      CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
-
-   Choose the correct RAM size as populated on the board and uncomment the line
-   for this ram size.
-
-After saving the changes, follow the remaining steps from |ref-build-uboot|.
+Choose the correct RAM size as populated on the board and uncomment the line
+for this ram size. When not specifying the
+``CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS`` option, the 1.5GHz timings will
+be chosen by default. After saving the changes, follow the remaining steps from
+|ref-build-uboot|.
 
 
 .. include:: /bsp/imx8/development.rsti
