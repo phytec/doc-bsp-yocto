@@ -60,7 +60,6 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
-.. |yocto-manifestname-y-upcoming| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
 .. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 
