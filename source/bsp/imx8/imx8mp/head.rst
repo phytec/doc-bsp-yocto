@@ -72,6 +72,7 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
 
 
 .. IMX8(MP) specific
@@ -217,6 +218,11 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mp-head-development:
 .. include:: /bsp/imx8/development.rsti
+   :end-before: .. build-uboot-marker
+
+.. _imx8mp-head-development-build-uboot:
+.. include:: /bsp/imx8/development.rsti
+   :start-after: .. build-uboot-marker
    :end-before: .. build-kernel-marker
 
 Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
@@ -248,7 +254,7 @@ possibilitys for setting these statically:
    Choose the correct RAM size as populated on the board and uncomment the line
    for this ram size.
 
-After saving the changes, follow the remaining steps from Build U-Boot.
+After saving the changes, follow the remaining steps from |ref-build-uboot|.
 
 
 .. include:: /bsp/imx8/development.rsti
