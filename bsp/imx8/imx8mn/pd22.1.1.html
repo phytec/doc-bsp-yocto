@@ -2810,6 +2810,25 @@ direction, active state, and additional flags:</p>
 refer to the schematic or the hardware manual of your board to ensure that it
 is not already in use.</p>
 </div>
+<section id="gpios-via-sysfs">
+<h3><span class="section-number">7.7.1. </span>GPIOs via sysfs<a class="headerlink" href="#gpios-via-sysfs" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
+instead.</p>
+</div>
+<p>Support to access GPIOs via sysfs is not enabled by default any more.
+It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
+configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
+CONFIG_EXPERT has to be enabled first.</p>
+<p>You can also add this option for example to the
+imx8_phytec_distro.config config fragment in the linux kernel sources
+under arch/arm64/configs</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>..
+CONFIG_GPIO_SYSFS=y
+..
+</pre></div>
+</div>
 <p>Pinmuxing of some GPIO pins in the device tree imx8mn-phyboard-polis.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_leds: leds1grp {
         fsl,pins = &lt;
@@ -2820,6 +2839,7 @@ is not already in use.</p>
 };
 </pre></div>
 </div>
+</section>
 </section>
 <section id="leds">
 <h2><span class="section-number">7.8. </span>LEDs<a class="headerlink" href="#leds" title="Link to this heading"></a></h2>
