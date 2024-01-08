@@ -14,7 +14,6 @@
 
 
 .. General Replacements
-.. |atfloadaddr| replace:: 0x920000
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB

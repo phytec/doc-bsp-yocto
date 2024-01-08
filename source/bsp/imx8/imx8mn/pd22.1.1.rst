@@ -831,7 +831,82 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 
 .. _imx8mn-pd22.1.1-development:
 .. include:: /bsp/imx8/development.rsti
-   :end-before: .. build-uboot-fixed-ram-size-marker
+   :end-before: .. build-uboot-marker
+
+*  Get the U-Boot sources:
+
+   .. code-block:: console
+
+      host:~$ git clone git://git.phytec.de/u-boot-imx
+
+*  To get the correct *U-Boot* **tag** you need to take a look at our release
+   notes, which can be found here: `release notes <releasenotes_>`_
+*  The **tag** needed at this release is called |u-boot-tag|
+*  Check out the needed *U-Boot* **tag**:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ cd ~/u-boot-imx/
+   host:~$ git fetch --all --tags
+   host:~$ git checkout tags/|u-boot-tag|
+
+*  Technically, you can now build the U-Boot, but practically there are some
+   further steps necessary:
+
+   *  Create your own development branch:
+
+      .. code-block:: console
+
+         host:~$ git checkout -b <new-branch>
+
+      .. note::
+
+         You can name your development branch as you like, this is just an example.
+
+*  Copy all binaries into the U-Boot build directory
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
+
+*  Set this environment variable before building the Image:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
+
+*  build flash.bin (imx-boot):
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ make phycore-|kernel-socname|_defconfig
+      host:~$ make flash.bin
+
+The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
+chip-specific offset is needed:
+
+.. _offset-table:
+
+===== =================== ============================= ============
+SoC   Offset User Area    Offset Boot Partition         eMMC Device
+===== =================== ============================= ============
+|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/mmcblk2
+===== =================== ============================= ============
+
+E.g. flash SD card:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
 .. include:: /bsp/imx8/development.rsti
    :start-after: .. build-kernel-marker
