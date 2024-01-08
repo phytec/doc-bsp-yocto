@@ -447,13 +447,6 @@ Build U-Boot
 
       host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
 
-*  Set this environment variable before building the Image:
-
-   .. code-block:: console
-      :substitutions:
-
-      host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
-
 *  build flash.bin (imx-boot):
 
    .. code-block:: console
