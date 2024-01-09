@@ -32,12 +32,10 @@ to contribute to this documentation.
      do best. Please also write a description that explains in more detail what
      the changes do.
 
-   .. code-block::
-      :caption: Example
-
-      In some sections of the Yocto Manual for kirkstone, links to external
-      webpages are not working, they return 404 not found errors. I want to
-      update the links to refer to the intended destinations.
+     Example:
+       In some sections of the Yocto Manual for kirkstone, links to external
+       webpages are not working, they return 404 not found errors. I want to
+       update the links to refer to the intended destinations.
 
    - This allows the maintainers to understand your intentions. Having the
      context in mind it is easier to evaluate the changes you introduced to the
@@ -53,15 +51,14 @@ to contribute to this documentation.
      not a good idea. After all they are also human.
 
    - Opening a pull request is the preferred solution for adding changes to the
-     project. The section :ref:`Open a Pull Request <open-pull-request>`
-     explains how to open a pull request in detail.
+     project. The section `Open a Pull Request`_ explains how to open a pull
+     request in detail.
 
-   .. note::
-
-      We use GitHub Actions to validate some basic syntax conventions and
-      styleguides. Make sure you fulfill the conditions, otherwise your changes
-      will not be merged. See the :ref:`Conventions <contributing-conventions>`
-      section for more information.
+     Note:
+       We use GitHub Actions to validate some basic syntax conventions and
+       styleguides. Make sure you fulfill the conditions until all checks are
+       passing. You can change your PR by force-pushing changes to your branch.
+       See the Conventions_ section for more information.
 
 -  **Issues**
 
@@ -75,8 +72,6 @@ to contribute to this documentation.
      about. For example if you have a problem regarding the project and do not
      know a solution.
 
-
-.. _contributing-conventions:
 
 Conventions
 -----------
@@ -93,7 +88,7 @@ concise heading.
 Indenting
 .........
 
-Use indent width is of 3 spaces. Tabs are not allowed.
+Use an indent width of 3 spaces. Tabs are not allowed.
 
 Headings
 ........
@@ -123,6 +118,68 @@ For this project, headings are to be used in the following order::
 
    For now the deepest nesting allowed is 4 levels.
 
+Formatting of literal Text and Code Blocks
+..........................................
+
+Literal Text and Code Blocks will be formatted in a ``code-block`` environment.
+The code-block environment can be configured, depending on the existence of a
+posix compliant prompt, language of a source code snippet or whether
+substitutions are used.
+
+-  **Bootloader and literal descriptions without prompt**
+
+   - When explaining bootloader outputs or literal description, use the
+     ``code-block`` directive without any options.
+
+     .. code-block::
+
+        .. code-block::
+
+           u-boot=> printenv ipaddr serverip netmask
+
+     .. code-block::
+
+        .. code-block::
+
+           eth0: 192.168.3.11/24
+
+-  **Commands with host or target prompt**
+
+   - For visualizing host or target prompts, the ``console`` keyword can be
+     used. This adds prompt highlighting and improves the appearance of the
+     visualized commands.
+
+     .. code-block::
+
+        .. code-block:: console
+
+           target:~$ systemctl enable qtphy
+
+-  **Source Code or KConfig Examples**
+
+   - Add syntax highlighting if a source code is visualized.
+
+     .. code-block::
+
+        .. code-block:: kconfig
+
+           CONFIG_TARGET_PHYCORE_IMX8MP=y
+           CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+           # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+
+-  **Adding Substitutions**
+
+   - Substitutions are implemented via the Sphinx extension
+     ``sphinx_substitution_extensions`` and have to be enabled for each
+     code-block manually.
+
+     .. code-block::
+
+        .. code-block:: console
+           :substitutions:
+
+           host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+
 
 Important Tasks When Extending the Documentation
 ------------------------------------------------
@@ -142,7 +199,7 @@ Inserting Blanks
 If there is a paragraph that is in the middle of some include file, but is only
 used by a certain leaf file, it is possible to insert blank substitutions i.e.
 skip the text for most manuals but insert the text for a specific manual.
-This can be done with `.. |subname| replace:: \\`.
+This can be done with ``.. |subname| replace:: \\``.
 
 Example:
 The i.MX 8M Plus has 2 ethernet interfaces while Mini and Nano only have one.
@@ -201,19 +258,17 @@ the final html documentation.
 Quickstart for Creation of a New BSP Manual
 ...........................................
 
-1. Read the previous subsections of the :ref:`Getting Started
-   <contribute-getting-started>` section
+1. Read the previous subsections of the `Getting started`_ section
 2. Have a look at the template.rst file located in the source/bsp/ folder.
 3. Create new (sub) directory structure in the source/bsp directory for the
    family of SoC and copy
    the template file to a fitting directory.
-4. Add the newly created file/directory to the toctree via the .. toctree::
+4. Add the newly created file/directory to the toctree via the ``.. toctree::``
    directive
 
-.. hint::
-
-   Make sure to use a ==== headline in each file you added containing a toctree
-   otherwise the final manual will not show up in the html toctree.
+   Hint:
+     Make sure to use a ==== headline in each file you added containing a
+     toctree otherwise the final manual will not show up in the html toctree.
 
 5. Fill out the substitutions in the template.
 6. Add the tuple for the <release>.rst file in the conf.py file to
@@ -263,7 +318,7 @@ Organization:
    into e.g. one per section)
 
 -  Improve quality control for manuals. Due to the nature of contributing
-   content on GitHub, at least 2 other people need to approve a pull request
+   content on GitHub, at least 1 other person need to approve a pull request
    and thus approve the content being added to a manual.
 
 
@@ -274,8 +329,6 @@ Unresolved Issues
    highlight substitution text in bold for only one case.
    https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#recognition-order
 
-
-.. _open-pull-request:
 
 Open a Pull Request
 ===================
