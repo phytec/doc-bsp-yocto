@@ -1,0 +1,45 @@
+name: Release
+# Build a release and attach the generated PDF as GitHub asset.
+# The release tag should be in the following format: imx8mx-pd23.1.0
+#
+# This action generates a draft release with generated pdfs for all platforms
+# and versions. The release has to be converted to a final release manuall via
+# GitHub:
+# - remove not required PDF files
+# - convert to final release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 15
+    steps:
+    - name: Clone repo
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+          sudo apt update
+          sudo apt install tox texlive-latex-extra texlive-xetex latexmk python3-pip -y
+          pip3 install -r requirements/setup.txt
+
+    - name: Build PDF Documentation
+      run: tox -e py3-pdf
+
+      ######## CREATE RELEASE and UPLOAD BUILD ARTIFACTS ########
+    - name: Extract tag name
+      run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        draft: true
+        prerelease: false
+        name: ${{ env.TAG_NAME }}
+        files: build/pdf/latex/*.pdf
