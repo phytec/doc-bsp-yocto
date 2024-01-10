@@ -35,13 +35,18 @@ TFTP Server Setup
    .. code-block:: console
 
       host:~$ sudo mkdir /srv/tftp
-      host:~$ sudo chmod -R 777 /srv/tftp
-      host:~$ sudo chown -R nobody /srv/tftp
 
-*  Then copy your BSP image files to this directory. You also need to configure a
-   static IP address for the appropriate interface. The default IP address of the
-   PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
-   with netmask 255.255.255.0 is a good choice.
+*  Then copy your BSP image files to this directory and make sure other users have read
+   access to all the files in the tftp directory, otherwise they are not accessible
+   from the target.
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  You also need to configure a static IP address for the appropriate interface.
+   The default IP address of the PHYTEC evaluation boards is 192.168.3.11. Setting
+   a host address 192.168.3.10 with netmask 255.255.255.0 is a good choice.
 
    .. code-block:: console
 
@@ -148,12 +153,12 @@ Place Images on Host for Netboot
 
       host:~$ cp *.dtbo /srv/tftp
 
-*  Make sure you have read and write access to all the files in the tftp directory,
+*  Make sure other users have read access to all the files in the tftp directory,
    otherwise they are not accessible from the target:
 
    .. code-block:: console
 
-      host:~$ sudo chmod -R +r /srv/tftp
+      host:~$ sudo chmod -R o+r /srv/tftp
 
 *  Extract the rootfs to your nfs directory:
 
