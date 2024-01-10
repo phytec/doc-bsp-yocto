@@ -7,7 +7,6 @@ Welcome to the Documentation for our Yocto BSPs.
    :maxdepth: 1
    :caption: Contents
 
-   devtools/hostsetup
    yocto/manual-index
    bsp/imx8/imx8
 
