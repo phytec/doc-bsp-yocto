@@ -1137,15 +1137,19 @@ following tools will be needed to boot the Kernel from Ethernet:</p>
 <ul>
 <li><p>First, create a directory to store the TFTP files:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/tftp
-<span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>/srv/tftp
-<span class="gp">host:~$ </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
 </li>
-<li><p>Then copy your BSP image files to this directory. You also need to configure a
-static IP address for the appropriate interface. The default IP address of the
-PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10
-with netmask 255.255.255.0 is a good choice.</p>
+<li><p>Then copy your BSP image files to this directory and make sure other users have read
+access to all the files in the tftp directory, otherwise they are not accessible
+from the target.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span>o+r<span class="w"> </span>/srv/tftp
+</pre></div>
+</div>
+</li>
+<li><p>You also need to configure a static IP address for the appropriate interface.
+The default IP address of the PHYTEC evaluation boards is 192.168.3.11. Setting
+a host address 192.168.3.10 with netmask 255.255.255.0 is a good choice.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>&lt;network-interface&gt;
 </pre></div>
 </div>
@@ -1243,9 +1247,9 @@ directory is exported and the “lab network” address of the development host 
 </pre></div>
 </div>
 </li>
-<li><p>Make sure you have read and write access to all the files in the tftp directory,
+<li><p>Make sure other users have read access to all the files in the tftp directory,
 otherwise they are not accessible from the target:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span>+r<span class="w"> </span>/srv/tftp
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span>o+r<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
 </li>
