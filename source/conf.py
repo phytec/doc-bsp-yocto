@@ -102,7 +102,7 @@ latex_documents = [
         'manual',
         False,
     ),
-    ('bsp/imx8/imx8mp/pd22.1.1', 'imx8mp-pd22.1.1.tex', 'L-1017e.A5 i.MX 8M Plus BSP Manual',
+    ('bsp/imx8/imx8mp/pd22.1.1', 'imx8mp-pd22.1.1.tex', 'i.MX 8M Plus BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,),
     (
         'bsp/imx8/imx8mm/head',
@@ -112,7 +112,7 @@ latex_documents = [
         'manual',
         False,
     ),
-    ('bsp/imx8/imx8mm/pd22.1.1', 'imx8mm-pd22.1.1.tex', 'L-1002e.A5 i.MX 8M Mini BSP Manual',
+    ('bsp/imx8/imx8mm/pd22.1.1', 'imx8mm-pd22.1.1.tex', 'i.MX 8M Mini BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,),
     (
         'bsp/imx8/imx8mn/head',
@@ -122,7 +122,7 @@ latex_documents = [
         'manual',
         False,
     ),
-    ('bsp/imx8/imx8mn/pd22.1.1', 'imx8mn-pd22.1.1.tex', 'L-1002e.A5 i.MX 8M Nano BSP Manual',
+    ('bsp/imx8/imx8mn/pd22.1.1', 'imx8mn-pd22.1.1.tex', 'i.MX 8M Nano BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,
     ),
 ]
