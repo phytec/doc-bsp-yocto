@@ -14,7 +14,6 @@
 
 .. General Substitutions
 .. |atfloadaddr| replace:: 0x970000
-.. |doc-id| replace:: L-1017e.A5
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux
@@ -98,22 +97,17 @@
 .. |mcore-sdk-version| replace:: 2.13.0
 
 +-----------------------+----------------------+
-| |doc-id| |soc| BSP    |                      |
-| Manual                |                      |
+| |soc| BSP Manual                             |
 +-----------------------+----------------------+
-| Document Title        | |doc-id| |soc| BSP   |
-|                       | Manual               |
+| Document Title        | |soc| BSP Manual     |
 +-----------------------+----------------------+
 | Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Article Number        | |doc-id|             |
 +-----------------------+----------------------+
 | Yocto Manual          |                      |
 +-----------------------+----------------------+
 | Release Date          | 2023/05/25           |
 +-----------------------+----------------------+
-| Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Manual               |
+| Is Branch of          | |soc| BSP Manual     |
 +-----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
