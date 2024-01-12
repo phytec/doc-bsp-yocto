@@ -1,39 +1,28 @@
 .. Download links
 
-.. General Replacements
-.. |doc-art-no| replace:: L813e.Ax
-
 .. Yocto
-.. |yocto-codename| replace:: kirkstone
-.. |yocto-ref-manual| replace:: |doc-art-no| Yocto Reference Manual
+.. |yocto-codename| replace:: Mickledore
+.. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
 
-+---------------------------------------------------------------+
-| |yocto-ref-manual|                                            |
-+=======================+=======================================+
-| Document Title        | |yocto-ref-manual| HEAD               |
-+-----------------------+---------------------------------------+
-| Document Type         | Yocto Manual                          |
-+-----------------------+---------------------------------------+
-| Article Number        | |doc-art-no|                          |
-+-----------------------+---------------------------------------+
-| Release Date          | XXXX/XX/XX                            |
-+-----------------------+---------------------------------------+
-| Is Branch of          | L-813e.Ax Yocto Reference Manual HEAD |
-+-----------------------+---------------------------------------+
++-------------------------------------------------------------+
+| |yocto-ref-manual|                                          |
++=======================+=====================================+
+| Document Title        | |yocto-ref-manual| |yocto-codename| |
++-----------------------+-------------------------------------+
+| Document Type         | Yocto Manual                        |
++-----------------------+-------------------------------------+
+| Release Date          | XXXX/XX/XX                          |
++-----------------------+-------------------------------------+
+| Is Branch of          | |yocto-ref-manual|                  |
++-----------------------+-------------------------------------+
 
-+-------------------+-----------------+-----------------+------------+
-| Compatible BSPs   | BSP Release     | BSP Release     | BSP Status |
-|                   | Type            | Date            |            |
-+===================+=================+=================+============+
-| BSP\              | Major           | 14.12.2022      | released   |
-| -Yocto-Ampliphy\  |                 |                 |            |
-| -i.MX6-PD22.1.0   |                 |                 |            |
-+-------------------+-----------------+-----------------+------------+
-| BSP\              | Major           | 11.08.2022      | released   |
-| -Yocto-Ampliphy\  |                 |                 |            |
-| -i.MX6UL-PD22.1.0 |                 |                 |            |
-+-------------------+-----------------+-----------------+------------+
++----------------------------------+------------------+------------------+-------------+
+| Compatible BSPs                  | BSP Release Type | BSP Release Date | BSP Status  |
++==================================+==================+==================+=============+
+| BSP-Yocto-NXP-i.MX93-PD24.1.0    | Major            | xx.xx.xxxx       | in planning |
++----------------------------------+------------------+------------------+-------------+
+
 
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
@@ -84,7 +73,7 @@ Yocto is the smallest SI metric system prefix. Like milli equates to ``m =
 10^-3``, and so is yocto ``y = 10^-24``. Yocto is also a project working group
 of the `Linux Foundation <https://www.linuxfoundation.org/>`_ and therefore
 backed up by several major companies in the field. On the `Yocto Project website
-<http://www.yoctoproject.org/>`_ you can read the official introduction:
+<https://www.yoctoproject.org/>`_ you can read the official introduction:
 
    The Yocto Project is an open-source collaboration project that provides
    templates, tools, and methods to help you create custom Linux-based systems
@@ -166,7 +155,7 @@ You can add one or many layers of each category in your build.
 
 A collection of OpenEmbedded layers can be found here. The search function is
 very helpful to see if a software package can be retrieved and integrated
-easily: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+easily: https://layers.openembedded.org/layerindex/branch/mickledore/layers/
 
 Machine
 .......
@@ -198,7 +187,7 @@ Bitbake
 *Bitbake* is the task scheduler. It is written in *Python* and interprets
 recipes that contain code in *Bitbake's* own programming language, *Python*, and
 bash code. The official documentation can be found here:
-https://docs.yoctoproject.org/bitbake/2.0/index.html
+https://docs.yoctoproject.org/bitbake/2.4/index.html
 
 Toaster
 .......
@@ -209,20 +198,20 @@ There are several use cases where the installation and maintenance of
 a *Toaster* instance are beneficial. PHYTEC did not add or remove any features
 to the upstream *Toaster*, provided by *Poky*. The best source for more
 information is the official documentation:
-https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html
+https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html
 
 Official Documentation
 ----------------------
 
 For more general questions about *Bitbake* and *Poky* consult the mega-manual:
-https://docs.yoctoproject.org/4.0.6/singleindex.html
+https://docs.yoctoproject.org/4.2.4/singleindex.html
 
 Compatible Linux Distributions
 ==============================
 
 To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
-https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions
+https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions
 
 PHYTEC BSP Introduction
 =======================
@@ -331,7 +320,7 @@ meta-phytec
 
 This layer contains all machines and common features for all our BSPs. It is
 PHYTEC's `Yocto Board Support Package
-<https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ for all supported
+<https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ for all supported
 hardware (since *fido*) and is designed to be standalone with *Poky*. Only these
 two parts are required if you want to integrate the PHYTEC's hardware into your
 existing *Yocto* workflow. The features are:
@@ -352,7 +341,7 @@ configuration of *Poky* with software projects described by all the other BSP
 components. It provides a base for your specific development scenarios. The
 current features are:
 
--  `systemd <http://www.freedesktop.org/wiki/Software/systemd/>`_ init system
+-  `systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ init system
 -  Images: ``phytec-headless-image`` for non-graphics applications
 -  Camera integration with OpenCV and GStreamer examples for the i.MX 6 platform
    bundled in a ``phytec-vision-image``
@@ -364,7 +353,7 @@ meta-qt6-phytec
 
 This is our layer for Qt6 board integration and examples. The features are:
 
--  `Qt6 with eglfs backend <http://doc.qt.io/qt-5/embedded-linux.html>`_ for
+-  `Qt6 with eglfs backend <https://doc.qt.io/qt-5/embedded-linux.html>`_ for
    PHYTEC's AM335x, i.MX 6 and RK3288 platforms
 -  Images: ``phytec-qt6demo-image`` for *Qt6* and video applications
 -  A *Qt6* demo application demonstrating how to create a *Qt6* project using
@@ -442,7 +431,7 @@ The BSP content gets pulled from different online sources when you first start
 using *Bitbake*. All files will be downloaded and cloned in a local directory
 configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete
 content, those sources have to be backed up, too. How you can do this will be
-explained in the chapter :ref:`gen-source-mirrors`.
+explained in the chapter :ref:`mickledore_gen-source-mirrors`.
 
 Build Configuration
 -------------------
@@ -491,32 +480,34 @@ powerful machine since a lot of compiling will need to be done.
 If you want to use a build-container, you only need to install following
 packages on your host::
 
-   host$ sudo apt install wget git
+   host:~$ sudo apt install wget git
 
-Continue with the next step :ref:`git-config` after that. The documentation for
+Continue with the next step :ref:`mickledore_git-config` after that. The documentation for
 using build-container can be found in this manual after
-:ref:`phylinux-advanced-usage` of phyLinux.
+:ref:`mickledore_phylinux-advanced-usage` of phyLinux.
 
-Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu
-20.04* you need::
+Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu* you need::
 
-   host$ sudo apt install gawk wget git diffstat unzip texinfo \
+   host:~$ sudo apt install gawk wget git diffstat unzip texinfo \
          gcc build-essential chrpath socat cpio python3 python3-pip \
          python3-pexpect xz-utils debianutils iputils-ping python3-git \
-         python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm \
-         python3-subunit mesa-common-dev zstd liblz4-tool
+         python3-jinja2 libegl1-mesa libsdl1.2-dev \
+         python3-subunit mesa-common-dev zstd liblz4-tool file locales
+
 
 For other distributions you can find information in the *Yocto* Quick Build:
-https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html
+https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html
 
-.. _git-config:
+.. _mickledore_git-config:
 
 Git Configuration
 -----------------
 
 The BSP heavily utilizes *Git*. *Git* needs some information from
 you as a user to identify who made changes. Create a ``~/.gitconfig`` with the
-following content, if you do not have one::
+following content, if you do not have one
+
+.. code-block:: kconfig
 
    [user]
        name = <Your Name>
@@ -539,10 +530,12 @@ following content, if you do not have one::
 
 You should set ``name`` and ``email`` in your *Git* configuration, otherwise,
 *Bitbake* will complain during the first build. You can use the two commands to
-set them directly without editing ``~/.gitconfig`` manually::
+set them directly without editing ``~/.gitconfig`` manually
 
-   host$ git config --global user.email "your_email@example.com"
-   host$ git config --global user.name "name surname"
+.. code-block:: console
+
+   host:~$ git config --global user.email "your_email@example.com"
+   host:~$ git config --global user.name "name surname"
 
 site.conf Setup
 ---------------
@@ -558,17 +551,21 @@ this to a common shared location on the machine. Create this directory with 777
 access rights. To share this directory with different users, all files need to
 have group write access. This will most probably be in conflict with default
 *umask* settings. One possible solution would be to use ACLs for this
-directory::
+directory
 
-   host$ sudo apt-get install acl
-   host$ sudo setfacl -R -d -m g::rwx <dl_dir>
+.. code-block:: console
+
+   host:~$ sudo apt-get install acl
+   host:~$ sudo setfacl -R -d -m g::rwx <dl_dir>
 
 If you have already created a download directory and want to fix the permissions
-afterward, you can do so with::
+afterward, you can do so with
 
-   host$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
-   host$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
-   host$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
+.. code-block:: console
+
+   host:~$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
+   host:~$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
+   host:~$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
 
 The cache directory stores all stages of the build process. *Poky* has quite an
 involved caching infrastructure. It is advisable to create a shared directory,
@@ -581,7 +578,9 @@ space and assign the two variables in your ``build/conf/local.conf``::
    SSTATE_DIR ?= "<your_directory>/yocto_sstate"
 
 If you want to know more about configuring your build, see the documented
-example settings::
+example settings
+
+.. code-block::
 
    sources/poky/meta-yocto/conf/local.conf.sample
    sources/poky/meta-yocto/conf/local.conf.sample.extended
@@ -611,11 +610,15 @@ https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
 Basic Usage
 -----------
 
-For the basic usage of phyLinux, type::
+For the basic usage of phyLinux, type
 
-   host$ ./phyLinux --help
+.. code-block:: console
 
-which will result in::
+   host:~$ ./phyLinux --help
+
+which will result in
+
+.. code-block::
 
    usage: phyLinux [-h] [-v] [--verbose] {init,info,clean} ...
 
@@ -637,20 +640,26 @@ which will result in::
 Initialization
 --------------
 
-Create a fresh project folder::
+Create a fresh project folder
 
-   host$ mkdir ~/yocto
+.. code-block:: console
+
+   host:~$ mkdir ~/yocto
 
 Calling phyLinux will use the default Python version. Starting with Ubuntu 20.04
 it will be Python3. If you want to initiate a BSP, which is not compatible with
 Python3, you need to set Python2 as default (temporarily) before running
-phyLinux::
+phyLinux
 
-   host$ ln -s \`which python2\` python && export PATH=`pwd`:$PATH
+.. code-block:: console
 
-Now run phyLinux from the new folder::
+   host:~$ ln -s \`which python2\` python && export PATH=`pwd`:$PATH
 
-   host$ ./phyLinux init
+Now run phyLinux from the new folder
+
+.. code-block:: console
+
+   host:~$ ./phyLinux init
 
 A clean folder is important because phyLinux will clean its working directory.
 Calling phyLinux from a directory that isn't empty will result in the following
@@ -667,136 +676,90 @@ Calling phyLinux from a directory that isn't empty will result in the following
 On the first initialization, the phyLinux script will ask you to install the
 *Repo* tool in your */usr/local/bin* directory. During the execution of the
 *init* command, you need to choose your processor platform (SoC), PHYTEC's BSP
-release number, and the hardware you are working on::
+release number, and the hardware you are working on
+
+.. code-block::
 
    ***************************************************
    * Please choose one of the available SoC Platforms:
    *
    *   1: am335x
-   *   2: am62x
-   *   3: am64x
-   *   4: imx6
-   *   5: imx6ul
-   *   6: imx7
-   *   7: imx8
-   *   8: imx8m
-   *   9: imx8mm
-   *   10: imx8mp
-   *   11: nightly
-   *   12: rk3288
-   *   13: stm32mp1
-   *   14: topic
+   *   2: am57x
+   *   3: am62ax
+   *   4: am62x
+   *   5: am64x
+   *   6: am68x
+   *   7: imx6
+   *   8: imx6ul
+   *   9: imx7
+   *   10: imx8
+   *   11: imx8m
+   *   12: imx8mm
+   *   13: imx8mp
+   *   14: imx8x
+   *   15: imx93
+   *   16: nightly
+   *   17: rk3288
+   *   18: stm32mp13x
+   *   19: stm32mp15x
+   *   20: topic
 
-   # Exemplary output for chosen imx6  ***************************************************
+   # Exemplary output for chosen imx93
+   ***************************************************
    * Please choose one of the available Releases:
    *
-   *   1: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc1
-   *   2: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc2
-   *   3: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc3
-   *   4: BSP-Yocto-Ampliphy-i.MX6-PD21.1.0
-   *   5: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1-rc1
-   *   6: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
-   *   7: BSP-Yocto-Ampliphy-i.MX6-PD21.1.y
-   *   8: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc1
-   *   9: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc2
-   *   10: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc3
-   *   11: BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
-   *   12: BSP-Yocto-Ampliphy-i.MX6-PD22.1.y
-   *   13: BSP-Yocto-i.MX6-PD14.2-rc1
-   *   14: BSP-Yocto-i.MX6-PD14.2-rc2
-   *   15: BSP-Yocto-i.MX6-PD14.2-rc3
-   *   16: BSP-Yocto-i.MX6-PD15.1-rc1
-   *   17: BSP-Yocto-i.MX6-PD15.1-rc2
-   *   18: BSP-Yocto-i.MX6-PD15.1.0
-   *   19: BSP-Yocto-i.MX6-PD15.1.1
-   *   20: BSP-Yocto-i.MX6-PD15.1.2
-   *   21: BSP-Yocto-i.MX6-PD15.2-rc1
-   *   22: BSP-Yocto-i.MX6-PD15.2.0
-   *   23: BSP-Yocto-i.MX6-PD15.3-rc1
-   *   24: BSP-Yocto-i.MX6-PD15.3-rc2
-   *   25: BSP-Yocto-i.MX6-PD15.3.0
-   *   26: BSP-Yocto-i.MX6-PD15.3.1
-   *   27: BSP-Yocto-i.MX6-PD16.1-rc1
-   *   28: BSP-Yocto-i.MX6-PD16.1-rc2
-   *   29: BSP-Yocto-i.MX6-PD16.1.0
-   *   30: BSP-Yocto-i.MX6-PD16.1.1
-   *   31: BSP-Yocto-i.MX6-PD16.1.2-rc1
-   *   32: BSP-Yocto-i.MX6-PD16.1.2
-   *   33: BSP-Yocto-i.MX6-PD18.1-rc4
-   *   34: BSP-Yocto-i.MX6-PD18.1.0
-   *   35: BSP-Yocto-i.MX6-PD18.1.1-rc1
-   *   36: BSP-Yocto-i.MX6-PD18.1.1-rc2
-   *   37: BSP-Yocto-i.MX6-PD18.1.1
-   *   38: BSP-Yocto-i.MX6-PD18.1.2-rc1
-   *   39: BSP-Yocto-i.MX6-PD18.1.2-rc2
-   *   40: BSP-Yocto-i.MX6-PD18.1.2-rc3
-   *   41: BSP-Yocto-i.MX6-PD18.1.2
-   *   42: BSP-Yocto-i.MX6-PD20.1-rc1
-   *   43: BSP-Yocto-i.MX6-PD20.1-rc2
-   *   44: BSP-Yocto-i.MX6-PD20.1-rc3
-   *   45: BSP-Yocto-i.MX6-PD20.1.0
+   *   1: BSP-Yocto-NXP-i.MX93-ALPHA1
 
-   # Exemplary output for chosen BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-ALPHA1
    *********************************************************************
    * Please choose one of the available builds:
    *
-   no:        machine: description and article number
-                       distro: supported yocto distribution
-                       target: supported build target
+   no:                 machine: description and article number
+                                distro: supported yocto distribution
+                                target: supported build target
 
-    1: phyboard-mira-imx6-14: PHYTEC phyBOARD-Mira full-featured i.MX6 DualLite
-                       1GiB RAM, 4GiB eMMC
-                       PBA-C-06-002.A2, PCM-058-30242C0X.A0
-                       distro: ampliphy
-                       target: phytec-qt6demo-image
-    2: phyboard-mira-imx6-15: PHYTEC phyBOARD-Mira full-featured i.MX6 Solo
-                       256MiB RAM, NAND
-                       PBA-C-06-002.A2, PCM-058-12000D0C.A4
-                       distro: ampliphy
-                       target: phytec-headless-image
-    3: phyboard-mira-imx6-3: PHYTEC phyBOARD-Mira full-featured i.MX6 Quad
-                       1GiB RAM, NAND
-                       PB-01501-002.A2, PBA-C-06-002.A2, PCM-058-33230C0I.A3
-                       distro: ampliphy
-                       target: -c populate_sdk phytec-qt6demo-image
-                       target: barebox-hosttools-native
-                       target: phytec-qt6demo-image
-   ...
-   19: phyflex-imx6-2: PHYTEC phyFLEX-i.MX6 Quad PBA-B-01
-                       1GiB RAM one bank, 16MiB SPI-NOR
-                       PFL-A-02-13237E0.A1
-                       distro: ampliphy-xwayland
-                       target: phytec-vision-image
-   20: phyflex-imx6-8: PHYTEC phyFLEX-i.MX6 Solo PBA-B-01
-                       512MiB RAM one bank, no SPI-NOR
-                       PFL-A-02-0200541.A0
-                       distro: ampliphy
-                       target: phytec-qt6demo-image
+   1: phyboard-segin-imx93-1: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC
+                              PB-02029-010I, PCL-077-11231010I
+                              distro: ampliphy-vendor
+                              target: phytec-headless-image
+   2: phyboard-segin-imx93-1: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC
+                              PB-02029-010I, PCL-077-11231010I
+                              distro: ampliphy-vendor-wayland
+                              target: phytec-qt6demo-image
 
 If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. After the configuration is done,
-you can always run::
+you can always run
 
-   host$ ./phyLinux info
+.. code-block:: console
+
+   host:~$ ./phyLinux info
 
    # Exemplary output
    **********************************************
    * The current BSP configuration is:
    *
-   * SoC:  refs/heads/imx6
-   * Release:  BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+   * SoC:  refs/heads/imx93
+   * Release:  BSP-Yocto-NXP-i.MX93-ALPHA1
+   * Machine:  phyboard-segin-imx93-1
    *
    **********************************************
 
 to see which SoC and Release are selected in the current workspace. If
 you do not want to use the selector, phyLinux also supports command-line
-arguments for several settings::
+arguments for several settings
 
-   host$ MACHINE=phyboard-mira-imx6-3 ./phyLinux init -p imx6 -r BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+.. code-block:: console
 
-or view the help command for more information::
+   host:~$ MACHINE=phyboard-segin-imx93-1 ./phyLinux init -p imx93 -r BSP-Yocto-NXP-i.MX93-ALPHA1
 
-   host$ ./phyLinux  init --help
+or view the help command for more information
+
+.. code-block:: console
+
+   host:~$ ./phyLinux  init --help
 
    usage: phyLinux init [-h] [--verbose] [--no-init] [-o REPOREPO] [-b REPOREPO_BRANCH] [-x XML] [-u URL] [-p PLATFORM] [-r RELEASE]
 
@@ -814,25 +777,34 @@ or view the help command for more information::
 After the execution of the *init* command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.
 
-.. _phylinux-advanced-usage:
+.. _mickledore_phylinux-advanced-usage:
 
 Advanced Usage
 --------------
 
 phyLinux can be used to transport software states over any medium. The state of
 the software is uniquely identified by *manifest.xml*. You can create a
-manifest, send it to another place and recover the software state with::
+manifest, send it to another place and recover the software state with
 
-   host$ ./phyLinux init -x manifest.xml
+.. code-block:: console
+
+   host:~$ ./phyLinux init -x manifest.xml
 
 You can also create a *Git* repository containing your software states. The
 *Git* repository needs to have branches other than master, as we reserved the
-master branch for different usage. Use phyLinux to check out the states::
+master branch for different usage. Use phyLinux to check out the states
 
-   host$ ./phyLinux -u <url-of-your-git-repo>
+.. code-block:: console
+
+   host:~$ ./phyLinux -u <url-of-your-git-repo>
 
 Using build-container
 =====================
+
+.. warning::
+   Currently, it is not possible to run the phyLinux script inside of a container.
+   After a complete init with the phyLinux script on your host machine, you can use a container for the build.
+   If you do not have phyLinux script running on your machine, please see phyLinux Documentation.
 
 There are various possibilities to run a build-container. Commonly used is
 docker and podman, though we prefer podman as it does not need root privileges
@@ -842,7 +814,6 @@ Installation
 ------------
 
 How to install podman: https://podman.io
-
 How to install docker: https://docs.docker.com/engine/install/
 
 Available container
@@ -856,43 +827,80 @@ https://hub.docker.com/u/phybuilder
 -  yocto-ubuntu-20.04
 -  yocto-ubuntu-22.04
 
-These containers can be run with podman or docker.
+These containers can be run with podman or docker. With Yocto Project branch |yocto-codename| the container "yocto-ubuntu-20.04" is preferred.
 
 Download/Pull container
 -----------------------
 
-::
+.. code-block:: console
 
-   host$ podman pull phybuilder/yocto-ubuntu-22.04:phy1
+   host:~$ podman pull docker.io/phybuilder/yocto-ubuntu-20.04
 
-The added part "phy1" is a tag of the container and needed for
-pulling/downloading and running as well. You can find all available tags in our
-duckerhub space:
+   OR
+
+   host:~$ docker pull docker.io/phybuilder/yocto-ubuntu-20.04
+
+By adding a tag at the end separated by a colon, you can also pull or run a special tagged container.
+
+   podman pull docker.io/phybuilder/yocto-ubuntu-20.04:phy2
+
+You can find all available tags in our duckerhub space:
 
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-16.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-18.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags
 
-If you try to run a container, which is not pulled/downloaded, it will be
-pulled/downloaded automatically.
+If you try to run a container, which is not pulled/downloaded, it will be pulled/downloaded automatically.
+
+You can have a look at all downloaded/pulled container with:
+
+.. code-block:: console
+
+   $USERNAME@$HOSTNAME:~$ podman images
+   REPOSITORY                               TAG         IMAGE ID      CREATED       SIZE
+   docker.io/phybuilder/yocto-ubuntu-22.04  latest      d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy2        d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy2        e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  latest      e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  phy1        14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  latest      14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  phy1        28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  latest      28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy1        5a0ef4b41935  8 months ago  627 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy1        b5a26a86c39f  8 months ago  680 MB
 
 Run container
 -------------
 
 To run and use container for a Yocto build, first enter to your folder, where
-you run phyLinux init before. Then start the container::
+you run phyLinux init before. Then start the container
 
-   host$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it phybuilder/yocto-ubuntu-22.04:phy1 bash
+.. code-block:: console
+
+   host:~$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it docker.io/phybuilder/yocto-ubuntu-20.04 bash
+
+.. note::
+   To run and use a container with docker, it is not that simple like with podman.
+   Therefore the container-user has to be defined and configured.
+   Furthermore forwarding of credentials is not given per default and has to be configured as well.
 
 Now your commandline should look something like that (where $USERNAME is the
 user, who called "podman run" and the char/number code diffs every time a
-container is started)::
+container is started)
+
+.. code-block:: console
 
    $USERNAME@6593e2c7b8f6:~$
 
-Now you are ready to go on and starting the build. To stop/close the container,
-just call::
+.. warning::
+   If the given username is "root" you will not be able to run bitbake at all.
+   Please be sure, you run the container with your own user.
+
+Now you are ready to go on and starting the build.
+To stop/close the container, just call
+
+.. code-block:: console
 
    $USERNAME@6593e2c7b8f6:~$ exit
 
@@ -905,33 +913,43 @@ Start the Build
 After you download all the metadata with phyLinux init, you have to set up the
 shell environment variables. This needs to be done every time you open a new
 shell for starting builds. We use the shell script provided by *Poky* in its
-default configuration. From the root of your project directory type::
+default configuration. From the root of your project directory type
 
-   host$ source sources/poky/oe-init-build-env
+.. code-block:: console
 
-The abbreviation for the source command is a single dot::
+   host:~$ source sources/poky/oe-init-build-env
 
-   host$ . sources/poky/oe-init-build-env
+The abbreviation for the source command is a single dot
+
+.. code-block:: console
+
+   host:~$ . sources/poky/oe-init-build-env
 
 The current working directory of the shell should change to *build/*. Before
 building for the first time, you should take a look at the main configuration
-file::
+file
 
-   host$ vim conf/local.conf
+.. code-block:: console
+
+   host:~$ vim conf/local.conf
 
 Your local modifications for the current build are stored here. Depending on
 the SoC, you might need to accept license agreements. For example, to build the
 image for Freescale/NXP processors you need to accept the GPU and VPU binary
-license agreements. You have to uncomment the corresponding line::
+license agreements. You have to uncomment the corresponding line
+
+.. code-block:: kconfig
 
    # Uncomment to accept NXP EULA # EULA can be found under
    ../sources/meta-freescale/EULA ACCEPT_FSL_EULA = "1"
 
 Now you are ready to build your first image. We suggest starting with our
 smaller non-graphical image *phytec-headless-image* to see if everything is
-working correctly::
+working correctly
 
-   host$ bitbake phytec-headless-image
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image
 
 The first compile process takes about 40 minutes on a modern Intel Core i7. All
 subsequent builds will use the filled caches and should take about 3 minutes.
@@ -939,14 +957,18 @@ subsequent builds will use the filled caches and should take about 3 minutes.
 Images images
 -------------
 
-If everything worked, the images can be found under::
+If everything worked, the images can be found under
 
-   host$ cd deploy/images/<MACHINE>
+.. code-block:: console
+
+   host:~$ cd deploy/images/<MACHINE>
 
 The easiest way to test your image is to configure your board for SD card boot
-and to flash the build image to the SD card::
+and to flash the build image to the SD card
 
-   host$ sudo dd if=phytec-headless-image-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync
+.. code-block:: console
+
+   host:~$ sudo dd if=phytec-headless-image-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync
 
 Here <your_device> could be "sde", for example, depending on your system. Be
 very careful when selecting the right drive! Selecting the wrong drive can
@@ -955,7 +977,9 @@ to the device before dd returns.
 
 After booting you can log in using a serial cable or over *ssh*. There is no
 root password. That is because of the debug settings in *conf/local.conf*. If
-you uncomment the line::
+you uncomment the line
+
+.. code-block:: kconfig
 
    #EXTRA_IMAGE_FEATURES = "debug-tweaks"
 
@@ -967,14 +991,18 @@ Accessing the Development States between Releases
 Special release manifests exist to give you access to the current development
 states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
-command line::
+command line
 
-   host$ ./phyLinux init -p master -r kirkstone
+.. code-block:: console
+
+   host:~$ ./phyLinux init -p master -r mickledore
 
 This will initialize a BSP that will track the latest development state. From
-now on running::
+now on running
 
-   host$ repo sync
+.. code-block:: console
+
+   host:~$ repo sync
 
 this folder will pull all the latest changes from our Git repositories.
 
@@ -982,32 +1010,42 @@ Inspect your Build Configuration
 --------------------------------
 
 *Poky* includes several tools to inspect your build layout. You can inspect the
-commands of the layer tool::
+commands of the layer tool
 
-   host$ bitbake-layers
+.. code-block:: console
+
+   host:~$ bitbake-layers
 
 It can, for example, be used to view in which layer a specific recipe gets
-modified::
+modified
 
-   host$ bitbake-layers show-appends
+.. code-block:: console
+
+   host:~$ bitbake-layers show-appends
 
 Before running a build you can also launch *Toaster* to be able to inspect the
-build details with the Toaster web GUI::
+build details with the Toaster web GUI
 
-   host$ source toaster start
+.. code-block:: console
 
-Maybe you need to install some requirements, first::
+   host:~$ source toaster start
 
-   host$ pip3 install -r
+Maybe you need to install some requirements, first
+
+.. code-block:: console
+
+   host:~$ pip3 install -r
    ../sources/poky/bitbake/toaster-requirements.txt
 
 You can then point your browser to *http://0.0.0.0:8000/* and continue working
 with *Bitbake*. All build activity can be monitored and analyzed from this web
 server. If you want to learn more about *Toaster*, look at
-https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html
-To shut down the *Toaster* web GUI again, execute::
+https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html.
+To shut down the *Toaster* web GUI again, execute
 
-   host$ source toaster stop
+.. code-block:: console
+
+   host:~$ source toaster stop
 
 BSP Features of meta-phytec and meta-ampliphy
 ---------------------------------------------
@@ -1018,30 +1056,34 @@ BSP Features of meta-phytec and meta-ampliphy
 The *buildinfo* task is a feature in our recipes that prints instructions to
 fetch the source code from the public repositories. So you do not have to look
 into the recipes yourself. To see the instructions, e.g. for the *barebox*
-package, execute::
+package, execute
 
-   host$ bitbake barebox -c buildinfo
+.. code-block:: console
 
-in your shell. This will print something like::
+   host:~$ bitbake barebox -c buildinfo
+
+in your shell. This will print something like
+
+.. code-block::
 
    (mini) HOWTO: Use a local git repository to build barebox:
 
-   To get source code for this package and version (barebox-2018.11.0-phy2), execute
+   To get source code for this package and version (barebox-2022.02.0-phy1), execute
 
    $ mkdir -p ~/git
    $ cd ~/git
    $ git clone git://git.phytec.de/barebox barebox
    $ cd ~/git/barebox
-   $ git checkout -b v2018.11.0-phy2-local-development 9a40cd5eb3e5286f9c8ca186475380acf262f2ed
+   $ git checkout -b v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
 
    You now have two possible workflows for your changes:
 
    1. Work inside the git repository:
    Copy and paste the following snippet to your "local.conf":
 
-   SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
+   SRC_URI:pn-barebox = "git://${HOME}/git/barebox;branch=${BRANCH}"
    SRCREV:pn-barebox = "${AUTOREV}"
-   BRANCH:pn-barebox = "v2018.11.0-phy2-local-development"
+   BRANCH:pn-barebox = "v2022.02.0-phy1-local-development"
 
    After that you can recompile and deploy the package with
 
@@ -1052,12 +1094,12 @@ in your shell. This will print something like::
 
    2. Work and compile from the local working directory
    To work and compile in an external source directory we provide the
-   externalsrc.bbclass. To use it copy and paste the following snippet to your
+   externalsrc.bbclass. To use it, copy and paste the following snippet to your
    "local.conf":
 
    INHERIT += "externalsrc"
-   EXTERNALSRC_pn-barebox = "${HOME}/git/barebox"
-   EXTERNALSRC_BUILD_pn-barebox = "${HOME}/git/barebox/build"
+   EXTERNALSRC:pn-barebox = "${HOME}/git/barebox"
+   EXTERNALSRC_BUILD:pn-barebox = "${HOME}/git/barebox"
 
    Note: All the compiling is done in the EXTERNALSRC directory. Every time
    you build an Image, the package will be recompiled and build.
@@ -1074,19 +1116,25 @@ As you can see, everything is explained in the output.
    directory are automatically picked up by the build process and
    incorporated into the root filesystem or SD card image. You have to
    always use *--force*. E.g. to compile *barebox* and redeploy it to
-   *deploy/images/<machine>* execute::
+   *deploy/images/<machine>* execute
 
-      host$ bitbake barebox -c compile --force
-      host$ bitbake barebox -c deploy
+   .. code-block:: console
+
+      host:~$ bitbake barebox -c compile --force
+      host:~$ bitbake barebox -c deploy
 
 To update the SD card image with a new kernel or image first force the
-compilation of it and then force a rebuild of the root filesystem. Use::
+compilation of it and then force a rebuild of the root filesystem. Use
 
-   host$ bitbake phytec-qt6demo-image -c rootfs --force
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image -c rootfs --force
 
 Note that the build system is not modifying the external source directory. If
 you want to apply all patches the *Yocto* recipe is carrying to the external
-source directory, run the line::
+source directory, run the line
+
+.. code-block:: kconfig
 
    SRCTREECOVEREDTASKS="" BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_PASSTHROUGH_ADDITIONS SRCTREECOVEREDTASKS" bitbake <recipe> -c patch
 
@@ -1115,51 +1163,69 @@ Disable Qt Demo
 By default, the BSP image *phytec-qt6demo-image* starts a Qt6 Demo application
 on the attached display or monitor. If you want to stop the demo and use the
 *Linux* framebuffer console behind it, connect to the target via serial cable
-or *ssh* and execute the shell command::
+or *ssh* and execute the shell command
 
-   target$ systemctl stop phytec-qtdemo.service
+.. code-block:: console
+
+   target:~$ systemctl stop phytec-qtdemo.service
 
 This command stops the demo temporarily. To start it again, reboot the
-board or execute::
+board or execute
 
-   target$ systemctl start phytec-qtdemo.service
+.. code-block:: console
 
-You can disable the service permanently, so it does not start on boot::
+   target:~$ systemctl start phytec-qtdemo.service
 
-   target$ systemctl disable phytec-qtdemo.service
+You can disable the service permanently, so it does not start on boot
+
+.. code-block:: console
+
+   target:~$ systemctl disable phytec-qtdemo.service
 
 .. tip::
 
    The last command only disables the service. It does not *stop* immediately.
-   To see the current status execute::
+   To see the current status execute
 
-      target$ systemctl status phytec-qtdemo.service
+   .. code-block:: console
+
+      target:~$ systemctl status phytec-qtdemo.service
 
 If you want to disable the service by default, edit the file
-*build/conf/local.conf* and add the following line::
+*build/conf/local.conf* and add the following line
+
+.. code-block:: kconfig
 
    # file build/conf/local.conf
    SYSTEMD_AUTO_ENABLE:pn-phytec-qtdemo = "disable"
 
-After that, rebuild the image::
+After that, rebuild the image
 
-   host$ bitbake phytec-qt6demo-image
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image
 
 Framebuffer Console
 ...................
 
 On boards with a display interface, the framebuffer console is enabled per
 default. You can attach a USB keyboard and log in. To change the keyboard
-layout from the English default to German, type::
+layout from the English default to German, type
 
-   target$ loadkeys /usr/share/keymaps/i386/qwertz/de-latin1.map.gz
+.. code-block:: console
 
-To detach the framebuffer console, run::
+   target:~$ loadkeys /usr/share/keymaps/i386/qwertz/de-latin1.map.gz
 
-   target$ echo 0 > sys/class/vtconsole/vtcon1/bind
+To detach the framebuffer console, run
+
+.. code-block:: console
+
+   target:~$ echo 0 > sys/class/vtconsole/vtcon1/bind
 
 To completely deactivate the framebuffer console, disable the following kernel
-configuration option::
+configuration option
+
+.. code-block::
 
     Device Drivers->Graphics Support->Support for framebuffer devices->Framebuffer Console Support
 
@@ -1180,31 +1246,39 @@ space left on the device for the log files. We also lower the level of the
 benchmark to ask the kernel more aggressively for resources. The benchmark test
 will take several hours.
 
-To start the test type::
+To start the test type
 
-   target$ nice -n -2 pmbw
+.. code-block:: console
+
+   target:~$ nice -n -2 pmbw
 
 Upon completion of the test run, the log file can be converted to a *gnuplot*
-script with::
+script with
 
-   target$ stats2gnuplot stats.txt > run1.gnuplot
+.. code-block:: console
+
+   target:~$ stats2gnuplot stats.txt > run1.gnuplot
 
 Now you can transfer the file to the host machine and install any version of
-*gnuplot*::
+*gnuplot*
 
-   host$ sudo apt-get install gnuplot host$ gnuplot run1.gnuplot
+.. code-block:: console
+
+   host:~$ sudo apt-get install gnuplot host:~$ gnuplot run1.gnuplot
 
 The generated *plots-<machine>.pdf* file contains all plots. To render single
-plots as *png* files for any web output you can use *Ghostscript*::
+plots as *png* files for any web output you can use *Ghostscript*
 
-   host$ sudo apt-get install ghostscript
-   host$ gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r150 -sOutputFile='page-%00d.png' plots-phyboard-wega-am335x-1.pdf
+.. code-block:: console
+
+   host:~$ sudo apt-get install ghostscript
+   host:~$ gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r150 -sOutputFile='page-%00d.png' plots-phyboard-wega-am335x-1.pdf
 
 Add Additional Software for the BSP Image
 .........................................
 
 To add additional software to the image, look at the OpenEmbedded layer index:
-https://layers.openembedded.org/layerindex/branch/kirkstone/layers/
+https://layers.openembedded.org/layerindex/branch/mickledore/layers/
 
 First, select the *Yocto* version of the BSP you have from the drop-down list in
 the top left corner and click **Recipes**. Now you can search for a software
@@ -1214,20 +1288,28 @@ is already in your build tree. This section describes how to add additional
 software when this is the case. If the package is in another layer, see the next
 section.
 
-You can also search the list of available recipes::
+You can also search the list of available recipes
 
-   host$ bitbake -s | grep <program name> # fill in program name, like in
-   host$ bitbake -s | grep lsof
+.. code-block:: console
+
+   host:~$ bitbake -s | grep <program name> # fill in program name, like in
+   host:~$ bitbake -s | grep lsof
 
 When the recipe for the program is already in the *Yocto* build, you can simply
 add it by appending a configuration option to your file *build/conf/local.conf*.
-The general syntax to add additional software to an image is::
+The general syntax to add additional software to an image is
 
-   # file build/conf/local.conf IMAGE_INSTALL:append = " <package1> <package2>"
+.. code-block:: kconfig
 
-For example, the line::
+   # file build/conf/local.conf
+   IMAGE_INSTALL:append = " <package1> <package2>"
 
-   # file build/conf/local.conf IMAGE_INSTALL:append = " ldd strace file lsof"
+For example, the line
+
+.. code-block:: kconfig
+
+   # file build/conf/local.conf
+   IMAGE_INSTALL:append = " ldd strace file lsof"
 
 installs some helper programs on the target image.
 
@@ -1254,8 +1336,8 @@ If you can not find your software in the layers provided in the folder
 *sources*, see the next section to include another layer into the *Yocto*
 build.
 
-References: `Yocto 4.0.6 Documentation - Customizing Yocto builds
-<https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_
+References: `Yocto 4.2.4 Documentation - Customizing Yocto builds
+<https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_
 
 Add an Additional Layer
 .......................
@@ -1264,38 +1346,46 @@ This is a step-by-step guide on how to add another layer to your *Yocto* build
 and install additional software from it. As an example, we include the network
 security scanner *nmap* in the layer *meta-security*. First, you must locate the
 layer on which the software is hosted. Check out the `OpenEmbedded MetaData
-Index <https://layers.openembedded.org/layerindex/branch/kirkstone/layers/>`_
+Index <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_
 and guess a little bit. The network scanner *nmap* is in the *meta-security*
 layer. See `meta-security on layers.openembedded.org
-<http://layers.openembedded.org/layerindex/branch/kirkstone/layer/meta-security/>`_.
+<https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_.
 To integrate it into the *Yocto* build, you have to check out the repository and
 then switch to the correct stable branch. Since the BSP is based on the *Yocto*
 'sumo' build, you should try to use the 'sumo' branch in the layer, too.
 
-::
+.. code-block:: console
 
-   host$ cd sources
-   host$ git clone git://git.yoctoproject.org/meta-security
-   host$ cd meta-security
-   host$ git branch -r
+   host:~$ cd sources
+   host:~$ git clone git://git.yoctoproject.org/meta-security
+   host:~$ cd meta-security
+   host:~$ git branch -r
 
 All available remote branches will show up. Usually there should be 'fido',
-'jethro', 'krogoth', 'master', ...::
+'jethro', 'krogoth', 'master', ...
 
-   host$ git checkout kirkstone
+.. code-block:: console
+
+   host:~$ git checkout mickledore
 
 Now we add the directory of the layer to the file *build/conf/bblayers.conf* by
-appending the line::
+appending the line
+
+.. code-block:: kconfig
 
    # file build/conf/bblayers.conf
    BBLAYERS += "${BSPDIR}/sources/meta-security"
 
 to the end of the file. After that, you can check if the layer is available in
-the build configuration by executing::
+the build configuration by executing
 
-   host$ bitbake-layers show-layers
+.. code-block:: console
 
-If there is an error like::
+   host:~$ bitbake-layers show-layers
+
+If there is an error like
+
+.. code-block::
 
    ERROR: Layer 'security' depends on layer 'perl-layer', but this layer is not enabled in your configuration
 
@@ -1303,7 +1393,9 @@ the layer that you want to add (here *meta-security*), depends on another layer,
 which you need to enable first. E.g. the dependency required here is a layer in
 *meta-openembedded* (in the PHYTEC BSP it is in the path
 *sources/meta-openembedded/meta-perl/*). To enable it, add the following line to
-*build/conf/bblayers.conf*::
+*build/conf/bblayers.conf*
+
+.. code-block:: kconfig
 
    # file build/conf/bblayers.conf
    BBLAYERS += "${BSPDIR}/sources/meta-openembedded/meta-perl"
@@ -1311,14 +1403,18 @@ which you need to enable first. E.g. the dependency required here is a layer in
 Now the command *bitbake-layers show-layers* should print a list of all layers
 enabled including *meta-security* and *meta-perl*. After the layer is included,
 you can install additional software from it as already described above. The
-easiest way is to add the following line (here is the package *nmap*)::
+easiest way is to add the following line (here is the package *nmap*)
+
+.. code-block:: kconfig
 
    # file build/conf/local.conf
    IMAGE_INSTALL:append = " nmap"
 
-to your *build/conf/local.conf*. Do not forget to rebuild the image::
+to your *build/conf/local.conf*. Do not forget to rebuild the image
 
-   host$ bitbake phytec-qt6demo-image
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image
 
 Create your own Layer create layer
 ..................................
@@ -1341,26 +1437,36 @@ will implement using our *Ampliphy Linux* distribution. First, we need to create
 a new layer.
 
 *Yocto* provides a script for that. If you set up the BSP and the shell is
-ready, type::
+ready, type
 
-   host$ bitbake-layers create-layer meta-racer
+.. code-block:: console
 
-Default options are fine for now. Move the layer to the source directory::
+   host:~$ bitbake-layers create-layer meta-racer
 
-   host$ mv meta-racer ../sources/
+Default options are fine for now. Move the layer to the source directory
 
-Create a *Git* repository in this layer to track your changes::
+.. code-block:: console
 
-   host$ cd ../sources/meta-racer
-   host$ git init && git add . && git commit -s
+   host:~$ mv meta-racer ../sources/
 
-Now you can add the layer directly to your build/conf/bblayers.conf::
+Create a *Git* repository in this layer to track your changes
+
+.. code-block:: console
+
+   host:~$ cd ../sources/meta-racer
+   host:~$ git init && git add . && git commit -s
+
+Now you can add the layer directly to your build/conf/bblayers.conf
+
+.. code-block:: kconfig
 
    BBLAYERS += "${BSPDIR}/sources/meta-racer"
 
-or with a script provided by *Yocto*::
+or with a script provided by *Yocto*
 
-   host$ bitbake-layers add-layer meta-racer
+.. code-block:: console
+
+   host:~$ bitbake-layers add-layer meta-racer
 
 Kernel and Bootloader Recipe and Version
 ........................................
@@ -1378,34 +1484,42 @@ The *Git* repositories URLs are:
 -  *barebox*: git://git.phytec.de/barebox
 -  *u-boot-imx*: git://git.phytec.de/u-boot-imx
 
-To find your kernel provider, execute the following command::
+To find your kernel provider, execute the following command
 
-   host$ bitbake virtual/kernel -e | grep "PREFERRED_PROVIDER_virtual/kernel"
+.. code-block:: console
+
+   host:~$ bitbake virtual/kernel -e | grep "PREFERRED_PROVIDER_virtual/kernel"
 
 The command prints the value of the variable
 *PREFERRED_PROVIDER_virtual/kernel*. The variable is used in the internal
 *Yocto* build process to select the kernel recipe to use. The following lines
-are different outputs you might see::
+are different outputs you might see
+
+.. code-block:: kconfig
 
    PREFERRED_PROVIDER_virtual/kernel="linux-mainline"
    PREFERRED_PROVIDER_virtual/kernel="linux-ti"
    PREFERRED_PROVIDER_virtual/kernel="linux-imx"
 
-To see which version is used, execute *bitbake -s*. For example::
+To see which version is used, execute *bitbake -s*. For example
 
-   host$ bitbake -s | egrep -e "linux-mainline|linux-ti|linux-imx|barebox|u-boot-imx"
+.. code-block:: console
+
+   host:~$ bitbake -s | egrep -e "linux-mainline|linux-ti|linux-imx|barebox|u-boot-imx"
 
 The parameter *-s* prints the version of all recipes. The output contains the
-recipe name on the left and the version on the right::
+recipe name on the left and the version on the right
 
-   barebox                    :2019.11.0-phy1-r7.0
-   barebox-hosttools-native   :2019.11.0-phy1-r7.0
-   barebox-targettools        :2019.11.0-phy1-r7.0
-   linux-mainline             :4.19.100-phy1-r0.0
+.. code-block::
 
-As you can see, the recipe *linux-mainline* has version *4.19.100-phy1-r0*. In
+   barebox                      :2022.02.0-phy1-r7.0
+   barebox-hosttools-native     :2022.02.0-phy1-r7.0
+   barebox-targettools          :2022.02.0-phy1-r7.0
+   linux-mainline               :5.15.102-phy1-r0.0
+
+As you can see, the recipe *linux-mainline* has version *5.15.102-phy1*. In
 the PHYTEC's *linux-mainline*  *Git* repository, you will find a corresponding
-tag *v4.19.100-phy1*. The version of the *barebox* recipe is 2019.11.0-phy1-r7.
+tag *v5.15.102-phy1*. The version of the *barebox* recipe is 2022.02.0-phy1.
 On i.MX8M\* modules the output will contain *linux-imx* and *u-boot-imx*.
 
 Kernel and Bootloader Configuration
@@ -1414,23 +1528,29 @@ Kernel and Bootloader Configuration
 The bootloader used by PHYTEC, *barebox*, uses the same build system as the
 *Linux* kernel. Therefore, all commands in this section can be used to configure
 the kernel and bootloader. To configure the kernel or bootloader, execute one of
-the following commands::
+the following commands
 
-   host$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
-   host$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly
-   host$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
-   host$ bitbake -c menuconfig linux-imx       # Or use the recipe name directly (If you use an i.MX 8M*)
-   host$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
-   host$ bitbake -c menuconfig u-boot-imx      # Or change the configuration of the bootloader (If you use an i.MX 8M*)
+.. code-block:: console
 
-After that, you can recompile and redeploy the kernel or bootloader::
+   host:~$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
+   host:~$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly
+   host:~$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
+   host:~$ bitbake -c menuconfig linux-imx       # Or use the recipe name directly (If you use an i.MX 8M*)
+   host:~$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
+   host:~$ bitbake -c menuconfig u-boot-imx      # Or change the configuration of the bootloader (If you use an i.MX 8M*)
 
-   host$ bitbake virtual/kernel -c compile  # Or 'barebox' for the bootloader
-   host$ bitbake virtual/kernel -c deploy   # Or 'barebox' for the bootloader
+After that, you can recompile and redeploy the kernel or bootloader
 
-Instead, you can also just rebuild the complete build output with::
+.. code-block:: console
 
-   host$ bitbake phytec-headless-image  # To update the kernel/bootloader, modules and the images
+   host:~$ bitbake virtual/kernel -c compile  # Or 'barebox' for the bootloader
+   host:~$ bitbake virtual/kernel -c deploy   # Or 'barebox' for the bootloader
+
+Instead, you can also just rebuild the complete build output with
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image  # To update the kernel/bootloader, modules and the images
 
 In the last command, you can replace the image name with the name of an image of
 your choice. The new images and binaries are in
@@ -1464,17 +1584,23 @@ Add a Configuration Fragment to a Recipe
 The following steps can be used for both kernel and bootloader. Just replace the
 recipe name *linux-mainline* in the commands with *linux-ti*, or *barebox* for
 the bootloader. If you did not already take care of this, start with a clean
-build. Otherwise, the diff of the configuration may be wrong::
+build. Otherwise, the diff of the configuration may be wrong
 
-   host$ bitbake linux-mainline -c clean
-   host$ bitbake linux-mainline -c menuconfig
+.. code-block:: console
+
+   host:~$ bitbake linux-mainline -c clean
+   host:~$ bitbake linux-mainline -c menuconfig
 
 Make your configuration changes in the menu and generate a config
-fragment::
+fragment
 
-   host$ bitbake linux-mainline -c diffconfig
+.. code-block:: console
 
-which prints the path of the written file::
+   host:~$ bitbake linux-mainline -c diffconfig
+
+which prints the path of the written file
+
+.. code-block::
 
    Config fragment has been dumped into:
    /home/<path>/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg
@@ -1485,7 +1611,7 @@ to add the necessary lines for the config fragment. You just have to adjust the
 directories and names for the specific recipe: *linux-mainline*, *linux-ti*,
 linux-imx, u-boot-imx, or *barebox*.
 
-::
+.. code-block::
 
    sources/<layer>/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
    sources/<layer>/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
@@ -1498,16 +1624,18 @@ Replace the string *layer* with your own layer created as shown above (e.g.
 create the directory for the config fragment and give it a new name (here
 *enable-r8169.cfg*) and move the fragment to the layer.
 
-::
+.. code-block:: console
 
-   host$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features
    # copy the path from the output of *diffconfig*
-   host$ cp /home/<path>/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg \
+   host:~$ cp /home/<path>/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg \
        sources/meta-ampliphy/recipes-kernel/linux/features/enable-r8169.cfg
 
 Then open the *bbappend* file (in this case
 *sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend* ) with
-your favorite editor and add the following lines::
+your favorite editor and add the following lines
+
+.. code-block:: kconfig
 
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
@@ -1522,33 +1650,43 @@ your favorite editor and add the following lines::
    folder *recipes-bsp/barebox/* !
 
 After saving the *bbappend* file, you have to rebuild the image. *Yocto* should
-pick up the recipe changes automatically and generate a new image::
+pick up the recipe changes automatically and generate a new image
 
-   host$ bitbake phytec-headless-image # Or another image name
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name
 
 Add a Complete Default Configuration (*defconfig*) to a Recipe
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This approach is similar to the one above, but instead of adding a fragment, a
 *defconfig* is used. First, create the necessary folders in the layer you want
-to use, either your own layer or *meta-ampliphy*::
+to use, either your own layer or *meta-ampliphy*
 
-   host$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features/ # For both linux-mainline and linux-ti
-   host$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features/ # Or for the bootloader
+.. code-block:: console
+
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features/ # For both linux-mainline and linux-ti
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features/ # Or for the bootloader
 
 Then you have to create a suitable *defconfig* file. Make your configuration
-changes using *menuconfig* and then save the *defconfig* file to the layer::
+changes using *menuconfig* and then save the *defconfig* file to the layer
 
-   host$ bitbake linux-mainline -c menuconfig # Or use recipe name linux-ti or barebox
-   host$ bitbake linux-mainline -c savedefconfig # Create file 'defconfig.temp' in the work directory
+.. code-block:: console
 
-This will print the path to the generated file::
+   host:~$ bitbake linux-mainline -c menuconfig # Or use recipe name linux-ti or barebox
+   host:~$ bitbake linux-mainline -c savedefconfig # Create file 'defconfig.temp' in the work directory
+
+This will print the path to the generated file
+
+.. code-block::
 
    Saving defconfig to ..../defconfig.temp
 
 Then, as above, copy the generated file to your layer, rename it to *defconfig*,
 and add the following lines to the *bbappend* file (here
-*sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend*)::
+*sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend*)
+
+.. code-block:: kconfig
 
    # contents of the file linux-mainline_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
@@ -1562,9 +1700,11 @@ and add the following lines to the *bbappend* file (here
    for the linux-ti recipe and *barebox_%.bbappend* for the bootloader in the
    folder *recipes-bsp/barebox/* !
 
-After that, rebuild your image as the changes are picked up automatically::
+After that, rebuild your image as the changes are picked up automatically
 
-   host$ bitbake phytec-headless-image # Or another image name
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name
 
 Patch the Kernel or Bootloader with *devtool*
 .............................................
@@ -1593,35 +1733,39 @@ shell environment. *Devtool* can be used to:
 
 Here we will use *devtool* to patch the kernel. We use *linux-mainline* as an
 example for the AM335x Kernel. The first command we use is *devtool modify - x
-<recipe> <directory>*::
+<recipe> <directory>*
 
-   host$ devtool modify -x linux-mainline linux-mainline
+.. code-block:: console
+
+   host:~$ devtool modify -x linux-mainline linux-mainline
 
 *Devtool* will create a layer in *build/workspace* where you can see all
 modifications done by *devtool* . It will extract the sources corresponding to
 the recipe to the specified directory. A *bbappend* will be created in the
 workspace directing the SRC_URI to this directory. Building an image with
 *Bitbake* will now use the sources in this directory. Now you can modify lines
-in the kernel::
+in the kernel
 
-   host$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
+.. code-block:: console
+
+   host:~$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
          -> make a change
-   host$ bitbake phytec-qt6demo-image
+   host:~$ bitbake phytec-qt6demo-image
 
 Your changes will now be recompiled and added to the image. If you want to store
 your changes permanently, it is advisable to create a patch from the changes,
 then store and backup only the patch. You can go into the *linux-mainline*
 directory and create a patch using *Git*. How to create a patch is described in
-:ref:`temporary-method` and is the same for all methods.
+:ref:`mickledore_temporary-method` and is the same for all methods.
 
 If you want to learn more about *devtool*, visit:
 
-`Yocto 4.0.6 - Devtool
-<https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
+`Yocto 4.2.4 - Devtool
+<https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
 or `Devtool Quick Reference
-<https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
+<https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_
 
-.. _temporary-method:
+.. _mickledore_temporary-method:
 
 Patch the Kernel or Bootloader using the "Temporary Method"
 ...........................................................
@@ -1639,9 +1783,11 @@ Patch the Kernel or Bootloader using the "Temporary Method"
 
 It is possible to alter the source code before *Bitbake* configures and compiles
 the recipe. Use *Bitbake'* s *devshell* command to jump into the source
-directory of the recipe. Here is the *barebox* recipe::
+directory of the recipe. Here is the *barebox* recipe
 
-   host$ bitbake barebox -c devshell # or linux-mainline, linux-ti, linux-imx, u-boot-imx
+.. code-block:: console
+
+   host:~$ bitbake barebox -c devshell # or linux-mainline, linux-ti, linux-imx, u-boot-imx
 
 After executing the command, a shell window opens. The current working directory
 of the shell will be changed to the source directory of the recipe inside the
@@ -1649,9 +1795,11 @@ of the shell will be changed to the source directory of the recipe inside the
 other graphical editor, to alter the source code. When you are finished, exit
 the *devshell* by typing *exit* or hitting **CTRL-D**.
 
-After leaving the *devshell* you can recompile the package::
+After leaving the *devshell* you can recompile the package
 
-   host$ bitbake barebox -c compile --force # or linux-mainline, linux-ti, linux-imx, u-boot-imx
+.. code-block:: console
+
+   host:~$ bitbake barebox -c compile --force # or linux-mainline, linux-ti, linux-imx, u-boot-imx
 
 The extra argument '--force' is important because *Yocto* does not recognize
 that the source code was changed.
@@ -1662,10 +1810,12 @@ that the source code was changed.
    to leave it first.
 
 If the build fails, execute the devshell command again and fix it. If the build
-is successful, you can deploy the package and create a new SD card image::
+is successful, you can deploy the package and create a new SD card image
 
-   host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
-   host$ bitbake phytec-headless-image # new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
+.. code-block:: console
+
+   host:~$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
+   host:~$ bitbake phytec-headless-image # new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 
 .. warning::
 
@@ -1679,9 +1829,9 @@ is successful, you can deploy the package and create a new SD card image::
    You have to create the patch in the *devshell* if you use the temporary
    method and in the subdirectory created by *devtool* if you used *devtool*.
 
-::
+.. code-block:: console
 
-   host$ bitbake barebox -c devshell            # Or linux-mainline, linux-ti
+   host:~$ bitbake barebox -c devshell            # Or linux-mainline, linux-ti
    host(devshell)$ git status                   # Show changes files
    host(devshell)$ git add <file>               # Add a special file to the staging area
    host(devshell)$ git commit -m "important modification"   # Creates a commit with a not so useful commit message
@@ -1691,7 +1841,9 @@ is successful, you can deploy the package and create a new SD card image::
 
 After you have created the patch, you must create a *bbappend* file for it. The
 locations for the three different recipes - *linux-mainline* , *linux-ti* , and
-*barebox* - are::
+*barebox* - are
+
+.. code-block::
 
    sources/<layer>/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
    sources/<layer>/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
@@ -1701,11 +1853,13 @@ locations for the three different recipes - *linux-mainline* , *linux-ti* , and
 
 The following example is for the recipe *barebox*. You have to adjust the paths.
 First, create the folders and move the patch into them. Then create the
-*bbappend* file::
+*bbappend* file
 
-   host$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features   # Or use your own layer instead of *meta-ampliphy*
-   host$ cp ~/0001-important-modification.patch sources/meta-ampliphy/recipes-bsp/barebox/features  # copy patch
-   host$ touch sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend
+.. code-block:: console
+
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features   # Or use your own layer instead of *meta-ampliphy*
+   host:~$ cp ~/0001-important-modification.patch sources/meta-ampliphy/recipes-bsp/barebox/features  # copy patch
+   host:~$ touch sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend
 
 .. tip::
 
@@ -1714,7 +1868,9 @@ First, create the folders and move the patch into them. Then create the
 
 After that use your favorite editor to add the following snipped into the
 *bbappend* file (here
-*sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend*)::
+*sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend*)
+
+.. code-block:: kconfig
 
    # contents of the file barebox_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
@@ -1722,14 +1878,18 @@ After that use your favorite editor to add the following snipped into the
        file://0001-important-modification.patch \
    "
 
-Save the file and rebuild the *barebox* recipe with::
+Save the file and rebuild the *barebox* recipe with
 
-   host$ bitbake barebox -c clean # Or linux-ti, linux-mainline, linux-imx, u-boot-imx
-   host$ bitbake barebox
+.. code-block:: console
 
-If the build is successful, you can rebuild the final image with::
+   host:~$ bitbake barebox -c clean # Or linux-ti, linux-mainline, linux-imx, u-boot-imx
+   host:~$ bitbake barebox
 
-   host$ bitbake phytec-headless-image # Or another image name
+If the build is successful, you can rebuild the final image with
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name
 
 **Further Resources:**
 
@@ -1740,9 +1900,9 @@ be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto*
 and most of the documentation assumes the *Yocto* kernel approach.
 
 -  `Yocto - Kernel Development Manual
-   <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_
+   <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_
 -  `Yocto - Development Manual
-   <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_
+   <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_
 
 Working with the Kernel and Bootloader using SRC_URI in *local.conf*
 ....................................................................
@@ -1769,29 +1929,35 @@ repositories.*
 +----------------------------------+----------------------------------+
 
 First, you need a local clone of the *Git* repository *barebox* or
-kernel. If you do not have one, use the commands::
+kernel. If you do not have one, use the commands
 
-   host$ mkdir ~/git
-   host$ cd ~/git
-   host$ git clone git://git.phytec.de/barebox
-   host$ cd barebox
-   host$ git checkout -b v2019.11.0-phy remotes/origin/v2019.11.0-phy
+.. code-block:: console
 
-Add the following snippet to the file build/conf/local.conf::
+   host:~$ mkdir ~/git
+   host:~$ cd ~/git
+   host:~$ git clone git://git.phytec.de/barebox
+   host:~$ cd barebox
+   host:~$ git checkout -b v2022.02.0-phy remotes/origin/v2022.02.0-phy
+
+Add the following snippet to the file build/conf/local.conf
+
+.. code-block:: kconfig
 
    # Use your own path to the git repository
    # NOTE: Branch name in variable "BRANCH_pn-barebox" should be the same as the
    # branch which is used in the repository folder. Otherwise your commits won't be recognized later.
-   BRANCH:pn-barebox = "v2019.11.0-phy"
+   BRANCH:pn-barebox = "v2022.02.0-phy"
    SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
    SRCREV:pn-barebox = "${AUTOREV}"
 
 You also have to set the correct BRANCH name in the file. Either you create your
 own branch in the *Git* repository, or you use the default (here
-"v2015.02.0-phy"). Now you should recompile *barebox* from your own source::
+"v2015.02.0-phy"). Now you should recompile *barebox* from your own source
 
-   host$ bitbake barebox -c clean
-   host$ bitbake barebox -c compile
+.. code-block:: console
+
+   host:~$ bitbake barebox -c clean
+   host:~$ bitbake barebox -c compile
 
 The build should be successful because the source was not changed yet.
 
@@ -1799,27 +1965,29 @@ You can alter the source in *~/git/barebox* or the default *defconfig* (e.g.
 *~/git/barebox/arch/arm/configs/imx_v7_defconfig*). After you are satisfied with
 your changes, you have to make a dummy commit for *Yocto*. If you do not,
 *Yocto* will not notice that the source code was modified in your repository
-folder (e.g. ~/git/barebox/)::
+folder (e.g. ~/git/barebox/)
 
-   host$ git status  # show modified files
-   host$ git diff    # show changed lines
-   host$ git commit -a -m "dummy commit for yocto"   # This command is important!
+.. code-block:: console
+
+   host:~$ git status  # show modified files
+   host:~$ git diff    # show changed lines
+   host:~$ git commit -a -m "dummy commit for yocto"   # This command is important!
 
 Try to compile your new changes. *Yocto* will automatically notice that the
 source code was changed and fetches and configures everything from scratch.
 
-::
+.. code-block:: console
 
-   host$ bitbake barebox -c compile
+   host:~$ bitbake barebox -c compile
 
 If the build fails, go back to the source directory, fix the problem, and
 recommit your changes. If the build was successful, you can deploy *barebox* and
 even create a new SD card image.
 
-::
+.. code-block:: console
 
-   host$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
-   host$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
+   host:~$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
+   host:~$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
 
 If you want to make additional changes, just make another commit in the
 repository and rebuild *barebox* again.
@@ -1829,19 +1997,25 @@ Add Existing Software with "Sustainable Method"
 
 Now that you have created your own layer, you have a second option to add
 existing software to existing image definitions. Our standard image is defined
-in meta-ampliphy::
+in meta-ampliphy
+
+.. code-block::
 
    meta-ampliphy/recipes-images/images/phytec-headless-image.bb
 
 In your layer, you can now modify the recipe with a *bbappend* without modifying
-any BSP code::
+any BSP code
+
+.. code-block::
 
    meta-racer/recipes-images/images/phytec-headless-image.bbappend
 
 The append will be parsed together with the base recipe. As a result, you can
 easily overwrite all variables set in the base recipe, which is not always what
 you want. If we want to include additional software, we need to append it to the
-IMAGE_INSTALL variable::
+IMAGE_INSTALL variable
+
+.. code-block:: kconfig
 
    IMAGE_INSTALL:append = " rsync"
 
@@ -1851,17 +2025,19 @@ Add Linux Firmware Files to the Root Filesystem
 It is a common task to add an extra firmware file to your root filesystem into
 */lib/firmware/*. For example, WiFi adapters or PCIe Ethernet cards might need
 proprietary firmware. As a solution, we use a *bbappend* in our layer. To create
-the necessary folders, *bbappend* and copy the firmware file type::
+the necessary folders, *bbappend* and copy the firmware file type
 
-   host$ cd meta-racer   # go into your layer
-   host$ mkdir -p recipes-kernel/linux-firmware/linux-firmware/
-   host$ touch recipes-kernel/linux-firmware/linux-firmware_%.bbappend
-   host$ cp ~/example-firmware.bin recipes-kernel/linux-firmware/linux-firmware/    # adapt filename
+.. code-block:: console
+
+   host:~$ cd meta-racer   # go into your layer
+   host:~$ mkdir -p recipes-kernel/linux-firmware/linux-firmware/
+   host:~$ touch recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+   host:~$ cp ~/example-firmware.bin recipes-kernel/linux-firmware/linux-firmware/    # adapt filename
 
 Then add the following content to the *bbappend* file and replace every
 occurrence of *example-firmware.bin* with your firmware file name.
 
-::
+.. code-block:: kconfig
 
    # file recipes-kernel/linux-firmware/linux-firmware_%.bbappend
 
@@ -1876,15 +2052,19 @@ occurrence of *example-firmware.bin* with your firmware file name.
    PACKAGES =+ "${PN}-example"
    FILES:${PN}-example = "/lib/firmware/example-firmware.bin"
 
-Now try to build the linux-firmware recipe::
+Now try to build the linux-firmware recipe
 
-   host$ . sources/poky/oe-init-build-env
-   host$ bitbake linux-firmware
+.. code-block:: console
+
+   host:~$ . sources/poky/oe-init-build-env
+   host:~$ bitbake linux-firmware
 
 This should generate a new package *deploy/ipk/all/linux-firmware-example*.
 
 As the final step, you have to install the firmware package to your image. You
-can do that in your *local.conf* or image recipe via::
+can do that in your *local.conf* or image recipe via
+
+.. code-block:: kconfig
 
    # file local.conf or image recipe
    IMAGE_INSTALL += "linux-firmware-example"
@@ -1901,7 +2081,9 @@ All i.MX8M\* products use the u-boot bootloader. The u-boot environment can be
 modified using the Temporary Method. In the *u-boot-imx* sources modify the
 header file corresponding to the processor located in
 *include/configs/phycore_imx8m\**. New environment variables should be added at
-the end of *CONFIG_EXTRA_ENV_SETTINGS*::
+the end of *CONFIG_EXTRA_ENV_SETTINGS*
+
+.. code-block:: kconfig
 
    #define CONFIG_EXTRA_ENV_SETTINGS \
    [...]
@@ -1909,7 +2091,9 @@ the end of *CONFIG_EXTRA_ENV_SETTINGS*::
    "newvariable=1\0"
 
 Commit the changes and and create the file *u-boot-imx_%.bbappend* in your layer
-at *<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend*::
+at *<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend*
+
+.. code-block:: kconfig
 
    # contents of the file u-boot-imx_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
@@ -1932,17 +2116,21 @@ signatures are:
 
 The first example of a *bbappend* file in the custom layer *meta-racer* shows
 how to add a new non-volatile variable *linux.bootargs.fb* in the *barebox*
-environment folder */env/nv/*::
+environment folder */env/nv/*
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_add(d, "nv/linux.bootargs.fb", "imxdrm.legacyfb_depth=32\n")
    }
 
 The next example shows how to replace the network configuration file
-*/env/network/eth0*::
+*/env/network/eth0*
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_add(d, "network/eth0",
    """#!/bin/sh
@@ -1964,9 +2152,11 @@ used to avoid adding multiple newline characters *\\n* into the recipe *Python*
 code. The *Python* function *env_add* can add and overwrite environment files.
 
 The next example shows how to remove an already added environment file, for
-example *,* */env/boot/mmc*::
+example *,* */env/boot/mmc*
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_rm(d, "boot/mmc")
    }
@@ -1975,24 +2165,30 @@ Debugging the Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to see all environment files that are added in the build process,
-you can enable a debug flag in the *local.conf*::
+you can enable a debug flag in the *local.conf*
+
+.. code-block:: kconfig
 
    # file local.conf
    ENV_VERBOSE = "1"
 
 After that, you have to rebuild the *barebox* recipe to see the debugging
-output::
+output
 
-   host$ bitbake barebox -c clean
-   host$ bitbake barebox -c configure
+.. code-block:: console
 
-The output of the last command looks like this::
+   host:~$ bitbake barebox -c clean
+   host:~$ bitbake barebox -c configure
+
+The output of the last command looks like this
+
+.. code-block::
 
    [...]
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/allow_color' content "false"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.base' content "consoleblank=0"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.fb' content "imxdrm.legacyfb_depth=32"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.rootfs' content "rootwait ro fsck.repair=yes"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/allow_color' content "false"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.base' content "consoleblank=0"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.fb' content "imxdrm.legacyfb_depth=32"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.rootfs' content "rootwait ro fsck.repair=yes"
 
 Changing the Environment (depending on Machines)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2000,21 +2196,25 @@ Changing the Environment (depending on Machines)
 If you need to apply some *barebox* environment modifications only to a single
 or only a few machines, you can use *Bitbake'* s machine overwrite syntax. For
 the machine overwrite syntax, you append a machine name or SoC name (such as
-*mx6* , *ti33x,* or *rk3288* ) with an underscore to a variable or task::
+*mx6* , *ti33x,* or *rk3288* ) with an underscore to a variable or task
+
+.. code-block:: kconfig
 
    DEPENDS:remove:mx6 = "virtual/libgl" or
    python do_env_append_phyboard-mira-imx6-4().
 
 The next example adds the environment variables only if the MACHINE is set to
-*phyboard-mira-imx6-4*::
+*phyboard-mira-imx6-4*
 
-   # file meta-phytec/recipes-bsp/barebox/barebox_2019.11.0-phy1.bb
+.. code-block:: kconfig
+
+   # file meta-phytec/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append:phyboard-mira-imx6-4() {
        env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
    }
 
 *Bitbake's* override syntax for variables is explained in more detail at:
-https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata
+https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata
 
 Upgrading the *barebox* Environment from Previous BSP Releases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2022,9 +2222,11 @@ Upgrading the *barebox* Environment from Previous BSP Releases
 Prior to BSP version *BSP-Yocto-AM335x-16.2.0* and *BSP-Yocto-i.MX6-PD16.1.0* ,
 *barebox* environment changes via *bbappend* file were done differently. For
 example, the directory structure in your meta layer (here *meta-skeleton* ) may
-have looked like this::
+have looked like this
 
-   $ tree -a sources/meta-skeleton/recipes-bsp/barebox/
+.. code-block:: console
+
+   host:~$ tree -a sources/meta-skeleton/recipes-bsp/barebox/
    sources/meta-skeleton/recipes-bsp/barebox
    ├── barebox
    │   └── phyboard-wega-am335x-3
@@ -2035,7 +2237,9 @@ have looked like this::
    │               └── linux.bootargs.cma
    └── barebox_%.bbappend
 
-and the file *barebox_%.bbappend* contained::
+and the file *barebox_%.bbappend* contained
+
+.. code-block:: kconfig
 
    # file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/barebox:"
@@ -2045,7 +2249,9 @@ layer *meta-phytec* are ignored and the file *nv/linux.bootargs.cma* is added.
 For the new handling of the *barebox* environment, you use the *Python*
 functions *env_add* and *env_rm* in the *Python* task *do_env*. Now the above
 example translates to a single *Python* function in the file
-*barebox_%.bbappend* that looks like::
+*barebox_%.bbappend* that looks like
+
+.. code-block:: kconfig
 
    # file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
    FILESEXTRAPATHS:prepend := "${THISDIR}/barebox:"
@@ -2056,30 +2262,36 @@ example translates to a single *Python* function in the file
        env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
    }
 
-.. _changing-net-config:
+.. _mickledore_changing-net-config:
 
 Changing the Network Configuration
 ..................................
 
 To tweak IP addresses, routes, and gateways at runtime you can use the tools
-*ifconfig* and *ip* . Some examples::
+*ifconfig* and *ip* . Some examples
 
-   target$ ip addr                                         # Show all network interfaces
-   target$ ip route                                        # Show all routes
-   target$ ip addr add 192.168.178.11/24 dev eth0          # Add static ip and route to interface eth0
-   target$ ip route add default via 192.168.178.1 dev eth0 # Add default gateway 192.168.178.1
-   target$ ip addr del 192.168.178.11/24 dev eth0          # Remove static ip address from interface eth0
+.. code-block:: console
+
+   target:~$ ip addr                                         # Show all network interfaces
+   target:~$ ip route                                        # Show all routes
+   target:~$ ip addr add 192.168.178.11/24 dev eth0          # Add static ip and route to interface eth0
+   target:~$ ip route add default via 192.168.178.1 dev eth0 # Add default gateway 192.168.178.1
+   target:~$ ip addr del 192.168.178.11/24 dev eth0          # Remove static ip address from interface eth0
 
 The network configuration is managed by *systemd-networkd* . To query the
-current status use::
+current status use
 
-   target$ networkctl status
-   target$ networkctl list
+.. code-block:: console
+
+   target:~$ networkctl status
+   target:~$ networkctl list
 
 The network daemon reads its configuration from the directories
 */etc/systemd/network/* , */run/systemd/network/* , and */lib/systemd/network/*
 (from higher to lower priority). A sample configuration in
-*/lib/systemd/network/10-eth0.network* looks like this::
+*/lib/systemd/network/10-eth0.network* looks like this
+
+.. code-block:: kconfig
 
    # file /lib/systemd/network/10-eth0.network
    [Match]
@@ -2092,13 +2304,17 @@ The network daemon reads its configuration from the directories
 These files *\*.network* replace */etc/network/interfaces* from other
 distributions. You can either edit the file *10-eth0.network* in-place or copy
 it to */etc/systemd/network/* and make your changes there. After changing a file
-you must restart the daemon to apply your changes::
+you must restart the daemon to apply your changes
 
-   target$ systemctl restart systemd-networkd
+.. code-block:: console
 
-To see the syslog message of the network daemon, use::
+   target:~$ systemctl restart systemd-networkd
 
-   target$ journalctl --unit=systemd-networkd.service
+To see the syslog message of the network daemon, use
+
+.. code-block:: console
+
+   target:~$ journalctl --unit=systemd-networkd.service
 
 To modify the network configuration at build time, look at the recipe
 *sources/meta-ampliphy/recipes-core/systemd/systemd-machine-units.bb*
@@ -2115,11 +2331,15 @@ Changing the Wireless Network Configuration
 Connecting to a WLAN Network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  First set the correct regulatory domain for your country::
+-  First set the correct regulatory domain for your country
 
-      target$ iw reg set DE target$ iw reg get
+.. code-block:: console
 
-   You will see::
+      target:~$ iw reg set DE target:~$ iw reg get
+
+   You will see
+
+   .. code-block::
 
       country DE: DFS-ETSI
       (2400 - 2483 @ 40), (N/A, 20), (N/A)
@@ -2128,12 +2348,16 @@ Connecting to a WLAN Network
       (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
       (57000 - 66000 @ 2160), (N/A, 40), (N/A)
 
--  Set up the wireless interface::
+-  Set up the wireless interface
 
-      target$ ip link    # list all interfaces. Search for wlan*
-      target$ ip link set up dev wlan0
+.. code-block:: console
 
--  Now you can scan for available networks::
+      target:~$ ip link    # list all interfaces. Search for wlan*
+      target:~$ ip link set up dev wlan0
+
+-  Now you can scan for available networks
+
+.. code-block:: console
 
       targe$ iw wlan0 scan | grep SSID
 
@@ -2141,28 +2365,38 @@ Connecting to a WLAN Network
    *WPA2* called *wpa_supplicant* for an encrypted connection.
 
 -  To do so, add the network credentials to the file
-   */etc/wpa_supplicant.conf*::
+   */etc/wpa_supplicant.conf*
+
+   .. code-block:: kconfig
 
       Confluence country=DE network={ ssid="<SSID>" proto=WPA2 psk="<KEY>" }
 
--  Now a connection can be established::
+-  Now a connection can be established
 
-      target$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
+.. code-block:: console
 
-   This should result in the following output::
+      target:~$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
+
+   This should result in the following output
+
+   .. code-block:: kconfig
 
       ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
 
    To finish the configuration you can configure DHCP to receive an IP address
    (supported by most WLAN access points). For other possible IP configurations,
-   see the section :ref:`changing-net-config`.
+   see the section :ref:`mickledore_changing-net-config`.
 
--  First, create the directory::
+-  First, create the directory
 
-      target$ mkdir -p /etc/systemd/network/
+.. code-block:: console
+
+      target:~$ mkdir -p /etc/systemd/network/
 
 -  Then add the following configuration snippet in
-   */etc/systemd/network/10-wlan0.network*::
+   */etc/systemd/network/10-wlan0.network*
+
+   .. code-block:: kconfig
 
       # file /etc/systemd/network/10-wlan0.network
       [Match]
@@ -2171,9 +2405,11 @@ Connecting to a WLAN Network
       [Network]
       DHCP=yes
 
--  Now, restart the network daemon so that the configuration takes effect::
+-  Now, restart the network daemon so that the configuration takes effect
 
-      target$ systemctl restart systemd-networkd
+.. code-block:: console
+
+      target:~$ systemctl restart systemd-networkd
 
 Creating a WLAN Access Point
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2181,12 +2417,16 @@ Creating a WLAN Access Point
 This section provides a basic access point (AP) configuration for a
 secured *WPA2* network.
 
-Find the name of the WLAN interface with::
+Find the name of the WLAN interface with
 
-   target$ ip link
+.. code-block:: console
+
+   target:~$ ip link
 
 Edit the configuration in */etc/hostapd.conf*. It is strongly dependent on
-the use case. The following shows an example::
+the use case. The following shows an example
+
+.. code-block:: kconfig
 
    # file /etc/hostapd.conf
    interface=wlan0
@@ -2203,12 +2443,16 @@ the use case. The following shows an example::
    wpa_pairwise=CCMP
 
 Set up and start the DHCP server for the network interface *wlan0* via
-*systemd-networkd*::
+*systemd-networkd*
 
-   target$ mkdir -p /etc/systemd/network/
-   target$ vi /etc/systemd/network/10-wlan0.network
+.. code-block:: console
 
-Insert the following text into the file::
+   target:~$ mkdir -p /etc/systemd/network/
+   target:~$ vi /etc/systemd/network/10-wlan0.network
+
+Insert the following text into the file
+
+.. code-block:: kconfig
 
    [Match]
    Name=wlan0
@@ -2219,35 +2463,45 @@ Insert the following text into the file::
 
    [DHCPServer]
    EmitDNS=yes
-   target$ systemctl restart systemd-networkd
-   target$ systemctl status  systemd-networkd -l   # check status and see errors
+   target:~$ systemctl restart systemd-networkd
+   target:~$ systemctl status  systemd-networkd -l   # check status and see errors
 
-Start the userspace daemon *hostapd*::
+Start the userspace daemon *hostapd*
 
-   target$ systemctl start hostapd
-   target$ systemctl status hostapd -l # check for errors
+.. code-block:: console
+
+   target:~$ systemctl start hostapd
+   target:~$ systemctl status hostapd -l # check for errors
 
 Now, you should see the WLAN network *Test-Wifi* on your terminal device
 (laptop, smartphone, etc.).
 
 If there are problems with the access point, you can either check the log
-messages with::
+messages with
 
-   target$ journalctl --unit=hostapd
+.. code-block:: console
 
-or start the daemon in debugging mode from the command line::
+   target:~$ journalctl --unit=hostapd
 
-   target$ systemctl stop hostapd
-   target$ hostapd -d /etc/hostapd.conf -P /var/run/hostapd.pid
+or start the daemon in debugging mode from the command line
 
-You should see::
+.. code-block:: console
+
+   target:~$ systemctl stop hostapd
+   target:~$ hostapd -d /etc/hostapd.conf -P /var/run/hostapd.pid
+
+You should see
+
+.. code-block::
 
    ...
    wlan0: interface state UNINITIALIZED->ENABLED
    wlan0: AP-ENABLED
 
 Further information about AP settings and the userspace daemon
-*hostapd* can be found at::
+*hostapd* can be found at
+
+.. code-block::
 
    https://wireless.wiki.kernel.org/en/users/documentation/hostapd
    https://w1.fi/hostapd/
@@ -2267,7 +2521,9 @@ Add OpenCV Libraries and Examples
 library for computer vision applications.
 
 To install the libraries and examples edit the file *conf/local.conf* in the
-*Yocto* build system and add::
+*Yocto* build system and add
+
+.. code-block:: kconfig
 
    # file conf/local.conf
    # Installing OpenCV libraries and examples
@@ -2295,9 +2551,11 @@ To install the libraries and examples edit the file *conf/local.conf* in the
        libopencv-videostab2.4 \
    "
 
-Then rebuild your image::
+Then rebuild your image
 
-   host$ bitbake phytec-qt6demo-image
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image
 
 .. tip::
 
@@ -2311,7 +2569,9 @@ This is one example of how to add a small runtime for PHP applications and a web
 server on your target. Lighttpd can be used together with the PHP command line
 tool over cgi. This solution weights only 5.5 MiB of disk storage. It is already
 preconfigured in meta-ampliphy. Just modify the build configuration to install
-it on the image::
+it on the image
+
+.. code-block:: kconfig
 
    # file conf/local.conf
    # install lighttpd with php cgi module
@@ -2319,7 +2579,9 @@ it on the image::
 
 After booting the image, you should find the example web content in */www/pages*
 . For testing php, you can delete the *index.html* and replace it with a
-*index.php* file::
+*index.php* file
+
+.. code-block:: html
 
    <html>
      <head>
@@ -2341,12 +2603,16 @@ Debugging a User Space Application
 
 The phytec-qt6demo-image can be cross-debugged without any change. For
 cross-debugging, you just have to match the host sysroot with the image in use.
-So you need to create a toolchain for your image::
+So you need to create a toolchain for your image
 
-   host$ bitbake -c populate_sdk phytec-qt6demo-image
+.. code-block:: console
+
+   host:~$ bitbake -c populate_sdk phytec-qt6demo-image
 
 Additionally, if you want to have full debug and backtrace capabilities for all
-programs and libraries in the image, you could add::
+programs and libraries in the image, you could add
+
+.. code-block:: kconfig
 
    DEBUG_BUILD = "1"
 
@@ -2367,12 +2633,16 @@ When starting the debugger with your userspace application you will get a
 SIGILL, an illegal instruction from the *libcrypto*. *Openssl* probes for the
 system capabilities by trapping illegal instructions, which will trigger *GDB*.
 You can ignore this and hit **Continue** (c command). You can permanently ignore
-this stop by adding::
+this stop by adding
+
+.. code-block:: kconfig
 
    handle SIGILL nostop
 
 to your *GDB* startup script or in the *Qt Creator GDB* configuration panel.
-Secondly, you might need to disable a security feature by adding::
+Secondly, you might need to disable a security feature by adding
+
+.. code-block:: kconfig
 
    set auto-load safe-path /
 
@@ -2381,7 +2651,9 @@ from any location.
 
 If you need to have native debugging, you might want to install the debug
 symbols on the target. You can do this by adding the following line to your
-*conf/local.conf*::
+*conf/local.conf*
+
+.. code-block:: kconfig
 
    EXTRA_IMAGE_FEATURES += "dbg-pkgs"
 
@@ -2389,56 +2661,70 @@ For cross-debugging, this is not required as the debug symbols will be loaded
 from the host side and the dbg-pkgs are included in the SDK of your image
 anyway.
 
-.. _gen-source-mirrors:
+.. _mickledore_gen-source-mirrors:
 
 Generating Source Mirrors, working Offline
 ..........................................
 
 Modify your *site.conf* (or *local.conf* if you do not use a *site.conf* ) as
-follows::
+follows
+
+.. code-block:: kconfig
 
    #DL_DIR ?= "" don't set it! It will default to a directory inside /build
    SOURCE_MIRROR_URL = "file:///home/share/yocto_downloads/"
    INHERIT += "own-mirrors"
    BB_GENERATE_MIRROR_TARBALLS = "1"
 
-Now run::
+Now run
 
-   host$ bitbake --runall=fetch <image>
+.. code-block:: console
+
+   host:~$ bitbake --runall=fetch <image>
 
 for all images and for all machines you want to provide sources for. This will
 create all the necessary *tar* archives. We can remove all SCM subfolders, as
-they are duplicated with the tarballs::
+they are duplicated with the tarballs
 
-   host$ rm -rf build/download/git2/
+.. code-block:: console
+
+   host:~$ rm -rf build/download/git2/
    etc...
 
 Please consider that we used a local source mirror for generating the dl_dir.
 Because of that, some archives will be linked locally.
 
 First, we need to copy all files, resolving symbolic links into the new mirror
-directory::
+directory
 
-   host$ rsync -vaL <dl_dir> ${TOPDIR}/../src_mirror/
+.. code-block:: console
+
+   host:~$ rsync -vaL <dl_dir> ${TOPDIR}/../src_mirror/
 
 Now we clean the */build* directory by deleting everything except */build/conf/*
-but including */build/conf/sanity*. We change *site.conf* as follows::
+but including */build/conf/sanity*. We change *site.conf* as follows
+
+.. code-block:: kconfig
 
    SOURCE_MIRROR_URL = "file://${TOPDIR}/../src_mirror"
    INHERIT += "own-mirrors"
    BB_NO_NETWORK = "1"
    SCONF_VERSION = "1"
 
-The BSP directory can now be compressed with::
+The BSP directory can now be compressed with
 
-   host$ tar cfJ <filename>.tar.xz <folder>
+.. code-block:: console
+
+   host:~$ tar cfJ <filename>.tar.xz <folder>
 
 where filename and folder should be the full BSP Name.
 
 Compiling on the Target
 .......................
 
-To your *local.conf* add::
+To your *local.conf* add
+
+.. code-block:: kconfig
 
    IMAGE_FEATURES:append = " tools-sdk dev-pkgs"
 
@@ -2446,18 +2732,22 @@ Different Toolchains
 ....................
 
 There are several ways to create a toolchain installer in *Poky*. One option is
-to run::
+to run
 
-   host$ bitbake meta-toolchain
+.. code-block:: console
+
+   host:~$ bitbake meta-toolchain
 
 This will generate a toolchain installer in *build/deploy/sdk* which can be used
 for cross-compiling of target applications. However, the installer does not
 include libraries added to your image, so it is a bare *GCC* compiler only. This
 is suited for bootloader and kernel development.
 
-Another you can run is::
+Another you can run is
 
-   host$ bitbake -c populate_sdk <your_image>
+.. code-block:: console
+
+   host:~$ bitbake -c populate_sdk <your_image>
 
 This will generate a toolchain installer containing all necessary development
 packages of the software installed on the root filesystem of the target. This
@@ -2470,23 +2760,27 @@ installer. It will contain the cross-toolchain and some tools to aid the
 software developers, for example, an *Eclipse* plugin and a *QEMU* target
 simulator.
 
-::
+.. code-block:: console
 
-   host$ bitbake adt-installer
+   host:~$ bitbake adt-installer
 
 The ADT is untested for our BSP at the moment.
 
 Using the SDK
 ~~~~~~~~~~~~~
 
-After generating the SDK with::
+After generating the SDK with
 
-   host$ source sources/poky/oe-init-build-env
-   host$ bitbake -c populate_sdk phytec-qt6demo-image # or another image
+.. code-block:: console
 
-run the generated binary with::
+   host:~$ source sources/poky/oe-init-build-env
+   host:~$ bitbake -c populate_sdk phytec-qt6demo-image # or another image
 
-   host$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+run the generated binary with
+
+.. code-block:: console
+
+   host:~$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
    Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):
    You are about to install the SDK to "/opt/ampliphy/i.MX6-PD15.3-rc". Proceed[Y/n]?
    Extracting SDK...done
@@ -2494,30 +2788,38 @@ run the generated binary with::
    SDK has been successfully set up and is ready to be used.
 
 You can activate the toolchain for your shell by sourcing the file
-*environment-setup* in the toolchain directory::
+*environment-setup* in the toolchain directory
 
-   host$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+.. code-block:: console
+
+   host:~$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
 
 Then the necessary tools like the cross compiler and linker are in your PATH. To
-compile a simple *C* program, use::
+compile a simple *C* program, use
 
-   host$ $CC main.c -o main
+.. code-block:: console
+
+   host:~$ $CC main.c -o main
 
 The environment variable $CC contains the path to the ARM cross compiler and
 other compiler arguments needed like *-march* , *-sysroot* and *--mfloat-abi*.
 
 .. tip::
 
-   You cannot compile programs only with the compiler name like::
+   You cannot compile programs only with the compiler name like
 
-      host$ arm-phytec-linux-gnueabi-gcc main.c -o main
+   .. code-block:: console
+
+      host:~$ arm-phytec-linux-gnueabi-gcc main.c -o main
 
    It will fail in many cases. Always use *CC*, CFLAGS, LDFLAGS, and so on.
 
 For convenience, the *environment-setup* exports other environment variables
 like CXX, LD, SDKTARGETSYSROOT.
 
-A simple makefile compiling a *C* and *C++* program may look like this::
+A simple makefile compiling a *C* and *C++* program may look like this
+
+.. code-block:: kconfig
 
    # Makefile
    TARGETS=c-program cpp-program
@@ -2535,14 +2837,18 @@ A simple makefile compiling a *C* and *C++* program may look like this::
        rm -f $(TARGETS)
 
 To compile for the target, just source the toolchain in your shell before
-executing make::
+executing make
 
-   host$ make     # Compiling with host CC, CXX for host architecture
-   host$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
-   host$ make     # Compiling with target CC, CXX for target architecture
+.. code-block:: console
+
+   host:~$ make     # Compiling with host CC, CXX for host architecture
+   host:~$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+   host:~$ make     # Compiling with target CC, CXX for target architecture
 
 If you need to specify additionally included directories in the sysroot of the
-toolchain, you can use an '=' sign in the *-I* argument like::
+toolchain, you can use an '=' sign in the *-I* argument like
+
+.. code-block:: kconfig
 
    -I=/usr/include/SDL
 
@@ -2566,50 +2872,62 @@ Using the SDK with GNU Autotools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *Yocto* SDK is a straightforward tool for a project that uses the *GNU
-Autotools*. The traditional compile steps for the host are usually::
+Autotools*. The traditional compile steps for the host are usually
 
-   host$ ./autogen.sh # maybe not needed
-   host$ ./configure
-   host$ make
-   host$ make install DESTDIR=$PWD/build/
+.. code-block:: console
+
+   host:~$ ./autogen.sh # maybe not needed
+   host:~$ ./configure
+   host:~$ make
+   host:~$ make install DESTDIR=$PWD/build/
 
 The commands to compile for the target machine with the *Yocto* SDK are quite
 similar. The following commands assume that the SDK was unpacked to the
-directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)::
+directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)
 
-   host$ source /opt/phytec-ampliphy/i.MX6-PD15.3.0/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
-   host$ ./autogen.sh  # maybe not needed
-   host$ ./configure ${CONFIGURE_FLAGS}
-   host$ make
-   host$ make install DESTDIR=$PWD/build/
+.. code-block:: console
+
+   host:~$ source /opt/phytec-ampliphy/i.MX6-PD15.3.0/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+   host:~$ ./autogen.sh  # maybe not needed
+   host:~$ ./configure ${CONFIGURE_FLAGS}
+   host:~$ make
+   host:~$ make install DESTDIR=$PWD/build/
 
 Refer to the official *Yocto* documentation for more information:
-https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects
+https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects
 
 Working with Kernel Modules
 ...........................
 
 You will come to the point where you either need to set some options for a
 kernel module or you want to blacklist a module. Those things are handled by
-*udev* and go into *\*.conf* files in::
+*udev* and go into *\*.conf* files in
+
+.. code-block::
 
    /etc/modprobe.d/\*.conf.
 
 If you want to specify an option at build time, there are three relevant
 variables. If you just want to autoload a module that has no autoload
-capabilities, add it to::
+capabilities, add it to
+
+.. code-block:: kconfig
 
    KERNEL_MODULE_AUTOLOAD += "your-module"
 
 either in the kernel recipe or in the global variable scope. If you need to
-specify options for a module, you can do so with::
+specify options for a module, you can do so with
+
+.. code-block:: kconfig
 
    KERNEL_MODULE_AUTOLOAD += "your-module"
    KERNEL_MODULE_PROBECONF += "your-module"
    module_conf_your-module = "options your-module parametername=parametervalue"
 
 if you want to blacklist a module from autoloading, you can do it intuitively
-with::
+with
+
+.. code-block:: kconfig
 
    KERNEL_MODULE_AUTOLOAD += "your-module"
    KERNEL_MODULE_PROBECONF += "your-module"
@@ -2621,7 +2939,9 @@ Working with *udev*
 Udev (Linux dynamic device management) is a system daemon that handles dynamic
 device management in /dev. It is controlled by *udev* \ rules that are located
 in */etc/udev/rules.d* (sysadmin configuration space) and\  */lib/udev/rules.d/*
-(vendor-provided). Here is an example of an *udev* \ rule file::
+(vendor-provided). Here is an example of an *udev* \ rule file
+
+.. code-block:: kconfig
 
    # file /etc/udev/rules.d/touchscreen.rules
    # Create a symlink to any touchscreen input device
@@ -2632,26 +2952,34 @@ See https://www.freedesktop.org/software/systemd/man/udev.html for more details
 about the syntax and usage. To get the list of attributes for a specific device
 that can be used in an *udev* rule you can use the *udevadm info* tool. It
 prints all existing attributes of the device node and its parents. The key-value
-pairs from the output can be copied and pasted into a rule file. Some examples::
+pairs from the output can be copied and pasted into a rule file. Some examples
 
-   target$ udevadm info -a /dev/mmcblk0
-   target$ udevadm info -a /dev/v4l-subdev25
-   target$ udevadm info -a -p /sys/class/net/eth0
+.. code-block:: console
+
+   target:~$ udevadm info -a /dev/mmcblk0
+   target:~$ udevadm info -a /dev/v4l-subdev25
+   target:~$ udevadm info -a -p /sys/class/net/eth0
 
 After changing an *udev* rule, you have to notify the daemon. Otherwise, your
-changes are not reflected. Use the following command::
+changes are not reflected. Use the following command
 
-   target$ udevadm control --reload-rules
+.. code-block:: console
+
+   target:~$ udevadm control --reload-rules
 
 While developing *udev* rules you should monitor the events in order to see when
-devices are attached or unattached to the system. Use::
+devices are attached or unattached to the system. Use
 
-   target$ udevadm monitor
+.. code-block:: console
+
+   target:~$ udevadm monitor
 
 Furthermore, it is very useful to monitor the system log in another shell,
-especially if the rule executes external scripts. Execute::
+especially if the rule executes external scripts. Execute
 
-   target$ journalctl -f
+.. code-block:: console
+
+   target:~$ journalctl -f
 
 .. tip::
 
@@ -2677,7 +3005,7 @@ Setscene Task Warning
 
 This warning occurs when the Yocto cache is in a dirty state.
 
-::
+.. code-block::
 
    WARNING: Setscene task X ([...]) failed with exit code '1' - real task
 
@@ -2685,20 +3013,20 @@ You should avoid canceling the build process or if you have to, press Ctrl-C
 once and wait until the build process has stopped. To remove all these warnings
 just clean the sstate cache and remove the build folders.
 
-::
+.. code-block:: console
 
-   bitbake phytec-headless-image -c cleansstate && rm -rf tmp deploy/ipk
+   host:~$ bitbake phytec-headless-image -c cleansstate && rm -rf tmp deploy/ipk
 
 Yocto Documentation
 ===================
 
 The most important piece of documentation for a BSP user is probably the
 developer manual.
-https://docs.yoctoproject.org/4.0.6/dev-manual/index.html
+https://docs.yoctoproject.org/4.2.4/dev-manual/index.html
 
 The chapter about common tasks is a good starting point.
-https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks
+https://docs.yoctoproject.org/4.2.4/dev-manual/layers.html#understanding-and-creating-layers
 
 The complete documentation is available on one single HTML page, which is good
 for searching for a feature or a variable name.
-https://docs.yoctoproject.org/4.0.6/singleindex.html
+https://docs.yoctoproject.org/4.2.4/singleindex.html
