@@ -1,39 +1,53 @@
 .. Download links
 
 .. General Replacements
-.. |doc-art-no| replace:: L813e.Ax
+.. |doc-art-no| replace:: L813e.A14
 
 .. Yocto
-.. |yocto-codename| replace:: kirkstone
+.. |yocto-codename| replace:: Kirkstone
 .. |yocto-ref-manual| replace:: |doc-art-no| Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
 
-+---------------------------------------------------------------+
-| |yocto-ref-manual|                                            |
-+=======================+=======================================+
-| Document Title        | |yocto-ref-manual| HEAD               |
-+-----------------------+---------------------------------------+
-| Document Type         | Yocto Manual                          |
-+-----------------------+---------------------------------------+
-| Article Number        | |doc-art-no|                          |
-+-----------------------+---------------------------------------+
-| Release Date          | XXXX/XX/XX                            |
-+-----------------------+---------------------------------------+
-| Is Branch of          | L-813e.Ax Yocto Reference Manual HEAD |
-+-----------------------+---------------------------------------+
++---------------------------------------------------------------------------+
+| |yocto-ref-manual|                                                        |
++=======================+===================================================+
+| Document Title        | |yocto-ref-manual| |yocto-codename|               |
++-----------------------+---------------------------------------------------+
+| Document Type         | Yocto Manual                                      |
++-----------------------+---------------------------------------------------+
+| Article Number        | |doc-art-no|                                      |
++-----------------------+---------------------------------------------------+
+| Release Date          | XXXX/XX/XX                                        |
++-----------------------+---------------------------------------------------+
+| Is Branch of          | L-813e.Ax Yocto Reference Manual |yocto-codename| |
++-----------------------+---------------------------------------------------+
 
-+-------------------+-----------------+-----------------+------------+
-| Compatible BSPs   | BSP Release     | BSP Release     | BSP Status |
-|                   | Type            | Date            |            |
-+===================+=================+=================+============+
-| BSP\              | Major           | 14.12.2022      | released   |
-| -Yocto-Ampliphy\  |                 |                 |            |
-| -i.MX6-PD22.1.0   |                 |                 |            |
-+-------------------+-----------------+-----------------+------------+
-| BSP\              | Major           | 11.08.2022      | released   |
-| -Yocto-Ampliphy\  |                 |                 |            |
-| -i.MX6UL-PD22.1.0 |                 |                 |            |
-+-------------------+-----------------+-----------------+------------+
++-------------------------------------+------------------+------------------+------------+
+| Compatible BSPs                     | BSP Release Type | BSP Release Date | BSP Status |
++=====================================+==================+==================+============+
+| BSP-Yocto-Ampliphy-i.MX6-PD22.1.0   | Major            | 14.12.2022       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-i.MX6-PD22.1.1   | Major            | 20.06.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0 | Major            | 11.08.2022       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1 | Major            | 23.05.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM335x-PD23.1.0  | Major            | 25.04.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX8MM-PD23.1.0      | Major            | 12.12.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX8MP-PD23.1.0      | Major            | 12.12.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM62x-PD23.2.0   | Major            | 28.09.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0  | Major            | 28.09.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM64x-PD23.2.0   | Major            | 28.09.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX7-PD23.1.0        | Major            | 15.12.2023       | released   |
++-------------------------------------+------------------+------------------+------------+
+
 
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
@@ -442,7 +456,7 @@ The BSP content gets pulled from different online sources when you first start
 using *Bitbake*. All files will be downloaded and cloned in a local directory
 configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete
 content, those sources have to be backed up, too. How you can do this will be
-explained in the chapter :ref:`gen-source-mirrors`.
+explained in the chapter :ref:`kirkstone_gen-source-mirrors`.
 
 Build Configuration
 -------------------
@@ -493,9 +507,9 @@ packages on your host::
 
    host$ sudo apt install wget git
 
-Continue with the next step :ref:`git-config` after that. The documentation for
+Continue with the next step :ref:`kirkstone_git-config` after that. The documentation for
 using build-container can be found in this manual after
-:ref:`phylinux-advanced-usage` of phyLinux.
+:ref:`kirkstone_phylinux-advanced-usage` of phyLinux.
 
 Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu
 20.04* you need::
@@ -509,7 +523,7 @@ Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu
 For other distributions you can find information in the *Yocto* Quick Build:
 https://docs.yoctoproject.org/4.0.6/brief-yoctoprojectqs/index.html
 
-.. _git-config:
+.. _kirkstone_git-config:
 
 Git Configuration
 -----------------
@@ -673,126 +687,130 @@ release number, and the hardware you are working on::
    * Please choose one of the available SoC Platforms:
    *
    *   1: am335x
-   *   2: am62x
-   *   3: am64x
-   *   4: imx6
-   *   5: imx6ul
-   *   6: imx7
-   *   7: imx8
-   *   8: imx8m
-   *   9: imx8mm
-   *   10: imx8mp
-   *   11: nightly
-   *   12: rk3288
-   *   13: stm32mp1
-   *   14: topic
+   *   2: am57x
+   *   3: am62ax
+   *   4: am62x
+   *   5: am64x
+   *   6: am68x
+   *   7: imx6
+   *   8: imx6ul
+   *   9: imx7
+   *   10: imx8
+   *   11: imx8m
+   *   12: imx8mm
+   *   13: imx8mp
+   *   14: imx8x
+   *   15: imx93
+   *   16: nightly
+   *   17: rk3288
+   *   18: stm32mp13x
+   *   19: stm32mp15x
+   *   20: topic
 
-   # Exemplary output for chosen imx6  ***************************************************
+     # Exemplary output for choosen imx6ul
+   ***************************************************
    * Please choose one of the available Releases:
    *
-   *   1: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc1
-   *   2: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc2
-   *   3: BSP-Yocto-Ampliphy-i.MX6-PD21.1-rc3
-   *   4: BSP-Yocto-Ampliphy-i.MX6-PD21.1.0
-   *   5: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1-rc1
-   *   6: BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
-   *   7: BSP-Yocto-Ampliphy-i.MX6-PD21.1.y
-   *   8: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc1
-   *   9: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc2
-   *   10: BSP-Yocto-Ampliphy-i.MX6-PD22.1-rc3
-   *   11: BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
-   *   12: BSP-Yocto-Ampliphy-i.MX6-PD22.1.y
-   *   13: BSP-Yocto-i.MX6-PD14.2-rc1
-   *   14: BSP-Yocto-i.MX6-PD14.2-rc2
-   *   15: BSP-Yocto-i.MX6-PD14.2-rc3
-   *   16: BSP-Yocto-i.MX6-PD15.1-rc1
-   *   17: BSP-Yocto-i.MX6-PD15.1-rc2
-   *   18: BSP-Yocto-i.MX6-PD15.1.0
-   *   19: BSP-Yocto-i.MX6-PD15.1.1
-   *   20: BSP-Yocto-i.MX6-PD15.1.2
-   *   21: BSP-Yocto-i.MX6-PD15.2-rc1
-   *   22: BSP-Yocto-i.MX6-PD15.2.0
-   *   23: BSP-Yocto-i.MX6-PD15.3-rc1
-   *   24: BSP-Yocto-i.MX6-PD15.3-rc2
-   *   25: BSP-Yocto-i.MX6-PD15.3.0
-   *   26: BSP-Yocto-i.MX6-PD15.3.1
-   *   27: BSP-Yocto-i.MX6-PD16.1-rc1
-   *   28: BSP-Yocto-i.MX6-PD16.1-rc2
-   *   29: BSP-Yocto-i.MX6-PD16.1.0
-   *   30: BSP-Yocto-i.MX6-PD16.1.1
-   *   31: BSP-Yocto-i.MX6-PD16.1.2-rc1
-   *   32: BSP-Yocto-i.MX6-PD16.1.2
-   *   33: BSP-Yocto-i.MX6-PD18.1-rc4
-   *   34: BSP-Yocto-i.MX6-PD18.1.0
-   *   35: BSP-Yocto-i.MX6-PD18.1.1-rc1
-   *   36: BSP-Yocto-i.MX6-PD18.1.1-rc2
-   *   37: BSP-Yocto-i.MX6-PD18.1.1
-   *   38: BSP-Yocto-i.MX6-PD18.1.2-rc1
-   *   39: BSP-Yocto-i.MX6-PD18.1.2-rc2
-   *   40: BSP-Yocto-i.MX6-PD18.1.2-rc3
-   *   41: BSP-Yocto-i.MX6-PD18.1.2
-   *   42: BSP-Yocto-i.MX6-PD20.1-rc1
-   *   43: BSP-Yocto-i.MX6-PD20.1-rc2
-   *   44: BSP-Yocto-i.MX6-PD20.1-rc3
-   *   45: BSP-Yocto-i.MX6-PD20.1.0
+   *   1: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2-rc1
+   *   2: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2-rc2
+   *   3: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2-rc3
+   *   4: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2-rc4
+   *   5: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2-rc5
+   *   6: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.0
+   *   7: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.1-rc1
+   *   8: BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.1
+   *   9: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1-rc2
+   *   10: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1-rc3
+   *   11: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1-rc4
+   *   12: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0
+   *   13: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1-rc1
+   *   14: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1
+   *   15: BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.y
+   *   16: BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.0
+   *   17: BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.1
+   *   18: BSP-Yocto-Vendor-phyBOARD-Segin-PD17.1.2
+   *   19: BSP-Yocto-i.MX6UL-PD19.1-rc1
+   *   20: BSP-Yocto-i.MX6UL-PD19.1-rc2
+   *   21: BSP-Yocto-i.MX6UL-PD19.1-rc3
+   *   22: BSP-Yocto-i.MX6UL-PD19.1.0
+   *   23: BSP-Yocto-i.MX6UL-PD19.1.1-rc1
+   *   24: BSP-Yocto-i.MX6UL-PD19.1.1
+   *   25: BSP-Yocto-i.MX6UL-PD19.1.2-rc1
+   *   26: BSP-Yocto-i.MX6UL-PD19.1.2-rc2
+   *   27: BSP-Yocto-i.MX6UL-PD19.1.2
+   *   28: BSP-Yocto-i.MX6UL-PD21.1.0
+   *   29: BSP-Yocto-i.MX6UL-PD21.1.y
+   *   30: BSP-Yocto-phyBOARD-Segin-PD17.2.0
+   *   31: BSP-Yocto-phyBOARD-Segin-i.MX6UL-ALPHA1
+   *   32: BSP-Yocto-phyBOARD-Segin-i.MX6UL-ALPHA2
 
-   # Exemplary output for chosen BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+     # Exemplary output for choosen BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1
    *********************************************************************
    * Please choose one of the available builds:
    *
-   no:        machine: description and article number
-                       distro: supported yocto distribution
-                       target: supported build target
+   no:                 machine: description and article number
+                                distro: supported yocto distribution
+                                target: supported build target
 
-    1: phyboard-mira-imx6-14: PHYTEC phyBOARD-Mira full-featured i.MX6 DualLite
-                       1GiB RAM, 4GiB eMMC
-                       PBA-C-06-002.A2, PCM-058-30242C0X.A0
-                       distro: ampliphy
-                       target: phytec-qt6demo-image
-    2: phyboard-mira-imx6-15: PHYTEC phyBOARD-Mira full-featured i.MX6 Solo
-                       256MiB RAM, NAND
-                       PBA-C-06-002.A2, PCM-058-12000D0C.A4
-                       distro: ampliphy
-                       target: phytec-headless-image
-    3: phyboard-mira-imx6-3: PHYTEC phyBOARD-Mira full-featured i.MX6 Quad
-                       1GiB RAM, NAND
-                       PB-01501-002.A2, PBA-C-06-002.A2, PCM-058-33230C0I.A3
-                       distro: ampliphy
-                       target: -c populate_sdk phytec-qt6demo-image
-                       target: barebox-hosttools-native
-                       target: phytec-qt6demo-image
+    1: phyboard-segin-imx6ul-2: PHYTEC phyBOARD-Segin i.MX6 UltraLite
+                                512MB RAM, NAND
+                                PB-02013-001.A2, PB-02013-110I.A2, PCL-063-23300CI.A2
+                                distro: ampliphy
+                                target: phytec-headless-image
+                                target: phytec-qt5demo-image
+    2: phyboard-segin-imx6ul-6: PHYTEC phyBOARD-Segin i.MX6 ULL
+                                512MB RAM, NAND
+                                PB-02013-001.A5, PB-02013-310I.A0, PCL-063-23900CI.A0
+                                distro: ampliphy
+                                target: -c populate_sdk phytec-qt5demo-image
+                                target: phytec-headless-image
+                                target: phytec-qt5demo-image
+                                target: phytec-vision-image
+    3: phyboard-segin-imx6ul-6: PHYTEC phyBOARD-Segin i.MX6 ULL
+                                512MB RAM, NAND
+                                PB-02013-001.A5, PB-02013-310I.A0, PCL-063-23900CI.A0
+                                distro: ampliphy-rauc
+                                target: phytec-headless-bundle
+                                target: phytec-headless-image
    ...
-   19: phyflex-imx6-2: PHYTEC phyFLEX-i.MX6 Quad PBA-B-01
-                       1GiB RAM one bank, 16MiB SPI-NOR
-                       PFL-A-02-13237E0.A1
-                       distro: ampliphy-xwayland
-                       target: phytec-vision-image
-   20: phyflex-imx6-8: PHYTEC phyFLEX-i.MX6 Solo PBA-B-01
-                       512MiB RAM one bank, no SPI-NOR
-                       PFL-A-02-0200541.A0
-                       distro: ampliphy
-                       target: phytec-qt6demo-image
+
+   10: phygate-tauri-s-imx6ul-1: PHYTEC phyGATE-Tauri-S i.MX6 ULL
+                                512MB RAM, eMMC
+                                PB-03513.A1, PCL-063-20910CI.A0
+                                distro: ampliphy
+                                target: phytec-headless-image
+   11: phygate-tauri-s-imx6ul-1: PHYTEC phyGATE-Tauri-S i.MX6 ULL
+                                512MB RAM, eMMC
+                                PB-03513.A1, PCL-063-20910CI.A0
+                                distro: ampliphy-provisioning
+                                target: phytec-provisioning-image
+   12: phygate-tauri-s-imx6ul-1: PHYTEC phyGATE-Tauri-S i.MX6 ULL
+                                512MB RAM, eMMC
+                                PB-03513.A1, PCL-063-20910CI.A0
+                                distro: ampliphy-secure
+                                target: phytec-security-bundle
+                                target: phytec-security-image
 
 If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. After the configuration is done,
 you can always run::
 
-   host$ ./phyLinux info
-
+   ./phyLinux info
+    
    # Exemplary output
-   **********************************************
-   * The current BSP configuration is:
+   ***********************************************
+   * The current BSP configuration is:  
    *
-   * SoC:  refs/heads/imx6
-   * Release:  BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+   * SoC:  refs/heads/imx6ul
+   * Release:  BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1
    *
-   **********************************************
+   ***********************************************
 
 to see which SoC and Release are selected in the current workspace. If
 you do not want to use the selector, phyLinux also supports command-line
 arguments for several settings::
 
-   host$ MACHINE=phyboard-mira-imx6-3 ./phyLinux init -p imx6 -r BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+   host$ MACHINE=phyboard-segin-imx6ul-2 ./phyLinux init -p imx6ul -r BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1
 
 or view the help command for more information::
 
@@ -814,7 +832,7 @@ or view the help command for more information::
 After the execution of the *init* command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.
 
-.. _phylinux-advanced-usage:
+.. _kirkstone_phylinux-advanced-usage:
 
 Advanced Usage
 --------------
@@ -834,6 +852,11 @@ master branch for different usage. Use phyLinux to check out the states::
 Using build-container
 =====================
 
+.. warning::
+   Currently, it is not possible to run the phyLinux script inside of a container.
+   After a complete init with the phyLinux script on your host machine, you can use a container for the build.
+   If you do not have phyLinux script running on your machine, please see phyLinux Documentation.
+
 There are various possibilities to run a build-container. Commonly used is
 docker and podman, though we prefer podman as it does not need root privileges
 to run.
@@ -842,7 +865,6 @@ Installation
 ------------
 
 How to install podman: https://podman.io
-
 How to install docker: https://docs.docker.com/engine/install/
 
 Available container
@@ -856,26 +878,46 @@ https://hub.docker.com/u/phybuilder
 -  yocto-ubuntu-20.04
 -  yocto-ubuntu-22.04
 
-These containers can be run with podman or docker.
+These containers can be run with podman or docker. With Yocto Project branch |yocto-codename| the container "yocto-ubuntu-20.04" is preferred.
 
 Download/Pull container
 -----------------------
 
 ::
 
-   host$ podman pull phybuilder/yocto-ubuntu-22.04:phy1
+   host$ podman pull phybuilder/yocto-ubuntu-22.04
 
-The added part "phy1" is a tag of the container and needed for
-pulling/downloading and running as well. You can find all available tags in our
-duckerhub space:
+   OR
+
+   docker pull docker.io/phybuilder/yocto-ubuntu-20.04
+
+By adding a tag at the end separated by a colon, you can also pull or run a special tagged container.
+
+   podman pull docker.io/phybuilder/yocto-ubuntu-20.04:phy2
+
+You can find all available tags in our duckerhub space:
 
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-16.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-18.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags
 
-If you try to run a container, which is not pulled/downloaded, it will be
-pulled/downloaded automatically.
+If you try to run a container, which is not pulled/downloaded, it will be pulled/downloaded automatically.
+
+You can have a look at all downloaded/pulled container with:
+
+   $USERNAME@$HOSTNAME:~$ podman images
+   REPOSITORY                               TAG         IMAGE ID      CREATED       SIZE
+   docker.io/phybuilder/yocto-ubuntu-22.04  latest      d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy2        d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy2        e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  latest      e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  phy1        14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  latest      14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  phy1        28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  latest      28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy1        5a0ef4b41935  8 months ago  627 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy1        b5a26a86c39f  8 months ago  680 MB
 
 Run container
 -------------
@@ -883,7 +925,12 @@ Run container
 To run and use container for a Yocto build, first enter to your folder, where
 you run phyLinux init before. Then start the container::
 
-   host$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it phybuilder/yocto-ubuntu-22.04:phy1 bash
+   host$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it docker.io/phybuilder/yocto-ubuntu-20.04 bash
+
+.. note::
+   To run and use a container with docker, it is not that simple like with podman.
+   Therefore the container-user has to be defined and configured.
+   Furthermore forwarding of credentials is not given per default and has to be configured as well.
 
 Now your commandline should look something like that (where $USERNAME is the
 user, who called "podman run" and the char/number code diffs every time a
@@ -891,8 +938,12 @@ container is started)::
 
    $USERNAME@6593e2c7b8f6:~$
 
-Now you are ready to go on and starting the build. To stop/close the container,
-just call::
+.. warning::
+   If the given username is "root" you will not be able to run bitbake at all.
+   Please be sure, you run the container with your own user.
+
+Now you are ready to go on and starting the build.
+To stop/close the container, just call::
 
    $USERNAME@6593e2c7b8f6:~$ exit
 
@@ -1026,42 +1077,42 @@ in your shell. This will print something like::
 
    (mini) HOWTO: Use a local git repository to build barebox:
 
-   To get source code for this package and version (barebox-2018.11.0-phy2), execute
+   To get source code for this package and version (barebox-2022.02.0-phy1), execute
 
    $ mkdir -p ~/git
    $ cd ~/git
    $ git clone git://git.phytec.de/barebox barebox
    $ cd ~/git/barebox
-   $ git checkout -b v2018.11.0-phy2-local-development 9a40cd5eb3e5286f9c8ca186475380acf262f2ed
-
+   $ git checkout -b v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
+    
    You now have two possible workflows for your changes:
-
+    
    1. Work inside the git repository:
    Copy and paste the following snippet to your "local.conf":
-
-   SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
+    
+   SRC_URI:pn-barebox = "git://${HOME}/git/barebox;branch=${BRANCH}"
    SRCREV:pn-barebox = "${AUTOREV}"
-   BRANCH:pn-barebox = "v2018.11.0-phy2-local-development"
-
+   BRANCH:pn-barebox = "v2022.02.0-phy1-local-development"
+    
    After that you can recompile and deploy the package with
-
+    
    $ bitbake barebox -c compile
    $ bitbake barebox -c deploy
-
+    
    Note: You have to commit all your changes. Otherwise yocto doesn't pick them up!
-
+    
    2. Work and compile from the local working directory
-   To work and compile in an external source directory we provide the
-   externalsrc.bbclass. To use it copy and paste the following snippet to your
+   To work and compile in an external source directoy we provide the
+   externalsrc.bbclass. To use it, copy and paste the following snippet to your
    "local.conf":
-
+    
    INHERIT += "externalsrc"
-   EXTERNALSRC_pn-barebox = "${HOME}/git/barebox"
-   EXTERNALSRC_BUILD_pn-barebox = "${HOME}/git/barebox/build"
-
-   Note: All the compiling is done in the EXTERNALSRC directory. Every time
+   EXTERNALSRC:pn-barebox = "${HOME}/git/barebox"
+   EXTERNALSRC_BUILD:pn-barebox = "${HOME}/git/barebox"
+    
+   Note: All the compiling is done in the EXTERNALSRC directory. Everytime
    you build an Image, the package will be recompiled and build.
-
+    
    NOTE: Tasks Summary: Attempted 1 tasks of which 0 didn't need to be rerun and all succeeded.
    NOTE: Writing buildhistory
 
@@ -1398,14 +1449,14 @@ To see which version is used, execute *bitbake -s*. For example::
 The parameter *-s* prints the version of all recipes. The output contains the
 recipe name on the left and the version on the right::
 
-   barebox                    :2019.11.0-phy1-r7.0
-   barebox-hosttools-native   :2019.11.0-phy1-r7.0
-   barebox-targettools        :2019.11.0-phy1-r7.0
-   linux-mainline             :4.19.100-phy1-r0.0
+   barebox                      :2022.02.0-phy1-r7.0
+   barebox-hosttools-native     :2022.02.0-phy1-r7.0
+   barebox-targettools          :2022.02.0-phy1-r7.0
+   linux-mainline               :5.15.102-phy1-r0.0
 
-As you can see, the recipe *linux-mainline* has version *4.19.100-phy1-r0*. In
+As you can see, the recipe *linux-mainline* has version *5.15.102-phy1*. In
 the PHYTEC's *linux-mainline*  *Git* repository, you will find a corresponding
-tag *v4.19.100-phy1*. The version of the *barebox* recipe is 2019.11.0-phy1-r7.
+tag *v5.15.102-phy1*. The version of the *barebox* recipe is 2022.02.0-phy1.
 On i.MX8M\* modules the output will contain *linux-imx* and *u-boot-imx*.
 
 Kernel and Bootloader Configuration
@@ -1612,7 +1663,7 @@ Your changes will now be recompiled and added to the image. If you want to store
 your changes permanently, it is advisable to create a patch from the changes,
 then store and backup only the patch. You can go into the *linux-mainline*
 directory and create a patch using *Git*. How to create a patch is described in
-:ref:`temporary-method` and is the same for all methods.
+:ref:`kirkstone_temporary-method` and is the same for all methods.
 
 If you want to learn more about *devtool*, visit:
 
@@ -1621,7 +1672,7 @@ If you want to learn more about *devtool*, visit:
 or `Devtool Quick Reference
 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_
 
-.. _temporary-method:
+.. _kirkstone_temporary-method:
 
 Patch the Kernel or Bootloader using the "Temporary Method"
 ...........................................................
@@ -1775,14 +1826,14 @@ kernel. If you do not have one, use the commands::
    host$ cd ~/git
    host$ git clone git://git.phytec.de/barebox
    host$ cd barebox
-   host$ git checkout -b v2019.11.0-phy remotes/origin/v2019.11.0-phy
+   host$ git checkout -b v2022.02.0-phy remotes/origin/v2022.02.0-phy
 
 Add the following snippet to the file build/conf/local.conf::
 
    # Use your own path to the git repository
    # NOTE: Branch name in variable "BRANCH_pn-barebox" should be the same as the
    # branch which is used in the repository folder. Otherwise your commits won't be recognized later.
-   BRANCH:pn-barebox = "v2019.11.0-phy"
+   BRANCH:pn-barebox = "v2022.02.0-phy"
    SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
    SRCREV:pn-barebox = "${AUTOREV}"
 
@@ -1934,7 +1985,7 @@ The first example of a *bbappend* file in the custom layer *meta-racer* shows
 how to add a new non-volatile variable *linux.bootargs.fb* in the *barebox*
 environment folder */env/nv/*::
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_add(d, "nv/linux.bootargs.fb", "imxdrm.legacyfb_depth=32\n")
    }
@@ -1942,7 +1993,7 @@ environment folder */env/nv/*::
 The next example shows how to replace the network configuration file
 */env/network/eth0*::
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_add(d, "network/eth0",
    """#!/bin/sh
@@ -1966,7 +2017,7 @@ code. The *Python* function *env_add* can add and overwrite environment files.
 The next example shows how to remove an already added environment file, for
 example *,* */env/boot/mmc*::
 
-   # file meta-racer/recipes-bsp/barebox/barebox_2019.11.0-phy1.bbappend
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append() {
        env_rm(d, "boot/mmc")
    }
@@ -1989,10 +2040,10 @@ output::
 The output of the last command looks like this::
 
    [...]
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/allow_color' content "false"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.base' content "consoleblank=0"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.fb' content "imxdrm.legacyfb_depth=32"
-   WARNING: barebox-2019.11.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.rootfs' content "rootwait ro fsck.repair=yes"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/allow_color' content "false"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.base' content "consoleblank=0"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.fb' content "imxdrm.legacyfb_depth=32"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.rootfs' content "rootwait ro fsck.repair=yes"
 
 Changing the Environment (depending on Machines)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2008,7 +2059,7 @@ the machine overwrite syntax, you append a machine name or SoC name (such as
 The next example adds the environment variables only if the MACHINE is set to
 *phyboard-mira-imx6-4*::
 
-   # file meta-phytec/recipes-bsp/barebox/barebox_2019.11.0-phy1.bb
+   # file meta-phytec/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
    python do_env:append:phyboard-mira-imx6-4() {
        env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
    }
@@ -2056,7 +2107,7 @@ example translates to a single *Python* function in the file
        env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
    }
 
-.. _changing-net-config:
+.. _kirkstone_changing-net-config:
 
 Changing the Network Configuration
 ..................................
@@ -2155,7 +2206,7 @@ Connecting to a WLAN Network
 
    To finish the configuration you can configure DHCP to receive an IP address
    (supported by most WLAN access points). For other possible IP configurations,
-   see the section :ref:`changing-net-config`.
+   see the section :ref:`kirkstone_changing-net-config`.
 
 -  First, create the directory::
 
@@ -2389,7 +2440,7 @@ For cross-debugging, this is not required as the debug symbols will be loaded
 from the host side and the dbg-pkgs are included in the SDK of your image
 anyway.
 
-.. _gen-source-mirrors:
+.. _kirkstone_gen-source-mirrors:
 
 Generating Source Mirrors, working Offline
 ..........................................
