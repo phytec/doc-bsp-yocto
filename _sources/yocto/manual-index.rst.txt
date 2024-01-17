@@ -2,12 +2,22 @@
 Yocto Reference Manuals
 =======================
 
-HEAD
-====
+Kirkstone
+=========
 
 .. toctree::
    :caption: Table of Contents
    :numbered:
    :maxdepth: 2
 
-   head
+   kirkstone
+
+Mickledore
+==========
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   mickledore
