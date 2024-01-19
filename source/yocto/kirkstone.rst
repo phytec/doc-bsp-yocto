@@ -1916,12 +1916,12 @@ is successful, you can deploy the package and create a new SD card image
 .. code-block:: console
 
    host:~$ bitbake barebox -c devshell            # Or linux-mainline, linux-ti
-   host(devshell)$ git status                   # Show changes files
-   host(devshell)$ git add <file>               # Add a special file to the staging area
-   host(devshell)$ git commit -m "important modification"   # Creates a commit with a not so useful commit message
-   host(devshell)$ git format-patch -1 -o ~/    # Creates a patch of the last commit and saves it in your home folder
+   host(devshell):~$ git status                   # Show changes files
+   host(devshell):~$ git add <file>               # Add a special file to the staging area
+   host(devshell):~$ git commit -m "important modification"   # Creates a commit with a not so useful commit message
+   host(devshell):~$ git format-patch -1 -o ~/    # Creates a patch of the last commit and saves it in your home folder
    /home/<user>/0001-important-modification.patch  # Git prints the path of the written patch file
-   host(devshell)$ exit
+   host(devshell):~$ exit
 
 After you have created the patch, you must create a *bbappend* file for it. The
 locations for the three different recipes - *linux-mainline* , *linux-ti* , and
@@ -2419,13 +2419,14 @@ Connecting to a WLAN Network
 
 .. code-block:: console
 
-      target:~$ iw reg set DE target:~$ iw reg get
+   target:~$ iw reg set DE
+   target:~$ iw reg get
 
-   You will see
+You will see
 
-   .. code-block::
+.. code-block::
 
-      country DE: DFS-ETSI
+   country DE: DFS-ETSI
       (2400 - 2483 @ 40), (N/A, 20), (N/A)
       (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
       (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
@@ -2436,64 +2437,64 @@ Connecting to a WLAN Network
 
 .. code-block:: console
 
-      target:~$ ip link    # list all interfaces. Search for wlan*
-      target:~$ ip link set up dev wlan0
+   target:~$ ip link    # list all interfaces. Search for wlan*
+   target:~$ ip link set up dev wlan0
 
 -  Now you can scan for available networks
 
 .. code-block:: console
 
-      targe$ iw wlan0 scan | grep SSID
+   target:~$ iw wlan0 scan | grep SSID
 
-   You can use a cross-platform supplicant with support for *WEP*, *WPA*, and
-   *WPA2* called *wpa_supplicant* for an encrypted connection.
+You can use a cross-platform supplicant with support for *WEP*, *WPA*, and
+*WPA2* called *wpa_supplicant* for an encrypted connection.
 
 -  To do so, add the network credentials to the file
    */etc/wpa_supplicant.conf*
 
-   .. code-block:: kconfig
+.. code-block:: kconfig
 
-      Confluence country=DE network={ ssid="<SSID>" proto=WPA2 psk="<KEY>" }
+   Confluence country=DE network={ ssid="<SSID>" proto=WPA2 psk="<KEY>" }
 
 -  Now a connection can be established
 
 .. code-block:: console
 
-      target:~$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
+   target:~$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
 
-   This should result in the following output
+This should result in the following output
 
-   .. code-block::
+.. code-block::
 
-      ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
 
-   To finish the configuration you can configure DHCP to receive an IP address
-   (supported by most WLAN access points). For other possible IP configurations,
-   see the section :ref:`kirkstone_changing-net-config`.
+To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see the section :ref:`kirkstone_changing-net-config`.
 
 -  First, create the directory
 
 .. code-block:: console
 
-      target:~$ mkdir -p /etc/systemd/network/
+   target:~$ mkdir -p /etc/systemd/network/
 
 -  Then add the following configuration snippet in
    */etc/systemd/network/10-wlan0.network*
 
-   .. code-block:: kconfig
+.. code-block:: kconfig
 
-      # file /etc/systemd/network/10-wlan0.network
-      [Match]
-      Name=wlan0
+   # file /etc/systemd/network/10-wlan0.network
+   [Match]
+   Name=wlan0
 
-      [Network]
-      DHCP=yes
+   [Network]
+   DHCP=yes
 
 -  Now, restart the network daemon so that the configuration takes effect
 
 .. code-block:: console
 
-      target:~$ systemctl restart systemd-networkd
+   target:~$ systemctl restart systemd-networkd
 
 Creating a WLAN Access Point
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
