@@ -9,8 +9,10 @@ jobs:
     runs-on: self-hosted
     timeout-minutes: 5
     steps:
-    - name: Clone repo
-      uses: actions/checkout@v3
+    - name: Clone repo with all tags (required for git describe)
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Install dependencies
       run: |
           sudo apt update
