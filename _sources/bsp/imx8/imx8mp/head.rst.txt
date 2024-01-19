@@ -60,8 +60,8 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
-.. |yocto-ref-manual| replace:: L-813e.A14 Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=IoBHIw
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
+.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-head-bootswitch>`
