@@ -11,7 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
-import sys
+import re
 
 # -- Project information -----------------------------------------------------
 
@@ -19,8 +19,11 @@ project = 'PHYTEC BSP Documentation'
 copyright = '2024, PHYTEC Messtechnik GmbH'
 author = 'PHYTEC'
 
-# The full version, including alpha/beta/rc tags
-release = '0.1.0'
+# Use git describe to get the version e.g.: imx8-pd23.1.0-1-gb1830e
+release = re.sub('', '', os.popen('git describe --tags').read().strip())
+
+# Assign to the version variable, to list the version in the html as well.
+version = release
 
 # -- General configuration ---------------------------------------------------
 
