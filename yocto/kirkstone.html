@@ -18,7 +18,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=3748b953"></script>
+        <script src="../_static/documentation_options.js?v=2afecfdc"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-1-g46412d7
+                imx8-pd23.1.0-3-gb5bbdeb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1889,12 +1889,12 @@ configuration.</p>
 method and in the subdirectory created by <em>devtool</em> if you used <em>devtool</em>.</p>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>devshell<span class="w">            </span><span class="c1"># Or linux-mainline, linux-ti</span>
-<span class="go">host(devshell)$ git status                   # Show changes files</span>
-<span class="go">host(devshell)$ git add &lt;file&gt;               # Add a special file to the staging area</span>
-<span class="go">host(devshell)$ git commit -m &quot;important modification&quot;   # Creates a commit with a not so useful commit message</span>
-<span class="go">host(devshell)$ git format-patch -1 -o ~/    # Creates a patch of the last commit and saves it in your home folder</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>status<span class="w">                   </span><span class="c1"># Show changes files</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">               </span><span class="c1"># Add a special file to the staging area</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;important modification&quot;</span><span class="w">   </span><span class="c1"># Creates a commit with a not so useful commit message</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>format-patch<span class="w"> </span>-1<span class="w"> </span>-o<span class="w"> </span>~/<span class="w">    </span><span class="c1"># Creates a patch of the last commit and saves it in your home folder</span>
 <span class="go">/home/&lt;user&gt;/0001-important-modification.patch  # Git prints the path of the written patch file</span>
-<span class="go">host(devshell)$ exit</span>
+<span class="gp">host(devshell):~$ </span><span class="nb">exit</span>
 </pre></div>
 </div>
 <p>After you have created the patch, you must create a <em>bbappend</em> file for it. The
@@ -2312,18 +2312,17 @@ and <a class="reference external" href="https://www.freedesktop.org/software/sys
 <ul class="simple">
 <li><p>First set the correct regulatory domain for your country</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   target:~$ iw reg set DE target:~$ iw reg get</span>
-
-<span class="go">You will see</span>
-
-<span class="go">.. code-block::</span>
-
-<span class="go">   country DE: DFS-ETSI</span>
-<span class="go">   (2400 - 2483 @ 40), (N/A, 20), (N/A)</span>
-<span class="go">   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR</span>
-<span class="go">   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS</span>
-<span class="go">   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS</span>
-<span class="go">   (57000 - 66000 @ 2160), (N/A, 40), (N/A)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
+</pre></div>
+</div>
+<p>You will see</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
 </pre></div>
 </div>
 <ul class="simple">
@@ -2336,43 +2335,41 @@ and <a class="reference external" href="https://www.freedesktop.org/software/sys
 <ul class="simple">
 <li><p>Now you can scan for available networks</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   targe$ iw wlan0 scan | grep SSID</span>
-
-<span class="go">You can use a cross-platform supplicant with support for *WEP*, *WPA*, and</span>
-<span class="go">*WPA2* called *wpa_supplicant* for an encrypted connection.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
 </pre></div>
 </div>
-<ul>
+<p>You can use a cross-platform supplicant with support for <em>WEP</em>, <em>WPA</em>, and
+<em>WPA2</em> called <em>wpa_supplicant</em> for an encrypted connection.</p>
+<ul class="simple">
 <li><p>To do so, add the network credentials to the file
-<em>/etc/wpa_supplicant.conf</em></p>
+<em>/etc/wpa_supplicant.conf</em></p></li>
+</ul>
 <div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>Confluence<span class="w"> </span>country=DE<span class="w"> </span>network={<span class="w"> </span>ssid=&quot;&lt;SSID&gt;&quot;<span class="w"> </span>proto=WPA2<span class="w"> </span>psk=&quot;&lt;KEY&gt;&quot;<span class="w"> </span>}
 </pre></div>
 </div>
-</li>
+<ul class="simple">
 <li><p>Now a connection can be established</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   target:~$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B</span>
-
-<span class="go">This should result in the following output</span>
-
-<span class="go">.. code-block::</span>
-
-<span class="go">   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]</span>
-
-<span class="go">To finish the configuration you can configure DHCP to receive an IP address</span>
-<span class="gp gp-VirtualEnv">(supported by most WLAN access points)</span><span class="go">. For other possible IP configurations,</span>
-<span class="go">see the section :ref:`kirkstone_changing-net-config`.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-Dnl80211<span class="w"> </span>-c/etc/wpa_supplicant.conf<span class="w"> </span>-iwlan0<span class="w"> </span>-B
 </pre></div>
 </div>
+<p>This should result in the following output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see the section <a class="reference internal" href="#kirkstone-changing-net-config"><span class="std std-ref">Changing the Network Configuration</span></a>.</p>
 <ul class="simple">
 <li><p>First, create the directory</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>Then add the following configuration snippet in
-<em>/etc/systemd/network/10-wlan0.network</em></p>
+<em>/etc/systemd/network/10-wlan0.network</em></p></li>
+</ul>
 <div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file /etc/systemd/network/10-wlan0.network</span>
 [Match]
 Name=wlan0
@@ -2381,7 +2378,7 @@ Name=wlan0
 DHCP=yes
 </pre></div>
 </div>
-</li>
+<ul class="simple">
 <li><p>Now, restart the network daemon so that the configuration takes effect</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
