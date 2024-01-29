@@ -217,11 +217,19 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-head-development:
-.. include:: /bsp/imx8/development.rsti
+
+Development
+===========
+
+.. include:: /bsp/imx8/development/netboot.rsti
+
+.. include:: /bsp/imx8/development/uuu.rsti
+
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
 
 .. _imx8mp-head-development-build-uboot:
-.. include:: /bsp/imx8/development.rsti
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :start-after: .. build-uboot-marker
    :end-before: .. build-kernel-marker
 
@@ -248,8 +256,14 @@ be chosen by default. After saving the changes, follow the remaining steps from
 |ref-build-uboot|.
 
 
-.. include:: /bsp/imx8/development.rsti
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :start-after: .. build-kernel-marker
+
+.. include:: /bsp/imx8/development/development_manifests.rsti
+
+.. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. include:: /bsp/imx8/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE

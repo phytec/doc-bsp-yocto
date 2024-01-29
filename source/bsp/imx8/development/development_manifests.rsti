@@ -1,0 +1,32 @@
+Accessing the Development States between Releases
+-------------------------------------------------
+
+Special release manifests exist to give you access to the current development
+states of the *Yocto* BSP. They will not be displayed in the phyLinux selection
+menu but need to be selected manually. This can be done using the following
+command line:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ./phyLinux init -p |kernel-socname| -r |yocto-manifestname-y|
+
+This will initialize a BSP that will track the latest development state. From
+now on *repo sync* in this folder will pull all the latest changes from
+our Git repositories:
+
+.. code-block:: console
+
+   host:~$ repo sync
+
+.. tip::
+
+   Also development states of upcoming releases can be accessed this way.
+   For this execute the following command and look for a release with a higher
+   PDXX.Y number than the latest one (|yocto-manifestname|) and ``.y`` at the
+   end:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ ./phyLinux init -p |kernel-socname|
