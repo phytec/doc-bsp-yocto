@@ -12,6 +12,16 @@ HEAD
 
    head
 
+Mainline HEAD
+=============
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   mainline-head
+
 PD23.1.0
 ========
 
