@@ -11,7 +11,7 @@ There are several ways to flash an image to SD card or even eMMC. Most notably
 using simple, sequential writing with the Linux command line tool ``dd``. An
 alternative way is to use PHYTEC's system initialization program called
 `partup <https://github.com/phytec/partup>`_, which makes it especially easy to
-format more complex systems. You can get `prebuild Linux binaries of partup
+format more complex systems. You can get `prebuilt Linux binaries of partup
 <https://github.com/phytec/partup/releases>`__ from its release page. Also read
 `partup's README <https://github.com/phytec/partup#readme>`__ for installation
 instructions.
@@ -93,8 +93,8 @@ Unmount all partitions, e.g.:
 
    host:~$ sudo umount /dev/sde1
 
-Now, the SD card is ready to be flashed with an image, using either partup,
-``dd`` or bmap-tools.
+Now, the SD card is ready to be flashed with an image, using either ``partup``,
+``dd`` or ``bmap-tools``.
 
 Using partup
 ............
@@ -124,8 +124,8 @@ Further usage of partup is explained at its `official documentation website
 Using bmap-tools
 ................
 
-An alternative and also fast way to prepare an SD card can be done by using
-`bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto
+An alternative and also fast way to prepare an SD card is using
+`bmap-tools <https://github.com/intel/bmap-tools>`_ by Intel. Yocto
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
 integrity. *bmaptool* is packaged by various Linux distributions. For
