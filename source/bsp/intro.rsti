@@ -2,7 +2,10 @@ This BSP manual guides you through the installation and creation steps for the
 Board Support Package (BSP) and describes how to handle the interfaces for the
 |kit|. Furthermore, this document describes how to create BSP images from the
 source code. This is useful for those who need to change the default image and
-need a way to implement these changes in a simple and reproducible way.
+need a way to implement these changes in a simple and reproducible way. Further,
+some sections of this manual require executing commands on a personal
+computer (host). Any and all of these commands are assumed to be executed on a
+Linux Operating System.
 
 .. note::
 
