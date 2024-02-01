@@ -84,7 +84,7 @@ backed up by several major companies in the field. On the `Yocto Project website
 
 As said, the project wants to provide toolsets for embedded developers. It
 builds on top of the long-lasting `OpenEmbedded
-<https://www.openembedded.org/>`_ project. It is not a Linux distribution. But
+<https://www.openembedded.org/wiki/Main_Page>`_ project. It is not a Linux distribution. But
 it contains the tools to create a Linux distribution specially fitted to the
 product requirements. The most important step in bringing order to the set of
 tools is to define a common versioning scheme and a reference system. All
@@ -599,7 +599,7 @@ structure. You can get all the BSP sources without the need of interacting with
 
 The phyLinux script has only one real dependency. It requires the *wget* tool
 installed on your host. It will also install the `Repo tool
-<https://source.android.com/source/developing.html>`_ in a global path
+<https://source.android.com/docs/setup/download>`_ in a global path
 (/usr/local/bin) on your host PC. You can install it in a different location
 manually. *Repo* will be automatically detected by phyLinux if it is found in
 the PATH. The *Repo* tool will be used to manage the different *Git*
@@ -2327,7 +2327,7 @@ and the interface files in the folder
 address configuration for *eth0* (and optionally *eth1*) is done.
 
 For more information, see https://wiki.archlinux.org/title/Systemd-networkd
-and https://www.freedesktop.org/software/systemd/man/systemd.network.html.
+and https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html.
 
 Changing the Wireless Network Configuration
 ...........................................
@@ -2953,7 +2953,7 @@ in */etc/udev/rules.d* (sysadmin configuration space) and\  */lib/udev/rules.d/*
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="input:*-e0*,3,*a0,1,*18,*", SYMLINK+="input/touchscreen0"
    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="ads7846", SYMLINK+="input/touchscreen0"
 
-See https://www.freedesktop.org/software/systemd/man/udev.html for more details
+See https://www.freedesktop.org/software/systemd/man/latest/udev.html for more details
 about the syntax and usage. To get the list of attributes for a specific device
 that can be used in an *udev* rule you can use the *udevadm info* tool. It
 prints all existing attributes of the device node and its parents. The key-value
@@ -2989,7 +2989,7 @@ especially if the rule executes external scripts. Execute
 .. tip::
 
    You cannot start daemons or heavy scripts in a *RUN* attribute. See
-   https://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D .
+   https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D .
 
    This can only be used for very short-running foreground tasks. Running an
    event process for a long period of time may block all further events for this
