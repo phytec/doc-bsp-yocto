@@ -104,12 +104,12 @@ backed up by several major companies in the field. On the `Yocto Project website
 
 As said, the project wants to provide toolsets for embedded developers. It
 builds on top of the long-lasting `OpenEmbedded
-<https://www.openembedded.org/wiki/Main_Page>`_ project. It is not a Linux distribution. But
-it contains the tools to create a Linux distribution specially fitted to the
-product requirements. The most important step in bringing order to the set of
-tools is to define a common versioning scheme and a reference system. All
-subprojects have then to comply with the reference system and have to comply
-with the versioning scheme.
+<https://www.openembedded.org/wiki/Main_Page>`_ project. It is not a Linux
+distribution. But it contains the tools to create a Linux distribution
+specially fitted to the product requirements. The most important step in
+bringing order to the set of tools is to define a common versioning scheme and
+a reference system. All subprojects have then to comply with the reference
+system and have to comply with the versioning scheme.
 
 The release process is similar to the `Linux kernel <https://kernel.org/>`_.
 Yocto increases its version number every six months and gives the release a
@@ -621,7 +621,7 @@ structure. You can get all the BSP sources without the need of interacting with
 
 The phyLinux script has only one real dependency. It requires the *wget* tool
 installed on your host. It will also install the `Repo tool
-<https://source.android.com/docs/setup/develop>`_ in a global path
+<https://source.android.com/docs/setup/download>`_ in a global path
 (/usr/local/bin) on your host PC. You can install it in a different location
 manually. *Repo* will be automatically detected by phyLinux if it is found in
 the PATH. The *Repo* tool will be used to manage the different *Git*
