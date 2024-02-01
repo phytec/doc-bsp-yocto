@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=2afecfdc"></script>
+        <script src="../../../_static/documentation_options.js?v=ad07ed6d"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-3-gb5bbdeb
+                imx8-pd23.1.0-5-g387f3bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -85,7 +85,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.3. Standalone Build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states-between-releases">5.4. Accessing the Development States between Releases</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.4. Accessing the Development states</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.6. Format SD-Card</a></li>
 </ul>
@@ -1668,23 +1668,26 @@ mounted SD card.</p>
 </div>
 </section>
 </section>
-<section id="accessing-the-development-states-between-releases">
-<h2><span class="section-number">5.4. </span>Accessing the Development States between Releases<a class="headerlink" href="#accessing-the-development-states-between-releases" title="Link to this heading"></a></h2>
-<p>Special release manifests exist to give you access to the current development
-states of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
+<section id="accessing-the-development-states">
+<h2><span class="section-number">5.4. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
+<section id="development-state-of-current-release">
+<h3><span class="section-number">5.4.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
+<p>These release manifests exist to give you access to the development states
+of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mm<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX8MM-PD23.1.y
 </pre></div>
 </div>
-<p>This will initialize a BSP that will track the latest development state. From
-now on <em>repo sync</em> in this folder will pull all the latest changes from
-our Git repositories:</p>
+<p>This will initialize a BSP that will track the latest development state of the
+current release (BSP-Yocto-NXP-i.MX8MM-PD23.1.0). From now on <em>repo sync</em> in this folder
+will pull all the latest changes from our Git repositories:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>repo<span class="w"> </span>sync
 </pre></div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+</section>
+<section id="development-state-of-upcoming-release">
+<h3><span class="section-number">5.4.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
 PDXX.Y number than the latest one (BSP-Yocto-NXP-i.MX8MM-PD23.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
@@ -1692,7 +1695,7 @@ end:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mm
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="accessing-the-latest-upstream-support">
 <h2><span class="section-number">5.5. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>

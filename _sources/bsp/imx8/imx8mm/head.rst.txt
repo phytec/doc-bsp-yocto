@@ -207,7 +207,15 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mm-head-development:
-.. include:: /bsp/imx8/development.rsti
+
+Development
+===========
+
+.. include:: /bsp/imx8/development/netboot.rsti
+
+.. include:: /bsp/imx8/development/uuu.rsti
+
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
 
 .. note::
@@ -220,8 +228,14 @@ select the phyCORE-|soc| default bootsource.
       /delete-node/ &reg_usdhc2_vmmc;
       /delete-property/ vmmc-supply;
 
-.. include:: /bsp/imx8/development.rsti
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :start-after: .. build-uboot-marker
+
+.. include:: /bsp/imx8/development/development_manifests.rsti
+
+.. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. include:: /bsp/imx8/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE

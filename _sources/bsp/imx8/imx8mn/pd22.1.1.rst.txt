@@ -824,7 +824,15 @@ BSPs: L-1006e.A3 RAUC Update & Device Management Manual.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mn-pd22.1.1-development:
-.. include:: /bsp/imx8/development.rsti
+
+Development
+===========
+
+.. include:: /bsp/imx8/development/netboot.rsti
+
+.. include:: /bsp/imx8/development/uuu.rsti
+
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
 
 *  Get the U-Boot sources:
@@ -902,8 +910,14 @@ E.g. flash SD card:
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
-.. include:: /bsp/imx8/development.rsti
+.. include:: /bsp/imx8/development/standalone_build.rsti
    :start-after: .. build-kernel-marker
+
+.. include:: /bsp/imx8/development/development_manifests.rsti
+
+.. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. include:: /bsp/imx8/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
