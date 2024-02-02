@@ -34,12 +34,12 @@
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-    color: var(--teal3);
+    color: var(--teal4);
 
     /* Improves the appearance of uppercase text */
     letter-spacing: 0.75px;
 }
 
 .wy-side-nav-search {
-    background-color: var(--teal3);
+    background-color: var(--teal4);
 }
