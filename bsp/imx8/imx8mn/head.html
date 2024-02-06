@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=44f0d004"></script>
+        <script src="../../../_static/documentation_options.js?v=181a5e6b"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-8-gc44b801
+                imx8-pd23.1.0-11-g3166e19
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -204,7 +204,10 @@ Manual Head</p></td>
 Board Support Package (BSP) and describes how to handle the interfaces for the
 <strong>phyCORE-i.MX8M Nano Kit</strong>. Furthermore, this document describes how to create BSP images from the
 source code. This is useful for those who need to change the default image and
-need a way to implement these changes in a simple and reproducible way.</p>
+need a way to implement these changes in a simple and reproducible way. Further,
+some sections of this manual require executing commands on a personal
+computer (host). Any and all of these commands are assumed to be executed on a
+Linux Operating System.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document contains code examples that describe the communication with the
@@ -297,7 +300,7 @@ image to SD card and how to start the board.</p>
 using simple, sequential writing with the Linux command line tool <code class="docutils literal notranslate"><span class="pre">dd</span></code>. An
 alternative way is to use PHYTEC’s system initialization program called
 <a class="reference external" href="https://github.com/phytec/partup">partup</a>, which makes it especially easy to
-format more complex systems. You can get <a class="reference external" href="https://github.com/phytec/partup/releases">prebuild Linux binaries of partup</a> from its release page. Also read
+format more complex systems. You can get <a class="reference external" href="https://github.com/phytec/partup/releases">prebuilt Linux binaries of partup</a> from its release page. Also read
 <a class="reference external" href="https://github.com/phytec/partup#readme">partup’s README</a> for installation
 instructions.</p>
 <section id="get-the-image">
@@ -363,8 +366,8 @@ Before writing, however, these need to be unmounted to avoid data corruption.</p
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>umount<span class="w"> </span>/dev/sde1
 </pre></div>
 </div>
-<p>Now, the SD card is ready to be flashed with an image, using either partup,
-<code class="docutils literal notranslate"><span class="pre">dd</span></code> or bmap-tools.</p>
+<p>Now, the SD card is ready to be flashed with an image, using either <code class="docutils literal notranslate"><span class="pre">partup</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dd</span></code> or <code class="docutils literal notranslate"><span class="pre">bmap-tools</span></code>.</p>
 </section>
 <section id="using-partup">
 <h3><span class="section-number">2.2.2. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
@@ -387,8 +390,8 @@ the need to call multiple other commands when writing.</p>
 </section>
 <section id="using-bmap-tools">
 <h3><span class="section-number">2.2.3. </span>Using bmap-tools<a class="headerlink" href="#using-bmap-tools" title="Link to this heading"></a></h3>
-<p>An alternative and also fast way to prepare an SD card can be done by using
-<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> from Intel. Yocto
+<p>An alternative and also fast way to prepare an SD card is using
+<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> by Intel. Yocto
 automatically creates a block map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for
 the WIC image that describes the image content and includes checksums for data
 integrity. <em>bmaptool</em> is packaged by various Linux distributions. For

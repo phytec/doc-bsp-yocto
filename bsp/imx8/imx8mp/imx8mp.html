@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=44f0d004"></script>
+        <script src="../../../_static/documentation_options.js?v=181a5e6b"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-8-gc44b801
+                imx8-pd23.1.0-11-g3166e19
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -66,6 +66,15 @@
 <li class="toctree-l4"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 8M Plus M7 Core</a></li>
 <li class="toctree-l4"><a class="reference internal" href="head.html#bsp-extensions">9. BSP Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mainline-head">Mainline HEAD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html">1. PHYTEC Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#getting-started">2. Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#building-the-bsp">3. Building the BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#installing-the-os">4. Installing the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#device-tree-dt">5. Device Tree (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#accessing-peripherals">6. Accessing Peripherals</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pd23-1-0">PD23.1.0</a><ul>
@@ -206,6 +215,71 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="head.html#bsp-extensions">9. BSP Extensions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="head.html#chromium">9.1. Chromium</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="mainline-head">
+<h2>Mainline HEAD<a class="headerlink" href="#mainline-head" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html">1. PHYTEC Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#supported-hardware">1.1. Supported Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#getting-started">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#get-the-image">2.1. Get the Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#write-the-image-to-sd-card">2.2. Write the Image to SD Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#first-start-up">2.3. First Start-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#building-the-bsp">3. Building the BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#basic-set-up">3.1. Basic Set-Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#get-the-bsp">3.2. Get the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#installing-the-os">4. Installing the OS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#bootmode-switch-s3">4.1. Bootmode Switch (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#flash-emmc">4.2. Flash eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rauc">4.4. RAUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#booting-the-kernel-from-a-network">4.5. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#working-with-uuu-tool">4.6. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-development-states">4.7. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-latest-upstream-support">4.8. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#format-sd-card">4.9. Format SD-Card</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#device-tree-dt">5. Device Tree (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#introduction">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#phytec-soc-bsp-device-tree-concept">5.2. PHYTEC i.MX 8M Plus BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#accessing-peripherals">6. Accessing Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#soc-pin-muxing">6.1. i.MX 8M Plus Pin Muxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rs232-rs485">6.2. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#network">6.3. Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#sd-mmc-card">6.4. SD/MMC Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#emmc-devices">6.5. eMMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#spi-master">6.6. SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#gpios">6.7. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#leds">6.8. LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#i2c-bus">6.9. I²C Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#eeprom">6.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rtc">6.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#usb-host-controller">6.12. USB Host Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#can-fd">6.13. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#pcie">6.14. PCIe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#audio">6.15. Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#video">6.16. Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#display">6.17. Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#power-management">6.18. Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#thermal-management">6.19. Thermal Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#watchdog">6.20. Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#snvs-power-key">6.21. snvs Power Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#on-chip-otp-controller-ocotp-ctrl-efuses">6.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
 </ul>
