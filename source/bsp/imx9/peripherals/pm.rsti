@@ -1,0 +1,161 @@
+Power Management
+----------------
+
+CPU Core Frequency Scaling
+..........................
+
+The CPU in the |soc| SoC is able to scale the clock frequency and the voltage.
+This is used to save power when the full performance of the CPU is not needed.
+Scaling the frequency and the voltage is referred to as 'Dynamic Voltage and
+Frequency Scaling' (DVFS). The |soc| BSP supports the DVFS feature.
+The Linux kernel provides a DVFS framework that allows each CPU core to have a
+min/max frequency and a governor that governs it. Depending on the |socfamily|
+variant used, several different frequencies are supported.
+
+.. tip::
+
+   Although the DVFS framework provides frequency settings for each CPU core, a
+   change in the frequency settings of one CPU core always affects all other CPU
+   cores too. So all CPU cores always share the same DVFS setting. An individual
+   DVFS setting for each core is not possible.
+
+
+*  To get a complete list type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+
+   In case you have, for example, i.MX 8MPlus CPU with a maximum of approximately
+   1,6 GHz, the result will be:
+
+   .. code-block::
+
+      1200000 1600000
+
+*  To ask for the current frequency type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+
+So-called governors are automatically selecting one of these frequencies in
+accordance with their goals.
+
+*  List all governors available with the following command:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+
+   The result will be:
+
+   .. code-block::
+
+      conservative ondemand userspace powersave performance schedutil
+
+*  **conservative** is much like the ondemand governor. It differs in behavior in
+   that it gracefully increases and decreases the CPU speed rather than jumping
+   to max speed the moment there is any load on the CPU.
+*  **ondemand** (default) switches between possible CPU core frequencies in
+   reference to the current system load. When the system load increases above a
+   specific limit, it increases the CPU core frequency immediately.
+*  **powersave** always selects the lowest possible CPU core frequency.
+*  **performance** always selects the highest possible CPU core frequency.
+*  **userspace** allows the user or userspace program running as root to set a
+   specific frequency (e.g. to 1600000). Type:
+
+*  In order to ask for the current governor, type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+   You will normally get:
+
+   .. code-block::
+
+      ondemand
+
+*  Switching over to another governor (e.g. userspace) is done with:
+
+   .. code-block:: console
+
+      target:~$ echo userspace > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+*  Now you can set the speed:
+
+   .. code-block:: console
+
+      target:~$ echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
+
+For more detailed information about the governors, refer to the Linux kernel
+documentation in the linux kernel repository at
+``Documentation/cpu-freq/governors.txt``.
+
+CPU Core Management
+...................
+
+The |soc| SoC can have multiple processor cores on the die. The |soc|, for
+example, has 4 ARM Cores which can be turned on and off individually at runtime.
+
+*  To see all available cores in the system, execute:
+
+   .. code-block:: console
+
+      target:~$ ls /sys/devices/system/cpu  -1
+
+*  This will show, for example:
+
+   .. code-block::
+
+      cpu0    cpu1   cpu2   cpu3   cpufreq
+      [...]
+
+   Here the system has four processor cores. By default, all available cores in the
+   system are enabled to get maximum performance.
+
+*  To switch off a single-core, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/devices/system/cpu/cpu3/online
+
+   As confirmation, you will see:
+
+   .. code-block::
+
+      [  110.505012] psci: CPU3 killed
+
+   Now the core is powered down and no more processes are scheduled on this core.
+
+*  You can use top to see a graphical overview of the cores and processes:
+
+   .. code-block:: console
+
+      target:~$ htop
+
+*  To power up the core again, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 1 > /sys/devices/system/cpu/cpu3/online
+
+Suspend to RAM
+..............
+
+The |som| supports basic suspend and resume. Different wake-up sources can be
+used. Suspend/resume is possible with:
+
+.. code-block:: console
+
+   target:~$ echo mem > /sys/power/state
+   #resume with pressing on/off button
+
+To wake up with serial console run
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ echo enabled > /sys/class/tty/|debug-uart|/power/wakeup
+   target:~$ echo mem > /sys/power/state
