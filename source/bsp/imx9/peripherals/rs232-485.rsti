@@ -1,0 +1,46 @@
+RS232
+.....
+
+*  Display the current settings of a terminal in a human-readable format:
+
+   .. code-block:: console
+
+      target:~$ stty -a
+
+*  Configuration of the UART interface can be done with stty. For example:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ stty -F /dev/|serial-uart| 115200 crtscts raw -echo
+
+*  With a simple echo and cat, basic communication can be tested. Example:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ echo 123 > /dev/|serial-uart|
+
+   .. code-block:: console
+
+      host:~$ cat /dev/ttyUSB2
+
+The host should print out "123".
+
+RS485
+.....
+
+For easy testing, look at the linux-serial-test. This tool is called the IOCTL
+for RS485 and sends a constant stream of data.
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ linux-serial-test -p /dev/|serial-uart| -b 115200 --rs485 0
+
+More information about the linux-serial-test tool and its parameters can be
+found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
+
+Documentation for calling the IOCTL within c-code is described in the Linux
+kernel documentation:
+https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt
