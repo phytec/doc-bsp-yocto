@@ -135,6 +135,10 @@ latex_documents = [
     ('bsp/imx8/imx8mn/pd22.1.1', 'imx8mn-pd22.1.1.tex', 'i.MX 8M Nano BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,
     ),
+    ('bsp/imx9/imx93/pd24.1.0', 'imx93-pd24.1.0.tex', 'i.MX 93 BSP Manual',
+        'PHYTEC Messtechnik GmbH', 'manual', False,
+    ),
+
     (
         'yocto/kirkstone',
         'kirkstone.tex',

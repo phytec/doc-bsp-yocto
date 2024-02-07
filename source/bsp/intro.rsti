@@ -26,7 +26,7 @@ all of our products. This includes any or all of the following:
    the phyCORE uses. This guide contains an overview of Yocto;
    introducing, installing, and customizing the PHYTEC BSP; how to
    work with programs like Poky and Bitbake; and much more.
--  **BSP Manual**: Amanual specific to the BSP version of the phyCORE.
+-  **BSP Manual**: A manual specific to the BSP version of the phyCORE.
    Information such as how to build the BSP, booting, updating
    software, device tree, and accessing peripherals can be found
    here.

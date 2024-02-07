@@ -8,10 +8,6 @@
 
             Internal Fuses
 
-      -  .. figure:: images/SPI_NOR.png
-
-            SPI NOR
-
    *  -  .. figure:: images/USB_Serial_Download.png
 
             USB Serial Download
@@ -20,6 +16,3 @@
 
             SD Card
 
-      -  .. figure:: images/Test_Mode.png
-
-            Test Mode

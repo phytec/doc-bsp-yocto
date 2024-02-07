@@ -1,14 +1,14 @@
 |sbc| Components
 ................
 
-.. figure:: /bsp/imx8/imx8mp/images/phyBOARD-Pollux-front-components.jpg
+.. figure:: /bsp/imx9/imx93/images/phyBOARD-Pollux-front-components.jpg
    :align: center
    :width: 90 %
 
-   **phyBOARD-Pollux Components (top)**
+   **phyBOARD-Segin i.MX 93 Components (top)**
 
-.. figure:: /bsp/imx8/imx8mp/images/phyBOARD-Pollux-back-components.jpg
+.. figure:: /bsp/imx9/imx93/images/phyBOARD-Pollux-back-components.jpg
    :align: center
    :width: 85 %
 
-   **phyBOARD-Pollux Components (bottom)**
+   **phyBOARD-Segin i.MX 93 Components (bottom)**

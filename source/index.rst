@@ -9,6 +9,7 @@ Welcome to the Documentation for our Yocto BSPs.
 
    yocto/manual-index
    bsp/imx8/imx8
+   bsp/imx9/imx9
 
 .. toctree::
    :maxdepth: 1
