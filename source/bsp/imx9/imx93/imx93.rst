@@ -1,18 +1,8 @@
 ====================
-i.MX 8M Plus Manuals
+i.MX 93 Manuals
 ====================
 
-HEAD
-====
-
-.. toctree::
-   :caption: Table of Contents
-   :numbered:
-   :maxdepth: 2
-
-   head
-
-PD23.1.0
+PD24.1.0
 ========
 
 .. toctree::
@@ -20,14 +10,5 @@ PD23.1.0
    :numbered:
    :maxdepth: 2
 
-   pd23.1.0
+   pd24.1.0
 
-PD22.1.1
-========
-
-.. toctree::
-   :caption: Table of Contents
-   :numbered:
-   :maxdepth: 2
-
-   pd22.1.1
