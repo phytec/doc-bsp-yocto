@@ -2,7 +2,7 @@ All interfaces offer a standard Linux network port that can be programmed using
 the BSD socket interface. The whole network configuration is handled by
 the systemd-networkd daemon. The relevant configuration files can be found on
 the target in ``/lib/systemd/network/`` as well as the BSP in
-``meta-yogurt/recipes-core/systemd/system-machine-units``.
+``meta-ampliphy/recipes-core/systemd/systemd-conf``.
 
 IP addresses can be configured within \*.network files. The default IP address
 and netmask for eth0 is:
@@ -16,7 +16,7 @@ configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
 be found here: |dt-somnetwork|.
 
-|pollux-sbc-network|
+|segin-sbc-network|
 
 Network Environment Customization
 .................................
@@ -46,7 +46,7 @@ U-boot network-environment
 
       u-boot=> setenv <parameter> <value>
 
-   <parameter> should be one of ipaddr, netmask, gateway, or serverip.
+   <parameter> should be one of ipaddr, netmask, or serverip.
    <value> will be the actual value of the chosen parameter.
 
 *  The changes you made are temporary for now. To save these:
