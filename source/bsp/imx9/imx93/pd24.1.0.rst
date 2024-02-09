@@ -341,10 +341,10 @@ module and board.
 .. include:: ../peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n216`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223`
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n195`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
