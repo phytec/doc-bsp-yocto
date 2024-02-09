@@ -17,7 +17,7 @@
 .. General Substitutions
 .. |kit| replace:: **phyBOARD-Segin i.MX93 Kit**
 .. |kit-ram-size| replace:: 1GiB
-.. |sbc| replace:: phyBOARD-Segin i.MX 93
+.. |sbc| replace:: phyBOARD-Segin
 .. |soc| replace:: i.MX 93
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyCORE-i.MX93
