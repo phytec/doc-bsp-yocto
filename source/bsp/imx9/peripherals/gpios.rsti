@@ -1,15 +1,14 @@
 GPIOs
 -----
 
-The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
-connected directly to |soc| pins and are muxed as GPIOs. They are directly
-usable in Linux userspace. The processor has organized its GPIOs into five banks
-of 32 GPIOs each (GPIO1 – GPIO5)
-GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
-the sysfs representation of these internal |soc| GPIO banks GPIO1 – GPIO5.
+The |sbc| doesn't have a set of pins especially dedicated for user I/Os since
+all GPIOs are used by kernel device drivers or used for a specific purpose. The
+processor has organized its GPIOs into five banks of 32 GPIOs each (GPIO1 –
+GPIO4) GPIOs. gpiochip0, gpiochip32, gpiochip64 and gpiochip96 are the sysfs
+representation of these internal |soc| GPIO banks GPIO1 – GPIO4.
 
-The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO5_07). <X> identifies the GPIO
-bank and counts from 1 to 5, while <Y> stands for the GPIO within the bank. <Y>
+The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO4_07). <X> identifies the GPIO
+bank and counts from 1 to 4, while <Y> stands for the GPIO within the bank. <Y>
 is being counted from 0 to 31 (32 GPIOs on each bank).
 
 By contrast, the Linux kernel uses a single integer to enumerate all available
@@ -28,11 +27,27 @@ of some usages of various tools:
    .. code-block:: console
 
       target:~$ gpiodetect
-      gpiochip0 [30200000.gpio] (32 lines)
-      gpiochip1 [30210000.gpio] (32 lines)
-      gpiochip2 [30220000.gpio] (32 lines)
-      gpiochip3 [30230000.gpio] (32 lines)
-      gpiochip4 [30240000.gpio] (32 lines)
+      gpiochip0 [43810080.gpio] (32 lines)
+      gpiochip1 [43820080.gpio] (32 lines)
+      gpiochip2 [43830080.gpio] (32 lines)
+      gpiochip3 [47400080.gpio] (32 lines)
+
+.. note::
+
+   Order of GPIOchips in ``i.MX 93 Application Processor Reference Manual`` and
+   in Linux kernel differ!
+
+   +------------------+-----------+------------------+
+   | GPIOchip address | Linux     | Reference Manual |
+   +------------------+-----------+------------------+
+   | 0x43810080       | gpiochip0 | gpiochip2        |
+   +------------------+-----------+------------------+
+   | 0x43820080       | gpiochip1 | gpiochip3        |
+   +------------------+-----------+------------------+
+   | 0x43830080       | gpiochip2 | gpiochip4        |
+   +------------------+-----------+------------------+
+   | 0x47400080       | gpiochip3 | gpiochip1        |
+   +------------------+-----------+------------------+
 
 *  Show detailed information about the gpiochips. Like their names, consumers,
    direction, active state, and additional flags:
@@ -41,17 +56,17 @@ of some usages of various tools:
 
       target:~$ gpioinfo gpiochip0
 
-*  Read the value of a GPIO (e.g GPIO 20 from chip0):
+*  Read the value of a GPIO (e.g GPIO 3 from chip0):
 
    .. code-block:: console
 
-      target:~$ gpioget gpiochip0 20
+      target:~$ gpioget gpiochip0 3
 
-*  Set the value of GPIO 20 on chip0 to 0 and exit tool:
+*  Set the value of GPIO 3 on chip0 to 0 and exit tool:
 
    .. code-block:: console
 
-      target:~$ gpioset --mode=exit gpiochip0 20=0
+      target:~$ gpioset --mode=exit gpiochip0 3=0
 
 *  Help text of gpioset shows possible options:
 
@@ -104,7 +119,7 @@ configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
 CONFIG_EXPERT has to be enabled first.
 
 You can also add this option for example to the
-imx8_phytec_distro.config config fragment in the linux kernel sources
+imx9_phytec_distro.config config fragment in the linux kernel sources
 under arch/arm64/configs ::
 
    ..
