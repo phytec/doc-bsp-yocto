@@ -29,6 +29,8 @@
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mn
 .. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
+.. |emmcdev| replace:: mmcblk2
+.. |sdcarddev| replace:: mmcblk1
 
 
 .. Bootloader
