@@ -316,8 +316,8 @@ and the |ref-bootswitch| is set to **Default SOM boot**.
 
       target:~$ blkid
 
-   can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
-   and ``mmcblk1p1`` have an identical UUID, the setup is affected.
+   can be run to inspect whether the current setup is affected. If |emmcdev|\p1
+   and |sdcarddev|\p1 have an identical UUID, the setup is affected.
 
 Flash eMMC from Network
 .......................
@@ -392,7 +392,7 @@ one-line command:
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/|emmcdev|
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -418,7 +418,7 @@ to the eMMC of your device:
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/|emmcdev|"
 
 Flash eMMC u-boot image via Network from running u-boot
 .......................................................
@@ -521,26 +521,27 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 *  Show list of available MMC devices:
 
    .. code-block:: console
+      :substitutions:
 
       target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
+      |sdcarddev|
+      |sdcarddev|p1
+      |sdcarddev|p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
 
 *  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2boot0; mmcblk2boot1)
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev|
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -621,27 +622,28 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 *  Show list of available MMC devices:
 
    .. code-block:: console
+      :substitutions:
 
       target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
+      |sdcarddev|
+      |sdcarddev|p1
+      |sdcarddev|p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
 
 *  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
    partition):
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev|
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -913,7 +915,7 @@ chip-specific offset is needed:
 ===== =================== ============================= ============
 SoC   Offset User Area    Offset Boot Partition         eMMC Device
 ===== =================== ============================= ============
-|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/mmcblk2
+|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/|emmcdev|
 ===== =================== ============================= ============
 
 E.g. flash SD card:

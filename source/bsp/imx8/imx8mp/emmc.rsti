@@ -51,52 +51,58 @@ To manually write the bootloader to the eMMC boot partitions, first disable the
 write protection:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ echo 0 > /sys/block/mmcblk2boot0/force_ro
-   target:~$ echo 0 > /sys/block/mmcblk2boot1/force_ro
+   target:~$ echo 0 > /sys/block/|emmcdev|boot0/force_ro
+   target:~$ echo 0 > /sys/block/|emmcdev|boot1/force_ro
 
 Write the bootloader to the eMMC boot partitions:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot0
-   target:~$ dd if=/tmp/imx-boot of=/dev/mmcblk2boot1
+   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot0
+   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot1
 
 The following table is for the offset of the |soc| SoC:
 
-===== ========= =========== ============ ===================
-SoC   Offset    Offset Boot eMMC Device  Bootloader Filename
+===== ========= =========== ============== ===================
+SoC   Offset    Offset Boot eMMC Device    Bootloader Filename
       User Area Partition
-===== ========= =========== ============ ===================
-|soc| 32 kiB    0 kiB       /dev/mmcblk2 imx-boot
-===== ========= =========== ============ ===================
+===== ========= =========== ============== ===================
+|soc| 32 kiB    0 kiB       /dev/|emmcdev| imx-boot
+===== ========= =========== ============== ===================
 
 After that set the boot partition from user space using the mmc tool:
 
 (for 'boot0') :
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc bootpart enable 1 0 /dev/mmcblk2
+   target:~$ mmc bootpart enable 1 0 /dev/|emmcdev|
 
 (for 'boot1') :
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc bootpart enable 2 0 /dev/mmcblk2
+   target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
 
 To disable booting from the eMMC boot partitions simply enter the following
 command:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc bootpart enable 0 0 /dev/mmcblk2
+   target:~$ mmc bootpart enable 0 0 /dev/|emmcdev|
 
 To choose back to the user area u-boot environment:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc bootpart enable 7 0 /dev/mmcblk2
+   target:~$ mmc bootpart enable 7 0 /dev/|emmcdev|
 
 Resizing ext4 Root Filesystem
 .............................
@@ -107,25 +113,28 @@ device such as eMMC, SD Card, or hard disk.
 *  Get the current device size:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ fdisk -l /dev/mmcblk2
+      target:~$ fdisk -l /dev/|emmcdev|
 
 *  The output looks like:
 
    .. code-block::
+      :substitutions:
 
-      Disk /dev/mmcblk2: 7264 MB, 7616856064 bytes, 14876672 sectors 116224 cylinders, 4 heads, 32 sectors/track
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors 116224 cylinders, 4 heads, 32 sectors/track
       Units: sectors of 1 * 512 = 512 bytes
 
       Device       Boot StartCHS        EndCHS      StartLBA     EndLBA    Sectors   Size   Id Type
-      /dev/mmcblk2p1 *    128,0,1       1023,3,32    16384       140779     124396   60.7M   c Win95 FAT32 (LBA)
-      /dev/mmcblk2p2      1023,3,32     1023,3,32    141312      2192013    2050702  1001M  83 Linux
+      /dev/|emmcdev|p1 *    128,0,1       1023,3,32    16384       140779     124396   60.7M   c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2      1023,3,32     1023,3,32    141312      2192013    2050702  1001M  83 Linux
 
 *  Use fdisk to delete and create a partition with a max size of the device:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ fdisk /dev/mmcblk2
+      target:~$ fdisk /dev/|emmcdev|
 
       The number of cylinders for this disk is set to 116224.
       There is nothing wrong with that, but this is larger than 1024,
@@ -135,24 +144,24 @@ device such as eMMC, SD Card, or hard disk.
          (e.g., DOS FDISK, OS/2 FDISK)
 
       Command (m for help): p
-      Disk /dev/mmcblk2: 7264 MB, 7616856064 bytes, 14876672 sectors
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
       116224 cylinders, 4 heads, 32 sectors/track
       Units: sectors of 1 * 512 = 512 bytes
 
       Device       Boot   StartCHS        EndCHS      StartLBA     EndLBA    Sectors   Size   Id Type
-      /dev/mmcblk2p1 *     128,0,1     1023,3,32         16384     140779     124396  60,7M    c Win95 FAT32 (LBA)
-      /dev/mmcblk2p2     1023,3,32     1023,3,32        141312    2192013    2050702  1001M   83 Linux
+      /dev/|emmcdev|p1 *     128,0,1     1023,3,32         16384     140779     124396  60,7M    c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2     1023,3,32     1023,3,32        141312    2192013    2050702  1001M   83 Linux
 
       Command (m for help): d
       Partition number (1-4): 2
 
       Command (m for help): p
-      Disk /dev/mmcblk2: 7264 MB, 7616856064 bytes, 14876672 sectors
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
       116224 cylinders, 4 heads, 32 sectors/track
       Units: sectors of 1 * 512 = 512 bytes
 
       Device       Boot StartCHS    EndCHS          StartLBA     EndLBA    Sectors  Size   Id Type
-      /dev/mmcblk2p1 *  128,0,1     1023,3,32          16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p1 *  128,0,1     1023,3,32          16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
 
       Command (m for help): n
       Partition type
@@ -165,13 +174,13 @@ device such as eMMC, SD Card, or hard disk.
       Using default value 14876671
 
       Command (m for help): p
-      Disk /dev/mmcblk2: 7264 MB, 7616856064 bytes, 14876672 sectors
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
       116224 cylinders, 4 heads, 32 sectors/track
       Units: sectors of 1 * 512 = 512 bytes
 
       Device       Boot StartCHS      EndCHS        StartLBA     EndLBA    Sectors  Size   Id Type
-      /dev/mmcblk2p1 *   128,0,1      1023,3,32        16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
-      /dev/mmcblk2p2   1023,3,32      1023,3,32       141456   14876671   14735216  7194M  83 Linux
+      /dev/|emmcdev|p1 *   128,0,1      1023,3,32        16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2   1023,3,32      1023,3,32       141456   14876671   14735216  7194M  83 Linux
 
 
 Increasing the file system size can be done while it is mounted. An online

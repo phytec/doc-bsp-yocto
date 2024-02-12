@@ -174,7 +174,7 @@ chip-specific offset is needed:
 ===== =================== ============================= ============
 SoC   Offset User Area    Offset Boot Partition         eMMC Device
 ===== =================== ============================= ============
-|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/mmcblk2
+|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/|emmcdev|
 ===== =================== ============================= ============
 
 E.g. flash SD card:
