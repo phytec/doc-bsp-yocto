@@ -78,11 +78,6 @@ to ram state, type:
    target:~$ echo "+240" > /sys/class/rtc/rtc0/wakealarm
    target:~$ echo mem > /sys/power/state
 
-.. note::
-
-   Internally the wake alarm time will be rounded up to the next minute since
-   the alarm function doesn't support seconds.
-
 .. rtc_parameter_start_label
 
 RTC Parameters
@@ -110,6 +105,11 @@ tool.
       #define RTC_FEATURE_CORRECTION         5
       #define RTC_FEATURE_BACKUP_SWITCH_MODE 6
       #define RTC_FEATURE_CNT                7
+
+   .. note::
+
+      If second bit is set (RTC_FEATURE_ALARM_RES_MINUTE) the wake alarm time will be rounded up to
+      the next minute.
 
 *  We can check RTC BSM (Backup Switchover Mode) with:
 
