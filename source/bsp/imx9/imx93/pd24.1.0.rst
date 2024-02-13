@@ -427,20 +427,49 @@ Device Tree CAN configuration of |dt-carrierboard|.dts:
 Audio
 -----
 
-Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
+On |sbc| the TI TLV320AIC3007 audio codec is used. It uses I2S for data
+transmission and I2C for codec control. The audio signals available are:
 
-.. note::
-
-   Using the PEB-AV-10 connector for display output along HDMI as audio output
-   is not supported. The audio output device must match the video output device.
+* Stereo LINE IN,
+* Stereo LINE OUT,
+* Output where D-Class 1W speaker can be connected
 
 .. include:: /bsp/peripherals/audio.rsti
+	:end-before: .. audio_alsa_configuration_start_label
+
+.. include:: /bsp/peripherals/audio.rsti
+   :start-after: .. audio_playback_start_label
+   :end-before: .. audio_capture_start_label
+
+If Speaker volume it too low you can increase its volume with (values 0-3):
+
+.. code-block:: console
+
+   target:~$ amixer -c 0 sset Class-D 3
+
+.. hint::
+
+   Speaker output is only mono so when stereo track is played only left channel
+   will be played by speaker.
+
+Capture
+.......
+
+``arecord`` is a command-line tool for capturing audio streams which use Line In
+as the default input source.
+
+.. code-block:: console
+
+   target:~$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+
+.. hint::
+
+   Since playback and capture share hardware interfaces, it is not possible to
+   use different sampling rates and formats for simultaneous playback and
+   capture operations.
 
 Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n62`
 
 .. include:: /bsp/peripherals/video.rsti
 
