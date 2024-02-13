@@ -11,26 +11,18 @@ files and writing to them allows you to control the backlight.
    .. code-block:: console
 
       target:~$ cat /sys/class/backlight/backlight/max_brightness
+      1
 
-   which will result in:
+   which shows that the backlight is driven by GPIO and can only be enabled or
+   disabled. |soc| |sbc| has no PWM backlight support.
 
-   .. code-block::
-
-      7
-
-   Valid brightness values are 0 to <max_brightness>.
+   Valid brightness values are 0 or 1.
 
 *  To obtain the current brightness level, type:
 
    .. code-block:: console
 
       target:~$ cat /sys/class/backlight/backlight/brightness
-
-   you will get for example:
-
-   .. code-block::
-
-      6
 
 *  Write to the file brightness to change the brightness:
 
@@ -42,8 +34,7 @@ files and writing to them allows you to control the backlight.
 
    .. code-block:: console
 
-      target:~$ echo 5 > /sys/class/backlight/backlight/brightness
+      target:~$ echo 1 > /sys/class/backlight/backlight/brightness
 
-   sets the brightness to the third-highest brightness level. For documentation of
-   all files, see
+   enables the backlight. For documentation of all files, see
    https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.
