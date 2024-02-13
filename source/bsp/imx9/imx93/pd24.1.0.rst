@@ -391,15 +391,23 @@ USB Host Controller
 
 The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
-transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
-'SS'). The USB subsystem has two independent USB controller cores. Both cores
-are capable of acting as a USB peripheral device or a USB host. Each is
-connected to a USB 3.0 PHY.
+transfer between USB devices with a line/bus speed of up to 480 Mbps (HighSpeed
+'HS'). The USB subsystem has two independent USB controller cores. Both cores
+are capable of acting as a USB peripheral device or a USB host, but on the |sbc|
+one of them is used as a host-only port (USB-A connector).
 
 .. include:: /bsp/peripherals/usb-host.rsti
 
+The OTG port provides an additional pin for over-current protection, which is
+not used on the |sbc|. Since it's not used, the driver part is also disabled
+from within the device tree. In case this pin is used, activate this
+over-current in the device tree and set the correct polarity (active high/low)
+according to the device specification. For the correct setup, please refer to
+the Kernel documentation under
+Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
+
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n190`
 
 CAN FD
 ------
