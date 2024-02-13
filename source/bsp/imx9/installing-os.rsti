@@ -27,6 +27,7 @@ available. From a high-level point of view, an eMMC device is like an SD card.
 Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
 the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
+##TODO: we have the wic compressed. Just add a note about xz and decompress?
 
 Flash eMMC from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

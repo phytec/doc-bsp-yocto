@@ -1,13 +1,13 @@
 |sbc| Components
 ................
 
-.. figure:: /bsp/imx9/imx93/images/phyBOARD-Pollux-front-components.jpg
+.. figure:: /bsp/imx9/imx93/images/phyBOARD-Segin-iMX93-front-components.jpg ##TODO: bodemode switch (expected to be "S3") is missing in the image! Wrong image?
    :align: center
    :width: 90 %
 
    **phyBOARD-Segin i.MX 93 Components (top)**
 
-.. figure:: /bsp/imx9/imx93/images/phyBOARD-Pollux-back-components.jpg
+.. figure:: /bsp/imx9/imx93/images/phyBOARD-Segin-iMX93-bottom-components.jpg
    :align: center
    :width: 85 %
 

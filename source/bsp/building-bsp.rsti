@@ -1,8 +1,8 @@
 Building the BSP
 ================
 
-This section will guide you through the general build process of the i.MX 8M
-Plus BSP using Yocto and the phyLinux script. For more information about our
+This section will guide you through the general build process of the |soc| BSP
+using Yocto and the phyLinux script. For more information about our
 meta-layer or Yocto in general visit: |yocto-ref-manual|_.
 
 Basic Set-Up
@@ -68,6 +68,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.
 
 After the execution of the init command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.
+##TODO: Any examples about what "few important notes" look like, and what do those mean!?
 
 Starting the Build Process
 ..........................
@@ -84,7 +85,7 @@ Starting the Build Process
 
 *  The current working directory of the shell should change to build/.
 *  Open the main configuration file and accept the GPU and VPU binary license
-   agreements. You have to uncomment the corresponding line.
+   agreements. Do this by uncomment the corresponding line, as below.
 
    .. code-block:: console
 
