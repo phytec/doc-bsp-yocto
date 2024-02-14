@@ -486,9 +486,6 @@ The device tree of PEB-AV-02 can be found here:
 
 .. include:: ../peripherals/tm.rsti
 
-The device tree description of GPIO Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33`
-
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: ../peripherals/snvs-power-key.rsti

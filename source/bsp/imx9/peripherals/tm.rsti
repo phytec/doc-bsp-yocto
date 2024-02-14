@@ -56,39 +56,18 @@ critical (shutdown) 90°C       100°C
 
 The kernel thermal management uses these trip points to trigger events and
 change the cooling behavior. The following thermal policies (also named thermal
-governors) are available in the kernel: Step Wise, Fair Share, Bang Bang, and
-Userspace. The default policy used in the BSP is step_wise. If the value of the
-SoC temperature in the sysfs file temp is above *trip_point_0*, the CPU frequency
-is set to the lowest CPU frequency. When the SoC temperature drops below
-*trip_point_0* again, the throttling is released.
+governors) are available in the kernel: Step Wise and Power Allocator. The
+default policy used in the BSP is step_wise.
+
+.. tip::
+
+   If the value of the SoC temperature in the sysfs file temp reaches
+   *trip_point_1*, the board immediately shuts down to avoid any heat damage. If
+   this doesn't meet you expectations, an external supervisor circuit that
+   starts the module again with X_ONOFF signal when the temperature drops below
+   a selected trip point can be implemented
 
 .. note::
 
    The actual values of the thermal trip points may differ since we mount CPUs
    with different temperature grades.
-
-GPIO Fan
-........
-
-.. note::
-
-   |pollux-fan-note|
-
-A GPIO fan can be connected to the |sbc|-|soc|. The SoC only contains one
-temperature sensor which is already used by the thermal frequency scaling. The
-fan can not be controlled by the kernel. We use lmsensors with hwmon for this
-instead. lmsensors reads the temperature periodically and enables or disables
-the fan at a configurable threshold. For the |sbc|-|soc|, this is 60°C.
-
-The settings can be configured in the configuration file:
-
-.. code-block::
-
-   /etc/fancontrol
-
-Fan control is started by a systemd service during boot. This can be disabled
-with:
-
-.. code-block:: console
-
-   target:~$ systemctl disable fancontrol
