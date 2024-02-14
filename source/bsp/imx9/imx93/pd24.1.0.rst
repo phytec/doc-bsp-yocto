@@ -488,7 +488,7 @@ The device tree of PEB-AV-02 can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/snvs-power-key.rsti
+.. include:: ../peripherals/bbnsm-power-key.rsti
 
 .. include:: ../peripherals/npu.rsti
 
