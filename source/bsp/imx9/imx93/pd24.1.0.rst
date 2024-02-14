@@ -490,6 +490,8 @@ The device tree of PEB-AV-02 can be found here:
 
 .. include:: ../peripherals/bbnsm-power-key.rsti
 
+.. include:: ../peripherals/pxp.rsti
+
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
 Reading the registers using ``/dev/mem`` will cause the system to hang unless the
