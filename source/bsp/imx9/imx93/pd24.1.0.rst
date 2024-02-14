@@ -490,8 +490,6 @@ The device tree of PEB-AV-02 can be found here:
 
 .. include:: ../peripherals/bbnsm-power-key.rsti
 
-.. include:: ../peripherals/npu.rsti
-
 .. include:: ../peripherals/isp.rsti
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
