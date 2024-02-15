@@ -87,9 +87,6 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx93-pd24.1.0-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx93-pd24.1.0-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx94-pd24.1.0-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-pd24.1.0-ubootexternalenv>`
 
