@@ -1,14 +1,14 @@
 |sbc| Components
 ................
 
-.. figure:: /bsp/imx9/imx93/images/phyBOARD-Segin-iMX93-front-components.jpg ##TODO: bodemode switch (expected to be "S3") is missing in the image! Wrong image?
+.. figure:: /bsp/imx9/imx93/images/phyBOARD-Segin-iMX93-top-components.jpg
    :align: center
-   :width: 90 %
+   :width: 100 %
 
    **phyBOARD-Segin i.MX 93 Components (top)**
 
 .. figure:: /bsp/imx9/imx93/images/phyBOARD-Segin-iMX93-bottom-components.jpg
    :align: center
-   :width: 85 %
+   :width: 70 %
 
    **phyBOARD-Segin i.MX 93 Components (bottom)**

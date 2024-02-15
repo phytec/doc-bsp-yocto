@@ -68,7 +68,7 @@
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>` ##TODO: doublecheck S3
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-pd24.1.0-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd23.1.0-components>` ##TODO, the UART console (we have no USB in Segin)
 .. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>` ##TODO
@@ -199,12 +199,12 @@ First Start-up
 Installing the OS
 =================
 
-Bootmode Switch (S3) ##TODO: double-check S3 with (new) figure in components.rsti
+Bootmode Switch (S3)
 --------------------
 
 .. tip::
 
-   Hardware revision baseboard: 1552.2 #TODO
+   Hardware revision baseboard: 1472.5
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
@@ -218,7 +218,7 @@ select the phyCORE-|soc| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd23.1.0-development:
+.. _imx93-pd24.1.0-development:
 
 Development
 ===========
@@ -230,7 +230,7 @@ Development
 .. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
 
-.. _imx8mp-pd23.1.0-development-build-uboot:
+.. _imx93-pd24.1.0-development-build-uboot:
 .. include:: /bsp/imx8/development/standalone_build.rsti
    :start-after: .. build-uboot-marker
    :end-before: .. build-kernel-marker
