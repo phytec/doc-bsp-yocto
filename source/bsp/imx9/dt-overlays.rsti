@@ -22,7 +22,16 @@ You can read and write the file on booted target from linux:
    :substitutions:
 
    target:~$ cat /boot/bootenv.txt
-   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-02.dtbo
+
+.. note::
+
+   Make sure the boot partition is mounted! If it is not you can mount it with:
+
+   .. code-block:: console
+
+      target:~$ mount /dev/mmcblkXp0 /boot
+
 
 Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
 available the overlays variable can be set directly in the U-Boot environment.
@@ -30,9 +39,9 @@ available the overlays variable can be set directly in the U-Boot environment.
 .. code-block::
    :substitutions:
 
-   u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> setenv overlays |dt-carrierboard|-peb-av-02.dtbo
    u-boot=> printenv overlays
-   overlays=|dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dt-carrierboard|-peb-av-02.dtbo
    u-boot=> boot
 
 If a user defined ``${overlays}`` variable should be directly loaded from U-Boot
@@ -43,54 +52,21 @@ variable needs to be set as a flag:
    :substitutions:
 
    u-boot=> setenv no_bootenv 1
-   u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> setenv overlays |dt-carrierboard|-peb-av-02.dtbo
    u-boot=> boot
 
 More information about the external environment can be found in
 |ubootexternalenv|.
 
-We use the ``${overlays}`` variable for overlays describing expansion boards and
-cameras that can not be detected during run time. To prevent applying overlays
-listed in the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can
-be set to `1` in the bootloader environment.
+We use the ``${overlays}`` variable for overlays describing expansion boards
+that can not be detected during run time. To prevent applying overlays listed in
+the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can be
+set to `1` in the bootloader environment.
 
 .. code-block::
    :substitutions:
 
    u-boot=> setenv no_overlays 1
-   u-boot=> boot
-
-Extension Command
-~~~~~~~~~~~~~~~~~
-
-The U-Boot extension command makes it possible to easily apply overlays that
-have been detected and added to a list by the board code callback
-`extension_board_scan() <overlaycallback_>`_.
-Overlays applied this way disable components that are not populated on the SoM.
-The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
-SoM i2c EEPROM.
-
-It depends on the SoM variant if any device tree overlays will be applied. To check
-if an overlay will be applied on the running SoM in U-Boot, run:
-
-.. code-block::
-   :substitutions:
-
-   u-boot=> extension scan
-   Found 1 extension board(s).
-   u-boot=> extension list
-   Extension 0: |som| no SPI flash
-           Manufacturer:           PHYTEC
-           Version:
-           Devicetree overlay:     |kernel-socname|-phycore-no-spiflash.dtbo
-           Other information:      SPI flash not populated on SoM
-
-If the EEPROM data is not available, no device tree overlays are applied.
-
-To prevent running the extension command during boot the ``${no_extensions}``
-variable can be set to `1` in the bootloader environment::
-
-   u-boot=> setenv no_extensions 1
    u-boot=> boot
 
 U-boot External Environment

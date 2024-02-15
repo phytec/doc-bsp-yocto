@@ -10,10 +10,6 @@
 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
 
-.. IMX8(MP) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2022.04_2.2.2-phy5#n149
-
-
 .. General Substitutions
 .. |kit| replace:: **phyBOARD-Segin i.MX93 Kit**
 .. |kit-ram-size| replace:: 1GiB
@@ -71,7 +67,7 @@
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-pd24.1.0-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd23.1.0-components>` ##TODO, the UART console (we have no USB in Segin)
-.. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>` ##TODO
+.. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx93-pd24.1.0-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx93-pd24.1.0-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
@@ -271,32 +267,16 @@ be chosen by default. After saving the changes, follow the remaining steps from
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd23.1.0-device-tree:
+.. _imx93-pd24.1.0-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 ::
 
-   imx8mp-isi-csi1.dtbo
-   imx8mp-isi-csi2.dtbo
-   imx8mp-isp-csi1.dtbo
-   imx8mp-isp-csi2.dtbo
-   imx8mp-phyboard-pollux-peb-av-010.dtbo
-   imx8mp-phyboard-pollux-peb-av-012.dtbo
-   imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
-   imx8mp-phycore-no-eth.dtbo
-   imx8mp-phycore-no-rtc.dtbo
-   imx8mp-phycore-no-spiflash.dtbo
-   imx8mp-phycore-rpmsg.dtbo
-   imx8mp-vm016-csi1.dtbo
-   imx8mp-vm016-csi1-fpdlink.dtbo
-   imx8mp-vm016-csi2.dtbo
-   imx8mp-vm016-csi2-fpdlink.dtbo
-   imx8mp-vm017-csi1.dtbo
-   imx8mp-vm017-csi1-fpdlink.dtbo
-   imx8mp-vm017-csi2.dtbo
-   imx8mp-vm017-csi2-fpdlink.dtbo
+   imx93-phyboard-segin-peb-av-02.dtbo
+   imx93-phyboard-segin-peb-av-02.dtbo
+   imx93-phycore-rpmsg.dtbo
 
-.. _imx8mp-pd23.1.0-ubootexternalenv:
+.. _imx93-pd24.1.0-ubootexternalenv:
 .. include:: ../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
