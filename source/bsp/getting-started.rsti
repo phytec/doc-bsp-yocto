@@ -160,8 +160,17 @@ After having unmounted all SD card's partitions, you can create your bootable SD
 .. code-block:: console
    :substitutions:
 
-   ##TODO: do zstdcat for wic.xz
    host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+.. note::
+
+   If BSP produces only compressed ``.wic.xz`` files, we can use:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ unxz |yocto-imagename|-|yocto-machinename|.wic.xz
+      host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
 
 Again, make sure to replace <your_device> with your actual device name found
 previously.
