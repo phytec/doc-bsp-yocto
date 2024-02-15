@@ -50,8 +50,7 @@ Execute and power up the board:
 
    host:~$ sudo uuu -b spl imx-boot
 
-You can see the bootlog on the console via the debug USB
-|ref-debugusbconnector|, as usual.
+You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
 
 .. note::
    The default boot command when booting with UUU-Tool is set to fastboot. If
@@ -63,6 +62,31 @@ You can see the bootlog on the console via the debug USB
 
 Flashing U-boot Image to eMMC via UUU-Tool
 ...........................................
+
+.. warning::
+
+   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+
+   .. code-block:: console
+
+      u-boot=> mmc partconf 0 0 0 0
+      u-boot=> mmc partconf 0
+      EXT_CSD[179], PARTITION_CONFIG:
+      BOOT_ACK: 0x0
+      BOOT_PARTITION_ENABLE: 0x0
+      PARTITION_ACCESS: 0x0
+
+   or check |ref-disable-emmc-part| from Linux.
+
+   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   not used!
+
+   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   done by default, which makes partup again superior flash option.
 
 Execute and power up the board:
 

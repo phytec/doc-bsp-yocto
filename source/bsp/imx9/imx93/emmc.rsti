@@ -89,6 +89,8 @@ After that set the boot partition from user space using the mmc tool:
 
    target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
 
+.. _emmc-disable-boot-part:
+
 To disable booting from the eMMC boot partitions simply enter the following
 command:
 

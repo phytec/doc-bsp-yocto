@@ -66,13 +66,14 @@
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-pd24.1.0-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd23.1.0-components>` ##TODO, the UART console (we have no USB in Segin)
+.. |ref-debugusbconnector| replace:: serial connector on PEB-EVAL-01
 .. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx93-pd24.1.0-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx93-pd24.1.0-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx93-pd24.1.0-components>`
+.. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx93-pd24.1.0-development-build-uboot>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
 .. IMX93 specific
@@ -153,11 +154,10 @@ First Start-up
 .. image:: images/SD_Card_Boot.png
 
 *  Insert the SD card
-*  Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
-   debug USB
+*  Connect the target (|ref-debugusbconnector|) and the host with **serial
+   cable**
 *  Power up the board
-
-   ##TODO: maybe add a sentence like: "Open a terminal program, You will see u-boot and linux start on the console"
+*  Open serial port, you should see u-boot/linux start on the console
 
 .. +---------------------------------------------------------------------------+
 .. Building the BSP
@@ -221,7 +221,7 @@ Development
 
 .. include:: /bsp/imx9/development/netboot.rsti
 
-.. include:: /bsp/imx8/development/uuu.rsti
+.. include:: /bsp/imx9/development/uuu.rsti
 
 .. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
