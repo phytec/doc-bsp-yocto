@@ -67,8 +67,8 @@ written in Python. It is mainly a helper to get started with the BSP structure.
       host:~/yocto$ DISTRO=|yocto-distro| MACHINE=|yocto-machinename| ./phyLinux init -p |kernel-socname| -r |yocto-manifestname|
 
 After the execution of the init command, phyLinux will print a few important
-notes as well as information for the next steps in the build process.
-##TODO: Any examples about what "few important notes" look like, and what do those mean!?
+notes. For example, it will print your git identify, SOC and BSP release which
+was selected as well as information for the next steps in the build process.
 
 Starting the Build Process
 ..........................
