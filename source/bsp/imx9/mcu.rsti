@@ -1,160 +1,72 @@
 |soc| |mcore|
 =============
 
-In addition to the Cortex-A53 cores, there is a Cortex-|mcore| as MCU
-integrated into the |soc| SoC. Our Yocto-Linux-BSP runs on the A53-Cores and
+In addition to the Cortex-A55 cores, there is a Cortex-|mcore| as MCU
+integrated into the |soc| SoC. Our Yocto-Linux-BSP runs on the A55-Cores and
 the |mcore| can be used as a secondary core for additional tasks using
-bare-metal or RTOS firmware.
+bare-metal firmware.
 Both cores have access to the same peripherals and thus peripheral
 usage needs to be limited either in the |mcore|'s firmware or the devicetree
-for the Linux operating system. This section describes how to build firmware
-examples and how to run them on |sbc|.
+for the Linux operating system.
 
-The |sbc| is currently supported by the NXP MCUXpresso SDK and by
-The Zephyr Project. This section only describes the NXP MCUXpresso SDK because
-the MCUXpresso SDK has more supported features at the moment.
+Our Yocto-BSP contains pre-built firmware examples for |mcore| from NXP.
 
-If you want to use the |mcore| with The Zephyr Project, please refer to the
-The Zephyr Project documentation:
-
-* |mcore-zephyr-docs|
-
-Getting the Firmware Examples
------------------------------
-
-The firmware can be built using the NXP MCUxpresso SDK with a compatible
-compiler toolchain using command-line tools.
-
-Getting the Sources
-...................
-
-The MCUX SDK and the examples for the |soc| can be obtained from PHYTEC's GitHub
-page:
-
-* https://github.com/phytec/mcux-sdk/
-* https://github.com/phytec/mcux-sdk-phytec-examples/
-
-1. Initialize the MCUX SDK via west:
-
-   .. code-block:: console
-
-      host:~$ west init -m https://github.com/phytec/mcux-sdk/ --mr <VERSION> mcuxsdk
-
-   This will create a mcuxsdk directory with the mcux-sdk repository in it.
-   The ``mcux-sdk-phytec-examples`` repository will be automatically cloned into
-   the mcuxsdk directory.
-   The given argument <VERSION> is a the branch name of the mcux-sdk repository
-   that represents the MCUX SDK version. For the newest tested version
-   you can use |mcore-sdk-version|.
-
-   .. note::
-
-      ``west`` is a repository management tool and a part of the Zephyr
-      Project.
-      To install west, you can use pip. In this example west is installed in
-      a python virtual environment::
-
-         host:~$ sudo apt install python3-venv python3-pip
-         host:~$ python3 -m venv west-env
-         host:~$ source west-env/bin/activate
-         (west-env) host:~$ pip3 install west
-
-2. Update the dependencies:
-
-   .. code-block:: console
-
-      host:~$ cd mcuxsdk
-      host:~/mcuxsdk$ west update
-
-   The directory ``examples-phytec`` contains all examples ported and tested
-   for |sbc| with version |mcore-sdk-version| of MCUX.
-
-   To build the firmware, a compiler toolchain and make/cmake are required.
-   The GNU Arm Embedded Toolchain may be available in your distribution's
-   repositories, e.g. for Ubuntu.
-
-   .. code-block:: console
-
-      host:~$ sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi make cmake
-
-   The compiler toolchain can also be obtained directly from
-   https://developer.arm.com/. After the archive has been extracted,
-   the ``ARMGCC_DIR`` has to be added to the environment, e.g. for the
-   ARM toolchain 10-2020-q4-major release located in the home directory:
-
-   .. code-block:: console
-
-      host:~$ export ARMGCC_DIR=~/gcc-arm-none-eabi-10-2020-q4-major
-
-Building the Firmware
-.....................
-
-To build the PHYTEC samples an environment has to be sourced
-
-.. code-block:: console
-
-   host:~/mcuxsdk$ source scripts/setenv
-
-The scripts to build the firmware are located in
-<sdk-directory>/phytec-mcux-boards/phyboard-pollux/<example_category>/<example>/armgcc.
-There are scripts for each memory location the firmware is supposed to run in,
-e.g.
-
-.. code-block:: console
-
-   host:~$ ./build_release.sh
-
-to build the firmware for the |mcore|'s TCM. The output will be placed under
-release/ in the armgcc directory. .bin files and can be run in U-Boot and .elf
-files within Linux.
-
-To build the firmware for the DRAM, run the script build_ddr_release.
-The script of the firmware that is supposed to run, e.g.
-
-.. code-block:: console
-
-   host:~$ ./build_ddr_release.sh
-
-The output will be placed under ddr_release/ in the armgcc
-directory. .bin files and can be run in U-Boot and .elf
-files within Linux.
+This section describes how to run pre-built |mcore| firmware examples on |sbc|.
 
 Running |mcore| Examples
 ------------------------
 
-There are two ways to run the |mcore| with the built firmware, U-Boot and
-Remoteproc within a running Linux.
+There are two ways to run the |mcore| firmware examples, from U-Boot bootloader
+and from Remoteproc subsystem within a running Linux.
 
 To receive debug messages start your favorite terminal software (e.g. Minicom,
 Tio, or Tera Term) on your host PC and configure it for 115200 baud, 8 data
 bits, no parity, and 1 stop bit (8n1) with no handshake.
 
-Once a micro-USB cable is connected to the USB-debug port on the |sbc|, two
-ttyUSB devices are registered. One prints messages from A53-Core's debug UART
-and the other one from the |mcore|'s debug UART.
+On |sbc| an external "USB TTL to serial adapter" is required. Adapter's I/O
+pins should be able to operate at 3.3V voltage levels.
+
+Connect external "USB TTL to serial adapter" signals to the
+|ref-m-core-connections| connector on the board according to the following
+table:
+
+==================== ========== =======
+USB-TTL adapter pins X16 signal X16 pin
+==================== ========== =======
+RXD                  X_UART2_TX       5
+TXD                  X_UART2_RX       8
+GND                  GND              4
+==================== ========== =======
 
 Running Examples from U-Boot
 ............................
 
-To load firmware using the bootloader U-Boot, the bootaux command can be used:
+To load firmware examples using the U-Boot bootloader, the ``bootaux`` command
+can be used:
 
 1. Prepare an SD Card with our Yocto-BSP
-2. Copy the generated .bin file to the SD Cards first partition
-3. Stop the autoboot by pressing any key
-4. Type the command depending on the type of firmware:
+2. Stop the autoboot by pressing any key
+3. List available |mcore| firmware examples on the first partition of SD Card:
 
-For firmware built to run in the |mcore|'s TCM::
+.. code-block:: console
 
-   u-boot=> fatload mmc 1:1 0x48000000 firmware.bin;cp.b 0x48000000 0x7e0000 20000;
-   u-boot=> bootaux 0x7e0000
-   ## Starting auxiliary core stack = 0x20020000, pc = 0x000004CD...
+   u-boot=> ls mmc 1
 
-For firmware built to run in the DRAM::
+.. note::
 
-   u-boot=> fatload mmc 1:1 0x80000000 firmware.bin
-   u-boot=> dcache flush
-   u-boot=> bootaux 0x80000000
-   ## Starting auxiliary core stack = 0x80400000, pc = 0x80000539...
+   Available firmware examples start with ``imx93-11x11-evk_m33_TCM_*`` and
+   end with ``*.bin``. Examples come from NXP's Yocto layer meta-imx and are
+   selected based on compatibility with |sbc| hardware.
+
+1. Load desired firmware example:
+
+.. code-block:: console
+
+   u-boot=> fatload mmc 1 ${loadaddr} <firmware.bin>
+   u-boot=> cp.b ${loadaddr} 0x201e0000 ${filesize}
+   u-boot=> run prepare_mcore
+   u-boot=> bootaux 0x1ffe0000 0
+   ## Starting auxiliary core addr = 0x1FFE0000...
 
 The program's output should appear on the |mcore|'s debug UART.
 
@@ -162,27 +74,34 @@ Running Examples from Linux using Remoteproc
 ............................................
 
 Remoteproc is a module that allows you to control the |mcore| from Linux
-during runtime. Firmware built for TCM can be loaded and the execution started
-or stopped. To use Remoteproc a devicetree overlay needs to be set:
+during runtime. Firmware examples for |mcore| can be loaded and the execution
+started or stopped within Linux. To use Remoteproc a devicetree overlay needs
+to be set:
 
-Edit the bootenv.txt file located in the /boot directory on the target by
-adding |dtbo-rpmsg|:
+Edit the ``bootenv.txt`` file located in the ``/boot`` directory on the target
+by adding |dtbo-rpmsg|:
 
 .. code-block::
    :substitutions:
 
-   overlays=imx8mp-phyboard-xxxxx-peb-av-010.dtbo |dtbo-rpmsg|
+   overlays=imx93-phyboard-segin-peb-av-02.dtbo |dtbo-rpmsg|
 
 Restart the target and execute in U-Boot::
 
    u-boot=> run prepare_mcore
 
-Firmware .elf files for the |mcore| can be found under /lib/firmware.
+Firmware examples ``*.elf`` files for the |mcore| can be found under
+``/lib/firmware``. List available firmware examples:
+
+.. code-block:: console
+
+   target:~$ ls /lib/firmware/*.elf
+
 To load the firmware, type:
 
 .. code-block:: console
 
-   target:~$ echo /lib/firmware/<firmware>.elf > /sys/class/remoteproc/remoteproc0/firmware
+   target:~$ echo /lib/firmware/<firmware>.elf> /sys/class/remoteproc/remoteproc0/firmware
    target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
 
 To load a different firmware, the |mcore| needs to be stopped:
@@ -194,47 +113,31 @@ To load a different firmware, the |mcore| needs to be stopped:
 .. note::
 
    The samples found in ``/lib/firmware`` on the target come from NXP's
-   Yocto layer meta-imx.
-   To use the samples you built yourself through MCUX SDK, please copy them
-   to ``/lib/firmware`` on the target after building them.
+   Yocto layer meta-imx and are selected based on compatibility with |sbc|
+   hardware.
 
-Debugging Using J-Link
-......................
+Some firmware examples from NXP require additional Linux kernel modules to be
+loaded.
 
-The Segger software can be obtained from
-https://www.segger.com/downloads/jlink/. As of version V7.20a of the Segger
-software, accessing the |soc|' |mcore| requires additional configuration files
-to be copied into the J-Link software directory: NXP J-Link files for |soc|
-
-Together with the J-Link, GDB Server can be used for running and debugging the
-software.  On the |sbc|, the JTAG-Pins are accessible via the
-|expansion-connector| Expansion Connector. The simplest way is to use a
-PEB-EVAL-01 board that has the JTAG-Pins reachable with a pin header
-on the top.
+For example, when loading ``imx93-11x11-evk_m33_TCM_rpmsg_lite_str_echo_rtos.elf``
+firmware, one requires corresponding ``imx_rpmsg_tty`` module to be loaded:
 
 .. code-block:: console
 
-   host:~$ sudo apt install gdb gdb-multiarch
+   target:~$ modprobe imx_rpmsg_tty
 
-To start the J-Link software, type:
-
-.. code-block:: console
-   :substitutions:
-
-   host:~$ JLinkGDBServer -if JTAG -device |mcore-jtag-dev|
-   ...
-   Connected to target
-   Waiting for GDB connection...
-
-To start GDB with a firmware example in another window, type:
+This exposes an RPMsg endpoint as a virtual TTY at ``/dev/ttyRPMSG30``.
+Now it is possible to send messages from A55 Core to |mcore| by typing:
 
 .. code-block:: console
 
-   host:~$ gdb-multiarch firmware.elf
-   ...
-   (gdb) target remote localhost:2331
-   (gdb) monitor reset
-   Resetting target
-   (gdb) load
-   ...
-   (gdb) monitor go
+   target:~$ echo "PHYTEC" > /dev/ttyRPMSG30
+
+Observing |mcore| debug UART should result in the following output:
+
+.. code-block:: console
+
+   RPMSG String Echo FreeRTOS RTOS API Demo...
+
+   Nameservice sent, ready for incoming messages...
+   Get Message From Master Side : "PHYTEC" [len : 6]
