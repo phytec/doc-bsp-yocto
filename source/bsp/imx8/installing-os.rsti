@@ -471,8 +471,10 @@ Flash SPI NOR from SD Card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the FAT partition
-   on the SD Card. Before reading and writing are possible, the SPI-NOR flash
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
+   on the SD Card.
+
+*  Before reading and writing are possible, the SPI-NOR flash
    needs to be probed:
 
    .. code-block::
@@ -501,12 +503,16 @@ Flash SPI NOR from SD Card in U-Boot on Target
 Flash SPI NOR from SD Card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+*  Copy the SPI NOR flash U-boot image
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
+   on the SD Card.
+
 *  Mount the SD Card:
 
    .. code-block:: console
       :substitutions:
 
-      host:~$ mount /dev/mmcblkp1 /mnt
+      target:~$ mount /dev/mmcblk1p1 /mnt
 
 *  Find the number of blocks to erase of the U-Boot partition:
 
