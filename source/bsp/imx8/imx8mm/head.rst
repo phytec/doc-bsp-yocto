@@ -375,7 +375,7 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n36`
 
-.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+.. include:: /bsp/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n119`
