@@ -216,7 +216,7 @@ Development
 
 .. include:: /bsp/imx9/development/standalone_build.rsti
 
-.. include:: /bsp/imx9/development/format_sd-card.rsti
+.. include:: /bsp/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE

@@ -32,7 +32,7 @@ Gparted
 
       host:~$ sudo gparted
 
-.. image:: /bsp/imx8/images/gparted1.png
+.. image:: /bsp/images/gparted1.png
 
 Expand rootfs
 ~~~~~~~~~~~~~
@@ -40,16 +40,16 @@ Expand rootfs
 *  Choose your SD Card device at the drop-down menu on the top right
 *  Choose the ext4 root partition and click on resize:
 
-.. image:: /bsp/imx8/images/gparted5.png
-.. image:: /bsp/imx8/images/gparted2.png
+.. image:: /bsp/images/gparted5.png
+.. image:: /bsp/images/gparted2.png
 
 *  Drag the slider as far as you like or enter the size manually.
 
-.. image:: /bsp/imx8/images/gparted3.png
+.. image:: /bsp/images/gparted3.png
 
 *  Confirm your entry by clicking on the "Change size" button.
 
-.. image:: /bsp/imx8/images/gparted4.png
+.. image:: /bsp/images/gparted4.png
 
 *  To apply your changes, press the green tick.
 *  Now you can mount the root partition and copy e.g. the
@@ -66,19 +66,19 @@ Create the Third Partition
 
 *  Choose your SD Card device at the drop-down menu on the top right
 
-.. image:: /bsp/imx8/images/gparted1.png
+.. image:: /bsp/images/gparted1.png
 
 *  Choose the bigger unallocated  area and press "New":
 
-.. image:: /bsp/imx8/images/gparted6.png
+.. image:: /bsp/images/gparted6.png
 
 *  Click "Add"
 
-.. image:: /bsp/imx8/images/gparted7.png
+.. image:: /bsp/images/gparted7.png
 
 *  Confirm your changes by pressing the green tick.
 
-.. image:: /bsp/imx8/images/gparted8.png
+.. image:: /bsp/images/gparted8.png
 
 *  Now you can mount the new partition and copy e.g.
    |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:
