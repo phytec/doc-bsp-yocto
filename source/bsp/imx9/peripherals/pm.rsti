@@ -1,0 +1,140 @@
+Power Management
+----------------
+
+CPU Core Frequency Scaling
+..........................
+
+The CPU in the |soc| SoC is able to scale the clock frequency and the voltage.
+This is used to save power when the full performance of the CPU is not needed.
+Unlike i.MX8 M family the i.MX 93 doesn't support *Dynamic* Voltage and
+Frequency Scaling (DVFS), but has the support of basic **Voltage and Frequency
+Scaling (VFS)**. The board can be put into these modes:
+
+
+* nominal (ND),
+* overdrive (OD) and
+* Low Drive (LD).
+
+==================== ================ ================ ==========
+Mode                 CPU freq         DDR data rate    VDD_SOC
+==================== ================ ================ ==========
+OverDrive (OD)       1.7 GHz          3733 MT/s        900mV
+NominalDrive (ND)    1.4 GHz          1866 MT/s        850mV
+LowDrive (LD)        900 MHz          1866 MT/s        800mV
+==================== ================ ================ ==========
+
+The |soc| BSP supports the VFS feature. The Linux kernel provides a LPM driver
+that allows setting VDD_SOC, CPU freq and DDR speed.
+
+* To put the device in **OverDrive (OD)** mode type:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/devices/platform/imx93-lpm/mode
+
+* To put the device in **NominalDrive (ND)** mode type:
+
+   .. code-block:: console
+
+      target:~$ echo 1 > /sys/devices/platform/imx93-lpm/mode
+
+* To put the device in **LowDrive (LD)** mode type:
+
+   .. code-block:: console
+
+      target:~$ echo 2 > /sys/devices/platform/imx93-lpm/mode
+
+* To check the current CPU frequency type:
+
+   .. code-block:: console
+
+      target:~$ mhz
+
+* To check the current mode and DDR frequency type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/platform/imx93-lpm/mode
+
+* To check the current VDD_SOC type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/kernel/debug/regulator/regulator_summary
+
+For more detailed information about the LPM driver and modes, refer to the NXPs
+documentation:
+https://docs.nxp.com/bundle/AN13917/page/topics/low_power_mode_use_cases.html
+
+CPU Core Management
+...................
+
+The |soc| SoC can have multiple processor cores on the die. The |soc|, for
+example, has 2 ARM Cores which can be turned on and off individually at runtime.
+
+*  To see all available cores in the system, execute:
+
+   .. code-block:: console
+
+      target:~$ ls /sys/devices/system/cpu  -1
+
+*  This will show, for example:
+
+   .. code-block::
+
+      cpu0/
+      cpu1/
+      cpufreq/
+      [...]
+
+   Here the system has two processor cores. By default, all available cores in the
+   system are enabled to get maximum performance.
+
+*  To switch off a single-core, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/devices/system/cpu/cpu1/online
+
+   As confirmation, you will see:
+
+   .. code-block::
+
+      [  110.505012] psci: CPU1 killed (polled 0 ms)
+
+   Now the core is powered down and no more processes are scheduled on this core.
+
+*  You can use top to see a graphical overview of the cores and processes:
+
+   .. code-block:: console
+
+      target:~$ htop
+
+*  To power up the core again, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 1 > /sys/devices/system/cpu/cpu1/online
+
+Suspend to RAM
+..............
+
+The |som| supports basic suspend and resume. Different wake-up sources can be
+used. Suspend/resume is possible with:
+
+.. code-block:: console
+
+   target:~$ echo mem > /sys/power/state
+   #resume with pressing on/off button
+
+To wake up with serial console run
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ echo enabled > /sys/class/tty/|debug-uart|/power/wakeup
+   target:~$ echo mem > /sys/power/state
+
+Device can be put into suspend and waken-up with PEB-EVAL-01 S2 button
+
+To wake up with RTC alarm check: `RTC Wakealarm`_

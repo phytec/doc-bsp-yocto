@@ -56,6 +56,7 @@
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-imageext| replace:: wic
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master

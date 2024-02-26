@@ -1,0 +1,269 @@
+Flash eMMC
+----------
+
+To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
+and the |ref-bootswitch| is set to **eMMC**.
+
+.. warning::
+   When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+   of the boot partitions are also identical. If the SD card is connected when
+   booting, this leads to non-deterministic behavior as Linux mounts the boot
+   partition based on UUID.
+
+   .. code-block:: console
+
+      target:~$ blkid
+
+   can be run to inspect whether the current setup is affected. If |emmcdev|\p1
+   and |sdcarddev|\p1 have an identical UUID, the setup is affected.
+
+Flash eMMC from SD Card
+.......................
+
+If there is no network available, you can update the eMMC from SD card. For
+that, you only need a ready-to-use image file (``*.wic``) located on the
+SD card. Because the image file is quite large, you have to enlarge your SD card
+to use its full space (if it was not enlarged before). To enlarge your SD card,
+see Resizing ext4 Root Filesystem.
+
+Alternatively, flash a partup package to the SD card, as described in
+|ref-getting-started|. This will ensure the full space of the SD card is used.
+
+Flash eMMC from SD card in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can flash the eMMC on Linux. You only need a partup package or WIC image
+saved on the SD card.
+
+*  Show your saved partup package or WIC image or WIC.XZ image files on the SD card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.partup
+      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls /dev | grep mmc
+      |sdcarddev|
+      |sdcarddev|p1
+      |sdcarddev|p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
+*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| **without**
+   partition) using `partup`_:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/|emmcdev|
+
+   .. tip::
+
+      **Using partup is highly recommended since it is easier to use and has the
+      advantage of using the full capacity of the eMMC device, adjusting
+      partitions accordingly.**
+
+   .. note::
+
+      Alternatively, ``dd`` may be used instead.
+
+      For uncompressed WIC images (\*.wic):
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+      For compressed WIC images (\*.wic.xz):
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ zstdcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+      Keep in mind that the root partition does not make use of the full space
+      when flashing with ``dd``.
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. warning::
+
+      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
+
+Flash eMMC from Network
+.......................
+
+|soc| boards have an Ethernet connector and can be updated over a network. Be
+sure to set up the development host correctly. The IP needs to be set to
+192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
+available. From a high-level point of view, an eMMC device is like an SD card.
+Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
+the Yocto build system directly to the eMMC. The image contains the
+bootloader, kernel, device tree, device tree overlays, and root file system.
+
+.. note::
+
+   Some PHYTECs BSPs produce compressed ``.wic.xz`` images. In this case, the
+   compressed image must first be uncompressed.
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ unxz phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
+
+Flash eMMC via Network in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can update the eMMC from your target.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Take an uncompressed image on the host and send it with ssh through
+the network to the eMMC of the target with a one-line command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+Flash eMMC via Network in Linux on Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is also possible to install the OS at eMMC from your Linux host. As before,
+you need a complete image on your host.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Show your available image files on the host:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ls
+   |yocto-imagename|-|yocto-machinename|.wic
+
+Send the image with the ``dd`` command combined with ssh through the network
+to the eMMC of your device:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic bs=1M status=progress | ssh root@192.168.3.11 "dd of=/dev/|emmcdev| conv=fsync"
+
+Flash eMMC U-Boot image via Network from running U-Boot
+.......................................................
+
+Update the standalone U-Boot image imx-boot is also possible from U-Boot. This
+can be used if the bootloader on eMMC is located in the eMMC user area.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Load image over tftp into RAM and then write it to eMMC:
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> tftp ${loadaddr} imx-boot
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc dev 0
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
+
+.. hint::
+   The hexadecimal value represents the offset as a multiple of 512 byte
+   blocks. See the `offset table <#offset-table>`__ for the correct value
+   of the corresponding SoC.
+
+Flash eMMC from USB
+...................
+
+Flash eMMC from USB in Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to flash the eMMC on Linux with a USB stick. You only
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
+|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
+
+*  Insert and mount the USB stick:
+
+   .. code-block:: console
+
+      [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+      [   60.467286] scsi host0: usb-storage 1-1.1:1.0
+      [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
+      [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
+      [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
+      [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
+      [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
+      [   61.665969]  sda: sda1
+      [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
+      target:~$ mount /dev/sda1 /mnt
+
+*  Now show your saved image files on the USB Stick:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ cd /mnt
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls /dev | grep mmc
+      |sdcarddev|
+      |sdcarddev|p1
+      |sdcarddev|p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
+*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| without partition):
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. tip::
+
+      Before this will work, you need to configure the |ref-bootswitch| to
+      **eMMC**.
+
+RAUC
+----
+
+The RAUC (Robust Auto-Update Controller) mechanism support has been added to
+meta-ampliphy. It controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem.
+PHYTEC has written an online manual on how we have intergraded RAUC into our
+BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
+<https://www.phytec.de/cdocuments/?doc=fgByJg>`__.

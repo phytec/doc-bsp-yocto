@@ -1,0 +1,6 @@
+Display
+-------
+
+The |sbc| supports PEB-AV-02 with 7'' ``edt,etm0700g0edh6`` display with
+capacitive touchscreen. Overlay for said display is enabled in
+``BOOT/bootenv.txt`` by default!
