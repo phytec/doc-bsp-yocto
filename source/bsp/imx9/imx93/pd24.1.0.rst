@@ -223,13 +223,13 @@ select the phyCORE-|soc| default bootsource.
 Development
 ===========
 
-.. include:: /bsp/imx9/development/netboot.rsti
+.. include:: ../../imx-common/development/netboot.rsti
 
-.. include:: /bsp/imx9/development/uuu.rsti
+.. include:: ../../imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx9/development/standalone_build.rsti
+.. include:: ../../imx-common/development/standalone_build.rsti
 
-.. include:: /bsp/imx9/development/format_sd-card.rsti
+.. include:: ../../imx-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
