@@ -72,9 +72,10 @@ Flashing U-boot Image to eMMC via UUU-Tool
    always using U-boot saved in BOOT partitions. To fix this in U-Boot:
 
    .. code-block:: console
+      :substitutions:
 
-      u-boot=> mmc partconf 0 0 0 0
-      u-boot=> mmc partconf 0
+      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
+      u-boot=> mmc partconf |u-boot-emmc-devno|
       EXT_CSD[179], PARTITION_CONFIG:
       BOOT_ACK: 0x0
       BOOT_PARTITION_ENABLE: 0x0
