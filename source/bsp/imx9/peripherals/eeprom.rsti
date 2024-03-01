@@ -53,7 +53,7 @@ back to the |som| Kit RAM setup, which is |kit-ram-size| RAM.
 
 .. warning::
 
-   Data in the first 265 bytes of the normal EEPROM area (bus: I2C-0 addr: 0x51)
+   Data in the first 265 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50)
    shouldn't be erased or corrupted! This might influence the behavior of the
    bootloader. The board might not boot correctly anymore.
 
