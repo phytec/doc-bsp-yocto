@@ -16,7 +16,7 @@ configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
 be found here: |dt-somnetwork|.
 
-|segin-sbc-network|
+|sbc-network|
 
 Network Environment Customization
 .................................
@@ -46,7 +46,7 @@ U-boot network-environment
 
       u-boot=> setenv <parameter> <value>
 
-   <parameter> should be one of ipaddr, netmask, or serverip.
+   <parameter> should be one of ipaddr, netmask, gatewayip or serverip.
    <value> will be the actual value of the chosen parameter.
 
 *  The changes you made are temporary for now. To save these:
