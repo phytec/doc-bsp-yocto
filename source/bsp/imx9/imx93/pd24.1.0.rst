@@ -34,7 +34,7 @@
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 
-.. IMX8(MP) specific
+.. IMX93 specific
 .. |u-boot-socname-config| replace:: IMX93
 .. |u-boot-tag| replace:: v2023.04_2.1.0-phy1
 
