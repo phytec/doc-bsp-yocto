@@ -255,7 +255,7 @@ Development
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART1 device in
 |dt-carrierboard|.dts:
@@ -289,7 +289,7 @@ module and board.
 
 .. include:: ../peripherals/network.rsti
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n216`
@@ -299,7 +299,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
-.. include:: emmc.rsti
+.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/gpios.rsti
 
@@ -308,7 +308,7 @@ DT configuration for the eMMC interface can be found here:
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx93-phyboard-segin-peb-eval-01.dtso?h=v6.1.36_2.1.0-phy1#n33`
 
-.. include:: /bsp/imx9/peripherals/i2c-bus.rsti
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n88`
