@@ -29,7 +29,7 @@
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v6.6-y
-
+.. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
 .. |u-boot-offset| replace:: 32
