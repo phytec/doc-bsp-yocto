@@ -173,7 +173,7 @@ Or to flash a compressed images (\*.wic.xz) use that command:
 .. code-block:: console
    :substitutions:
 
-   host:~$ zstdcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
+   host:~$ xzcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
 
 Again, make sure to replace <your_device> with your actual device name found
 previously.
