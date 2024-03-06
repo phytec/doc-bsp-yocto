@@ -181,7 +181,7 @@ Separate the filenames by spaces. For example:
 
 .. code-block::
 
-   overlays=imx93-phyboard-segin-peb-av-02.dtbo imx93-phyboard-segin-peb-eval-01.dtbo
+   overlays=example-overlay1.dtbo example-overlay2.dtbo
 
 .. Tip::
 
