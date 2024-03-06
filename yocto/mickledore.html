@@ -18,7 +18,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b1608b6f"></script>
+        <script src="../_static/documentation_options.js?v=053a9cdb"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-13-g7c9b790
+                imx8-pd23.1.0-14-gf7db7c7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -281,7 +281,7 @@ operating systems vendors, and electronics companies to bring some order to
 the chaos of embedded Linux development.</p>
 </div></blockquote>
 <p>As said, the project wants to provide toolsets for embedded developers. It
-builds on top of the long-lasting <a class="reference external" href="https://www.openembedded.org/">OpenEmbedded</a> project. It is not a Linux distribution. But
+builds on top of the long-lasting <a class="reference external" href="https://www.openembedded.org/wiki/Main_Page">OpenEmbedded</a> project. It is not a Linux distribution. But
 it contains the tools to create a Linux distribution specially fitted to the
 product requirements. The most important step in bringing order to the set of
 tools is to define a common versioning scheme and a reference system. All
@@ -752,7 +752,7 @@ written in <em>Python</em>. It is mainly a helper to get started with the BSP
 structure. You can get all the BSP sources without the need of interacting with
 <em>Repo</em> or <em>Git</em>.</p>
 <p>The phyLinux script has only one real dependency. It requires the <em>wget</em> tool
-installed on your host. It will also install the <a class="reference external" href="https://source.android.com/source/developing.html">Repo tool</a> in a global path
+installed on your host. It will also install the <a class="reference external" href="https://source.android.com/docs/setup/download">Repo tool</a> in a global path
 (/usr/local/bin) on your host PC. You can install it in a different location
 manually. <em>Repo</em> will be automatically detected by phyLinux if it is found in
 the PATH. The <em>Repo</em> tool will be used to manage the different <em>Git</em>
@@ -2194,7 +2194,7 @@ and the interface files in the folder
 <em>meta-ampliphy/recipes-core/systemd/systemd-machine-units/</em> where the static IP
 address configuration for <em>eth0</em> (and optionally <em>eth1</em>) is done.</p>
 <p>For more information, see <a class="reference external" href="https://wiki.archlinux.org/title/Systemd-networkd">https://wiki.archlinux.org/title/Systemd-networkd</a>
-and <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd.network.html">https://www.freedesktop.org/software/systemd/man/systemd.network.html</a>.</p>
+and <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html">https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html</a>.</p>
 </section>
 <section id="changing-the-wireless-network-configuration">
 <h3><span class="section-number">8.6.17. </span>Changing the Wireless Network Configuration<a class="headerlink" href="#changing-the-wireless-network-configuration" title="Link to this heading"></a></h3>
@@ -2705,7 +2705,7 @@ SUBSYSTEM==&quot;input&quot;,<span class="w"> </span>KERNEL==&quot;event[0-9]*&q
 SUBSYSTEM==&quot;input&quot;,<span class="w"> </span>KERNEL==&quot;event[0-9]*&quot;,<span class="w"> </span>ATTRS{modalias}==&quot;ads7846&quot;,<span class="w"> </span>SYMLINK+=&quot;input/touchscreen0&quot;
 </pre></div>
 </div>
-<p>See <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/udev.html">https://www.freedesktop.org/software/systemd/man/udev.html</a> for more details
+<p>See <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/udev.html">https://www.freedesktop.org/software/systemd/man/latest/udev.html</a> for more details
 about the syntax and usage. To get the list of attributes for a specific device
 that can be used in an <em>udev</em> rule you can use the <em>udevadm info</em> tool. It
 prints all existing attributes of the device node and its parents. The key-value
@@ -2733,7 +2733,7 @@ especially if the rule executes external scripts. Execute</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You cannot start daemons or heavy scripts in a <em>RUN</em> attribute. See
-<a class="reference external" href="https://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D">https://www.freedesktop.org/software/systemd/man/udev.html#RUN%7Btype%7D</a> .</p>
+<a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D">https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D</a> .</p>
 <p>This can only be used for very short-running foreground tasks. Running an
 event process for a long period of time may block all further events for this
 or a dependent device. Starting daemons or other long-running processes is
