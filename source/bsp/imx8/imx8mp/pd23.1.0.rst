@@ -93,7 +93,7 @@
 
 .. M-Core specific
 .. |mcore| replace:: M7 Core
-.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/arm/mimx8mp_phyboard_pollux/doc/index.html
+.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
