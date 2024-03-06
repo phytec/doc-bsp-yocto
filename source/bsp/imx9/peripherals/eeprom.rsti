@@ -57,9 +57,6 @@ back to the |som| Kit RAM setup, which is |kit-ram-size| RAM.
    shouldn't be erased or corrupted! This might influence the behavior of the
    bootloader. The board might not boot correctly anymore.
 
-SoMs that are flashed with data format API revision 2 will print out information
-about the module in the early stage.
-
 Rescue EEPROM Data
 ..................
 
