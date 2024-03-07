@@ -29,7 +29,7 @@
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mn
 .. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
-
+.. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
 .. |u-boot-offset| replace:: 32
@@ -55,6 +55,7 @@
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-headless-image
+.. |yocto-imageext| replace:: wic
 .. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master

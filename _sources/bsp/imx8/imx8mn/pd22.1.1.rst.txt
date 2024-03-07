@@ -28,7 +28,7 @@
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mn
 .. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
-
+.. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
 .. |u-boot-offset| replace:: 32

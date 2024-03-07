@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=99eeaad0"></script>
+        <script src="../../../_static/documentation_options.js?v=3378a48b"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-16-gca54adf
+                imx8-pd23.1.0-17-g4488218
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -137,6 +137,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../imx8mn/imx8mn.html">i.MX 8M Nano Manuals</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../imx9/imx9.html">i.MX 9 Manuals</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
 <ul>
@@ -236,7 +237,7 @@ Module and accompanying carrierboard.</p></li>
 the phyCORE uses. This guide contains an overview of Yocto;
 introducing, installing, and customizing the PHYTEC BSP; how to
 work with programs like Poky and Bitbake; and much more.</p></li>
-<li><p><strong>BSP Manual</strong>: Amanual specific to the BSP version of the phyCORE.
+<li><p><strong>BSP Manual</strong>: A manual specific to the BSP version of the phyCORE.
 Information such as how to build the BSP, booting, updating
 software, device tree, and accessing peripherals can be found
 here.</p></li>
@@ -314,7 +315,7 @@ instructions.</p>
 <section id="get-the-image">
 <h2><span class="section-number">2.1. </span>Get the Image<a class="headerlink" href="#get-the-image" title="Link to this heading"></a></h2>
 <p>The image contains all necessary files and makes sure partitions and any raw
-data are correctly writing. Both the partup package and the WIC image, which can
+data are correctly written. Both the partup package and the WIC image, which can
 be flashed using <code class="docutils literal notranslate"><span class="pre">dd</span></code>, can be downloaded from the <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">PHYTEC download server</a>.</p>
 <p>Get either the partup package or the WIC image from the download server:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup
@@ -332,17 +333,17 @@ and allows for a more flexible configuration of the target flash device.</p>
 <h2><span class="section-number">2.2. </span>Write the Image to SD Card<a class="headerlink" href="#write-the-image-to-sd-card" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To create your bootable SD card, you must have root privileges. Be very
-careful when specifying the destination device! All files on the selected
-device will be erased immediately without any further query!</p>
+<p>To create your bootable SD card, you must have root privileges on your Linux
+host PC. Be very careful when specifying the destination device! All files
+on the selected device will be erased immediately without any further query!</p>
 <p>Selecting the wrong device may result in <strong>data loss</strong> and e.g. could erase
-your currently running system!</p>
+your currently running system on your host PC!</p>
 </div>
 <section id="finding-the-correct-device">
 <h3><span class="section-number">2.2.1. </span>Finding the Correct Device<a class="headerlink" href="#finding-the-correct-device" title="Link to this heading"></a></h3>
 <p>To create your bootable SD card, you must first find the correct device name
-of your SD card and possible partitions. Unmount any mounted partitions before
-you start copying the image to the SD card.</p>
+of your SD card and possible partitions. If any partitions of the SD cards are
+mounted, unmount those before you start copying the image to the SD card.</p>
 <ol class="arabic">
 <li><p>In order to get the correct device name, remove your SD card and
 execute:</p>
@@ -370,8 +371,9 @@ In this case, you will also find the device name with an appended number
 (e.g. <code class="docutils literal notranslate"><span class="pre">/dev/sde1</span></code>) in the output. These represent the partitions. Some Linux
 distributions automatically mount partitions when the device gets plugged in.
 Before writing, however, these need to be unmounted to avoid data corruption.</p>
-<p>Unmount all partitions, e.g.:</p>
+<p>Unmount all those partitions, e.g.:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>umount<span class="w"> </span>/dev/sde1
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>umount<span class="w"> </span>/dev/sde2
 </pre></div>
 </div>
 <p>Now, the SD card is ready to be flashed with an image, using either <code class="docutils literal notranslate"><span class="pre">partup</span></code>,
@@ -411,8 +413,10 @@ Debian-based systems install it by issuing:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
-<p>Make sure to place the <code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code> alongside the regular
-WIC image, so bmaptool knows which blocks to write and which to skip.</p>
+<p>Replace &lt;your_device&gt; with your actual SD card’s device name found previously,
+and make sure to place the file <code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code> alongside
+the regular WIC image file, so bmaptool knows which blocks to write and which
+to skip.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><em>bmaptool</em> only overwrites the areas of an SD card where image data is
@@ -422,8 +426,15 @@ available after writing the image.</p>
 </section>
 <section id="using-dd">
 <h3><span class="section-number">2.2.4. </span>Using <code class="docutils literal notranslate"><span class="pre">dd</span></code><a class="headerlink" href="#using-dd" title="Link to this heading"></a></h3>
-<p>After having unmounted all partitions, you can create your bootable SD card:</p>
+<p>After having unmounted all SD card’s partitions, you can create your bootable SD card.</p>
+<p>Some PHYTEC BSPs produce uncompressed images (with filename-extension *.wic),
+and some others produce compressed images (with filename-extension *.wic.xz).</p>
+<p>To flash an uncompressed images (*.wic) use command below:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+<p>Or to flash a compressed images (*.wic.xz) use that command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Again, make sure to replace &lt;your_device&gt; with your actual device name found
@@ -464,8 +475,8 @@ debug USB</p></li>
 </section>
 <section id="building-the-bsp">
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Link to this heading"></a></h1>
-<p>This section will guide you through the general build process of the i.MX 8M
-Plus BSP using Yocto and the phyLinux script. For more information about our
+<p>This section will guide you through the general build process of the i.MX 8M Mini BSP
+using Yocto and the phyLinux script. For more information about our
 meta-layer or Yocto in general visit: <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone">Yocto Reference Manual (kirkstone)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Link to this heading"></a></h2>
@@ -476,8 +487,9 @@ take a closer look at the chapter BSP Workspace Installation in the
 <section id="get-the-bsp">
 <h2><span class="section-number">3.2. </span>Get the BSP<a class="headerlink" href="#get-the-bsp" title="Link to this heading"></a></h2>
 <p>There are two ways to get the BSP sources. You can download the complete BSP
-sources from our download page: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">BSP-Yocto-IMX8MM</a>; or you can build it yourself
-with Yocto. This is particularly useful if you want to make customizations.</p>
+sources from our download page: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/">BSP-Yocto-IMX8MM</a>; or you can fetch and build it
+yourself with Yocto. This is particularly useful if you want to make
+customizations.</p>
 <p>The phyLinux script is a basic management tool for PHYTEC Yocto BSP releases
 written in Python. It is mainly a helper to get started with the BSP structure.</p>
 <ul>
@@ -523,7 +535,8 @@ parameters:</p>
 </li>
 </ul>
 <p>After the execution of the init command, phyLinux will print a few important
-notes as well as information for the next steps in the build process.</p>
+notes. For example, it will print your git identify, SOC and BSP release which
+was selected as well as information for the next steps in the build process.</p>
 <section id="starting-the-build-process">
 <h3><span class="section-number">3.2.1. </span>Starting the Build Process<a class="headerlink" href="#starting-the-build-process" title="Link to this heading"></a></h3>
 <ul>
@@ -538,7 +551,7 @@ notes as well as information for the next steps in the build process.</p>
 </li>
 <li><p>The current working directory of the shell should change to build/.</p></li>
 <li><p>Open the main configuration file and accept the GPU and VPU binary license
-agreements. You have to uncomment the corresponding line.</p>
+agreements. Do this by uncommenting the corresponding line, as below.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto/build$ </span>vim<span class="w"> </span>conf/local.conf
 <span class="gp"># </span>Uncomment<span class="w"> </span>to<span class="w"> </span>accept<span class="w"> </span>NXP<span class="w"> </span>EULA
 <span class="gp"># </span>EULA<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>found<span class="w"> </span>under<span class="w"> </span>../sources/meta-freescale/EULA
@@ -552,10 +565,14 @@ agreements. You have to uncomment the corresponding line.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We suggest starting with our smaller non-graphical
-image phytec-headless-image to see if everything is working correctly. The
-first compile process takes about 40 minutes on a modern Intel Core i7. All
-subsequent builds will use the filled caches and should take about 3 minutes.</p>
+<p>For the first build we suggest starting with our smaller non-graphical
+image phytec-headless-image to see if everything is working correctly.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto/build$ </span>bitbake<span class="w"> </span>phytec-headless-image
+</pre></div>
+</div>
+<p>The first compile process takes about 40 minutes on a modern Intel
+Core i7. All subsequent builds will use the filled caches and should take
+about 3 minutes.</p>
 </div>
 </li>
 </ul>
@@ -606,7 +623,7 @@ select the phyCORE-i.MX 8M Mini default bootsource.</p>
 </figure>
 </td>
 <td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
+<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
@@ -614,7 +631,7 @@ select the phyCORE-i.MX 8M Mini default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download.png" src="../../../_images/USB_Serial_Download.png" />
+<img alt="../../../_images/USB_Serial_Download2.png" src="../../../_images/USB_Serial_Download2.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -1744,23 +1761,23 @@ easiest way to do this is to use the UI program Gparted.</p>
 </div>
 </li>
 </ul>
-<img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
+<img alt="../../../_images/gparted11.png" src="../../../_images/gparted11.png" />
 <section id="expand-rootfs">
 <h4><span class="section-number">5.6.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
 </ul>
-<img alt="../../../_images/gparted5.png" src="../../../_images/gparted5.png" />
-<img alt="../../../_images/gparted2.png" src="../../../_images/gparted2.png" />
+<img alt="../../../_images/gparted51.png" src="../../../_images/gparted51.png" />
+<img alt="../../../_images/gparted21.png" src="../../../_images/gparted21.png" />
 <ul class="simple">
 <li><p>Drag the slider as far as you like or enter the size manually.</p></li>
 </ul>
-<img alt="../../../_images/gparted3.png" src="../../../_images/gparted3.png" />
+<img alt="../../../_images/gparted31.png" src="../../../_images/gparted31.png" />
 <ul class="simple">
 <li><p>Confirm your entry by clicking on the “Change size” button.</p></li>
 </ul>
-<img alt="../../../_images/gparted4.png" src="../../../_images/gparted4.png" />
+<img alt="../../../_images/gparted41.png" src="../../../_images/gparted41.png" />
 <ul>
 <li><p>To apply your changes, press the green tick.</p></li>
 <li><p>Now you can mount the root partition and copy e.g. the
@@ -1777,19 +1794,19 @@ phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it ag
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>
-<img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
+<img alt="../../../_images/gparted11.png" src="../../../_images/gparted11.png" />
 <ul class="simple">
 <li><p>Choose the bigger unallocated  area and press “New”:</p></li>
 </ul>
-<img alt="../../../_images/gparted6.png" src="../../../_images/gparted6.png" />
+<img alt="../../../_images/gparted61.png" src="../../../_images/gparted61.png" />
 <ul class="simple">
 <li><p>Click “Add”</p></li>
 </ul>
-<img alt="../../../_images/gparted7.png" src="../../../_images/gparted7.png" />
+<img alt="../../../_images/gparted71.png" src="../../../_images/gparted71.png" />
 <ul class="simple">
 <li><p>Confirm your changes by pressing the green tick.</p></li>
 </ul>
-<img alt="../../../_images/gparted8.png" src="../../../_images/gparted8.png" />
+<img alt="../../../_images/gparted81.png" src="../../../_images/gparted81.png" />
 <ul>
 <li><p>Now you can mount the new partition and copy e.g.
 phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic image to it. Then unmount it again:</p>
@@ -2693,8 +2710,11 @@ and it is needed when the eMMC device contains existing partitions with data.</p
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code class="docutils literal notranslate"><span class="pre">dd</span> <span class="pre">if=/dev/zero</span> <span class="pre">of=/dev/mmcblk2</span> <span class="pre">conv=fsync</span></code> also destroys all information
-on the device, but this command is bad for wear leveling and takes much longer!</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+</pre></div>
+</div>
+<p>also destroys all information on the device, but this command is bad for wear
+leveling and takes much longer!</p>
 </div>
 </section>
 </section>
