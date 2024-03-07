@@ -3,7 +3,7 @@ name: Release
 # The release tag should be in the following format: imx8mx-pd23.1.0
 #
 # This action generates a draft release with generated pdfs for all platforms
-# and versions. The release has to be converted to a final release manuall via
+# and versions. The release has to be converted to a final release manually via
 # GitHub:
 # - remove not required PDF files
 # - convert to final release
@@ -44,4 +44,4 @@ jobs:
         draft: true
         prerelease: false
         name: ${{ env.TAG_NAME }}
-        files: build/pdf/latex/*.pdf
+        files: build/latex/*.pdf
