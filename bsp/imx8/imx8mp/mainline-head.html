@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=24d26f0e"></script>
+        <script src="../../../_static/documentation_options.js?v=99eeaad0"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8-pd23.1.0-15-gaf042ed
+                imx8-pd23.1.0-16-gca54adf
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3127,131 +3127,14 @@ id  encoder status      name        size (mm)   modes   encoders
 </section>
 <section id="display">
 <h2><span class="section-number">6.17. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
-<p>The phyBOARD-Pollux supports up to 4 different display outputs. Three can be used
-simultaneously. The following table shows the required extensions and devicetree
-overlays for the different interfaces.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Interface</p></th>
-<th class="head"><p>Expansion</p></th>
-<th class="head"><p>devicetree overlay</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>HDMI</p></td>
-<td><p>phyBOARD-Pollux</p></td>
-<td><p>no overlay needed (enabled by default)</p></td>
-</tr>
-<tr class="row-odd"><td><p>LVDS0</p></td>
-<td><p>PEB-AV-10</p></td>
-<td><p>imx8mp-phyboard-pollux-peb-av-010.dtbo
-(loaded by default)</p></td>
-</tr>
-<tr class="row-even"><td><p>LVDS1</p></td>
-<td><p>phyBOARD-Pollux</p></td>
-<td><p>disabled if PEB-AV-10 overlay is used</p></td>
-</tr>
-<tr class="row-odd"><td><p>MIPI</p></td>
-<td><p>PEB-AV-12 (MIPI to LVDS)</p></td>
-<td><p>imx8mp-phyboard-pollux-peb-av-012.dtbo</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>When changing Weston output, make sure to match the audio output as well.</p></li>
-<li><p>LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.</p></li>
-</ul>
-</div>
-<p>HDMI is always enabled in the devicetree. The other interfaces can be enabled
-with Device Tree Overlay.</p>
-<p>The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10’’ edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-12.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The current display driver limits the pixel clock for a display connected to
-LVDS to 74.25Mhz (or a divider of it).  If this does not fit your display
-requirements, please contact Support for further help.</p>
-</div>
+<p>The phyBOARD-Pollux supports LVDS output via the LVDS1 connector on the carrier board. The
+LVDS interface is enabled by default.</p>
 <section id="weston-configuration">
 <h3><span class="section-number">6.17.1. </span>Weston Configuration<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
-<p>In order to get an output from Weston on the correct display, it still needs to
-be configured correctly. This will be done at /etc/xdg/weston/weston.ini.</p>
-<section id="single-display">
-<h4><span class="section-number">6.17.1.1. </span>Single Display<a class="headerlink" href="#single-display" title="Link to this heading"></a></h4>
-<p>In our BSP, the default Weston output is set to HDMI.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=current
-
-[output]
-name=LVDS-1
-mode=off
-</pre></div>
-</div>
-<p>When using the LVDS0 (PEB-AV-10) as output, set the output mode to off for
-HDMI-A-1 and for LVDS-1 to current.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=off
-
-[output]
-name=LVDS-1
-mode=current
-</pre></div>
-</div>
-<p>If you want to use LVDS1 (onboard) then you need to load no overlay. Remove the
-imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.</p>
-</section>
-<section id="dual-display">
-<h4><span class="section-number">6.17.1.2. </span>Dual Display<a class="headerlink" href="#dual-display" title="Link to this heading"></a></h4>
-<p>For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
-have to be set to current:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=current
-
-[output]
-name=LVDS-1
-mode=current
-</pre></div>
-</div>
-<p>For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
-be loaded at the bootenv.txt and the weston.ini should look like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=off
-
-[output]
-name=LVDS-1
-mode=current
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For dual and triple display output you can not use LVDS1 (onboard) and HDMI
-together.</p>
-</div>
-</section>
-<section id="triple-display">
-<h4><span class="section-number">6.17.1.3. </span>Triple Display<a class="headerlink" href="#triple-display" title="Link to this heading"></a></h4>
-<p>Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
-load both dtbos for LVDS interfaces.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=current
-
-[output]
-name=LVDS-1
-mode=current
-
-[output]
-name=LVDS-2
-mode=current
-</pre></div>
-</div>
-</section>
+<p>Weston will work without any additional configuration. Configuration options are
+done at /etc/xdg/weston/weston.ini.</p>
+<p>Device tree description of LVDS-1 can be found here:
+<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264</a></p>
 </section>
 <section id="qt-demo">
 <h3><span class="section-number">6.17.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
@@ -3286,51 +3169,6 @@ mode=current
 <p class="admonition-title">Note</p>
 <p>The Qt demo must be closed before Weston can be closed.</p>
 </div>
-</section>
-<section id="backlight-control">
-<h3><span class="section-number">6.17.3. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
-<p>If a display is connected to the PHYTEC board, you can control its backlight
-with the Linux kernel sysfs interface. All available backlight devices in the
-system can be found in the folder /sys/class/backlight. Reading the appropriate
-files and writing to them allows you to control the backlight.</p>
-<ul>
-<li><p>To get, for example, the maximum brightness level (max_brightness) execute:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/max_brightness
-</pre></div>
-</div>
-<p>which will result in:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
-</pre></div>
-</div>
-<p>Valid brightness values are 0 to &lt;max_brightness&gt;.</p>
-</li>
-<li><p>To obtain the current brightness level, type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>you will get for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-</li>
-<li><p>Write to the file brightness to change the brightness:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>turns the backlight off,</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>sets the brightness to the third-highest brightness level. For documentation of
-all files, see
-<a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
-</li>
-</ul>
-<p>Device tree description of LVDS-1 and HDMI can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264</a>
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191</a></p>
-<p>The device tree of LVDS-0 on PEB-AV-10 can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133</a></p>
 </section>
 </section>
 <section id="power-management">

@@ -1,5 +1,5 @@
 const DOCUMENTATION_OPTIONS = {
-    VERSION: 'imx8-pd23.1.0-15-gaf042ed',
+    VERSION: 'imx8-pd23.1.0-16-gca54adf',
     LANGUAGE: 'en',
     COLLAPSE_INDEX: false,
     BUILDER: 'html',

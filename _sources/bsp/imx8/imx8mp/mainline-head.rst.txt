@@ -409,18 +409,22 @@ Device Tree Audio configuration:
 
 .. include:: /bsp/peripherals/video.rsti
 
-.. include:: display.rsti
+Display
+-------
+
+The |sbc| supports LVDS output via the LVDS1 connector on the carrier board. The
+LVDS interface is enabled by default.
+
+Weston Configuration
+....................
+
+Weston will work without any additional configuration. Configuration options are
+done at /etc/xdg/weston/weston.ini.
+
+Device tree description of LVDS-1 can be found here:
+:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264`
 
 .. include:: /bsp/qt6.rsti
-
-.. include:: /bsp/imx8/peripherals/display.rsti
-
-Device tree description of LVDS-1 and HDMI can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264`
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191`
-
-The device tree of LVDS-0 on PEB-AV-10 can be found here:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133`
 
 .. include:: ../peripherals/pm.rsti
 
