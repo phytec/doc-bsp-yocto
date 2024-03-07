@@ -20,7 +20,7 @@ Get the Image
 -------------
 
 The image contains all necessary files and makes sure partitions and any raw
-data are correctly writing. Both the partup package and the WIC image, which can
+data are correctly written. Both the partup package and the WIC image, which can
 be flashed using ``dd``, can be downloaded from the `PHYTEC download server
 <dl-server_>`_.
 
@@ -41,19 +41,19 @@ Write the Image to SD Card
 --------------------------
 
 .. warning::
-   To create your bootable SD card, you must have root privileges. Be very
-   careful when specifying the destination device! All files on the selected
-   device will be erased immediately without any further query!
+   To create your bootable SD card, you must have root privileges on your Linux
+   host PC. Be very careful when specifying the destination device! All files
+   on the selected device will be erased immediately without any further query!
 
    Selecting the wrong device may result in **data loss** and e.g. could erase
-   your currently running system!
+   your currently running system on your host PC!
 
 Finding the Correct Device
 ..........................
 
 To create your bootable SD card, you must first find the correct device name
-of your SD card and possible partitions. Unmount any mounted partitions before
-you start copying the image to the SD card.
+of your SD card and possible partitions. If any partitions of the SD cards are
+mounted, unmount those before you start copying the image to the SD card.
 
 #. In order to get the correct device name, remove your SD card and
    execute:
@@ -87,11 +87,12 @@ In this case, you will also find the device name with an appended number
 distributions automatically mount partitions when the device gets plugged in.
 Before writing, however, these need to be unmounted to avoid data corruption.
 
-Unmount all partitions, e.g.:
+Unmount all those partitions, e.g.:
 
 .. code-block:: console
 
    host:~$ sudo umount /dev/sde1
+   host:~$ sudo umount /dev/sde2
 
 Now, the SD card is ready to be flashed with an image, using either ``partup``,
 ``dd`` or ``bmap-tools``.
@@ -140,10 +141,12 @@ Flash a WIC image to SD card by calling:
 .. code-block:: console
    :substitutions:
 
-   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.wic /dev/<your_device>
+   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/<your_device>
 
-Make sure to place the ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside the regular
-WIC image, so bmaptool knows which blocks to write and which to skip.
+Replace <your_device> with your actual SD card's device name found previously,
+and make sure to place the file ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside
+the regular WIC image file, so bmaptool knows which blocks to write and which
+to skip.
 
 .. warning::
    *bmaptool* only overwrites the areas of an SD card where image data is
@@ -153,12 +156,24 @@ WIC image, so bmaptool knows which blocks to write and which to skip.
 Using ``dd``
 ............
 
-After having unmounted all partitions, you can create your bootable SD card:
+After having unmounted all SD card's partitions, you can create your bootable SD card.
+
+Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
+and some others produce compressed images (with filename-extension \*.wic.xz).
+
+To flash an uncompressed images (\*.wic) use command below:
 
 .. code-block:: console
    :substitutions:
 
    host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Or to flash a compressed images (\*.wic.xz) use that command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ xzcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
 
 Again, make sure to replace <your_device> with your actual device name found
 previously.

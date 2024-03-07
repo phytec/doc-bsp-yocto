@@ -24,8 +24,9 @@ see manufacturer datasheets and the JEDEC standard.
 In the Linux user space, you can query the registers:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc extcsd read /dev/mmcblk2
+   target:~$ mmc extcsd read /dev/|emmcdev|
 
 You will see:
 
@@ -77,8 +78,9 @@ features.
 *  To check whether *BKOPS_EN* is set, execute:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ mmc extcsd read /dev/mmcblk2 | grep BKOPS_EN
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep BKOPS_EN
 
    The output will be, for example:
 
@@ -95,8 +97,9 @@ features.
 *  To set the BKOPS_EN bit, execute:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ mmc bkops enable /dev/mmcblk2
+      target:~$ mmc bkops enable /dev/|emmcdev|
 
 *  To ensure that the new setting is taken over and the kernel triggers BKOPS by
    itself, shut down the system:
@@ -126,8 +129,9 @@ The first Reliable Write option is mostly already enabled on the eMMCs mounted
 on the phyCORE-|soc| SoMs. To check this on the running target:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ mmc extcsd read /dev/mmcblk2 | grep -A 5 WR_REL_SET
+   target:~$ mmc extcsd read /dev/|emmcdev| | grep -A 5 WR_REL_SET
    Write reliability setting register [WR_REL_SET]: 0x1f
     user area: the device protects existing data if a power failure occurs during a write o
    peration
@@ -175,16 +179,18 @@ example works for any block device such as eMMC, SD card, or hard disk.
 *  Get the current device size:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ parted /dev/mmcblk2 print
+      target:~$ parted /dev/|emmcdev| print
 
 *  The output looks like this:
 
    .. code-block::
+      :substitutions:
 
       Model: MMC Q2J55L (sd/mmc)
-      Disk /dev/mmcblk2: 7617MB
-      Sect[ 1799.850385]  mmcblk2: p1 p2
+      Disk /dev/|emmcdev|: 7617MB
+      Sect[ 1799.850385]  |emmcdev|: p1 p2
       or size (logical/physical): 512B/512B
       Partition Table: msdos
       Disk Flags:
@@ -196,14 +202,15 @@ example works for any block device such as eMMC, SD card, or hard disk.
 *  Use parted to resize the root partition to the max size of the device:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ parted /dev/mmcblk2 resizepart 2 100%
+      target:~$ parted /dev/|emmcdev| resizepart 2 100%
       Information: You may need to update /etc/fstab.
 
-      target:~$ parted /dev/mmcblk2 print
+      target:~$ parted /dev/|emmcdev| print
       Model: MMC Q2J55L (sd/mmc)
-      Disk /dev/mmcblk2: 7617MB
-      Sector size (logical/physical): 512[ 1974.191657]  mmcblk2: p1 p2
+      Disk /dev/|emmcdev|: 7617MB
+      Sector size (logical/physical): 512[ 1974.191657]  |emmcdev|: p1 p2
       B/512B
       Partition Table: msdos
       Disk Flags:
@@ -219,15 +226,16 @@ partition while it is not mounted.
 *  Resize the filesystem to a new partition size:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ resize2fs /dev/mmcblk2p2
+      target:~$ resize2fs /dev/|emmcdev|p2
       resize2fs 1.46.1 (9-Feb-2021)
-      Filesystem at /dev/mmcblk2p2 is mounted on /; on-line resizing required
-      [ 131.609512] EXT4-fs (mmcblk2p2): resizing filesystem
+      Filesystem at /dev/|emmcdev|p2 is mounted on /; on-line resizing required
+      [ 131.609512] EXT4-fs (|emmcdev|p2): resizing filesystem
       from 454136 to 7367680 blocks
       old_desc_blocks = 4, new_desc_blocks = 57
-      [ 131.970278] EXT4-fs (mmcblk2p2): resized filesystem to 7367680
-      The filesystem on /dev/mmcblk2p2 is now 7367680 (1k) blocks long
+      [ 131.970278] EXT4-fs (|emmcdev|p2): resized filesystem to 7367680
+      The filesystem on /dev/|emmcdev|p2 is now 7367680 (1k) blocks long
 
 Enable pseudo-SLC Mode
 ......................
@@ -254,23 +262,26 @@ The following sequence shows how to enable the enhanced attribute.
 *  First obtain the current size of the eMMC device with:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ parted -m /dev/mmcblk2 unit B print
+      target:~$ parted -m /dev/|emmcdev| unit B print
 
    You will receive:
 
    .. code-block::
+      :substitutions:
 
       BYT;
-      /dev/mmcblk2:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
+      /dev/|emmcdev|:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
 
    As you can see this device has 63652757504 Byte = 60704 MiB.
 
 *  To get the maximum size of the device after pseudo-SLC is enabled use:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT -A 1
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep ENH_SIZE_MULT -A 1
 
    which shows, for example:
 
@@ -288,14 +299,18 @@ The following sequence shows how to enable the enhanced attribute.
    typing:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ mmc enh_area set -y 0 3719168 /dev/mmcblk2
+      target:~$ mmc enh_area set -y 0 3719168 /dev/|emmcdev|
 
-   You will get::
+   You will get:
 
-      Done setting ENH_USR area on /dev/mmcblk2
+   .. code-block::
+      :substitutions:
+
+      Done setting ENH_USR area on /dev/|emmcdev|
       setting OTP PARTITION_SETTING_COMPLETED!
-      Setting OTP PARTITION_SETTING_COMPLETED on /dev/mmcblk2 SUCCESS
+      Setting OTP PARTITION_SETTING_COMPLETED on /dev/|emmcdev| SUCCESS
       Device power cycle needed for settings to take effect.
       Confirm that PARTITION_SETTING_COMPLETED bit is set using 'extcsd read' after power cycle
 
@@ -310,8 +325,9 @@ The following sequence shows how to enable the enhanced attribute.
 *  First, check the value of ENH_SIZE_MULT which must be 3719168 KiB:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ mmc extcsd read /dev/mmcblk2 | grep ENH_SIZE_MULT  -A 1
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep ENH_SIZE_MULT  -A 1
 
    You should receive::
 
@@ -324,10 +340,11 @@ The following sequence shows how to enable the enhanced attribute.
 *  Finally, check the size of the device:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ parted -m /dev/mmcblk2 unit B print
+      target:~$ parted -m /dev/|emmcdev| unit B print
       BYT;
-      /dev/mmcblk2:31742492672B:sd/mmc:512:512:unknown:MMC S0J58X:;
+      /dev/|emmcdev|:31742492672B:sd/mmc:512:512:unknown:MMC S0J58X:;
 
 Erasing the Device
 ..................
@@ -340,14 +357,19 @@ be read back as zeros.
 *  After booting from SD Card execute:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ blkdiscard -f --secure /dev/mmcblk2
+      target:~$ blkdiscard -f --secure /dev/|emmcdev|
 
    The option --secure ensures that the command waits until the eMMC device has
    erased all blocks. The -f (force) option disables all checking before erasing
    and it is needed when the eMMC device contains existing partitions with data.
 
 .. tip::
+   .. code-block:: console
+      :substitutions:
 
-   ``dd if=/dev/zero of=/dev/mmcblk2 conv=fsync`` also destroys all information
-   on the device, but this command is bad for wear leveling and takes much longer!
+      target:~$ dd if=/dev/zero of=/dev/|emmcdev| conv=fsync
+
+   also destroys all information on the device, but this command is bad for wear
+   leveling and takes much longer!

@@ -44,6 +44,8 @@ You can restore saved alsa settings with:
 
    target:~$ alsactl --file </path/to/filename> restore
 
+.. audio_alsa_configuration_start_label
+
 ALSA configuration
 ..................
 
@@ -101,6 +103,8 @@ To select the output device, type:
 
    target:~$ pactl set-default-sink <sink_number>
 
+.. audio_playback_start_label
+
 Playback
 ........
 
@@ -122,6 +126,8 @@ To playback other formats like mp3 for example, you can use Gstreamer:
 .. code-block:: console
 
    target:~$ gst-launch-1.0 playbin uri=file:/path/to/file.mp3
+
+.. audio_capture_start_label
 
 Capture
 .......

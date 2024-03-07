@@ -1,0 +1,65 @@
+I2C EEPROM on |som|
+...........................
+
+The I2C EEPROM on the |som| SoM has its memory divided into two parts.
+
+* normal area (size: 4096 bytes, bus: I2C-2, addr: 0x50)
+* ID page (size: 32 bytes, bus: I2C-2, addr: 0x58)
+
+It is possible to read and write from the device populated:
+
+.. code-block:: console
+
+   target:~$ hexdump -C /sys/class/i2c-dev/i2c-2/device/2-0058/eeprom
+
+To read and print the first 1024 bytes of the EEPROM as a hex number,
+execute:
+
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-2/device/2-0050/eeprom bs=1 count=1024  | od -x
+
+To fill the whole EEPROM (ID page) with zeros we first need to disable the
+EEPROM write protection, use:
+
+.. code-block:: console
+
+	target:~$ gpioset 2 21=0
+
+Then the EEPROM can be written to:
+
+.. code-block:: console
+
+   target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-2/device/2-0058/eeprom bs=32 count=1
+
+.. warning::
+
+   The first 256 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50) are
+   reserved and should not be overwritten! (See below)
+
+EEPROM SoM Detection
+....................
+
+PHYTEC uses first 256 bytes in EEPROM normal area to store information about the
+SoM. This includes PCB revision and mounting options.
+
+The EEPROM data is read at a really early stage during startup. It is used to
+select the correct RAM configuration. This makes it possible to use the same
+bootloader image for different RAM sizes and choose the correct DTS overlays
+automatically.
+
+If the first 265 bytes of the normal area are deleted, the bootloader will fall
+back to the |som| Kit RAM setup, which is |kit-ram-size| RAM.
+
+.. warning::
+
+   Data in the first 265 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50)
+   shouldn't be erased or corrupted! This might influence the behavior of the
+   bootloader. The board might not boot correctly anymore.
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-written on the EEPROM data spaces. If
+you have accidentally deleted or overwritten the HW data, you could contact our
+support!

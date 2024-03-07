@@ -1,0 +1,449 @@
+.. Download links
+.. |dlpage-bsp| replace:: our BSP
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.1.0
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
+.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.0/sdk/ampliphy-vendor-wayland/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/
+
+.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
+
+.. General Substitutions
+.. |kit| replace:: **phyBOARD-Segin i.MX 93 Kit**
+.. |kit-ram-size| replace:: 1GiB
+.. |sbc| replace:: phyBOARD-Segin i.MX 93
+.. |soc| replace:: i.MX 93
+.. |socfamily| replace:: i.MX 9
+.. |som| replace:: phyCORE-i.MX93
+.. |debug-uart| replace:: ttyLP0
+.. |expansion-connector| replace:: X16
+
+
+.. Linux Kernel
+.. |kernel-socname| replace:: imx93
+.. |kernel-tag| replace:: v6.1.36_2.1.0-phy1
+.. |emmcdev| replace:: mmcblk0
+.. |sdcarddev| replace:: mmcblk1
+
+
+.. Bootloader
+.. |u-boot-offset| replace:: 32
+.. |u-boot-offset-boot-part| replace:: 0
+.. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-emmc-devno| replace:: 0
+
+.. IMX93 specific
+.. |u-boot-socname-config| replace:: IMX93
+.. |u-boot-tag| replace:: v2023.04_2.1.0-phy1
+
+
+.. Devicetree
+.. |dt-carrierboard| replace:: imx93-phyboard-segin
+.. |dt-som| replace:: imx93-phycore-som
+.. |dtbo-rpmsg| replace:: imx93-phycore-rpmsg.dtso
+
+.. IMX93 specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n61`
+
+.. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`mickledore`
+.. |yocto-bsp-name| replace:: BSP-Yocto-i.MX93
+.. _yocto-bsp-name: `dl-server`_
+.. |yocto-codename| replace:: mickledore
+.. |yocto-distro| replace:: ampliphy-vendor-wayland
+.. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-imageext| replace:: wic.xz
+.. |yocto-machinename| replace:: phyboard-segin-imx93-2
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.1.0
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (mickledore)
+.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
+
+.. Ref Substitutions
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-pd24.1.0-images>`
+.. |ref-debugusbconnector| replace:: serial connector on PEB-EVAL-01
+.. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx93-pd24.1.0-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx93-pd24.1.0-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
+.. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+
+
+.. IMX93 specific
+.. |sbc-network| replace::
+   The device tree set up for EQOS Ethernet IP core where the PHY is populated
+   on the |sbc| can be found here:
+   :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n114`.
+
+.. |ubootexternalenv| replace:: U-boot External Environment subsection of the
+   :ref:`device tree overlay section <imx93-pd24.1.0-ubootexternalenv>`
+
+
+.. M-Core specific
+.. |mcore| replace:: M33 Core
+.. |ref-m-core-connections| replace:: :ref:`X16 <imx93-pd24.1.0-components>`
+.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/arm/mimx8mp_phyboard_pollux/doc/index.html
+.. |mcore-jtag-dev| replace:: MIMX8MM6_M4
+.. |mcore-sdk-version| replace:: 2.13.0
+
++-----------------------+----------------------+
+| |soc| BSP Manual                             |
++-----------------------+----------------------+
+| Document Title        | |soc| BSP Manual     |
++-----------------------+----------------------+
+| Document Type         | BSP Manual           |
++-----------------------+----------------------+
+| Yocto Manual          | Mickledore           |
++-----------------------+----------------------+
+| Release Date          | 2024/01/31           |
++-----------------------+----------------------+
+| Is Branch of          | |soc| BSP Manual     |
++-----------------------+----------------------+
+
+The table below shows the Compatible BSPs for this manual:
+
+==================== ================ ================ ==========
+Compatible BSP'S     BSP Release Type BSP Release Date BSP Status
+
+==================== ================ ================ ==========
+|yocto-manifestname| Major            2024/01/31       Released
+==================== ================ ================ ==========
+
+
+.. include:: ../../intro.rsti
+
+Supported Hardware
+------------------
+
+On our web page, you can see all supported Machines with the available Article
+Numbers for this release: |yocto-manifestname|, see `download <dlpage-bsp_>`_.
+
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware.
+
+.. _imx93-pd24.1.0-components:
+.. include:: components.rsti
+
+.. +---------------------------------------------------------------------------+
+.. Getting Started
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-pd24.1.0-getting-started:
+.. include:: /bsp/getting-started.rsti
+
+First Start-up
+--------------
+
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
+   position:
+
+.. image:: images/SD_Card_Boot.png
+
+*  Insert the SD card
+*  Connect the target (|ref-debugusbconnector|) and the host with **serial
+   cable**
+*  Power up the board
+*  Open serial port with 115200 baud and 8N1 (you should see u-boot/linux start on the console
+
+.. +---------------------------------------------------------------------------+
+.. Building the BSP
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/building-bsp.rsti
+
+.. _imx93-pd24.1.0-images:
+
+*  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+   Bootloader image!
+*  **oftree**: Default kernel device tree
+*  **u-boot-spl.bin**: Secondary program loader (SPL)
+*  **bl31-imx93.bin**: ARM Trusted Firmware binary
+*  **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin,
+   lpddr4_imem_1d_v202201.bin,
+   lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
+*  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+   Trusted Firmware and DDR firmware. This is the final bootloader image which is
+   bootable.
+*  **Image**: Linux kernel image
+*  **Image.config**: Kernel configuration
+*  **imx93-phyboard-segin.dtb**: Kernel device tree file
+*  **imx93-phy\*.dtbo**: Kernel device tree overlay files
+*  **phytec-\*.tar.gz**: Root file system,
+   of bitbake-image that was built.
+
+   * **phytec-qt6demo-image-phyboard-segin-imx93-2.tar.gz**: when bitbake-build
+     was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-segin-imx93-2.tar.gz**: when bitbake-build
+     was processed for ``phytec-headless-image``
+*  **phytec-\*.wic.xz**: Compressed bootable SD
+   card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
+   and Root file system.
+
+   * **phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz**: when bitbake-build
+     was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-segin-imx93-2.wic.xz**: when bitbake-build
+     was processed for ``phytec-headless-image``
+*  **imx93-11x11-evk_m33_\*.bin**, binaries of demo applications for the
+   Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux
+
+.. +---------------------------------------------------------------------------+
+.. INSTALLING THE OS
+.. +---------------------------------------------------------------------------+
+
+Installing the OS
+=================
+
+Bootmode Switch (S3)
+--------------------
+
+.. tip::
+
+   Hardware revision baseboard: 1472.5
+
+The |sbc| features a boot switch with four individually switchable ports to
+select the phyCORE-|soc| default bootsource.
+
+.. _imx93-pd24.1.0-bootswitch:
+.. include:: bootmode-switch.rsti
+
+.. include:: ../installing-os.rsti
+
+.. +---------------------------------------------------------------------------+
+.. DEVELOPMENT
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-pd24.1.0-development:
+
+Development
+===========
+
+.. include:: ../../imx-common/development/netboot.rsti
+
+.. include:: ../../imx-common/development/uuu.rsti
+
+.. include:: ../../imx-common/development/standalone_build.rsti
+
+.. include:: ../../imx-common/development/format_sd-card.rsti
+
+.. +---------------------------------------------------------------------------+
+.. DEVICE TREE
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-pd24.1.0-device-tree:
+.. include:: /bsp/device-tree.rsti
+
+::
+
+   imx93-phyboard-segin-peb-av-02.dtbo
+   imx93-phyboard-segin-peb-eval-01.dtbo
+   imx93-phycore-rpmsg.dtbo
+
+.. _imx93-pd24.1.0-ubootexternalenv:
+.. include:: ../dt-overlays.rsti
+
+.. +---------------------------------------------------------------------------+
+.. ACCESSING PERIPHERALS
+.. +---------------------------------------------------------------------------+
+
+
+.. include:: /bsp/peripherals/introduction.rsti
+
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
+
+The following is an example of the pin muxing of the UART1 device in
+|dt-carrierboard|.dts:
+
+.. code-block::
+
+   pinctrl_uart1: uart1grp {
+           fsl,pins = <
+                   MX93_PAD_UART1_RXD__LPUART1_RX     0x31e
+                   MX93_PAD_UART1_TXD__LPUART1_TX     0x30e
+           >;
+   };
+
+The first part of the string MX93_PAD_UART1_RXD__LPUART1_RX names the pad
+(in this example UART1_RXD). The second part of the string (LPUART1_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the
+right) defines different modes of the pad, for example, if internal pull
+resistors are activated or not. In this case, the internal pull up is
+activated.
+
+The device tree representation for UART1 pinmuxing:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n267`
+
+.. _imx93-pd24.1.0-network:
+
+Network
+-------
+
+|sbc|-|soc| provides two ethernet interfaces. A 100 megabit Ethernet is provided by our
+module and board.
+
+.. include:: /bsp/imx-common/peripherals/network.rsti
+
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
+
+DT configuration for the MMC (SD card slot) interface can be found here:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n216`
+
+DT configuration for the eMMC interface can be found here:
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n195`
+
+.. include:: /bsp/peripherals/emmc.rsti
+
+.. include:: /bsp/imx-common/emmc.rsti
+
+.. include:: ../peripherals/gpios.rsti
+
+.. include:: ../peripherals/leds.rsti
+
+Device tree configuration for the User I/O configuration can be found here:
+:imx-dt:`imx93-phyboard-segin-peb-eval-01.dtso?h=v6.1.36_2.1.0-phy1#n33`
+
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n88`
+
+General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n155`
+
+
+EEPROM
+------
+
+There are two different I2C EEPROM flashes populated on |som| SoM and on the
+|sbc|. For now only the one on the |som| is enabled, and it is used for board
+detection.
+
+.. include:: ../peripherals/eeprom.rsti
+
+DT representation, e.g. in phyCORE-|soc| file can be found in our PHYTEC git:
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n173`
+
+.. include:: ../../peripherals/rtc.rsti
+
+DT representation for I²C RTCs:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n173`
+
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed of up to 480 Mbps (HighSpeed
+'HS'). The USB subsystem has two independent USB controller cores. Both cores
+are capable of acting as a USB peripheral device or a USB host, but on the |sbc|
+one of them is used as a host-only port (USB-A connector).
+
+.. include:: /bsp/peripherals/usb-host.rsti
+
+The OTG port provides an additional pin for over-current protection, which is
+not used on the |sbc|. Since it's not used, the driver part is also disabled
+from within the device tree. In case this pin is used, activate this
+over-current in the device tree and set the correct polarity (active high/low)
+according to the device specification. For the correct setup, please refer to
+the Kernel documentation under
+Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
+
+DT representation for USB Host:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n190`
+
+CAN FD
+------
+
+The |sbc| has one flexCAN interface supporting CAN FD. They are supported by the
+Linux standard CAN framework which builds upon the Linux network layer. Using
+this framework, the CAN interfaces behave like an ordinary Linux network device,
+with some additional features special to CAN. More information can be found in
+the Linux Kernel
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
+
+.. include:: ../peripherals/canfd.rsti
+
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n147`
+
+Audio
+-----
+
+On |sbc| the TI TLV320AIC3007 audio codec is used. It uses I2S for data
+transmission and I2C for codec control. The audio signals available are:
+
+* Stereo LINE IN,
+* Stereo LINE OUT,
+* Output where D-Class 1W speaker can be connected
+
+.. include:: /bsp/peripherals/audio.rsti
+	:end-before: .. audio_alsa_configuration_start_label
+
+.. include:: /bsp/peripherals/audio.rsti
+   :start-after: .. audio_playback_start_label
+   :end-before: .. audio_capture_start_label
+
+If Speaker volume it too low you can increase its volume with (values 0-3):
+
+.. code-block:: console
+
+   target:~$ amixer -c 0 sset Class-D 3
+
+.. hint::
+
+   Speaker output is only mono so when stereo track is played only left channel
+   will be played by speaker.
+
+Capture
+.......
+
+``arecord`` is a command-line tool for capturing audio streams which use Line In
+as the default input source.
+
+.. code-block:: console
+
+   target:~$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+
+.. hint::
+
+   Since playback and capture share hardware interfaces, it is not possible to
+   use different sampling rates and formats for simultaneous playback and
+   capture operations.
+
+Device Tree Audio configuration:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n62`
+
+.. include:: /bsp/peripherals/video.rsti
+
+.. include:: display.rsti
+
+.. include:: /bsp/qt6.rsti
+
+.. include:: ../peripherals/display.rsti
+
+The device tree of PEB-AV-02 can be found here:
+:imx-dt:`imx93-phyboard-segin-peb-av-02.dtso?h=v6.1.36_2.1.0-phy1`
+
+.. include:: peripherals/pm.rsti
+
+.. include:: ../peripherals/tm.rsti
+
+.. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: ../peripherals/bbnsm-power-key.rsti
+
+.. include:: ../peripherals/pxp.rsti
+
+.. include:: ../peripherals/ocotp-ctrl.rsti
+
+.. +---------------------------------------------------------------------------+
+.. i.MX 8M Plus M7 Core
+.. +---------------------------------------------------------------------------+
+
+.. include:: ../mcu.rsti
