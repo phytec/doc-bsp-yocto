@@ -333,7 +333,7 @@ https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLW
 
       target:~$ pulseaudio --start
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n383`

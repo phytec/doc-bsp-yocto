@@ -1106,7 +1106,7 @@ module and board.
 
       target:~$ pulseaudio --start
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367`
