@@ -408,7 +408,27 @@ speaker, headphones, and line in signals.
 Device Tree Audio configuration:
 :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`
 
-.. include:: /bsp/peripherals/video.rsti
+Video
+-----
+
+Videos with Gstreamer
+.....................
+
+One example video is installed by default in the BSP at `/usr/share/qtphy/videos/`.
+Start the video playback with one of these commands:
+
+.. code-block:: console
+
+   target:~$ gst-launch-1.0 -v filesrc location=/usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm ! decodebin name=decoder decoder. ! videoconvert ! waylandsink fullscreen=true
+
+*  Or:
+
+.. code-block:: console
+
+   target:~$ gst-play-1.0 /usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm --videosink waylandsink
+
+.. note::
+   The mainline BSP currently only supports software rendering.
 
 Display
 -------
