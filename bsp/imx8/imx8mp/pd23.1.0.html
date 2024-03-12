@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=d50129f5"></script>
+        <script src="../../../_static/documentation_options.js?v=27e92a28"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-2-g7fbb06d
+                imx9-pd24.1.0-5-g9de67d8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1062,8 +1062,9 @@ written after booting from SPI NOR flash:</p>
 <h4><span class="section-number">4.3.2.1. </span>Flash SPI NOR from SD Card in U-Boot on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-u-boot-on-target" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Copy the SPI NOR flash U-boot image
-imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi to the FAT partition
-on the SD Card. Before reading and writing are possible, the SPI-NOR flash
+imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi to the first partition
+on the SD Card.</p></li>
+<li><p>Before reading and writing are possible, the SPI-NOR flash
 needs to be probed:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf probe
 SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
@@ -1090,8 +1091,11 @@ written after booting from SPI NOR flash:</p>
 <section id="flash-spi-nor-from-sd-card-in-kernel-on-target">
 <h4><span class="section-number">4.3.2.2. </span>Flash SPI NOR from SD Card in kernel on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-kernel-on-target" title="Link to this heading"></a></h4>
 <ul>
+<li><p>Copy the SPI NOR flash U-boot image
+imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi to the first partition
+on the SD Card.</p></li>
 <li><p>Mount the SD Card:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mount<span class="w"> </span>/dev/mmcblkp1<span class="w"> </span>/mnt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mount<span class="w"> </span>/dev/mmcblk1p1<span class="w"> </span>/mnt
 </pre></div>
 </div>
 </li>

@@ -303,7 +303,7 @@ module and board.
 
 .. include:: ../peripherals/network.rsti
 
-.. include:: ../peripherals/sd-card.rsti
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380`

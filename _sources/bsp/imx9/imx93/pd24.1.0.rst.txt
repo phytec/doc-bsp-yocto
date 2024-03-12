@@ -25,8 +25,6 @@
 .. |kernel-socname| replace:: imx93
 .. |kernel-tag| replace:: v6.1.36_2.1.0-phy1
 .. |emmcdev| replace:: mmcblk0
-.. |sdcarddev| replace:: mmcblk1
-
 
 .. Bootloader
 .. |u-boot-offset| replace:: 32
