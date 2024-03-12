@@ -15,7 +15,7 @@ and the |ref-bootswitch| is set to **eMMC**.
       target:~$ blkid
 
    can be run to inspect whether the current setup is affected. If |emmcdev|\p1
-   and |sdcarddev|\p1 have an identical UUID, the setup is affected.
+   and mmcblk1p1 have an identical UUID, the setup is affected.
 
 Flash eMMC from SD Card
 .......................
@@ -50,9 +50,9 @@ saved on the SD card.
       :substitutions:
 
       target:~$ ls /dev | grep mmc
-      |sdcarddev|
-      |sdcarddev|p1
-      |sdcarddev|p2
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
       |emmcdev|
       |emmcdev|boot0
       |emmcdev|boot1
@@ -232,9 +232,9 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       :substitutions:
 
       target:~$ ls /dev | grep mmc
-      |sdcarddev|
-      |sdcarddev|p1
-      |sdcarddev|p2
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
       |emmcdev|
       |emmcdev|boot0
       |emmcdev|boot1
