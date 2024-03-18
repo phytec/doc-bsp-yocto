@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=27e92a28"></script>
+        <script src="../../../_static/documentation_options.js?v=efe30e28"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-5-g9de67d8
+                imx9-pd24.1.0-7-g1096dff
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3089,63 +3089,20 @@ capture operations.</p>
 <h2><span class="section-number">6.16. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <section id="videos-with-gstreamer">
 <h3><span class="section-number">6.16.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
-<p>The video is installed by default in the BSP:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>playbin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>file:///usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
+<p>One example video is installed by default in the BSP at <cite>/usr/share/qtphy/videos/</cite>.
+Start the video playback with one of these commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>-v<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>/usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span><span class="nv">name</span><span class="o">=</span>decoder<span class="w"> </span>decoder.<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>waylandsink<span class="w"> </span><span class="nv">fullscreen</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Or:</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>-v<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>&lt;video.mp4&gt;<span class="w"> </span><span class="se">\</span>
-<span class="se">\!</span><span class="w"> </span>qtdemux<span class="w">  </span><span class="se">\!</span><span class="w"> </span>h264parse<span class="w"> </span><span class="se">\!</span><span class="w"> </span>queue<span class="w"> </span><span class="se">\!</span><span class="w"> </span>vpudec<span class="w"> </span><span class="se">\!</span><span class="w"> </span>waylandsink<span class="w"> </span><span class="nv">async</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>enable-last-sample<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">qos</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-play-1.0<span class="w"> </span>/usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm<span class="w"> </span>--videosink<span class="w"> </span>waylandsink
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Or:</p></li>
-</ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gplay-1.0<span class="w"> </span>/usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
-</pre></div>
-</div>
-</section>
-<section id="kmssink-plugin-id-evaluation">
-<h3><span class="section-number">6.16.2. </span>kmssink Plugin ID Evaluation<a class="headerlink" href="#kmssink-plugin-id-evaluation" title="Link to this heading"></a></h3>
-<p>The kmssink plugin needs a connector ID. To get the connector ID, you can use
-the tool modetest.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>modetest<span class="w"> </span>-c<span class="w"> </span>imx-drm
-</pre></div>
-</div>
-<p>The output will show something like:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Connectors:
-id  encoder status      name        size (mm)   modes   encoders
-35  34  connected   LVDS-1          216x135     1   34
-  modes:
-    index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
-  #0 1280x800 59.07 1280 1380 1399 1440 800 804 808 823 70000 flags: phsync, pvsync; type: preferred, driver
-  props:
-    1 EDID:
-        flags: immutable blob
-        blobs:
-
-        value:
-    2 DPMS:
-        flags: enum
-        enums: On=0 Standby=1 Suspend=2 Off=3
-        value: 0
-    5 link-status:
-        flags: enum
-        enums: Good=0 Bad=1
-        value: 0
-    6 non-desktop:
-        flags: immutable range
-        values: 0 1
-        value: 0
-    4 TILE:
-        flags: immutable blob
-        blobs:
-
-        value:
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mainline BSP currently only supports software rendering.</p>
 </div>
 </section>
 </section>
