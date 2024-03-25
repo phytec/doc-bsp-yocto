@@ -35,6 +35,7 @@
 .. |u-boot-offset| replace:: 33
 .. |u-boot-offset-boot-part| replace:: 33
 .. |u-boot-mmc-flash-offset| replace:: 0x42
+.. |u-boot-emmc-devno| replace:: 2
 
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: IMX8MM
@@ -73,6 +74,7 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mm-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
 .. IMX8(MM) specific replacements
@@ -214,7 +216,7 @@ Development
 
 .. include:: /bsp/imx8/development/netboot.rsti
 
-.. include:: /bsp/imx8/development/uuu.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-marker
