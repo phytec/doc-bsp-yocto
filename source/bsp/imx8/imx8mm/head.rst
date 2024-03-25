@@ -78,7 +78,7 @@
 
 
 .. IMX8(MM) specific replacements
-.. |pollux-sbc-network| replace:: \
+.. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
@@ -319,7 +319,7 @@ Network
 
 |sbc|-|soc| provides one Gigabit Ethernet interface.
 
-.. include:: ../peripherals/network.rsti
+.. include:: /bsp/imx-common/peripherals/network.rsti
 
 WLAN
 ....

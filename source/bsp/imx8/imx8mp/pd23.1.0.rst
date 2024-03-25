@@ -78,7 +78,7 @@
 
 
 .. IMX8(MP) specific
-.. |pollux-sbc-network| replace::
+.. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
    :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150`.
@@ -365,7 +365,7 @@ module and board.
    | ethernet1 = eth0
    | ethernet0 = eth1
 
-.. include:: ../peripherals/network.rsti
+.. include:: /bsp/imx-common/peripherals/network.rsti
 
 .. include:: wireless-network.rsti
 
