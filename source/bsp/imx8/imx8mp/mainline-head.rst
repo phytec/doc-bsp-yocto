@@ -217,7 +217,7 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-development:
-.. include:: /bsp/imx8/development/netboot.rsti
+.. include:: /bsp/imx-common/development/netboot.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
