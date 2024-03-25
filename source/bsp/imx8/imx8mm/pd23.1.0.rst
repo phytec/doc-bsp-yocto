@@ -482,7 +482,7 @@ error message may occur at boot.
 
 .. include:: /bsp/qt6.rsti
 
-.. include:: /bsp/imx8/peripherals/display.rsti
+.. include:: /bsp/imx-common/peripherals/display.rsti
 
 The device tree of PEB-AV-10 can be found here:
 :imx-dt:`overlays/imx8mm-phyboard-polis-peb-av-010.dtsi?h=v5.15.71_2.2.2-phy3`

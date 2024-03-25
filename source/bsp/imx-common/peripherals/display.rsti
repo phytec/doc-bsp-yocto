@@ -12,12 +12,6 @@ files and writing to them allows you to control the backlight.
 
       target:~$ cat /sys/class/backlight/backlight/max_brightness
 
-   which will result in:
-
-   .. code-block::
-
-      7
-
    Valid brightness values are 0 to <max_brightness>.
 
 *  To obtain the current brightness level, type:
@@ -26,24 +20,13 @@ files and writing to them allows you to control the backlight.
 
       target:~$ cat /sys/class/backlight/backlight/brightness
 
-   you will get for example:
-
-   .. code-block::
-
-      6
-
 *  Write to the file brightness to change the brightness:
 
    .. code-block:: console
 
       target:~$ echo 0 > /sys/class/backlight/backlight/brightness
 
-   turns the backlight off,
+   turns the backlight off for example.
 
-   .. code-block:: console
-
-      target:~$ echo 5 > /sys/class/backlight/backlight/brightness
-
-   sets the brightness to the third-highest brightness level. For documentation of
-   all files, see
+   For documentation of all files, see
    https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight.
