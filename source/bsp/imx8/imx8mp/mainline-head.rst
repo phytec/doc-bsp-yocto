@@ -925,6 +925,7 @@ Device tree description of LVDS-1 can be found here:
 .. include:: /bsp/qt6.rsti
 
 .. include:: ../peripherals/pm.rsti
+   :end-before: .. suspend_to_ram_start_label
 
 .. include:: ../peripherals/tm.rsti
 
@@ -933,7 +934,19 @@ The device tree description of GPIO Fan can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/snvs-power-key.rsti
+snvs Power Key
+--------------
+
+The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
+Power OFF without SW intervention. With the *snvs_pwrkey* driver, the KEY_POWER
+event is also reported to userspace when the button is pressed. On default, systemd
+is configured to ignore such events. The function of Power OFF without SW
+intervention are not configured. Triggering a power off with systemd when pushing
+the ON/OFF button can be configured under ``/etc/systemd/logind.conf`` and set using:
+
+.. code-block::
+
+   HandlePowerKey=poweroff
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
