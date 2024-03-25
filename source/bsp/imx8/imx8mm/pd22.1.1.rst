@@ -1009,7 +1009,7 @@ Available overlays for |yocto-machinename|.conf are:
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART1 device in
 imx8mm-phyboard-polis.dtsi:
