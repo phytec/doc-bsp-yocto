@@ -141,6 +141,8 @@ example, has 4 ARM Cores which can be turned on and off individually at runtime.
 
       target:~$ echo 1 > /sys/devices/system/cpu/cpu3/online
 
+.. suspend_to_ram_start_label
+
 Suspend to RAM
 ..............
 
