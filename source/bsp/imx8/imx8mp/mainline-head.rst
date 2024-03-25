@@ -885,29 +885,6 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`
 
-.. include:: /bsp/peripherals/pcie.rsti
-
-Device Tree PCIe configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`
-
-Audio
------
-
-Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
-
-.. note::
-
-   Using the PEB-AV-10 connector for display output along HDMI as audio output
-   is not supported. The audio output device must match the video output device.
-
-.. include:: /bsp/peripherals/audio.rsti
-
-Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`
-
 Video
 -----
 
