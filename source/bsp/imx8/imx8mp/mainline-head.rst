@@ -208,7 +208,482 @@ select the phyCORE-|soc| default bootsource.
 .. _imx8mp-mainline-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: ../installing-os.rsti
+Flash eMMC
+----------
+
+To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
+and the |ref-bootswitch| is set to **eMMC**.
+
+.. warning::
+   When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+   of the boot partitions are also identical. If the SD card is connected when
+   booting, this leads to non-deterministic behavior as Linux mounts the boot
+   partition based on UUID.
+
+   .. code-block:: console
+
+      target:~$ blkid
+
+   can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
+   and ``mmcblk1p1`` have an identical UUID, the setup is affected.
+
+Flash eMMC from Network
+.......................
+
+|soc| boards have an Ethernet connector and can be updated over a network. Be
+sure to set up the development host correctly. The IP needs to be set to
+192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
+available. From a high-level point of view, an eMMC device is like an SD card.
+Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
+the Yocto build system directly to the eMMC. The image contains the
+bootloader, kernel, device tree, device tree overlays, and root file system.
+
+Flash eMMC from Network in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to update the eMMC via a network.
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in the Bootloader after enabling OPTEE.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+*  Load your image via network to RAM:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      Using ethernet@30be0000 device
+      TFTP from server 192.168.3.10; our IP address is 192.168.3.11
+      Filename '|yocto-imagename|-|yocto-machinename|.wic'.
+      Load address: 0x40480000
+      Loading: ######################################
+               ######################################
+               ######################################
+               ...
+               ...
+               ...
+               ######################################
+               #############
+               11.2 MiB/s
+      done
+      Bytes transferred = 911842304 (36599c00 hex)
+
+*  Write the image to the eMMC:
+
+   .. code-block::
+
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc2(part 0) is current device
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+
+Flash eMMC via Network in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can update the eMMC from your target.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Take a compressed or uncompressed image on the host and send it with ssh through
+the network (then uncompress it, if necessary) to the eMMC of the target with a
+one-line command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2 conv=fsync
+
+Flash eMMC via Network in Linux on Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is also possible to install the OS at eMMC from your Linux host. As before,
+you need a complete image on your host.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Show your available image files on the host:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ls
+   |yocto-imagename|-|yocto-machinename|.wic
+
+Send the image with the ``dd`` command combined with ssh through the network
+to the eMMC of your device:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
+
+Flash eMMC U-Boot image via Network from running U-Boot
+.......................................................
+
+Update the standalone U-Boot image imx-boot is also possible from U-Boot. This
+can be used if the bootloader on eMMC is located in the eMMC user area.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Load image over tftp into RAM and then write it to eMMC:
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> tftp ${loadaddr} imx-boot
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc dev 2
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
+
+.. hint::
+   The hexadecimal value represents the offset as a multiple of 512 byte
+   blocks. See the `offset table <#offset-table>`__ for the correct value
+   of the corresponding SoC.
+
+Flash eMMC from USB
+...................
+
+Flash eMMC from USB in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in the Bootloader after enabling OPTEE.
+
+These steps will show how to update the eMMC via a USB device. Configure the
+|ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
+in U-Boot prompt. Insert a USB device with the copied WIC image to the USB slot.
+
+Load your image from the USB device to RAM:
+
+.. code-block::
+
+   u-boot=> usb start
+   starting USB...
+   USB0:   USB EHCI 1.00
+   scanning bus 0 for devices... 2 USB Device(s) found
+          scanning usb for storage devices... 1 Storage Device(s) found
+   u-boot=> fatload usb 0:1 ${loadaddr} *.wic
+   497444864 bytes read in 31577 ms (15 MiB/s)
+
+Write the image to the eMMC:
+
+.. code-block::
+
+   u-boot=> mmc dev 2
+   switch to partitions #0, OK
+   mmc2(part 0) is current device
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
+   u-boot=> boot
+
+Flash eMMC from USB in Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to flash the eMMC on Linux with a USB stick. You only
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
+|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
+
+*  Insert and mount the USB stick:
+
+   .. code-block:: console
+
+      [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+      [   60.467286] scsi host0: usb-storage 1-1.1:1.0
+      [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
+      [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
+      [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
+      [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
+      [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
+      [   61.665969]  sda: sda1
+      [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
+      target:~$ mount /dev/sda1 /mnt
+
+*  Now show your saved image files on the USB Stick:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ cd /mnt
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (mmcblk2boot0; mmcblk2boot1)
+*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. tip::
+
+      Before this will work, you need to configure the |ref-bootswitch| to
+      **eMMC**.
+
+Flash eMMC from SD Card
+.......................
+
+Even if there is no network available, you can update the eMMC. For that, you
+only need a ready-to-use image file (``*.wic``) located on the SD card.
+Because the image file is quite large, you have to enlarge your SD card to use
+its full space (if it was not enlarged before). To enlarge your SD card, see
+Resizing ext4 Root Filesystem.
+
+Alternatively, flash a partup package to the SD card, as described in
+|ref-getting-started|. This will ensure the full space of the SD card is used.
+
+Flash eMMC from SD card in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in the Bootloader after enabling OPTEE. If the
+   image file is too large use the `Updating eMMC from SD card in
+   Linux on Target` subsection.
+
+*  Flash an SD card with a working image and create a third FAT partition. Copy
+   the WIC image (for example |yocto-imagename|.wic) to this
+   partition.
+*  Configure the |ref-bootswitch| to SD Card and insert the SD Card.
+*  Power on the board and stop in U-Boot.
+*  Load the image:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      reading
+      911842304 bytes read in 39253 ms (22.2 MiB/s)
+
+*  Switch the mmc dev to eMMC:
+
+   .. code-block::
+
+      u-boot=> mmc list
+      FSL_SDHC: 1 (SD)
+      FSL_SDHC: 2 (eMMC)
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc2(part 0) is current device
+
+*  Flash your WIC image (for example |yocto-imagename|.wic)
+   from the SD card to eMMC. This will partition the card and copy imx-boot,
+   Image, dtb, dtbo, and root file system to eMMC.
+
+   .. code-block::
+
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+
+*  Power off the board and change the |ref-bootswitch| to eMMC.
+
+Flash eMMC from SD card in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can also flash the eMMC on Linux. You only need a partup package or WIC
+image saved on the SD card.
+
+*  Show your saved partup package or WIC image files on the SD card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.partup
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
+*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+   partition) using `partup`_:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/mmcblk2
+
+   Flashing the partup package has the advantage of using the full capacity of
+   the eMMC device, adjusting partitions accordingly.
+
+   .. note::
+
+      Alternatively, ``dd`` may be used instead:
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+
+      Keep in mind that the root partition does not make use of the full space when
+      flashing with ``dd``.
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. warning::
+
+      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
+
+Flash SPI NOR Flash
+-------------------
+
+The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
+Flash, set |ref-bootswitch| to **SPI NOR**. The SPI Flash is usually quite small.
+The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash populated. Only the
+bootloader and the environment can be stored. The kernel, device tree, and file
+system are taken from eMMC by default.
+
+Flash SPI NOR Flash from Network
+................................
+
+The SPI NOR can contain the bootloader and environment to boot from. The arm64
+kernel can not decompress itself, the image size extends the SPI NOR flash
+populated on the phyCORE-|soc|.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Flash SPI NOR from Network in kernel on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Copy the image from the host to the target:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
+
+*  Find the number of blocks to erase of the U-boot partition:
+
+   .. code-block:: console
+
+      target:~$ mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
+
+*  Erase the U-Boot partition and flash it:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+
+Flash SPI NOR Flash from SD Card
+................................
+
+The bootloader on SPI NOR flash can be also flashed with SD Card.
+
+Flash SPI NOR from SD Card in kernel on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Copy the SPI NOR flash U-boot image
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
+   on the SD Card.
+
+*  Mount the SD Card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mount /dev/mmcblk1p1 /mnt
+
+*  Find the number of blocks to erase of the U-Boot partition:
+
+   .. code-block:: console
+
+      target:~$ mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
+
+*  Erase the u-boot partition and flash it:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+
+RAUC
+----
+
+The RAUC (Robust Auto-Update Controller) mechanism support has been added to
+meta-ampliphy. It controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem.
+PHYTEC has written an online manual on how we have intergraded RAUC into our
+BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
+<https://www.phytec.de/cdocuments/?doc=fgByJg>`__.
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
@@ -344,13 +819,85 @@ There are two different i2c EEPROM flashes populated on |som| SoM and on the
 |sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
 I2C EEPROM populated on the SoM is also used for board detection.
 
+.. note::
+   The EEPROM ID-Page is not included in the devicetree yet and therefore can
+   not be addressed in U-Boot or Linux.
+
 .. include:: ../peripherals/eeprom.rsti
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
 
+RTC
+---
+
+RTCs can be accessed via ``/dev/rtc*``. Because PHYTEC boards have often more than
+one RTC, there might be more than one RTC device file.
+
+*  To find the name of the RTC device, you can read its sysfs entry with:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/class/rtc/rtc*/name
+
+*  You will get, for example:
+
+   .. code-block::
+
+      rtc-rv3028 0-0052
+      snvs_rtc 30370000.snvs:snvs-rtc-lp
+
+
+.. tip::
+
+   This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
+   IDs based on the device tree/aliases entries if present.
+
+Date and time can be manipulated with the ``hwclock`` tool and the date command.
+To show the current date and time set on the target:
+
+.. code-block:: console
+
+   target:~$ date
+   Thu Jan  1 00:01:26 UTC 1970
+
+Change the date and time with the date command. The date command sets the time
+with the following syntax "YYYYMMDDHHMM":
+
+.. code-block:: console
+
+   target:~$ date -s '202202031015'
+   Wed Mar  2 10:15:00 UTC 2022
+
+Using the date command does not change the time and date of the RTC, so if we
+were to restart the target those changes would be discarded. To write to the RTC
+we need to use the ``hwclock`` command. Write the current date and time (set
+with the date command) to the RTC using the ``hwclock`` tool and reboot the
+target to check if the changes were applied to the RTC:
+
+.. code-block:: console
+
+   target:~$ hwclock -w
+   target:~$ reboot
+       .
+       .
+       .
+   target:~$ date
+   Wed Mar  2 10:34:06 UTC 2022
+
+To set the time and date from the RTC use:
+
+.. code-block:: console
+
+   target:~$ date
+   Thu Jan  1 01:00:02 UTC 1970
+   target:~$ hwclock -s
+   target:~$ date
+   Wed Mar  2 10:45:01 UTC 2022
+
 .. include:: ../../peripherals/rtc.rsti
+   :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207`
@@ -384,29 +931,6 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`
-
-.. include:: /bsp/peripherals/pcie.rsti
-
-Device Tree PCIe configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`
-
-Audio
------
-
-Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
-
-.. note::
-
-   Using the PEB-AV-10 connector for display output along HDMI as audio output
-   is not supported. The audio output device must match the video output device.
-
-.. include:: /bsp/peripherals/audio.rsti
-
-Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`
 
 Video
 -----
@@ -448,6 +972,7 @@ Device tree description of LVDS-1 can be found here:
 .. include:: /bsp/qt6.rsti
 
 .. include:: ../peripherals/pm.rsti
+   :end-before: .. suspend_to_ram_start_label
 
 .. include:: ../peripherals/tm.rsti
 
@@ -456,7 +981,19 @@ The device tree description of GPIO Fan can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/snvs-power-key.rsti
+snvs Power Key
+--------------
+
+The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
+Power OFF without SW intervention. With the *snvs_pwrkey* driver, the KEY_POWER
+event is also reported to userspace when the button is pressed. On default, systemd
+is configured to ignore such events. The function of Power OFF without SW
+intervention are not configured. Triggering a power off with systemd when pushing
+the ON/OFF button can be configured under ``/etc/systemd/logind.conf`` and set using:
+
+.. code-block::
+
+   HandlePowerKey=poweroff
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
