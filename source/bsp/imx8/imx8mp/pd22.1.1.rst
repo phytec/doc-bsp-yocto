@@ -1467,7 +1467,7 @@ In our BSP, the default Weston output is set to HDMI. ::
 
 .. include:: /bsp/qt5.rsti
 
-.. include:: /bsp/imx8/peripherals/display.rsti
+.. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255`

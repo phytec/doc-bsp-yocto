@@ -489,7 +489,7 @@ Device Tree Audio configuration:
 
 .. include:: /bsp/qt6.rsti
 
-.. include:: /bsp/imx8/peripherals/display.rsti
+.. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264`
