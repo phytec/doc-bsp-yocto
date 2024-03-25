@@ -725,7 +725,75 @@ DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
 
+RTC
+---
+
+RTCs can be accessed via ``/dev/rtc*``. Because PHYTEC boards have often more than
+one RTC, there might be more than one RTC device file.
+
+*  To find the name of the RTC device, you can read its sysfs entry with:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/class/rtc/rtc*/name
+
+*  You will get, for example:
+
+   .. code-block::
+
+      rtc-rv3028 0-0052
+      snvs_rtc 30370000.snvs:snvs-rtc-lp
+
+
+.. tip::
+
+   This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
+   IDs based on the device tree/aliases entries if present.
+
+Date and time can be manipulated with the ``hwclock`` tool and the date command.
+To show the current date and time set on the target:
+
+.. code-block:: console
+
+   target:~$ date
+   Thu Jan  1 00:01:26 UTC 1970
+
+Change the date and time with the date command. The date command sets the time
+with the following syntax "YYYYMMDDHHMM":
+
+.. code-block:: console
+
+   target:~$ date -s '202202031015'
+   Wed Mar  2 10:15:00 UTC 2022
+
+Using the date command does not change the time and date of the RTC, so if we
+were to restart the target those changes would be discarded. To write to the RTC
+we need to use the ``hwclock`` command. Write the current date and time (set
+with the date command) to the RTC using the ``hwclock`` tool and reboot the
+target to check if the changes were applied to the RTC:
+
+.. code-block:: console
+
+   target:~$ hwclock -w
+   target:~$ reboot
+       .
+       .
+       .
+   target:~$ date
+   Wed Mar  2 10:34:06 UTC 2022
+
+To set the time and date from the RTC use:
+
+.. code-block:: console
+
+   target:~$ date
+   Thu Jan  1 01:00:02 UTC 1970
+   target:~$ hwclock -s
+   target:~$ date
+   Wed Mar  2 10:45:01 UTC 2022
+
 .. include:: ../../peripherals/rtc.rsti
+   :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207`
