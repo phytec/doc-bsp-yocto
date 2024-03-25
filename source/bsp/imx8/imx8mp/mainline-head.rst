@@ -221,7 +221,7 @@ select the phyCORE-|soc| default bootsource.
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
-.. include:: /bsp/imx8/development/format_sd-card.rsti
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE

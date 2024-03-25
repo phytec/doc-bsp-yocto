@@ -236,7 +236,7 @@ Development
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
-.. include:: /bsp/imx8/development/format_sd-card.rsti
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
