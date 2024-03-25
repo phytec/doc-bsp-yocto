@@ -306,7 +306,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART1 device in
 |dt-carrierboard|.dts:
