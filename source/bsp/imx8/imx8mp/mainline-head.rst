@@ -819,6 +819,10 @@ There are two different i2c EEPROM flashes populated on |som| SoM and on the
 |sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
 I2C EEPROM populated on the SoM is also used for board detection.
 
+.. note::
+   The EEPROM ID-Page is not included in the devicetree yet and therefore can
+   not be addressed in U-Boot or Linux.
+
 .. include:: ../peripherals/eeprom.rsti
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
