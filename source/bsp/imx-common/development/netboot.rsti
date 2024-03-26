@@ -107,6 +107,49 @@ NFS Server Setup
 
       host:~$ sudo exportfs -ra
 
+DHCP Server setup
+~~~~~~~~~~~~~~~~~
+
+*  Create or edit the ``/etc/kea/kea-dhcp4.conf`` file; Using the internal subnet
+   sample:
+
+   .. code-block:: json
+
+      {
+        "Dhcp4": {
+          "interfaces-config": {
+            "interfaces": [ "<ethernet-interface>/192.168.3.10" ]
+          },
+          "lease-database": {
+            "type": "memfile",
+            "persist": true,
+            "name": "/tmp/dhcp4.leases"
+          },
+          "valid-lifetime": 28800,
+          "subnet4": [{
+              "id": 1,
+              "next-server": "192.168.3.10",
+              "subnet": "192.168.3.0/24",
+              "pools": [
+                { "pool": "192.168.3.1 - 192.168.3.255" }
+              ]
+          }]
+        }
+      }
+
+.. warning::
+
+   Be careful when creating subnets as this may interfere with the company
+   network policy. To be on the safe side, use a different network and specify
+   that via the ``interfaces`` configuration option.
+
+
+*  Now the DHCP-Server has to read the ``/etc/kea/kea-dhcp4.conf`` file again:
+
+   .. code-block:: console
+
+         host:~$ systemctl restart kea-dhcp4-server
+
 Place Images on Host for Netboot
 ................................
 
