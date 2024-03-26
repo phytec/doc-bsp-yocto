@@ -217,7 +217,202 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-development:
-.. include:: /bsp/imx-common/development/netboot.rsti
+
+Booting the Kernel from a Network
+---------------------------------
+
+Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.
+
+Host Preparation
+................
+
+On the development host, a TFTP, NFS and DHCP server must be installed and
+configured. The following tools will be needed to boot via Ethernet:
+
+.. code-block:: console
+
+   host:~$ sudo apt install tftpd-hpa nfs-kernel-server kea
+
+TFTP Server Setup
+.................
+
+*  First, create a directory to store the TFTP files:
+
+   .. code-block:: console
+
+      host:~$ sudo mkdir /srv/tftp
+
+*  Then copy your BSP image files to this directory and make sure other users have read
+   access to all the files in the tftp directory, otherwise they are not accessible
+   from the target.
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  You also need to configure a static IP address for the appropriate interface.
+   The default IP address of the PHYTEC evaluation boards is 192.168.3.11. Setting
+   a host address 192.168.3.10 with netmask 255.255.255.0 is a good choice.
+
+   .. code-block:: console
+
+      host:~$ ip addr show <network-interface>
+
+   Replace <network-interface> with the network interface you configured and want to
+   connect the board to. You can show all network interfaces by not specifying a network
+   interface.
+
+*  The message you receive should contain this:
+
+   .. code-block::
+
+      inet 192.168.3.10/24 brd 192.168.3.255
+
+*  Create or edit the ``/etc/default/tftpd-hpa`` file:
+
+   .. code-block::
+
+      # /etc/default/tftpd-hpa
+
+      TFTP_USERNAME="tftp"
+      TFTP_DIRECTORY="/srv/tftp"
+      TFTP_ADDRESS=":69"
+      TFTP_OPTIONS="-s -c"
+
+*  Set TFTP_DIRECTORY to your TFTP server root directory
+*  Set TFTP_ADDRESS to the host address the server is listening to (set to
+   0.0.0.0:69 to listen to all local IPs)
+*  Set TFTP_OPTIONS, the following command shows the available options:
+
+   .. code-block:: console
+
+      host:~$ man tftpd
+
+*  Restart the services to pick up the configuration changes:
+
+   .. code-block:: console
+
+      host:~$ sudo service tftpd-hpa restart
+
+
+Now connect the ethernet port of the board to your host system.
+We also need a network connection between the embedded board and the TFTP
+server. The server should be set to IP 192.168.3.10 and
+netmask 255.255.255.0.
+
+NFS Server Setup
+~~~~~~~~~~~~~~~~
+
+*  Create an nfs directory:
+
+   .. code-block:: console
+
+      host:~$ sudo mkdir /srv/nfs
+
+*  The NFS server is not restricted to a certain file system location, so all we
+   have to do on most distributions is modify the file ``/etc/exports`` and export
+   our root file system to the embedded network. In this example file, the whole
+   directory is exported and the "lab network" address of the development host is
+   192.168.3.10. The IP address has to be adapted to the local needs:
+
+   .. code-block::
+
+      /srv/nfs 192.168.3.0/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+
+*  Now the NFS-Server has to read the ``/etc/exportfs`` file again:
+
+   .. code-block:: console
+
+      host:~$ sudo exportfs -ra
+
+DHCP Server setup
+~~~~~~~~~~~~~~~~~
+
+*  Create or edit the ``/etc/kea/kea-dhcp4.conf`` file; Using the internal subnet
+   sample:
+
+   .. code-block:: json
+
+      {
+        "Dhcp4": {
+          "interfaces-config": {
+            "interfaces": [ "<ethernet-interface>/192.168.3.10" ]
+          },
+          "lease-database": {
+            "type": "memfile",
+            "persist": true,
+            "name": "/tmp/dhcp4.leases"
+          },
+          "valid-lifetime": 28800,
+          "subnet4": [{
+              "id": 1,
+              "next-server": "192.168.3.10",
+              "subnet": "192.168.3.0/24",
+              "pools": [
+                { "pool": "192.168.3.1 - 192.168.3.255" }
+              ]
+          }]
+        }
+      }
+
+.. warning::
+
+   Be careful when creating subnets as this may interfere with the company
+   network policy. To be on the safe side, use a different network and specify
+   that via the ``interfaces`` configuration option.
+
+
+*  Now the DHCP-Server has to read the ``/etc/kea/kea-dhcp4.conf`` file again:
+
+   .. code-block:: console
+
+         host:~$ systemctl restart kea-dhcp4-server
+
+Place Images on Host for Netboot
+................................
+
+*  Copy the kernel image to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp Image /srv/tftp
+
+*  Copy the devicetree to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp oftree /srv/tftp
+
+*  Make sure other users have read access to all the files in the tftp directory,
+   otherwise they are not accessible from the target:
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  Extract the rootfs to your nfs directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
+
+.. note::
+   Make sure you extract with sudo to preserve the correct ownership.
+
+Booting from an Embedded Board
+..............................
+
+Boot the board into the U-boot prompt and press any key to hold.
+
+*  To boot from a network, call:
+
+   .. code-block:: console
+
+      u-boot=> run netboot
+
 .. include:: /bsp/imx-common/development/uuu.rsti
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
