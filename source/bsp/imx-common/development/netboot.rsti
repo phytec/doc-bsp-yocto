@@ -107,6 +107,39 @@ NFS Server Setup
 
       host:~$ sudo exportfs -ra
 
+DHCP Server setup
+~~~~~~~~~~~~~~~~~
+
+*  Create or edit the ``/etc/dhcp/dhcpd.conf`` file; Using the internal subnet
+   sample:
+
+   .. code-block::
+
+         subnet 192.168.3.0 netmask 255.255.255.224 {
+           interface <ethernet interface>;
+           range 192.168.3.11 192.168.3.30;
+           option domain-name-servers ns1.internal.devboard;
+           option domain-name "internal.devboard";
+           option subnet-mask 255.255.255.224;
+           option routers 192.168.3.1;
+           option broadcast-address 192.168.3.31;
+           default-lease-time 600;
+           max-lease-time 7200;
+         }
+
+.. warning::
+
+   Be careful when creating subnets as this may interfere with the company
+   network policy. To be on the safe side, use a different network and specify
+   that via the ``interface`` configuration option.
+
+
+*  Now the DHCP-Server has to read the ``/etc/dhcp/dhcpd.conf`` file again:
+
+   .. code-block:: console
+
+         host:~# service isc-dhcp-server restart
+
 Place Images on Host for Netboot
 ................................
 
