@@ -1,25 +1,19 @@
 Booting the Kernel from a Network
 ---------------------------------
 
-Booting from a network means loading the kernel over TFTP and the root file
-system over NFS. The bootloader itself must already be loaded from another boot
-device that is available.
+Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.
 
 Host Preparation
 ................
 
-On the development host, a TFTP server must be installed and configured. The
-following tools will be needed to boot the Kernel from Ethernet:
+On the development host, a TFTP, NFS and DHCP server must be installed and
+configured. The following tools will be needed to boot via Ethernet:
 
-*  A TFTP server
+.. code-block:: console
 
-   For *Ubuntu*, install:
-
-   .. code-block:: console
-
-      host:~$ sudo apt-get install tftpd-hpa xinetd
-
-After the installation, there are two ways to configure the TFTP server.
+   host:~$ sudo apt install tftpd-hpa nfs-kernel-server kea
 
 TFTP Server Setup
 .................
@@ -96,13 +90,6 @@ netmask 255.255.255.0.
 
 NFS Server Setup
 ~~~~~~~~~~~~~~~~
-
-*  After the installation of the TFTP server, an NFS server needs to be
-   installed, too.
-
-   .. code-block:: console
-
-      host:~$ sudo apt-get install nfs-kernel-server
 
 *  Create a nfs directory:
 
