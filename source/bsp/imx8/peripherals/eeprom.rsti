@@ -23,11 +23,11 @@ execute:
 
    target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1 count=1024  | od -x
 
-To fill the whole EEPROM with zeros, use:
+To fill the 4KiB EEPROM (bus: I2C-0 addr: 0x51) with zeros leaving out the EEPROM data use:
 
 .. code-block:: console
 
-   target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=4096 count=1
+   target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom seek=1 bs=256 count=15
 
 
 EEPROM SoM Detection
