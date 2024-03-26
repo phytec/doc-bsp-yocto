@@ -85,7 +85,7 @@ netmask 255.255.255.0.
 NFS Server Setup
 ~~~~~~~~~~~~~~~~
 
-*  Create a nfs directory:
+*  Create an nfs directory:
 
    .. code-block:: console
 
@@ -99,7 +99,7 @@ NFS Server Setup
 
    .. code-block::
 
-      /srv/nfs 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+      /srv/nfs 192.168.3.0/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 
 *  Now the NFS-Server has to read the ``/etc/exportfs`` file again:
 
