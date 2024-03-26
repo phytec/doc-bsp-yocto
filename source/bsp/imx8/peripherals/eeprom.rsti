@@ -1,6 +1,14 @@
 I2C EEPROM on |som|
 ...........................
 
+.. warning::
+
+   The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 265 bytes of the
+   normal EEPROM area (bus: I2C-0 addr: 0x51) should not be erased or
+   overwritten. As this will influence the behavior of the bootloader. The board
+   might not boot correctly anymore.
+
+
 The I2C EEPROM on the |som| SoM is connected to I2C address 0x51 on the I2C-0
 bus. It is possible to read and write directly to the device populated:
 
@@ -21,9 +29,6 @@ To fill the whole EEPROM with zeros, use:
 
    target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=4096 count=1
 
-.. warning::
-
-   The first 256 bytes are reserved for future purposes!
 
 EEPROM SoM Detection
 ....................
