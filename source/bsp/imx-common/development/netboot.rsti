@@ -18,9 +18,6 @@ configured. The following tools will be needed to boot via Ethernet:
 TFTP Server Setup
 .................
 
-1. As a stand-alone daemon
-2. Controlled and handled by xinetd
-
 *  First, create a directory to store the TFTP files:
 
    .. code-block:: console
@@ -52,9 +49,6 @@ TFTP Server Setup
    .. code-block::
 
       inet 192.168.3.10/24 brd 192.168.3.255
-
-TFTP as a Stand-alone Daemon
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Create or edit the ``/etc/default/tftpd-hpa`` file:
 
