@@ -349,6 +349,8 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
+.. include:: /bsp/imx-common/emmc.rsti
+
 .. include:: ../peripherals/spi-master.rsti
 
 The definition of the SPI master node in the device tree can be found here:

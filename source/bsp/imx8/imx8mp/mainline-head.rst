@@ -313,7 +313,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
-.. include:: emmc.rsti
+.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
 
