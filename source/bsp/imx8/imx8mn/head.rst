@@ -35,6 +35,7 @@
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-emmc-devno| replace:: 2
 
 .. IMX8(MN) specific
 .. |u-boot-socname-config| replace:: IMX8MN
@@ -72,10 +73,11 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
 .. IMX8(MN) specific replacements
-.. |pollux-sbc-network| replace:: \
+.. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mn-head-ubootexternalenv>`
@@ -206,9 +208,9 @@ select the phyCORE-|soc| default bootsource.
 Development
 ===========
 
-.. include:: /bsp/imx8/development/netboot.rsti
+.. include:: /bsp/imx-common/development/netboot.rsti
 
-.. include:: /bsp/imx8/development/uuu.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx8/development/standalone_build.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
@@ -220,7 +222,7 @@ Development
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
-.. include:: /bsp/imx8/development/format_sd-card.rsti
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
@@ -251,7 +253,7 @@ Development
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART1 device in
 |dt-carrierboard|.dts:
@@ -302,7 +304,7 @@ Network
 
 |sbc|-|soc| provides one Gigabit Ethernet interface.
 
-.. include:: ../peripherals/network.rsti
+.. include:: /bsp/imx-common/peripherals/network.rsti
 
 WLAN
 ....
@@ -334,6 +336,8 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
+.. include:: /bsp/imx-common/emmc.rsti
+
 .. include:: ../peripherals/spi-master.rsti
 
 The definition of the SPI master node in the device tree can be found here:
@@ -359,7 +363,7 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n45`
 
-.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n106`

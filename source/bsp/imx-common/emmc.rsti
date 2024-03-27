@@ -66,12 +66,12 @@ Write the bootloader to the eMMC boot partitions:
 
 The following table is for the offset of the |soc| SoC:
 
-===== ========= =========== ============== ===================
-SoC   Offset    Offset Boot eMMC Device    Bootloader Filename
-      User Area Partition
-===== ========= =========== ============== ===================
-|soc| 32 kiB    0 kiB       /dev/|emmcdev| imx-boot
-===== ========= =========== ============== ===================
+===== =================== =========== ============== ===================
+SoC   Offset User Area    Offset Boot eMMC Device    Bootloader Filename
+                          Partition
+===== =================== =========== ============== ===================
+|soc| |u-boot-offset| kiB 0 kiB       /dev/|emmcdev| imx-boot
+===== =================== =========== ============== ===================
 
 After that set the boot partition from user space using the mmc tool:
 
