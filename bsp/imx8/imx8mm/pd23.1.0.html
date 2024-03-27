@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=efe30e28"></script>
+        <script src="../../../_static/documentation_options.js?v=0806da08"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-7-g1096dff
+                imx9-pd24.1.0-9-gfa86909
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2977,6 +2977,13 @@ with the sysfs interface in Linux. The ID page of the I2C EEPROM populated on
 the SoM is also used for board detection.</p>
 <section id="i2c-eeprom-on-som">
 <h3><span class="section-number">7.10.1. </span>I2C EEPROM on phyCORE-i.MX8MM<a class="headerlink" href="#i2c-eeprom-on-som" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 265 bytes of the
+normal EEPROM area (bus: I2C-0 addr: 0x51) should not be erased or
+overwritten. As this will influence the behavior of the bootloader. The board
+might not boot correctly anymore.</p>
+</div>
 <p>The I2C EEPROM on the phyCORE-i.MX8MM SoM is connected to I2C address 0x51 on the I2C-0
 bus. It is possible to read and write directly to the device populated:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hexdump<span class="w"> </span>-c<span class="w"> </span>/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom
@@ -2987,13 +2994,9 @@ execute:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1024</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>od<span class="w"> </span>-x
 </pre></div>
 </div>
-<p>To fill the whole EEPROM with zeros, use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">4096</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<p>To fill the 4KiB EEPROM (bus: I2C-0 addr: 0x51) with zeros leaving out the EEPROM data use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom<span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">256</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">15</span>
 </pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The first 256 bytes are reserved for future purposes!</p>
 </div>
 </section>
 <section id="eeprom-som-detection">
