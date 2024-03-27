@@ -215,7 +215,59 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-development:
-.. include:: /bsp/imx8/development/netboot.rsti
+
+.. include:: /bsp/imx-common/development/host_network_setup.rsti
+
+Booting the Kernel from a Network
+---------------------------------
+
+Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.
+
+Place Images on Host for Netboot
+................................
+
+*  Copy the kernel image to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp Image /srv/tftp
+
+*  Copy the devicetree to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp oftree /srv/tftp
+
+*  Make sure other users have read access to all the files in the tftp directory,
+   otherwise they are not accessible from the target:
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  Extract the rootfs to your nfs directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
+
+.. note::
+   Make sure you extract with sudo to preserve the correct ownership.
+
+Booting from an Embedded Board
+..............................
+
+Boot the board into the U-boot prompt and press any key to hold.
+
+*  To boot from a network, call:
+
+   .. code-block:: console
+
+      u-boot=> run netboot
+
 .. include:: /bsp/imx8/development/uuu.rsti
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
