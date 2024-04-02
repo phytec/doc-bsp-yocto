@@ -363,3 +363,46 @@ being on your WIP branch::
 When committing, make sure to add a sign-off using the option ``-s``::
 
    git commit -s
+
+Frequently asked Questions
+==========================
+
+How to decide where to put include files?
+-----------------------------------------
+
+| Is the content architecture specific -> arch subdir
+| Is it SoC specific -> soc subdir
+| etc.
+
+When to update include files?
+-----------------------------
+
+Whenever necessary. If some program is being described and the cli or the
+behaviour changes, then existing manuals using the include file are now
+outdated. When updating the include file to describe the newest revision of said
+program, see `How does versioning work?`_.
+
+Why don't we use branches?
+--------------------------
+
+Branches are deemed too complicated for our purposes.
+
+How does versioning work?
+-------------------------
+
+Since no branches shall be used for versioning, content for older manuals may
+end up in the leaf files, i.e. the .rst files when no longer
+compatible with the newest version. Specifically, the content will flow
+downstream towards the leaf files.
+
+Example:
+
+i.MX 8M product family uses the (old) version of ``mmc`` that is no longer
+compatible with master branches. It will need its own version of an include file
+describing usage of the ``mmc`` program.
+
+Example:
+
+i.MX 8MP uses a different ``mmc`` command from master and from the rest of the
+i.MX 8M family. The content will be split again and i.MX 8MP needs to use its
+own specific version (different file).
