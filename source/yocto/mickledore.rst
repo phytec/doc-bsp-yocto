@@ -713,8 +713,10 @@ release number, and the hardware you are working on
    * Please choose one of the available Releases:
    *
    *   1: BSP-Yocto-NXP-i.MX93-ALPHA1
+   *   2: BSP-Yocto-NXP-i.MX93-PD24.1-rc1
+   *   3: BSP-Yocto-NXP-i.MX93-PD24.1.0
 
-   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-ALPHA1
+   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.0
    *********************************************************************
    * Please choose one of the available builds:
    *
@@ -722,15 +724,21 @@ release number, and the hardware you are working on
                                 distro: supported yocto distribution
                                 target: supported build target
 
-   1: phyboard-segin-imx93-1: PHYTEC phyBOARD-Segin i.MX93
-                              1 GB RAM, eMMC
+   1: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
                               PB-02029-010I, PCL-077-11231010I
                               distro: ampliphy-vendor
                               target: phytec-headless-image
-   2: phyboard-segin-imx93-1: PHYTEC phyBOARD-Segin i.MX93
-                              1 GB RAM, eMMC
+   2: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
+                              PB-02029-010I, PCL-077-11231010I
+                              distro: ampliphy-vendor-rauc
+                              target: phytec-headless-bundle
+   3: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
                               PB-02029-010I, PCL-077-11231010I
                               distro: ampliphy-vendor-wayland
+                              target: -c populate_sdk phytec-qt6demo-image
                               target: phytec-qt6demo-image
 
 If you cannot identify your board with the information given in the selector,
@@ -746,8 +754,8 @@ you can always run
    * The current BSP configuration is:
    *
    * SoC:  refs/heads/imx93
-   * Release:  BSP-Yocto-NXP-i.MX93-ALPHA1
-   * Machine:  phyboard-segin-imx93-1
+   * Release:  BSP-Yocto-NXP-i.MX93-PD24.1.0
+   * Machine:  phyboard-segin-imx93-2
    *
    **********************************************
 
