@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=0806da08"></script>
+        <script src="../../../_static/documentation_options.js?v=dd8b7d5d"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-9-gfa86909
+                imx9-pd24.1.0-17-gb8af2fb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1125,7 +1125,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../../imx8/imx8mp/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -2186,8 +2186,7 @@ write protection:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>SoC</p></th>
-<th class="head"><p>Offset
-User Area</p></th>
+<th class="head"><p>Offset User Area</p></th>
 <th class="head"><p>Offset Boot
 Partition</p></th>
 <th class="head"><p>eMMC Device</p></th>
@@ -2947,12 +2946,9 @@ files and writing to them allows you to control the backlight.</p>
 <ul>
 <li><p>To get, for example, the maximum brightness level (max_brightness) execute:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/max_brightness
-<span class="go">1</span>
 </pre></div>
 </div>
-<p>which shows that the backlight is driven by GPIO and can only be enabled or
-disabled. i.MX 93 phyBOARD-Segin i.MX 93 has no PWM backlight support.</p>
-<p>Valid brightness values are 0 or 1.</p>
+<p>Valid brightness values are 0 to &lt;max_brightness&gt;.</p>
 </li>
 <li><p>To obtain the current brightness level, type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/brightness
@@ -2963,11 +2959,8 @@ disabled. i.MX 93 phyBOARD-Segin i.MX 93 has no PWM backlight support.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
 </pre></div>
 </div>
-<p>turns the backlight off,</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>enables the backlight. For documentation of all files, see
+<p>turns the backlight off for example.</p>
+<p>For documentation of all files, see
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
 </li>
 </ul>

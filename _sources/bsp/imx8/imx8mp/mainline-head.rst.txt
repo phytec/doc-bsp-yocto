@@ -35,6 +35,7 @@
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-emmc-devno| replace:: 2
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
@@ -73,10 +74,11 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-mainline-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-mainline-head-components>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
 .. IMX8(MP) specific
-.. |pollux-sbc-network| replace::
+.. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
    :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150`.
@@ -215,13 +217,13 @@ select the phyCORE-|soc| default bootsource.
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-development:
-.. include:: /bsp/imx8/development/netboot.rsti
-.. include:: /bsp/imx8/development/uuu.rsti
+.. include:: /bsp/imx-common/development/netboot.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
-.. include:: /bsp/imx8/development/format_sd-card.rsti
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
@@ -236,7 +238,7 @@ select the phyCORE-|soc| default bootsource.
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: ../peripherals/pin-muxing.rsti
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART1 device in
 |dt-carrierboard|.dts:
@@ -301,7 +303,7 @@ module and board.
    | ethernet1 = eth0
    | ethernet0 = eth1
 
-.. include:: ../peripherals/network.rsti
+.. include:: /bsp/imx-common/peripherals/network.rsti
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
@@ -313,7 +315,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
-.. include:: emmc.rsti
+.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
 
@@ -328,7 +330,7 @@ The definition of the SPI master node in the device tree can be found here:
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
 
-.. include:: /bsp/imx8/peripherals/i2c-bus.rsti
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110`

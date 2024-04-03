@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=0806da08"></script>
+        <script src="../../../_static/documentation_options.js?v=dd8b7d5d"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-9-gfa86909
+                imx9-pd24.1.0-17-gb8af2fb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1215,13 +1215,10 @@ TFTP_OPTIONS=&quot;-s -c&quot;
 </pre></div>
 </div>
 </li>
-<li><p>Now connect the ethernet port of the board to your host system, configure the
-board to network boot, and start it.</p></li>
 </ul>
-<p>Usually, TFTP servers fetch files from the tftp directory. If you built
-your own images, please copy them from the BSP’s build directory to the
-tftp directory. We also need a network connection between the embedded
-board and the TFTP server. The server should be set to IP 192.168.3.10 and
+<p>Now connect the ethernet port of the board to your host system.
+We also need a network connection between the embedded board and the TFTP
+server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
 </section>
 <section id="nfs-server-setup">
@@ -1301,7 +1298,7 @@ overlays=&lt;overlayfilenames&gt;
 </div>
 <p>&lt;overlayfilenames&gt; has to be replaced with the devicetree overlay filenames that you want to use.
 Separate the filenames by spaces. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx8mm-phyboard-polis-peb-eval-01.dtbo imx8mm-phyboard-polis-peb-av-010.dtbo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=example-overlay1.dtbo example-overlay2.dtbo
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -1328,10 +1325,11 @@ here: <a class="reference internal" href="#imx8mp-pd23-1-0-network"><span class=
 </section>
 <section id="working-with-uuu-tool">
 <h2><span class="section-number">5.2. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility Tool (UUU-Tool) from NXP is software to execute
-from the host to load and run the bootloader on the board through SDP. For
-detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the
-<a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
+<p>The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+<a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool
+documentation</a>.</p>
 <section id="host-preparations-for-uuu-tool-usage">
 <h3><span class="section-number">5.2.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
 <ul>
@@ -1354,7 +1352,7 @@ detailed information visit <a class="reference external" href="https://github.co
 <section id="get-images">
 <h3><span class="section-number">5.2.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
-../build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
+build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
 you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic.</p>
 </section>
 <section id="prepare-target">
@@ -1368,8 +1366,7 @@ you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
 </pre></div>
 </div>
-<p>You can see the bootlog on the console via the debug USB
-<a class="reference internal" href="#imx8mp-pd23-1-0-components"><span class="std std-ref">(X1)</span></a>, as usual.</p>
+<p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mp-pd23-1-0-components"><span class="std std-ref">(X1)</span></a>, as usual.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default boot command when booting with UUU-Tool is set to fastboot. If
@@ -1382,6 +1379,27 @@ this in U-Boot code.</p>
 </section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.2.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+.wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; mmc partconf 2 0 0 0</span>
+<span class="go">u-boot=&gt; mmc partconf 2</span>
+<span class="go">EXT_CSD[179], PARTITION_CONFIG:</span>
+<span class="go">BOOT_ACK: 0x0</span>
+<span class="go">BOOT_PARTITION_ENABLE: 0x0</span>
+<span class="go">PARTITION_ACCESS: 0x0</span>
+</pre></div>
+</div>
+<p>or check <a class="reference internal" href="head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
+not used!</p>
+<p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
+done by default, which makes partup again superior flash option.</p>
+</div>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc<span class="w"> </span>imx-boot
 </pre></div>
@@ -1746,23 +1764,23 @@ easiest way to do this is to use the UI program Gparted.</p>
 </div>
 </li>
 </ul>
-<img alt="../../../_images/gparted11.png" src="../../../_images/gparted11.png" />
+<img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
 <h4><span class="section-number">5.6.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
 </ul>
-<img alt="../../../_images/gparted51.png" src="../../../_images/gparted51.png" />
-<img alt="../../../_images/gparted21.png" src="../../../_images/gparted21.png" />
+<img alt="../../../_images/gparted5.png" src="../../../_images/gparted5.png" />
+<img alt="../../../_images/gparted2.png" src="../../../_images/gparted2.png" />
 <ul class="simple">
 <li><p>Drag the slider as far as you like or enter the size manually.</p></li>
 </ul>
-<img alt="../../../_images/gparted31.png" src="../../../_images/gparted31.png" />
+<img alt="../../../_images/gparted3.png" src="../../../_images/gparted3.png" />
 <ul class="simple">
 <li><p>Confirm your entry by clicking on the “Change size” button.</p></li>
 </ul>
-<img alt="../../../_images/gparted41.png" src="../../../_images/gparted41.png" />
+<img alt="../../../_images/gparted4.png" src="../../../_images/gparted4.png" />
 <ul>
 <li><p>To apply your changes, press the green tick.</p></li>
 <li><p>Now you can mount the root partition and copy e.g. the
@@ -1779,19 +1797,19 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it a
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>
-<img alt="../../../_images/gparted11.png" src="../../../_images/gparted11.png" />
+<img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <ul class="simple">
 <li><p>Choose the bigger unallocated  area and press “New”:</p></li>
 </ul>
-<img alt="../../../_images/gparted61.png" src="../../../_images/gparted61.png" />
+<img alt="../../../_images/gparted6.png" src="../../../_images/gparted6.png" />
 <ul class="simple">
 <li><p>Click “Add”</p></li>
 </ul>
-<img alt="../../../_images/gparted71.png" src="../../../_images/gparted71.png" />
+<img alt="../../../_images/gparted7.png" src="../../../_images/gparted7.png" />
 <ul class="simple">
 <li><p>Confirm your changes by pressing the green tick.</p></li>
 </ul>
-<img alt="../../../_images/gparted81.png" src="../../../_images/gparted81.png" />
+<img alt="../../../_images/gparted8.png" src="../../../_images/gparted8.png" />
 <ul>
 <li><p>Now you can mount the new partition and copy e.g.
 phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it again:</p>
@@ -2120,7 +2138,7 @@ Linux. So, be aware of these differences:</p>
 the BSD socket interface. The whole network configuration is handled by
 the systemd-networkd daemon. The relevant configuration files can be found on
 the target in <code class="docutils literal notranslate"><span class="pre">/lib/systemd/network/</span></code> as well as the BSP in
-<code class="docutils literal notranslate"><span class="pre">meta-yogurt/recipes-core/systemd/system-machine-units</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">meta-ampliphy/recipes-core/systemd/systemd-conf</span></code>.</p>
 <p>IP addresses can be configured within *.network files. The default IP address
 and netmask for eth0 is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth0: 192.168.3.11/24
@@ -2156,7 +2174,7 @@ netmask=255.225.255.0
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv &lt;parameter&gt; &lt;value&gt;
 </pre></div>
 </div>
-<p>&lt;parameter&gt; should be one of ipaddr, netmask, gateway, or serverip.
+<p>&lt;parameter&gt; should be one of ipaddr, netmask, gatewayip or serverip.
 &lt;value&gt; will be the actual value of the chosen parameter.</p>
 </li>
 <li><p>The changes you made are temporary for now. To save these:</p>
@@ -2793,8 +2811,7 @@ write protection:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>SoC</p></th>
-<th class="head"><p>Offset
-User Area</p></th>
+<th class="head"><p>Offset User Area</p></th>
 <th class="head"><p>Offset Boot
 Partition</p></th>
 <th class="head"><p>eMMC Device</p></th>
@@ -2819,7 +2836,7 @@ Partition</p></th>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
-<p>To disable booting from the eMMC boot partitions simply enter the following
+<p id="emmc-disable-boot-part">To disable booting from the eMMC boot partitions simply enter the following
 command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
 </pre></div>
@@ -3885,18 +3902,10 @@ files and writing to them allows you to control the backlight.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/max_brightness
 </pre></div>
 </div>
-<p>which will result in:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
-</pre></div>
-</div>
 <p>Valid brightness values are 0 to &lt;max_brightness&gt;.</p>
 </li>
 <li><p>To obtain the current brightness level, type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>you will get for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </li>
@@ -3904,12 +3913,8 @@ files and writing to them allows you to control the backlight.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
 </pre></div>
 </div>
-<p>turns the backlight off,</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
-</pre></div>
-</div>
-<p>sets the brightness to the third-highest brightness level. For documentation of
-all files, see
+<p>turns the backlight off for example.</p>
+<p>For documentation of all files, see
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
 </li>
 </ul>

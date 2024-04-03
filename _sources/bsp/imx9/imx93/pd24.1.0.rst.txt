@@ -422,7 +422,7 @@ Device Tree Audio configuration:
 
 .. include:: /bsp/qt6.rsti
 
-.. include:: ../peripherals/display.rsti
+.. include:: /bsp/imx-common/peripherals/display.rsti
 
 The device tree of PEB-AV-02 can be found here:
 :imx-dt:`imx93-phyboard-segin-peb-av-02.dtso?h=v6.1.36_2.1.0-phy1`
