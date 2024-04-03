@@ -157,6 +157,14 @@ latex_documents = [
         'manual',
         False,
     ),
+    (
+        'yocto/scarthgap',
+        'scarthgap.tex',
+        'Yocto Reference Manual Scarthgap',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------
