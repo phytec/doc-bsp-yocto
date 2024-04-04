@@ -72,9 +72,6 @@ host to trigger the background operations regularly because the device starts
 BKOPS itself when it is idle (see the description of bit AUTO_EN in
 register BKOPS_EN (Reg: 163)).
 
-The userspace tool mmc does not currently support enabling automatic BKOPS
-features.
-
 *  To check whether *BKOPS_EN* is set, execute:
 
    .. code-block:: console
@@ -94,12 +91,25 @@ features.
    suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
    background operations from time to time.
 
+*  Enabling can be done with this command:
+
+   .. code-block:: console
+
+      target:~$ target:~$ mmc --help
+
+      [...]
+      mmc bkops_en <auto|manual> <device>
+          Enable the eMMC BKOPS feature on <device>.
+          The auto (AUTO_EN) setting is only supported on eMMC 5.0 or newer.
+          Setting auto won't have any effect if manual is set.
+          NOTE!  Setting manual (MANUAL_EN) is one-time programmable (unreversible) change.
+
 *  To set the BKOPS_EN bit, execute:
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ mmc bkops enable /dev/|emmcdev|
+      target:~$ mmc bkops_en manual /dev/|emmcdev|
 
 *  To ensure that the new setting is taken over and the kernel triggers BKOPS by
    itself, shut down the system:
@@ -154,7 +164,11 @@ Otherwise, it can be enabled with the mmc tool:
    target:~$ mmc --help
 
    [...]
-   mmc write_reliability set <-y|-n> <partition> <device>
+   mmc write_reliability set <-y|-n|-c> <partition> <device>
+       Enable write reliability per partition for the <device>.
+       Dry-run only unless -y or -c is passed.
+       Use -c if more partitioning settings are still to come.
+       NOTE!  This is a one-time programmable (unreversible) change.
 
 The second Reliable Write option is the configuration bit Reliable Write Request
 parameter (bit 31) in command CMD23. It has been used in the kernel
