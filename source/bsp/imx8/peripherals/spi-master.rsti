@@ -8,6 +8,8 @@ lines). The ECSPI controller supports 3 SPI interfaces with one dedicated chip
 selected for each interface. As chip selects should be realized with GPIOs, more
 than one device on each channel is possible.
 
+.. peripherals-spi-nor-flash-marker
+
 SPI NOR Flash
 .............
 

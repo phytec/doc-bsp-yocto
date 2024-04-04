@@ -770,9 +770,9 @@ DT configuration for the eMMC interface can be found here:
 .. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
+   :end-before: .. peripherals-spi-nor-flash-marker
 
 The definition of the SPI master node in the device tree can be found here:
-
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76`
 
 .. include:: ../peripherals/gpios.rsti
