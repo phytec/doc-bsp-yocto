@@ -1,20 +1,16 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/sdk/ampliphy-vendor-xwayland/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-
-.. IMX8(MP) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2022.04_2.2.2-phy5#n149
 
 
 .. General Substitutions
-.. |doc-id| replace:: PD24.1.y BSP Manual
+.. |doc-id| replace:: PD24.1.1 BSP Manual
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux
@@ -28,7 +24,7 @@
 
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v6.6-y
+.. |kernel-tag| replace:: v6.6.21
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
@@ -39,7 +35,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
-.. |u-boot-tag| replace:: v2024.01-y
+.. |u-boot-tag| replace:: v2024.01
 
 
 .. Devicetree
@@ -59,9 +55,9 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
-.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (master)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
 
@@ -113,7 +109,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          |                      |
 +-----------------------+----------------------+
-| Release Date          | 2024/04/XX           |
+| Release Date          | 2024/04/08           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| BSP   |
 |                       | Manual Head          |
@@ -125,7 +121,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
 
 ================ ================ ================= ==============
-PD24.1.0         Major            2024/04/xx        in development
+PD24.1.1         Major            2024/04/08        Released
 ================ ================ ================= ==============
 
 
