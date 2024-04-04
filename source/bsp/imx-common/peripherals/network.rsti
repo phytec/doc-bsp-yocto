@@ -21,6 +21,8 @@ be found here: |dt-somnetwork|.
 Network Environment Customization
 .................................
 
+.. u-boot-network-environment-marker
+
 U-boot network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -85,6 +87,8 @@ Please note that these modifications will only affect the bootloader settings.
    There is no need to store the info on the target. Please note that this does
    not work for variables like ipaddr or serveraddr as they need to be already
    set when the external environment is being loaded.
+
+.. kernel-network-environment-marker
 
 Kernel network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

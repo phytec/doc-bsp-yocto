@@ -734,6 +734,28 @@ module and board.
    | ethernet0 = eth1
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
+   :end-before: .. u-boot-network-environment-marker
+
+U-boot network-environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* We currently use dynamic IP addresses in U-Boot. This is enabled by this variable:
+
+   .. code-block::
+
+      u-boot=> printenv ip_dyn
+      ip_dyn=yes
+
+*  Set up path for NFS. A modification could look like this:
+
+   .. code-block::
+
+      u-boot=> setenv nfsroot /home/user/nfssrc
+
+Please note that these modifications will only affect the bootloader settings.
+
+.. include:: /bsp/imx-common/peripherals/network.rsti
+   :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
