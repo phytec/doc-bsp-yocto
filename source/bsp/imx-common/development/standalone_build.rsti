@@ -146,7 +146,7 @@ Build U-Boot
 
       .. code-block:: console
 
-         host:~$ git checkout -b <new-branch>
+         host:~$ git switch --create <new-branch>
 
       .. note::
 
@@ -209,7 +209,7 @@ Build Kernel
 
    .. code-block:: console
 
-      host:~$ git checkout -b <new-branch>
+      host:~$ git switch --create <new-branch>
 
 *  Set up a build environment:
 

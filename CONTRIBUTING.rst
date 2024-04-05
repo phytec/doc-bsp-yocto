@@ -348,7 +348,7 @@ the following::
 To create this branch, use ``checkout`` and specify the remote ``main`` branch
 to be the base of your changes::
 
-   git checkout -b WIP/your-github-account-name/feature-description origin/main
+   git switch --create WIP/your-github-account-name/feature-description origin/main
 
 Push your changes regularly to the remote repository. When pushing the branch
 for first time, you have to specify the upstream using ``-u``::
