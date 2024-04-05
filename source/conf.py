@@ -93,7 +93,11 @@ html_css_files = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': '\\usepackage{lmodern}'
+    'fontpkg': '\\usepackage{lmodern}',
+    'preamble': '''
+      \\usepackage{fontspec}
+      \\setmonofont{DejaVu Sans Mono}[Scale=0.8]
+    ''',
 }
 
 latex_documents = [
