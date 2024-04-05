@@ -218,6 +218,9 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mp-mainline-head-development:
 
+Development
+===========
+
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 
 Booting the Kernel from a Network
