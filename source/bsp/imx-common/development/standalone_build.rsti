@@ -136,8 +136,8 @@ Build U-Boot
    :substitutions:
 
    host:~$ cd ~/u-boot-imx/
-   host:~$ git fetch --all --tags
-   host:~$ git checkout tags/|u-boot-tag|
+   host:~/u-boot-imx$ git fetch --all --tags
+   host:~/u-boot-imx$ git checkout tags/|u-boot-tag|
 
 *  Technically, you can now build the U-Boot, but practically there are some
    further steps necessary:
@@ -146,7 +146,7 @@ Build U-Boot
 
       .. code-block:: console
 
-         host:~$ git switch --create <new-branch>
+         host:~/u-boot-imx$ git switch --create <new-branch>
 
       .. note::
 
@@ -158,15 +158,15 @@ Build U-Boot
    .. code-block:: console
       :substitutions:
 
-      host:~$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
+      host:~/u-boot-imx$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
 
 *  build flash.bin (imx-boot):
 
    .. code-block:: console
       :substitutions:
 
-      host:~$ make phycore-|kernel-socname|_defconfig
-      host:~$ make flash.bin
+      host:~/u-boot-imx$ make phycore-|kernel-socname|_defconfig
+      host:~/u-boot-imx$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:
@@ -184,7 +184,7 @@ E.g. flash SD card:
 .. code-block:: console
    :substitutions:
 
-   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+   host:~/u-boot-imx$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
@@ -202,34 +202,34 @@ Build Kernel
 
       host:~$ git clone git://git.phytec.de/linux-imx
       host:~$ cd ~/linux-imx/
-      host:~$ git fetch --all --tags
-      host:~$ git checkout tags/|kernel-tag|
+      host:~/linux-imx$ git fetch --all --tags
+      host:~/linux-imx$ git checkout tags/|kernel-tag|
 
 *  For committing changes, it is highly recommended to switch to a new branch:
 
    .. code-block:: console
 
-      host:~$ git switch --create <new-branch>
+      host:~/linux-imx$ git switch --create <new-branch>
 
 *  Set up a build environment:
 
    .. code-block:: console
       :substitutions:
 
-      host:~$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
+      host:~/linux-imx$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
 
 *  Build the linux kernel:
 
    .. code-block:: console
 
-      host:~$ make imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
-      host:~$ make -j${nproc}
+      host:~/linux-imx$ make imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
+      host:~/linux-imx$ make -j${nproc}
 
 *  Install kernel modules to e.g. NFS directory:
 
   .. code-block:: console
 
-      host:~$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+      host:~/linux-imx$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
 
 *  The Image can be found at ~/linux-imx/arch/arm64/boot/Image
 *  The dtb can be found at
@@ -238,7 +238,7 @@ Build Kernel
 
    .. code-block:: console
 
-      host:~$ make dtbs
+      host:~/linux-imx$ make dtbs
 
 .. note::
 
@@ -264,6 +264,6 @@ mounted SD card.
 .. code-block:: console
    :substitutions:
 
-   host:~$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
-   host:~$ cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
-   host:~$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
+   host:~/linux-imx$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
+   host:~/linux-imx$ cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
+   host:~/linux-imx$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
