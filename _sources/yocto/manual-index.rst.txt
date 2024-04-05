@@ -21,3 +21,13 @@ Mickledore
    :maxdepth: 2
 
    mickledore
+
+Scarthgap
+=========
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   scarthgap
