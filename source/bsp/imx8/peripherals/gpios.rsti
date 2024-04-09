@@ -39,56 +39,81 @@ of some usages of various tools:
 
    .. code-block:: console
 
-      target:~$ gpioinfo gpiochip0
+      target:~$ gpioinfo -c gpiochip0
 
 *  Read the value of a GPIO (e.g GPIO 20 from chip0):
 
    .. code-block:: console
 
-      target:~$ gpioget gpiochip0 20
+      target:~$ gpioget -c gpiochip0 20
 
 *  Set the value of GPIO 20 on chip0 to 0 and exit tool:
 
    .. code-block:: console
 
-      target:~$ gpioset --mode=exit gpiochip0 20=0
+      target:~$ gpioset -z -c gpiochip0 20=0
 
 *  Help text of gpioset shows possible options:
 
    .. code-block:: console
 
       target:~$ gpioset --help
-      Usage: gpioset [OPTIONS] <chip name/number> <offset1>=<value1> <offset2>=<value2> ...
-      Set GPIO line values of a GPIO chip
+      Usage: gpioset [OPTIONS] <line=value>...
+
+      Set values of GPIO lines.
+
+      Lines are specified by name, or optionally by offset if the chip option
+      is provided.
+      Values may be '1' or '0', or equivalently 'active'/'inactive' or 'on'/'off'.
+
+      The line output state is maintained until the process exits, but after that
+      is not guaranteed.
 
       Options:
-        -h, --help:           display this message and exit
-        -v, --version:        display the version and exit
-        -l, --active-low:     set the line active state to low
-        -m, --mode=[exit|wait|time|signal] (defaults to 'exit'):
-                      tell the program what to do after setting values
-        -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
-        -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
-        -b, --background:     after setting values: detach from the controlling terminal
+            --banner		display a banner on successful startup
+        -b, --bias <bias>	specify the line bias
+			Possible values: 'pull-down', 'pull-up', 'disabled'.
+			(default is to leave bias unchanged)
+            --by-name		treat lines as names even if they would parse as an offset
+        -c, --chip <chip>	restrict scope to a particular chip
+        -C, --consumer <name>	consumer name applied to requested lines (default is 'gpioset')
+        -d, --drive <drive>	specify the line drive mode
+			Possible values: 'push-pull', 'open-drain', 'open-source'.
+			(default is 'push-pull')
+        -h, --help		display this help and exit
+        -l, --active-low	treat the line as active low
+        -p, --hold-period <period>
+			the minimum time period to hold lines at the requested values
+        -s, --strict		abort if requested line names are not unique
+        -t, --toggle <period>[,period]...
+			toggle the line(s) after the specified period(s)
+			If the last period is non-zero then the sequence repeats.
+            --unquoted	don't quote line names
+        -v, --version		output version information and exit
+        -z, --daemonize	set values then detach from the controlling terminal
 
-      Modes:
-        exit:         set values and exit immediately
-        wait:         set values and wait for user to press ENTER
-        time:         set values and sleep for a specified amount of time
-        signal:       set values and wait for SIGINT or SIGTERM
+      Chips:
+          A GPIO chip may be identified by number, name, or path.
+          e.g. '0', 'gpiochip0', and '/dev/gpiochip0' all refer to the same chip.
 
-      Note: the state of a GPIO line controlled over the character device reverts to default
-      when the last process referencing the file descriptor representing the device file exits.
-      This means that it's wrong to run gpioset, have it exit and expect the line to continue
-      being driven high or low. It may happen if given pin is floating but it must be interpreted
-      as undefined behavior.
+      Periods:
+          Periods are taken as milliseconds unless units are specified. e.g. 10us.
+          Supported units are 's', 'ms', and 'us'.
 
+      *Note*
+          The state of a GPIO line controlled over the character device reverts to default
+          when the last process referencing the file descriptor representing the device file exits.
+          This means that it's wrong to run gpioset, have it exit and expect the line to continue
+          being driven high or low. It may happen if given pin is floating but it must be interpreted
+          as undefined behavior.
 
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
    refer to the schematic or the hardware manual of your board to ensure that it
    is not already in use.
+
+.. gpios-via-sysfs-marker
 
 GPIOs via sysfs
 ...............
@@ -99,14 +124,18 @@ GPIOs via sysfs
    instead.
 
 Support to access GPIOs via sysfs is not enabled by default any more.
-It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
-configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
-CONFIG_EXPERT has to be enabled first.
+It is only possible with manually enabling ``CONFIG_GPIO_SYSFS`` in the kernel
+configuration. To make ``CONFIG_GPIO_SYSFS`` visible in menuconfig the option
+``CONFIG_EXPERT`` has to be enabled first.
 
-You can also add this option for example to the
-imx8_phytec_distro.config config fragment in the linux kernel sources
-under arch/arm64/configs ::
+You can also add this option for example to the defconfig you use in
+``arch/arm64/configs/`` in the linux kernel sources. For our NXP based releases,
+this could be for example ``imx8_phytec_distro.config``::
 
    ..
+   CONFIG_EXPERT=y
    CONFIG_GPIO_SYSFS=y
    ..
+
+Otherwise you can create a new config fragment. This is described in our
+`Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_.
