@@ -360,6 +360,11 @@ Flash eMMC from USB
 Flash eMMC from USB in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. note::
+
+   Only the lower USB-A port is configured for storage devices and only
+   this port will work when trying to access a storage device in U-Boot.
+
 .. tip::
 
    This step only works if the size of the image file is less than 1GB due to
