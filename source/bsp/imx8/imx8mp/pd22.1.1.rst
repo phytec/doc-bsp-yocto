@@ -1597,7 +1597,40 @@ of some usages of various tools:
 .. include:: ../peripherals/gpios.rsti
    :start-after: .. gpios-via-sysfs-marker
 
-.. include:: ../../peripherals/leds.rsti
+LEDs
+----
+
+If any LEDs are connected to GPIOs, you have the possibility to access them by a
+special LED driver interface instead of the general GPIO interface (section
+GPIOs). You will then access them using ``/sys/class/leds/`` instead
+of ``/sys/class/gpio/``. The maximum brightness of the LEDs can be read from
+the ``max_brightness`` file. The brightness file will set the brightness of the LED
+(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
+brightness support and will just be turned on by all non-zero brightness
+settings.
+
+Below is a simple example.
+
+To get all available LEDs, type:
+
+.. code-block:: console
+
+   target:~$ ls /sys/class/leds
+   mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
+
+Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
+
+*  To toggle the LEDs ON:
+
+   .. code-block:: console
+
+      target:~$ echo 255 > /sys/class/leds/user-led1/brightness
+
+*  To toggle OFF:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/class/leds/user-led1/brightness
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216`

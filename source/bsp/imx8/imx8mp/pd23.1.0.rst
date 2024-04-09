@@ -680,7 +680,7 @@ of some usages of various tools:
 .. include:: ../peripherals/gpios.rsti
    :start-after: .. gpios-via-sysfs-marker
 
-.. include:: ../../peripherals/leds.rsti
+.. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
