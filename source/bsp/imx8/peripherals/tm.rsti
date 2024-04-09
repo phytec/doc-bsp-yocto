@@ -67,6 +67,8 @@ is set to the lowest CPU frequency. When the SoC temperature drops below
    The actual values of the thermal trip points may differ since we mount CPUs
    with different temperature grades.
 
+.. tm-gpio-fan-marker
+
 GPIO Fan
 ........
 
