@@ -42,7 +42,34 @@ These steps will show how to update the eMMC via a network.
 
    A working network is necessary! |ref-setup-network-host|
 
-*  Load your image via network to RAM:
+Load your image via network to RAM:
+
+*  when using dhcp
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> dhcp |yocto-imagename|-|yocto-machinename|.wic
+      BOOTP broadcast 1
+      DHCP client bound to address 192.168.3.1 (1 ms)
+      Using ethernet@30be0000 device
+      TFTP from server 192.168.3.10; our IP address is 192.168.3.1
+      Filename '|yocto-imagename|-|yocto-machinename|.wic'.
+      Load address: 0x40480000
+      Loading: ######################################
+               ######################################
+               ######################################
+               ...
+               ...
+               ...
+               ######################################
+               #############
+               11.2 MiB/s
+      done
+      Bytes transferred = 911842304 (36599c00 hex)
+
+*  when using a static ip address (serverip and ipaddr must be set
+   additionally).
 
    .. code-block::
       :substitutions:
@@ -64,17 +91,17 @@ These steps will show how to update the eMMC via a network.
       done
       Bytes transferred = 911842304 (36599c00 hex)
 
-*  Write the image to the eMMC:
+Write the image to the eMMC:
 
-   .. code-block::
+.. code-block::
 
-      u-boot=> mmc dev 2
-      switch to partitions #0, OK
-      mmc2(part 0) is current device
-      u-boot=> setexpr nblk ${filesize} / 0x200
-      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+   u-boot=> mmc dev 2
+   switch to partitions #0, OK
+   mmc2(part 0) is current device
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+   MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash eMMC via Network in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
