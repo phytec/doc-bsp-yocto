@@ -91,7 +91,7 @@ accordance with their goals.
 
 For more detailed information about the governors, refer to the Linux kernel
 documentation in the linux kernel repository at
-``Documentation/cpu-freq/governors.txt``.
+``Documentation/admin-guide/pm/cpufreq.rst``.
 
 CPU Core Management
 ...................
