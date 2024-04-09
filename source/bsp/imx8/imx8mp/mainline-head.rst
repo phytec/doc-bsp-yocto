@@ -1090,9 +1090,7 @@ example, has 4 ARM Cores which can be turned on and off individually at runtime.
       target:~$ echo 1 > /sys/devices/system/cpu/cpu3/online
 
 .. include:: ../peripherals/tm.rsti
-
-The device tree description of GPIO Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33`
+   :end-before: .. tm-gpio-fan-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
