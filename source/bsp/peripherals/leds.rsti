@@ -17,7 +17,7 @@ To get all available LEDs, type:
 .. code-block:: console
 
    target:~$ ls /sys/class/leds
-   mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
+   led-1@  led-2@  led-3@  mmc1::@  mmc2::@
 
 Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
 
@@ -25,10 +25,10 @@ Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
 
    .. code-block:: console
 
-      target:~$ echo 255 > /sys/class/leds/user-led1/brightness
+      target:~$ echo 255 > /sys/class/leds/led-1/brightness
 
 *  To toggle OFF:
 
    .. code-block:: console
 
-      target:~$ echo 0 > /sys/class/leds/user-led1/brightness
+      target:~$ echo 0 > /sys/class/leds/led-1/brightness

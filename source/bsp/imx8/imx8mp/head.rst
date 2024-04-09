@@ -408,7 +408,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. include:: ../peripherals/gpios.rsti
 
-.. include:: ../../peripherals/leds.rsti
+.. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
