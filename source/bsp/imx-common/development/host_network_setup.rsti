@@ -106,7 +106,8 @@ DHCP Server setup
 ~~~~~~~~~~~~~~~~~
 
 *  Create or edit the ``/etc/kea/kea-dhcp4.conf`` file; Using the internal subnet
-   sample:
+   sample. Replace <network-interface> with the name for the physical network
+   interface:
 
    .. code-block:: json
 
