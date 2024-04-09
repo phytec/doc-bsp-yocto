@@ -145,3 +145,8 @@ DHCP Server setup
    .. code-block:: console
 
          host:~$ sudo systemctl restart kea-dhcp4-server
+
+When you boot/restart your host PC and don't have the network interface, as
+specified in the kea-dhcp4 config, already active the kea-dhcp4-server will
+fail to start. Make sure to start/restart the systemd service when you connect
+the interface.
