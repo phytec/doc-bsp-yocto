@@ -465,3 +465,16 @@ Example:
 i.MX 8MP uses a different ``mmc`` command from master and from the rest of the
 i.MX 8M family. The content will be split again and i.MX 8MP needs to use its
 own specific version (different file).
+
+How to use substitution after full stop (.) in descriptions?
+------------------------------------------------------------
+
+To  use substitution variable in descriptions after a fullstop (.), it need to
+be specified as following "./ |substitution_variable|" in descriptions.
+
+Example:
+
+Let's say image_extension(substitution variable) is used for the image
+extensions(wic or wic.xz) that need to be used at the end of the
+image name after the full stop like phytec-headless-image./ |image_extension|.
+So, that comes as phytec-headless-image.wic.
