@@ -1110,13 +1110,3 @@ the ON/OFF button can be configured under ``/etc/systemd/logind.conf`` and set u
    HandlePowerKey=poweroff
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
-
-Reading the registers using ``/dev/mem`` will cause the system to hang unless the
-*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
-tree:
-
-.. code-block::
-
-   &clk {
-           init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;
-   };
