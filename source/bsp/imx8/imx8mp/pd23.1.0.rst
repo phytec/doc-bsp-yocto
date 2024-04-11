@@ -697,11 +697,28 @@ General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 EEPROM
 ------
 
-There are two different i2c EEPROM flashes populated on |som| SoM and on the
-|sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
-I2C EEPROM populated on the SoM is also used for board detection.
+On the |som| there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) and the ID-page (bus: I2C-0
+address: 0x59) can be accessed via the sysfs interface in Linux. The first
+256 bytes of the main EEPROM and the ID-page are used for board detection and
+must not be overwritten. Overwriting reserved spaces will result in boot issue.
 
 .. include:: ../peripherals/eeprom.rsti
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-written on both EEPROM data spaces. If
+you have accidentally deleted or overwritten the normal area, you can copy the
+hardware introspection from the ID area to the normal area.
+
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
+
+.. note::
+
+   If you deleted both EEPROM spaces, please contact our support!
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:

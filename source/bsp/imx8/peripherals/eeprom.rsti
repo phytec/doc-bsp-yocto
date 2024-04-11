@@ -56,18 +56,3 @@ is |kit-ram-size| RAM.
 
 SoMs that are flashed with data format API revision 2 will print out information
 about the module in the early stage.
-
-Rescue EEPROM Data
-..................
-
-The hardware introspection data is pre-written on both EEPROM data spaces. If
-you have accidentally deleted or overwritten the normal area, you can copy the
-hardware introspection from the ID area to the normal area.
-
-.. code-block:: console
-
-   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
-
-.. note::
-
-   If you deleted both EEPROM spaces, please contact our support!
