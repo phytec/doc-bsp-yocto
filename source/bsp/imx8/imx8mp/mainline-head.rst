@@ -44,7 +44,7 @@
 .. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
+.. |dt-somnetwork| replace:: https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L41
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
@@ -78,7 +78,7 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150`.
+   https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L106
 .. |pollux-fan-note| replace::
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
@@ -692,7 +692,7 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART1 pinmuxing:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L387
 
 RS232/RS485
 -----------
@@ -716,7 +716,7 @@ correctly.
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251
 
 .. _imx8mp-mainline-head-network:
 
@@ -762,10 +762,10 @@ Please note that these modifications will only affect the bootloader settings.
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -775,22 +775,22 @@ DT configuration for the eMMC interface can be found here:
    :end-before: .. peripherals-spi-nor-flash-marker
 
 The definition of the SPI master node in the device tree can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L67
 
 .. include:: ../peripherals/gpios.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L160
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L81
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L145
 
 
 EEPROM
@@ -804,7 +804,7 @@ I2C EEPROM populated on the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L169
 
 RTC
 ---
@@ -880,7 +880,7 @@ To set the time and date from the RTC use:
    :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L175
 
 USB Host Controller
 -------------------
@@ -895,7 +895,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220
 
 CAN FD
 ------
@@ -910,7 +910,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130
 
 Video
 -----
@@ -946,8 +946,8 @@ Weston Configuration
 Weston will work without any additional configuration. Configuration options are
 done at /etc/xdg/weston/weston.ini.
 
-Device tree description of LVDS-1 can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264`
+Device tree description of LVDS can be found here:
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182
 
 .. include:: /bsp/qt6.rsti
 
