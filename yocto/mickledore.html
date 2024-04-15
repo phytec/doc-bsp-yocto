@@ -18,7 +18,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=05b3b561"></script>
+        <script src="../_static/documentation_options.js?v=b2170a62"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-23-g87cb4f2
+                imx9-pd24.1.0-26-g6bc4297
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1163,7 +1163,7 @@ $ mkdir -p ~/git
 $ cd ~/git
 $ git clone git://git.phytec.de/barebox barebox
 $ cd ~/git/barebox
-$ git checkout -b v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
+$ git switch --create v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
 
 You now have two possible workflows for your changes:
 
@@ -1885,7 +1885,7 @@ kernel. If you do not have one, use the commands</p>
 <span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/git
 <span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/barebox
 <span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>barebox
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>v2022.02.0-phy<span class="w"> </span>remotes/origin/v2022.02.0-phy
+<span class="gp">host:~$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>v2022.02.0-phy<span class="w"> </span>remotes/origin/v2022.02.0-phy
 </pre></div>
 </div>
 <p>Add the following snippet to the file build/conf/local.conf</p>

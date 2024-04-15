@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=05b3b561"></script>
+        <script src="../../../_static/documentation_options.js?v=b2170a62"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-23-g87cb4f2
+                imx9-pd24.1.0-26-g6bc4297
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1532,8 +1532,8 @@ notes, which can be found here: <a class="reference external" href="https://git.
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
-<span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2022.04_2.2.2-phy5
+<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2022.04_2.2.2-phy5
 </pre></div>
 </div>
 <ul>
@@ -1541,7 +1541,7 @@ notes, which can be found here: <a class="reference external" href="https://git.
 further steps necessary:</p>
 <ul>
 <li><p>Create your own development branch:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;new-branch&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>&lt;new-branch&gt;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1553,13 +1553,13 @@ further steps necessary:</p>
 </li>
 <li><p>Copy all binaries into the U-Boot build directory</p></li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
 <li><p>build flash.bin (imx-boot):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>make<span class="w"> </span>phycore-imx8mp_defconfig
-<span class="gp">host:~$ </span>make<span class="w"> </span>flash.bin
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>phycore-imx8mp_defconfig
+<span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>flash.bin
 </pre></div>
 </div>
 </li>
@@ -1583,7 +1583,7 @@ chip-specific offset is needed:</p>
 </tbody>
 </table>
 <p>E.g. flash SD card:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
 </pre></div>
 </div>
 <div class="admonition hint">
@@ -1638,34 +1638,43 @@ be chosen by default. After saving the changes, follow the remaining steps from
 <li><p>Check out the needed linux-imx tag:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/linux-imx
 <span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/linux-imx/
-<span class="gp">host:~$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.15.71_2.2.2-phy3
-<span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;new-branch&gt;
+<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.15.71_2.2.2-phy3
+</pre></div>
+</div>
+</li>
+<li><p>For committing changes, it is highly recommended to switch to a new branch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>&lt;new-branch&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
 <li><p>Build the linux kernel:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>make<span class="w"> </span>imx_v8_defconfig<span class="w"> </span>imx8_phytec_distro.config<span class="w"> </span>imx8_phytec_platform.config
-<span class="gp">host:~$ </span>make<span class="w"> </span>-j<span class="si">${</span><span class="nv">nproc</span><span class="si">}</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>imx_v8_defconfig<span class="w"> </span>imx8_phytec_distro.config<span class="w"> </span>imx8_phytec_platform.config
+<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>-j<span class="si">${</span><span class="nv">nproc</span><span class="si">}</span>
 </pre></div>
 </div>
 </li>
 <li><p>Install kernel modules to e.g. NFS directory:</p></li>
 </ul>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
 <li><p>The dtb can be found at
 ~/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb</p></li>
+<li><p>For (re-)building only Devicetrees and -overlays, it is sufficient to run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>dtbs
+</pre></div>
+</div>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1684,9 +1693,9 @@ be chosen by default. After saving the changes, follow the remaining steps from
 <p>When one-time boot via netboot is not sufficient, the kernel along with its
 modules and the corresponding device tree blob may be copied directly to a
 mounted SD card.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>arch/arm64/boot/Image<span class="w"> </span>/path/to/sdcard/boot/
-<span class="gp">host:~$ </span>cp<span class="w"> </span>arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb<span class="w"> </span>/path/to/sdcard/boot/oftree
-<span class="gp">host:~$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/path/to/sdcard/root/<span class="w"> </span>modules_install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>arch/arm64/boot/Image<span class="w"> </span>/path/to/sdcard/boot/
+<span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb<span class="w"> </span>/path/to/sdcard/boot/oftree
+<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/path/to/sdcard/root/<span class="w"> </span>modules_install
 </pre></div>
 </div>
 </section>

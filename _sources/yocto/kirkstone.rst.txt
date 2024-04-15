@@ -1158,7 +1158,7 @@ in your shell. This will print something like
    $ cd ~/git
    $ git clone git://git.phytec.de/barebox barebox
    $ cd ~/git/barebox
-   $ git checkout -b v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
+   $ git switch --create v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
 
    You now have two possible workflows for your changes:
 
@@ -2021,7 +2021,7 @@ kernel. If you do not have one, use the commands
    host:~$ cd ~/git
    host:~$ git clone git://git.phytec.de/barebox
    host:~$ cd barebox
-   host:~$ git checkout -b v2022.02.0-phy remotes/origin/v2022.02.0-phy
+   host:~$ git switch --create v2022.02.0-phy remotes/origin/v2022.02.0-phy
 
 Add the following snippet to the file build/conf/local.conf
 
