@@ -126,7 +126,7 @@ Using bmap-tools
 ................
 
 An alternative and also fast way to prepare an SD card is using
-`bmap-tools <https://github.com/intel/bmap-tools>`_ by Intel. Yocto
+`bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
 integrity. *bmaptool* is packaged by various Linux distributions. For
