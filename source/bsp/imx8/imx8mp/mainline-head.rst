@@ -57,7 +57,7 @@
 .. |yocto-codename| replace:: master
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-i.MX8MP-PD24.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
@@ -152,7 +152,7 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-getting-started:
-.. include:: /bsp/getting-started.rsti
+.. include:: getting-started.rsti
 
 First Start-up
 --------------
@@ -210,7 +210,7 @@ select the phyCORE-|soc| default bootsource.
 .. _imx8mp-mainline-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: ../installing-os.rsti
+.. include:: installing-os.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
@@ -218,12 +218,12 @@ select the phyCORE-|soc| default bootsource.
 
 .. _imx8mp-mainline-head-development:
 .. include:: /bsp/imx-common/development/netboot.rsti
-.. include:: /bsp/imx-common/development/uuu.rsti
+.. include:: uuu.rsti
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
-.. include:: /bsp/imx-common/development/format_sd-card.rsti
+.. include:: format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
