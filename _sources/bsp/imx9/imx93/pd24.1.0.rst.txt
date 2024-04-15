@@ -221,6 +221,7 @@ select the phyCORE-|soc| default bootsource.
 Development
 ===========
 
+.. include:: ../../imx-common/development/host_network_setup.rsti
 .. include:: ../../imx-common/development/netboot.rsti
 
 .. include:: ../../imx-common/development/uuu.rsti

@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=b2170a62"></script>
+        <script src="../../../_static/documentation_options.js?v=5edbc475"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-26-g6bc4297
+                imx9-pd24.1.0-35-g95a7fce
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -82,12 +82,13 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#development">5. Development</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.3. Standalone Build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.4. Accessing the Development states</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.6. Format SD-Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.4. Standalone Build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.5. Accessing the Development states</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.7. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">6. Device Tree (DT)</a><ul>
@@ -1135,31 +1136,17 @@ BSPs: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=
 </section>
 <section id="development">
 <span id="imx8mp-pd23-1-0-development"></span><h1><span class="section-number">5. </span>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
-<section id="booting-the-kernel-from-a-network">
-<h2><span class="section-number">5.1. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
-<p>Booting from a network means loading the kernel over TFTP and the root file
-system over NFS. The bootloader itself must already be loaded from another boot
-device that is available.</p>
-<section id="host-preparation">
-<h3><span class="section-number">5.1.1. </span>Host Preparation<a class="headerlink" href="#host-preparation" title="Link to this heading"></a></h3>
-<p>On the development host, a TFTP server must be installed and configured. The
-following tools will be needed to boot the Kernel from Ethernet:</p>
-<ul>
-<li><p>A TFTP server</p>
-<p>For <em>Ubuntu</em>, install:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>tftpd-hpa<span class="w"> </span>xinetd
+<section id="host-network-preparation">
+<h2><span class="section-number">5.1. </span>Host Network Preparation<a class="headerlink" href="#host-network-preparation" title="Link to this heading"></a></h2>
+<p>For various tasks involving a network in the Bootloader, some host services are
+required to be set up. On the development host, a TFTP, NFS and DHCP server must
+be installed and configured. The following tools will be needed to boot via
+Ethernet:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tftpd-hpa<span class="w"> </span>nfs-kernel-server<span class="w"> </span>kea
 </pre></div>
 </div>
-</li>
-</ul>
-<p>After the installation, there are two ways to configure the TFTP server.</p>
-</section>
 <section id="tftp-server-setup">
-<h3><span class="section-number">5.1.2. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>As a stand-alone daemon</p></li>
-<li><p>Controlled and handled by xinetd</p></li>
-</ol>
+<h3><span class="section-number">5.1.1. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
 <ul>
 <li><p>First, create a directory to store the TFTP files:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/tftp
@@ -1188,10 +1175,6 @@ interface.</p>
 </pre></div>
 </div>
 </li>
-</ul>
-<section id="tftp-as-a-stand-alone-daemon">
-<h4><span class="section-number">5.1.2.1. </span>TFTP as a Stand-alone Daemon<a class="headerlink" href="#tftp-as-a-stand-alone-daemon" title="Link to this heading"></a></h4>
-<ul>
 <li><p>Create or edit the <code class="docutils literal notranslate"><span class="pre">/etc/default/tftpd-hpa</span></code> file:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># /etc/default/tftpd-hpa
 
@@ -1220,17 +1203,10 @@ TFTP_OPTIONS=&quot;-s -c&quot;
 We also need a network connection between the embedded board and the TFTP
 server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
-</section>
 <section id="nfs-server-setup">
-<h4><span class="section-number">5.1.2.2. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.1.1.1. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
 <ul>
-<li><p>After the installation of the TFTP server, an NFS server needs to be
-installed, too.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
-</pre></div>
-</div>
-</li>
-<li><p>Create a nfs directory:</p>
+<li><p>Create an nfs directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/nfs
 </pre></div>
 </div>
@@ -1240,7 +1216,7 @@ have to do on most distributions is modify the file <code class="docutils litera
 our root file system to the embedded network. In this example file, the whole
 directory is exported and the “lab network” address of the development host is
 192.168.3.10. The IP address has to be adapted to the local needs:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/srv/nfs 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/srv/nfs 192.168.3.0/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 </pre></div>
 </div>
 </li>
@@ -1251,9 +1227,64 @@ directory is exported and the “lab network” address of the development host 
 </li>
 </ul>
 </section>
+<section id="dhcp-server-setup">
+<h4><span class="section-number">5.1.1.2. </span>DHCP Server setup<a class="headerlink" href="#dhcp-server-setup" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Create or edit the <code class="docutils literal notranslate"><span class="pre">/etc/kea/kea-dhcp4.conf</span></code> file; Using the internal subnet
+sample. Replace &lt;network-interface&gt; with the name for the physical network
+interface:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Dhcp4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;interfaces-config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;&lt;network-interface&gt;/192.168.3.10&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;lease-database&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;memfile&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;persist&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/tmp/dhcp4.leases&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;valid-lifetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28800</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subnet4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;next-server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.10&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subnet&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.0/24&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;pools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;pool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.1 - 192.168.3.255&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when creating subnets as this may interfere with the company
+network policy. To be on the safe side, use a different network and specify
+that via the <code class="docutils literal notranslate"><span class="pre">interfaces</span></code> configuration option.</p>
+</div>
+<ul>
+<li><p>Now the DHCP-Server has to read the <code class="docutils literal notranslate"><span class="pre">/etc/kea/kea-dhcp4.conf</span></code> file again:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>kea-dhcp4-server
+</pre></div>
+</div>
+</li>
+</ul>
+<p>When you boot/restart your host PC and don’t have the network interface, as
+specified in the kea-dhcp4 config, already active the kea-dhcp4-server will
+fail to start. Make sure to start/restart the systemd service when you connect
+the interface.</p>
 </section>
+</section>
+</section>
+<section id="booting-the-kernel-from-a-network">
+<h2><span class="section-number">5.2. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
+<p>Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.</p>
 <section id="place-images-on-host-for-netboot">
-<h3><span class="section-number">5.1.3. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.1. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Copy the kernel image to your tftp directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>Image<span class="w"> </span>/srv/tftp
@@ -1288,7 +1319,7 @@ otherwise they are not accessible from the target:</p>
 </div>
 </section>
 <section id="set-the-bootenv-txt-for-netboot">
-<h3><span class="section-number">5.1.4. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.2. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
 <p>Create a bootenv.txt file in your tftp directory and write the following variables into it.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bootfile=Image
 fdt_file=oftree
@@ -1307,12 +1338,12 @@ Separate the filenames by spaces. For example:</p>
 </div>
 </section>
 <section id="network-settings-on-target">
-<h3><span class="section-number">5.1.5. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.3. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
 <p>To customize the targets ethernet configuration, please follow the description
 here: <a class="reference internal" href="#imx8mp-pd23-1-0-network"><span class="std std-ref">Network Environment Customization</span></a></p>
 </section>
 <section id="booting-from-an-embedded-board">
-<h3><span class="section-number">5.1.6. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.4. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
 <p>Boot the board into the U-boot prompt and press any key to hold.</p>
 <ul>
 <li><p>To boot from a network, call:</p>
@@ -1324,14 +1355,14 @@ here: <a class="reference internal" href="#imx8mp-pd23-1-0-network"><span class=
 </section>
 </section>
 <section id="working-with-uuu-tool">
-<h2><span class="section-number">5.2. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
 <p>The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
 on the host to load and run the bootloader on the board through SDP (Serial
 Download Protocol). For detailed information visit
 <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool
 documentation</a>.</p>
 <section id="host-preparations-for-uuu-tool-usage">
-<h3><span class="section-number">5.2.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
 <li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
@@ -1350,18 +1381,18 @@ documentation</a>.</p>
 </ul>
 </section>
 <section id="get-images">
-<h3><span class="section-number">5.2.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
 build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
 you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic.</p>
 </section>
 <section id="prepare-target">
-<h3><span class="section-number">5.2.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
 <p>Set the <a class="reference internal" href="#imx8mp-pd23-1-0-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
 <a class="reference internal" href="#imx8mp-pd23-1-0-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
-<h3><span class="section-number">5.2.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
 </pre></div>
@@ -1378,7 +1409,7 @@ this in U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.2.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
@@ -1406,7 +1437,7 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.2.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic
 </pre></div>
@@ -1414,7 +1445,7 @@ done by default, which makes partup again superior flash option.</p>
 </section>
 </section>
 <section id="standalone-build">
-<h2><span class="section-number">5.3. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.4. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
 <p>In this section, we describe how to build the U-Boot and the Linux kernel
 without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
 procedure makes the most sense for development. The U-Boot source code,
@@ -1426,7 +1457,7 @@ the Linux kernel, and all other git repositories are available on our
 HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https://git.phytec.de/u-boot-imx">https://git.phytec.de/u-boot-imx</a>)</p>
 </div>
 <section id="git-repositories">
-<h3><span class="section-number">5.3.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Used U-Boot repository:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git://git.phytec.de/u-boot-imx
@@ -1449,7 +1480,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </ul>
 </section>
 <section id="get-the-sdk">
-<h3><span class="section-number">5.3.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
 <p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
 <ul>
 <li><p>Move to the Yocto build directory:</p>
@@ -1461,7 +1492,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </ul>
 </section>
 <section id="install-the-sdk">
-<h3><span class="section-number">5.3.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Set correct permissions and install the SDK:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD23.1.0.sh
@@ -1478,7 +1509,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </ul>
 </section>
 <section id="using-the-sdk">
-<h3><span class="section-number">5.3.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
 <p>Activate the toolchain for your shell by sourcing the <em>environment-setup</em> file
 in the toolchain directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
@@ -1486,7 +1517,7 @@ in the toolchain directory:</p>
 </div>
 </section>
 <section id="installing-required-tools">
-<h3><span class="section-number">5.3.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Link to this heading"></a></h3>
 <p>Building Linux and U-Boot out-of-tree requires some additional host tool
 dependencies to be installed. For Ubuntu you can install them with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span>flex
@@ -1494,9 +1525,9 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 </div>
 </section>
 <section id="build-imx-boot">
-<h3><span class="section-number">5.3.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
 <section id="get-the-needed-binaries">
-<h4><span class="section-number">5.3.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.4.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
 <p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your <strong>u-boot-imx
 build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
 <ul class="simple">
@@ -1519,7 +1550,7 @@ mentioned here: <a class="reference internal" href="#imx8mp-pd23-1-0-images"><sp
 </div>
 </section>
 <section id="build-u-boot">
-<h4><span class="section-number">5.3.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.4.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h4>
 <ul id="imx8mp-pd23-1-0-development-build-uboot">
 <li><p>Get the U-Boot sources:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx
@@ -1592,7 +1623,7 @@ chip-specific offset is needed:</p>
 </div>
 </section>
 <section id="build-u-boot-with-a-fixed-ram-size">
-<h4><span class="section-number">5.3.6.3. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.4.6.3. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h4>
 <p>If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
 You should still contact support and flash the correct EEPROM data, as this
@@ -1631,7 +1662,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 </section>
 </section>
 <section id="build-kernel">
-<h3><span class="section-number">5.3.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Link to this heading"></a></h3>
 <ul>
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
 <li><p>The tag needed for this release is called v5.15.71_2.2.2-phy3</p></li>
@@ -1689,7 +1720,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 </div>
 </section>
 <section id="copy-kernel-to-sd-card">
-<h3><span class="section-number">5.3.8. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.8. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Link to this heading"></a></h3>
 <p>When one-time boot via netboot is not sufficient, the kernel along with its
 modules and the corresponding device tree blob may be copied directly to a
 mounted SD card.</p>
@@ -1701,9 +1732,9 @@ mounted SD card.</p>
 </section>
 </section>
 <section id="accessing-the-development-states">
-<h2><span class="section-number">5.4. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.5. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
 <section id="development-state-of-current-release">
-<h3><span class="section-number">5.4.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.5.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
 <p>These release manifests exist to give you access to the development states
 of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
@@ -1719,7 +1750,7 @@ will pull all the latest changes from our Git repositories:</p>
 </div>
 </section>
 <section id="development-state-of-upcoming-release">
-<h3><span class="section-number">5.4.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.5.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
 PDXX.Y number than the latest one (BSP-Yocto-NXP-i.MX8MP-PD23.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
@@ -1730,7 +1761,7 @@ end:</p>
 </section>
 </section>
 <section id="accessing-the-latest-upstream-support">
-<h2><span class="section-number">5.5. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.6. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
 <p>We have a vanilla manifest that makes use of the Yocto master branches (not an
 NXP release), Linux, and U-Boot. This can be used to test the latest upstream
 kernel/U-Boot.</p>
@@ -1744,13 +1775,13 @@ be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
 </section>
 <section id="format-sd-card">
-<h2><span class="section-number">5.6. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
 <p>Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The
 easiest way to do this is to use the UI program Gparted.</p>
 <section id="gparted">
-<h3><span class="section-number">5.6.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.7.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get GParted:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gparted
@@ -1775,7 +1806,7 @@ easiest way to do this is to use the UI program Gparted.</p>
 </ul>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
-<h4><span class="section-number">5.6.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.7.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
@@ -1802,7 +1833,7 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it a
 </ul>
 </section>
 <section id="create-the-third-partition">
-<h4><span class="section-number">5.6.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.7.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>

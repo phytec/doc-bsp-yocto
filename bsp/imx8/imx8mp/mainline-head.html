@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=b2170a62"></script>
+        <script src="../../../_static/documentation_options.js?v=5edbc475"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-26-g6bc4297
+                imx9-pd24.1.0-35-g95a7fce
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -78,41 +78,45 @@
 <li class="toctree-l5"><a class="reference internal" href="#flash-emmc">4.2. Flash eMMC</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#rauc">4.4. RAUC</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">4.5. Booting the Kernel from a Network</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">4.6. Working with UUU-Tool</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">4.7. Accessing the Development states</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">4.8. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">4.9. Format SD-Card</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">5. Device Tree (DT)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#introduction">5.1. Introduction</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#phytec-soc-bsp-device-tree-concept">5.2. PHYTEC i.MX 8M Plus BSP Device Tree Concept</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development">5. Development</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.4. Accessing the Development states</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.6. Format SD-Card</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-peripherals">6. Accessing Peripherals</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#soc-pin-muxing">6.1. i.MX 8M Plus Pin Muxing</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">6.2. RS232/RS485</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#network">6.3. Network</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#sd-mmc-card">6.4. SD/MMC Card</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#emmc-devices">6.5. eMMC Devices</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#spi-master">6.6. SPI Master</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#gpios">6.7. GPIOs</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#leds">6.8. LEDs</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#i2c-bus">6.9. I²C Bus</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#eeprom">6.10. EEPROM</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#rtc">6.11. RTC</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">6.12. USB Host Controller</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#can-fd">6.13. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#pcie">6.14. PCIe</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio">6.15. Audio</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#video">6.16. Video</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">6.17. Display</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#power-management">6.18. Power Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#thermal-management">6.19. Thermal Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#watchdog">6.20. Watchdog</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">6.21. snvs Power Key</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">6.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">6. Device Tree (DT)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#introduction">6.1. Introduction</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 8M Plus BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-peripherals">7. Accessing Peripherals</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#soc-pin-muxing">7.1. i.MX 8M Plus Pin Muxing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">7.2. RS232/RS485</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network">7.3. Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#sd-mmc-card">7.4. SD/MMC Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#emmc-devices">7.5. eMMC Devices</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#spi-master">7.6. SPI Master</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#gpios">7.7. GPIOs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#leds">7.8. LEDs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#i2c-bus">7.9. I²C Bus</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rtc">7.11. RTC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.12. USB Host Controller</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#can-fd">7.13. CAN FD</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pcie">7.14. PCIe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio">7.15. Audio</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#video">7.16. Video</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">7.17. Display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">7.18. Power Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.19. Thermal Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.20. Watchdog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">7.21. snvs Power Key</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
 </ul>
@@ -1122,31 +1126,20 @@ This includes updating the Linux kernel, Device Tree, and root filesystem.
 PHYTEC has written an online manual on how we have intergraded RAUC into our
 BSPs: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=fgByJg">L-1006e.A5 RAUC Update &amp; Device Management Manual</a>.</p>
 </section>
-<section id="booting-the-kernel-from-a-network">
-<span id="imx8mp-mainline-head-development"></span><h2><span class="section-number">4.5. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
-<p>Booting from a network means loading the kernel over TFTP and the root file
-system over NFS. The bootloader itself must already be loaded from another boot
-device that is available.</p>
-<section id="host-preparation">
-<h3><span class="section-number">4.5.1. </span>Host Preparation<a class="headerlink" href="#host-preparation" title="Link to this heading"></a></h3>
-<p>On the development host, a TFTP server must be installed and configured. The
-following tools will be needed to boot the Kernel from Ethernet:</p>
-<ul>
-<li><p>A TFTP server</p>
-<p>For <em>Ubuntu</em>, install:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>tftpd-hpa<span class="w"> </span>xinetd
+</section>
+<section id="development">
+<span id="imx8mp-mainline-head-development"></span><h1><span class="section-number">5. </span>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
+<section id="host-network-preparation">
+<h2><span class="section-number">5.1. </span>Host Network Preparation<a class="headerlink" href="#host-network-preparation" title="Link to this heading"></a></h2>
+<p>For various tasks involving a network in the Bootloader, some host services are
+required to be set up. On the development host, a TFTP, NFS and DHCP server must
+be installed and configured. The following tools will be needed to boot via
+Ethernet:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tftpd-hpa<span class="w"> </span>nfs-kernel-server<span class="w"> </span>kea
 </pre></div>
 </div>
-</li>
-</ul>
-<p>After the installation, there are two ways to configure the TFTP server.</p>
-</section>
 <section id="tftp-server-setup">
-<h3><span class="section-number">4.5.2. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>As a stand-alone daemon</p></li>
-<li><p>Controlled and handled by xinetd</p></li>
-</ol>
+<h3><span class="section-number">5.1.1. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
 <ul>
 <li><p>First, create a directory to store the TFTP files:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/tftp
@@ -1175,10 +1168,6 @@ interface.</p>
 </pre></div>
 </div>
 </li>
-</ul>
-<section id="tftp-as-a-stand-alone-daemon">
-<h4><span class="section-number">4.5.2.1. </span>TFTP as a Stand-alone Daemon<a class="headerlink" href="#tftp-as-a-stand-alone-daemon" title="Link to this heading"></a></h4>
-<ul>
 <li><p>Create or edit the <code class="docutils literal notranslate"><span class="pre">/etc/default/tftpd-hpa</span></code> file:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># /etc/default/tftpd-hpa
 
@@ -1207,17 +1196,10 @@ TFTP_OPTIONS=&quot;-s -c&quot;
 We also need a network connection between the embedded board and the TFTP
 server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
-</section>
 <section id="nfs-server-setup">
-<h4><span class="section-number">4.5.2.2. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.1.1.1. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
 <ul>
-<li><p>After the installation of the TFTP server, an NFS server needs to be
-installed, too.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
-</pre></div>
-</div>
-</li>
-<li><p>Create a nfs directory:</p>
+<li><p>Create an nfs directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/nfs
 </pre></div>
 </div>
@@ -1227,7 +1209,7 @@ have to do on most distributions is modify the file <code class="docutils litera
 our root file system to the embedded network. In this example file, the whole
 directory is exported and the “lab network” address of the development host is
 192.168.3.10. The IP address has to be adapted to the local needs:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/srv/nfs 192.168.3.11/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/srv/nfs 192.168.3.0/255.255.255.0(rw,no_root_squash,sync,no_subtree_check)
 </pre></div>
 </div>
 </li>
@@ -1238,9 +1220,64 @@ directory is exported and the “lab network” address of the development host 
 </li>
 </ul>
 </section>
+<section id="dhcp-server-setup">
+<h4><span class="section-number">5.1.1.2. </span>DHCP Server setup<a class="headerlink" href="#dhcp-server-setup" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Create or edit the <code class="docutils literal notranslate"><span class="pre">/etc/kea/kea-dhcp4.conf</span></code> file; Using the internal subnet
+sample. Replace &lt;network-interface&gt; with the name for the physical network
+interface:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Dhcp4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;interfaces-config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;&lt;network-interface&gt;/192.168.3.10&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;lease-database&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;memfile&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;persist&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/tmp/dhcp4.leases&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;valid-lifetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28800</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subnet4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;next-server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.10&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subnet&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.0/24&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;pools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;pool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.3.1 - 192.168.3.255&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when creating subnets as this may interfere with the company
+network policy. To be on the safe side, use a different network and specify
+that via the <code class="docutils literal notranslate"><span class="pre">interfaces</span></code> configuration option.</p>
+</div>
+<ul>
+<li><p>Now the DHCP-Server has to read the <code class="docutils literal notranslate"><span class="pre">/etc/kea/kea-dhcp4.conf</span></code> file again:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>kea-dhcp4-server
+</pre></div>
+</div>
+</li>
+</ul>
+<p>When you boot/restart your host PC and don’t have the network interface, as
+specified in the kea-dhcp4 config, already active the kea-dhcp4-server will
+fail to start. Make sure to start/restart the systemd service when you connect
+the interface.</p>
 </section>
+</section>
+</section>
+<section id="booting-the-kernel-from-a-network">
+<h2><span class="section-number">5.2. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
+<p>Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.</p>
 <section id="place-images-on-host-for-netboot">
-<h3><span class="section-number">4.5.3. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.1. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Copy the kernel image to your tftp directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>Image<span class="w"> </span>/srv/tftp
@@ -1249,11 +1286,6 @@ directory is exported and the “lab network” address of the development host 
 </li>
 <li><p>Copy the devicetree to your tftp directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>oftree<span class="w"> </span>/srv/tftp
-</pre></div>
-</div>
-</li>
-<li><p>Copy all the overlays you want to use into your tftp directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>*.dtbo<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
 </li>
@@ -1274,32 +1306,8 @@ otherwise they are not accessible from the target:</p>
 <p>Make sure you extract with sudo to preserve the correct ownership.</p>
 </div>
 </section>
-<section id="set-the-bootenv-txt-for-netboot">
-<h3><span class="section-number">4.5.4. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
-<p>Create a bootenv.txt file in your tftp directory and write the following variables into it.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bootfile=Image
-fdt_file=oftree
-nfsroot=/srv/nfs
-overlays=&lt;overlayfilenames&gt;
-</pre></div>
-</div>
-<p>&lt;overlayfilenames&gt; has to be replaced with the devicetree overlay filenames that you want to use.
-Separate the filenames by spaces. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=example-overlay1.dtbo example-overlay2.dtbo
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>All supported devicetree overlays are in the <a class="reference internal" href="#imx8mp-mainline-head-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
-</div>
-</section>
-<section id="network-settings-on-target">
-<h3><span class="section-number">4.5.5. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
-<p>To customize the targets ethernet configuration, please follow the description
-here: <a class="reference internal" href="#imx8mp-mainline-head-network"><span class="std std-ref">Network Environment Customization</span></a></p>
-</section>
 <section id="booting-from-an-embedded-board">
-<h3><span class="section-number">4.5.6. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.2. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
 <p>Boot the board into the U-boot prompt and press any key to hold.</p>
 <ul>
 <li><p>To boot from a network, call:</p>
@@ -1311,14 +1319,14 @@ here: <a class="reference internal" href="#imx8mp-mainline-head-network"><span c
 </section>
 </section>
 <section id="working-with-uuu-tool">
-<h2><span class="section-number">4.6. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
 <p>The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
 on the host to load and run the bootloader on the board through SDP (Serial
 Download Protocol). For detailed information visit
 <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool
 documentation</a>.</p>
 <section id="host-preparations-for-uuu-tool-usage">
-<h3><span class="section-number">4.6.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
 <li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
@@ -1337,18 +1345,18 @@ documentation</a>.</p>
 </ul>
 </section>
 <section id="get-images">
-<h3><span class="section-number">4.6.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
 build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
 you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic.</p>
 </section>
 <section id="prepare-target">
-<h3><span class="section-number">4.6.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
 <p>Set the <a class="reference internal" href="#imx8mp-mainline-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
 <a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
-<h3><span class="section-number">4.6.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
 </pre></div>
@@ -1365,7 +1373,7 @@ this in U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">4.6.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
@@ -1393,7 +1401,7 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">4.6.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic
 </pre></div>
@@ -1401,9 +1409,9 @@ done by default, which makes partup again superior flash option.</p>
 </section>
 </section>
 <section id="accessing-the-development-states">
-<h2><span class="section-number">4.7. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.4. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
 <section id="development-state-of-current-release">
-<h3><span class="section-number">4.7.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
 <p>These release manifests exist to give you access to the development states
 of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
@@ -1419,7 +1427,7 @@ will pull all the latest changes from our Git repositories:</p>
 </div>
 </section>
 <section id="development-state-of-upcoming-release">
-<h3><span class="section-number">4.7.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
 PDXX.Y number than the latest one (BSP-Yocto-i.MX8MP-PD24.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
@@ -1430,7 +1438,7 @@ end:</p>
 </section>
 </section>
 <section id="accessing-the-latest-upstream-support">
-<h2><span class="section-number">4.8. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.5. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
 <p>We have a vanilla manifest that makes use of the Yocto master branches (not an
 NXP release), Linux, and U-Boot. This can be used to test the latest upstream
 kernel/U-Boot.</p>
@@ -1444,13 +1452,13 @@ be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
 </section>
 <section id="format-sd-card">
-<h2><span class="section-number">4.9. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.6. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
 <p>Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The
 easiest way to do this is to use the UI program Gparted.</p>
 <section id="gparted">
-<h3><span class="section-number">4.9.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get GParted:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gparted
@@ -1475,7 +1483,7 @@ easiest way to do this is to use the UI program Gparted.</p>
 </ul>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
-<h4><span class="section-number">4.9.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.6.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
@@ -1502,7 +1510,7 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it a
 </ul>
 </section>
 <section id="create-the-third-partition">
-<h4><span class="section-number">4.9.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.6.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>
@@ -1534,9 +1542,9 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it a
 </section>
 </section>
 <section id="device-tree-dt">
-<span id="imx8mp-mainline-head-device-tree"></span><h1><span class="section-number">5. </span>Device Tree (DT)<a class="headerlink" href="#device-tree-dt" title="Link to this heading"></a></h1>
+<span id="imx8mp-mainline-head-device-tree"></span><h1><span class="section-number">6. </span>Device Tree (DT)<a class="headerlink" href="#device-tree-dt" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2><span class="section-number">5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>The following text briefly describes the Device Tree and can be found in
 the Linux kernel Documentation
 (<a class="reference external" href="https://docs.kernel.org/devicetree/usage-model.html">https://docs.kernel.org/devicetree/usage-model.html</a>)</p>
@@ -1549,11 +1557,11 @@ overview of the device tree data format can be found on the device tree usage
 page at <a class="reference external" href="https://www.devicetree.org/">devicetree.org</a>.</p>
 </section>
 <section id="phytec-soc-bsp-device-tree-concept">
-<h2><span class="section-number">5.2. </span>PHYTEC i.MX 8M Plus BSP Device Tree Concept<a class="headerlink" href="#phytec-soc-bsp-device-tree-concept" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.2. </span>PHYTEC i.MX 8M Plus BSP Device Tree Concept<a class="headerlink" href="#phytec-soc-bsp-device-tree-concept" title="Link to this heading"></a></h2>
 <p>The following sections explain some rules PHYTEC has defined on how to set up
 device trees for our i.MX 8M Plus SoC-based boards.</p>
 <section id="device-tree-structure">
-<h3><span class="section-number">5.2.1. </span>Device Tree Structure<a class="headerlink" href="#device-tree-structure" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.1. </span>Device Tree Structure<a class="headerlink" href="#device-tree-structure" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><em>Module.dtsi</em> - Module includes all devices mounted on the SoM, such as PMIC
 and RAM.</p></li>
@@ -1567,7 +1575,7 @@ may be mounted or missing on SoM or baseboard (e.g SPI flash or PEB-AV-10)</p></
 platforms can be found in <code class="docutils literal notranslate"><span class="pre">arch/arm64/boot/dts/freescale/</span></code>.</p>
 </section>
 <section id="device-tree-overlay">
-<h3><span class="section-number">5.2.2. </span>Device Tree Overlay<a class="headerlink" href="#device-tree-overlay" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.2. </span>Device Tree Overlay<a class="headerlink" href="#device-tree-overlay" title="Link to this heading"></a></h3>
 <p>Device Tree overlays are device tree fragments that can be merged into a device
 tree during boot time. These are for example hardware descriptions of an
 expansion board. They are instead of being added to the device tree as an extra
@@ -1580,7 +1588,7 @@ the subfolder <code class="docutils literal notranslate"><span class="pre">arch/
 </section>
 </section>
 <section id="accessing-peripherals">
-<h1><span class="section-number">6. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Link to this heading"></a></h1>
+<h1><span class="section-number">7. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Link to this heading"></a></h1>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
 phyCORE-i.MX 8M Plus BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0">our BSP</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
@@ -1605,7 +1613,7 @@ of our i.MX 8 BSP device tree model.</p>
 and their operating system drivers on the i.MX 8 platform. Further changes
 can be ported upon customer request.</p>
 <section id="soc-pin-muxing">
-<h2><span class="section-number">6.1. </span>i.MX 8M Plus Pin Muxing<a class="headerlink" href="#soc-pin-muxing" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.1. </span>i.MX 8M Plus Pin Muxing<a class="headerlink" href="#soc-pin-muxing" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus SoC contains many peripheral interfaces. In order to reduce package
 size and lower overall system cost while maintaining maximum functionality, many
 of the i.MX 8M Plus terminals can multiplex up to eight signal functions. Although
@@ -1638,7 +1646,7 @@ disabled.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536</a></p>
 </section>
 <section id="rs232-rs485">
-<h2><span class="section-number">6.2. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.2. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
 <p>The phyCORE-i.MX 8M Plus supports up to 4 UART units. On the phyBOARD-Pollux, TTL level signals
 of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
@@ -1654,7 +1662,7 @@ using ioctls. Have a look at our small example application rs485test, which is
 also included in the BSP. The jumpers <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP3</span></a> and <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP4</span></a> need to be set
 correctly.</p>
 <section id="rs232">
-<h3><span class="section-number">6.2.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.2.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Display the current settings of a terminal in a human-readable format:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-a
@@ -1678,7 +1686,7 @@ correctly.</p>
 <p>The host should print out “123”.</p>
 </section>
 <section id="rs485">
-<h3><span class="section-number">6.2.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.2.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
 <p>For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/ttymxc1<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
@@ -1694,7 +1702,7 @@ kernel documentation:
 </section>
 </section>
 <section id="network">
-<span id="imx8mp-mainline-head-network"></span><h2><span class="section-number">6.3. </span>Network<a class="headerlink" href="#network" title="Link to this heading"></a></h2>
+<span id="imx8mp-mainline-head-network"></span><h2><span class="section-number">7.3. </span>Network<a class="headerlink" href="#network" title="Link to this heading"></a></h2>
 <p>phyBOARD-Pollux-i.MX 8M Plus provides two ethernet interfaces. A gigabit Ethernet is provided by our
 module and board.</p>
 <div class="admonition warning">
@@ -1725,9 +1733,9 @@ be found here: <a class="reference external" href="https://git.phytec.de/linux-i
 on the phyBOARD-Pollux can be found here:
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150</a>.</p>
 <section id="network-environment-customization">
-<h3><span class="section-number">6.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Link to this heading"></a></h3>
 <section id="u-boot-network-environment">
-<h4><span class="section-number">6.3.1.1. </span>U-boot network-environment<a class="headerlink" href="#u-boot-network-environment" title="Link to this heading"></a></h4>
+<h4><span class="section-number">7.3.1.1. </span>U-boot network-environment<a class="headerlink" href="#u-boot-network-environment" title="Link to this heading"></a></h4>
 <ul>
 <li><p>To find the Ethernet settings in the target bootloader:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; printenv ipaddr serverip netmask
@@ -1785,7 +1793,7 @@ set when the external environment is being loaded.</p>
 </div>
 </section>
 <section id="kernel-network-environment">
-<h4><span class="section-number">6.3.1.2. </span>Kernel network-environment<a class="headerlink" href="#kernel-network-environment" title="Link to this heading"></a></h4>
+<h4><span class="section-number">7.3.1.2. </span>Kernel network-environment<a class="headerlink" href="#kernel-network-environment" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Find the ethernet settings for eth0 in the target kernel:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ifconfig<span class="w"> </span>eth0
@@ -1808,7 +1816,7 @@ set when the external environment is being loaded.</p>
 </section>
 </section>
 <section id="sd-mmc-card">
-<h2><span class="section-number">6.4. </span>SD/MMC Card<a class="headerlink" href="#sd-mmc-card" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.4. </span>SD/MMC Card<a class="headerlink" href="#sd-mmc-card" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus supports a slot for Secure Digital Cards and MultiMedia Cards to be
 used as general-purpose block devices. These devices can be used in the same way
 as any other block device.</p>
@@ -1841,7 +1849,7 @@ mounting. The cards are always mounted as being writable.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223</a></p>
 </section>
 <section id="emmc-devices">
-<h2><span class="section-number">6.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
 <p>PHYTEC modules like phyCORE-i.MX 8M Plus is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
 controller that handles ECC and wear leveling. They are connected via an SD/MMC
@@ -1853,7 +1861,7 @@ The eMMC manufacturer’s datasheet is relatively short and meant to be read
 together with the supported version of the JEDEC eMMC standard.</p>
 <p>PHYTEC currently utilizes the eMMC chips with JEDEC Version 5.0 and 5.1</p>
 <section id="extended-csd-register">
-<h3><span class="section-number">6.5.1. </span>Extended CSD Register<a class="headerlink" href="#extended-csd-register" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.1. </span>Extended CSD Register<a class="headerlink" href="#extended-csd-register" title="Link to this heading"></a></h3>
 <p>eMMC devices have an extensive amount of extra information and settings that are
 available via the Extended CSD registers. For a detailed list of the registers,
 see manufacturer datasheets and the JEDEC standard.</p>
@@ -1872,7 +1880,7 @@ see manufacturer datasheets and the JEDEC standard.</p>
 </div>
 </section>
 <section id="enabling-background-operations-bkops">
-<h3><span class="section-number">6.5.2. </span>Enabling Background Operations (BKOPS)<a class="headerlink" href="#enabling-background-operations-bkops" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.2. </span>Enabling Background Operations (BKOPS)<a class="headerlink" href="#enabling-background-operations-bkops" title="Link to this heading"></a></h3>
 <p>In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
 cells. This requires some maintenance tasks (for example erasing unused blocks)
@@ -1933,7 +1941,7 @@ itself, shut down the system:</p>
 </div>
 </section>
 <section id="reliable-write">
-<h3><span class="section-number">6.5.3. </span>Reliable Write<a class="headerlink" href="#reliable-write" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.3. </span>Reliable Write<a class="headerlink" href="#reliable-write" title="Link to this heading"></a></h3>
 <p>There are two different Reliable Write options:</p>
 <ol class="arabic simple">
 <li><p>Reliable Write option for a whole eMMC device/partition.</p></li>
@@ -1983,7 +1991,7 @@ data consistency for the files of an application, the system functions fdatasync
 or fsync should be used in the application.</p>
 </section>
 <section id="resizing-ext4-root-filesystem">
-<h3><span class="section-number">6.5.4. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#resizing-ext4-root-filesystem" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.4. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#resizing-ext4-root-filesystem" title="Link to this heading"></a></h3>
 <p>When flashing the sdcard image to eMMC the ext4 root partition is not extended
 to the end of the eMMC. parted can be used to expand the root partition. The
 example works for any block device such as eMMC, SD card, or hard disk.</p>
@@ -2045,7 +2053,7 @@ partition while it is not mounted.</p>
 </ul>
 </section>
 <section id="enable-pseudo-slc-mode">
-<h3><span class="section-number">6.5.5. </span>Enable pseudo-SLC Mode<a class="headerlink" href="#enable-pseudo-slc-mode" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.5. </span>Enable pseudo-SLC Mode<a class="headerlink" href="#enable-pseudo-slc-mode" title="Link to this heading"></a></h3>
 <p>eMMC devices use MLC memory cells
 (<a class="reference external" href="https://en.wikipedia.org/wiki/Multi-level_cell">https://en.wikipedia.org/wiki/Multi-level_cell</a>) to store the data. Compared
 with SLC memory cells used in NAND Flash, MLC memory cells have lower
@@ -2131,7 +2139,7 @@ i.e. 3719168 KiB
 </ul>
 </section>
 <section id="erasing-the-device">
-<h3><span class="section-number">6.5.6. </span>Erasing the Device<a class="headerlink" href="#erasing-the-device" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.6. </span>Erasing the Device<a class="headerlink" href="#erasing-the-device" title="Link to this heading"></a></h3>
 <p>It is possible to erase the eMMC device directly rather than overwriting it with
 zeros. The eMMC block management algorithm will erase the underlying MLC memory
 cells or mark these blocks as discard. The data on the device is lost and will
@@ -2156,7 +2164,7 @@ leveling and takes much longer!</p>
 </div>
 </section>
 <section id="emmc-boot-partitions">
-<h3><span class="section-number">6.5.7. </span>eMMC Boot Partitions<a class="headerlink" href="#emmc-boot-partitions" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.7. </span>eMMC Boot Partitions<a class="headerlink" href="#emmc-boot-partitions" title="Link to this heading"></a></h3>
 <p>An eMMC device contains four different hardware partitions: user, boot1, boot2,
 and rpmb.</p>
 <p>The user partition is called the User Data Area in the JEDEC standard and is the
@@ -2188,7 +2196,7 @@ Below is an example, to flash the bootloader to one of the two boot partitions
 and switch the boot device via userspace commands.</p>
 </section>
 <section id="via-userspace-commands">
-<h3><span class="section-number">6.5.8. </span>Via userspace Commands<a class="headerlink" href="#via-userspace-commands" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.8. </span>Via userspace Commands<a class="headerlink" href="#via-userspace-commands" title="Link to this heading"></a></h3>
 <p>On the host, run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>imx-boot<span class="w"> </span>root@192.168.3.11:/tmp/
 </pre></div>
@@ -2246,7 +2254,7 @@ command:</p>
 </div>
 </section>
 <section id="id1">
-<h3><span class="section-number">6.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>fdisk can be used to expand the root filesystem. The example works for any block
 device such as eMMC, SD Card, or hard disk.</p>
 <ul>
@@ -2325,7 +2333,7 @@ table will be read.</p>
 </section>
 </section>
 <section id="spi-master">
-<h2><span class="section-number">6.6. </span>SPI Master<a class="headerlink" href="#spi-master" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.6. </span>SPI Master<a class="headerlink" href="#spi-master" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus controller has a FlexSPI and an ECSPI IP core included. The FlexSPI
 host controller supports two SPI channels with up to 4 devices. Each channel
 supports Single/Dual/Quad/Octal mode data transfer (1/2/4/8 bidirectional data
@@ -2333,7 +2341,7 @@ lines). The ECSPI controller supports 3 SPI interfaces with one dedicated chip
 selected for each interface. As chip selects should be realized with GPIOs, more
 than one device on each channel is possible.</p>
 <section id="spi-nor-flash">
-<h3><span class="section-number">6.6.1. </span>SPI NOR Flash<a class="headerlink" href="#spi-nor-flash" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.6.1. </span>SPI NOR Flash<a class="headerlink" href="#spi-nor-flash" title="Link to this heading"></a></h3>
 <p>phyCORE-i.MX 8M Plus is equipped with a QSPI NOR Flash which connects to the i.MX 8M Plus’s
 FlexSPI interface. The QSPI NOR Flash is suitable for booting. Please see
 different sections for flashing and bootmode setup. Due to limited space on the
@@ -2414,7 +2422,7 @@ SPI NOR Flash.</p>
 </section>
 </section>
 <section id="gpios">
-<h2><span class="section-number">6.7. </span>GPIOs<a class="headerlink" href="#gpios" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.7. </span>GPIOs<a class="headerlink" href="#gpios" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Pollux has a set of pins especially dedicated to user I/Os. Those pins are
 connected directly to i.MX 8M Plus pins and are muxed as GPIOs. They are directly
 usable in Linux userspace. The processor has organized its GPIOs into five banks
@@ -2496,7 +2504,7 @@ refer to the schematic or the hardware manual of your board to ensure that it
 is not already in use.</p>
 </div>
 <section id="gpios-via-sysfs">
-<h3><span class="section-number">6.7.1. </span>GPIOs via sysfs<a class="headerlink" href="#gpios-via-sysfs" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.7.1. </span>GPIOs via sysfs<a class="headerlink" href="#gpios-via-sysfs" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
@@ -2517,7 +2525,7 @@ CONFIG_GPIO_SYSFS=y
 </section>
 </section>
 <section id="leds">
-<h2><span class="section-number">6.8. </span>LEDs<a class="headerlink" href="#leds" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.8. </span>LEDs<a class="headerlink" href="#leds" title="Link to this heading"></a></h2>
 <p>If any LEDs are connected to GPIOs, you have the possibility to access them by a
 special LED driver interface instead of the general GPIO interface (section
 GPIOs). You will then access them using <code class="docutils literal notranslate"><span class="pre">/sys/class/leds/</span></code> instead
@@ -2549,7 +2557,7 @@ settings.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229</a></p>
 </section>
 <section id="i2c-bus">
-<h2><span class="section-number">6.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus contains several Multimaster fast-mode I²C modules. PHYTEC boards
 provide plenty of different I²C devices connected to the I²C modules of the
 i.MX 8M Plus. This section describes the basic device usage and its DT representation
@@ -2563,12 +2571,12 @@ which are alternate pin configurations used for bus recovery.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212</a></p>
 </section>
 <section id="eeprom">
-<h2><span class="section-number">6.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
 <p>There are two different i2c EEPROM flashes populated on phyCORE-i.MX8MP SoM and on the
 phyBOARD-Pollux. Both can be used with the sysfs interface in Linux. The ID page of the
 I2C EEPROM populated on the SoM is also used for board detection.</p>
 <section id="i2c-eeprom-on-som">
-<h3><span class="section-number">6.10.1. </span>I2C EEPROM on phyCORE-i.MX8MP<a class="headerlink" href="#i2c-eeprom-on-som" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.10.1. </span>I2C EEPROM on phyCORE-i.MX8MP<a class="headerlink" href="#i2c-eeprom-on-som" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 265 bytes of the
@@ -2592,7 +2600,7 @@ execute:</p>
 </div>
 </section>
 <section id="eeprom-som-detection">
-<h3><span class="section-number">6.10.2. </span>EEPROM SoM Detection<a class="headerlink" href="#eeprom-som-detection" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.10.2. </span>EEPROM SoM Detection<a class="headerlink" href="#eeprom-som-detection" title="Link to this heading"></a></h3>
 <p>The I2C EEPROM, populated on the phyCORE-i.MX8MP, has a separate ID page that is
 addressable over I2C address 0x59 on bus 0 and a normal area that is addressable
 over I2C address 0x51 on bus 0. PHYTEC uses this data area of 32 Bytes to store
@@ -2615,7 +2623,7 @@ might not boot correctly anymore.</p>
 about the module in the early stage.</p>
 </section>
 <section id="rescue-eeprom-data">
-<h3><span class="section-number">6.10.3. </span>Rescue EEPROM Data<a class="headerlink" href="#rescue-eeprom-data" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.10.3. </span>Rescue EEPROM Data<a class="headerlink" href="#rescue-eeprom-data" title="Link to this heading"></a></h3>
 <p>The hardware introspection data is pre-written on both EEPROM data spaces. If
 you have accidentally deleted or overwritten the normal area, you can copy the
 hardware introspection from the ID area to the normal area.</p>
@@ -2632,7 +2640,7 @@ found in our PHYTEC git:
 </section>
 </section>
 <section id="rtc">
-<h2><span class="section-number">6.11. </span>RTC<a class="headerlink" href="#rtc" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.11. </span>RTC<a class="headerlink" href="#rtc" title="Link to this heading"></a></h2>
 <p>RTCs can be accessed via <code class="docutils literal notranslate"><span class="pre">/dev/rtc*</span></code>. Because PHYTEC boards have often more than
 one RTC, there might be more than one RTC device file.</p>
 <ul>
@@ -2688,7 +2696,7 @@ target to check if the changes were applied to the RTC:</p>
 </pre></div>
 </div>
 <section id="rtc-wakealarm">
-<h3><span class="section-number">6.11.1. </span>RTC Wakealarm<a class="headerlink" href="#rtc-wakealarm" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.11.1. </span>RTC Wakealarm<a class="headerlink" href="#rtc-wakealarm" title="Link to this heading"></a></h3>
 <p>It is possible to issue an interrupt from the RTC to wake up the system. The
 format uses the Unix epoch time, which is the number of seconds since UTC
 midnight on 1 January 1970. To wake up the system after 4 minutes from suspend
@@ -2704,7 +2712,7 @@ the alarm function doesn’t support seconds.</p>
 </div>
 </section>
 <section id="rtc-parameters">
-<h3><span class="section-number">6.11.2. </span>RTC Parameters<a class="headerlink" href="#rtc-parameters" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.11.2. </span>RTC Parameters<a class="headerlink" href="#rtc-parameters" title="Link to this heading"></a></h3>
 <p>RTCs have a few abilities which can be read/set with the help of <code class="docutils literal notranslate"><span class="pre">hwclock</span></code>
 tool.</p>
 <ul>
@@ -2757,7 +2765,7 @@ Mode) actually mean.</p>
 </section>
 </section>
 <section id="usb-host-controller">
-<h2><span class="section-number">6.12. </span>USB Host Controller<a class="headerlink" href="#usb-host-controller" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.12. </span>USB Host Controller<a class="headerlink" href="#usb-host-controller" title="Link to this heading"></a></h2>
 <p>The USB controller of the i.MX 8M Plus SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
 transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
@@ -2773,7 +2781,7 @@ different USB memory devices in different ways.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351</a></p>
 </section>
 <section id="can-fd">
-<h2><span class="section-number">6.13. </span>CAN FD<a class="headerlink" href="#can-fd" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.13. </span>CAN FD<a class="headerlink" href="#can-fd" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Pollux two flexCAN interfaces supporting CAN FD. They are supported by the
 Linux standard CAN framework which builds upon then the Linux network layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
@@ -2882,7 +2890,7 @@ Slower rates can be selected but may not work correctly.</p>
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175</a></p>
 </section>
 <section id="pcie">
-<h2><span class="section-number">6.14. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.14. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
 <p>The phyCORE-i.MX 8M Plus has one Mini-PCIe slot. In general, PCIe autodetects new
 devices on the bus. After connecting the device and booting up the system, you
 can use the command lspci to see all PCIe devices recognized.</p>
@@ -2974,7 +2982,7 @@ case, the behavior and output depend strongly on the manufacturer’s firmware.<
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287</a></p>
 </section>
 <section id="audio">
-<h2><span class="section-number">6.15. </span>Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.15. </span>Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h2>
 <p>Playback devices supported for phyBOARD-Pollux are HDMI and the TI TLV320AIC3007 audio
 codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
 jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
@@ -2994,7 +3002,7 @@ called, type for playback devices:</p>
 </pre></div>
 </div>
 <section id="alsamixer">
-<h3><span class="section-number">6.15.1. </span>Alsamixer<a class="headerlink" href="#alsamixer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.1. </span>Alsamixer<a class="headerlink" href="#alsamixer" title="Link to this heading"></a></h3>
 <p>To inspect the capabilities of your soundcard, call:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsamixer
 </pre></div>
@@ -3008,7 +3016,7 @@ toggle by hitting ‘<strong>&lt;</strong>’ for left and ‘<strong>&gt;</stro
 key, you can switch between controls for playback and recording.</p>
 </section>
 <section id="restore-default-volumes">
-<h3><span class="section-number">6.15.2. </span>Restore default volumes<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.2. </span>Restore default volumes<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
 <p>There are some default settings stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/alsa/asound.state</span></code>.
 You can save your current alsa settings with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsactl<span class="w"> </span>--file<span class="w"> </span>&lt;/path/to/filename&gt;<span class="w"> </span>store
@@ -3020,7 +3028,7 @@ You can save your current alsa settings with:</p>
 </div>
 </section>
 <section id="alsa-configuration">
-<h3><span class="section-number">6.15.3. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.3. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
 <p>Our BSP comes with a ALSA configuration file <code class="docutils literal notranslate"><span class="pre">/etc/asound.conf</span></code>.</p>
 <p>The ALSA configuration file can be edited as desired or deleted since it is not
 required for ALSA to work properly.</p>
@@ -3055,7 +3063,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="pulseaudio-configuration">
-<h3><span class="section-number">6.15.4. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.4. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
 <p>For applications using <em>Pulseaudio</em>, check for available sinks:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>pactl<span class="w"> </span>list<span class="w"> </span>short<span class="w"> </span>sinks
 </pre></div>
@@ -3066,7 +3074,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="playback">
-<h3><span class="section-number">6.15.5. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.5. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
 <p>Run speaker-test to check playback availability:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>speaker-test<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span>wav
 </pre></div>
@@ -3082,7 +3090,7 @@ ALSA test sounds:</p>
 </div>
 </section>
 <section id="capture">
-<h3><span class="section-number">6.15.6. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.6. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">arecord</span></code> is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can
 use <code class="docutils literal notranslate"><span class="pre">alsamixer</span></code>. For example, switch on <em>Right PGA Mixer Mic3R</em> and <em>Left PGA Mixer
@@ -3106,9 +3114,9 @@ capture operations.</p>
 </section>
 </section>
 <section id="video">
-<h2><span class="section-number">6.16. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.16. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <section id="videos-with-gstreamer">
-<h3><span class="section-number">6.16.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
 <p>One example video is installed by default in the BSP at <cite>/usr/share/qtphy/videos/</cite>.
 Start the video playback with one of these commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>-v<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>/usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span><span class="nv">name</span><span class="o">=</span>decoder<span class="w"> </span>decoder.<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>waylandsink<span class="w"> </span><span class="nv">fullscreen</span><span class="o">=</span><span class="nb">true</span>
@@ -3127,18 +3135,18 @@ Start the video playback with one of these commands:</p>
 </section>
 </section>
 <section id="display">
-<h2><span class="section-number">6.17. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.17. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Pollux supports LVDS output via the LVDS1 connector on the carrier board. The
 LVDS interface is enabled by default.</p>
 <section id="weston-configuration">
-<h3><span class="section-number">6.17.1. </span>Weston Configuration<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.1. </span>Weston Configuration<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
 <p>Weston will work without any additional configuration. Configuration options are
 done at /etc/xdg/weston/weston.ini.</p>
 <p>Device tree description of LVDS-1 can be found here:
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264</a></p>
 </section>
 <section id="qt-demo">
-<h3><span class="section-number">6.17.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
 <p>With the <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code>, Weston starts during boot. Our Qt6 demo application named
 “qtphy” can be stopped with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>qtphy
@@ -3173,9 +3181,9 @@ done at /etc/xdg/weston/weston.ini.</p>
 </section>
 </section>
 <section id="power-management">
-<h2><span class="section-number">6.18. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.18. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
 <section id="cpu-core-frequency-scaling">
-<h3><span class="section-number">6.18.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
 <p>The CPU in the i.MX 8M Plus SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
 Scaling the frequency and the voltage is referred to as ‘Dynamic Voltage and
@@ -3254,7 +3262,7 @@ documentation in the linux kernel repository at
 <code class="docutils literal notranslate"><span class="pre">Documentation/cpu-freq/governors.txt</span></code>.</p>
 </section>
 <section id="cpu-core-management">
-<h3><span class="section-number">6.18.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
 <p>The i.MX 8M Plus SoC can have multiple processor cores on the die. The i.MX 8M Plus, for
 example, has 4 ARM Cores which can be turned on and off individually at runtime.</p>
 <ul>
@@ -3294,7 +3302,7 @@ system are enabled to get maximum performance.</p>
 </ul>
 </section>
 <section id="suspend-to-ram">
-<h3><span class="section-number">6.18.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
 <p>The phyCORE-i.MX8MP supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>mem<span class="w"> </span>&gt;<span class="w"> </span>/sys/power/state
@@ -3309,9 +3317,9 @@ used. Suspend/resume is possible with:</p>
 </section>
 </section>
 <section id="thermal-management">
-<h2><span class="section-number">6.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
 <section id="u-boot">
-<h3><span class="section-number">6.19.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
 <p>The previous temperature control in the U-Boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -3323,7 +3331,7 @@ the boot log:</p>
 </div>
 </section>
 <section id="kernel">
-<h3><span class="section-number">6.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
@@ -3380,7 +3388,7 @@ with different temperature grades.</p>
 </div>
 </section>
 <section id="gpio-fan">
-<h3><span class="section-number">6.19.3. </span>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.3. </span>GPIO Fan<a class="headerlink" href="#gpio-fan" title="Link to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
@@ -3406,7 +3414,7 @@ with:</p>
 </section>
 </section>
 <section id="watchdog">
-<h2><span class="section-number">6.20. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.20. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
 <p>The PHYTEC i.MX 8M Plus modules include a hardware watchdog that is able to reset the
 board when the system hangs. The watchdog is started on default in U-Boot with a
 timeout of 60s. So even during early kernel start, the watchdog is already up
@@ -3414,7 +3422,7 @@ and running. The Linux kernel driver takes control over the watchdog and makes
 sure that it is fed. This section explains how to configure the watchdog in
 Linux using systemd to check for system hangs and during reboot.</p>
 <section id="watchdog-support-in-systemd">
-<h3><span class="section-number">6.20.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.20.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
 <p>Systemd has included hardware watchdog support since version 183.</p>
 <ul>
 <li><p>To activate watchdog support, the file system.conf in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/</span></code> has to be
@@ -3436,7 +3444,7 @@ after a reboot or run:</p>
 </section>
 </section>
 <section id="snvs-power-key">
-<h2><span class="section-number">6.21. </span>snvs Power Key<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.21. </span>snvs Power Key<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
 <p>The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
 Power OFF without SW intervention or used to wake up the system out of suspend.
 With the <em>snvs_pwrkey</em> driver, the KEY_POWER event is also reported to userspace
@@ -3449,7 +3457,7 @@ ON/OFF button can be configured under <code class="docutils literal notranslate"
 </div>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
-<h2><span class="section-number">6.22. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.22. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings (“On-Chip OTP
 Controller (OCOTP_CTRL)” in the i.MX 8M Plus Reference Manual). The following list is
@@ -3495,7 +3503,7 @@ of ENET1 MAC address</p></td>
 the boot/mac/… configuration are available in the section “Fuse Map” of the
 i.MX 8M Plus Security Reference Manual.</p>
 <section id="reading-fuse-values-in-uboot">
-<h3><span class="section-number">6.22.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
 <p>You can read the content of a fuse using memory-mapped shadow registers. To
 calculate the memory address, use the fuse Bank and Word in the following
 formula:</p>
@@ -3505,7 +3513,7 @@ formula:</p>
 </div>
 </section>
 <section id="reading-fuse-values-in-linux">
-<h3><span class="section-number">6.22.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
 <p>To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:</p>

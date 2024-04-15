@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=b2170a62"></script>
+        <script src="../../../_static/documentation_options.js?v=5edbc475"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-26-g6bc4297
+                imx9-pd24.1.0-35-g95a7fce
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -73,8 +73,9 @@
 <li class="toctree-l4"><a class="reference internal" href="mainline-head.html#getting-started">2. Getting Started</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mainline-head.html#building-the-bsp">3. Building the BSP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mainline-head.html#installing-the-os">4. Installing the OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#device-tree-dt">5. Device Tree (DT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#accessing-peripherals">6. Accessing Peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#development">5. Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#device-tree-dt">6. Device Tree (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainline-head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pd23-1-0">PD23.1.0</a><ul>
@@ -169,12 +170,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="head.html#development">5. Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="head.html#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="head.html#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="head.html#standalone-build">5.3. Standalone Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="head.html#accessing-the-development-states">5.4. Accessing the Development states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="head.html#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="head.html#format-sd-card">5.6. Format SD-Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#standalone-build">5.4. Standalone Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#accessing-the-development-states">5.5. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#format-sd-card">5.7. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="head.html#device-tree-dt">6. Device Tree (DT)</a><ul>
@@ -246,41 +248,45 @@
 <li class="toctree-l2"><a class="reference internal" href="mainline-head.html#flash-emmc">4.2. Flash eMMC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mainline-head.html#flash-spi-nor-flash">4.3. Flash SPI NOR Flash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rauc">4.4. RAUC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#booting-the-kernel-from-a-network">4.5. Booting the Kernel from a Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#working-with-uuu-tool">4.6. Working with UUU-Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-development-states">4.7. Accessing the Development states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-latest-upstream-support">4.8. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#format-sd-card">4.9. Format SD-Card</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#device-tree-dt">5. Device Tree (DT)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#introduction">5.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#phytec-soc-bsp-device-tree-concept">5.2. PHYTEC i.MX 8M Plus BSP Device Tree Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#development">5. Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-development-states">5.4. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#format-sd-card">5.6. Format SD-Card</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#accessing-peripherals">6. Accessing Peripherals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#soc-pin-muxing">6.1. i.MX 8M Plus Pin Muxing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rs232-rs485">6.2. RS232/RS485</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#network">6.3. Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#sd-mmc-card">6.4. SD/MMC Card</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#emmc-devices">6.5. eMMC Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#spi-master">6.6. SPI Master</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#gpios">6.7. GPIOs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#leds">6.8. LEDs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#i2c-bus">6.9. I²C Bus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#eeprom">6.10. EEPROM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rtc">6.11. RTC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#usb-host-controller">6.12. USB Host Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#can-fd">6.13. CAN FD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#pcie">6.14. PCIe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#audio">6.15. Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#video">6.16. Video</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#display">6.17. Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#power-management">6.18. Power Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#thermal-management">6.19. Thermal Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#watchdog">6.20. Watchdog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#snvs-power-key">6.21. snvs Power Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#on-chip-otp-controller-ocotp-ctrl-efuses">6.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#device-tree-dt">6. Device Tree (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#introduction">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 8M Plus BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mainline-head.html#accessing-peripherals">7. Accessing Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#soc-pin-muxing">7.1. i.MX 8M Plus Pin Muxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rs232-rs485">7.2. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#network">7.3. Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#sd-mmc-card">7.4. SD/MMC Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#emmc-devices">7.5. eMMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#spi-master">7.6. SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#gpios">7.7. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#leds">7.8. LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#i2c-bus">7.9. I²C Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#rtc">7.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#usb-host-controller">7.12. USB Host Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#can-fd">7.13. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#pcie">7.14. PCIe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#audio">7.15. Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#video">7.16. Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#display">7.17. Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#power-management">7.18. Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#thermal-management">7.19. Thermal Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#watchdog">7.20. Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#snvs-power-key">7.21. snvs Power Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainline-head.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
 </ul>
@@ -314,12 +320,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pd23.1.0.html#development">5. Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#standalone-build">5.3. Standalone Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#accessing-the-development-states">5.4. Accessing the Development states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#format-sd-card">5.6. Format SD-Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#standalone-build">5.4. Standalone Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#accessing-the-development-states">5.5. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd23.1.0.html#format-sd-card">5.7. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pd23.1.0.html#device-tree-dt">6. Device Tree (DT)</a><ul>
@@ -394,12 +401,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#development">5. Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#booting-the-kernel-from-a-network">5.1. Booting the Kernel from a Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#working-with-uuu-tool">5.2. Working with UUU-Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#standalone-build">5.3. Standalone Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-development-states">5.4. Accessing the Development states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-latest-upstream-support">5.5. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#format-sd-card">5.6. Format SD-Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#host-network-preparation">5.1. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#standalone-build">5.4. Standalone Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-development-states">5.5. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd22.1.1.html#format-sd-card">5.7. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pd22.1.1.html#device-tree-dt">6. Device Tree (DT)</a><ul>
