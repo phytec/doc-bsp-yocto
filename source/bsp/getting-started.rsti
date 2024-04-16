@@ -97,35 +97,10 @@ Unmount all those partitions, e.g.:
 Now, the SD card is ready to be flashed with an image, using either ``partup``,
 ``dd`` or ``bmap-tools``.
 
-Using partup
-............
-
-Writing to an SD card with partup is done in a single command:
-
-.. code-block:: console
-   :substitutions:
-
-   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
-
-Make sure to replace <your_device> with your actual device name found previously.
-
-Further usage of partup is explained at its `official documentation website
-<https://partup.readthedocs.io/en/latest/>`__.
-
-.. note::
-   *partup* has the advantage of allowing to clear specific raw areas in the
-   MMC user area, which is used in our provided partup packages to erase any
-   existing U-Boot environments. This is a known issue *bmaptool* does not
-   solve, as mentioned below.
-
-   Another key advantage of partup over other flashing tools is that it allows
-   configuring MMC specific parts, like writing to eMMC boot partitions, without
-   the need to call multiple other commands when writing.
-
 Using bmap-tools
 ................
 
-An alternative and also fast way to prepare an SD card is using
+One way to prepare an SD card is using
 `bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
@@ -152,6 +127,37 @@ to skip.
    *bmaptool* only overwrites the areas of an SD card where image data is
    located. This means that a previously written U-Boot environment may still be
    available after writing the image.
+
+Using partup
+............
+
+Writing to an SD card with partup is done in a single command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
+
+Make sure to replace <your_device> with your actual device name found previously.
+
+Further usage of partup is explained at its `official documentation website
+<https://partup.readthedocs.io/en/latest/>`__.
+
+.. warning::
+   Host systems which are using resize2fs version 1.46.6 and older
+   (e.g. Ubuntu 22.04) are not able to write partup packages created with Yocto Mickledore
+   or newer to SD-Card. This is due to a new default option in resize2fs which causes an
+   incompatibility. See `release notes <https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0>`_.
+
+.. note::
+   *partup* has the advantage of allowing to clear specific raw areas in the
+   MMC user area, which is used in our provided partup packages to erase any
+   existing U-Boot environments. This is a known issue *bmaptool* does not
+   solve, as mentioned in the previous chapter.
+
+   Another key advantage of partup over other flashing tools is that it allows
+   configuring MMC specific parts, like writing to eMMC boot partitions, without
+   the need to call multiple other commands when writing.
 
 Using ``dd``
 ............
