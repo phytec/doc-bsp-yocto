@@ -825,7 +825,6 @@ one RTC, there might be more than one RTC device file.
       rtc-rv3028 0-0052
       snvs_rtc 30370000.snvs:snvs-rtc-lp
 
-
 .. tip::
 
    This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
@@ -840,12 +839,16 @@ To show the current date and time set on the target:
    Thu Jan  1 00:01:26 UTC 1970
 
 Change the date and time with the date command. The date command sets the time
-with the following syntax "YYYYMMDDHHMM":
+with the following syntax "YYYY-MM-DD hh:mm:ss (+|-)hh:mm":
 
 .. code-block:: console
 
-   target:~$ date -s '202202031015'
+   target:~$ date -s "2022-03-02 11:15:00 +0100"
    Wed Mar  2 10:15:00 UTC 2022
+
+.. note::
+
+   Your timezone (in this example +0100) may vary.
 
 Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC

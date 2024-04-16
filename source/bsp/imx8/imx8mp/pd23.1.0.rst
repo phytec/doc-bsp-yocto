@@ -707,7 +707,63 @@ DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
 
-.. include:: ../../peripherals/rtc.rsti
+.. include:: /bsp/peripherals/rtc.rsti
+   :end-before: .. rtc_parameter_start_label
+
+RTC Parameters
+..............
+
+RTCs have a few abilities which can be read/set with the help of ``hwclock``
+tool.
+
+*  We can check RTC supported features with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-get features
+      The RTC parameter 0x0 is set to 0x11.
+
+   What this value means is encoded in kernel, each set bit translates to:
+
+   .. code-block::
+
+      #define RTC_FEATURE_ALARM              0
+      #define RTC_FEATURE_ALARM_RES_MINUTE   1
+      #define RTC_FEATURE_NEED_WEEK_DAY      2
+      #define RTC_FEATURE_ALARM_RES_2S       3
+      #define RTC_FEATURE_UPDATE_INTERRUPT   4
+      #define RTC_FEATURE_CORRECTION         5
+      #define RTC_FEATURE_BACKUP_SWITCH_MODE 6
+      #define RTC_FEATURE_CNT                7
+
+*  We can check RTC BSM (Backup Switchover Mode) with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-get bsm
+      The RTC parameter 0x2 is set to 0x1.
+
+*  We can set RTC BSM with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-set bsm=0x2
+      The RTC parameter 0x2 will be set to 0x2.
+
+   What BSM values mean translates to these values:
+
+   .. code-block::
+
+      #define RTC_BSM_DISABLED   0
+      #define RTC_BSM_DIRECT     1
+      #define RTC_BSM_LEVEL      2
+      #define RTC_BSM_STANDBY    3
+
+   .. tip::
+      You should set BSM mode to DSM or LSM for RTC to switch to backup power
+      source when the initial power source is not available. Check **RV-3028** RTC
+      datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
+      Mode) actually mean.
 
 DT representation for I²C RTCs:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207`
