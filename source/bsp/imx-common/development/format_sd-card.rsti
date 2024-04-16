@@ -37,6 +37,13 @@ Gparted
 Expand rootfs
 ~~~~~~~~~~~~~
 
+.. warning::
+   Running gparted on host systems which are using resize2fs version 1.46.6 and older
+   (e.g. Ubuntu 22.04) are not able to expand the ext4 partition created with Yocto
+   Mickledore and newer.
+   This is due to a new default option in resize2fs which causes a incompatibility.
+   See `release notes <https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0>`_.
+
 *  Choose your SD Card device at the drop-down menu on the top right
 *  Choose the ext4 root partition and click on resize:
 
