@@ -57,7 +57,7 @@
 .. |yocto-codename| replace:: master
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
@@ -152,7 +152,198 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-mainline-head-getting-started:
-.. include:: /bsp/getting-started.rsti
+
+Getting Started
+===============
+
+The |kit| is shipped with a pre-flashed SD card. It contains the
+|yocto-imagename| and can be used directly as a boot source. The eMMC is
+programmed with only a U-Boot by default. You can get all sources from the
+`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
+image to SD card and how to start the board.
+
+There are several ways to flash an image to SD card or even eMMC. Most notably
+using simple, sequential writing with the Linux command line tool ``dd``. An
+alternative way is to use PHYTEC's system initialization program called
+`partup <https://github.com/phytec/partup>`_, which makes it especially easy to
+format more complex systems. You can get `prebuilt Linux binaries of partup
+<https://github.com/phytec/partup/releases>`__ from its release page. Also read
+`partup's README <https://github.com/phytec/partup#readme>`__ for installation
+instructions.
+
+Get the Image
+-------------
+
+The image contains all necessary files and makes sure partitions and any raw
+data are correctly written. Both the partup package and the WIC image, which can
+be flashed using ``dd``, can be downloaded from the `PHYTEC download server
+<dl-server_>`_.
+
+Get either the partup package or the WIC image from the download server:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ wget |link-partup-package|
+   host:~$ wget |link-image|
+
+.. note::
+   For eMMC, more complex partitioning schemes or even just large images, we
+   recommend using the partup package, as it is faster in writing than ``dd``
+   and allows for a more flexible configuration of the target flash device.
+
+Write the Image to SD Card
+--------------------------
+
+.. warning::
+   To create your bootable SD card, you must have root privileges on your Linux
+   host PC. Be very careful when specifying the destination device! All files
+   on the selected device will be erased immediately without any further query!
+
+   Selecting the wrong device may result in **data loss** and e.g. could erase
+   your currently running system on your host PC!
+
+Finding the Correct Device
+..........................
+
+To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. If any partitions of the SD cards are
+mounted, unmount those before you start copying the image to the SD card.
+
+#. In order to get the correct device name, remove your SD card and
+   execute:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Now insert your SD card and execute the command again:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Compare the two outputs to find the new device names listed in the second
+   output. These are the device names of the SD card (device and partitions if
+   the SD card was formatted).
+#. In order to verify the device names being found, execute the command
+   ``sudo dmesg``. Within the last lines of its output, you should also find the
+   device names, e.g. ``/dev/sde`` or ``/dev/mmcblk0`` (depending on your
+   system).
+
+Alternatively, you may use a graphical program of your choice, like `GNOME Disks
+<https://apps.gnome.org/en/DiskUtility/>`_ or `KDE Partition Manager
+<https://apps.kde.org/partitionmanager/>`_, to find the correct device.
+
+Now that you have the correct device name, e.g. ``/dev/sde``,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. ``/dev/sde1``) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.
+
+Unmount all those partitions, e.g.:
+
+.. code-block:: console
+
+   host:~$ sudo umount /dev/sde1
+   host:~$ sudo umount /dev/sde2
+
+Now, the SD card is ready to be flashed with an image, using either ``partup``,
+``dd`` or ``bmap-tools``.
+
+Using bmap-tools
+................
+
+One way to prepare an SD card is using
+`bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
+automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
+the WIC image that describes the image content and includes checksums for data
+integrity. *bmaptool* is packaged by various Linux distributions. For
+Debian-based systems install it by issuing:
+
+.. code-block:: console
+
+   host:~$ sudo apt install bmap-tools
+
+Flash a WIC image to SD card by calling:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/<your_device>
+
+Replace <your_device> with your actual SD card's device name found previously,
+and make sure to place the file ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside
+the regular WIC image file, so bmaptool knows which blocks to write and which
+to skip.
+
+.. warning::
+   *bmaptool* only overwrites the areas of an SD card where image data is
+   located. This means that a previously written U-Boot environment may still be
+   available after writing the image.
+
+Using partup
+............
+
+Writing to an SD card with partup is done in a single command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/<your_device>
+
+Make sure to replace <your_device> with your actual device name found previously.
+
+Further usage of partup is explained at its `official documentation website
+<https://partup.readthedocs.io/en/latest/>`__.
+
+.. warning::
+   Host systems which are using resize2fs version 1.46.6 and older
+   (e.g. Ubuntu 22.04) are not able to write partup packages created with Yocto Mickledore
+   or newer to SD-Card. This is due to a new default option in resize2fs which causes an
+   incompatibility. See `release notes <https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0>`_.
+
+.. note::
+   *partup* has the advantage of allowing to clear specific raw areas in the
+   MMC user area, which is used in our provided partup packages to erase any
+   existing U-Boot environments. This is a known issue *bmaptool* does not
+   solve, as mentioned in the previous chapter.
+
+   Another key advantage of partup over other flashing tools is that it allows
+   configuring MMC specific parts, like writing to eMMC boot partitions, without
+   the need to call multiple other commands when writing.
+
+Using ``dd``
+............
+
+After having unmounted all SD card's partitions, you can create your bootable SD card.
+
+Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
+and some others produce compressed images (with filename-extension \*.wic.xz).
+
+To flash an uncompressed images (\*.wic) use command below:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Or to flash a compressed images (\*.wic.xz) use that command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ xzcat |yocto-imagename|-|yocto-machinename|.|yocto-imageext|.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Again, make sure to replace <your_device> with your actual device name found
+previously.
+
+The parameter ``conv=fsync`` forces a sync operation on the device before
+``dd`` returns. This ensures that all blocks are written to the SD card and
+none are left in memory. The parameter ``status=progress`` will print out
+information on how much data is and still has to be copied until it is
+finished.
 
 First Start-up
 --------------
@@ -254,12 +445,12 @@ These steps will show how to update the eMMC via a network.
    .. code-block::
       :substitutions:
 
-      u-boot=> dhcp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      u-boot=> dhcp ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       BOOTP broadcast 1
       DHCP client bound to address 192.168.3.11 (101 ms)
       Using ethernet@30be0000 device
       TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-      Filename '|yocto-imagename|-|yocto-machinename|.wic'.
+      Filename '|yocto-imagename|-|yocto-machinename|.|yocto-imageext|'.
       Load address: 0x40480000
       Loading: ######################################
                ######################################
@@ -301,7 +492,7 @@ one-line command:
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2 conv=fsync
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.|yocto-imageext|" | dd of=/dev/mmcblk2 conv=fsync
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -319,7 +510,7 @@ Show your available image files on the host:
    :substitutions:
 
    host:~$ ls
-   |yocto-imagename|-|yocto-machinename|.wic
+   |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
 
 Send the image with the ``dd`` command combined with ssh through the network
 to the eMMC of your device:
@@ -327,7 +518,7 @@ to the eMMC of your device:
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
 
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
@@ -404,7 +595,7 @@ Flash eMMC from USB in Linux
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
+|yocto-imagename|-|yocto-machinename|.\ |yocto-imageext|). Set the |ref-bootswitch| to SD Card.
 
 *  Insert and mount the USB stick:
 
@@ -428,7 +619,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
       target:~$ cd /mnt
       target:~$ ls
-      |yocto-imagename|-|yocto-machinename|.wic
+      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
 
 *  Show list of available MMC devices:
 
@@ -452,7 +643,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| of=/dev/mmcblk2 conv=fsync
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -484,7 +675,7 @@ Flash eMMC from SD card in U-Boot on Target
    Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third FAT partition. Copy
-   the WIC image (for example |yocto-imagename|.wic) to this
+   the WIC image (for example |yocto-imagename|.\ |yocto-imageext|) to this
    partition.
 *  Configure the |ref-bootswitch| to SD Card and insert the SD Card.
 *  Power on the board and stop in U-Boot.
@@ -493,7 +684,7 @@ Flash eMMC from SD card in U-Boot on Target
    .. code-block::
       :substitutions:
 
-      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       reading
       911842304 bytes read in 39253 ms (22.2 MiB/s)
 
@@ -508,7 +699,7 @@ Flash eMMC from SD card in U-Boot on Target
       switch to partitions #0, OK
       mmc2(part 0) is current device
 
-*  Flash your WIC image (for example |yocto-imagename|.wic)
+*  Flash your WIC image (for example |yocto-imagename|.\ |yocto-imageext|)
    from the SD card to eMMC. This will partition the card and copy imx-boot,
    Image, dtb, dtbo, and root file system to eMMC.
 
@@ -533,8 +724,8 @@ image saved on the SD card.
       :substitutions:
 
       target:~$ ls
-      |yocto-imagename|-|yocto-machinename|.partup
-      |yocto-imagename|-|yocto-machinename|.wic
+      |yocto-imagename|-|yocto-machinename|.rootfs.partup
+      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
 
 *  Show list of available MMC devices:
 
@@ -559,7 +750,7 @@ image saved on the SD card.
    .. code-block:: console
       :substitutions:
 
-      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/mmcblk2
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk2
 
    Flashing the partup package has the advantage of using the full capacity of
    the eMMC device, adjusting partitions accordingly.
@@ -571,7 +762,7 @@ image saved on the SD card.
       .. code-block:: console
          :substitutions:
 
-         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| of=/dev/mmcblk2 conv=fsync
 
       Keep in mind that the root partition does not make use of the full space when
       flashing with ``dd``.
@@ -653,12 +844,215 @@ Boot the board into the U-boot prompt and press any key to hold.
 
       u-boot=> run netboot
 
-.. include:: /bsp/imx-common/development/uuu.rsti
+
+Working with UUU-Tool
+---------------------
+
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
+documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+
+Host preparations for UUU-Tool Usage
+....................................
+
+*  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
+
+*  If you built UUU from source, add it to ``PATH``:
+
+   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
+   ``~/.bashrc``.
+
+   .. code-block:: console
+
+      export PATH=~/mfgtools/uuu/:"$PATH"
+
+*  Set udev rules (documented in ``uuu -udev``):
+
+   .. code-block:: console
+
+      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+      host:~$ sudo udevadm control --reload
+
+Get Images
+..........
+
+Download imx-boot from our server or get it from your Yocto build directory at
+build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
+you will also need |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext|
+
+Prepare Target
+..............
+
+Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
+|ref-usb-otg| to your host.
+
+Starting bootloader via UUU-Tool
+................................
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b spl imx-boot
+
+You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
+
+.. note::
+   The default boot command when booting with UUU-Tool is set to fastboot. If
+   you want to change this, please adjust the environment variable bootcmd_mfg
+   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
+   UUU-tool the default environment is loaded. Saveenv has no effect. If you
+   want to change the boot command permanently for UUU-boot, you need to change
+   this in U-Boot code.
+
+Flashing U-boot Image to eMMC via UUU-Tool
+...........................................
+
+.. warning::
+
+   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+
+   .. code-block:: console
+      :substitutions:
+
+      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
+      u-boot=> mmc partconf |u-boot-emmc-devno|
+      EXT_CSD[179], PARTITION_CONFIG:
+      BOOT_ACK: 0x0
+      BOOT_PARTITION_ENABLE: 0x0
+      PARTITION_ACCESS: 0x0
+
+   or check |ref-disable-emmc-part| from Linux.
+
+   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   not used!
+
+   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   done by default, which makes partup again superior flash option.
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b emmc imx-boot
+
+Flashing wic Image to eMMC via UUU-Tool
+...........................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
-.. include:: /bsp/imx-common/development/format_sd-card.rsti
+Format SD-Card
+--------------
+
+Most images are larger than the default root partition. To flash any storage
+device with SD Card, the rootfs needs to be expanded or a separate partition
+needs to be created. There are some different ways to format the SD Card.  The
+easiest way to do this is to use the UI program Gparted.
+
+Gparted
+.......
+
+*  Get GParted:
+
+   .. code-block:: console
+
+      host:~$ sudo apt install gparted
+
+*  Insert the SD Card into your host and get the device name:
+
+   .. code-block:: console
+
+      host:~$ dmesg | tail
+      ...
+      [30436.175412] sd 4:0:0:0: [sdb] 62453760 512-byte logical blocks: (32.0 GB/29.8 GiB)
+      [30436.179846]  sdb: sdb1 sdb2
+      ...
+
+*  Unmount all SD Card partitions.
+*  Launch GParted:
+
+   .. code-block:: console
+
+      host:~$ sudo gparted
+
+.. image:: /bsp/imx-common/images/gparted1.png
+
+Expand rootfs
+~~~~~~~~~~~~~
+
+.. warning::
+   Running gparted on host systems which are using resize2fs version 1.46.6 and older
+   (e.g. Ubuntu 22.04) are not able to expand the ext4 partition created with Yocto
+   Mickledore and newer.
+   This is due to a new default option in resize2fs which causes a incompatibility.
+   See `release notes <https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0>`_.
+
+*  Choose your SD Card device at the drop-down menu on the top right
+*  Choose the ext4 root partition and click on resize:
+
+.. image:: /bsp/imx-common/images/gparted5.png
+.. image:: /bsp/imx-common/images/gparted2.png
+
+*  Drag the slider as far as you like or enter the size manually.
+
+.. image:: /bsp/imx-common/images/gparted3.png
+
+*  Confirm your entry by clicking on the "Change size" button.
+
+.. image:: /bsp/imx-common/images/gparted4.png
+
+*  To apply your changes, press the green tick.
+*  Now you can mount the root partition and copy e.g. the
+   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it. Then unmount it again:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /mnt/ ; sync
+      host:~$ umount /mnt
+
+Create the Third Partition
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Choose your SD Card device at the drop-down menu on the top right
+
+.. image:: /bsp/imx-common/images/gparted1.png
+
+*  Choose the bigger unallocated  area and press "New":
+
+.. image:: /bsp/imx-common/images/gparted6.png
+
+*  Click "Add"
+
+.. image:: /bsp/imx-common/images/gparted7.png
+
+*  Confirm your changes by pressing the green tick.
+
+.. image:: /bsp/imx-common/images/gparted8.png
+
+*  Now you can mount the new partition and copy e.g.
+   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it. Then unmount it again:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo mount /dev/sde3 /mnt
+      host:~$ sudo cp |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /mnt/ ; sync
+      host:~$ umount /mnt
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
