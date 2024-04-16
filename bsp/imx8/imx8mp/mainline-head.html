@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=94394166"></script>
+        <script src="../../../_static/documentation_options.js?v=4564cf57"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-39-g141fd96
+                imx9-pd24.1.0-42-g4f9d25d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -261,7 +261,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <section id="supported-hardware">
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Link to this heading"></a></h2>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-i.MX8MP-PD24.1.0 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0">download</a>.</p>
+Numbers for this release: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0">download</a>.</p>
 <p>If you choose a specific <strong>Machine Name</strong> in the section <strong>Supported Machines</strong>,
 you can see which <strong>Article Numbers</strong> are available under this machine and also
 a short description of the hardware information. In case you only have
@@ -504,7 +504,7 @@ have a look at the invoice for the product. And have a look at
 </li>
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-xwayland<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-pollux-imx8mp-3<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-i.MX8MP-PD24.1.0
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-xwayland<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-pollux-imx8mp-3<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
 </pre></div>
 </div>
 </li>
@@ -763,6 +763,11 @@ of the corresponding SoC.</p>
 <h3><span class="section-number">4.2.3. </span>Flash eMMC from USB<a class="headerlink" href="#flash-emmc-from-usb" title="Link to this heading"></a></h3>
 <section id="flash-emmc-from-usb-in-u-boot-on-target">
 <h4><span class="section-number">4.2.3.1. </span>Flash eMMC from USB in U-Boot on Target<a class="headerlink" href="#flash-emmc-from-usb-in-u-boot-on-target" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the lower USB-A port is configured for storage devices and only
+this port will work when trying to access a storage device in U-Boot.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This step only works if the size of the image file is less than 1GB due to
@@ -1262,7 +1267,7 @@ command line:</p>
 </pre></div>
 </div>
 <p>This will initialize a BSP that will track the latest development state of the
-current release (BSP-Yocto-i.MX8MP-PD24.1.0). From now on <em>repo sync</em> in this folder
+current release (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0). From now on <em>repo sync</em> in this folder
 will pull all the latest changes from our Git repositories:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>repo<span class="w"> </span>sync
 </pre></div>
@@ -1272,7 +1277,7 @@ will pull all the latest changes from our Git repositories:</p>
 <h3><span class="section-number">5.4.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
-PDXX.Y number than the latest one (BSP-Yocto-i.MX8MP-PD24.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
+PDXX.Y number than the latest one (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
 end:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp
 </pre></div>

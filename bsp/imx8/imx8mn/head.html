@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=94394166"></script>
+        <script src="../../../_static/documentation_options.js?v=4564cf57"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-39-g141fd96
+                imx9-pd24.1.0-42-g4f9d25d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -725,8 +725,32 @@ limited usage of RAM size in the Bootloader after enabling OPTEE.</p>
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mn-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
+<p>Load your image via network to RAM:</p>
 <ul>
-<li><p>Load your image via network to RAM:</p>
+<li><p>when using dhcp</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; dhcp phytec-headless-image-phyboard-polis-imx8mn-2.wic
+BOOTP broadcast 1
+DHCP client bound to address 192.168.3.1 (1 ms)
+Using ethernet@30be0000 device
+TFTP from server 192.168.3.10; our IP address is 192.168.3.1
+Filename &#39;phytec-headless-image-phyboard-polis-imx8mn-2.wic&#39;.
+Load address: 0x40480000
+Loading: ######################################
+         ######################################
+         ######################################
+         ...
+         ...
+         ...
+         ######################################
+         #############
+         11.2 MiB/s
+done
+Bytes transferred = 911842304 (36599c00 hex)
+</pre></div>
+</div>
+</li>
+<li><p>when using a static ip address (serverip and ipaddr must be set
+additionally).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mn-2.wic
 Using ethernet@30be0000 device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
@@ -746,7 +770,8 @@ Bytes transferred = 911842304 (36599c00 hex)
 </pre></div>
 </div>
 </li>
-<li><p>Write the image to the eMMC:</p>
+</ul>
+<p>Write the image to the eMMC:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; mmc dev 2
 switch to partitions #0, OK
 mmc2(part 0) is current device
@@ -756,8 +781,6 @@ u-boot=&gt; mmc write ${loadaddr} 0x0 ${nblk}
 MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 </pre></div>
 </div>
-</li>
-</ul>
 </section>
 <section id="flash-emmc-via-network-in-linux-on-target">
 <h4><span class="section-number">4.2.1.2. </span>Flash eMMC via Network in Linux on Target<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-target" title="Link to this heading"></a></h4>
