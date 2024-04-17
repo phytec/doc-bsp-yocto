@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=7c4ea959"></script>
+        <script src="../../../_static/documentation_options.js?v=760a17ef"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-46-g91bc5fc
+                imx9-pd24.1.0-56-g60e2de5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2570,8 +2570,6 @@ the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
 host to trigger the background operations regularly because the device starts
 BKOPS itself when it is idle (see the description of bit AUTO_EN in
 register BKOPS_EN (Reg: 163)).</p>
-<p>The userspace tool mmc does not currently support enabling automatic BKOPS
-features.</p>
 <ul>
 <li><p>To check whether <em>BKOPS_EN</em> is set, execute:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>extcsd<span class="w"> </span><span class="nb">read</span><span class="w"> </span>/dev/mmcblk2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>BKOPS_EN
@@ -2587,8 +2585,20 @@ Enable background operations handshake [BKOPS_EN]: 0x00
 suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
 background operations from time to time.</p>
 </li>
+<li><p>Enabling can be done with this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ target:~$ </span>mmc<span class="w"> </span>--help
+
+<span class="go">[...]</span>
+<span class="go">mmc bkops_en &lt;auto|manual&gt; &lt;device&gt;</span>
+<span class="go">    Enable the eMMC BKOPS feature on &lt;device&gt;.</span>
+<span class="go">    The auto (AUTO_EN) setting is only supported on eMMC 5.0 or newer.</span>
+<span class="go">    Setting auto won&#39;t have any effect if manual is set.</span>
+<span class="go">    NOTE!  Setting manual (MANUAL_EN) is one-time programmable (unreversible) change.</span>
+</pre></div>
+</div>
+</li>
 <li><p>To set the BKOPS_EN bit, execute:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bkops<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>/dev/mmcblk2
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bkops_en<span class="w"> </span>manual<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </li>
@@ -2639,7 +2649,11 @@ on the phyCORE-i.MX 8M Plus SoMs. To check this on the running target:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>--help
 
 <span class="go">[...]</span>
-<span class="go">mmc write_reliability set &lt;-y|-n&gt; &lt;partition&gt; &lt;device&gt;</span>
+<span class="go">mmc write_reliability set &lt;-y|-n|-c&gt; &lt;partition&gt; &lt;device&gt;</span>
+<span class="go">    Enable write reliability per partition for the &lt;device&gt;.</span>
+<span class="go">    Dry-run only unless -y or -c is passed.</span>
+<span class="go">    Use -c if more partitioning settings are still to come.</span>
+<span class="go">    NOTE!  This is a one-time programmable (unreversible) change.</span>
 </pre></div>
 </div>
 <p>The second Reliable Write option is the configuration bit Reliable Write Request
@@ -3175,17 +3189,20 @@ is not already in use.</p>
 instead.</p>
 </div>
 <p>Support to access GPIOs via sysfs is not enabled by default any more.
-It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
-configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
-CONFIG_EXPERT has to be enabled first.</p>
-<p>You can also add this option for example to the
-imx8_phytec_distro.config config fragment in the linux kernel sources
-under arch/arm64/configs</p>
+It is only possible with manually enabling <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> in the kernel
+configuration. To make <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> visible in menuconfig the option
+<code class="docutils literal notranslate"><span class="pre">CONFIG_EXPERT</span></code> has to be enabled first.</p>
+<p>You can also add this option for example to the defconfig you use in
+<code class="docutils literal notranslate"><span class="pre">arch/arm64/configs/</span></code> in the linux kernel sources. For our NXP based releases,
+this could be for example <code class="docutils literal notranslate"><span class="pre">imx8_phytec_distro.config</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>..
+CONFIG_EXPERT=y
 CONFIG_GPIO_SYSFS=y
 ..
 </pre></div>
 </div>
+<p>Otherwise you can create a new config fragment. This is described in our
+<a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration">Yocto Reference Manual</a>.</p>
 </section>
 </section>
 <section id="leds">
@@ -3201,18 +3218,18 @@ settings.</p>
 <p>Below is a simple example.</p>
 <p>To get all available LEDs, type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/sys/class/leds
-<span class="go">mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@</span>
+<span class="go">led-1@  led-2@  led-3@  mmc1::@  mmc2::@</span>
 </pre></div>
 </div>
 <p>Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the phyBOARD-Pollux.</p>
 <ul>
 <li><p>To toggle the LEDs ON:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">255</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/user-led1/brightness
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">255</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/led-1/brightness
 </pre></div>
 </div>
 </li>
 <li><p>To toggle OFF:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/user-led1/brightness
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/led-1/brightness
 </pre></div>
 </div>
 </li>
@@ -3332,10 +3349,14 @@ To show the current date and time set on the target:</p>
 </pre></div>
 </div>
 <p>Change the date and time with the date command. The date command sets the time
-with the following syntax “YYYYMMDDHHMM”:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;202202031015&#39;</span>
+with the following syntax “YYYY-MM-DD hh:mm:ss (+|-)hh:mm”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;2022-03-02 11:15:00 +0100&quot;</span>
 <span class="go">Wed Mar  2 10:15:00 UTC 2022</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your timezone (in this example +0100) may vary.</p>
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
@@ -4075,7 +4096,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 </ul>
 <p>For more detailed information about the governors, refer to the Linux kernel
 documentation in the linux kernel repository at
-<code class="docutils literal notranslate"><span class="pre">Documentation/cpu-freq/governors.txt</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">Documentation/admin-guide/pm/cpufreq.rst</span></code>.</p>
 </section>
 <section id="cpu-core-management">
 <h3><span class="section-number">7.18.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
@@ -4347,14 +4368,6 @@ formula:</p>
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hexdump<span class="w"> </span>/sys/devices/platform/soc@0/30000000.bus/30350000.efuse/imx-ocotp0/nvmem
-</pre></div>
-</div>
-<p>Reading the registers using <code class="docutils literal notranslate"><span class="pre">/dev/mem</span></code> will cause the system to hang unless the
-<em>ocotp_root_clk</em> is enabled. To enable this clock permanent, add to the device
-tree:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;clk {
-        init-on-array = &lt;IMX8MP_CLK_OCOTP_ROOT&gt;;
-};
 </pre></div>
 </div>
 </section>

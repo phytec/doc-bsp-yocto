@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=7c4ea959"></script>
+        <script src="../../../_static/documentation_options.js?v=760a17ef"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-46-g91bc5fc
+                imx9-pd24.1.0-56-g60e2de5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3071,17 +3071,20 @@ is not already in use.</p>
 instead.</p>
 </div>
 <p>Support to access GPIOs via sysfs is not enabled by default any more.
-It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
-configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
-CONFIG_EXPERT has to be enabled first.</p>
-<p>You can also add this option for example to the
-imx8_phytec_distro.config config fragment in the linux kernel sources
-under arch/arm64/configs</p>
+It is only possible with manually enabling <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> in the kernel
+configuration. To make <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> visible in menuconfig the option
+<code class="docutils literal notranslate"><span class="pre">CONFIG_EXPERT</span></code> has to be enabled first.</p>
+<p>You can also add this option for example to the defconfig you use in
+<code class="docutils literal notranslate"><span class="pre">arch/arm64/configs/</span></code> in the linux kernel sources. For our NXP based releases,
+this could be for example <code class="docutils literal notranslate"><span class="pre">imx8_phytec_distro.config</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>..
+CONFIG_EXPERT=y
 CONFIG_GPIO_SYSFS=y
 ..
 </pre></div>
 </div>
+<p>Otherwise you can create a new config fragment. This is described in our
+<a class="reference external" href="https://www.phytec.de/cdocuments/?doc=UIHsG#YoctoReferenceManualHardknottL813e-A12-KernelandBootloaderConfiguration">Yocto Reference Manual</a>.</p>
 <p>Pinmuxing of some GPIO pins in the device tree imx8mn-phyboard-polis.dtsi:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_leds: leds1grp {
         fsl,pins = &lt;
@@ -3238,10 +3241,14 @@ To show the current date and time set on the target:</p>
 </pre></div>
 </div>
 <p>Change the date and time with the date command. The date command sets the time
-with the following syntax “YYYYMMDDHHMM”:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;202202031015&#39;</span>
+with the following syntax “YYYY-MM-DD hh:mm:ss (+|-)hh:mm”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;2022-03-02 11:15:00 +0100&quot;</span>
 <span class="go">Wed Mar  2 10:15:00 UTC 2022</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your timezone (in this example +0100) may vary.</p>
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
@@ -3588,7 +3595,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 </ul>
 <p>For more detailed information about the governors, refer to the Linux kernel
 documentation in the linux kernel repository at
-<code class="docutils literal notranslate"><span class="pre">Documentation/cpu-freq/governors.txt</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">Documentation/admin-guide/pm/cpufreq.rst</span></code>.</p>
 </section>
 <section id="cpu-core-management">
 <h3><span class="section-number">7.15.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>

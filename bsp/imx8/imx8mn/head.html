@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=7c4ea959"></script>
+        <script src="../../../_static/documentation_options.js?v=760a17ef"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-46-g91bc5fc
+                imx9-pd24.1.0-56-g60e2de5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2547,8 +2547,6 @@ the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
 host to trigger the background operations regularly because the device starts
 BKOPS itself when it is idle (see the description of bit AUTO_EN in
 register BKOPS_EN (Reg: 163)).</p>
-<p>The userspace tool mmc does not currently support enabling automatic BKOPS
-features.</p>
 <ul>
 <li><p>To check whether <em>BKOPS_EN</em> is set, execute:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>extcsd<span class="w"> </span><span class="nb">read</span><span class="w"> </span>/dev/mmcblk2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>BKOPS_EN
@@ -2564,8 +2562,20 @@ Enable background operations handshake [BKOPS_EN]: 0x00
 suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
 background operations from time to time.</p>
 </li>
+<li><p>Enabling can be done with this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ target:~$ </span>mmc<span class="w"> </span>--help
+
+<span class="go">[...]</span>
+<span class="go">mmc bkops_en &lt;auto|manual&gt; &lt;device&gt;</span>
+<span class="go">    Enable the eMMC BKOPS feature on &lt;device&gt;.</span>
+<span class="go">    The auto (AUTO_EN) setting is only supported on eMMC 5.0 or newer.</span>
+<span class="go">    Setting auto won&#39;t have any effect if manual is set.</span>
+<span class="go">    NOTE!  Setting manual (MANUAL_EN) is one-time programmable (unreversible) change.</span>
+</pre></div>
+</div>
+</li>
 <li><p>To set the BKOPS_EN bit, execute:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bkops<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>/dev/mmcblk2
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bkops_en<span class="w"> </span>manual<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </li>
@@ -2616,7 +2626,11 @@ on the phyCORE-i.MX 8M Nano SoMs. To check this on the running target:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>--help
 
 <span class="go">[...]</span>
-<span class="go">mmc write_reliability set &lt;-y|-n&gt; &lt;partition&gt; &lt;device&gt;</span>
+<span class="go">mmc write_reliability set &lt;-y|-n|-c&gt; &lt;partition&gt; &lt;device&gt;</span>
+<span class="go">    Enable write reliability per partition for the &lt;device&gt;.</span>
+<span class="go">    Dry-run only unless -y or -c is passed.</span>
+<span class="go">    Use -c if more partitioning settings are still to come.</span>
+<span class="go">    NOTE!  This is a one-time programmable (unreversible) change.</span>
 </pre></div>
 </div>
 <p>The second Reliable Write option is the configuration bit Reliable Write Request
@@ -3094,46 +3108,70 @@ of some usages of various tools:</p>
 </li>
 <li><p>Show detailed information about the gpiochips. Like their names, consumers,
 direction, active state, and additional flags:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioinfo<span class="w"> </span>gpiochip0
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioinfo<span class="w"> </span>-c<span class="w"> </span>gpiochip0
 </pre></div>
 </div>
 </li>
 <li><p>Read the value of a GPIO (e.g GPIO 20 from chip0):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioget<span class="w"> </span>gpiochip0<span class="w"> </span><span class="m">20</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioget<span class="w"> </span>-c<span class="w"> </span>gpiochip0<span class="w"> </span><span class="m">20</span>
 </pre></div>
 </div>
 </li>
 <li><p>Set the value of GPIO 20 on chip0 to 0 and exit tool:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioset<span class="w"> </span>--mode<span class="o">=</span><span class="nb">exit</span><span class="w"> </span>gpiochip0<span class="w"> </span><span class="nv">20</span><span class="o">=</span><span class="m">0</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioset<span class="w"> </span>-z<span class="w"> </span>-c<span class="w"> </span>gpiochip0<span class="w"> </span><span class="nv">20</span><span class="o">=</span><span class="m">0</span>
 </pre></div>
 </div>
 </li>
 <li><p>Help text of gpioset shows possible options:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gpioset<span class="w"> </span>--help
-<span class="go">Usage: gpioset [OPTIONS] &lt;chip name/number&gt; &lt;offset1&gt;=&lt;value1&gt; &lt;offset2&gt;=&lt;value2&gt; ...</span>
-<span class="go">Set GPIO line values of a GPIO chip</span>
+<span class="go">Usage: gpioset [OPTIONS] &lt;line=value&gt;...</span>
+
+<span class="go">Set values of GPIO lines.</span>
+
+<span class="go">Lines are specified by name, or optionally by offset if the chip option</span>
+<span class="go">is provided.</span>
+<span class="go">Values may be &#39;1&#39; or &#39;0&#39;, or equivalently &#39;active&#39;/&#39;inactive&#39; or &#39;on&#39;/&#39;off&#39;.</span>
+
+<span class="go">The line output state is maintained until the process exits, but after that</span>
+<span class="go">is not guaranteed.</span>
 
 <span class="go">Options:</span>
-<span class="go">  -h, --help:           display this message and exit</span>
-<span class="go">  -v, --version:        display the version and exit</span>
-<span class="go">  -l, --active-low:     set the line active state to low</span>
-<span class="go">  -m, --mode=[exit|wait|time|signal] (defaults to &#39;exit&#39;):</span>
-<span class="go">                tell the program what to do after setting values</span>
-<span class="go">  -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)</span>
-<span class="go">  -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)</span>
-<span class="go">  -b, --background:     after setting values: detach from the controlling terminal</span>
+<span class="go">      --banner            display a banner on successful startup</span>
+<span class="go">  -b, --bias &lt;bias&gt;       specify the line bias</span>
+<span class="go">                  Possible values: &#39;pull-down&#39;, &#39;pull-up&#39;, &#39;disabled&#39;.</span>
+<span class="go">                  (default is to leave bias unchanged)</span>
+<span class="go">      --by-name           treat lines as names even if they would parse as an offset</span>
+<span class="go">  -c, --chip &lt;chip&gt;       restrict scope to a particular chip</span>
+<span class="go">  -C, --consumer &lt;name&gt;   consumer name applied to requested lines (default is &#39;gpioset&#39;)</span>
+<span class="go">  -d, --drive &lt;drive&gt;     specify the line drive mode</span>
+<span class="go">                  Possible values: &#39;push-pull&#39;, &#39;open-drain&#39;, &#39;open-source&#39;.</span>
+<span class="go">                  (default is &#39;push-pull&#39;)</span>
+<span class="go">  -h, --help              display this help and exit</span>
+<span class="go">  -l, --active-low        treat the line as active low</span>
+<span class="go">  -p, --hold-period &lt;period&gt;</span>
+<span class="go">                  the minimum time period to hold lines at the requested values</span>
+<span class="go">  -s, --strict            abort if requested line names are not unique</span>
+<span class="go">  -t, --toggle &lt;period&gt;[,period]...</span>
+<span class="go">                  toggle the line(s) after the specified period(s)</span>
+<span class="go">                  If the last period is non-zero then the sequence repeats.</span>
+<span class="go">      --unquoted  don&#39;t quote line names</span>
+<span class="go">  -v, --version           output version information and exit</span>
+<span class="go">  -z, --daemonize set values then detach from the controlling terminal</span>
 
-<span class="go">Modes:</span>
-<span class="go">  exit:         set values and exit immediately</span>
-<span class="go">  wait:         set values and wait for user to press ENTER</span>
-<span class="go">  time:         set values and sleep for a specified amount of time</span>
-<span class="go">  signal:       set values and wait for SIGINT or SIGTERM</span>
+<span class="go">Chips:</span>
+<span class="go">    A GPIO chip may be identified by number, name, or path.</span>
+<span class="go">    e.g. &#39;0&#39;, &#39;gpiochip0&#39;, and &#39;/dev/gpiochip0&#39; all refer to the same chip.</span>
 
-<span class="go">Note: the state of a GPIO line controlled over the character device reverts to default</span>
-<span class="go">when the last process referencing the file descriptor representing the device file exits.</span>
-<span class="go">This means that it&#39;s wrong to run gpioset, have it exit and expect the line to continue</span>
-<span class="go">being driven high or low. It may happen if given pin is floating but it must be interpreted</span>
-<span class="go">as undefined behavior.</span>
+<span class="go">Periods:</span>
+<span class="go">    Periods are taken as milliseconds unless units are specified. e.g. 10us.</span>
+<span class="go">    Supported units are &#39;s&#39;, &#39;ms&#39;, and &#39;us&#39;.</span>
+
+<span class="go">*Note*</span>
+<span class="go">    The state of a GPIO line controlled over the character device reverts to default</span>
+<span class="go">    when the last process referencing the file descriptor representing the device file exits.</span>
+<span class="go">    This means that it&#39;s wrong to run gpioset, have it exit and expect the line to continue</span>
+<span class="go">    being driven high or low. It may happen if given pin is floating but it must be interpreted</span>
+<span class="go">    as undefined behavior.</span>
 </pre></div>
 </div>
 </li>
@@ -3152,17 +3190,20 @@ is not already in use.</p>
 instead.</p>
 </div>
 <p>Support to access GPIOs via sysfs is not enabled by default any more.
-It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
-configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
-CONFIG_EXPERT has to be enabled first.</p>
-<p>You can also add this option for example to the
-imx8_phytec_distro.config config fragment in the linux kernel sources
-under arch/arm64/configs</p>
+It is only possible with manually enabling <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> in the kernel
+configuration. To make <code class="docutils literal notranslate"><span class="pre">CONFIG_GPIO_SYSFS</span></code> visible in menuconfig the option
+<code class="docutils literal notranslate"><span class="pre">CONFIG_EXPERT</span></code> has to be enabled first.</p>
+<p>You can also add this option for example to the defconfig you use in
+<code class="docutils literal notranslate"><span class="pre">arch/arm64/configs/</span></code> in the linux kernel sources. For our NXP based releases,
+this could be for example <code class="docutils literal notranslate"><span class="pre">imx8_phytec_distro.config</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>..
+CONFIG_EXPERT=y
 CONFIG_GPIO_SYSFS=y
 ..
 </pre></div>
 </div>
+<p>Otherwise you can create a new config fragment. This is described in our
+<a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration">Yocto Reference Manual</a>.</p>
 <p>Pinmuxing of some GPIO pins in the device tree imx8mn-phyboard-polis.dts:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pinctrl_leds: leds1grp {
         fsl,pins = &lt;
@@ -3188,18 +3229,18 @@ settings.</p>
 <p>Below is a simple example.</p>
 <p>To get all available LEDs, type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/sys/class/leds
-<span class="go">mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@</span>
+<span class="go">led-1@  led-2@  led-3@  mmc1::@  mmc2::@</span>
 </pre></div>
 </div>
 <p>Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the phyBOARD-Polis.</p>
 <ul>
 <li><p>To toggle the LEDs ON:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">255</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/user-led1/brightness
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">255</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/led-1/brightness
 </pre></div>
 </div>
 </li>
 <li><p>To toggle OFF:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/user-led1/brightness
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/leds/led-1/brightness
 </pre></div>
 </div>
 </li>
@@ -3319,10 +3360,14 @@ To show the current date and time set on the target:</p>
 </pre></div>
 </div>
 <p>Change the date and time with the date command. The date command sets the time
-with the following syntax “YYYYMMDDHHMM”:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;202202031015&#39;</span>
+with the following syntax “YYYY-MM-DD hh:mm:ss (+|-)hh:mm”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;2022-03-02 11:15:00 +0100&quot;</span>
 <span class="go">Wed Mar  2 10:15:00 UTC 2022</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your timezone (in this example +0100) may vary.</p>
 </div>
 <p>Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
@@ -3369,18 +3414,19 @@ tool.</p>
 <ul>
 <li><p>We can check RTC supported features with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hwclock<span class="w"> </span>--param-get<span class="w"> </span>features
-<span class="go">The RTC parameter 0x0 is set to 0x11.</span>
+<span class="go">The RTC parameter 0x0 is set to 0x71.</span>
 </pre></div>
 </div>
 <p>What this value means is encoded in kernel, each set bit translates to:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define RTC_FEATURE_ALARM              0
-#define RTC_FEATURE_ALARM_RES_MINUTE   1
-#define RTC_FEATURE_NEED_WEEK_DAY      2
-#define RTC_FEATURE_ALARM_RES_2S       3
-#define RTC_FEATURE_UPDATE_INTERRUPT   4
-#define RTC_FEATURE_CORRECTION         5
-#define RTC_FEATURE_BACKUP_SWITCH_MODE 6
-#define RTC_FEATURE_CNT                7
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define RTC_FEATURE_ALARM               0
+#define RTC_FEATURE_ALARM_RES_MINUTE    1
+#define RTC_FEATURE_NEED_WEEK_DAY       2
+#define RTC_FEATURE_ALARM_RES_2S        3
+#define RTC_FEATURE_UPDATE_INTERRUPT    4
+#define RTC_FEATURE_CORRECTION          5
+#define RTC_FEATURE_BACKUP_SWITCH_MODE  6
+#define RTC_FEATURE_ALARM_WAKEUP_ONLY   7
+#define RTC_FEATURE_CNT                 8
 </pre></div>
 </div>
 </li>
@@ -3719,7 +3765,7 @@ specific frequency (e.g. to 1600000). Type:</p></li>
 </ul>
 <p>For more detailed information about the governors, refer to the Linux kernel
 documentation in the linux kernel repository at
-<code class="docutils literal notranslate"><span class="pre">Documentation/cpu-freq/governors.txt</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">Documentation/admin-guide/pm/cpufreq.rst</span></code>.</p>
 </section>
 <section id="cpu-core-management">
 <h3><span class="section-number">7.15.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>

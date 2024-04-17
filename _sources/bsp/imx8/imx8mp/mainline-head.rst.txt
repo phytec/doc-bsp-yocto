@@ -44,7 +44,7 @@
 .. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
+.. |dt-somnetwork| replace:: https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L41
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
@@ -60,6 +60,7 @@
 .. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (master)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
@@ -77,7 +78,7 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150`.
+   https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L106
 .. |pollux-fan-note| replace::
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
@@ -691,7 +692,7 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART1 pinmuxing:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L387
 
 RS232/RS485
 -----------
@@ -715,7 +716,7 @@ correctly.
 .. include:: /bsp/imx8/peripherals/rs232-485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251
 
 .. _imx8mp-mainline-head-network:
 
@@ -735,39 +736,61 @@ module and board.
    | ethernet0 = eth1
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
+   :end-before: .. u-boot-network-environment-marker
+
+U-boot network-environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* We currently use dynamic IP addresses in U-Boot. This is enabled by this variable:
+
+   .. code-block::
+
+      u-boot=> printenv ip_dyn
+      ip_dyn=yes
+
+*  Set up path for NFS. A modification could look like this:
+
+   .. code-block::
+
+      u-boot=> setenv nfsroot /home/user/nfssrc
+
+Please note that these modifications will only affect the bootloader settings.
+
+.. include:: /bsp/imx-common/peripherals/network.rsti
+   :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181
 
 .. include:: /bsp/peripherals/emmc.rsti
 
 .. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
+   :end-before: .. peripherals-spi-nor-flash-marker
 
 The definition of the SPI master node in the device tree can be found here:
-
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L67
 
 .. include:: ../peripherals/gpios.rsti
 
-.. include:: ../../peripherals/leds.rsti
+.. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L160
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L81
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L145
 
 
 EEPROM
@@ -781,7 +804,7 @@ I2C EEPROM populated on the SoM is also used for board detection.
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L169
 
 RTC
 ---
@@ -802,7 +825,6 @@ one RTC, there might be more than one RTC device file.
       rtc-rv3028 0-0052
       snvs_rtc 30370000.snvs:snvs-rtc-lp
 
-
 .. tip::
 
    This will list all RTCs including the non-I²C RTCs. Linux assigns RTC device
@@ -817,12 +839,16 @@ To show the current date and time set on the target:
    Thu Jan  1 00:01:26 UTC 1970
 
 Change the date and time with the date command. The date command sets the time
-with the following syntax "YYYYMMDDHHMM":
+with the following syntax "YYYY-MM-DD hh:mm:ss (+|-)hh:mm":
 
 .. code-block:: console
 
-   target:~$ date -s '202202031015'
+   target:~$ date -s "2022-03-02 11:15:00 +0100"
    Wed Mar  2 10:15:00 UTC 2022
+
+.. note::
+
+   Your timezone (in this example +0100) may vary.
 
 Using the date command does not change the time and date of the RTC, so if we
 were to restart the target those changes would be discarded. To write to the RTC
@@ -854,7 +880,7 @@ To set the time and date from the RTC use:
    :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L175
 
 USB Host Controller
 -------------------
@@ -869,7 +895,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220
 
 CAN FD
 ------
@@ -884,7 +910,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130
 
 Video
 -----
@@ -920,18 +946,152 @@ Weston Configuration
 Weston will work without any additional configuration. Configuration options are
 done at /etc/xdg/weston/weston.ini.
 
-Device tree description of LVDS-1 can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264`
+Device tree description of LVDS can be found here:
+https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182
 
 .. include:: /bsp/qt6.rsti
 
-.. include:: ../peripherals/pm.rsti
-   :end-before: .. suspend_to_ram_start_label
+Power Management
+----------------
+
+CPU Core Frequency Scaling
+..........................
+
+The CPU in the |soc| SoC is able to scale the clock frequency and the voltage.
+This is used to save power when the full performance of the CPU is not needed.
+Scaling the frequency and the voltage is referred to as 'Dynamic Voltage and
+Frequency Scaling' (DVFS). The |soc| BSP supports the DVFS feature.
+The Linux kernel provides a DVFS framework that allows each CPU core to have a
+min/max frequency and a governor that governs it. Depending on the |socfamily|
+variant used, several different frequencies are supported.
+
+.. tip::
+
+   Although the DVFS framework provides frequency settings for each CPU core, a
+   change in the frequency settings of one CPU core always affects all other CPU
+   cores too. So all CPU cores always share the same DVFS setting. An individual
+   DVFS setting for each core is not possible.
+
+
+*  To get a complete list type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+
+   In case you have, for example, i.MX 8MPlus CPU with a maximum of approximately
+   1,6 GHz, the result will be:
+
+   .. code-block::
+
+      1200000 1600000
+
+*  To ask for the current frequency type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+
+So-called governors are automatically selecting one of these frequencies in
+accordance with their goals.
+
+*  List all governors available with the following command:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+
+   The result will be:
+
+   .. code-block::
+
+      ondemand userspace performance schedutil
+
+*  **ondemand** (default) switches between possible CPU core frequencies in
+   reference to the current system load. When the system load increases above a
+   specific limit, it increases the CPU core frequency immediately.
+*  **performance** always selects the highest possible CPU core frequency.
+*  **userspace** allows the user or userspace program running as root to set a
+   specific frequency (e.g. to 1600000). Type:
+
+*  In order to ask for the current governor, type:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+   You will normally get:
+
+   .. code-block::
+
+      schedutil
+
+*  Switching over to another governor (e.g. userspace) is done with:
+
+   .. code-block:: console
+
+      target:~$ echo userspace > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+*  Now you can set the speed:
+
+   .. code-block:: console
+
+      target:~$ echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
+
+For more detailed information about the governors, refer to the Linux kernel
+documentation in the linux kernel repository at
+``Documentation/admin-guide/pm/cpufreq.rst``.
+
+CPU Core Management
+...................
+
+The |soc| SoC can have multiple processor cores on the die. The |soc|, for
+example, has 4 ARM Cores which can be turned on and off individually at runtime.
+
+*  To see all available cores in the system, execute:
+
+   .. code-block:: console
+
+      target:~$ ls /sys/devices/system/cpu  -1
+
+*  This will show, for example:
+
+   .. code-block::
+
+      cpu0    cpu1   cpu2   cpu3   cpufreq
+      [...]
+
+   Here the system has four processor cores. By default, all available cores in the
+   system are enabled to get maximum performance.
+
+*  To switch off a single-core, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/devices/system/cpu/cpu3/online
+
+   As confirmation, you will see:
+
+   .. code-block::
+
+      [  110.505012] psci: CPU3 killed
+
+   Now the core is powered down and no more processes are scheduled on this core.
+
+*  You can use top to see a graphical overview of the cores and processes:
+
+   .. code-block:: console
+
+      target:~$ htop
+
+*  To power up the core again, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 1 > /sys/devices/system/cpu/cpu3/online
 
 .. include:: ../peripherals/tm.rsti
-
-The device tree description of GPIO Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33`
+   :end-before: .. tm-gpio-fan-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
@@ -950,13 +1110,3 @@ the ON/OFF button can be configured under ``/etc/systemd/logind.conf`` and set u
    HandlePowerKey=poweroff
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
-
-Reading the registers using ``/dev/mem`` will cause the system to hang unless the
-*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
-tree:
-
-.. code-block::
-
-   &clk {
-           init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;
-   };

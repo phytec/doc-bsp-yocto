@@ -64,6 +64,7 @@
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-head-bootswitch>`
@@ -407,7 +408,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. include:: ../peripherals/gpios.rsti
 
-.. include:: ../../peripherals/leds.rsti
+.. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
 :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`
@@ -523,16 +524,6 @@ The device tree description of GPIO Fan can be found here:
 .. include:: ../peripherals/isp.rsti
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
-
-Reading the registers using ``/dev/mem`` will cause the system to hang unless the
-*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
-tree:
-
-.. code-block::
-
-   &clk {
-           init-on-array = <IMX8MP_CLK_OCOTP_ROOT>;
-   };
 
 .. +---------------------------------------------------------------------------+
 .. i.MX 8M Plus M7 Core
