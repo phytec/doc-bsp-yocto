@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=4564cf57"></script>
+        <script src="../../../_static/documentation_options.js?v=dab58cfd"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-42-g4f9d25d
+                imx9-pd24.1.0-45-gb07e498
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1758,6 +1758,14 @@ easiest way to do this is to use the UI program Gparted.</p>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
 <h4><span class="section-number">5.7.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Running gparted on host systems which are using resize2fs version 1.46.6 and older
+(e.g. Ubuntu 22.04) are not able to expand the ext4 partition created with Yocto
+Mickledore and newer.
+This is due to a new default option in resize2fs which causes a incompatibility.
+See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0">release notes</a>.</p>
+</div>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>

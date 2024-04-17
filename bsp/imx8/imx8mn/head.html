@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=4564cf57"></script>
+        <script src="../../../_static/documentation_options.js?v=dab58cfd"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-42-g4f9d25d
+                imx9-pd24.1.0-45-gb07e498
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -271,17 +271,17 @@ should show you the necessary <strong>Machine Name</strong> for your specific ha
 <span id="imx8mn-head-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Polis Components<a class="headerlink" href="#sbc-components" title="Link to this heading"></a></h3>
 <table class="docutils align-center">
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id2">
+<tr class="row-odd"><td><figure class="align-default" id="id3">
 <img alt="../../../_images/polis-front.jpg" src="../../../_images/polis-front.jpg" />
 <figcaption>
-<p><span class="caption-text">phyBOARD-Polis Components (top)</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">phyBOARD-Polis Components (top)</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id3">
+<td><figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="../../../_images/polis-back.jpg"><img alt="../../../_images/polis-back.jpg" src="../../../_images/polis-back.jpg" style="width: 95%;" /></a>
 <figcaption>
-<p><span class="caption-text">phyBOARD-Polis Components (bottom)</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text">phyBOARD-Polis Components (bottom)</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -372,29 +372,10 @@ Before writing, however, these need to be unmounted to avoid data corruption.</p
 <p>Now, the SD card is ready to be flashed with an image, using either <code class="docutils literal notranslate"><span class="pre">partup</span></code>,
 <code class="docutils literal notranslate"><span class="pre">dd</span></code> or <code class="docutils literal notranslate"><span class="pre">bmap-tools</span></code>.</p>
 </section>
-<section id="using-partup">
-<h3><span class="section-number">2.2.2. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
-<p>Writing to an SD card with partup is done in a single command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.partup<span class="w"> </span>/dev/&lt;your_device&gt;
-</pre></div>
-</div>
-<p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
-<p>Further usage of partup is explained at its <a class="reference external" href="https://partup.readthedocs.io/en/latest/">official documentation website</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><em>partup</em> has the advantage of allowing to clear specific raw areas in the
-MMC user area, which is used in our provided partup packages to erase any
-existing U-Boot environments. This is a known issue <em>bmaptool</em> does not
-solve, as mentioned below.</p>
-<p>Another key advantage of partup over other flashing tools is that it allows
-configuring MMC specific parts, like writing to eMMC boot partitions, without
-the need to call multiple other commands when writing.</p>
-</div>
-</section>
 <section id="using-bmap-tools">
-<h3><span class="section-number">2.2.3. </span>Using bmap-tools<a class="headerlink" href="#using-bmap-tools" title="Link to this heading"></a></h3>
-<p>An alternative and also fast way to prepare an SD card is using
-<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> by Intel. Yocto
+<h3><span class="section-number">2.2.2. </span>Using bmap-tools<a class="headerlink" href="#using-bmap-tools" title="Link to this heading"></a></h3>
+<p>One way to prepare an SD card is using
+<a class="reference external" href="https://github.com/yoctoproject/bmaptool">bmap-tools</a>. Yocto
 automatically creates a block map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for
 the WIC image that describes the image content and includes checksums for data
 integrity. <em>bmaptool</em> is packaged by various Linux distributions. For
@@ -415,6 +396,32 @@ to skip.</p>
 <p><em>bmaptool</em> only overwrites the areas of an SD card where image data is
 located. This means that a previously written U-Boot environment may still be
 available after writing the image.</p>
+</div>
+</section>
+<section id="using-partup">
+<h3><span class="section-number">2.2.3. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
+<p>Writing to an SD card with partup is done in a single command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.partup<span class="w"> </span>/dev/&lt;your_device&gt;
+</pre></div>
+</div>
+<p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
+<p>Further usage of partup is explained at its <a class="reference external" href="https://partup.readthedocs.io/en/latest/">official documentation website</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Host systems which are using resize2fs version 1.46.6 and older
+(e.g. Ubuntu 22.04) are not able to write partup packages created with Yocto Mickledore
+or newer to SD-Card. This is due to a new default option in resize2fs which causes an
+incompatibility. See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0">release notes</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>partup</em> has the advantage of allowing to clear specific raw areas in the
+MMC user area, which is used in our provided partup packages to erase any
+existing U-Boot environments. This is a known issue <em>bmaptool</em> does not
+solve, as mentioned in the previous chapter.</p>
+<p>Another key advantage of partup over other flashing tools is that it allows
+configuring MMC specific parts, like writing to eMMC boot partitions, without
+the need to call multiple other commands when writing.</p>
 </div>
 </section>
 <section id="using-dd">
@@ -445,13 +452,13 @@ finished.</p>
 <li><p>To boot from an SD card, <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> needs to be set to the following
 position:</p></li>
 </ul>
-<table class="docutils align-center" id="id4">
-<caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<table class="docutils align-center" id="id5">
+<caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id5">
+<tr class="row-odd"><td><figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../../../_images/Nano_SD_BOOT.jpg"><img alt="../../../_images/Nano_SD_BOOT.jpg" src="../../../_images/Nano_SD_BOOT.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">SD Card Boot</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">SD Card Boot</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -603,43 +610,43 @@ bootable.</p></li>
 <p>The phyBOARD-Polis features a boot switch with six individually switchable ports to
 select the phyCORE-i.MX 8M Nano default bootsource.</p>
 <p id="imx8mn-head-bootswitch">Hardware revision baseboard: 1532.2</p>
-<table class="docutils align-center" id="id6">
-<caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<table class="docutils align-center" id="id7">
+<caption><span class="caption-text">Bootmode Selection</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id7">
+<tr class="row-odd"><td><figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../../../_images/Nano_eMMC_BOOT.png"><img alt="../../../_images/Nano_eMMC_BOOT.png" src="../../../_images/Nano_eMMC_BOOT.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">eMMC (Default SoM boot)</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-text">eMMC (Default SoM boot)</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id8">
+<td><figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="../../../_images/Nano_Serial_downloader_BOOT.png"><img alt="../../../_images/Nano_Serial_downloader_BOOT.png" src="../../../_images/Nano_Serial_downloader_BOOT.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">USB Serial Downloader</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">USB Serial Downloader</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
-<tr class="row-even"><td><figure class="align-default" id="id9">
+<tr class="row-even"><td><figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../../../_images/Nano_SD_BOOT.jpg"><img alt="../../../_images/Nano_SD_BOOT.jpg" src="../../../_images/Nano_SD_BOOT.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id10">
+<td><figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../../../_images/Nano_Fuse_BOOT.png"><img alt="../../../_images/Nano_Fuse_BOOT.png" src="../../../_images/Nano_Fuse_BOOT.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
-<tr class="row-odd"><td><figure class="align-default" id="id11">
+<tr class="row-odd"><td><figure class="align-default" id="id12">
 <a class="reference internal image-reference" href="../../../_images/Nano_QSPI_BOOT.png"><img alt="../../../_images/Nano_QSPI_BOOT.png" src="../../../_images/Nano_QSPI_BOOT.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -647,40 +654,40 @@ select the phyCORE-i.MX 8M Nano default bootsource.</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-center" id="id12">
-<caption><span class="caption-text">Switch between USB HOST/OTG using Pos5 of switch(S1)</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<table class="docutils align-center" id="id13">
+<caption><span class="caption-text">Switch between USB HOST/OTG using Pos5 of switch(S1)</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id13">
+<tr class="row-odd"><td><figure class="align-default" id="id14">
 <a class="reference internal image-reference" href="../../../_images/USB_HOST.jpg"><img alt="../../../_images/USB_HOST.jpg" src="../../../_images/USB_HOST.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">USB HOST</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+<p><span class="caption-text">USB HOST</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id14">
+<td><figure class="align-default" id="id15">
 <a class="reference internal image-reference" href="../../../_images/USB_OTG.png"><img alt="../../../_images/USB_OTG.png" src="../../../_images/USB_OTG.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">USB OTG</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">USB OTG</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-center" id="id15">
-<caption><span class="caption-text">Switch between UART1 RS485/RS232 using Pos4 of switch(S1)</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">Switch between UART1 RS485/RS232 using Pos4 of switch(S1)</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id16">
+<tr class="row-odd"><td><figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="../../../_images/UART1_RS4851.png"><img alt="../../../_images/UART1_RS4851.png" src="../../../_images/UART1_RS4851.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">UART1 RS485</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">UART1 RS485</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id17">
+<td><figure class="align-default" id="id18">
 <a class="reference internal image-reference" href="../../../_images/UART1_RS2321.jpg"><img alt="../../../_images/UART1_RS2321.jpg" src="../../../_images/UART1_RS2321.jpg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-text">UART1 RS232</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">UART1 RS232</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -1835,6 +1842,14 @@ easiest way to do this is to use the UI program Gparted.</p>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
 <h4><span class="section-number">5.7.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Running gparted on host systems which are using resize2fs version 1.46.6 and older
+(e.g. Ubuntu 22.04) are not able to expand the ext4 partition created with Yocto
+Mickledore and newer.
+This is due to a new default option in resize2fs which causes a incompatibility.
+See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0">release notes</a>.</p>
+</div>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
@@ -2127,20 +2142,20 @@ activated or not. In this case, the internal resistors are disabled.</p>
 <p>The i.MX 8M Nano SoC provides up to 4 UART units. PHYTEC boards support different
 numbers of these UART units. UART1 can also be used as RS-485. For this,
 <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> needs to be set correctly:</p>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id19">
+<tr class="row-odd"><td><figure class="align-default" id="id20">
 <img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id20">
+<td><figure class="align-default" id="id21">
 <img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" />
 <figcaption>
-<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -2879,8 +2894,8 @@ command:</p>
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h3><span class="section-number">7.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3><span class="section-number">7.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>fdisk can be used to expand the root filesystem. The example works for any block
 device such as eMMC, SD Card, or hard disk.</p>
 <ul>

@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=4564cf57"></script>
+        <script src="../../../_static/documentation_options.js?v=dab58cfd"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-42-g4f9d25d
+                imx9-pd24.1.0-45-gb07e498
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -270,16 +270,16 @@ Name</strong> drop-down menu empty and only choose your <strong>Article Number</
 should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
 <section id="sbc-components">
 <span id="imx8mp-mainline-head-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Pollux Components<a class="headerlink" href="#sbc-components" title="Link to this heading"></a></h3>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-front-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-front-components.jpg" src="../../../_images/phyBOARD-Pollux-front-components.jpg" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-back-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-back-components.jpg" src="../../../_images/phyBOARD-Pollux-back-components.jpg" style="width: 85%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -366,29 +366,10 @@ Before writing, however, these need to be unmounted to avoid data corruption.</p
 <p>Now, the SD card is ready to be flashed with an image, using either <code class="docutils literal notranslate"><span class="pre">partup</span></code>,
 <code class="docutils literal notranslate"><span class="pre">dd</span></code> or <code class="docutils literal notranslate"><span class="pre">bmap-tools</span></code>.</p>
 </section>
-<section id="using-partup">
-<h3><span class="section-number">2.2.2. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
-<p>Writing to an SD card with partup is done in a single command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.partup<span class="w"> </span>/dev/&lt;your_device&gt;
-</pre></div>
-</div>
-<p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
-<p>Further usage of partup is explained at its <a class="reference external" href="https://partup.readthedocs.io/en/latest/">official documentation website</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><em>partup</em> has the advantage of allowing to clear specific raw areas in the
-MMC user area, which is used in our provided partup packages to erase any
-existing U-Boot environments. This is a known issue <em>bmaptool</em> does not
-solve, as mentioned below.</p>
-<p>Another key advantage of partup over other flashing tools is that it allows
-configuring MMC specific parts, like writing to eMMC boot partitions, without
-the need to call multiple other commands when writing.</p>
-</div>
-</section>
 <section id="using-bmap-tools">
-<h3><span class="section-number">2.2.3. </span>Using bmap-tools<a class="headerlink" href="#using-bmap-tools" title="Link to this heading"></a></h3>
-<p>An alternative and also fast way to prepare an SD card is using
-<a class="reference external" href="https://github.com/intel/bmap-tools">bmap-tools</a> by Intel. Yocto
+<h3><span class="section-number">2.2.2. </span>Using bmap-tools<a class="headerlink" href="#using-bmap-tools" title="Link to this heading"></a></h3>
+<p>One way to prepare an SD card is using
+<a class="reference external" href="https://github.com/yoctoproject/bmaptool">bmap-tools</a>. Yocto
 automatically creates a block map file (<code class="docutils literal notranslate"><span class="pre">&lt;IMAGENAME&gt;-&lt;MACHINE&gt;.wic.bmap</span></code>) for
 the WIC image that describes the image content and includes checksums for data
 integrity. <em>bmaptool</em> is packaged by various Linux distributions. For
@@ -409,6 +390,32 @@ to skip.</p>
 <p><em>bmaptool</em> only overwrites the areas of an SD card where image data is
 located. This means that a previously written U-Boot environment may still be
 available after writing the image.</p>
+</div>
+</section>
+<section id="using-partup">
+<h3><span class="section-number">2.2.3. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
+<p>Writing to an SD card with partup is done in a single command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.partup<span class="w"> </span>/dev/&lt;your_device&gt;
+</pre></div>
+</div>
+<p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
+<p>Further usage of partup is explained at its <a class="reference external" href="https://partup.readthedocs.io/en/latest/">official documentation website</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Host systems which are using resize2fs version 1.46.6 and older
+(e.g. Ubuntu 22.04) are not able to write partup packages created with Yocto Mickledore
+or newer to SD-Card. This is due to a new default option in resize2fs which causes an
+incompatibility. See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0">release notes</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>partup</em> has the advantage of allowing to clear specific raw areas in the
+MMC user area, which is used in our provided partup packages to erase any
+existing U-Boot environments. This is a known issue <em>bmaptool</em> does not
+solve, as mentioned in the previous chapter.</p>
+<p>Another key advantage of partup over other flashing tools is that it allows
+configuring MMC specific parts, like writing to eMMC boot partitions, without
+the need to call multiple other commands when writing.</p>
 </div>
 </section>
 <section id="using-dd">
@@ -588,46 +595,46 @@ lpddr4_pmu_train_2d_imem_202006.bin</strong>: DDR PHY firmware images</p></li>
 select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-mainline-head-bootswitch">
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id4">
+<tr class="row-odd"><td><figure class="align-default" id="id5">
 <img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
 <figcaption>
-<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</td>
-<td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
-<figcaption>
-<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
+<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
+<figcaption>
+<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id7">
 <img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
 <figcaption>
-<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
-<tr class="row-even"><td><figure class="align-default" id="id7">
+<tr class="row-even"><td><figure class="align-default" id="id8">
 <img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
 <figcaption>
-<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</td>
-<td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
-<figcaption>
-<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id9">
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
+<figcaption>
+<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id10">
 <img alt="../../../_images/Test_Mode.png" src="../../../_images/Test_Mode.png" />
 <figcaption>
-<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -1331,6 +1338,14 @@ easiest way to do this is to use the UI program Gparted.</p>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
 <h4><span class="section-number">5.6.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Running gparted on host systems which are using resize2fs version 1.46.6 and older
+(e.g. Ubuntu 22.04) are not able to expand the ext4 partition created with Yocto
+Mickledore and newer.
+This is due to a new default option in resize2fs which causes a incompatibility.
+See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0">release notes</a>.</p>
+</div>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 <li><p>Choose the ext4 root partition and click on resize:</p></li>
@@ -2100,8 +2115,8 @@ command:</p>
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h3><span class="section-number">7.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3><span class="section-number">7.5.9. </span>Resizing ext4 Root Filesystem<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>fdisk can be used to expand the root filesystem. The example works for any block
 device such as eMMC, SD Card, or hard disk.</p>
 <ul>

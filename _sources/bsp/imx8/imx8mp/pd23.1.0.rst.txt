@@ -147,7 +147,192 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx8mp-pd23.1.0-getting-started:
-.. include:: /bsp/getting-started.rsti
+
+Getting Started
+===============
+
+The |kit| is shipped with a pre-flashed SD card. It contains the
+|yocto-imagename| and can be used directly as a boot source. The eMMC is
+programmed with only a U-Boot by default. You can get all sources from the
+`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
+image to SD card and how to start the board.
+
+There are several ways to flash an image to SD card or even eMMC. Most notably
+using simple, sequential writing with the Linux command line tool ``dd``. An
+alternative way is to use PHYTEC's system initialization program called
+`partup <https://github.com/phytec/partup>`_, which makes it especially easy to
+format more complex systems. You can get `prebuilt Linux binaries of partup
+<https://github.com/phytec/partup/releases>`__ from its release page. Also read
+`partup's README <https://github.com/phytec/partup#readme>`__ for installation
+instructions.
+
+Get the Image
+-------------
+
+The image contains all necessary files and makes sure partitions and any raw
+data are correctly written. Both the partup package and the WIC image, which can
+be flashed using ``dd``, can be downloaded from the `PHYTEC download server
+<dl-server_>`_.
+
+Get either the partup package or the WIC image from the download server:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ wget |link-partup-package|
+   host:~$ wget |link-image|
+
+.. note::
+   For eMMC, more complex partitioning schemes or even just large images, we
+   recommend using the partup package, as it is faster in writing than ``dd``
+   and allows for a more flexible configuration of the target flash device.
+
+Write the Image to SD Card
+--------------------------
+
+.. warning::
+   To create your bootable SD card, you must have root privileges on your Linux
+   host PC. Be very careful when specifying the destination device! All files
+   on the selected device will be erased immediately without any further query!
+
+   Selecting the wrong device may result in **data loss** and e.g. could erase
+   your currently running system on your host PC!
+
+Finding the Correct Device
+..........................
+
+To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. If any partitions of the SD cards are
+mounted, unmount those before you start copying the image to the SD card.
+
+#. In order to get the correct device name, remove your SD card and
+   execute:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Now insert your SD card and execute the command again:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Compare the two outputs to find the new device names listed in the second
+   output. These are the device names of the SD card (device and partitions if
+   the SD card was formatted).
+#. In order to verify the device names being found, execute the command
+   ``sudo dmesg``. Within the last lines of its output, you should also find the
+   device names, e.g. ``/dev/sde`` or ``/dev/mmcblk0`` (depending on your
+   system).
+
+Alternatively, you may use a graphical program of your choice, like `GNOME Disks
+<https://apps.gnome.org/en/DiskUtility/>`_ or `KDE Partition Manager
+<https://apps.kde.org/partitionmanager/>`_, to find the correct device.
+
+Now that you have the correct device name, e.g. ``/dev/sde``,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. ``/dev/sde1``) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.
+
+Unmount all those partitions, e.g.:
+
+.. code-block:: console
+
+   host:~$ sudo umount /dev/sde1
+   host:~$ sudo umount /dev/sde2
+
+Now, the SD card is ready to be flashed with an image, using either ``partup``,
+``dd`` or ``bmap-tools``.
+
+Using partup
+............
+
+Writing to an SD card with partup is done in a single command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
+
+Make sure to replace <your_device> with your actual device name found previously.
+
+Further usage of partup is explained at its `official documentation website
+<https://partup.readthedocs.io/en/latest/>`__.
+
+.. note::
+   *partup* has the advantage of allowing to clear specific raw areas in the
+   MMC user area, which is used in our provided partup packages to erase any
+   existing U-Boot environments. This is a known issue *bmaptool* does not
+   solve, as mentioned below.
+
+   Another key advantage of partup over other flashing tools is that it allows
+   configuring MMC specific parts, like writing to eMMC boot partitions, without
+   the need to call multiple other commands when writing.
+
+Using bmap-tools
+................
+
+An alternative and also fast way to prepare an SD card is using
+`bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
+automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
+the WIC image that describes the image content and includes checksums for data
+integrity. *bmaptool* is packaged by various Linux distributions. For
+Debian-based systems install it by issuing:
+
+.. code-block:: console
+
+   host:~$ sudo apt install bmap-tools
+
+Flash a WIC image to SD card by calling:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/<your_device>
+
+Replace <your_device> with your actual SD card's device name found previously,
+and make sure to place the file ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside
+the regular WIC image file, so bmaptool knows which blocks to write and which
+to skip.
+
+.. warning::
+   *bmaptool* only overwrites the areas of an SD card where image data is
+   located. This means that a previously written U-Boot environment may still be
+   available after writing the image.
+
+Using ``dd``
+............
+
+After having unmounted all SD card's partitions, you can create your bootable SD card.
+
+Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
+and some others produce compressed images (with filename-extension \*.wic.xz).
+
+To flash an uncompressed images (\*.wic) use command below:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Or to flash a compressed images (\*.wic.xz) use that command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ xzcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Again, make sure to replace <your_device> with your actual device name found
+previously.
+
+The parameter ``conv=fsync`` forces a sync operation on the device before
+``dd`` returns. This ensures that all blocks are written to the SD card and
+none are left in memory. The parameter ``status=progress`` will print out
+information on how much data is and still has to be copied until it is
+finished.
 
 First Start-up
 --------------
