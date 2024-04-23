@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=97172b51"></script>
+        <script src="../../../_static/documentation_options.js?v=ee8f8232"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-57-g00978b5
+                imx9-pd24.1.0-58-g44f1dfc
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3227,9 +3227,11 @@ which are alternate pin configurations used for bus recovery.</p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
-<p>There are two different i2c EEPROM flashes populated on phyCORE-i.MX8MN. Both can be used
-with the sysfs interface in Linux. The ID page of the I2C EEPROM populated on
-the SoM is also used for board detection.</p>
+<p>On the phyCORE-i.MX8MN there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) and the ID-page (bus: I2C-0
+address: 0x59) can be accessed via the sysfs interface in Linux. The first
+256 bytes of the main EEPROM and the ID-page are used for board detection and
+must not be overwritten. Overwriting reserved spaces will result in boot issues.</p>
 <section id="i2c-eeprom-on-som">
 <h3><span class="section-number">7.10.1. </span>I2C EEPROM on phyCORE-i.MX8MN<a class="headerlink" href="#i2c-eeprom-on-som" title="Link to this heading"></a></h3>
 <div class="admonition warning">

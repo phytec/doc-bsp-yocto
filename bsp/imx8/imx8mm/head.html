@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=97172b51"></script>
+        <script src="../../../_static/documentation_options.js?v=ee8f8232"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.0-57-g00978b5
+                imx9-pd24.1.0-58-g44f1dfc
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3283,9 +3283,16 @@ which are alternate pin configurations used for bus recovery.</p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
-<p>There are two different i2c EEPROM flashes populated on phyCORE-i.MX8MM. Both can be used
-with the sysfs interface in Linux. The ID page of the I2C EEPROM populated on
-the SoM is also used for board detection.</p>
+<p>On the phyCORE-i.MX8MM there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) can be accessed via the sysfs
+interface in Linux. The first 256 bytes of the main EEPROM and the ID-page
+(bus: I2C-0 address: 0x59) are used for board detection and must not be
+overwritten. Therefore the ID-page can not be accessed via the sysfs interface.
+Overwriting reserved spaces will result in boot issues.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you deleted reserved EEPROM spaces, please contact our support!</p>
+</div>
 <section id="i2c-eeprom-on-som">
 <h3><span class="section-number">7.10.1. </span>I2C EEPROM on phyCORE-i.MX8MM<a class="headerlink" href="#i2c-eeprom-on-som" title="Link to this heading"></a></h3>
 <div class="admonition warning">
@@ -3332,19 +3339,6 @@ might not boot correctly anymore.</p>
 </div>
 <p>SoMs that are flashed with data format API revision 2 will print out information
 about the module in the early stage.</p>
-</section>
-<section id="rescue-eeprom-data">
-<h3><span class="section-number">7.10.3. </span>Rescue EEPROM Data<a class="headerlink" href="#rescue-eeprom-data" title="Link to this heading"></a></h3>
-<p>The hardware introspection data is pre-written on both EEPROM data spaces. If
-you have accidentally deleted or overwritten the normal area, you can copy the
-hardware introspection from the ID area to the normal area.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you deleted both EEPROM spaces, please contact our support!</p>
-</div>
 <p>DT representation, e.g. in phyCORE-i.MX 8M Mini file imx8mm-phycore-som.dtsi can be
 found in our PHYTEC git:
 <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n311">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n311</a></p>

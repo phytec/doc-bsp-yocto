@@ -1190,9 +1190,16 @@ https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/fre
 EEPROM
 ------
 
-There are two different i2c EEPROM flashes populated on |som| SoM and on the
-|sbc|. Both can be used with the sysfs interface in Linux. The ID page of the
-I2C EEPROM populated on the SoM is also used for board detection.
+On the |som| there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) can be accessed via the sysfs
+interface in Linux. The first 256 bytes of the main EEPROM and the ID-page
+(bus: I2C-0 address: 0x59) are used for board detection and must not be
+overwritten. Therefore the ID-page can not be accessed via the sysfs interface.
+Overwriting reserved spaces will result in boot issues.
+
+.. note::
+
+   If you deleted reserved EEPROM spaces, please contact our support!
 
 .. include:: ../peripherals/eeprom.rsti
 
