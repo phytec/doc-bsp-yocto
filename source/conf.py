@@ -111,6 +111,8 @@ latex_documents = [
     ),
     ('bsp/imx8/imx8mp/mainline-head', 'imx8mp-mainline-head.tex', 'i.MX 8M Plus BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,),
+    ('bsp/imx8/imx8mp/pd24.1.1', 'imx8mp-pd24.1.1.tex', 'i.MX 8M Plus BSP Manual',
+        'PHYTEC Messtechnik GmbH', 'manual', False,),
     ('bsp/imx8/imx8mp/pd23.1.0', 'imx8mp-pd23.1.0.tex', 'i.MX 8M Plus BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,),
     ('bsp/imx8/imx8mp/pd22.1.1', 'imx8mp-pd22.1.1.tex', 'i.MX 8M Plus BSP Manual',
