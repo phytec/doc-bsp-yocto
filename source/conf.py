@@ -146,6 +146,9 @@ latex_documents = [
     ('bsp/imx9/imx93/pd24.1.0', 'imx93-pd24.1.0.tex', 'i.MX 93 BSP Manual',
         'PHYTEC Messtechnik GmbH', 'manual', False,
     ),
+    ('bsp/imx9/imx93/pd24.1.1', 'imx93-pd24.1.1.tex', 'i.MX 93 BSP Manual',
+        'PHYTEC Messtechnik GmbH', 'manual', False,
+    ),
 
     (
         'yocto/kirkstone',
