@@ -24,7 +24,7 @@
 
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v6.6.21
+.. |kernel-tag| replace:: v6.6.21-phy1
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
@@ -35,7 +35,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
-.. |u-boot-tag| replace:: v2024.01
+.. |u-boot-tag| replace:: v2024.01-phy3
 
 
 .. Devicetree
