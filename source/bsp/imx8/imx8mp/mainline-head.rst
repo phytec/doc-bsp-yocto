@@ -87,8 +87,6 @@
 .. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
-.. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
 
 
 .. M-Core specific
