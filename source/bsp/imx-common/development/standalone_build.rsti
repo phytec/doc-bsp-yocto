@@ -58,11 +58,11 @@ Install the SDK
    .. code-block:: console
       :substitutions:
 
-      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-4.2.2.sh
-      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-4.2.2.sh
+      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
+      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
       ============================================================================================================
-      Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-manifestname|):
-      You are about to install the SDK to "/opt/|yocto-distro|/|yocto-manifestname|". Proceed [Y/n]? Y
+      Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-sdk-rev|):
+      You are about to install the SDK to "/opt/|yocto-distro|/|yocto-sdk-rev|". Proceed [Y/n]? Y
       Extracting SDK...done
       Setting it up...done
       SDK has been successfully set up and is ready to be used.
@@ -76,7 +76,7 @@ in the toolchain directory:
 .. code-block:: console
    :substitutions:
 
-   host:~$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
+   host:~$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
 
 Installing Required Tools
 .........................
@@ -158,7 +158,7 @@ Build U-Boot
    .. code-block:: console
       :substitutions:
 
-      host:~/u-boot-imx$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
+      host:~/u-boot-imx$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
 
 *  build flash.bin (imx-boot):
 
@@ -216,7 +216,7 @@ Build Kernel
    .. code-block:: console
       :substitutions:
 
-      host:~/linux-imx$ source /opt/|yocto-distro|/4.2.2/environment-setup-cortexa55-phytec-linux
+      host:~/linux-imx$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
 
 *  Build the linux kernel:
 
