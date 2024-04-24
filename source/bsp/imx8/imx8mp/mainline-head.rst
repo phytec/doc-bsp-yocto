@@ -10,7 +10,7 @@
 
 
 .. General Substitutions
-.. |doc-id| replace:: PD24.1.1 BSP Manual
+.. |doc-id| replace:: L-XXXXX.Xx
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux
@@ -100,7 +100,7 @@
 | ManualHead            |                      |
 +-----------------------+----------------------+
 | Document Title        | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+|                       | Mainline Manual Head |
 +-----------------------+----------------------+
 | Document Type         | BSP Manual           |
 +-----------------------+----------------------+
@@ -108,20 +108,20 @@
 +-----------------------+----------------------+
 | Yocto Manual          |                      |
 +-----------------------+----------------------+
-| Release Date          | 2024/04/08           |
+| Release Date          | XXXX/XX/XX           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+|                       | Mainline Manual Head |
 +-----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ================= ==============
+================ ================ ================= ==========
 Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
 
-================ ================ ================= ==============
-PD24.1.1         Major            2024/04/08        Released
-================ ================ ================= ==============
+================ ================ ================= ==========
+..
+================ ================ ================= ==========
 
 
 .. include:: ../../intro.rsti
