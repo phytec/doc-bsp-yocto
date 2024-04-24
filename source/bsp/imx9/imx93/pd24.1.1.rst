@@ -57,6 +57,7 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.1.1
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (mickledore)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
+.. |yocto-sdk-rev| replace:: 4.2.3
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-PD24.1.1-bootswitch>`
