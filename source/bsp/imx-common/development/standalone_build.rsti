@@ -165,7 +165,7 @@ Build U-Boot
    .. code-block:: console
       :substitutions:
 
-      host:~/u-boot-imx$ make phycore-|kernel-socname|_defconfig
+      host:~/u-boot-imx$ make |u-boot-defconfig|
       host:~/u-boot-imx$ make flash.bin
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A

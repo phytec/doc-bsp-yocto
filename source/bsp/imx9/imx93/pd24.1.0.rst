@@ -31,6 +31,7 @@
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
+.. |u-boot-defconfig| replace:: phycore-imx93_defconfig
 
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: IMX93
