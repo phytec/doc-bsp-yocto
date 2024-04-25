@@ -1,0 +1,11 @@
+ADC
+---
+
+The PHYTEC |soc| include general purpose Analog-to-Digital Converters (ADC) which
+can be used for interfacing analog sensors.
+
+Reading the ADC values can be done through sysfs:
+
+.. code-block:: console
+
+   target:~$ cat /sys/bus/iio/devices/iio:deviceX/in_voltageY_raw

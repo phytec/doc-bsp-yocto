@@ -332,6 +332,17 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: ../peripherals/gpios.rsti
 
+.. include:: /bsp/peripherals/adc.rsti
+
+On phyBOARD-Nash the ADC lines are accessible on X16 expansion connector:
+
+========= ========
+ADC input X16 pin
+========= ========
+ADC_IN0        47
+ADC_IN2        49
+========= ========
+
 .. include:: ../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
