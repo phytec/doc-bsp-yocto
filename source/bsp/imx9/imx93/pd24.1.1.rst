@@ -77,7 +77,8 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n114`.
+   :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n114` or here:
+   :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n83`.
 
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-PD24.1.1-ubootexternalenv>`
@@ -297,7 +298,7 @@ resistors are activated or not. In this case, the internal pull up is
 activated.
 
 The device tree representation for UART1 pinmuxing:
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n267`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n262`
 
 .. _imx93-PD24.1.1-network:
 
@@ -321,10 +322,11 @@ Network
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n216`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n216` or here:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n201`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n195`
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n194` or here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -353,8 +355,10 @@ Device tree configuration for the User I/O configuration can be found here:
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n88`
 
-General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n155`
+General I²C2 bus configuration for |dt-carrierboard|.dts:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n155` or for
+imx93-phyboard-nash.dts:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n113`
 
 
 EEPROM
@@ -367,12 +371,13 @@ detection.
 .. include:: ../peripherals/eeprom.rsti
 
 DT representation, e.g. in phyCORE-|soc| file can be found in our PHYTEC git:
-:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n173`
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n172`
 
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n173`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n173` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n122`
 
 USB Host Controller
 -------------------
@@ -395,7 +400,8 @@ the Kernel documentation under
 Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
 
 DT representation for USB Host:
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n180`
 
 RS232/RS485
 -----------
@@ -425,7 +431,8 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n147`
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n147` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n105`
 
 Audio on phyBOARD-Segin
 -----------------------
@@ -506,6 +513,9 @@ Device Tree Audio configuration:
 
 The device tree of PEB-AV-02 can be found here:
 :imx-dt:`imx93-phyboard-segin-peb-av-02.dtso?h=v6.1.55_2.2.0-phy3`
+
+The device tree of PEB-AV-10 can be found here:
+:imx-dt:`imx93-phyboard-nash-peb-av-010.dtso?h=v6.1.55_2.2.0-phy3`
 
 .. include:: peripherals/pm.rsti
 
