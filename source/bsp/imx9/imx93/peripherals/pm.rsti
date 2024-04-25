@@ -12,16 +12,18 @@ Scaling (VFS)**. The board can be put into these modes:
 
 
 * nominal (ND),
-* overdrive (OD) and
-* Low Drive (LD).
+* overdrive (OD),
+* Low Drive (LD) and
+* Low Drive (LD) with Software Fast Frequency Change (SWFFC).
 
-==================== ================ ================ ==========
-Mode                 CPU freq         DDR data rate    VDD_SOC
-==================== ================ ================ ==========
-OverDrive (OD)       1.7 GHz          3733 MT/s        900mV
-NominalDrive (ND)    1.4 GHz          1866 MT/s        850mV
-LowDrive (LD)        900 MHz          1866 MT/s        800mV
-==================== ================ ================ ==========
+========================= ================ ================ ==========
+Mode                      CPU freq         DDR data rate    VDD_SOC
+========================= ================ ================ ==========
+OverDrive (OD)            1.7 GHz          3733 MT/s        900mV
+NominalDrive (ND)         1.4 GHz          1866 MT/s        850mV
+LowDrive (LD)             900 MHz          1866 MT/s        800mV
+LowDrive (LD) with SWFFC  900 MHz          625 MT/s         800mV
+========================= ================ ================ ==========
 
 The |soc| BSP supports the VFS feature. The Linux kernel provides a LPM driver
 that allows setting VDD_SOC, CPU freq and DDR speed.
@@ -43,6 +45,13 @@ that allows setting VDD_SOC, CPU freq and DDR speed.
    .. code-block:: console
 
       target:~$ echo 2 > /sys/devices/platform/imx93-lpm/mode
+
+* To put the device in **LowDrive (LD)** mode with the lowest DDR speed with
+  SWFFC type:
+
+   .. code-block:: console
+
+      target:~$ echo 3 > /sys/devices/platform/imx93-lpm/mode
 
 * To check the current CPU frequency type:
 
