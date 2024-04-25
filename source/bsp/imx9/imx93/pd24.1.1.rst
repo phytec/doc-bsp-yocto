@@ -397,6 +397,21 @@ Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
 DT representation for USB Host:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190`
 
+RS232/RS485
+-----------
+
+The **phyBOARD-Nash** i.MX 93 SoC provides one RS232/RS485 serial port.
+
+.. warning::
+   RS232 with HW flow control and RS485 are not working due to HW bug on the
+   phyBOARD-Nash PCB revision 1616.0
+
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
+
+The device tree representation for RS232 and RS485:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n173`
+
 CAN FD
 ------
 
