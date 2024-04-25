@@ -19,16 +19,18 @@ To get all available LEDs, type:
    target:~$ ls /sys/class/leds
    green:heartbeat@  mmc0::@  mmc1::@  yellow:@
 
-Here the LEDs ``green:heartbeat`` is on the |som|, and ``yellow`` is on the PEB-EVAL-01.
+Here the LEDs ``green:heartbeat`` is on the |som|. If you are using
+phyBOARD-Segin there is also ``yellow`` LED which is populated on the
+PEB-EVAL-01.
 
 *  To toggle the LEDs ON:
 
    .. code-block:: console
 
-      target:~$ echo 1 > /sys/class/leds/yellow\:/brightness
+      target:~$ echo 1 > /sys/class/leds/green\:heartbeat/brightness
 
 *  To toggle OFF:
 
    .. code-block:: console
 
-      target:~$ echo 0 > /sys/class/leds/yellow\:/brightness
+      target:~$ echo 0 > /sys/class/leds/green\:heartbeat/brightness
