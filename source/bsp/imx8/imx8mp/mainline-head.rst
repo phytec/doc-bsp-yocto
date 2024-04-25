@@ -1105,7 +1105,8 @@ using ioctls. Have a look at our small example application rs485test, which is
 also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
 correctly.
 
-.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
 
 The device tree representation for RS232 and RS485:
 https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251
