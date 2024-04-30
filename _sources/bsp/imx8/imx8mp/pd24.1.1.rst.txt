@@ -10,7 +10,7 @@
 
 
 .. General Substitutions
-.. |doc-id| replace:: L-XXXXX.Xx
+.. |doc-id| replace:: PD24.1.1
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux
@@ -63,14 +63,14 @@
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-mainline-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-mainline-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-mainline-head-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-mainline-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-mainline-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-mainline-head-components>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd24.1.1-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd24.1.1-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd24.1.1-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd24.1.1-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-pd24.1.1-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd24.1.1-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd24.1.1-development>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd24.1.1-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
@@ -84,9 +84,9 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd24.1.1-components>`
+.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd24.1.1-components>`
+.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd24.1.1-components>`
 
 
 .. M-Core specific
@@ -97,10 +97,10 @@
 
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
-| ManualHead            |                      |
+| Manual	        |                      |
 +-----------------------+----------------------+
 | Document Title        | |doc-id| |soc| BSP   |
-|                       | Mainline Manual Head |
+|                       | Manual	       |
 +-----------------------+----------------------+
 | Document Type         | BSP Manual           |
 +-----------------------+----------------------+
@@ -108,20 +108,20 @@
 +-----------------------+----------------------+
 | Yocto Manual          |                      |
 +-----------------------+----------------------+
-| Release Date          | XXXX/XX/XX           |
+| Release Date          | 2024/04/08           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Mainline Manual Head |
+|                       | Manual	       |
 +-----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ================= ==========
+================ ================ ================= ==============
 Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
 
-================ ================ ================= ==========
-..
-================ ================ ================= ==========
+================ ================ ================= ==============
+PD24.1.1         Major            2024/04/08        Released
+================ ================ ================= ==============
 
 
 .. include:: ../../intro.rsti
@@ -139,14 +139,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-mainline-head-components:
+.. _imx8mp-pd24.1.1-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-mainline-head-getting-started:
+.. _imx8mp-pd24.1.1-getting-started:
 
 Getting Started
 ===============
@@ -359,7 +359,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-mainline-head-images:
+.. _imx8mp-pd24.1.1-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -393,7 +393,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
-.. _imx8mp-mainline-head-bootswitch:
+.. _imx8mp-pd24.1.1-bootswitch:
 .. include:: bootmode-switch.rsti
 
 Flash eMMC
@@ -782,7 +782,7 @@ BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-mainline-head-development:
+.. _imx8mp-pd24.1.1-development:
 
 Development
 ===========
@@ -1053,7 +1053,7 @@ Create the Third Partition
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-mainline-head-device-tree:
+.. _imx8mp-pd24.1.1-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -1110,7 +1110,7 @@ correctly.
 The device tree representation for RS232 and RS485:
 https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251
 
-.. _imx8mp-mainline-head-network:
+.. _imx8mp-pd24.1.1-network:
 
 Network
 -------

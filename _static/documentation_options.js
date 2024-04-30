@@ -1,5 +1,5 @@
 const DOCUMENTATION_OPTIONS = {
-    VERSION: 'imx9-pd24.1.0-58-g44f1dfc',
+    VERSION: 'imx9-pd24.1.0-62-g0db29a8',
     LANGUAGE: 'en',
     COLLAPSE_INDEX: false,
     BUILDER: 'html',
