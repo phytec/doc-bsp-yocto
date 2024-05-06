@@ -42,15 +42,15 @@ SoC.
       49000
 
 There are two trip points registered by the imx_thermal kernel driver. These
-differ depending on the CPU variant. A distinction is made between Industrial
-and Commercial.
+differ depending on the CPU variant. A distinction is made between Commercial,
+Industrial and Extended Industrial.
 
-=================== ========== ==========
-..                  Commercial Industrial
-=================== ========== ==========
-passive (warning)   85°C       95°C
-critical (shutdown) 90°C       100°C
-=================== ========== ==========
+=================== ========== ========== ===================
+..                  Commercial Industrial Extended Industrial
+=================== ========== ========== ===================
+passive (warning)   85°C       95°C       115°C
+critical (shutdown) 90°C       100°C      120°C
+=================== ========== ========== ===================
 
 (see kernel sysfs folder ``/sys/class/thermal/thermal_zone0/``)
 
