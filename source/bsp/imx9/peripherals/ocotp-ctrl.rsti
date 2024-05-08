@@ -11,6 +11,10 @@ in the OCOTP_CTRL (at base address 0x47510000):
 Name            Bank Word Memory offset Description
                           at 0x47510000
 =============== ==== ==== ============= ======================
+BOOT_CFG0	      3    0    0x60        boot fuse settings
+BOOT_CFG1	      3    1    0x64        boot fuse settings
+BOOT_CFG2	      3    2    0x68        boot fuse settings
+BOOT_CFG3	      3    3    0x6c        boot fuse settings
 MAC1_ADDR        39    3    0x4ec       contains lower 32 bits
                                         of ENET0 MAC address
 MAC1/2_ADDR      39    4    0x4f0       contains upper 16 bits
@@ -44,3 +48,58 @@ sysfs:
 .. code-block:: console
 
    target:~$ hexdump /sys/devices/platform/soc\@0/47510000.efuse/fsb_s400_fuse0/nvmem
+
+Burning MAC addresses
+.....................
+
+Let's say we want to burn the following MAC addresses:
+
++------+-------------------+
+| MAC1 | 12:34:56:78:90:Aa |
++------+-------------------+
+| MAC2 | Bb:Cc:Dd:Ee:Ff:D0 |
++------+-------------------+
+
+We would execute this in u-boot:
+
+.. code-block::
+
+   u-boot=> fuse prog 39 3 0x567890Aa
+   u-boot=> fuse prog 39 4 0xFfD01234
+   u-boot=> fuse prog 39 5 0xBbCcDdEe
+
+Burning Boot Fuses
+..................
+
+.. warning::
+   Fuses can only be written once! You can brick your board easily by burning
+   the wrong boot configuration. It cannot be reversed!
+
+Which fuse bank/word should be used to program the BOOT_CFGX can be checked in
+*i.MX 93 Applications Processor Reference Manual* attached spreadsheet named
+**i.MX93_Fusemap.xlsx**.
+
+These values should be written to the BOOT_CFG0, which can be read/written from
+fuses on Bank 3, Word 0.
+
+================ ==========
+Boot Device      BOOT_CFG0
+================ ==========
+eMMC             0x20020002
+SD Card          0x20000103
+================ ==========
+
+To set internal fuses to boot from eMMC one can program them with:
+
+.. code-block::
+
+   u-boot=> fuse prog 3 0 0x20020002
+
+In this example we:
+
+* set the Boot_Mode to 0b0010 (eMMC) with BOOT_CFG0[3:0],
+* set the eMMC Bus width to 0b01 (8 bit) with BOOT_CFG0[18:17]
+* set the BT_FUSE_SEL (Boot fuses already programmed) bit with BOOT_CFG0[29]
+
+Make sure you set the right bits by reading the **Boot Fusemap** chapter in
+*i.MX 93 Applications Processor Reference Manual*.
