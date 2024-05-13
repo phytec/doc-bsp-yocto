@@ -1,6 +1,3 @@
-.. image:: https://github.com/phytec/doc-bsp-yocto/workflows/Documentation/badge.svg
-   :target: https://github.com/phytec/doc-bsp-yocto/actions/workflows/documentation.yaml
-
 PHYTEC Yocto BSP Documentation
 ==============================
 
