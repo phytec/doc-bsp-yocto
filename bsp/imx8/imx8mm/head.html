@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=392faf32"></script>
+        <script src="../../../_static/documentation_options.js?v=8f52365c"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd24.1.1-1-gc911add
+                imx8mp-pd24.1.1-17-gd21d391
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2511,10 +2511,11 @@ mounting. The cards are always mounted as being writable.</p>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
 <p>PHYTEC modules like phyCORE-i.MX 8M Mini is populated with an eMMC memory chip as the
-main storage. eMMC devices contain raw MLC memory cells combined with a memory
-controller that handles ECC and wear leveling. They are connected via an SD/MMC
-interface to the i.MX 8M Mini and are represented as block devices in the Linux kernel
-like SD cards, flash drives, or hard disks.</p>
+main storage. eMMC devices contain raw Multi-Level Cells (MLC) or Triple-Level
+Cells (TLC) combined with a memory controller that handles ECC and wear
+leveling. They are connected via an SD/MMC interface to the i.MX 8M Mini and are
+represented as block devices in the Linux kernel like SD cards, flash drives, or
+hard disks.</p>
 <p>The electric and protocol specifications are provided by JEDEC
 (<a class="reference external" href="https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc">https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc</a>).
 The eMMC manufacturer’s datasheet is relatively short and meant to be read
@@ -2543,9 +2544,9 @@ see manufacturer datasheets and the JEDEC standard.</p>
 <h3><span class="section-number">7.5.2. </span>Enabling Background Operations (BKOPS)<a class="headerlink" href="#enabling-background-operations-bkops" title="Link to this heading"></a></h3>
 <p>In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
-cells. This requires some maintenance tasks (for example erasing unused blocks)
-that are performed regularly. These tasks are called <strong>Background
-Operations (BKOPS)</strong>.</p>
+or TLC. This requires some maintenance tasks (for example erasing unused blocks)
+that are performed regularly. These tasks are called <strong>Background Operations
+(BKOPS)</strong>.</p>
 <p>By default (depending on the chip), the background operations may or may not be
 executed periodically, impacting the worst-case read and write latency.</p>
 <p>The JEDEC Standard has specified a method since version v4.41 that the host can
@@ -2728,10 +2729,10 @@ partition while it is not mounted.</p>
 </section>
 <section id="enable-pseudo-slc-mode">
 <h3><span class="section-number">7.5.5. </span>Enable pseudo-SLC Mode<a class="headerlink" href="#enable-pseudo-slc-mode" title="Link to this heading"></a></h3>
-<p>eMMC devices use MLC memory cells
+<p>eMMC devices use MLC or TLC
 (<a class="reference external" href="https://en.wikipedia.org/wiki/Multi-level_cell">https://en.wikipedia.org/wiki/Multi-level_cell</a>) to store the data. Compared
-with SLC memory cells used in NAND Flash, MLC memory cells have lower
-reliability and a higher error rate at lower costs.</p>
+with SLC used in NAND Flash, MLC or TLC have lower reliability and a higher
+error rate at lower costs.</p>
 <p>If you prefer reliability over storage capacity, you can enable
 the pseudo-SLC mode or SLC mode. The method used here employs the enhanced
 attribute, described in the JEDEC standard, which can be set for continuous
@@ -2815,9 +2816,9 @@ i.e. 3719168 KiB
 <section id="erasing-the-device">
 <h3><span class="section-number">7.5.6. </span>Erasing the Device<a class="headerlink" href="#erasing-the-device" title="Link to this heading"></a></h3>
 <p>It is possible to erase the eMMC device directly rather than overwriting it with
-zeros. The eMMC block management algorithm will erase the underlying MLC memory
-cells or mark these blocks as discard. The data on the device is lost and will
-be read back as zeros.</p>
+zeros. The eMMC block management algorithm will erase the underlying MLC or TLC
+or mark these blocks as discard. The data on the device is lost and
+will be read back as zeros.</p>
 <ul>
 <li><p>After booting from SD Card execute:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>blkdiscard<span class="w"> </span>-f<span class="w"> </span>--secure<span class="w"> </span>/dev/mmcblk2

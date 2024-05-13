@@ -1045,7 +1045,8 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 
            **UART1 RS232**
 
-.. include:: /bsp/imx8/peripherals/rs232-485.rsti
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
 
 The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n166`
