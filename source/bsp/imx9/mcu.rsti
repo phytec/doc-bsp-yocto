@@ -101,7 +101,7 @@ To load the firmware, type:
 
 .. code-block:: console
 
-   target:~$ echo /lib/firmware/<firmware>.elf> /sys/class/remoteproc/remoteproc0/firmware
+   target:~$ echo /lib/firmware/<firmware>.elf > /sys/class/remoteproc/remoteproc0/firmware
    target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
 
 To load a different firmware, the |mcore| needs to be stopped:
