@@ -22,6 +22,8 @@
 +==================================+==================+==================+============+
 | BSP-Yocto-NXP-i.MX93-PD24.1.0    | Major            | 05.02.2024       | released   |
 +----------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX93-PD24.1.1    | Minor            | 08.05.2024       | released   |
++----------------------------------+------------------+------------------+------------+
 
 
 This manual applies to all |yocto-codename| based PHYTEC releases.
@@ -715,8 +717,12 @@ release number, and the hardware you are working on
    *   1: BSP-Yocto-NXP-i.MX93-ALPHA1
    *   2: BSP-Yocto-NXP-i.MX93-PD24.1-rc1
    *   3: BSP-Yocto-NXP-i.MX93-PD24.1.0
+   *   4: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc1
+   *   5: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc2
+   *   6: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc3
+   *   7: BSP-Yocto-NXP-i.MX93-PD24.1.1
 
-   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.0
+   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.1
    *********************************************************************
    * Please choose one of the available builds:
    *
@@ -724,21 +730,36 @@ release number, and the hardware you are working on
                                 distro: supported yocto distribution
                                 target: supported build target
 
-   1: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                              1 GB RAM, eMMC, silicon revision A1
-                              PB-02029-010I, PCL-077-11231010I
+   1: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                              2 GB RAM, eMMC
+                              PB-04729-001, PCL-077-23231211I
                               distro: ampliphy-vendor
                               target: phytec-headless-image
-   2: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                              1 GB RAM, eMMC, silicon revision A1
-                              PB-02029-010I, PCL-077-11231010I
+   2: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                              2 GB RAM, eMMC
+                              PB-04729-001, PCL-077-23231211I
                               distro: ampliphy-vendor-rauc
                               target: phytec-headless-bundle
-   3: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                              1 GB RAM, eMMC, silicon revision A1
-                              PB-02029-010I, PCL-077-11231010I
+   3: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                              2 GB RAM, eMMC
+                              PB-04729-001, PCL-077-23231211I
                               distro: ampliphy-vendor-wayland
                               target: -c populate_sdk phytec-qt6demo-image
+                              target: phytec-qt6demo-image
+   4: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
+                              PB-02029-001, PCL-077-11231010I
+                              distro: ampliphy-vendor
+                              target: phytec-headless-image
+   5: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
+                              PB-02029-001, PCL-077-11231010I
+                              distro: ampliphy-vendor-rauc
+                              target: phytec-headless-bundle
+   6: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                              1 GB RAM, eMMC, silicon revision A1
+                              PB-02029-001, PCL-077-11231010I
+                              distro: ampliphy-vendor-wayland
                               target: phytec-qt6demo-image
 
 If you cannot identify your board with the information given in the selector,
@@ -754,7 +775,7 @@ you can always run
    * The current BSP configuration is:
    *
    * SoC:  refs/heads/imx93
-   * Release:  BSP-Yocto-NXP-i.MX93-PD24.1.0
+   * Release:  BSP-Yocto-NXP-i.MX93-PD24.1.1
    * Machine:  phyboard-segin-imx93-2
    *
    **********************************************
@@ -765,7 +786,7 @@ arguments for several settings
 
 .. code-block:: console
 
-   host:~$ MACHINE=phyboard-segin-imx93-1 ./phyLinux init -p imx93 -r BSP-Yocto-NXP-i.MX93-ALPHA1
+   host:~$ MACHINE=phyboard-segin-imx93-2 ./phyLinux init -p imx93 -r BSP-Yocto-NXP-i.MX93-PD24.1.1
 
 or view the help command for more information
 
