@@ -1,0 +1,89 @@
+Standalone Build
+----------------
+
+In this section, we describe how to build the U-Boot and the Linux kernel
+without using the `Yocto Project <https://www.yoctoproject.org/>`__. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on our
+`Git server <https://git.phytec.de/>`__ at git://git.phytec.de.
+
+.. note::
+   Should your company firewall/gateway inhibit the git protocol, you may use
+   HTTP or HTTPS instead (e.g. git clone https://git.phytec.de/u-boot-imx)
+
+Git Repositories
+................
+
+*  Used U-Boot repository:
+
+   .. code-block::
+
+      git://git.phytec.de/u-boot-imx
+
+*  Our U-Boot is based on the u-boot-imx and adds board-specific patches.
+*  Used Linux kernel repository:
+
+   .. code-block::
+
+      git://git.phytec.de/linux-imx
+
+*  Our |soc| kernel is based on the linux-imx kernel.
+
+To find out which u-boot and kernel tags to use for a specific board, have a
+look at your BSP source folder:
+
+   .. code-block::
+
+      meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+      meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+
+Get the SDK
+...........
+
+You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
+
+*  Move to the Yocto build directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source sources/poky/oe-init-build-env
+      host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
+
+Install the SDK
+...............
+
+*  Set correct permissions and install the SDK:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
+      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
+      ============================================================================================================
+      Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-sdk-rev|):
+      You are about to install the SDK to "/opt/|yocto-distro|/|yocto-sdk-rev|". Proceed [Y/n]? Y
+      Extracting SDK...done
+      Setting it up...done
+      SDK has been successfully set up and is ready to be used.
+
+Using the SDK
+.............
+
+Activate the toolchain for your shell by sourcing the *environment-setup* file
+in the toolchain directory:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
+
+Installing Required Tools
+.........................
+
+Building Linux and U-Boot out-of-tree requires some additional host tool
+dependencies to be installed. For Ubuntu you can install them with:
+
+.. code-block:: console
+
+   host:~$ sudo apt install bison flex

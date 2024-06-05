@@ -1,0 +1,78 @@
+Build Kernel
+............
+
+*  The used linux-imx branch can be found in the `release notes
+   <releasenotes_>`_
+*  The tag needed for this release is called |kernel-tag|
+*  Check out the needed linux-imx tag:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone git://git.phytec.de/linux-imx
+      host:~$ cd ~/linux-imx/
+      host:~/linux-imx$ git fetch --all --tags
+      host:~/linux-imx$ git checkout tags/|kernel-tag|
+
+*  For committing changes, it is highly recommended to switch to a new branch:
+
+   .. code-block:: console
+
+      host:~/linux-imx$ git switch --create <new-branch>
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/linux-imx$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
+
+*  Build the linux kernel:
+
+   .. code-block:: console
+
+      host:~/linux-imx$ make imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
+      host:~/linux-imx$ make -j${nproc}
+
+*  Install kernel modules to e.g. NFS directory:
+
+  .. code-block:: console
+
+      host:~/linux-imx$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+
+*  The Image can be found at ~/linux-imx/arch/arm64/boot/Image
+*  The dtb can be found at
+   ~/linux-imx/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
+*  For (re-)building only Devicetrees and -overlays, it is sufficient to run
+
+   .. code-block:: console
+
+      host:~/linux-imx$ make dtbs
+
+.. note::
+
+   If you are facing the following build issue:
+
+   .. code-block::
+
+      scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
+
+   Make sure you installed the package *"libyaml-dev"* on your host system:
+
+   .. code-block:: console
+
+      host:~$ sudo apt install libyaml-dev
+
+Copy Kernel to SD Card
+......................
+
+When one-time boot via netboot is not sufficient, the kernel along with its
+modules and the corresponding device tree blob may be copied directly to a
+mounted SD card.
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/linux-imx$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
+   host:~/linux-imx$ cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
+   host:~/linux-imx$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
