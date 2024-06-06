@@ -1,0 +1,162 @@
+Build imx-boot
+..............
+
+Get the needed binaries
+~~~~~~~~~~~~~~~~~~~~~~~
+
+To build the imx-boot, you need to **gather** these **files** for
+later use with **imx-mkimage tool**:
+
+*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
+   **bl31.bin**): bl31-|kernel-socname|.bin
+*  **OPTEE image** (optional): tee.bin
+*  **DDR firmware files** (*mkimage tool* compatible format
+   **lpddr4_[i,d]mem_\*d_\*.bin**):
+   lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+   lpddr4_imem_2d_*.bin
+*  **Container image**: mx93a1-ahab-container.img
+
+If you already built our BSP with Yocto, you can get
+these files from the directory mentioned here: |ref-bsp-images|
+
+Or you can download the files from the PHYTEC download server (|link-boot-tools|).
+You can use the commands below to download all the files from that server:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ mkdir ./artefacts && cd ./artefacts
+   host:~/artefacts$ wget \
+                       |link-boot-tools|/bl31-imx93.bin \
+                       |link-boot-tools|/tee.bin \
+                       |link-boot-tools|/lpddr4_dmem_1d_v202201.bin \
+                       |link-boot-tools|/lpddr4_dmem_2d_v202201.bin \
+                       |link-boot-tools|/lpddr4_imem_1d_v202201.bin \
+                       |link-boot-tools|/lpddr4_imem_2d_v202201.bin \
+                       |link-boot-tools|/mx93a1-ahab-container.img
+   host:~/artefacts$ cd ..
+
+Build U-Boot
+~~~~~~~~~~~~
+
+.. build-uboot-marker
+
+*  Get the U-Boot sources:
+
+   .. code-block:: console
+
+      host:~$ git clone git://git.phytec.de/u-boot-imx
+
+*  To get the correct *U-Boot* **tag** you need to take a look at our release
+   notes, which can be found here: `release notes <releasenotes_>`_
+*  The **tag** needed at this release is called |u-boot-tag|
+*  Check out the needed *U-Boot* **tag**:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ cd ~/u-boot-imx/
+   host:~/u-boot-imx$ git fetch --all --tags
+   host:~/u-boot-imx$ git checkout tags/|u-boot-tag|
+
+*  Technically, you can now build the U-Boot, but practically there are some
+   further steps necessary:
+
+   *  Create your own development branch:
+
+      .. code-block:: console
+
+         host:~/u-boot-imx$ git switch --create <new-branch>
+
+      .. note::
+
+         You can name your development branch as you like, this is just an example.
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/u-boot-imx$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
+
+*  Build u-boot:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/u-boot-imx$ make <defconfig>
+      host:~/u-boot-imx$ make
+      host:~/u-boot-imx$ cd ..
+
+   .. note::
+
+      |u-boot-multiple-defconfig-note|
+
+Build final flash.bin with imx-mkimage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Get imx-mkimage:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone https://github.com/nxp-imx/imx-mkimage
+      host:~$ cd imx-mkimage/
+      host:~/imx-mkimage$ git checkout tags/|u-boot-imx-mkimage-tag|
+
+*  Copy firmware binaries into imx-mkimage
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/imx-mkimage$ cp ../artefacts/bl31-imx93.bin ./|u-boot-soc-name|/bl31.bin
+      host:~/imx-mkimage$ cp \
+                           ../artefacts/lpddr4_* \
+                           ../artefacts/mx93a1-ahab-container.img \
+                           ../artefacts/tee.bin \
+                           ./|u-boot-soc-name|/
+
+*  Copy u-boot binaries and DTB into imx-mkimage
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/imx-mkimage$ cp ../u-boot-imx/spl/u-boot-spl.bin ../u-boot-imx/u-boot.bin ./|u-boot-soc-name|/
+      host:~/imx-mkimage$ cp ../u-boot-imx/arch/arm/dts/<dtb> ./|u-boot-soc-name|/
+   .. note::
+
+      |u-boot-multiple-dtb-note|
+
+* Build final flash.bin binary
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/imx-mkimage$ make SOC=|u-boot-soc-name| REV=A1 flash_singleboot
+
+The flash.bin can be found at imx-mkimage/|u-boot-soc-name|/ directory and now can be flashed. A
+chip-specific offset is needed:
+
+.. _offset-table:
+
+===== =================== ============================= ============
+SoC   Offset User Area    Offset Boot Partition         eMMC Device
+===== =================== ============================= ============
+|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/|emmcdev|
+===== =================== ============================= ============
+
+E.g. flash SD card:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/imx-mkimage$ sudo dd if=./|u-boot-soc-name|/flash.bin of=<sd-card> bs=1024 seek=|u-boot-offset| conv=sync
+
+.. note::
+
+   In the command above, replace ``<sd-card>`` with your sd-card device name.
+   For more information on how to find the device name, see the section
+   |ref-getting-started-find-correct-device| in Getting Started.
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"

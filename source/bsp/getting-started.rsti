@@ -51,6 +51,8 @@ Write the Image to SD Card
 Finding the Correct Device
 ..........................
 
+.. _getting-started-find-correct-device:
+
 To create your bootable SD card, you must first find the correct device name
 of your SD card and possible partitions. If any partitions of the SD cards are
 mounted, unmount those before you start copying the image to the SD card.
