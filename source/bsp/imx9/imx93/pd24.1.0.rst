@@ -32,6 +32,10 @@
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-defconfig| replace:: phycore-imx93_defconfig
+.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``phycore-imx93_defconfig``.
+.. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb``.
+.. |u-boot-imx-mkimage-tag| replace:: lf-6.1.36_2.1.0
+.. |u-boot-soc-name| replace:: iMX9
 
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: IMX93
@@ -70,6 +74,7 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-getting-started-find-correct-device| replace:: :ref:`Finding the Correct Device <getting-started-find-correct-device>`
 
 
 .. IMX93 specific
@@ -229,7 +234,7 @@ Development
 .. include:: ../../imx-common/development/uuu.rsti
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
-.. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: ../../imx-common/development/standalone_build_kernel.rsti
 
 .. include:: ../../imx-common/development/format_sd-card.rsti
