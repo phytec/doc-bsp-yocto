@@ -48,6 +48,8 @@ Write the Image to SD Card
    Selecting the wrong device may result in **data loss** and e.g. could erase
    your currently running system on your host PC!
 
+.. _getting-started-find-correct-device:
+
 Finding the Correct Device
 ..........................
 
