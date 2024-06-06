@@ -18,7 +18,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=485135df"></script>
+        <script src="../_static/documentation_options.js?v=240f5443"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-1-gdeeb781
+                imx9-pd24.1.1-2-ge09d228
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -225,6 +225,11 @@
 <tr class="row-even"><td><p>BSP-Yocto-NXP-i.MX93-PD24.1.0</p></td>
 <td><p>Major</p></td>
 <td><p>05.02.2024</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-NXP-i.MX93-PD24.1.1</p></td>
+<td><p>Minor</p></td>
+<td><p>08.05.2024</p></td>
 <td><p>released</p></td>
 </tr>
 </tbody>
@@ -854,8 +859,12 @@ release number, and the hardware you are working on</p>
 *   1: BSP-Yocto-NXP-i.MX93-ALPHA1
 *   2: BSP-Yocto-NXP-i.MX93-PD24.1-rc1
 *   3: BSP-Yocto-NXP-i.MX93-PD24.1.0
+*   4: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc1
+*   5: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc2
+*   6: BSP-Yocto-NXP-i.MX93-PD24.1.1-rc3
+*   7: BSP-Yocto-NXP-i.MX93-PD24.1.1
 
-# Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.0
+# Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.1
 *********************************************************************
 * Please choose one of the available builds:
 *
@@ -863,21 +872,36 @@ no:                 machine: description and article number
                              distro: supported yocto distribution
                              target: supported build target
 
-1: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                           1 GB RAM, eMMC, silicon revision A1
-                           PB-02029-010I, PCL-077-11231010I
+1: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                           2 GB RAM, eMMC
+                           PB-04729-001, PCL-077-23231211I
                            distro: ampliphy-vendor
                            target: phytec-headless-image
-2: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                           1 GB RAM, eMMC, silicon revision A1
-                           PB-02029-010I, PCL-077-11231010I
+2: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                           2 GB RAM, eMMC
+                           PB-04729-001, PCL-077-23231211I
                            distro: ampliphy-vendor-rauc
                            target: phytec-headless-bundle
-3: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
-                           1 GB RAM, eMMC, silicon revision A1
-                           PB-02029-010I, PCL-077-11231010I
+3: phyboard-nash-imx93-1:  PHYTEC phyBOARD-Nash i.MX93
+                           2 GB RAM, eMMC
+                           PB-04729-001, PCL-077-23231211I
                            distro: ampliphy-vendor-wayland
                            target: -c populate_sdk phytec-qt6demo-image
+                           target: phytec-qt6demo-image
+4: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                           1 GB RAM, eMMC, silicon revision A1
+                           PB-02029-001, PCL-077-11231010I
+                           distro: ampliphy-vendor
+                           target: phytec-headless-image
+5: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                           1 GB RAM, eMMC, silicon revision A1
+                           PB-02029-001, PCL-077-11231010I
+                           distro: ampliphy-vendor-rauc
+                           target: phytec-headless-bundle
+6: phyboard-segin-imx93-2: PHYTEC phyBOARD-Segin i.MX93
+                           1 GB RAM, eMMC, silicon revision A1
+                           PB-02029-001, PCL-077-11231010I
+                           distro: ampliphy-vendor-wayland
                            target: phytec-qt6demo-image
 </pre></div>
 </div>
@@ -891,7 +915,7 @@ you can always run</p>
 <span class="go">* The current BSP configuration is:</span>
 <span class="go">*</span>
 <span class="go">* SoC:  refs/heads/imx93</span>
-<span class="go">* Release:  BSP-Yocto-NXP-i.MX93-PD24.1.0</span>
+<span class="go">* Release:  BSP-Yocto-NXP-i.MX93-PD24.1.1</span>
 <span class="go">* Machine:  phyboard-segin-imx93-2</span>
 <span class="go">*</span>
 <span class="go">**********************************************</span>
@@ -900,7 +924,7 @@ you can always run</p>
 <p>to see which SoC and Release are selected in the current workspace. If
 you do not want to use the selector, phyLinux also supports command-line
 arguments for several settings</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-segin-imx93-1<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx93<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX93-ALPHA1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-segin-imx93-2<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx93<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-NXP-i.MX93-PD24.1.1
 </pre></div>
 </div>
 <p>or view the help command for more information</p>
