@@ -2829,6 +2829,15 @@ You can activate the toolchain for your shell by sourcing the file
 
    host:~$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
 
+.. note::
+
+   To be able to build a Qt6 application with the SDK and the Meson Build system, the following has to be done, *after* the SDK has been sourced:
+
+   .. code-block:: console
+
+      host:~$ export PATH=$OECORE_NATIVE_SYSROOT/usr/libexec:$PATH
+
+
 Then the necessary tools like the cross compiler and linker are in your PATH. To
 compile a simple *C* program, use
 
