@@ -18,7 +18,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=240f5443"></script>
+        <script src="../_static/documentation_options.js?v=261c24bb"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-2-ge09d228
+                imx9-pd24.1.1-3-gad9ad4a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -2613,6 +2613,13 @@ simulator.</p>
 <em>environment-setup</em> in the toolchain directory</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be able to build a Qt6 application with the SDK and the Meson Build system, the following has to be done, <em>after</em> the SDK has been sourced:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$OECORE_NATIVE_SYSROOT</span>/usr/libexec:<span class="nv">$PATH</span>
+</pre></div>
+</div>
 </div>
 <p>Then the necessary tools like the cross compiler and linker are in your PATH. To
 compile a simple <em>C</em> program, use</p>
