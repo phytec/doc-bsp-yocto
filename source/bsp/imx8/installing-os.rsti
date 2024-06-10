@@ -1,6 +1,12 @@
 Flash eMMC
 ----------
 
+For consistency, it is assumed that a TFTP server is configured; More
+importantly, all generated images, as listed above, are copied to the default
+/srv/tftp directory. If you do not have this set up, you need to adjust the
+paths that point to the images being used in the instructions. For instructions
+on how to set up the TFTP server and directory, see |ref-setup-network-host|.
+
 To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
 and the |ref-bootswitch| is set to **eMMC**.
 
@@ -112,14 +118,14 @@ You can update the eMMC from your target.
 
    A working network is necessary! |ref-setup-network-host|
 
-Take a compressed or uncompressed image on the host and send it with ssh through
-the network (then uncompress it, if necessary) to the eMMC of the target with a
+Take a compressed or uncompressed image with accompanying block map on the host
+and send it with ssh through the network to the eMMC of the target with a
 one-line command:
 
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2 conv=fsync
+   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -136,16 +142,17 @@ Show your available image files on the host:
 .. code-block:: console
    :substitutions:
 
-   host:~$ ls
+   host:~$ ls /srv/tftp
    |yocto-imagename|-|yocto-machinename|.wic
+   |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-Send the image with the ``dd`` command combined with ssh through the network
+Send the image with the ``bmaptool`` command combined with ssh through the network
 to the eMMC of your device:
 
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
+   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2"
 
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
@@ -239,33 +246,16 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ cd /mnt
-      target:~$ ls
+      target:~$ ls /mnt
       |yocto-imagename|-|yocto-machinename|.wic
+      |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Show list of available MMC devices:
-
-   .. code-block:: console
-
-      target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
-
-*  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2boot0; mmcblk2boot1)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+      target:~$ bmaptool copy /mnt/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -348,24 +338,8 @@ image saved on the SD card.
       target:~$ ls
       |yocto-imagename|-|yocto-machinename|.partup
       |yocto-imagename|-|yocto-machinename|.wic
+      |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Show list of available MMC devices:
-
-   .. code-block:: console
-
-      target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
-
-*  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
    partition) using `partup`_:
 
@@ -379,15 +353,15 @@ image saved on the SD card.
 
    .. note::
 
-      Alternatively, ``dd`` may be used instead:
+      Alternatively, ``bmaptool`` may be used instead:
 
       .. code-block:: console
          :substitutions:
 
-         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2 conv=fsync
+         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
       Keep in mind that the root partition does not make use of the full space when
-      flashing with ``dd``.
+      flashing with ``bmaptool``.
 
 *  After a complete write, your board can boot from eMMC.
 
