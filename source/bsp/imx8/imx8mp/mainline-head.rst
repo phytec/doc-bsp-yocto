@@ -194,6 +194,12 @@ First Start-up
 Installing the OS
 =================
 
+For consistency, it is assumed that a TFTP server is configured; More
+importantly, all generated images, as listed above, are copied to the default
+/srv/tftp directory. If you do not have this set up, you need to adjust the
+paths that point to the images being used in the instructions. For instructions
+on how to set up the TFTP server and directory, see |ref-setup-network-host|.
+
 Bootmode Switch (S3)
 --------------------
 
@@ -251,12 +257,12 @@ These steps will show how to update the eMMC via a network.
    .. code-block::
       :substitutions:
 
-      u-boot=> dhcp ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      u-boot=> dhcp ${loadaddr} |yocto-imagename|-|yocto-machinename|.rootfs.wic
       BOOTP broadcast 1
       DHCP client bound to address 192.168.3.11 (101 ms)
       Using ethernet@30be0000 device
       TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-      Filename '|yocto-imagename|-|yocto-machinename|.|yocto-imageext|'.
+      Filename '|yocto-imagename|-|yocto-machinename|.rootfs.wic'.
       Load address: 0x40480000
       Loading: ######################################
                ######################################
@@ -291,14 +297,14 @@ You can update the eMMC from your target.
 
    A working network is necessary! |ref-setup-network-host|
 
-Take a compressed or uncompressed image on the host and send it with ssh through
-the network (then uncompress it, if necessary) to the eMMC of the target with a
-one-line command:
+Take a compressed or decompressed image with the accompanying block map file
+`*.bmap` on the host and send it with `ssh` through the network to the eMMC of
+the target with a one-line command:
 
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.|yocto-imageext|" | dd of=/dev/mmcblk2 conv=fsync
+   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -315,16 +321,17 @@ Show your available image files on the host:
 .. code-block:: console
    :substitutions:
 
-   host:~$ ls
+   host:~$ ls /srv/tftp
    |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+   |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-Send the image with the ``dd`` command combined with ssh through the network
+Send the image with the ``bmaptool`` command combined with ssh through the network
 to the eMMC of your device:
 
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2 conv=fsync"
+   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2"
 
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
@@ -369,7 +376,8 @@ Flash eMMC from USB in U-Boot on Target
 
 These steps will show how to update the eMMC via a USB device. Configure the
 |ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
-in U-Boot prompt. Insert a USB device with the copied WIC image to the USB slot.
+in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
+the USB slot.
 
 Load your image from the USB device to RAM:
 
@@ -423,33 +431,16 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ cd /mnt
-      target:~$ ls
+      target:~$ ls /mnt
       |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-*  Show list of available MMC devices:
-
-   .. code-block:: console
-
-      target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
-
-*  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2boot0; mmcblk2boot1)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| of=/dev/mmcblk2 conv=fsync
+      target:~$ bmaptool copy /mnt/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -480,8 +471,7 @@ Flash eMMC from SD card in U-Boot on Target
    Linux on Target` subsection.
 
 *  Flash an SD card with a working image and create a third ext4 partition. Copy
-   the WIC image (for example |yocto-imagename|.\ |yocto-imageext|) to this
-   partition.
+   the WIC image (for example |yocto-imagename|.rootfs.wic) to this partition.
 *  Configure the |ref-bootswitch| to SD Card and insert the SD Card.
 *  Power on the board and stop in U-Boot.
 *  Load the image:
@@ -489,7 +479,7 @@ Flash eMMC from SD card in U-Boot on Target
    .. code-block::
       :substitutions:
 
-      u-boot=> ext4load mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.rootfs.wic
       reading
       911842304 bytes read in 39253 ms (22.2 MiB/s)
 
@@ -504,7 +494,7 @@ Flash eMMC from SD card in U-Boot on Target
       switch to partitions #0, OK
       mmc2(part 0) is current device
 
-*  Flash your WIC image (for example |yocto-imagename|.\ |yocto-imageext|)
+*  Flash your WIC image (for example |yocto-imagename|.roots.wic)
    from the SD card to eMMC. This will partition the card and copy imx-boot,
    Image, dtb, dtbo, and root file system to eMMC.
 
@@ -531,24 +521,8 @@ image saved on the SD card.
       target:~$ ls
       |yocto-imagename|-|yocto-machinename|.rootfs.partup
       |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-*  Show list of available MMC devices:
-
-   .. code-block:: console
-
-      target:~$ ls /dev | grep mmc
-      mmcblk1
-      mmcblk1p1
-      mmcblk1p2
-      mmcblk2
-      mmcblk2boot0
-      mmcblk2boot1
-      mmcblk2p1
-      mmcblk2p2
-      mmcblk2rpmb
-
-*  The eMMC device can be recognized by the fact that it contains two boot
-   partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
 *  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
    partition) using `partup`_:
 
@@ -562,15 +536,15 @@ image saved on the SD card.
 
    .. note::
 
-      Alternatively, ``dd`` may be used instead:
+      Alternatively, ``bmaptool`` may be used instead:
 
       .. code-block:: console
          :substitutions:
 
-         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.|yocto-imageext| of=/dev/mmcblk2 conv=fsync
+         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
 
       Keep in mind that the root partition does not make use of the full space when
-      flashing with ``dd``.
+      flashing with ``bmaptool``.
 
 *  After a complete write, your board can boot from eMMC.
 
@@ -685,7 +659,7 @@ Get Images
 
 Download imx-boot from our server or get it from your Yocto build directory at
 build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
-you will also need |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext|
+you will also need |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
 Prepare Target
 ..............
@@ -755,7 +729,7 @@ Execute and power up the board:
 .. code-block:: console
    :substitutions:
 
-   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
 .. include:: /bsp/imx8/development/development_manifests.rsti
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
