@@ -53,7 +53,7 @@
 .. |yocto-codename| replace:: master
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-imageext| replace:: rootfs.wic
+.. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
@@ -185,7 +185,7 @@ First Start-up
 *  **Image.config**: Kernel configuration
 *  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
-*  **phytec-qt6demo-image\*.wic**: SD card image
+*  **phytec-qt6demo-image\*.wic.xz**: SD card image
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
@@ -251,6 +251,13 @@ These steps will show how to update the eMMC via a network.
 .. tip::
 
    A working network is necessary! |ref-setup-network-host|
+
+Uncompress your image
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ unxz /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.xz
 
 *  Load your image via network to RAM:
 
