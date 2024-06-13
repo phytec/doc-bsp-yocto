@@ -40,6 +40,8 @@ look at your BSP source folder:
       |kernel-recipe-path|
       |u-boot-recipe-path|
 
+.. get-sdk-marker
+
 Get the SDK
 ...........
 
@@ -52,6 +54,8 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
 
       host:~$ source sources/poky/oe-init-build-env
       host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
+
+.. install-sdk-marker
 
 Install the SDK
 ...............
