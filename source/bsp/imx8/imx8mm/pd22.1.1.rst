@@ -29,12 +29,20 @@
 .. |kernel-socname| replace:: imx8mm
 .. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
 .. |emmcdev| replace:: mmcblk2
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
 
 .. Bootloader
 .. |u-boot-offset| replace:: 33
 .. |u-boot-offset-boot-part| replace:: 33
 .. |u-boot-mmc-flash-offset| replace:: 0x42
+.. |u-boot-defconfig| replace:: phycore-imx8mm_defconfig
 .. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
 
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: IMX8MM
@@ -63,6 +71,8 @@
 .. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://www.phytec.de/cdocuments/?doc=UIHsG#YoctoReferenceManualHardknottL813e-A12-KernelandBootloaderConfiguration
+.. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Refs
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mm-pd22.1.1-bootswitch>`
