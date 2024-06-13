@@ -3,6 +3,7 @@
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/
@@ -23,15 +24,23 @@
 
 
 .. Linux Kernel
+.. |kernel-defconfig| replace:: defconfig
+.. |kernel-recipe-path| replace:: recipes-kernel/linux/linux-phytec_*.bb
+.. |kernel-repo-name| replace:: linux-phytec
+.. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec.git
 .. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v6.6.21-phy1
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
+.. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec_*.bb
+.. |u-boot-repo-name| replace:: u-boot-phytec
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec.git
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
@@ -61,6 +70,8 @@
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
+.. |yocto-sdk-rev| replace:: 5.0.1
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
