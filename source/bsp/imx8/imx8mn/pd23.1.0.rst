@@ -26,6 +26,10 @@
 
 
 .. Linux Kernel
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
 .. |kernel-socname| replace:: imx8mn
 .. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
 .. |emmcdev| replace:: mmcblk2
@@ -34,7 +38,11 @@
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-defconfig| replace:: phycore-imx8mn_defconfig
 .. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
 
 .. IMX8(MN) specific
 .. |u-boot-socname-config| replace:: IMX8MN
@@ -63,6 +71,8 @@
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
+.. |yocto-sdk-rev| replace:: 4.0.13
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Refs
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-pd23.1.0-bootswitch>`
