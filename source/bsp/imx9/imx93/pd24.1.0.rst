@@ -22,6 +22,10 @@
 
 
 .. Linux Kernel
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
 .. |kernel-socname| replace:: imx93
 .. |kernel-tag| replace:: v6.1.36_2.1.0-phy1
 .. |emmcdev| replace:: mmcblk0
@@ -36,6 +40,10 @@
 .. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb``.
 .. |u-boot-imx-mkimage-tag| replace:: lf-6.1.36_2.1.0
 .. |u-boot-soc-name| replace:: iMX9
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+
 
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: IMX93
@@ -63,6 +71,7 @@
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (mickledore)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
 .. |yocto-sdk-rev| replace:: 4.2.2
+.. |yocto-sdk-a-core| replace:: cortexa55
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-pd24.1.0-bootswitch>`
