@@ -960,6 +960,24 @@ Execute and power up the board:
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+   :end-before: .. get-sdk-marker
+
+Build the SDK
+.............
+
+You can build the SDK yourself with Yocto:
+
+*  Move to the Yocto build directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source sources/poky/oe-init-build-env
+      host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+   :start-after: .. install-sdk-marker
+
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
