@@ -76,6 +76,7 @@
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-mainline-head-images>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-mainline-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-mainline-head-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-mainline-head-getting-started>`
@@ -757,6 +758,36 @@ Execute and power up the board:
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+   :end-before: .. build-uboot-marker
+
+.. _imx8mp-head-development-build-uboot:
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+   :start-after: .. build-uboot-marker
+
+Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and
+newer also support 2GHz RAM timings. These will be enabled for supported boards
+automatically, but they can also be enabled or disabled manually.
+
+Edit the file configs/phycore-|kernel-socname|\_defconfig.
+The fixed RAM size with 2GHz timings will be used:
+
+.. code-block:: kconfig
+
+   CONFIG_TARGET_PHYCORE_IMX8MP=y
+   CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
+   CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
+
+Choose the correct RAM size as populated on the board and uncomment the line
+for this ram size. When not specifying the
+``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will
+be chosen by default. After saving the changes, follow the remaining steps from
+|ref-build-uboot|.
+
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
