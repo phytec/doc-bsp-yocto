@@ -1,8 +1,6 @@
 Mini
 ....
 
-Hardware revision baseboard: 1532.1
-
 .. list-table:: Bootmode Selection
 
    * - .. figure:: images/eMMC.jpg
