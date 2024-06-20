@@ -74,6 +74,7 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-getting-started-find-correct-device| replace:: :ref:`Finding the Correct Device <getting-started-find-correct-device>`
 
 
 .. IMX93 specific
