@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=0c1d2e7c"></script>
+        <script src="../../../_static/documentation_options.js?v=9eea7d75"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-8-g8ea16c3
+                imx9-pd24.1.1-10-gbef6ffb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -344,7 +344,7 @@ your currently running system on your host PC!</p>
 </div>
 <section id="finding-the-correct-device">
 <h3><span class="section-number">2.2.1. </span>Finding the Correct Device<a class="headerlink" href="#finding-the-correct-device" title="Link to this heading"></a></h3>
-<p>To create your bootable SD card, you must first find the correct device name
+<p id="getting-started-find-correct-device">To create your bootable SD card, you must first find the correct device name
 of your SD card and possible partitions. If any partitions of the SD cards are
 mounted, unmount those before you start copying the image to the SD card.</p>
 <ol class="arabic">
@@ -1299,8 +1299,8 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 <h3><span class="section-number">5.4.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
 <section id="get-the-needed-binaries">
 <h4><span class="section-number">5.4.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
-<p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your <strong>u-boot-imx
-build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
+<p>To build the imx-boot, you need to <strong>gather</strong> these <strong>files</strong> for
+later use with <strong>imx-mkimage tool</strong>:</p>
 <ul class="simple">
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
 <strong>bl31.bin</strong>): bl31-imx93.bin</p></li>
@@ -1309,15 +1309,23 @@ build directory</strong> and rename them to fit with <em>mkimage tool</em> scrip
 <strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
 lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
 lpddr4_imem_2d_*.bin</p></li>
+<li><p><strong>Container image</strong>: mx93a1-ahab-container.img</p></li>
 </ul>
-<p>If you already build our BSP with Yocto, you can get
-the bl31-imx93.bin, tee.bin and lpddr4_*.bin from the directory
-mentioned here: <a class="reference internal" href="#imx93-pd24-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/</a></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure you rename the files you need so that they are compatible with the
-<em>mkimage tool</em>.</p>
+<p>If you already built our BSP with Yocto, you can get
+these files from the directory mentioned here: <a class="reference internal" href="#imx93-pd24-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
+<p>Or you can download the files from the PHYTEC download server (<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/</a>).
+You can use the commands below to download all the files from that server:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>./artefacts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./artefacts
+<span class="gp">host:~/artefacts$ </span>wget<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//bl31-imx93.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//tee.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//mx93a1-ahab-container.img
+<span class="gp">host:~/artefacts$ </span><span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
 </div>
 </section>
 <section id="build-u-boot">
@@ -1353,20 +1361,63 @@ further steps necessary:</p>
 </li>
 </ul>
 </li>
-<li><p>Copy all binaries into the U-Boot build directory</p></li>
 <li><p>Set up a build environment:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-wayland/4.2.3/environment-setup-cortexa55-phytec-linux
 </pre></div>
 </div>
 </li>
-<li><p>build flash.bin (imx-boot):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>imx93-phyboard-segin_defconfig
-<span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>flash.bin
+<li><p>Build u-boot:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>&lt;defconfig&gt;
+<span class="gp">host:~/u-boot-imx$ </span>make
+<span class="gp">host:~/u-boot-imx$ </span><span class="nb">cd</span><span class="w"> </span>..
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In command above replace <code class="docutils literal notranslate"><span class="pre">&lt;defconfig&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">imx93-phyboard-segin_defconfig</span></code> or <code class="docutils literal notranslate"><span class="pre">imx93-phyboard-nash_defconfig</span></code>, depending on the board you are about to build for.</p>
 </div>
 </li>
 </ul>
-<p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
+</section>
+<section id="build-final-flash-bin-with-imx-mkimage">
+<h4><span class="section-number">5.4.6.3. </span>Build final flash.bin with imx-mkimage<a class="headerlink" href="#build-final-flash-bin-with-imx-mkimage" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Get imx-mkimage:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/nxp-imx/imx-mkimage
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>imx-mkimage/
+<span class="gp">host:~/imx-mkimage$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/lf-6.1.55-2.2.0
+</pre></div>
+</div>
+</li>
+<li><p>Copy firmware binaries into imx-mkimage</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/imx-mkimage$ </span>cp<span class="w"> </span>../artefacts/bl31-imx93.bin<span class="w"> </span>./iMX9/bl31.bin
+<span class="gp">host:~/imx-mkimage$ </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>../artefacts/lpddr4_*<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>../artefacts/mx93a1-ahab-container.img<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>../artefacts/tee.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>./iMX9/
+</pre></div>
+</div>
+</li>
+<li><p>Copy u-boot binaries and DTB into imx-mkimage</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/imx-mkimage$ </span>cp<span class="w"> </span>../u-boot-imx/spl/u-boot-spl.bin<span class="w"> </span>../u-boot-imx/u-boot.bin<span class="w"> </span>./iMX9/
+<span class="gp">host:~/imx-mkimage$ </span>cp<span class="w"> </span>../u-boot-imx/arch/arm/dts/&lt;dtb&gt;<span class="w"> </span>./iMX9/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In command above replace <code class="docutils literal notranslate"><span class="pre">&lt;dtb&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">imx93-phyboard-segin.dtb</span></code> or <code class="docutils literal notranslate"><span class="pre">imx93-phyboard-nash.dtb</span></code>, depending on the board you are about to build for.</p>
+</div>
+</li>
+<li><p>Build final flash.bin binary</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/imx-mkimage$ </span>make<span class="w"> </span><span class="nv">SOC</span><span class="o">=</span>iMX9<span class="w"> </span><span class="nv">REV</span><span class="o">=</span>A1<span class="w"> </span>flash_singleboot
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>The flash.bin can be found at imx-mkimage/iMX9/ directory and now can be flashed. A
 chip-specific offset is needed:</p>
 <table class="docutils align-default" id="offset-table">
 <thead>
@@ -1385,8 +1436,14 @@ chip-specific offset is needed:</p>
 </tbody>
 </table>
 <p>E.g. flash SD card:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/imx-mkimage$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>./iMX9/flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>&lt;sd-card&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the command above, replace <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> with your sd-card device name.
+For more information on how to find the device name, see the section
+<a class="reference internal" href="../../imx8/imx8mn/head.html#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in Getting Started.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
