@@ -777,6 +777,7 @@ This includes updating the Linux kernel, Device Tree, and root filesystem.
 PHYTEC has written an online manual on how we have intergraded RAUC into our
 BSPs: `L-1006e.A6 RAUC Update & Device Management Manual
 <https://www.phytec.de/cdocuments/?doc=F4DiM>`__.
+
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
