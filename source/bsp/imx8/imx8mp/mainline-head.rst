@@ -72,6 +72,7 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-mainline-head-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-mainline-head-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -652,9 +653,8 @@ Flash eMMC from SD Card
 
 Even if there is no network available, you can update the eMMC. For that, you
 only need a ready-to-use image file (``*.wic``) located on the SD card.
-Because the image file is quite large, you have to enlarge your SD card to use
-its full space (if it was not enlarged before). To enlarge your SD card, see
-Resizing ext4 Root Filesystem.
+Because the image file is quite large, you have to create a third partition.
+To create a new partition or enlarge your SD card, see |ref-format-sd|.
 
 Alternatively, flash a partup package to the SD card, as described in
 |ref-getting-started|. This will ensure the full space of the SD card is used.
@@ -949,6 +949,9 @@ Execute and power up the board:
 .. standalone build needs to be reworked (maybe more generic to make this file
    reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. _imx8mp-mainline-head-format-sd:
+
 Format SD-Card
 --------------
 
