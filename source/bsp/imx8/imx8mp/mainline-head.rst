@@ -669,7 +669,7 @@ Flash eMMC from SD card in U-Boot on Target
    image file is too large use the `Updating eMMC from SD card in
    Linux on Target` subsection.
 
-*  Flash an SD card with a working image and create a third FAT partition. Copy
+*  Flash an SD card with a working image and create a third ext4 partition. Copy
    the WIC image (for example |yocto-imagename|.\ |yocto-imageext|) to this
    partition.
 *  Configure the |ref-bootswitch| to SD Card and insert the SD Card.
@@ -679,7 +679,7 @@ Flash eMMC from SD card in U-Boot on Target
    .. code-block::
       :substitutions:
 
-      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      u-boot=> ext4load mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       reading
       911842304 bytes read in 39253 ms (22.2 MiB/s)
 
