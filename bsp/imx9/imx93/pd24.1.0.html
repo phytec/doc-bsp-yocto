@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=bc755e8a"></script>
+        <script src="../../../_static/documentation_options.js?v=0c4daadc"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-14-gbadb47e
+                imx9-pd24.1.1-19-gacc4323
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -385,7 +385,7 @@ Debian-based systems install it by issuing:</p>
 </pre></div>
 </div>
 <p>Flash a WIC image to SD card by calling:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic?<span class="o">(</span>.xz<span class="o">)</span><span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Replace &lt;your_device&gt; with your actual SD card’s device name found previously,
@@ -402,7 +402,7 @@ available after writing the image.</p>
 <section id="using-partup">
 <h3><span class="section-number">2.2.3. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
 <p>Writing to an SD card with partup is done in a single command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2.partup<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2?<span class="o">(</span>.rootfs<span class="o">)</span>.partup<span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
@@ -431,11 +431,11 @@ the need to call multiple other commands when writing.</p>
 <p>Some PHYTEC BSPs produce uncompressed images (with filename-extension *.wic),
 and some others produce compressed images (with filename-extension *.wic.xz).</p>
 <p>To flash an uncompressed images (*.wic) use command below:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-segin-imx93-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-segin-imx93-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Or to flash a compressed images (*.wic.xz) use that command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-qt6demo-image-phyboard-segin-imx93-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Again, make sure to replace &lt;your_device&gt; with your actual device name found
@@ -1179,7 +1179,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx8/imx8mn/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -1428,7 +1428,7 @@ chip-specific offset is needed:</p>
 <p class="admonition-title">Note</p>
 <p>In the command above, replace <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> with your sd-card device name.
 For more information on how to find the device name, see the section
-<a class="reference internal" href="../../imx8/imx8mn/head.html#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in Getting Started.</p>
+<a class="reference internal" href="#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in Getting Started.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>

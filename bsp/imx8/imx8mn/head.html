@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=bc755e8a"></script>
+        <script src="../../../_static/documentation_options.js?v=0c4daadc"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-14-gbadb47e
+                imx9-pd24.1.1-19-gacc4323
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -384,7 +384,7 @@ Debian-based systems install it by issuing:</p>
 </pre></div>
 </div>
 <p>Flash a WIC image to SD card by calling:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic?<span class="o">(</span>.xz<span class="o">)</span><span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Replace &lt;your_device&gt; with your actual SD card’s device name found previously,
@@ -401,7 +401,7 @@ available after writing the image.</p>
 <section id="using-partup">
 <h3><span class="section-number">2.2.3. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
 <p>Writing to an SD card with partup is done in a single command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.partup<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2?<span class="o">(</span>.rootfs<span class="o">)</span>.partup<span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
@@ -430,11 +430,11 @@ the need to call multiple other commands when writing.</p>
 <p>Some PHYTEC BSPs produce uncompressed images (with filename-extension *.wic),
 and some others produce compressed images (with filename-extension *.wic.xz).</p>
 <p>To flash an uncompressed images (*.wic) use command below:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Or to flash a compressed images (*.wic.xz) use that command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2?<span class="o">(</span>.rootfs<span class="o">)</span>.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Again, make sure to replace &lt;your_device&gt; with your actual device name found
@@ -678,14 +678,14 @@ select the phyCORE-i.MX 8M Nano default bootsource.</p>
 <caption><span class="caption-text">Switch between UART1 RS485/RS232 using Pos4 of switch(S1)</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id17">
-<a class="reference internal image-reference" href="../../../_images/UART1_RS485.png"><img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/UART1_RS4851.png"><img alt="../../../_images/UART1_RS4851.png" src="../../../_images/UART1_RS4851.png" style="width: 250px;" /></a>
 <figcaption>
 <p><span class="caption-text">UART1 RS485</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id18">
-<a class="reference internal image-reference" href="../../../_images/UART1_RS232.jpg"><img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/UART1_RS2321.jpg"><img alt="../../../_images/UART1_RS2321.jpg" src="../../../_images/UART1_RS2321.jpg" style="width: 250px;" /></a>
 <figcaption>
 <p><span class="caption-text">UART1 RS232</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
@@ -697,6 +697,11 @@ select the phyCORE-i.MX 8M Nano default bootsource.</p>
 </section>
 <section id="flash-emmc">
 <h2><span class="section-number">4.2. </span>Flash eMMC<a class="headerlink" href="#flash-emmc" title="Link to this heading"></a></h2>
+<p>For consistency, it is assumed that a TFTP server is configured; More
+importantly, all generated images, as listed above, are copied to the default
+/srv/tftp directory. If you do not have this set up, you need to adjust the
+paths that point to the images being used in the instructions. For instructions
+on how to set up the TFTP server and directory, see <a class="reference internal" href="#imx8mn-head-development"><span class="std std-ref">Setup Network Host</span></a>.</p>
 <p>To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
 and the <a class="reference internal" href="#imx8mn-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> is set to <strong>eMMC</strong>.</p>
 <div class="admonition warning">
@@ -796,10 +801,10 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mn-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
-<p>Take a compressed or uncompressed image on the host and send it with ssh through
-the network (then uncompress it, if necessary) to the eMMC of the target with a
+<p>Take a compressed or uncompressed image with accompanying block map on the host
+and send it with ssh through the network to the eMMC of the target with a
 one-line command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ssh<span class="w"> </span>&lt;USER&gt;@192.168.3.10<span class="w"> </span><span class="s2">&quot;dd if=&lt;path_to_file&gt;/phytec-headless-image-phyboard-polis-imx8mn-2.wic&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-headless-image-phyboard-polis-imx8mn-2.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </section>
@@ -812,13 +817,14 @@ you need a complete image on your host.</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mn-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
 <p>Show your available image files on the host:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls<span class="w"> </span>/srv/tftp
 <span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic.bmap</span>
 </pre></div>
 </div>
-<p>Send the image with the <code class="docutils literal notranslate"><span class="pre">dd</span></code> command combined with ssh through the network
+<p>Send the image with the <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> command combined with ssh through the network
 to the eMMC of your device:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress<span class="w"> </span><span class="p">|</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;dd of=/dev/mmcblk2 conv=fsync&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>/srv/tftp/phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>root@192.168.3.11:/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;bmaptool copy /tmp/phytec-headless-image-phyboard-polis-imx8mn-2.wic /dev/mmcblk2&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -900,30 +906,14 @@ phytec-headless-image-phyboard-polis-imx8mn-2.wic). Set the <a class="reference 
 </div>
 </li>
 <li><p>Now show your saved image files on the USB Stick:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/mnt
-<span class="gp">target:~$ </span>ls
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/mnt
 <span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic.bmap</span>
 </pre></div>
 </div>
 </li>
-<li><p>Show list of available MMC devices:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mmc
-<span class="go">mmcblk1</span>
-<span class="go">mmcblk1p1</span>
-<span class="go">mmcblk1p2</span>
-<span class="go">mmcblk2</span>
-<span class="go">mmcblk2boot0</span>
-<span class="go">mmcblk2boot1</span>
-<span class="go">mmcblk2p1</span>
-<span class="go">mmcblk2p2</span>
-<span class="go">mmcblk2rpmb</span>
-</pre></div>
-</div>
-</li>
-<li><p>The eMMC device can be recognized by the fact that it contains two boot
-partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 without partition):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/mnt/phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </li>
@@ -1000,25 +990,10 @@ image saved on the SD card.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls
 <span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.partup</span>
 <span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic</span>
+<span class="go">phytec-headless-image-phyboard-polis-imx8mn-2.wic.bmap</span>
 </pre></div>
 </div>
 </li>
-<li><p>Show list of available MMC devices:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mmc
-<span class="go">mmcblk1</span>
-<span class="go">mmcblk1p1</span>
-<span class="go">mmcblk1p2</span>
-<span class="go">mmcblk2</span>
-<span class="go">mmcblk2boot0</span>
-<span class="go">mmcblk2boot1</span>
-<span class="go">mmcblk2p1</span>
-<span class="go">mmcblk2p2</span>
-<span class="go">mmcblk2rpmb</span>
-</pre></div>
-</div>
-</li>
-<li><p>The eMMC device can be recognized by the fact that it contains two boot
-partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Nano eMMC (MMC device 2 <strong>without</strong>
 partition) using <a class="reference external" href="https://github.com/phytec/partup">partup</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.partup<span class="w"> </span>/dev/mmcblk2
@@ -1028,12 +1003,12 @@ partition) using <a class="reference external" href="https://github.com/phytec/p
 the eMMC device, adjusting partitions accordingly.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">dd</span></code> may be used instead:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> may be used instead:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.wic<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 <p>Keep in mind that the root partition does not make use of the full space when
-flashing with <code class="docutils literal notranslate"><span class="pre">dd</span></code>.</p>
+flashing with <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code>.</p>
 </div>
 </li>
 <li><p>After a complete write, your board can boot from eMMC.</p>
@@ -1498,7 +1473,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../../imx9/imx93/pd24.1.0.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -2146,14 +2121,14 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 <caption><span class="caption-text">Switch between UART1 RS485/RS232</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id20">
-<img alt="../../../_images/UART1_RS4851.png" src="../../../_images/UART1_RS4851.png" />
+<img alt="../../../_images/UART1_RS485.png" src="../../../_images/UART1_RS485.png" />
 <figcaption>
 <p><span class="caption-text"><strong>UART1 RS485</strong></span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id21">
-<img alt="../../../_images/UART1_RS2321.jpg" src="../../../_images/UART1_RS2321.jpg" />
+<img alt="../../../_images/UART1_RS232.jpg" src="../../../_images/UART1_RS232.jpg" />
 <figcaption>
 <p><span class="caption-text"><strong>UART1 RS232</strong></span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
 </figcaption>

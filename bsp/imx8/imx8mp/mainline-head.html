@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=bc755e8a"></script>
+        <script src="../../../_static/documentation_options.js?v=0c4daadc"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-14-gbadb47e
+                imx9-pd24.1.1-19-gacc4323
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -329,7 +329,7 @@ your currently running system on your host PC!</p>
 </div>
 <section id="finding-the-correct-device">
 <h3><span class="section-number">2.2.1. </span>Finding the Correct Device<a class="headerlink" href="#finding-the-correct-device" title="Link to this heading"></a></h3>
-<p>To create your bootable SD card, you must first find the correct device name
+<p id="getting-started-find-correct-device">To create your bootable SD card, you must first find the correct device name
 of your SD card and possible partitions. If any partitions of the SD cards are
 mounted, unmount those before you start copying the image to the SD card.</p>
 <ol class="arabic">
@@ -379,7 +379,7 @@ Debian-based systems install it by issuing:</p>
 </pre></div>
 </div>
 <p>Flash a WIC image to SD card by calling:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3?<span class="o">(</span>.rootfs<span class="o">)</span>.wic?<span class="o">(</span>.xz<span class="o">)</span><span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Replace &lt;your_device&gt; with your actual SD card’s device name found previously,
@@ -396,7 +396,7 @@ available after writing the image.</p>
 <section id="using-partup">
 <h3><span class="section-number">2.2.3. </span>Using partup<a class="headerlink" href="#using-partup" title="Link to this heading"></a></h3>
 <p>Writing to an SD card with partup is done in a single command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup<span class="w"> </span>/dev/&lt;your_device&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3?<span class="o">(</span>.rootfs<span class="o">)</span>.partup<span class="w"> </span>/dev/&lt;your_device&gt;
 </pre></div>
 </div>
 <p>Make sure to replace &lt;your_device&gt; with your actual device name found previously.</p>
@@ -425,11 +425,11 @@ the need to call multiple other commands when writing.</p>
 <p>Some PHYTEC BSPs produce uncompressed images (with filename-extension *.wic),
 and some others produce compressed images (with filename-extension *.wic.xz).</p>
 <p>To flash an uncompressed images (*.wic) use command below:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3?<span class="o">(</span>.rootfs<span class="o">)</span>.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Or to flash a compressed images (*.wic.xz) use that command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>xzcat<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3?<span class="o">(</span>.rootfs<span class="o">)</span>.wic.xz<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </pre></div>
 </div>
 <p>Again, make sure to replace &lt;your_device&gt; with your actual device name found
@@ -579,13 +579,18 @@ lpddr4_pmu_train_2d_imem_202006.bin</strong>: DDR PHY firmware images</p></li>
 <li><p><strong>Image.config</strong>: Kernel configuration</p></li>
 <li><p><strong>imx8mp-phyboard-pollux-rdk*.dtb</strong>: Kernel device tree file</p></li>
 <li><p><strong>phytec-qt6demo-image*.tar.gz</strong>: Root file system</p></li>
-<li><p><strong>phytec-qt6demo-image*.wic</strong>: SD card image</p></li>
+<li><p><strong>phytec-qt6demo-image*.wic.xz</strong>: SD card image</p></li>
 </ul>
 </section>
 </section>
 </section>
 <section id="installing-the-os">
 <h1><span class="section-number">4. </span>Installing the OS<a class="headerlink" href="#installing-the-os" title="Link to this heading"></a></h1>
+<p>For consistency, it is assumed that a TFTP server is configured; More
+importantly, all generated images, as listed above, are copied to the default
+/srv/tftp directory. If you do not have this set up, you need to adjust the
+paths that point to the images being used in the instructions. For instructions
+on how to set up the TFTP server and directory, see <a class="reference internal" href="#imx8mp-mainline-head-development"><span class="std std-ref">Setup Network Host</span></a>.</p>
 <section id="bootmode-switch-s3">
 <h2><span class="section-number">4.1. </span>Bootmode Switch (S3)<a class="headerlink" href="#bootmode-switch-s3" title="Link to this heading"></a></h2>
 <div class="admonition tip">
@@ -611,7 +616,7 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </figure>
 </td>
 <td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
+<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
@@ -619,7 +624,7 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<img alt="../../../_images/USB_Serial_Download2.png" src="../../../_images/USB_Serial_Download2.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -675,6 +680,10 @@ bootloader, kernel, device tree, device tree overlays, and root file system.</p>
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mp-mainline-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
+<p>Uncompress your image</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>unxz<span class="w"> </span>/srv/tftp/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
+</pre></div>
+</div>
 <ul>
 <li><p>Load your image via network to RAM:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; dhcp ${loadaddr} phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
@@ -718,10 +727,10 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mp-mainline-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
-<p>Take a compressed or uncompressed image on the host and send it with ssh through
-the network (then uncompress it, if necessary) to the eMMC of the target with a
-one-line command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ssh<span class="w"> </span>&lt;USER&gt;@192.168.3.10<span class="w"> </span><span class="s2">&quot;dd if=&lt;path_to_file&gt;/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<p>Take a compressed or decompressed image with the accompanying block map file
+<cite>*.bmap</cite> on the host and send it with <cite>ssh</cite> through the network to the eMMC of
+the target with a one-line command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </section>
@@ -734,13 +743,14 @@ you need a complete image on your host.</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mp-mainline-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
 <p>Show your available image files on the host:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls
-<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls<span class="w"> </span>/srv/tftp
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.bmap</span>
 </pre></div>
 </div>
-<p>Send the image with the <code class="docutils literal notranslate"><span class="pre">dd</span></code> command combined with ssh through the network
+<p>Send the image with the <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> command combined with ssh through the network
 to the eMMC of your device:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress<span class="w"> </span><span class="p">|</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;dd of=/dev/mmcblk2 conv=fsync&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>/srv/tftp/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.*<span class="w"> </span>root@192.168.3.11:/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;bmaptool copy /tmp/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz /dev/mmcblk2&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -783,7 +793,8 @@ limited usage of RAM size in the Bootloader after enabling OPTEE.</p>
 </div>
 <p>These steps will show how to update the eMMC via a USB device. Configure the
 <a class="reference internal" href="#imx8mp-mainline-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD Card and insert an SD card. Power on the board and stop
-in U-Boot prompt. Insert a USB device with the copied WIC image to the USB slot.</p>
+in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
+the USB slot.</p>
 <p>Load your image from the USB device to RAM:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; usb start
 starting USB...
@@ -810,7 +821,7 @@ u-boot=&gt; boot
 <h4><span class="section-number">4.2.3.2. </span>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Link to this heading"></a></h4>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic). Set the <a class="reference internal" href="#imx8mp-mainline-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD Card.</p>
+phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz). Set the <a class="reference internal" href="#imx8mp-mainline-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD Card.</p>
 <ul>
 <li><p>Insert and mount the USB stick:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected</span>
@@ -827,30 +838,14 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic). Set the <a class="ref
 </div>
 </li>
 <li><p>Now show your saved image files on the USB Stick:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/mnt
-<span class="gp">target:~$ </span>ls
-<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/mnt
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.bmap</span>
 </pre></div>
 </div>
 </li>
-<li><p>Show list of available MMC devices:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mmc
-<span class="go">mmcblk1</span>
-<span class="go">mmcblk1p1</span>
-<span class="go">mmcblk1p2</span>
-<span class="go">mmcblk2</span>
-<span class="go">mmcblk2boot0</span>
-<span class="go">mmcblk2boot1</span>
-<span class="go">mmcblk2p1</span>
-<span class="go">mmcblk2p2</span>
-<span class="go">mmcblk2rpmb</span>
-</pre></div>
-</div>
-</li>
-<li><p>The eMMC device can be recognized by the fact that it contains two boot
-partitions: (mmcblk2boot0; mmcblk2boot1)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Plus eMMC (MMC device 2 without partition):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/mnt/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </li>
@@ -883,12 +878,11 @@ Linux on Target</cite> subsection.</p>
 </div>
 <ul>
 <li><p>Flash an SD card with a working image and create a third ext4 partition. Copy
-the WIC image (for example phytec-qt6demo-image.rootfs.wic) to this
-partition.</p></li>
+the WIC image (for example phytec-qt6demo-image.rootfs.wic) to this partition.</p></li>
 <li><p>Configure the <a class="reference internal" href="#imx8mp-mainline-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD Card and insert the SD Card.</p></li>
 <li><p>Power on the board and stop in U-Boot.</p></li>
 <li><p>Load the image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; ext4load mmc 1:3 ${loadaddr} phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
 reading
 911842304 bytes read in 39253 ms (22.2 MiB/s)
 </pre></div>
@@ -904,7 +898,7 @@ mmc2(part 0) is current device
 </pre></div>
 </div>
 </li>
-<li><p>Flash your WIC image (for example phytec-qt6demo-image.rootfs.wic)
+<li><p>Flash your WIC image (for example phytec-qt6demo-image.roots.wic)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setexpr nblk ${filesize} / 0x200
@@ -925,26 +919,11 @@ image saved on the SD card.</p>
 <li><p>Show your saved partup package or WIC image files on the SD card:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls
 <span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup</span>
-<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic</span>
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.bmap</span>
 </pre></div>
 </div>
 </li>
-<li><p>Show list of available MMC devices:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mmc
-<span class="go">mmcblk1</span>
-<span class="go">mmcblk1p1</span>
-<span class="go">mmcblk1p2</span>
-<span class="go">mmcblk2</span>
-<span class="go">mmcblk2boot0</span>
-<span class="go">mmcblk2boot1</span>
-<span class="go">mmcblk2p1</span>
-<span class="go">mmcblk2p2</span>
-<span class="go">mmcblk2rpmb</span>
-</pre></div>
-</div>
-</li>
-<li><p>The eMMC device can be recognized by the fact that it contains two boot
-partitions: (mmcblk2<strong>boot0</strong>; mmcblk2<strong>boot1</strong>)</p></li>
 <li><p>Write the image to the phyCORE-i.MX 8M Plus eMMC (MMC device 2 <strong>without</strong>
 partition) using <a class="reference external" href="https://github.com/phytec/partup">partup</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup<span class="w"> </span>/dev/mmcblk2
@@ -954,12 +933,12 @@ partition) using <a class="reference external" href="https://github.com/phytec/p
 the eMMC device, adjusting partitions accordingly.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">dd</span></code> may be used instead:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> may be used instead:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 <p>Keep in mind that the root partition does not make use of the full space when
-flashing with <code class="docutils literal notranslate"><span class="pre">dd</span></code>.</p>
+flashing with <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code>.</p>
 </div>
 </li>
 <li><p>After a complete write, your board can boot from eMMC.</p>
@@ -1243,7 +1222,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../imx8mn/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../../imx9/imx93/pd24.1.0.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -1363,8 +1342,8 @@ See <a class="reference external" href="https://e2fsprogs.sourceforge.net/e2fspr
 <ul>
 <li><p>To apply your changes, press the green tick.</p></li>
 <li><p>Now you can mount the root partition and copy e.g. the
-phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic image to it. Then unmount it again:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
+phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz image to it. Then unmount it again:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
 <span class="gp">host:~$ </span>umount<span class="w"> </span>/mnt
 </pre></div>
 </div>
@@ -1391,9 +1370,9 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic image to it. Then unmou
 <img alt="../../../_images/gparted8.png" src="../../../_images/gparted8.png" />
 <ul>
 <li><p>Now you can mount the new partition and copy e.g.
-phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic image to it. Then unmount it again:</p>
+phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz image to it. Then unmount it again:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mount<span class="w"> </span>/dev/sde3<span class="w"> </span>/mnt
-<span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz<span class="w"> </span>/mnt/<span class="w"> </span><span class="p">;</span><span class="w"> </span>sync
 <span class="gp">host:~$ </span>umount<span class="w"> </span>/mnt
 </pre></div>
 </div>
