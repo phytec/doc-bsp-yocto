@@ -371,11 +371,11 @@ Load image over tftp into RAM and then write it to eMMC:
    blocks. See the `offset table <#offset-table>`__ for the correct value
    of the corresponding SoC.
 
-Flash eMMC from USB
-...................
+Flash eMMC from USB stick
+.........................
 
-Flash eMMC from USB in U-Boot on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Flash eMMC from USB stick in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
