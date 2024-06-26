@@ -252,7 +252,12 @@ These steps will show how to update the eMMC via a network.
 
    A working network is necessary! |ref-setup-network-host|
 
-Uncompress your image
+.. tip::
+
+   This step only works if the size of the image file is less than 1,28GB due to
+   limited RAM space available in the Bootloader.
+
+*  Uncompress your image:
 
 .. code-block:: console
    :substitutions:
@@ -378,8 +383,8 @@ Flash eMMC from USB in U-Boot on Target
 
 .. tip::
 
-   This step only works if the size of the image file is less than 1GB due to
-   limited usage of RAM size in the Bootloader after enabling OPTEE.
+   This step only works if the size of the image file is less than 1,28GB due to
+   limited RAM space available in the Bootloader.
 
 These steps will show how to update the eMMC via a USB device. Configure the
 |ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
@@ -472,10 +477,9 @@ Flash eMMC from SD card in U-Boot on Target
 
 .. tip::
 
-   This step only works if the size of the image file is less than 1GB due to
-   limited usage of RAM size in the Bootloader after enabling OPTEE. If the
-   image file is too large use the `Updating eMMC from SD card in
-   Linux on Target` subsection.
+   This step only works if the size of the image file is less than 1,28GB due to
+   limited RAM space available in the Bootloader.
+
 
 *  Flash an SD card with a working image and create a third ext4 partition. Copy
    the WIC image (for example |yocto-imagename|.rootfs.wic) to this partition.
