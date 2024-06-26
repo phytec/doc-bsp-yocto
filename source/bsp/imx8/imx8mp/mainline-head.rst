@@ -53,6 +53,7 @@
 .. |yocto-codename| replace:: master
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-headless-imagename| replace:: phytec-headless-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
@@ -262,19 +263,19 @@ These steps will show how to update the eMMC via a network.
 .. code-block:: console
    :substitutions:
 
-   host:~$ unxz /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.xz
+   host:~$ unxz /srv/tftp/|yocto-headless-imagename|-|yocto-machinename|.rootfs.wic.xz
 
 *  Load your image via network to RAM:
 
    .. code-block::
       :substitutions:
 
-      u-boot=> dhcp ${loadaddr} |yocto-imagename|-|yocto-machinename|.rootfs.wic
+      u-boot=> dhcp ${loadaddr} |yocto-headless-imagename|-|yocto-machinename|.rootfs.wic
       BOOTP broadcast 1
       DHCP client bound to address 192.168.3.11 (101 ms)
       Using ethernet@30be0000 device
       TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-      Filename '|yocto-imagename|-|yocto-machinename|.rootfs.wic'.
+      Filename '|yocto-headless-imagename|-|yocto-machinename|.rootfs.wic'.
       Load address: 0x40480000
       Loading: ######################################
                ######################################
@@ -394,13 +395,14 @@ the USB slot.
 Load your image from the USB device to RAM:
 
 .. code-block::
+   :substitutions:
 
    u-boot=> usb start
    starting USB...
    USB0:   USB EHCI 1.00
    scanning bus 0 for devices... 2 USB Device(s) found
           scanning usb for storage devices... 1 Storage Device(s) found
-   u-boot=> fatload usb 0:1 ${loadaddr} *.wic
+   u-boot=> fatload usb 0:1 ${loadaddr} |yocto-headless-imagename|-|yocto-machinename|.rootfs.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
 Write the image to the eMMC:
@@ -490,7 +492,8 @@ Flash eMMC from SD card in U-Boot on Target
    .. code-block::
       :substitutions:
 
-      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.rootfs.wic
+      u-boot=> mmc dev 1
+      u-boot=> ext4load mmc 1:3 ${loadaddr} |yocto-headless-imagename|-|yocto-machinename|.rootfs.wic
       reading
       911842304 bytes read in 39253 ms (22.2 MiB/s)
 
