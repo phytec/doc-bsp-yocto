@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=436a74d2"></script>
+        <script src="../../../_static/documentation_options.js?v=bc755e8a"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-13-gf1e3fb9
+                imx9-pd24.1.1-14-gbadb47e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2724,6 +2724,39 @@ done at /etc/xdg/weston/weston.ini.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Qt demo must be closed before Weston can be closed.</p>
+</div>
+</section>
+<section id="backlight-control">
+<h3><span class="section-number">7.15.3. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
+<p>If a display is connected to the PHYTEC board, you can control its backlight
+with the Linux kernel sysfs interface. All available backlight devices in the
+system can be found in the folder /sys/class/backlight. Reading the appropriate
+files and writing to them allows you to control the backlight.</p>
+<ul>
+<li><p>To get, for example, the maximum brightness level (max_brightness) execute:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/max_brightness
+</pre></div>
+</div>
+<p>Valid brightness values are 0 to &lt;max_brightness&gt;.</p>
+</li>
+<li><p>To obtain the current brightness level, type:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/class/backlight/backlight/brightness
+</pre></div>
+</div>
+</li>
+<li><p>Write to the file brightness to change the brightness:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
+</pre></div>
+</div>
+<p>turns the backlight off for example.</p>
+<p>For documentation of all files, see
+<a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We noticed some visible backlight flickering on brightness level 1 (probably
+due to frequency problems with the hardware).</p>
 </div>
 </section>
 </section>

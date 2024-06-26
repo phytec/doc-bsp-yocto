@@ -1351,6 +1351,12 @@ https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/fre
 
 .. include:: /bsp/qt6.rsti
 
+.. include:: /bsp/imx-common/peripherals/display.rsti
+
+.. note::
+   We noticed some visible backlight flickering on brightness level 1 (probably
+   due to frequency problems with the hardware).
+
 Power Management
 ----------------
 
