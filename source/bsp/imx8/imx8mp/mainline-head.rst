@@ -76,7 +76,7 @@
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-mainline-head-images>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-mainline-head-development-build-uboot>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-mainline-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-mainline-head-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-mainline-head-getting-started>`
@@ -760,7 +760,7 @@ Execute and power up the board:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-marker
 
-.. _imx8mp-head-development-build-uboot:
+.. _imx8mp-mainline-head-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :start-after: .. build-uboot-marker
 
