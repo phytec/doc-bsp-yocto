@@ -44,16 +44,14 @@ exclude_patterns = [
     '*/template.rst',
 ]
 
-extlinks = {'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s',
-            None),
-            'yocto-bootenv': ('https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=%s',
-            None)
-           }
+extlinks = {
+    'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s', None),
+    'yocto-bootenv': ('https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=%s', None)
+}
 
 extlinks_detect_hardcoded_links = True
 
 highlight_language = 'none'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -93,8 +91,10 @@ html_css_files = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': '\\usepackage{lmodern}',
-    'preamble': '''
+    'fontpkg':
+    '\\usepackage{lmodern}',
+    'preamble':
+    '''
       \\usepackage{fontspec}
       \\setmonofont{DejaVu Sans Mono}[Scale=0.8]
     ''',
@@ -233,9 +233,7 @@ latex_documents = [
 
 # -- Linkcheck options ----------------------------------------------------
 
-linkcheck_ignore = [
-    "https://github.com/phytec/doc-bsp-yocto"
-]
+linkcheck_ignore = ["https://github.com/phytec/doc-bsp-yocto"]
 
 linkcheck_timeout = 60
 linkcheck_workers = 10
