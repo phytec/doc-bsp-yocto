@@ -224,11 +224,11 @@ Development
 
 .. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx8/development/standalone_build.rsti
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 
-.. include:: /bsp/imx8/development/standalone_build.rsti
-   :start-after: .. build-kernel-marker
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
 

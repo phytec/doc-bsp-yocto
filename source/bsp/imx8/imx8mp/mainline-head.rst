@@ -754,9 +754,12 @@ Execute and power up the board:
    :substitutions:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
+
 .. include:: /bsp/imx8/development/development_manifests.rsti
-.. standalone build needs to be reworked (maybe more generic to make this file
-   reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
 .. _imx8mp-mainline-head-format-sd:
