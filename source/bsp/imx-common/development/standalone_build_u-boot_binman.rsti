@@ -4,8 +4,8 @@ Build imx-boot
 Get the needed binaries
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-To build the imx-boot, you need to **copy** these **files** to your **u-boot-imx
-build directory** and rename them to fit with *mkimage tool* script:
+To build the imx-boot, you need to **copy** these **files** to your |u-boot-repo-name|
+**build directory** and rename them to fit with *mkimage tool* script:
 
 *  **ARM Trusted firmware binary** (*mkimage tool* compatible format
    **bl31.bin**): bl31-|kernel-socname|.bin
@@ -34,8 +34,9 @@ Build U-Boot
 *  Get the U-Boot sources:
 
    .. code-block:: console
+      :substitutions:
 
-      host:~$ git clone git://git.phytec.de/u-boot-imx
+      host:~$ git clone |u-boot-repo-url|
 
 *  To get the correct *U-Boot* **tag** you need to take a look at our release
    notes, which can be found here: `release notes <releasenotes_>`_
@@ -45,9 +46,9 @@ Build U-Boot
 .. code-block:: console
    :substitutions:
 
-   host:~$ cd ~/u-boot-imx/
-   host:~/u-boot-imx$ git fetch --all --tags
-   host:~/u-boot-imx$ git checkout tags/|u-boot-tag|
+   host:~$ cd ~/|u-boot-repo-name|/
+   host:~/|u-boot-repo-name|$ git fetch --all --tags
+   host:~/|u-boot-repo-name|$ git checkout tags/|u-boot-tag|
 
 *  Technically, you can now build the U-Boot, but practically there are some
    further steps necessary:
@@ -55,8 +56,9 @@ Build U-Boot
    *  Create your own development branch:
 
       .. code-block:: console
+         :substitutions:
 
-         host:~/u-boot-imx$ git switch --create <new-branch>
+         host:~/|u-boot-repo-name|$ git switch --create <new-branch>
 
       .. note::
 
@@ -68,17 +70,17 @@ Build U-Boot
    .. code-block:: console
       :substitutions:
 
-      host:~/u-boot-imx$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
+      host:~/|u-boot-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
 
 *  build flash.bin (imx-boot):
 
    .. code-block:: console
       :substitutions:
 
-      host:~/u-boot-imx$ make |u-boot-defconfig|
-      host:~/u-boot-imx$ make flash.bin
+      host:~/|u-boot-repo-name|$ make |u-boot-defconfig|
+      host:~/|u-boot-repo-name|$ make flash.bin
 
-The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
+The flash.bin can be found at |u-boot-repo-name|/ directory and now can be flashed. A
 chip-specific offset is needed:
 
 .. _offset-table:
@@ -94,7 +96,7 @@ E.g. flash SD card:
 .. code-block:: console
    :substitutions:
 
-   host:~/u-boot-imx$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
