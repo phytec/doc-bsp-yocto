@@ -240,13 +240,13 @@ Development
 
 .. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx8/development/standalone_build.rsti
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-marker
 
 .. _imx8mp-head-development-build-uboot:
-.. include:: /bsp/imx8/development/standalone_build.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :start-after: .. build-uboot-marker
-   :end-before: .. build-kernel-marker
 
 Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
 newer also support 2GHz RAM timings. These will be enabled for supported boards
@@ -270,9 +270,7 @@ for this ram size. When not specifying the
 be chosen by default. After saving the changes, follow the remaining steps from
 |ref-build-uboot|.
 
-
-.. include:: /bsp/imx8/development/standalone_build.rsti
-   :start-after: .. build-kernel-marker
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
 

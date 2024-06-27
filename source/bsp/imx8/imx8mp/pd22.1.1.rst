@@ -860,7 +860,8 @@ Development
 
 .. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx8/development/standalone_build.rsti
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-marker
 
 *  Get the U-Boot sources:
@@ -938,8 +939,10 @@ E.g. flash SD card:
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
-.. include:: /bsp/imx8/development/standalone_build.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :start-after: .. build-uboot-fixed-ram-size-marker
+
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
