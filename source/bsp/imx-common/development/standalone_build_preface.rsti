@@ -9,7 +9,7 @@ the Linux kernel, and all other git repositories are available on our
 
 .. note::
    Should your company firewall/gateway inhibit the git protocol, you may use
-   HTTP or HTTPS instead (e.g. git clone https://git.phytec.de/u-boot-imx)
+   HTTP or HTTPS instead (e.g. git clone |u-boot-repo-url|)
 
 Git Repositories
 ................
@@ -17,25 +17,28 @@ Git Repositories
 *  Used U-Boot repository:
 
    .. code-block::
+      :substitutions:
 
-      git://git.phytec.de/u-boot-imx
+      |u-boot-repo-url|
 
-*  Our U-Boot is based on the u-boot-imx and adds board-specific patches.
+*  Our U-Boot is based on the |u-boot-repo-name| and adds board-specific patches.
 *  Used Linux kernel repository:
 
    .. code-block::
+      :substitutions:
 
-      git://git.phytec.de/linux-imx
+      |kernel-repo-url|
 
-*  Our |soc| kernel is based on the linux-imx kernel.
+*  Our |soc| kernel is based on the |kernel-repo-name| kernel.
 
 To find out which u-boot and kernel tags to use for a specific board, have a
 look at your BSP source folder:
 
    .. code-block::
+      :substitutions:
 
-      meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
-      meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+      |kernel-recipe-path|
+      |u-boot-recipe-path|
 
 Get the SDK
 ...........
@@ -58,8 +61,8 @@ Install the SDK
    .. code-block:: console
       :substitutions:
 
-      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
-      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-cortexa55-toolchain-|yocto-sdk-rev|.sh
+      host:~$ chmod +x phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-|yocto-sdk-a-core|-toolchain-|yocto-sdk-rev|.sh
+      host:~$ ./phytec-|yocto-distro|-glibc-x86_64-|yocto-imagename|-|yocto-sdk-a-core|-toolchain-|yocto-sdk-rev|.sh
       ============================================================================================================
       Enter target directory for SDK (default: /opt/|yocto-distro|/|yocto-sdk-rev|):
       You are about to install the SDK to "/opt/|yocto-distro|/|yocto-sdk-rev|". Proceed [Y/n]? Y
@@ -76,7 +79,7 @@ in the toolchain directory:
 .. code-block:: console
    :substitutions:
 
-   host:~$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-cortexa55-phytec-linux
+   host:~$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
 
 Installing Required Tools
 .........................
