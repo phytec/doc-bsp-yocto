@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=d4c6285c"></script>
+        <script src="../../../_static/documentation_options.js?v=d843dfac"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-24-gb87af5d
+                imx9-pd24.1.1-29-g22efb63
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -262,7 +262,7 @@ of the documentation can be found on the <a class="reference external" href="htt
 <section id="supported-hardware">
 <h2><span class="section-number">1.1. </span>Supported Hardware<a class="headerlink" href="#supported-hardware" title="Link to this heading"></a></h2>
 <p>On our web page, you can see all supported Machines with the available Article
-Numbers for this release: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1">download</a>.</p>
+Numbers for this release: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2 <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2">download</a>.</p>
 <p>If you choose a specific <strong>Machine Name</strong> in the section <strong>Supported Machines</strong>,
 you can see which <strong>Article Numbers</strong> are available under this machine and also
 a short description of the hardware information. In case you only have
@@ -306,8 +306,8 @@ instructions.</p>
 data are correctly written. Both the partup package and the WIC image, which can
 be flashed using <code class="docutils literal notranslate"><span class="pre">dd</span></code>, can be downloaded from the <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/">PHYTEC download server</a>.</p>
 <p>Get either the partup package or the WIC image from the download server:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
-<span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
+<span class="gp">host:~$ </span>wget<span class="w"> </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
 </pre></div>
 </div>
 <div class="admonition note">
@@ -460,12 +460,12 @@ debug USB</p></li>
 <h1><span class="section-number">3. </span>Building the BSP<a class="headerlink" href="#building-the-bsp" title="Link to this heading"></a></h1>
 <p>This section will guide you through the general build process of the i.MX 8M Plus BSP
 using Yocto and the phyLinux script. For more information about our
-meta-layer or Yocto in general visit: <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone">Yocto Reference Manual (master)</a>.</p>
+meta-layer or Yocto in general visit: <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap">Yocto Reference Manual (scarthgap)</a>.</p>
 <section id="basic-set-up">
 <h2><span class="section-number">3.1. </span>Basic Set-Up<a class="headerlink" href="#basic-set-up" title="Link to this heading"></a></h2>
 <p>If you have never created a Phytec BSP with Yocto on your computer, you should
 take a closer look at the chapter BSP Workspace Installation in the
-<a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone">Yocto Reference Manual (master)</a>.</p>
+<a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap">Yocto Reference Manual (scarthgap)</a>.</p>
 </section>
 <section id="get-the-bsp">
 <h2><span class="section-number">3.2. </span>Get the BSP<a class="headerlink" href="#get-the-bsp" title="Link to this heading"></a></h2>
@@ -507,12 +507,12 @@ on.</p>
 <p class="admonition-title">Note</p>
 <p>If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. And have a look at
-<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1">our BSP</a>.</p>
+<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2">our BSP</a>.</p>
 </div>
 </li>
 <li><p>It is also possible to pass this information directly using command line
 parameters:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-xwayland<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-pollux-imx8mp-3<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/yocto$ </span><span class="nv">DISTRO</span><span class="o">=</span>ampliphy-xwayland<span class="w"> </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-pollux-imx8mp-3<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 </pre></div>
 </div>
 </li>
@@ -1255,11 +1255,11 @@ done by default, which makes partup again superior flash option.</p>
 of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
 command line:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 </pre></div>
 </div>
 <p>This will initialize a BSP that will track the latest development state of the
-current release (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1). From now on <em>repo sync</em> in this folder
+current release (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2). From now on <em>repo sync</em> in this folder
 will pull all the latest changes from our Git repositories:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>repo<span class="w"> </span>sync
 </pre></div>
@@ -1269,7 +1269,7 @@ will pull all the latest changes from our Git repositories:</p>
 <h3><span class="section-number">5.4.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
-PDXX.Y number than the latest one (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
+PDXX.Y number than the latest one (BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
 end:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp
 </pre></div>
@@ -1437,7 +1437,7 @@ the subfolder <code class="docutils literal notranslate"><span class="pre">arch/
 <section id="accessing-peripherals">
 <h1><span class="section-number">7. </span>Accessing Peripherals<a class="headerlink" href="#accessing-peripherals" title="Link to this heading"></a></h1>
 <p>To find out which boards and modules are supported by the release of PHYTEC’s
-phyCORE-i.MX 8M Plus BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1">our BSP</a> web page and click
+phyCORE-i.MX 8M Plus BSP described herein, visit <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2">our BSP</a> web page and click
 the corresponding BSP release in the download section. Here you can find all
 hardware supported in the columns “Hardware Article Number” and the correct
 machine name in the corresponding cell under “Machine Name”.</p>
@@ -1499,14 +1499,14 @@ of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
 UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
 multi-protocol transceiver for RS-232 and RS-485, available at pin header
-connector <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">X2</span></a> at the RS-232 level, or at the RS-485 level. The
-configuration of the multi-protocol transceiver is done by jumpers <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP3</span></a> and
-<a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP4</span></a> on the baseboard. For more information about the correct setup please
+connector <a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">X2</span></a> at the RS-232 level, or at the RS-485 level. The
+configuration of the multi-protocol transceiver is done by jumpers <a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">JP3</span></a> and
+<a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">JP4</span></a> on the baseboard. For more information about the correct setup please
 refer to the phyCORE-i.MX 8M Plus/phyBOARD-Pollux Hardware Manual section UARTs.</p>
 <p>We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
 using ioctls. Have a look at our small example application rs485test, which is
-also included in the BSP. The jumpers <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP3</span></a> and <a class="reference internal" href="head.html#imx8mp-head-components"><span class="std std-ref">JP4</span></a> need to be set
+also included in the BSP. The jumpers <a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">JP3</span></a> and <a class="reference internal" href="#imx8mp-mainline-head-components"><span class="std std-ref">JP4</span></a> need to be set
 correctly.</p>
 <section id="rs232">
 <h3><span class="section-number">7.2.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
@@ -1652,9 +1652,9 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261">https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261</a></p>
+<a class="reference external" href="https://github.com/phytec/linux-phytec//blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261">https://github.com/phytec/linux-phytec//blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181">https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181</a></p>
+<a class="reference external" href="https://github.com/phytec/linux-phytec//blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181">https://github.com/phytec/linux-phytec//blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
