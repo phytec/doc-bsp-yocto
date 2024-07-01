@@ -47,10 +47,10 @@
 .. |dt-somnetwork| replace:: https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L41
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: master
+.. |yocto-codename| replace:: scarthgap
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic
@@ -58,7 +58,7 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (master)
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
 
