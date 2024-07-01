@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=d843dfac"></script>
+        <script src="../../../_static/documentation_options.js?v=325f3f57"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-29-g22efb63
+                imx9-pd24.1.1-41-gadb7372
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1179,7 +1179,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx8/imx8mn/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -1208,7 +1208,7 @@ the Linux kernel, and all other git repositories are available on our
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Should your company firewall/gateway inhibit the git protocol, you may use
-HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https://git.phytec.de/u-boot-imx">https://git.phytec.de/u-boot-imx</a>)</p>
+HTTP or HTTPS instead (e.g. git clone git://git.phytec.de/u-boot-imx)</p>
 </div>
 <section id="git-repositories">
 <h3><span class="section-number">5.4.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
@@ -1428,7 +1428,7 @@ chip-specific offset is needed:</p>
 <p class="admonition-title">Note</p>
 <p>In the command above, replace <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> with your sd-card device name.
 For more information on how to find the device name, see the section
-<a class="reference internal" href="../../imx8/imx8mn/head.html#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in Getting Started.</p>
+<a class="reference internal" href="#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in Getting Started.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -1468,7 +1468,7 @@ For more information on how to find the device name, see the section
 <li><p>Install kernel modules to e.g. NFS directory:</p></li>
 </ul>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> host:~/linux-imx$ make INSTALL_MOD_PATH=/home/&lt;user&gt;/&lt;rootfspath&gt; modules_install</span>
 </pre></div>
 </div>
 </div></blockquote>

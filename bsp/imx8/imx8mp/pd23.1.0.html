@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=d843dfac"></script>
+        <script src="../../../_static/documentation_options.js?v=325f3f57"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx9-pd24.1.1-29-g22efb63
+                imx9-pd24.1.1-41-gadb7372
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -614,7 +614,7 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
+<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -622,7 +622,7 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<img alt="../../../_images/USB_Serial_Download2.png" src="../../../_images/USB_Serial_Download2.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
@@ -1424,7 +1424,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../imx8mn/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../../imx9/imx93/pd24.1.0.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -1453,7 +1453,7 @@ the Linux kernel, and all other git repositories are available on our
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Should your company firewall/gateway inhibit the git protocol, you may use
-HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https://git.phytec.de/u-boot-imx">https://git.phytec.de/u-boot-imx</a>)</p>
+HTTP or HTTPS instead (e.g. git clone git://git.phytec.de/u-boot-imx)</p>
 </div>
 <section id="git-repositories">
 <h3><span class="section-number">5.4.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
@@ -1469,14 +1469,16 @@ HTTP or HTTPS instead (e.g. git clone <a class="reference external" href="https:
 </pre></div>
 </div>
 </li>
-<li><p>Our i.MX 8M Plus kernel is based on the linux-imx kernel. To find out which tag is
-used for a specific board, have a look at your BSP source folder:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+<li><p>Our i.MX 8M Plus kernel is based on the linux-imx kernel.</p></li>
+</ul>
+<p>To find out which u-boot and kernel tags to use for a specific board, have a
+look at your BSP source folder:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
 meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </pre></div>
 </div>
-</li>
-</ul>
+</div></blockquote>
 </section>
 <section id="get-the-sdk">
 <h3><span class="section-number">5.4.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
@@ -1494,11 +1496,11 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <h3><span class="section-number">5.4.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Set correct permissions and install the SDK:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD23.1.0.sh
-<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-BSP-Yocto-NXP-i.MX8MP-PD23.1.0.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-4.0.13.sh
+<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-4.0.13.sh
 <span class="go">============================================================================================================</span>
-<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0):</span>
-<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0&quot;. Proceed [Y/n]? Y</span>
+<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/4.0.13):</span>
+<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/4.0.13&quot;. Proceed [Y/n]? Y</span>
 <span class="go">Extracting SDK...done</span>
 <span class="go">Setting it up...done</span>
 <span class="go">SDK has been successfully set up and is ready to be used.</span>
@@ -1511,7 +1513,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 <h3><span class="section-number">5.4.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
 <p>Activate the toolchain for your shell by sourcing the <em>environment-setup</em> file
 in the toolchain directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </section>
@@ -1527,19 +1529,19 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 <h3><span class="section-number">5.4.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
 <section id="get-the-needed-binaries">
 <h4><span class="section-number">5.4.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
-<p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your <strong>u-boot-imx
-build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
+<p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your u-boot-imx
+<strong>build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
 <ul class="simple">
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
 <strong>bl31.bin</strong>): bl31-imx8mp.bin</p></li>
 <li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
 <li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
-<strong>lpddr4_pmu_train_*d_*mem.bin</strong>):
-<em>lpddr4_pmu_train_2d_dmem</em>.bin, lpddr4_pmu_train_2d_imem*.bin,
-(lpddr4_pmu_train_1d_dmem*.bin, lpddr4_pmu_train_1d_imem*.bin)*</p></li>
+<strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
+lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+lpddr4_imem_2d_*.bin</p></li>
 </ul>
 <p>If you already build our BSP with Yocto, you can get
-the bl31-imx8mp.bin, tee.bin and lpddr4_pmu_train*.bin from the directory
+the bl31-imx8mp.bin, tee.bin and lpddr4_*.bin from the directory
 mentioned here: <a class="reference internal" href="#imx8mp-pd23-1-0-images"><span class="std std-ref">BSP Images</span></a></p>
 <p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
 <div class="admonition warning">
@@ -1583,7 +1585,7 @@ further steps necessary:</p>
 </li>
 <li><p>Copy all binaries into the U-Boot build directory</p></li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
@@ -1679,7 +1681,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 </div>
 </li>
 <li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/environment-setup-cortexa53-crypto-phytec-linux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
 </pre></div>
 </div>
 </li>
@@ -1692,7 +1694,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 <li><p>Install kernel modules to e.g. NFS directory:</p></li>
 </ul>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> host:~/linux-imx$ make INSTALL_MOD_PATH=/home/&lt;user&gt;/&lt;rootfspath&gt; modules_install</span>
 </pre></div>
 </div>
 </div></blockquote>

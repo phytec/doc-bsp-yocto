@@ -3,6 +3,7 @@
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/
@@ -23,15 +24,23 @@
 
 
 .. Linux Kernel
+.. |kernel-defconfig| replace:: defconfig
+.. |kernel-recipe-path| replace:: recipes-kernel/linux/linux-phytec_*.bb
+.. |kernel-repo-name| replace:: linux-phytec
+.. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec.git
 .. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v6.6.21-phy1
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
+.. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec_*.bb
+.. |u-boot-repo-name| replace:: u-boot-phytec
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec.git
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
@@ -61,10 +70,13 @@
 .. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
 .. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
+.. |yocto-sdk-rev| replace:: 5.0.1
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-mainline-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-mainline-head-images>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-mainline-head-development-build-uboot>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-mainline-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-mainline-head-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-mainline-head-getting-started>`
@@ -743,9 +755,42 @@ Execute and power up the board:
    :substitutions:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+   :end-before: .. build-uboot-marker
+
+.. _imx8mp-mainline-head-development-build-uboot:
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+   :start-after: .. build-uboot-marker
+
+Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and
+newer also support 2GHz RAM timings. These will be enabled for supported boards
+automatically, but they can also be enabled or disabled manually.
+
+Edit the file configs/phycore-|kernel-socname|\_defconfig.
+The fixed RAM size with 2GHz timings will be used:
+
+.. code-block:: kconfig
+
+   CONFIG_TARGET_PHYCORE_IMX8MP=y
+   CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
+   CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
+
+Choose the correct RAM size as populated on the board and uncomment the line
+for this ram size. When not specifying the
+``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will
+be chosen by default. After saving the changes, follow the remaining steps from
+|ref-build-uboot|.
+
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
+
 .. include:: /bsp/imx8/development/development_manifests.rsti
-.. standalone build needs to be reworked (maybe more generic to make this file
-   reuse it)
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
 .. _imx8mp-mainline-head-format-sd:
