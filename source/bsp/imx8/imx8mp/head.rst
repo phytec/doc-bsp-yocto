@@ -248,7 +248,7 @@ Development
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :start-after: .. build-uboot-marker
 
-Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
+Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and
 newer also support 2GHz RAM timings. These will be enabled for supported boards
 automatically, but they can also be enabled or disabled manually.
 
@@ -262,11 +262,13 @@ The fixed RAM size with 2GHz timings will be used:
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
    CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
 
 Choose the correct RAM size as populated on the board and uncomment the line
 for this ram size. When not specifying the
-``CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS`` option, the 1.5GHz timings will
+``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will
 be chosen by default. After saving the changes, follow the remaining steps from
 |ref-build-uboot|.
 
