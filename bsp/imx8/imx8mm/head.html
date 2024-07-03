@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=eef3981b"></script>
+        <script src="../../../_static/documentation_options.js?v=14951316"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd24.1.2
+                imx8mp-pd24.1.2-1-g96365e0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1588,18 +1588,6 @@ mentioned here: <a class="reference internal" href="#imx8mm-head-images"><span c
 </section>
 <section id="build-u-boot">
 <h4><span class="section-number">5.4.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h4>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The regulator for the SD card reset pin has been disabled to ensure
-compatibility with 1532.1 revision baseboards. If you have a revision
-1532.2(a) or higher baseboard, you may enable the device tree nodes for
-highest performance. In the imx8mm-phyboard-polis-rdk-u-boot.dtsi file,
-remove the following lines:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/delete-node/ &amp;reg_usdhc2_vmmc;
-/delete-property/ vmmc-supply;
-</pre></div>
-</div>
-</div>
 <ul>
 <li><p>Get the U-Boot sources:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx

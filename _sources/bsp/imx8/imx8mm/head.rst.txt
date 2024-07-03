@@ -233,20 +233,6 @@ Development
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :end-before: .. build-uboot-marker
-
-.. note::
-   The regulator for the SD card reset pin has been disabled to ensure
-   compatibility with 1532.1 revision baseboards. If you have a revision
-   1532.2(a) or higher baseboard, you may enable the device tree nodes for
-   highest performance. In the imx8mm-phyboard-polis-rdk-u-boot.dtsi file,
-   remove the following lines::
-
-      /delete-node/ &reg_usdhc2_vmmc;
-      /delete-property/ vmmc-supply;
-
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :start-after: .. build-uboot-marker
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
