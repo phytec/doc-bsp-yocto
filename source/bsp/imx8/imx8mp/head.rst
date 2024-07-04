@@ -59,10 +59,10 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: kirkstone
+.. |yocto-codename| replace:: scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic
@@ -70,9 +70,9 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
-.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
+.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
 .. |yocto-sdk-rev| replace::  4.0.13
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
