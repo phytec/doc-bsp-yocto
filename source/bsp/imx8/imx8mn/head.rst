@@ -90,6 +90,7 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mn-head-format-sd>`
 
 
 .. IMX8(MN) specific replacements
@@ -238,6 +239,8 @@ Development
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. _imx8mn-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
