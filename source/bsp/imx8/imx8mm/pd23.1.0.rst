@@ -49,6 +49,11 @@
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 
+.. RAUC
+.. |rauc-manual| replace:: L-1006e.A5 RAUC Update & Device Management Manual
+.. _rauc-manual: https://www.phytec.de/cdocuments/?doc=fgByJg
+
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som

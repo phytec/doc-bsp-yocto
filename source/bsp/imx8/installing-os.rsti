@@ -546,5 +546,4 @@ The RAUC (Robust Auto-Update Controller) mechanism support has been added to
 meta-ampliphy. It controls the procedure of updating a device with new firmware.
 This includes updating the Linux kernel, Device Tree, and root filesystem.
 PHYTEC has written an online manual on how we have intergraded RAUC into our
-BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
-<https://www.phytec.de/cdocuments/?doc=fgByJg>`__.
+BSPs: |rauc-manual|_.
