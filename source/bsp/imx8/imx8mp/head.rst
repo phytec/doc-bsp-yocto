@@ -92,6 +92,7 @@
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-head-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -282,6 +283,8 @@ be chosen by default. After saving the changes, follow the remaining steps from
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. _imx8mp-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
