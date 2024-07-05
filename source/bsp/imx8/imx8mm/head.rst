@@ -71,7 +71,7 @@
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
@@ -203,7 +203,7 @@ First Start-up
 * **imx8mm-phyboard-polis-rdk*.dtb**: Kernel device tree file
 * **imx8mm-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-qt6demo-image\*.tar.gz**: Root file system
-* **phytec-qt6demo-image\*.wic**: SD card image
+* **phytec-qt6demo-image\*.rootfs.wic.xz**: SD card image
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS

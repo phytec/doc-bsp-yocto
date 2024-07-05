@@ -69,7 +69,7 @@
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-headless-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
@@ -196,7 +196,7 @@ First Start-up
 * **imx8mn-phyboard-polis*.dtb**: Kernel device tree file
 * **imx8mn-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-headless-image\*.tar.gz**: Root file system
-* **phytec-headless-image\*.wic**: SD card image
+* **phytec-headless-image\*.rootfs.wic.xz**: compressed SD card image
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS
