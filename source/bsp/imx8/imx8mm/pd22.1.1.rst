@@ -850,7 +850,112 @@ Development
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot.rsti
 
-.. include:: /bsp/imx-common/development/uuu.rsti
+Working with UUU-Tool
+---------------------
+
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
+documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+
+Host preparations for UUU-Tool Usage
+....................................
+
+*  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
+
+*  If you built UUU from source, add it to ``PATH``:
+
+   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
+   ``~/.bashrc``.
+
+   .. code-block:: console
+
+      export PATH=~/mfgtools/uuu/:"$PATH"
+
+*  Set udev rules (documented in ``uuu -udev``):
+
+   .. code-block:: console
+
+      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+      host:~$ sudo udevadm control --reload
+
+Get Images
+..........
+
+Download imx-boot from our server or get it from your Yocto build directory at
+build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
+you will also need |yocto-imagename|-|yocto-machinename|.wic.
+
+Prepare Target
+..............
+
+Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
+|ref-usb-otg| to your host.
+
+Starting bootloader via UUU-Tool
+................................
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b spl imx-boot
+
+You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
+
+.. note::
+   The default boot command when booting with UUU-Tool is set to fastboot. If
+   you want to change this, please adjust the environment variable bootcmd_mfg
+   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
+   UUU-tool the default environment is loaded. Saveenv has no effect. If you
+   want to change the boot command permanently for UUU-boot, you need to change
+   this in U-Boot code.
+
+Flashing U-boot Image to eMMC via UUU-Tool
+...........................................
+
+.. warning::
+
+   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+
+   .. code-block:: console
+      :substitutions:
+
+      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
+      u-boot=> mmc partconf |u-boot-emmc-devno|
+      EXT_CSD[179], PARTITION_CONFIG:
+      BOOT_ACK: 0x0
+      BOOT_PARTITION_ENABLE: 0x0
+      PARTITION_ACCESS: 0x0
+
+   or check |ref-disable-emmc-part| from Linux.
+
+   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   not used!
+
+   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   done by default, which makes partup again superior flash option.
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b emmc imx-boot
+
+Flashing wic Image to eMMC via UUU-Tool
+...........................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
