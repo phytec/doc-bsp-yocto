@@ -93,4 +93,4 @@ dependencies to be installed. For Ubuntu you can install them with:
 
 .. code-block:: console
 
-   host:~$ sudo apt install bison flex
+   host:~$ sudo apt install bison flex libssl-dev
