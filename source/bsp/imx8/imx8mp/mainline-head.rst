@@ -8,6 +8,7 @@
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2/images/ampliphy-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
+.. _`static-pdf-dl`: ../../../_static/imx8mp-mainline-head.pdf
 
 
 .. General Substitutions
@@ -106,6 +107,10 @@
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
