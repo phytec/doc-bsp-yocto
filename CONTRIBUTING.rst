@@ -364,6 +364,14 @@ When committing, make sure to add a sign-off using the option ``-s``::
 
    git commit -s
 
+Documentation Preview
+---------------------
+
+After the Pull Request is opened, make sure to verify that all CI checks pass.
+After the Build action passes, you can review the whole documentation including
+your changes by clicking on the ``Doc Preview`` check that is displayed in the
+checks tab of the pull request.
+
 Frequently asked Questions
 ==========================
 
