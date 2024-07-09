@@ -1,9 +1,14 @@
 .. Download links
+.. _`static-pdf-dl`: ../_static/mickledore.pdf
 
 .. Yocto
 .. |yocto-codename| replace:: Mickledore
 .. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-------------------------------------------------------------+
 | |yocto-ref-manual|                                          |

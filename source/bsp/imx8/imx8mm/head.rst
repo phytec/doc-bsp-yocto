@@ -8,6 +8,7 @@
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
+.. _`static-pdf-dl`: ../../../_static/imx8mm-head.pdf
 
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2022.04_2.2.2-phy5#n120
@@ -109,6 +110,10 @@
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mm_phyboard_polis/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +----------------------+----------------------+
 | |doc-id| |soc| BSP                          |

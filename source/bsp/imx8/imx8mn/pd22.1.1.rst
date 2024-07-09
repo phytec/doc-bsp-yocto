@@ -7,6 +7,7 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
+.. _`static-pdf-dl`: ../../../_static/imx8mn-pd22.1.1.pdf
 
 .. IMX8(MN) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13
@@ -92,6 +93,9 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mn-pd22.1.1-ubootexternalenv>`
 
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +----------------------+----------------------+
 | |soc| BSP Manual                            |

@@ -9,6 +9,7 @@
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
+.. _`static-pdf-dl`: ../../../_static/imx8mp-head.pdf
 
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2022.04_2.2.2-phy5#n149
@@ -121,6 +122,10 @@
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
