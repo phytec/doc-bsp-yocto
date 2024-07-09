@@ -7,6 +7,7 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/
+.. _`static-pdf-dl`: ../../../_static/imx93-pd24.1.1.pdf
 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
 
@@ -102,6 +103,10 @@
 .. |ref-m-core-connections| replace:: :ref:`X16 <imx93-PD24.1.1-components>`
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-----------------------+----------------------+
 | |soc| BSP Manual                             |
