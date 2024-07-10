@@ -1,0 +1,117 @@
+The usage of overlays can be configured during runtime in Linux or U-Boot.
+Overlays are applied during the boot process in the bootloader after the
+boot command is called and before the kernel is loaded. The next sections
+explain the configuration in more detail.
+
+Set ``${overlays}`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``${overlays}`` U-Boot environment variable contains a space-separated list
+of overlays that will be applied during boot. Depending on the boot source the
+overlays have to either be placed in the boot partition of eMMC/SD-Card or are
+loaded over tftp. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable
+will be automatically added to the boot partition of the final WIC image.
+
+The ``${overlays}`` variable can be either set directly in the U-Boot
+environment or can be part of the external ``bootenv.txt`` environment file.
+By default, the ``${overlays}`` variable comes from the external ``bootenv.txt``
+environment file which is located in the boot partition.
+You can read and write the file on booted target from linux:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ cat /boot/bootenv.txt
+   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-02.dtbo
+
+.. note::
+
+   Make sure the boot partition is mounted! If it is not you can mount it with:
+
+   .. code-block:: console
+
+      target:~$ mount /dev/mmcblkXp0 /boot
+
+
+Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
+available the overlays variable can be set directly in the U-Boot environment.
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> setenv overlays |dt-carrierboard|-peb-av-02.dtbo
+   u-boot=> printenv overlays
+   overlays=|dt-carrierboard|-peb-av-02.dtbo
+   u-boot=> boot
+
+If a user defined ``${overlays}`` variable should be directly loaded from U-Boot
+environment but there is still an external ``bootenv.txt`` available, the ``${no_bootenv}``
+variable needs to be set as a flag:
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> setenv no_bootenv 1
+   u-boot=> setenv overlays |dt-carrierboard|-peb-av-02.dtbo
+   u-boot=> boot
+
+More information about the external environment can be found in
+|ubootexternalenv|.
+
+We use the ``${overlays}`` variable for overlays describing expansion boards
+that can not be detected during run time. To prevent applying overlays listed in
+the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can be
+set to `1` in the bootloader environment.
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> setenv no_overlays 1
+   u-boot=> boot
+
+U-boot External Environment
+...........................
+
+During the start of the Linux Kernel the external environment ``bootenv.txt``
+text file will be loaded from the boot partition of an MMC device or via TFTP.
+The main intention of this file is to store the ``${overlays}`` variable. This makes
+it easy to pre-define the overlays in Yocto depending on the used machine. The
+content from the file is defined in the Yocto recipe bootenv found in
+meta-phytec:
+|yocto-bootenv-link|
+
+Other variables can be set in this file, too. They will overwrite the existing
+settings in the environment. But only variables evaluated after issuing the boot
+command can be overwritten, such as ``${nfsroot}`` or ``${mmcargs}``. Changing other
+variables in that file will not have an effect. See the usage during netboot as
+an example.
+
+If the external environment can not be loaded the boot process will be anyway
+continued with the values of the existing environment settings.
+
+Change U-boot Environment from Linux on Target
+..............................................
+
+Libubootenv is a tool included in our images to modify the U-Boot environment of
+Linux on the target machine.
+
+Print the U-Boot environment using the following command:
+
+.. code-block:: console
+
+   target:~$ fw_printenv
+
+Modify a U-Boot environment variable using the following command:
+
+.. code-block:: console
+
+   target:~$ fw_setenv <variable> <value>
+
+.. caution::
+   Libubootenv takes the environment selected in a configuration file. The
+   environment to use is inserted there, and by default it is configured to use
+   the eMMC environment (known as the default used environment).
+
+   If the eMMC is not flashed or the eMMC environment is deleted, libubootenv
+   will not work. You should modify the ``/etc/fw_env.config`` file to match the
+   environment source that you want to use.

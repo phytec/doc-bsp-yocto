@@ -1,0 +1,17 @@
+|sbc| Components
+................
+
+.. list-table::
+   :align: center
+
+   *  -  .. figure:: /bsp/imx8/imx8mm/images/polis-front.jpg
+            :figwidth: image
+
+            |sbc| Components (top)
+
+
+      -  .. figure:: /bsp/imx8/imx8mm/images/polis-back.jpg
+            :figwidth: image
+            :width: 95%
+
+            |sbc| Components (bottom)

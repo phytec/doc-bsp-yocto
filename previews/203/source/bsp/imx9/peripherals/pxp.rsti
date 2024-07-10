@@ -1,0 +1,14 @@
+PXP
+---
+
+The |soc| SoC contains an PiXel Pipeline (PXP). The PXP combines the following
+into a single processing engine:
+
+* Scaling
+* Color Space Conversion (CSC)
+* Secondary Color Space Conversion (CSC2)
+* Rotation
+
+and thus minimizes the memory footprint required for the display pipeline.
+How to use the PXP with Gstreamer and Wayland check the `How to Use PXP in
+GStreamer and Wayland` (AN13829) Application note from NXP.

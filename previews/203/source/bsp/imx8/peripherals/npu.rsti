@@ -1,0 +1,9 @@
+NPU
+---
+
+The |soc| SoC contains a Neural Processing Unit up to 2.3 TOPS as an accelerator
+for artificial intelligence operations. Refer to our latest phyCORE-|soc| AI Kit
+Guide on the phyCORE-|soc| download section to get information about the
+NPU: `L-1015e.A1 phyCORE-i.MX 8M Plus AI Kit Guide
+<https://www.phytec.de/cdocuments/?doc=9oB5Hg>`_
+

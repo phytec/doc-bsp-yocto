@@ -1,0 +1,56 @@
+TPM
+---
+
+The **phyBOARD-Nash** i.MX 93 is equipped with a Trusted Platform Module (TPM)
+that provides hardware-based security functions.
+
+Here are some useful examples to work with the TPM
+
+Generate 4-byte random value with TPM2 tools:
+
+   .. code-block:: console
+
+      target:~$ tpm2_getrandom --hex 4
+
+Generate 4-byte random value with OpenSSL tools:
+
+   .. code-block:: console
+
+      target:~$ openssl rand -engine libtpm2tss --hex 4
+
+Generate RSA private key and validate its contents:
+
+   .. code-block:: console
+
+      target:~$ openssl genrsa -engine libtpm2tss -out /tmp/priv_key 512
+      Engine "tpm2tss" set.
+      target:~$ openssl rsa -check -in /tmp/priv_key -noout
+      RSA key ok
+      target:~$ cat /tmp/priv_key
+      -----BEGIN PRIVATE KEY-----
+      MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAxsvmcbxjwuKnYeuZ
+      2AVBmuLvYyqF/LpYOD3IB/v+YvEolxdGGmjiFLECU6xZ1j3+dIt4Y1zbcKS1OcWT
+      I8mbSwIDAQABAkBoy8wrYNhmP/1kzUJIclznPYJckGoZlFI1M7xjGSA9H1xDK6if
+      5g5CYCHPrbBp8e0mEokPRZoihxxzGTxGPiahAiEA/7OYMOpVZ5SD3YcRsWcQlkWI
+      MOSPUYg6vxvGG9xp4FcCIQDHB01RoHr+qXJwxIu3/3oQAUBI4ACJ4JRp0KelwhC0
+      LQIhANJzSvg/dak5l8pU55/99q3nbm7nPnnZSJiP0F6P62gjAiEAjf7qrfMF7Uyt
+      RkEjwbl2t5Z868FNARGGMVxZT4x+aF0CIGxlmP2pL8xFu1bWB282LSedqZUdQwel
+      Lxi7+svb2+uJ
+      -----END PRIVATE KEY-----
+
+.. note::
+   Do NOT share your private RSA keys if you are going to use these keys for any
+   security purposes.
+
+Generate RSA public key and validate its contents:
+
+   .. code-block:: console
+
+      target:~$ openssl rsa -in /tmp/test_key -pubout -out /tmp/pub_key
+      writing RSA key
+      target:~$ openssl pkey -inform PEM -pubin -in /tmp/pub_key -noout
+      target:~$ cat /tmp/pub_key
+      -----BEGIN PUBLIC KEY-----
+      MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMbL5nG8Y8Lip2HrmdgFQZri72Mqhfy6
+      WDg9yAf7/mLxKJcXRhpo4hSxAlOsWdY9/nSLeGNc23CktTnFkyPJm0sCAwEAAQ==
+      -----END PUBLIC KEY-----

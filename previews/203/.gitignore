@@ -1,0 +1,14 @@
+lib/
+env/
+*venv/
+dist/
+*.egg-info/
+*__pycache__*
+local.yaml
+.pytest_cache/
+storage/
+.tox/
+*\.log
+*.swp
+build/
+.vscode/

@@ -1,0 +1,31 @@
+Mini
+....
+
+.. list-table:: Bootmode Selection
+
+   * - .. figure:: images/eMMC.jpg
+
+          eMMC (Default SoM boot)
+
+     - .. figure:: images/SPI_NOR.png
+
+          SPI NOR
+
+   * - .. figure:: images/USB_Serial_Download.png
+
+          USB Serial Download
+
+     - .. figure:: images/SD_Card_Boot.jpg
+
+          SD Card
+
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   * - .. figure:: images/UART1_RS485.png
+
+          UART1 RS485
+
+     - .. figure:: images/UART1_RS232.jpg
+
+          UART1 RS232

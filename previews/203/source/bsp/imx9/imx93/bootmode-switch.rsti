@@ -1,0 +1,18 @@
+.. list-table::
+
+   *  -  .. figure:: images/eMMC.png
+
+            eMMC
+
+      -  .. figure:: images/Internal_Fuses.png
+
+            Internal Fuses
+
+   *  -  .. figure:: images/USB_Serial_Download.png
+
+            USB Serial Download
+
+      -  .. figure:: images/SD_Card_Boot.png
+
+            SD Card
+
