@@ -1,0 +1,806 @@
+.. Download links
+.. |dlpage-bsp| replace:: our BSP
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
+.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/sdk/ampliphy-vendor-xwayland/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/
+.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
+.. _`static-pdf-dl`: ../../../_static/imx8mn-pd23.1.0.pdf
+
+.. IMX8(MN) specific
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2022.04_2.2.2-phy5#n66
+
+
+.. General Replacements
+.. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
+.. |kit-ram-size| replace:: 1GiB
+.. |mcore| replace:: M4 Core
+.. |sbc| replace:: phyBOARD-Polis
+.. |soc| replace:: i.MX 8M Nano
+.. |socfamily| replace:: i.MX 8
+.. |som| replace:: phyCORE-i.MX8MN
+.. |debug-uart| replace:: ttymxc2
+.. |serial-uart| replace:: ttymxc0
+
+
+.. Linux Kernel
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
+.. |kernel-socname| replace:: imx8mn
+.. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
+.. |emmcdev| replace:: mmcblk2
+
+.. Bootloader
+.. |u-boot-offset| replace:: 32
+.. |u-boot-offset-boot-part| replace:: 0
+.. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-defconfig| replace:: phycore-imx8mn_defconfig
+.. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+
+.. IMX8(MN) specific
+.. |u-boot-socname-config| replace:: IMX8MN
+.. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
+
+
+.. Devicetree
+.. |dt-carrierboard| replace:: imx8mn-phyboard-polis
+.. |dt-som| replace:: imx8mn-phycore-som
+
+.. IMX8(MN) specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
+
+.. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
+.. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
+.. _yocto-bsp-name: `dl-server`_
+.. |yocto-codename| replace:: kirkstone
+.. |yocto-distro| replace:: ampliphy-vendor
+.. |yocto-imagename| replace:: phytec-headless-image
+.. |yocto-imageext| replace:: wic
+.. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
+.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
+.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
+.. |yocto-sdk-rev| replace:: 4.0.13
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
+
+.. Refs
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-pd23.1.0-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-pd23.1.0-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-pd23.1.0-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mn-pd23.1.0-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mn-pd23.1.0-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-pd23.1.0-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-pd23.1.0-development>`
+.. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-pd23.1.0-components>`
+.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+
+
+.. IMX8(MN) specific replacements
+.. |sbc-network| replace:: \
+.. |pollux-fan-note| replace:: Only GPIO fan supported.
+.. |ubootexternalenv| replace:: U-boot External Environment subsection of the
+   :ref:`device tree overlay section <imx8mn-pd23.1.0-ubootexternalenv>`
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
+
++----------------------+----------------------+
+| |soc| BSP Manual                            |
++----------------------+----------------------+
+| Document Title       | |soc| BSP Manual     |
++----------------------+----------------------+
+| Document Type        | BSP Manual           |
++----------------------+----------------------+
+| Yocto Manual         | Kirkstone            |
++----------------------+----------------------+
+| Release Date         | 2024/01/10           |
++----------------------+----------------------+
+| Is Branch of         | |soc| BSP Manual     |
++----------------------+----------------------+
+
+The table below shows the Compatible BSPs for this manual:
+
+==================== ================ ================ ==========
+Compatible BSP'S     BSP Release Type BSP Release Date BSP Status
+
+==================== ================ ================ ==========
+|yocto-manifestname| Major            2023/12/12       Released
+==================== ================ ================ ==========
+
+.. include:: ../../intro.rsti
+
+Supported Hardware
+------------------
+
+The |sbc| populated with the |soc| SoC is supported.
+
+On our web page, you can see all supported Machines with the available Article
+Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware
+
+.. _imx8mn-pd23.1.0-components:
+.. include:: ../imx8mm/components.rsti
+
+.. +---------------------------------------------------------------------------+
+..                          Getting Started
+.. +---------------------------------------------------------------------------+
+
+.. _imx8mn-pd23.1.0-getting-started:
+
+Getting Started
+===============
+
+The |kit| is shipped with a pre-flashed SD card. It contains the
+|yocto-imagename| and can be used directly as a boot source. The eMMC is
+programmed with only a U-Boot by default. You can get all sources from the
+`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
+image to SD card and how to start the board.
+
+There are several ways to flash an image to SD card or even eMMC. Most notably
+using simple, sequential writing with the Linux command line tool ``dd``. An
+alternative way is to use PHYTEC's system initialization program called
+`partup <https://github.com/phytec/partup>`_, which makes it especially easy to
+format more complex systems. You can get `prebuilt Linux binaries of partup
+<https://github.com/phytec/partup/releases>`__ from its release page. Also read
+`partup's README <https://github.com/phytec/partup#readme>`__ for installation
+instructions.
+
+Get the Image
+-------------
+
+The image contains all necessary files and makes sure partitions and any raw
+data are correctly written. Both the partup package and the WIC image, which can
+be flashed using ``dd``, can be downloaded from the `PHYTEC download server
+<dl-server_>`_.
+
+Get either the partup package or the WIC image from the download server:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ wget |link-partup-package|
+   host:~$ wget |link-image|
+
+.. note::
+   For eMMC, more complex partitioning schemes or even just large images, we
+   recommend using the partup package, as it is faster in writing than ``dd``
+   and allows for a more flexible configuration of the target flash device.
+
+Write the Image to SD Card
+--------------------------
+
+.. warning::
+   To create your bootable SD card, you must have root privileges on your Linux
+   host PC. Be very careful when specifying the destination device! All files
+   on the selected device will be erased immediately without any further query!
+
+   Selecting the wrong device may result in **data loss** and e.g. could erase
+   your currently running system on your host PC!
+
+Finding the Correct Device
+..........................
+
+To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. If any partitions of the SD cards are
+mounted, unmount those before you start copying the image to the SD card.
+
+#. In order to get the correct device name, remove your SD card and
+   execute:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Now insert your SD card and execute the command again:
+
+   .. code-block:: console
+
+      host:~$ lsblk
+
+#. Compare the two outputs to find the new device names listed in the second
+   output. These are the device names of the SD card (device and partitions if
+   the SD card was formatted).
+#. In order to verify the device names being found, execute the command
+   ``sudo dmesg``. Within the last lines of its output, you should also find the
+   device names, e.g. ``/dev/sde`` or ``/dev/mmcblk0`` (depending on your
+   system).
+
+Alternatively, you may use a graphical program of your choice, like `GNOME Disks
+<https://apps.gnome.org/en/DiskUtility/>`_ or `KDE Partition Manager
+<https://apps.kde.org/partitionmanager/>`_, to find the correct device.
+
+Now that you have the correct device name, e.g. ``/dev/sde``,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. ``/dev/sde1``) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.
+
+Unmount all those partitions, e.g.:
+
+.. code-block:: console
+
+   host:~$ sudo umount /dev/sde1
+   host:~$ sudo umount /dev/sde2
+
+Now, the SD card is ready to be flashed with an image, using either ``partup``,
+``dd`` or ``bmap-tools``.
+
+Using partup
+............
+
+Writing to an SD card with partup is done in a single command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
+
+Make sure to replace <your_device> with your actual device name found previously.
+
+Further usage of partup is explained at its `official documentation website
+<https://partup.readthedocs.io/en/latest/>`__.
+
+.. note::
+   *partup* has the advantage of allowing to clear specific raw areas in the
+   MMC user area, which is used in our provided partup packages to erase any
+   existing U-Boot environments. This is a known issue *bmaptool* does not
+   solve, as mentioned below.
+
+   Another key advantage of partup over other flashing tools is that it allows
+   configuring MMC specific parts, like writing to eMMC boot partitions, without
+   the need to call multiple other commands when writing.
+
+Using bmap-tools
+................
+
+An alternative and also fast way to prepare an SD card is using
+`bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
+automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
+the WIC image that describes the image content and includes checksums for data
+integrity. *bmaptool* is packaged by various Linux distributions. For
+Debian-based systems install it by issuing:
+
+.. code-block:: console
+
+   host:~$ sudo apt install bmap-tools
+
+Flash a WIC image to SD card by calling:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/<your_device>
+
+Replace <your_device> with your actual SD card's device name found previously,
+and make sure to place the file ``<IMAGENAME>-<MACHINE>.wic.bmap`` alongside
+the regular WIC image file, so bmaptool knows which blocks to write and which
+to skip.
+
+.. warning::
+   *bmaptool* only overwrites the areas of an SD card where image data is
+   located. This means that a previously written U-Boot environment may still be
+   available after writing the image.
+
+Using ``dd``
+............
+
+After having unmounted all SD card's partitions, you can create your bootable SD card.
+
+Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
+and some others produce compressed images (with filename-extension \*.wic.xz).
+
+To flash an uncompressed images (\*.wic) use command below:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Or to flash a compressed images (\*.wic.xz) use that command:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ xzcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/<your_device> bs=1M conv=fsync status=progress
+
+Again, make sure to replace <your_device> with your actual device name found
+previously.
+
+The parameter ``conv=fsync`` forces a sync operation on the device before
+``dd`` returns. This ensures that all blocks are written to the SD card and
+none are left in memory. The parameter ``status=progress`` will print out
+information on how much data is and still has to be copied until it is
+finished.
+
+First Start-up
+--------------
+
+* To boot from an SD card, |ref-bootswitch| needs to be set to the following
+  position:
+
+.. list-table:: Bootmode Selection
+   :align: center
+
+   *  -  .. figure:: images/Nano_SD_BOOT.jpg
+            :width: 250px
+
+            SD Card Boot
+
+* Insert the SD card
+* Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
+  debug USB
+* Power up the board
+
+.. +---------------------------------------------------------------------------+
+..                          Building the BSP                                   |
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/building-bsp.rsti
+
+.. _imx8mn-pd23.1.0-images:
+
+* **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+  Bootloader image!
+* **oftree**: Default kernel device tree
+* **u-boot-spl.bin**: Secondary program loader (SPL)
+* **bl31-imx8mn.bin**: ARM Trusted Firmware binary
+* **lpddr4_pmu_train_2d_dmem_202006.bin,
+  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+* **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+  Trusted Firmware and DDR firmware. This is the final bootloader image which is
+  bootable.
+* **Image**: Linux kernel image
+* **Image.config**: Kernel configuration
+* **imx8mn-phyboard-polis*.dtb**: Kernel device tree file
+* **imx8mn-phy*.dtbo**: Kernel device tree overlay files
+* **phytec-headless-image\*.tar.gz**: Root file system
+* **phytec-headless-image\*.wic**: SD card image
+
+.. +---------------------------------------------------------------------------+
+..                          INSTALLING THE OS
+.. +---------------------------------------------------------------------------+
+
+Installing the OS
+=================
+
+Bootmode Switch (S1)
+--------------------
+
+The |sbc| features a boot switch with six individually switchable ports to
+select the phyCORE-|soc| default bootsource.
+
+.. _imx8mn-pd23.1.0-bootswitch:
+.. include:: bootmode-switch.rsti
+
+.. include:: ../installing-os.rsti
+
+.. +---------------------------------------------------------------------------+
+..                                DEVELOPMENT
+.. +---------------------------------------------------------------------------+
+
+.. _imx8mn-pd23.1.0-development:
+
+Development
+===========
+
+.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/imx-common/development/netboot.rsti
+
+.. include:: /bsp/imx-common/development/uuu.rsti
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+   :end-before: .. build-uboot-fixed-ram-size-marker
+
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
+
+.. include:: /bsp/imx8/development/development_manifests.rsti
+
+.. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
+
+.. +---------------------------------------------------------------------------+
+..                               DEVICE TREE
+.. +---------------------------------------------------------------------------+
+
+.. _imx8mn-pd23.1.0-device-tree:
+.. include:: /bsp/device-tree.rsti
+
+.. code-block::
+
+   imx8mn-phyboard-polis-peb-eval-01.dtbo
+   imx8mn-phyboard-polis-peb-av-010.dtbo
+   imx8mn-phycore-rpmsg.dtbo
+   imx8mn-phycore-no-eth.dtbo
+   imx8mn-phycore-no-spiflash.dtbo
+   imx8mn-vm016.dtbo
+   imx8mn-vm016-fpdlink.dtbo
+   imx8mn-vm017.dtbo
+   imx8mn-vm017-fpdlink.dtbo
+   imx8mn-dual-vm017-fpdlink.dtbo
+
+.. _imx8mn-pd23.1.0-ubootexternalenv:
+.. include:: ../dt-overlays.rsti
+
+.. +---------------------------------------------------------------------------+
+..                        ACCESSING PERIPHERALS
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/peripherals/introduction.rsti
+
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
+
+The following is an example of the pin muxing of the UART1 device in
+|dt-carrierboard|.dts:
+
+.. code-block::
+
+   pinctrl_uart1: uart1grp {
+           fsl,pins = <
+                   MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                   MX8MN_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                   MX8MN_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+           >;
+   };
+
+The first part of the string MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad
+(in this example SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the right)
+defines different modes of the pad, for example, if internal pull resistors are
+activated or not. In this case, the internal resistors are disabled.
+
+RS232/RS485
+-----------
+
+The |soc| SoC provides up to 4 UART units. PHYTEC boards support different
+numbers of these UART units. UART1 can also be used as RS-485. For this,
+|ref-bootswitch| needs to be set correctly:
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   *  - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS485.png
+
+            **UART1 RS485**
+
+      - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS232.jpg
+
+           **UART1 RS232**
+
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
+
+The device tree representation for RS232 and RS485:
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n220`
+
+.. _imx8mn-pd23.1.0-network:
+
+Network
+-------
+
+|sbc|-|soc| provides one Gigabit Ethernet interface.
+
+.. include:: /bsp/imx-common/peripherals/network.rsti
+
+WLAN
+....
+
+For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
+
+.. include:: ../../peripherals/wireless-network.rsti
+
+.. note::
+
+   If the connection fails with the error message: "Failed to connect:
+   org.bluez.Error.Failed" try restarting PulseAudio with:
+
+   .. code-block:: console
+
+      target:~$ pulseaudio --start
+
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
+
+DT configuration for the MMC (SD card slot) interface can be found here:
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n301`
+
+DT configuration for the eMMC interface can be found here:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n309`
+
+.. include:: /bsp/peripherals/emmc.rsti
+
+.. include:: /bsp/imx-common/emmc.rsti
+
+.. include:: ../peripherals/spi-master.rsti
+
+The definition of the SPI master node in the device tree can be found here:
+
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n78`
+
+GPIOs
+-----
+
+The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
+connected directly to |soc| pins and are muxed as GPIOs. They are directly
+usable in Linux userspace. The processor has organized its GPIOs into five banks
+of 32 GPIOs each (GPIO1 – GPIO5)
+GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
+the sysfs representation of these internal |soc| GPIO banks GPIO1 – GPIO5.
+
+The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO5_07). <X> identifies the GPIO
+bank and counts from 1 to 5, while <Y> stands for the GPIO within the bank. <Y>
+is being counted from 0 to 31 (32 GPIOs on each bank).
+
+By contrast, the Linux kernel uses a single integer to enumerate all available
+GPIOs in the system. The formula to calculate the right number is:
+
+.. code-block::
+
+   Linux GPIO number: <N> = (<X> - 1) * 32 + <Y>
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+   .. code-block:: console
+
+      target:~$ gpiodetect
+      gpiochip0 [30200000.gpio] (32 lines)
+      gpiochip1 [30210000.gpio] (32 lines)
+      gpiochip2 [30220000.gpio] (32 lines)
+      gpiochip3 [30230000.gpio] (32 lines)
+      gpiochip4 [30240000.gpio] (32 lines)
+
+*  Show detailed information about the gpiochips. Like their names, consumers,
+   direction, active state, and additional flags:
+
+   .. code-block:: console
+
+      target:~$ gpioinfo gpiochip0
+
+*  Read the value of a GPIO (e.g GPIO 20 from chip0):
+
+   .. code-block:: console
+
+      target:~$ gpioget gpiochip0 20
+
+*  Set the value of GPIO 20 on chip0 to 0 and exit tool:
+
+   .. code-block:: console
+
+      target:~$ gpioset --mode=exit gpiochip0 20=0
+
+*  Help text of gpioset shows possible options:
+
+   .. code-block:: console
+
+      target:~$ gpioset --help
+      Usage: gpioset [OPTIONS] <chip name/number> <offset1>=<value1> <offset2>=<value2> ...
+      Set GPIO line values of a GPIO chip
+
+      Options:
+        -h, --help:           display this message and exit
+        -v, --version:        display the version and exit
+        -l, --active-low:     set the line active state to low
+        -m, --mode=[exit|wait|time|signal] (defaults to 'exit'):
+                      tell the program what to do after setting values
+        -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
+        -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
+        -b, --background:     after setting values: detach from the controlling terminal
+
+      Modes:
+        exit:         set values and exit immediately
+        wait:         set values and wait for user to press ENTER
+        time:         set values and sleep for a specified amount of time
+        signal:       set values and wait for SIGINT or SIGTERM
+
+      Note: the state of a GPIO line controlled over the character device reverts to default
+      when the last process referencing the file descriptor representing the device file exits.
+      This means that it's wrong to run gpioset, have it exit and expect the line to continue
+      being driven high or low. It may happen if given pin is floating but it must be interpreted
+      as undefined behavior.
+
+
+.. warning::
+
+   Some of the user IOs are used for special functions. Before using a user IO,
+   refer to the schematic or the hardware manual of your board to ensure that it
+   is not already in use.
+
+.. include:: ../peripherals/gpios.rsti
+   :start-after: .. gpios-via-sysfs-marker
+
+Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
+
+.. code-block::
+
+   pinctrl_leds: leds1grp {
+           fsl,pins = <
+                   MX8MN_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                   MX8MN_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                   MX8MN_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+           >;
+   };
+
+.. include:: /bsp/peripherals/leds.rsti
+
+Device tree configuration for the User I/O configuration can be found here:
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n45`
+
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n106`
+
+General I²C3 bus configuration (e.g. |dt-carrierboard|.dts):
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n196`
+
+
+EEPROM
+------
+
+On the |som| there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) and the ID-page (bus: I2C-0
+address: 0x59) can be accessed via the sysfs interface in Linux. The first
+256 bytes of the main EEPROM and the ID-page are used for board detection and
+must not be overwritten. Overwriting reserved spaces will result in boot issues.
+
+.. include:: ../peripherals/eeprom.rsti
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-written on both EEPROM data spaces. If
+you have accidentally deleted or overwritten the normal area, you can copy the
+hardware introspection from the ID area to the normal area.
+
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
+
+.. note::
+
+   If you deleted both EEPROM spaces, please contact our support!
+
+DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
+found in our PHYTEC git:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n259`
+
+.. include:: /bsp/peripherals/rtc.rsti
+   :end-before: .. rtc_parameter_start_label
+
+RTC Parameters
+..............
+
+RTCs have a few abilities which can be read/set with the help of ``hwclock``
+tool.
+
+*  We can check RTC supported features with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-get features
+      The RTC parameter 0x0 is set to 0x11.
+
+   What this value means is encoded in kernel, each set bit translates to:
+
+   .. code-block::
+
+      #define RTC_FEATURE_ALARM              0
+      #define RTC_FEATURE_ALARM_RES_MINUTE   1
+      #define RTC_FEATURE_NEED_WEEK_DAY      2
+      #define RTC_FEATURE_ALARM_RES_2S       3
+      #define RTC_FEATURE_UPDATE_INTERRUPT   4
+      #define RTC_FEATURE_CORRECTION         5
+      #define RTC_FEATURE_BACKUP_SWITCH_MODE 6
+      #define RTC_FEATURE_CNT                7
+
+*  We can check RTC BSM (Backup Switchover Mode) with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-get bsm
+      The RTC parameter 0x2 is set to 0x1.
+
+*  We can set RTC BSM with:
+
+   .. code-block:: console
+
+      target:~$ hwclock --param-set bsm=0x2
+      The RTC parameter 0x2 will be set to 0x2.
+
+   What BSM values mean translates to these values:
+
+   .. code-block::
+
+      #define RTC_BSM_DISABLED   0
+      #define RTC_BSM_DIRECT     1
+      #define RTC_BSM_LEVEL      2
+      #define RTC_BSM_STANDBY    3
+
+   .. tip::
+      You should set BSM mode to DSM or LSM for RTC to switch to backup power
+      source when the initial power source is not available. Check **RV-3028** RTC
+      datasheet to read what LSM (Level Switching Mode) and DSM (Direct Switching
+      Mode) actually mean.
+
+DT representation for I²C RTCs:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n267`
+
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
+'HS').
+
+The |soc| SoC has a single USB controller core that is set to OTG mode.
+To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
+
+.. include:: /bsp/peripherals/usb-host.rsti
+
+.. include:: /bsp/peripherals/usb-otg.rsti
+
+The USB interface is configured as host in the kernel device tree
+|dt-carrierboard|.dts. See:
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n264`
+
+CAN FD
+------
+
+The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the
+Linux standard CAN framework which builds upon then the Linux network layer.
+Using this framework, the CAN interfaces behave like an ordinary Linux network
+device, with some additional features special to CAN. More information can be
+found in the Linux Kernel
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
+
+.. Hint::
+
+   phyBOARD-Polis has an external CANFD chip MCP2518FD connected over SPI.
+   There are different interfaces involved, which limits the datarate
+   capabilities of CANFD.
+
+.. Hint::
+
+   On phyBOARD-Polis-i.MX8MN a terminating resistor can be enabled by setting
+   S5 to ON if required.
+
+.. include:: ../peripherals/canfd.rsti
+
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n125`
+
+.. include:: ../peripherals/pm.rsti
+
+.. include:: ../peripherals/tm.rsti
+
+.. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: ../peripherals/ocotp-ctrl.rsti
