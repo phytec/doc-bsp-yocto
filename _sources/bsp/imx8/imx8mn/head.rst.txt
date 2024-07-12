@@ -50,6 +50,11 @@
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 
+.. RAUC
+.. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
+.. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
+
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis
 .. |dt-som| replace:: imx8mn-phycore-som
@@ -64,7 +69,7 @@
 .. |yocto-codename| replace:: kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-headless-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
@@ -85,6 +90,7 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mn-head-format-sd>`
 
 
 .. IMX8(MN) specific replacements
@@ -190,7 +196,7 @@ First Start-up
 * **imx8mn-phyboard-polis*.dtb**: Kernel device tree file
 * **imx8mn-phy*.dtbo**: Kernel device tree overlay files
 * **phytec-headless-image\*.tar.gz**: Root file system
-* **phytec-headless-image\*.wic**: SD card image
+* **phytec-headless-image\*.rootfs.wic.xz**: compressed SD card image
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS
@@ -233,6 +239,8 @@ Development
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. _imx8mn-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 

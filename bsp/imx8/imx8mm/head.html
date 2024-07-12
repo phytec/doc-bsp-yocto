@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=46e9bdf1"></script>
+        <script src="../../../_static/documentation_options.js?v=e6dd7d57"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd24.1.2-8-g501d5e4
+                imx8mp-pd24.1.2-19-g68043f2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -612,7 +612,7 @@ bootable.</p></li>
 <li><p><strong>imx8mm-phyboard-polis-rdk*.dtb</strong>: Kernel device tree file</p></li>
 <li><p><strong>imx8mm-phy*.dtbo</strong>: Kernel device tree overlay files</p></li>
 <li><p><strong>phytec-qt6demo-image*.tar.gz</strong>: Root file system</p></li>
-<li><p><strong>phytec-qt6demo-image*.wic</strong>: SD card image</p></li>
+<li><p><strong>phytec-qt6demo-image*.rootfs.wic.xz</strong>: SD card image</p></li>
 </ul>
 </section>
 </section>
@@ -724,15 +724,19 @@ limited usage of RAM size in the Bootloader after enabling OPTEE.</p>
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
+<p>Uncompress your image</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>unxz<span class="w"> </span>/srv/tftp/phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic.xz
+</pre></div>
+</div>
 <p>Load your image via network to RAM:</p>
 <ul>
 <li><p>when using dhcp</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; dhcp phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; dhcp phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic
 BOOTP broadcast 1
 DHCP client bound to address 192.168.3.1 (1 ms)
 Using ethernet@30be0000 device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.1
-Filename &#39;phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic&#39;.
+Filename &#39;phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic&#39;.
 Load address: 0x40480000
 Loading: ######################################
          ######################################
@@ -750,10 +754,10 @@ Bytes transferred = 911842304 (36599c00 hex)
 </li>
 <li><p>when using a static ip address (serverip and ipaddr must be set
 additionally).</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic
 Using ethernet@30be0000 device
 TFTP from server 192.168.3.10; our IP address is 192.168.3.11
-Filename &#39;phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic&#39;.
+Filename &#39;phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic&#39;.
 Load address: 0x40480000
 Loading: ######################################
          ######################################
@@ -788,10 +792,10 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
-<p>Take a compressed or uncompressed image with accompanying block map on the host
-and send it with ssh through the network to the eMMC of the target with a
-one-line command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span>/dev/mmcblk2
+<p>Take a compressed or decompressed image with the accompanying block map file
+<cite>*.bmap</cite> on the host and send it with <cite>ssh</cite> through the network to the eMMC of
+the target with a one-line command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </section>
@@ -805,13 +809,13 @@ you need a complete image on your host.</p>
 </div>
 <p>Show your available image files on the host:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ls<span class="w"> </span>/srv/tftp
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</span>
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.bmap</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.bmap</span>
 </pre></div>
 </div>
 <p>Send the image with the <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> command combined with ssh through the network
 to the eMMC of your device:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span>root@192.168.3.11:/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;bmaptool copy /tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic /dev/mmcblk2&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.*<span class="w"> </span>root@192.168.3.11:/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;bmaptool copy /tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz /dev/mmcblk2&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -838,10 +842,10 @@ blocks. See the <a class="reference external" href="#offset-table">offset table<
 of the corresponding SoC.</p>
 </div>
 </section>
-<section id="flash-emmc-from-usb">
-<h3><span class="section-number">4.2.3. </span>Flash eMMC from USB<a class="headerlink" href="#flash-emmc-from-usb" title="Link to this heading"></a></h3>
-<section id="flash-emmc-from-usb-in-u-boot-on-target">
-<h4><span class="section-number">4.2.3.1. </span>Flash eMMC from USB in U-Boot on Target<a class="headerlink" href="#flash-emmc-from-usb-in-u-boot-on-target" title="Link to this heading"></a></h4>
+<section id="flash-emmc-from-usb-stick">
+<h3><span class="section-number">4.2.3. </span>Flash eMMC from USB stick<a class="headerlink" href="#flash-emmc-from-usb-stick" title="Link to this heading"></a></h3>
+<section id="flash-emmc-from-usb-stick-in-u-boot-on-target">
+<h4><span class="section-number">4.2.3.1. </span>Flash eMMC from USB stick in U-Boot on Target<a class="headerlink" href="#flash-emmc-from-usb-stick-in-u-boot-on-target" title="Link to this heading"></a></h4>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This step only works if the size of the image file is less than 1GB due to
@@ -849,14 +853,15 @@ limited usage of RAM size in the Bootloader after enabling OPTEE.</p>
 </div>
 <p>These steps will show how to update the eMMC via a USB device. Configure the
 <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD Card and insert an SD card. Power on the board and stop
-in U-Boot prompt. Insert a USB device with the copied WIC image to the USB slot.</p>
+in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
+the USB slot.</p>
 <p>Load your image from the USB device to RAM:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; usb start
 starting USB...
 USB0:   USB EHCI 1.00
 scanning bus 0 for devices... 2 USB Device(s) found
        scanning usb for storage devices... 1 Storage Device(s) found
-u-boot=&gt; fatload usb 0:1 ${loadaddr} *.wic
+u-boot=&gt; fatload usb 0:1 ${loadaddr} phytec-headless-image-|yocto-machinename|.rootfs.wic
 497444864 bytes read in 31577 ms (15 MiB/s)
 </pre></div>
 </div>
@@ -876,7 +881,7 @@ u-boot=&gt; boot
 <h4><span class="section-number">4.2.3.2. </span>Flash eMMC from USB in Linux<a class="headerlink" href="#flash-emmc-from-usb-in-linux" title="Link to this heading"></a></h4>
 <p>These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic). Set the <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD Card.</p>
+phytec-qt6demo-image-phyboard-polis-imx8mm-5.|yocto-imageext|). Set the <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD Card.</p>
 <ul>
 <li><p>Insert and mount the USB stick:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected</span>
@@ -894,13 +899,13 @@ phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic). Set the <a class="reference i
 </li>
 <li><p>Now show your saved image files on the USB Stick:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls<span class="w"> </span>/mnt
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</span>
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.bmap</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.bmap</span>
 </pre></div>
 </div>
 </li>
 <li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 without partition):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/mnt/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span>/dev/mmcblk2
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/mnt/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </li>
@@ -918,9 +923,8 @@ phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic). Set the <a class="reference i
 <h3><span class="section-number">4.2.4. </span>Flash eMMC from SD Card<a class="headerlink" href="#flash-emmc-from-sd-card" title="Link to this heading"></a></h3>
 <p>Even if there is no network available, you can update the eMMC. For that, you
 only need a ready-to-use image file (<code class="docutils literal notranslate"><span class="pre">*.wic</span></code>) located on the SD card.
-Because the image file is quite large, you have to enlarge your SD card to use
-its full space (if it was not enlarged before). To enlarge your SD card, see
-Resizing ext4 Root Filesystem.</p>
+Because the image file is quite large, you have to create a third partition.
+To create a new partition or enlarge your SD card, see <a class="reference internal" href="#imx8mm-head-format-sd"><span class="std std-ref">Resizing ext4 Root Filesystem</span></a>.</p>
 <p>Alternatively, flash a partup package to the SD card, as described in
 <a class="reference internal" href="#imx8mm-head-getting-started"><span class="std std-ref">Getting Started</span></a>. This will ensure the full space of the SD card is used.</p>
 <section id="flash-emmc-from-sd-card-in-u-boot-on-target">
@@ -933,13 +937,13 @@ image file is too large use the <cite>Updating eMMC from SD card in
 Linux on Target</cite> subsection.</p>
 </div>
 <ul>
-<li><p>Flash an SD card with a working image and create a third FAT partition. Copy
-the WIC image (for example phytec-qt6demo-image.wic) to this
+<li><p>Flash an SD card with a working image and create a third ext4 partition. Copy
+the WIC image (for example phytec-qt6demo-image.rootfs.wic) to this
 partition.</p></li>
 <li><p>Configure the <a class="reference internal" href="#imx8mm-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD Card and insert the SD Card.</p></li>
 <li><p>Power on the board and stop in U-Boot.</p></li>
 <li><p>Load the image:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fatload mmc 1:3 ${loadaddr} phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; ext4load mmc 1:3 ${loadaddr} phytec-headless-image-phyboard-polis-imx8mm-5.rootfs.wic
 reading
 911842304 bytes read in 39253 ms (22.2 MiB/s)
 </pre></div>
@@ -955,7 +959,7 @@ mmc2(part 0) is current device
 </pre></div>
 </div>
 </li>
-<li><p>Flash your WIC image (for example phytec-qt6demo-image.wic)
+<li><p>Flash your WIC image (for example phytec-qt6demo-image.rootfs.wic)
 from the SD card to eMMC. This will partition the card and copy imx-boot,
 Image, dtb, dtbo, and root file system to eMMC.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setexpr nblk ${filesize} / 0x200
@@ -975,15 +979,15 @@ image saved on the SD card.</p>
 <ul>
 <li><p>Show your saved partup package or WIC image files on the SD card:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ls
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup</span>
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic</span>
-<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.bmap</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.partup</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz</span>
+<span class="go">phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.bmap</span>
 </pre></div>
 </div>
 </li>
 <li><p>Write the image to the phyCORE-i.MX 8M Mini eMMC (MMC device 2 <strong>without</strong>
 partition) using <a class="reference external" href="https://github.com/phytec/partup">partup</a>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup<span class="w"> </span>/dev/mmcblk2
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.partup<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 <p>Flashing the partup package has the advantage of using the full capacity of
@@ -991,7 +995,7 @@ the eMMC device, adjusting partitions accordingly.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Alternatively, <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> may be used instead:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic<span class="w"> </span>/dev/mmcblk2
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 <p>Keep in mind that the root partition does not make use of the full space when
@@ -1166,7 +1170,7 @@ on the SD Card.</p></li>
 meta-ampliphy. It controls the procedure of updating a device with new firmware.
 This includes updating the Linux kernel, Device Tree, and root filesystem.
 PHYTEC has written an online manual on how we have intergraded RAUC into our
-BSPs: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=fgByJg">L-1006e.A5 RAUC Update &amp; Device Management Manual</a>.</p>
+BSPs: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=F4DiM">L-1006e.A6 RAUC Update &amp; Device Management Manual</a>.</p>
 </section>
 </section>
 <section id="development">
@@ -1419,7 +1423,7 @@ documentation</a>.</p>
 <h3><span class="section-number">5.3.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
 <p>Download imx-boot from our server or get it from your Yocto build directory at
 build/deploy/images/phyboard-polis-imx8mm-5/. For flashing a wic image to eMMC,
-you will also need phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic.</p>
+you will also need phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.</p>
 </section>
 <section id="prepare-target">
 <h3><span class="section-number">5.3.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
@@ -1474,7 +1478,7 @@ done by default, which makes partup again superior flash option.</p>
 <section id="flashing-wic-image-to-emmc-via-uuu-tool">
 <h3><span class="section-number">5.3.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic
 </pre></div>
 </div>
 </section>
@@ -1794,7 +1798,7 @@ be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
 </section>
 <section id="format-sd-card">
-<h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
+<span id="imx8mm-head-format-sd"></span><h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
 <p>Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The

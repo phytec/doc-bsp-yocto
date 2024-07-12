@@ -50,6 +50,11 @@
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 
+.. RAUC
+.. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
+.. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
+
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
@@ -59,20 +64,20 @@
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: kirkstone
+.. |yocto-codename| replace:: scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-imageext| replace:: wic
+.. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
-.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD24.1.y
+.. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
+.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
 .. |yocto-sdk-rev| replace::  4.0.13
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
@@ -87,6 +92,7 @@
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-head-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -202,7 +208,7 @@ First Start-up
 *  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
 *  **imx8mp-phy*.dtbo**: Kernel device tree overlay files
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
-*  **phytec-qt6demo-image\*.wic**: SD card image
+*  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
@@ -248,7 +254,7 @@ Development
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
    :start-after: .. build-uboot-marker
 
-Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
+Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and
 newer also support 2GHz RAM timings. These will be enabled for supported boards
 automatically, but they can also be enabled or disabled manually.
 
@@ -262,11 +268,13 @@ The fixed RAM size with 2GHz timings will be used:
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
    # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
+   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
    CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+
 
 Choose the correct RAM size as populated on the board and uncomment the line
 for this ram size. When not specifying the
-``CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS`` option, the 1.5GHz timings will
+``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will
 be chosen by default. After saving the changes, follow the remaining steps from
 |ref-build-uboot|.
 
@@ -275,6 +283,8 @@ be chosen by default. After saving the changes, follow the remaining steps from
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
+
+.. _imx8mp-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
