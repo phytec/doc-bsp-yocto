@@ -414,3 +414,10 @@ Example:
 i.MX 8MP uses a different ``mmc`` command from master and from the rest of the
 i.MX 8M family. The content will be split again and i.MX 8MP needs to use its
 own specific version (different file).
+
+How to use substitution after dot "." in descriptions?
+------------------------------------------------------
+
+To  use substitution variable in descriptions after a dot "." it need to 
+specified as the following "./ |substitution_variable|" in descriptions. A sample 
+example is below.
