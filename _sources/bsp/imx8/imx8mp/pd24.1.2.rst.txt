@@ -128,12 +128,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ================= ==========
-Compatible BSP'S BSP Release Type BSP Release  Date BSP Status
+===================== ================ ================= ==========
+Compatible BSP'S      BSP Release Type BSP Release Date  BSP Status
 
-================ ================ ================= ==========
-PD24.1.2         Minor            2024/06/26        Released
-================ ================ ================= ==========
+===================== ================ ================= ==========
+|yocto-manifestname|  Minor            2024/06/26        Released
+===================== ================ ================= ==========
 
 
 .. include:: ../../intro.rsti
