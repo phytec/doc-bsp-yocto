@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yocto Reference Manuals &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/code-block.css?v=7a82ee62" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=fb453b8e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f9bd5780"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. The Yocto Project" href="kirkstone.html" />
+    <link rel="prev" title="Welcome to the PHYTEC BSP Documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                imx8mp-pd24.1.2-22-g6067a41
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Yocto Reference Manuals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kirkstone">Kirkstone</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html">1. The Yocto Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#bsp-workspace-installation">5. BSP Workspace Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#phylinux-documentation">6. phyLinux Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#using-build-container">7. Using build-container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#troubleshooting">9. Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mickledore">Mickledore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html">1. The Yocto Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#bsp-workspace-installation">5. BSP Workspace Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#phylinux-documentation">6. phyLinux Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#using-build-container">7. Using build-container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#troubleshooting">9. Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scarthgap">Scarthgap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html">1. The Yocto Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#bsp-workspace-installation">5. BSP Workspace Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#phylinux-documentation">6. phyLinux Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#using-build-container">7. Using build-container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#troubleshooting">9. Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8 Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9 Manuals</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">Contribute</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Yocto Reference Manuals</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/yocto/manual-index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yocto-reference-manuals">
+<h1>Yocto Reference Manuals<a class="headerlink" href="#yocto-reference-manuals" title="Link to this heading"></a></h1>
+<section id="kirkstone">
+<h2>Kirkstone<a class="headerlink" href="#kirkstone" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html">1. The Yocto Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#phytec-documentation">1.1. PHYTEC Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#yocto-introduction">1.2. Yocto Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#core-components">1.3. Core Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#vocabulary">1.4. Vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#poky">1.5. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#official-documentation">1.6. Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-structure">3.1. BSP Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#build-configuration">3.2. Build Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#bsp-workspace-installation">5. BSP Workspace Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#setting-up-the-host">5.1. Setting Up the Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#git-configuration">5.2. Git Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#site-conf-setup">5.3. site.conf Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#phylinux-documentation">6. phyLinux Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#get-phylinux">6.1. Get phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#basic-usage">6.2. Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#initialization">6.3. Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#advanced-usage">6.4. Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#using-build-container">7. Using build-container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#installation">7.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#available-container">7.2. Available container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#download-pull-container">7.3. Download/Pull container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#run-container">7.4. Run container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#start-the-build">8.1. Start the Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#images-images">8.2. Images images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#accessing-the-development-states-between-releases">8.3. Accessing the Development States between Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#inspect-your-build-configuration">8.4. Inspect your Build Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-customization">8.6. BSP Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#common-tasks">8.7. Common Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#troubleshooting">9. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#setscene-task-warning">9.1. Setscene Task Warning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</div>
+</section>
+<section id="mickledore">
+<h2>Mickledore<a class="headerlink" href="#mickledore" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html">1. The Yocto Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#phytec-documentation">1.1. PHYTEC Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#yocto-introduction">1.2. Yocto Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#core-components">1.3. Core Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#vocabulary">1.4. Vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#poky">1.5. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#official-documentation">1.6. Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-structure">3.1. BSP Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#build-configuration">3.2. Build Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#bsp-workspace-installation">5. BSP Workspace Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#setting-up-the-host">5.1. Setting Up the Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#git-configuration">5.2. Git Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#site-conf-setup">5.3. site.conf Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#phylinux-documentation">6. phyLinux Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#get-phylinux">6.1. Get phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#basic-usage">6.2. Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#initialization">6.3. Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#advanced-usage">6.4. Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#using-build-container">7. Using build-container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#installation">7.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#available-container">7.2. Available container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#download-pull-container">7.3. Download/Pull container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#run-container">7.4. Run container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#start-the-build">8.1. Start the Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#images-images">8.2. Images images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#accessing-the-development-states-between-releases">8.3. Accessing the Development States between Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#inspect-your-build-configuration">8.4. Inspect your Build Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-customization">8.6. BSP Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#common-tasks">8.7. Common Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#troubleshooting">9. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#setscene-task-warning">9.1. Setscene Task Warning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</div>
+</section>
+<section id="scarthgap">
+<h2>Scarthgap<a class="headerlink" href="#scarthgap" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html">1. The Yocto Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#phytec-documentation">1.1. PHYTEC Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#yocto-introduction">1.2. Yocto Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#core-components">1.3. Core Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#vocabulary">1.4. Vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#poky">1.5. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#official-documentation">1.6. Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#compatible-linux-distributions">2. Compatible Linux Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#phytec-bsp-introduction">3. PHYTEC BSP Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-structure">3.1. BSP Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#build-configuration">3.2. Build Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#pre-built-images">4. Pre-built Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#bsp-workspace-installation">5. BSP Workspace Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#setting-up-the-host">5.1. Setting Up the Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#git-configuration">5.2. Git Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#site-conf-setup">5.3. site.conf Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#phylinux-documentation">6. phyLinux Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#get-phylinux">6.1. Get phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#basic-usage">6.2. Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#initialization">6.3. Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#advanced-usage">6.4. Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#using-build-container">7. Using build-container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#installation">7.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#available-container">7.2. Available container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#download-pull-container">7.3. Download/Pull container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#run-container">7.4. Run container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#working-with-poky-and-bitbake">8. Working with Poky and Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#start-the-build">8.1. Start the Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#images-images">8.2. Images images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#accessing-the-development-states-between-releases">8.3. Accessing the Development States between Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#inspect-your-build-configuration">8.4. Inspect your Build Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-features-of-meta-phytec-and-meta-ampliphy">8.5. BSP Features of meta-phytec and meta-ampliphy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-customization">8.6. BSP Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#common-tasks">8.7. Common Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#troubleshooting">9. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#setscene-task-warning">9.1. Setscene Task Warning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#yocto-documentation">10. Yocto Documentation</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to the PHYTEC BSP Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kirkstone.html" class="btn btn-neutral float-right" title="1. The Yocto Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, PHYTEC Messtechnik GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
