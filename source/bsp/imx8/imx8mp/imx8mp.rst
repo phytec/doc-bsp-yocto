@@ -22,8 +22,8 @@ Mainline HEAD
 
    mainline-head
 
-PD24.1.2
-========
+BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
+===================================
 
 .. toctree::
    :caption: Table of Contents
@@ -32,8 +32,8 @@ PD24.1.2
 
    pd24.1.2
 
-PD24.1.1
-========
+BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+===================================
 
 .. toctree::
    :caption: Table of Contents
@@ -43,8 +43,8 @@ PD24.1.1
    pd24.1.1
 
 
-PD23.1.0
-========
+BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+==============================
 
 .. toctree::
    :caption: Table of Contents
@@ -53,8 +53,8 @@ PD23.1.0
 
    pd23.1.0
 
-PD22.1.1
-========
+BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+==============================
 
 .. toctree::
    :caption: Table of Contents
