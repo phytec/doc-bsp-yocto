@@ -2,8 +2,8 @@
 i.MX 93 Manuals
 ====================
 
-PD24.1.1
-========
+BSP-Yocto-NXP-i.MX93-PD24.1.1
+=============================
 
 .. toctree::
    :caption: Table of Contents
@@ -12,8 +12,8 @@ PD24.1.1
 
    pd24.1.1
 
-PD24.1.0
-========
+BSP-Yocto-NXP-i.MX93-PD24.1.0
+=============================
 
 .. toctree::
    :caption: Table of Contents
