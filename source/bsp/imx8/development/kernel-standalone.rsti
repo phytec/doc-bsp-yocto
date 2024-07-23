@@ -1,0 +1,109 @@
+Kernel
+------
+
+The kernel is packaged in a FIT image together with the device tree. U-Boot has
+been adapted to be able to load a FIT image and boot the kernel contained in it.
+As a result, the kernel Image has to packaged in a FIT image.
+
+Setup sources
+.............
+
+*  The used |kernel-repo-name| branch can be found in the `release notes
+   <releasenotes_>`_
+*  The tag needed for this release is called |kernel-tag|
+*  Check out the needed |kernel-repo-name| tag:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone |kernel-repo-url|
+      host:~$ cd ~/|kernel-repo-name|/
+      host:~/|kernel-repo-name|$ git fetch --all --tags
+      host:~/|kernel-repo-name|$ git checkout tags/|kernel-tag|
+
+*  For committing changes, it is highly recommended to switch to a new branch:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ git switch --create <new-branch>
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+Build the kernel
+................
+
+*  Build the linux kernel:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make |kernel-defconfig|
+      host:~/|kernel-repo-name|$ make -j$(nproc)
+
+*  Install kernel modules to e.g. NFS directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+
+*  The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image.gz
+*  The dtb can be found at
+   ~/|kernel-repo-name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
+*  For (re-)building only Devicetrees and -overlays, it is sufficient to run
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make dtbs
+
+.. note::
+
+   If you are facing the following build issue:
+
+   .. code-block::
+
+      scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
+
+   Make sure you installed the package *"libyaml-dev"* on your host system:
+
+   .. code-block:: console
+
+      host:~$ sudo apt install libyaml-dev
+
+Package the kernel in a FIT image
+.................................
+
+To simply replace the kernel, you will need an ``image tree source`` (.its)
+file. If you already built our BSP with Yocto, you can get the its file from the
+directory mentioned here: |ref-bsp-images| Or you can download the file here:
+|link-bsp-images|
+
+Copy the .its file to the current working directory, create a link to the kernel
+image and create the final fitImage with mkimage.
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|kernel-repo-name|$ cp /path/to/yocto/deploydir/fitimage-its*.its .
+                     && ln -s arch/arm64/boot/Image.gz linux.bin
+                     && uboot-mkimage -f fitImage-its*.its fitImage
+
+
+Copy FIT image and kernel modules to SD Card
+............................................
+
+When one-time boot via netboot is not sufficient, the FIT image along with the
+kernel modules may be copied directly to a mounted SD card.
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|kernel-repo-name|$ cp fitImage /path/to/sdcard/boot/
+   host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
