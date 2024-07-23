@@ -7,6 +7,7 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 
 .. IMX8(MP) specific
@@ -203,6 +204,7 @@ First Start-up
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
    Trusted Firmware and DDR firmware. This is the final bootloader image which is
    bootable.
+*  fitImage: Linux kernel FIT image
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
 *  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
@@ -241,44 +243,28 @@ select the phyCORE-|soc| default bootsource.
 Development
 ===========
 
+Starting with this release, the boot behaviour in U-Boot changes. Before, kernel
+and device tree came as separate blobs. Now, both will be included in a single
+FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions
+is moved to a boot script which itself is part of a separate FIT image blob.
+To revert to the old style of booting, you may do
+
+.. code-block:: console
+
+   run boot_command
+
+This way of booting is deprecated and will be removed in the next release.
+
+.. include:: ../../imx-common/development/standalone_build_preface.rsti
+.. _imx8mp-head-development-build-uboot:
+.. include:: ../development/uboot.rsti
+.. include:: ../development/kernel.rsti
+.. include:: ../../imx-common/development/uuu.rsti
+
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot.rsti
 
-.. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :end-before: .. build-uboot-marker
-
-.. _imx8mp-head-development-build-uboot:
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :start-after: .. build-uboot-marker
-
-Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and
-newer also support 2GHz RAM timings. These will be enabled for supported boards
-automatically, but they can also be enabled or disabled manually.
-
-Edit the file configs/phycore-|kernel-socname|\_defconfig.
-The fixed RAM size with 2GHz timings will be used:
-
-.. code-block:: kconfig
-
-   CONFIG_TARGET_PHYCORE_IMX8MP=y
-   CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
-   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y
-   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y
-   # CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y
-   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
-   CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
-
-
-Choose the correct RAM size as populated on the board and uncomment the line
-for this ram size. When not specifying the
-``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will
-be chosen by default. After saving the changes, follow the remaining steps from
-|ref-build-uboot|.
-
-.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
