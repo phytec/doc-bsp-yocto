@@ -1,11 +1,11 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.2
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/sdk/ampliphy-vendor-xwayland/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.2/sdk/ampliphy-vendor-xwayland/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.2/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.2/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 
 .. IMX8(MP) specific
@@ -31,7 +31,7 @@
 .. |kernel-repo-name| replace:: linux-imx
 .. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
+.. |kernel-tag| replace:: v5.10.72_2.2.0-phy18
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
@@ -45,7 +45,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP
-.. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
+.. |u-boot-tag| replace:: v2021.04_2.2.0-phy17
 
 
 .. Devicetree
@@ -54,7 +54,7 @@
 .. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41`
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n41`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`
@@ -64,24 +64,24 @@
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
 .. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
 .. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://www.phytec.de/cdocuments/?doc=UIHsG#YoctoReferenceManualHardknottL813e-A12-KernelandBootloaderConfiguration
-.. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd22.1.1-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd22.1.1-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd22.1.1-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd22.1.1-device-tree>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd22.1.1-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd22.1.1-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd22.1.1-components>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd22.1.2-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd22.1.2-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd22.1.2-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd22.1.2-device-tree>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd22.1.2-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd22.1.2-development>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd22.1.2-components>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
@@ -89,17 +89,17 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n141`.
+   :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n141`.
 .. |pollux-fan-note| replace::
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd22.1.1-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd22.1.1-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd22.1.1-components>`
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd22.1.2-components>`
+.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd22.1.2-components>`
+.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd22.1.2-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-pd22.1.1-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-pd22.1.2-ubootexternalenv>`
 
 
 .. M-Core specific
@@ -117,7 +117,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          |                      |
 +-----------------------+----------------------+
-| Release Date          | 2023/05/25           |
+| Release Date          | 2024/08/05           |
 +-----------------------+----------------------+
 | Is Branch of          | |soc| BSP Manual     |
 +-----------------------+----------------------+
@@ -128,7 +128,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSP'S     BSP Release Type BSP Release  Date BSP Status
 
 ==================== ================ ================= ==========
-|yocto-manifestname| Minor            2023/05/23        Released
+|yocto-manifestname| Minor            2024/08/05        Released
 ==================== ================ ================= ==========
 
 .. include:: ../../intro.rsti
@@ -146,7 +146,12 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-pd22.1.1-components:
+.. note::
+   When the PCM-070 does not have the X1 extension connector populated, some
+   Software features described here do not work. These are Wirless LAN, PCIe,
+   CSI (cameras), PEB-AV-12, CAN, USB-OTG.
+
+.. _imx8mp-pd22.1.2-components:
 .. include:: components.rsti
 
 Getting Started
@@ -271,7 +276,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-pd22.1.1-images:
+.. _imx8mp-pd22.1.2-images:
 
 * **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
   Bootloader image!
@@ -307,7 +312,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
-.. _imx8mp-pd22.1.1-bootswitch:
+.. _imx8mp-pd22.1.2-bootswitch:
 .. include:: bootmode-switch.rsti
 
 Flash eMMC
@@ -850,7 +855,7 @@ BSPs: `L-1006e.A3 RAUC Update & Device Management Manual
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd22.1.1-development:
+.. _imx8mp-pd22.1.2-development:
 
 Development
 ===========
@@ -1044,8 +1049,33 @@ E.g. flash SD card:
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :start-after: .. build-uboot-fixed-ram-size-marker
+Build U-Boot With a Fixed RAM Size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you cannot boot your system anymore because the hardware introspection in the
+EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
+You should still contact support and flash the correct EEPROM data, as this
+could lead to unexpected behavior.
+
+Follow the steps to get the U-boot sources and check the correct branch in the
+**Build U-Boot** section.
+
+Edit the file configs/phycore-|kernel-socname|\_defconfig:
+
+.. code-block:: kconfig
+   :substitutions:
+
+   CONFIG_TARGET_PHYCORE_|u-boot-socname-config|=y
+   CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_FIX=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_1GB=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_2GB=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_4GB=y
+   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_4GB_2GHZ=y
+
+Choose the correct RAM size as populated on the board and uncomment the line for
+this ram size. For Article number 0F\ **8**\ 443I, use [...]_4GB_2GHZ, for
+0F\ **5**\ 443I, use [...]_4GB.
+After saving the changes, follow the remaining steps from Build U-Boot.
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
@@ -1059,7 +1089,7 @@ E.g. flash SD card:
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd22.1.1-device-tree:
+.. _imx8mp-pd22.1.2-device-tree:
 
 Device Tree (DT)
 ================
@@ -1142,7 +1172,7 @@ Available overlays for |yocto-machinename|.conf are:
    There is one more overlay available for phyboard-pollux-imx8mp-2.conf:
    imx8mp-phyboard-pollux-1552.1.dtbo
 
-.. _imx8mp-pd22.1.1-ubootexternalenv:
+.. _imx8mp-pd22.1.2-ubootexternalenv:
 .. include:: ../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -1195,9 +1225,9 @@ correctly.
 .. include:: /bsp/peripherals/rs485.rsti
 
 The device tree representation for RS232 and RS485:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n331`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n331`
 
-.. _imx8mp-pd22.1.1-network:
+.. _imx8mp-pd22.1.2-network:
 
 Network
 -------
@@ -1232,10 +1262,10 @@ module and board.
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n367`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n367`
 
 DT configuration for the eMMC interface can be found here:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n220`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n220`
 
 eMMC Devices
 ------------
@@ -1619,7 +1649,7 @@ be read back as zeros.
 
 The definition of the SPI master node in the device tree can be found here:
 
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n72`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n72`
 
 GPIOs
 -----
@@ -1752,15 +1782,15 @@ Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
       target:~$ echo 0 > /sys/class/leds/user-led1/brightness
 
 Device tree configuration for the User I/O configuration can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n216`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n216`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n105`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n105`
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n201`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n201`
 
 
 EEPROM
@@ -1791,13 +1821,13 @@ hardware introspection from the ID area to the normal area.
 
 DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n201`
 
 .. include:: ../../peripherals/rtc.rsti
    :end-before: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
-:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n207`
+:imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy18#n207`
 
 USB Host Controller
 -------------------
@@ -1812,7 +1842,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n341`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n341`
 
 CAN FD
 ------
@@ -1827,12 +1857,12 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n165`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n277`
 
 Audio
 -----
@@ -1983,7 +2013,7 @@ TLV320-Codec using the 3.5mm jack.
    capture operations.
 
 Device Tree Audio configuration:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n57`
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy18#n57`
 
 Video
 -----
@@ -2110,18 +2140,18 @@ In our BSP, the default Weston output is set to HDMI. ::
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n255`
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n180`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n255`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n180`
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
-:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n132`
+:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.10.72_2.2.0-phy18#n132`
 
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
 
 The device tree description of GPIO Fan can be found here:
-:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n26`
+:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n26`
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
