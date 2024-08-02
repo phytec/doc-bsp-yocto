@@ -53,7 +53,17 @@ BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 
    pd23.1.0
 
-BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+BSP-Yocto-NXP-i.MX8MP-PD22.1.2
+==============================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   pd22.1.2
+
+BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 ==============================
 
 .. toctree::
