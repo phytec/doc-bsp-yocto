@@ -12,8 +12,8 @@ HEAD
 
    head
 
-PD23.1.0
-========
+BSP-Yocto-NXP-i.MX8MM-PD23.1.0
+==============================
 
 .. toctree::
    :caption: Table of Contents
@@ -22,8 +22,8 @@ PD23.1.0
 
    pd23.1.0
 
-PD22.1.1
-========
+BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+==============================
 
 .. toctree::
    :caption: Table of Contents
