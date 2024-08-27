@@ -96,7 +96,7 @@ Execute and power up the board:
    host:~$ sudo uuu -b emmc imx-boot
 
 Flashing wic Image to eMMC via UUU-Tool
-...........................................
+.......................................
 
 Execute and power up the board:
 
@@ -104,3 +104,21 @@ Execute and power up the board:
    :substitutions:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
+
+Flashing SPI NOR Flash via UUU-Tool
+...................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b qspi imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+
+This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
+environment so the default environment of the new U-Boot gets loaded:
+
+.. code-block:: console
+
+   u-boot=> env erase
+   u-boot=> reset
