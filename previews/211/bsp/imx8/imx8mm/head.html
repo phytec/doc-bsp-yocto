@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=a4d3cfa3"></script>
+        <script src="../../../_static/documentation_options.js?v=25f2fa8c"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-3-gf027c4d
+                imx8mp-pd22.1.2-3-ge2f8f33
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1488,10 +1488,10 @@ done by default, which makes partup again superior flash option.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi
 </pre></div>
 </div>
-<p>This will update the U-Boot on SPI NOR Flash but not the env. To update the env boot into U-Boot from SPI NOR Flash and do:</p>
+<p>This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
+environment so the default environment of the new U-Boot gets loaded:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; env erase</span>
 <span class="go">u-boot=&gt; reset</span>
-<span class="go">u-boot=&gt; env save; env save;</span>
 </pre></div>
 </div>
 </section>
