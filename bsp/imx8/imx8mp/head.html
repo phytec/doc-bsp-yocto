@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=e5141c84"></script>
+        <script src="../../../_static/documentation_options.js?v=51e50801"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-1-g9c6d218
+                imx8mp-pd22.1.2-2-g7f42f64
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1459,6 +1459,19 @@ done by default, which makes partup again superior flash option.</p>
 <h3><span class="section-number">5.3.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
+</pre></div>
+</div>
+</section>
+<section id="flashing-spi-nor-flash-via-uuu-tool">
+<h3><span class="section-number">5.3.7. </span>Flashing SPI NOR Flash via UUU-Tool<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu-tool" title="Link to this heading"></a></h3>
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi
+</pre></div>
+</div>
+<p>This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
+environment so the default environment of the new U-Boot gets loaded:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; env erase</span>
+<span class="go">u-boot=&gt; reset</span>
 </pre></div>
 </div>
 </section>
