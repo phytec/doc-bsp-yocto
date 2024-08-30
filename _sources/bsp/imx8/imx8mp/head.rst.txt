@@ -242,7 +242,7 @@ Development
 ===========
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
-.. include:: /bsp/imx-common/development/netboot.rsti
+.. include:: /bsp/imx8/development/netboot.rsti
 
 .. include:: /bsp/imx-common/development/uuu.rsti
 

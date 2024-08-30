@@ -631,7 +631,7 @@ Place Images on Host for Netboot
    .. code-block:: console
       :substitutions:
 
-      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.rootfs.tar.gz -C /srv/nfs
 
 .. note::
    Make sure you extract with sudo to preserve the correct ownership.

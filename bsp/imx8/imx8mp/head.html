@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=51e50801"></script>
+        <script src="../../../_static/documentation_options.js?v=c32efe9b"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-2-g7f42f64
+                imx8mp-pd22.1.2-4-g6261b4c
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1305,18 +1305,13 @@ another available boot device.</p>
 <section id="place-images-on-host-for-netboot">
 <h3><span class="section-number">5.2.1. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
 <ul>
-<li><p>Copy the kernel image to your tftp directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>Image<span class="w"> </span>/srv/tftp
+<li><p>Copy the kernel fitimage to your tftp directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>fitImage<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
 </li>
-<li><p>Copy the devicetree to your tftp directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>oftree<span class="w"> </span>/srv/tftp
-</pre></div>
-</div>
-</li>
-<li><p>Copy all the overlays you want to use into your tftp directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>*.dtbo<span class="w"> </span>/srv/tftp
+<li><p>Copy the bootscript to your tftp directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>boot.scr.uimg<span class="w"> </span>/srv/tftp
 </pre></div>
 </div>
 </li>
@@ -1327,7 +1322,7 @@ otherwise they are not accessible from the target:</p>
 </div>
 </li>
 <li><p>Extract the rootfs to your nfs directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.tar.gz<span class="w"> </span>-C<span class="w"> </span>/srv/nfs
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.tar.gz<span class="w"> </span>-C<span class="w"> </span>/srv/nfs
 </pre></div>
 </div>
 </li>
@@ -1340,20 +1335,21 @@ otherwise they are not accessible from the target:</p>
 <section id="set-the-bootenv-txt-for-netboot">
 <h3><span class="section-number">5.2.2. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
 <p>Create a bootenv.txt file in your tftp directory and write the following variables into it.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bootfile=Image
-fdt_file=oftree
-nfsroot=/srv/nfs
-overlays=&lt;overlayfilenames&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nfsroot=/srv/nfs
+overlays=&lt;overlayconfignames&gt;
 </pre></div>
 </div>
-<p>&lt;overlayfilenames&gt; has to be replaced with the devicetree overlay filenames that you want to use.
-Separate the filenames by spaces. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=example-overlay1.dtbo example-overlay2.dtbo
+<p>&lt;overlayconfignames&gt; has to be replaced with the devicetree overlay config names that you want to use.
+Separate the config names by hashtag. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=conf-example-overlay1.dtbo#conf-example-overlay2.dtbo
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>All supported devicetree overlays are in the <a class="reference internal" href="#imx8mp-head-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
+<p>All supported devicetree overlays are in the <a class="reference internal" href="#imx8mp-head-device-tree"><span class="std std-ref">device tree</span></a> chapter. Or can be printed with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host:~$ dumpimage -l fitImage
+</pre></div>
+</div>
 </div>
 </section>
 <section id="network-settings-on-target">
@@ -1366,7 +1362,8 @@ here: <a class="reference internal" href="#imx8mp-head-network"><span class="std
 <p>Boot the board into the U-boot prompt and press any key to hold.</p>
 <ul>
 <li><p>To boot from a network, call:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; run netboot</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; setenv boot_targets ethernet</span>
+<span class="go">u-boot=&gt; bootflow -lb</span>
 </pre></div>
 </div>
 </li>
