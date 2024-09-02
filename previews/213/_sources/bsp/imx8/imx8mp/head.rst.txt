@@ -254,12 +254,16 @@ To revert to the old style of booting, you may do
 
    run legacyboot
 
-This way of booting is deprecated and will be removed in the next release.
+.. note::
+
+   This way of booting is deprecated and will be removed in the next release.
+   By default, booting via this command will return an error as kernel and
+   device tree are missing in the boot partition.
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
 .. _imx8mp-head-development-build-uboot:
-.. include:: ../development/uboot.rsti
-.. include:: ../development/kernel.rsti
+.. include:: ../development/uboot-standalone.rsti
+.. include:: ../development/kernel-standalone.rsti
 .. include:: ../../imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti

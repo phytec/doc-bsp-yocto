@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=ac1365d0"></script>
+        <script src="../../../_static/documentation_options.js?v=ad48acd6"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-6-gd6c474f
+                imx8mp-pd22.1.2-6-g91fb239
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1167,7 +1167,12 @@ To revert to the old style of booting, you may do</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">run legacyboot</span>
 </pre></div>
 </div>
-<p>This way of booting is deprecated and will be removed in the next release.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This way of booting is deprecated and will be removed in the next release.
+By default, booting via this command will return an error as kernel and
+device tree are missing in the boot partition.</p>
+</div>
 <section id="standalone-build">
 <h2><span class="section-number">5.1. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
 <p>In this section, we describe how to build the U-Boot and the Linux kernel
@@ -1265,7 +1270,7 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 </li>
 <li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
 notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
-<li><p>The <strong>tag</strong> needed at this release is called v2024.04_2.0.0-phy3</p></li>
+<li><p>The <strong>tag</strong> used in this release is called v2024.04_2.0.0-phy3</p></li>
 <li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
 <span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
@@ -1388,8 +1393,7 @@ be chosen by default. After saving the changes, follow the remaining steps from
 <h2><span class="section-number">5.3. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h2>
 <p>The kernel is packaged in a FIT image together with the device tree. U-Boot has
 been adapted to be able to load a FIT image and boot the kernel contained in it.
-The consequence is that when building a standalone kernel image, it too has to
-be packaged in a FIT image for U-Boot to be able to boot it.</p>
+As a result, the kernel Image has to packaged in a FIT image.</p>
 <section id="setup-sources">
 <h3><span class="section-number">5.3.1. </span>Setup sources<a class="headerlink" href="#setup-sources" title="Link to this heading"></a></h3>
 <ul>
@@ -1429,7 +1433,7 @@ be packaged in a FIT image for U-Boot to be able to boot it.</p>
 </pre></div>
 </div>
 </li>
-<li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
+<li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image.gz</p></li>
 <li><p>The dtb can be found at
 ~/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb</p></li>
 <li><p>For (re-)building only Devicetrees and -overlays, it is sufficient to run</p>
@@ -1459,7 +1463,7 @@ directory mentioned here: <a class="reference internal" href="#imx8mp-head-image
 <p>Copy the .its file to the current working directory, create a link to the kernel
 image and create the final fitImage with mkimage.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>/path/to/yocto/deploydir/fitimage-its*.its<span class="w"> </span>.
-<span class="go">                  &amp;&amp; ln -s arch/arm64/boots/Image.gz linux.bin</span>
+<span class="go">                  &amp;&amp; ln -s arch/arm64/boot/Image.gz linux.bin</span>
 <span class="go">                  &amp;&amp; uboot-mkimage -f fitImage-its*.its fitImage</span>
 </pre></div>
 </div>
