@@ -34,7 +34,7 @@ Build Kernel
       :substitutions:
 
       host:~/|kernel-repo-name|$ make |kernel-defconfig|
-      host:~/|kernel-repo-name|$ make -j${nproc}
+      host:~/|kernel-repo-name|$ make -j$(nproc)
 
 *  Install kernel modules to e.g. NFS directory:
 
