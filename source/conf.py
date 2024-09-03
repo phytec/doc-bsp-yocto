@@ -54,6 +54,7 @@ extlinks_detect_hardcoded_links = True
 
 highlight_language = 'none'
 
+# -- Internationalization ----------------------------------------------------
 
 # Set the default language
 locale_dirs = ['locale/']
@@ -77,18 +78,27 @@ html_theme_options = {
     'navigation_depth': 5,
 }
 
+pages_root = "https://phytec.github.io/doc-bsp-yocto"
 html_context = {
     "display_github": True,
     "github_user": "phytec",
     "github_repo": "doc-bsp-yocto",
     "github_version": "main",
     "conf_py_path": "/source/",
+    # Language selector, works together with versions.html in templates
+    'languages': [
+        ['en', pages_root],
+        ['zh_CN', pages_root + '/zh_CN']
+    ]
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['sphinx/static']
+
+# The templates directory is used to display a language selector in the sidebar.
+templates_path = ['sphinx/templates']
 
 html_css_files = [
     'css/code-block.css',
