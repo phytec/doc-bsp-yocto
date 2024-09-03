@@ -54,6 +54,13 @@ extlinks_detect_hardcoded_links = True
 
 highlight_language = 'none'
 
+
+# Set the default language
+locale_dirs = ['locale/']
+# Compact all strings into a single file, this avoids editing identical strings
+# in multiple .po files.
+gettext_compact = True
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
