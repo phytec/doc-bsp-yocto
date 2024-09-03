@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, PHYTEC Messtechnik GmbH
+# This file is distributed under the same license as the PHYTEC BSP
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-03 18:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/index.rst:6
+msgid "Contents"
+msgstr ""
+
+#: ../../source/index.rst:14
+msgid "Contribute"
+msgstr ""
+
+#: ../../source/index.rst:2
+msgid "Welcome to the PHYTEC BSP Documentation"
+msgstr ""
+
+#: ../../source/index.rst:4
+msgid "Welcome to the Documentation for our Yocto BSPs."
+msgstr ""
+
