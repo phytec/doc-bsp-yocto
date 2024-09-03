@@ -15,10 +15,12 @@ jobs:
     - name: Install dependencies
       run: |
           sudo apt update
-          sudo apt install tox texlive-latex-extra texlive-xetex latexmk python3-pip -y
+          sudo apt install tox texlive-latex-extra texlive-xetex texlive-lang-chinese latexmk python3-pip -y
           pip3 install -r requirements/setup.txt
     - name: Render HTML Documentation
-      run: tox -e py3-html
+      run: |
+        tox -e py3-intl
+        tox -e py3-html
     - name: Build PDF Documentation
       run: tox -e py3-pdf
     - name: Deploy Preview
