@@ -22,17 +22,17 @@ msgstr ""
 
 #: ../../source/index.rst:6
 msgid "Contents"
-msgstr ""
+msgstr "目录"
 
 #: ../../source/index.rst:14
 msgid "Contribute"
-msgstr ""
+msgstr "贡献"
 
 #: ../../source/index.rst:2
 msgid "Welcome to the PHYTEC BSP Documentation"
-msgstr ""
+msgstr "欢迎阅读 PHYTEC BSP 文档"
 
 #: ../../source/index.rst:4
 msgid "Welcome to the Documentation for our Yocto BSPs."
-msgstr ""
+msgstr "欢迎阅读我们的 Yocto BSP 文档。"
 

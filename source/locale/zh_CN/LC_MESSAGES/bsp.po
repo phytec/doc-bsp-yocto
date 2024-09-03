@@ -22,19 +22,19 @@ msgstr ""
 
 #: ../../source/bsp/imx8/imx8.rst:5 ../../source/bsp/imx8/imx8mp/imx8mp.rst:3
 msgid "i.MX 8M Plus Manuals"
-msgstr ""
+msgstr "i.MX 8M Plus 手册"
 
 #: ../../source/bsp/imx8/imx8.rst:5 ../../source/bsp/imx8/imx8mm/imx8mm.rst:3
 msgid "i.MX 8M Mini Manuals"
-msgstr ""
+msgstr "i.MX 8M Mini 手册"
 
 #: ../../source/bsp/imx8/imx8.rst:5 ../../source/bsp/imx8/imx8mn/imx8mn.rst:3
 msgid "i.MX 8M Nano Manuals"
-msgstr ""
+msgstr "i.MX 8M Nano 手册"
 
 #: ../../source/bsp/imx8/imx8.rst:3 ../../source/bsp/imx8/imx8.rst:5
 msgid "i.MX 8 Manuals"
-msgstr ""
+msgstr "i.MX 8 手册"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:113
 #: ../../source/bsp/imx8/imx8mm/head.rst:116
@@ -45,7 +45,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mp/head.rst:128
 #: ../../source/bsp/imx8/imx8mp/head.rst:139
 msgid "|doc-id| |soc| BSP Manual Head"
-msgstr ""
+msgstr "|doc-id| |soc| BSP 手册标题"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:116
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:105
@@ -63,7 +63,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:108
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:109
 msgid "Document Title"
-msgstr ""
+msgstr "文档标题"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:119
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:107
@@ -81,7 +81,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:110
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:111
 msgid "Document Type"
-msgstr ""
+msgstr "文档类型"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:119
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:107
@@ -99,7 +99,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:110
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:111
 msgid "BSP Manual"
-msgstr ""
+msgstr "BSP 手册"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:121
 #: ../../source/bsp/imx8/imx8mn/head.rst:113
@@ -108,7 +108,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:119
 msgid "Article Number"
-msgstr ""
+msgstr "文章编号"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:121
 #: ../../source/bsp/imx8/imx8mn/head.rst:113
@@ -117,7 +117,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:119
 msgid "|doc-id|"
-msgstr ""
+msgstr "|doc-id|"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:123
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:109
@@ -135,7 +135,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:112
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:113
 msgid "Yocto Manual"
-msgstr ""
+msgstr "Yocto 手册"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:125
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:111
@@ -153,14 +153,14 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:114
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:115
 msgid "Release Date"
-msgstr ""
+msgstr "发布日期"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:125
 #: ../../source/bsp/imx8/imx8mn/head.rst:117
 #: ../../source/bsp/imx8/imx8mp/head.rst:137
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:123
 msgid "XXXX/XX/XX"
-msgstr ""
+msgstr "XXXX/XX/XX"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:127
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:113
@@ -178,7 +178,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:116
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:117
 msgid "Is Branch of"
-msgstr ""
+msgstr "是 ... 的分支"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:131
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:116
@@ -196,7 +196,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:119
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:120
 msgid "The table below shows the Compatible BSPs for this manual:"
-msgstr ""
+msgstr "下表显示了与本手册兼容的 BSP。"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:134
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:119
@@ -214,7 +214,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:122
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:123
 msgid "Compatible BSP'S"
-msgstr ""
+msgstr "兼容的 BSPs"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:134
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:119
@@ -232,7 +232,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:122
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:123
 msgid "BSP Release Type"
-msgstr ""
+msgstr "BSP 发布类型"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:134
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:119
@@ -244,7 +244,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:129
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:132
 msgid "BSP Release  Date"
-msgstr ""
+msgstr "BSP 发布日期"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:134
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:119
@@ -262,7 +262,7 @@ msgstr ""
 #: ../../source/bsp/imx9/imx93/pd24.1.0.rst:122
 #: ../../source/bsp/imx9/imx93/pd24.1.1.rst:123
 msgid "BSP Status"
-msgstr ""
+msgstr "BSP 状态"
 
 #: ../../source/bsp/intro.rsti:1
 msgid ""
