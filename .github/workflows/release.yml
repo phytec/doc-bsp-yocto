@@ -30,7 +30,9 @@ jobs:
           pip3 install -r requirements/setup.txt
 
     - name: Build PDF Documentation
-      run: tox -e py3-pdf
+      run: |
+        tox -e py3-intl
+        tox -e py3-pdf
 
       ######## CREATE RELEASE and UPLOAD BUILD ARTIFACTS ########
     - name: Extract tag name
@@ -44,4 +46,4 @@ jobs:
         draft: true
         prerelease: false
         name: ${{ env.TAG_NAME }}
-        files: build/latex/*.pdf
+        files: build/latex/en/*.pdf
