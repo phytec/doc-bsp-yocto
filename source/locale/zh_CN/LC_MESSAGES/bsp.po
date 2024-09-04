@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 18:21+0200\n"
+"POT-Creation-Date: 2024-09-04 14:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -42,8 +42,8 @@ msgstr "i.MX 8 手册"
 #: ../../source/bsp/imx8/imx8mn/head.rst:104
 #: ../../source/bsp/imx8/imx8mn/head.rst:107
 #: ../../source/bsp/imx8/imx8mn/head.rst:118
-#: ../../source/bsp/imx8/imx8mp/head.rst:125
-#: ../../source/bsp/imx8/imx8mp/head.rst:136
+#: ../../source/bsp/imx8/imx8mp/head.rst:126
+#: ../../source/bsp/imx8/imx8mp/head.rst:137
 msgid "|doc-id| |soc| BSP Manual Head"
 msgstr "|doc-id| |soc| BSP 手册标题"
 
@@ -53,7 +53,7 @@ msgstr "|doc-id| |soc| BSP 手册标题"
 #: ../../source/bsp/imx8/imx8mn/head.rst:107
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:98
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:105
-#: ../../source/bsp/imx8/imx8mp/head.rst:125
+#: ../../source/bsp/imx8/imx8mp/head.rst:126
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:114
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:114
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:114
@@ -71,7 +71,7 @@ msgstr "文档标题"
 #: ../../source/bsp/imx8/imx8mn/head.rst:110
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:100
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:107
-#: ../../source/bsp/imx8/imx8mp/head.rst:128
+#: ../../source/bsp/imx8/imx8mp/head.rst:129
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:117
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:116
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:116
@@ -89,7 +89,7 @@ msgstr "文档类型"
 #: ../../source/bsp/imx8/imx8mn/head.rst:110
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:100
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:107
-#: ../../source/bsp/imx8/imx8mp/head.rst:128
+#: ../../source/bsp/imx8/imx8mp/head.rst:129
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:117
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:116
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:116
@@ -103,7 +103,7 @@ msgstr "BSP 手册"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:120
 #: ../../source/bsp/imx8/imx8mn/head.rst:112
-#: ../../source/bsp/imx8/imx8mp/head.rst:130
+#: ../../source/bsp/imx8/imx8mp/head.rst:131
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:119
@@ -112,7 +112,7 @@ msgstr "文章编号"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:120
 #: ../../source/bsp/imx8/imx8mn/head.rst:112
-#: ../../source/bsp/imx8/imx8mp/head.rst:130
+#: ../../source/bsp/imx8/imx8mp/head.rst:131
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:119
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:119
@@ -125,7 +125,7 @@ msgstr "|doc-id|"
 #: ../../source/bsp/imx8/imx8mn/head.rst:114
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:102
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:109
-#: ../../source/bsp/imx8/imx8mp/head.rst:132
+#: ../../source/bsp/imx8/imx8mp/head.rst:133
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:121
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:118
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:118
@@ -143,7 +143,7 @@ msgstr "Yocto 手册"
 #: ../../source/bsp/imx8/imx8mn/head.rst:116
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:104
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:111
-#: ../../source/bsp/imx8/imx8mp/head.rst:134
+#: ../../source/bsp/imx8/imx8mp/head.rst:135
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:123
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:120
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:120
@@ -157,7 +157,7 @@ msgstr "发布日期"
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:124
 #: ../../source/bsp/imx8/imx8mn/head.rst:116
-#: ../../source/bsp/imx8/imx8mp/head.rst:134
+#: ../../source/bsp/imx8/imx8mp/head.rst:135
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:123
 msgid "XXXX/XX/XX"
 msgstr "XXXX/XX/XX"
@@ -168,7 +168,7 @@ msgstr "XXXX/XX/XX"
 #: ../../source/bsp/imx8/imx8mn/head.rst:118
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:106
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:113
-#: ../../source/bsp/imx8/imx8mp/head.rst:136
+#: ../../source/bsp/imx8/imx8mp/head.rst:137
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:125
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:122
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:122
@@ -186,7 +186,7 @@ msgstr "是 ... 的分支"
 #: ../../source/bsp/imx8/imx8mn/head.rst:122
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:109
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:116
-#: ../../source/bsp/imx8/imx8mp/head.rst:140
+#: ../../source/bsp/imx8/imx8mp/head.rst:141
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:129
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:125
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:125
@@ -204,7 +204,7 @@ msgstr "下表显示了与本手册兼容的 BSP。"
 #: ../../source/bsp/imx8/imx8mn/head.rst:125
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:112
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:119
-#: ../../source/bsp/imx8/imx8mp/head.rst:143
+#: ../../source/bsp/imx8/imx8mp/head.rst:144
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:132
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:128
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:128
@@ -222,7 +222,7 @@ msgstr "兼容的 BSPs"
 #: ../../source/bsp/imx8/imx8mn/head.rst:125
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:112
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:119
-#: ../../source/bsp/imx8/imx8mp/head.rst:143
+#: ../../source/bsp/imx8/imx8mp/head.rst:144
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:132
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:128
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:128
@@ -238,7 +238,7 @@ msgstr "BSP 发布类型"
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:118
 #: ../../source/bsp/imx8/imx8mn/head.rst:125
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:112
-#: ../../source/bsp/imx8/imx8mp/head.rst:143
+#: ../../source/bsp/imx8/imx8mp/head.rst:144
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:132
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:128
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:128
@@ -252,7 +252,7 @@ msgstr "BSP 发布日期"
 #: ../../source/bsp/imx8/imx8mn/head.rst:125
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:112
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:119
-#: ../../source/bsp/imx8/imx8mp/head.rst:143
+#: ../../source/bsp/imx8/imx8mp/head.rst:144
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:132
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:128
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:128
@@ -359,7 +359,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:134
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:121
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:128
-#: ../../source/bsp/imx8/imx8mp/head.rst:153
+#: ../../source/bsp/imx8/imx8mp/head.rst:154
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:142
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:137
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:137
@@ -849,7 +849,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:158
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:241
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:337
-#: ../../source/bsp/imx8/imx8mp/head.rst:176
+#: ../../source/bsp/imx8/imx8mp/head.rst:177
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:166
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:256
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:261
@@ -898,7 +898,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:171
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:254
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:350
-#: ../../source/bsp/imx8/imx8mp/head.rst:183
+#: ../../source/bsp/imx8/imx8mp/head.rst:184
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:173
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:263
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:268
@@ -916,7 +916,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:172
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:255
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:351
-#: ../../source/bsp/imx8/imx8mp/head.rst:184
+#: ../../source/bsp/imx8/imx8mp/head.rst:185
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:174
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:264
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:269
@@ -934,7 +934,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:174
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:257
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:353
-#: ../../source/bsp/imx8/imx8mp/head.rst:186
+#: ../../source/bsp/imx8/imx8mp/head.rst:187
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:176
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:266
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:271
@@ -1095,7 +1095,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:184
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:267
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:363
-#: ../../source/bsp/imx8/imx8mp/head.rst:196
+#: ../../source/bsp/imx8/imx8mp/head.rst:197
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:186
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:276
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:281
@@ -1115,7 +1115,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:186
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:269
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:365
-#: ../../source/bsp/imx8/imx8mp/head.rst:198
+#: ../../source/bsp/imx8/imx8mp/head.rst:199
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:188
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:278
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:283
@@ -1133,7 +1133,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:187
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:270
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:366
-#: ../../source/bsp/imx8/imx8mp/head.rst:199
+#: ../../source/bsp/imx8/imx8mp/head.rst:200
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:189
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:279
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:284
@@ -1158,7 +1158,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:189
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:272
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:368
-#: ../../source/bsp/imx8/imx8mp/head.rst:201
+#: ../../source/bsp/imx8/imx8mp/head.rst:202
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:281
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:286
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:380
@@ -1173,7 +1173,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:191
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:274
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:370
-#: ../../source/bsp/imx8/imx8mp/head.rst:203
+#: ../../source/bsp/imx8/imx8mp/head.rst:204
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:283
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:288
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:382
@@ -1191,7 +1191,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:194
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:277
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:373
-#: ../../source/bsp/imx8/imx8mp/head.rst:206
+#: ../../source/bsp/imx8/imx8mp/head.rst:209
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:195
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:286
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:291
@@ -1209,7 +1209,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:195
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:278
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:374
-#: ../../source/bsp/imx8/imx8mp/head.rst:207
+#: ../../source/bsp/imx8/imx8mp/head.rst:210
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:196
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:287
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:292
@@ -1235,7 +1235,7 @@ msgstr ""
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:205
 #: ../../source/bsp/imx8/imx8mm/pd23.1.0.rst:384
-#: ../../source/bsp/imx8/imx8mp/head.rst:210
+#: ../../source/bsp/imx8/imx8mp/head.rst:213
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:198
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:389
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:388
@@ -1253,7 +1253,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:206
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:289
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:385
-#: ../../source/bsp/imx8/imx8mp/head.rst:218
+#: ../../source/bsp/imx8/imx8mp/head.rst:221
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:206
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:298
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:303
@@ -2404,7 +2404,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:226
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:843
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:952
-#: ../../source/bsp/imx8/imx8mp/head.rst:242
+#: ../../source/bsp/imx8/imx8mp/head.rst:245
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:596
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:856
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:861
@@ -3173,6 +3173,7 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:5
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:5
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:39
 msgid "Get the needed binaries"
 msgstr ""
 
@@ -3185,6 +3186,7 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:10
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:10
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:44
 msgid ""
 "**ARM Trusted firmware binary** (*mkimage tool* compatible format "
 "**bl31.bin**): bl31-|kernel-socname|.bin"
@@ -3192,11 +3194,13 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:12
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:12
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:46
 msgid "**OPTEE image** (optional): tee.bin"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:13
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:13
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:47
 msgid ""
 "**DDR firmware files** (*mkimage tool* compatible format "
 "**lpddr4_[i,d]mem_\\*d_\\*.bin**): lpddr4_dmem_1d_*.bin, "
@@ -3211,6 +3215,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:22
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:56
 msgid "Or you can download the files here: |link-boot-tools|"
 msgstr ""
 
@@ -3222,12 +3227,14 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:30
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:40
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:5
 msgid "Build U-Boot"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:3
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:34
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:44
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:12
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:964
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:959
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:972
@@ -3238,6 +3245,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:10
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:41
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:50
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:19
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:970
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:965
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:978
@@ -3260,6 +3268,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:13
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:44
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:53
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:22
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:973
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:968
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:981
@@ -3312,6 +3321,8 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:37
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:68
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:75
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:31
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:31
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:996
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:991
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1004
@@ -3321,6 +3332,7 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:44
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:75
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:61
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1010
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1005
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1018
@@ -3330,6 +3342,7 @@ msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:52
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:83
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:73
 msgid ""
 "The flash.bin can be found at |u-boot-repo-name|/ directory and now can "
 "be flashed. A chip-specific offset is needed:"
@@ -3339,6 +3352,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:89
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:143
 #: ../../source/bsp/imx-common/emmc.rsti:70
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:79
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1024
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1019
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1032
@@ -3350,6 +3364,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:89
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:143
 #: ../../source/bsp/imx-common/emmc.rsti:70
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:79
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1024
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1019
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1032
@@ -3361,6 +3376,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:89
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:143
 #: ../../source/bsp/imx-common/emmc.rsti:70
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:79
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1024
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1019
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1032
@@ -3372,6 +3388,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:89
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:143
 #: ../../source/bsp/imx-common/emmc.rsti:70
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:79
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1024
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1019
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1032
@@ -3383,6 +3400,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:91
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:145
 #: ../../source/bsp/imx-common/emmc.rsti:73
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:81
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1026
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1021
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1034
@@ -3394,6 +3412,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:91
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:145
 #: ../../source/bsp/imx-common/emmc.rsti:73
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:81
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1026
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1021
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1034
@@ -3404,6 +3423,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:60
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:91
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:145
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:81
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1026
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1021
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1034
@@ -3415,12 +3435,14 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:91
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:145
 #: ../../source/bsp/imx-common/emmc.rsti:73
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:81
 msgid "/dev/|emmcdev|"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:63
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:94
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:148
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:84
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1029
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1024
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1037
@@ -3431,6 +3453,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:71
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:102
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti:162
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:92
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1037
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1032
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1045
@@ -3443,6 +3466,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:4
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:76
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:107
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:98
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1053
 msgid "Build U-Boot With a Fixed RAM Size"
 msgstr ""
@@ -3450,6 +3474,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:6
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:78
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:109
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:100
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1055
 msgid ""
 "If you cannot boot your system anymore because the hardware introspection"
@@ -3461,6 +3486,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:11
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:83
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:114
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:105
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1060
 msgid ""
 "Follow the steps to get the U-boot sources and check the correct branch "
@@ -3470,6 +3496,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:14
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:86
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:117
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:108
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1063
 msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig:"
 msgstr ""
@@ -3477,6 +3504,7 @@ msgstr ""
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:25
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:97
 #: ../../source/bsp/imx-common/development/standalone_build_u-boot_binman.rsti:128
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:119
 msgid ""
 "Choose the correct RAM size as populated on the board and uncomment the "
 "line for this ram size. After saving the changes, follow the remaining "
@@ -3488,30 +3516,36 @@ msgid "Build Kernel"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:4
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:11
 msgid ""
 "The used |kernel-repo-name| branch can be found in the `release notes "
 "<releasenotes_>`_"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:6
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:13
 msgid "The tag needed for this release is called |kernel-tag|"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:7
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:14
 msgid "Check out the needed |kernel-repo-name| tag:"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:17
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:24
 msgid ""
 "For committing changes, it is highly recommended to switch to a new "
 "branch:"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:31
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:41
 msgid "Build the linux kernel:"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:39
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:49
 msgid "Install kernel modules to e.g. NFS directory:"
 msgstr ""
 
@@ -3520,20 +3554,24 @@ msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:47
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:57
 msgid ""
 "The dtb can be found at ~/|kernel-repo-"
 "name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:49
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:59
 msgid "For (re-)building only Devicetrees and -overlays, it is sufficient to run"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:58
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:68
 msgid "If you are facing the following build issue:"
 msgstr ""
 
 #: ../../source/bsp/imx-common/development/standalone_build_kernel.rsti:64
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:74
 msgid "Make sure you installed the package *\"libyaml-dev\"* on your host system:"
 msgstr ""
 
@@ -4149,7 +4187,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mm/pd23.1.0.rst:1129
 #: ../../source/bsp/imx8/imx8mn/head.rst:278
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1109
-#: ../../source/bsp/imx8/imx8mp/head.rst:331
+#: ../../source/bsp/imx8/imx8mp/head.rst:320
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:911
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1160
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:1101
@@ -4179,7 +4217,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:299
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1148
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1130
-#: ../../source/bsp/imx8/imx8mp/head.rst:354
+#: ../../source/bsp/imx8/imx8mp/head.rst:343
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:934
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1176
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1206
@@ -4277,7 +4315,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:324
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1173
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1155
-#: ../../source/bsp/imx8/imx8mp/head.rst:381
+#: ../../source/bsp/imx8/imx8mp/head.rst:370
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:961
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1203
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1233
@@ -4546,7 +4584,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:343
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1192
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1174
-#: ../../source/bsp/imx8/imx8mp/head.rst:403
+#: ../../source/bsp/imx8/imx8mp/head.rst:392
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1225
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1255
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1232
@@ -5388,7 +5426,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:364
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1587
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1195
-#: ../../source/bsp/imx8/imx8mp/head.rst:424
+#: ../../source/bsp/imx8/imx8mp/head.rst:413
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1620
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1650
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1253
@@ -5714,7 +5752,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:397
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1744
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1321
-#: ../../source/bsp/imx8/imx8mp/head.rst:445
+#: ../../source/bsp/imx8/imx8mp/head.rst:434
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1034
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1767
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1797
@@ -5728,7 +5766,7 @@ msgstr ""
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:404
 #: ../../source/bsp/imx8/imx8mn/head.rst:399
-#: ../../source/bsp/imx8/imx8mp/head.rst:447
+#: ../../source/bsp/imx8/imx8mp/head.rst:436
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1036
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:1226
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:1036
@@ -5744,7 +5782,7 @@ msgstr ""
 
 #: ../../source/bsp/imx8/imx8mm/head.rst:413
 #: ../../source/bsp/imx8/imx8mn/head.rst:408
-#: ../../source/bsp/imx8/imx8mp/head.rst:456
+#: ../../source/bsp/imx8/imx8mp/head.rst:445
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1045
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:1235
 #: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:1045
@@ -6016,7 +6054,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:422
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1780
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1412
-#: ../../source/bsp/imx8/imx8mp/head.rst:470
+#: ../../source/bsp/imx8/imx8mp/head.rst:459
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1130
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1803
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1833
@@ -6159,7 +6197,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:441
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1799
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1431
-#: ../../source/bsp/imx8/imx8mp/head.rst:485
+#: ../../source/bsp/imx8/imx8mp/head.rst:474
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1145
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1818
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1848
@@ -6177,7 +6215,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mn/head.rst:443
 #: ../../source/bsp/imx8/imx8mn/pd22.1.1.rst:1801
 #: ../../source/bsp/imx8/imx8mn/pd23.1.0.rst:1433
-#: ../../source/bsp/imx8/imx8mp/head.rst:487
+#: ../../source/bsp/imx8/imx8mp/head.rst:476
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1147
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1820
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1850
@@ -6440,7 +6478,7 @@ msgstr ""
 #: ../../source/bsp/imx8/imx8mm/head.rst:488
 #: ../../source/bsp/imx8/imx8mm/pd22.1.1.rst:1843
 #: ../../source/bsp/imx8/imx8mm/pd23.1.0.rst:1492
-#: ../../source/bsp/imx8/imx8mp/head.rst:505
+#: ../../source/bsp/imx8/imx8mp/head.rst:494
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1838
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1868
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1493
@@ -7066,6 +7104,7 @@ msgstr ""
 msgid "Thermal Management"
 msgstr ""
 
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:2
 #: ../../source/bsp/imx8/peripherals/tm.rsti:5
 #: ../../source/bsp/imx9/peripherals/tm.rsti:5
 msgid "U-Boot"
@@ -7087,6 +7126,7 @@ msgid ""
 "displayed in the boot log:"
 msgstr ""
 
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:2
 #: ../../source/bsp/imx8/peripherals/tm.rsti:20
 #: ../../source/bsp/imx9/peripherals/tm.rsti:20
 msgid "Kernel"
@@ -9100,12 +9140,12 @@ msgid ""
 "phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:122
+#: ../../source/bsp/imx8/imx8mp/head.rst:123
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:111
 msgid "|doc-id| |soc| BSP ManualHead"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:155
+#: ../../source/bsp/imx8/imx8mp/head.rst:156
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:144
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:139
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:139
@@ -9118,7 +9158,7 @@ msgid ""
 "bsp_>`_."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:158
+#: ../../source/bsp/imx8/imx8mp/head.rst:159
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:147
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:142
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:142
@@ -9143,7 +9183,7 @@ msgstr ""
 msgid "**phyBOARD-Pollux Components (bottom)**"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:178
+#: ../../source/bsp/imx8/imx8mp/head.rst:179
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:168
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:357
 #: ../../source/bsp/imx8/imx8mp/pd24.1.1.rst:358
@@ -9155,7 +9195,7 @@ msgid ""
 "following position:"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:200
+#: ../../source/bsp/imx8/imx8mp/head.rst:201
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:190
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:280
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:285
@@ -9165,7 +9205,15 @@ msgstr ""
 msgid "**bl31-imx8mp.bin**: ARM Trusted Firmware binary"
 msgstr ""
 
+#: ../../source/bsp/imx8/imx8mp/head.rst:207
+msgid "**fitImage**: Linux kernel FIT image"
+msgstr ""
+
 #: ../../source/bsp/imx8/imx8mp/head.rst:208
+msgid "**fitImage-its\\*.its**"
+msgstr ""
+
+#: ../../source/bsp/imx8/imx8mp/head.rst:211
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:197
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:288
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:293
@@ -9175,18 +9223,18 @@ msgstr ""
 msgid "**imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:209
+#: ../../source/bsp/imx8/imx8mp/head.rst:212
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:289
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:294
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:388
 msgid "**imx8mp-phy*.dtbo**: Kernel device tree overlay files"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:211
+#: ../../source/bsp/imx8/imx8mp/head.rst:214
 msgid "**phytec-qt6demo-image\\*.rootfs.wic.xz**: compressed SD card image"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:221
+#: ../../source/bsp/imx8/imx8mp/head.rst:224
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:215
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:301
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:306
@@ -9198,7 +9246,7 @@ msgstr ""
 msgid "Bootmode Switch (S3)"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:225
+#: ../../source/bsp/imx8/imx8mp/head.rst:228
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:219
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:305
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:310
@@ -9208,7 +9256,7 @@ msgstr ""
 msgid "Hardware revision baseboard: 1552.2"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:227
+#: ../../source/bsp/imx8/imx8mp/head.rst:230
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:221
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:307
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:312
@@ -9232,6 +9280,134 @@ msgstr ""
 msgid "Test Mode"
 msgstr ""
 
+#: ../../source/bsp/imx8/imx8mp/head.rst:247
+msgid ""
+"Starting with this release, the boot behaviour in U-Boot changes. Before,"
+" kernel and device tree came as separate blobs. Now, both will be "
+"included in a single FIT image blob. Further, the logic for booting the "
+"PHYTEC ampliphy distributions is moved to a boot script which itself is "
+"part of a separate FIT image blob. To revert to the old style of booting,"
+" you may do"
+msgstr ""
+
+#: ../../source/bsp/imx8/imx8mp/head.rst:259
+msgid ""
+"This way of booting is deprecated and will be removed in the next "
+"release. By default, booting via this command will return an error as "
+"kernel and device tree are missing in the boot partition."
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:10
+msgid "Get the source code"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:21
+msgid "The **tag** used in this release is called |u-boot-tag|"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:41
+msgid ""
+"To build the bootloader, you need to copy these files to your |u-boot-"
+"repo-name| build directory and rename them to fit with *mkimage* script:"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:52
+msgid ""
+"If you already built our BSP with Yocto, you can get the bl31-|kernel-"
+"socname|.bin, tee.bin and lpddr4_*.bin from the directory mentioned here:"
+" |ref-bsp-images|"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:59
+msgid "Build the bootloader"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:71
+msgid "Flash the bootloader to a block device"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:124
+msgid "Build U-Boot With a Fixed RAM Frequency"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:126
+#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:766
+#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:766
+msgid ""
+"Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the "
+"phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM "
+"timings. These will be enabled for supported boards automatically, but "
+"they can also be enabled or disabled manually."
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:131
+#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:770
+#: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1092
+#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:770
+msgid ""
+"Edit the file configs/phycore-|kernel-socname|\\_defconfig. The fixed RAM"
+" size with 2GHz timings will be used:"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/uboot-standalone.rsti:145
+#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:784
+#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:784
+msgid ""
+"Choose the correct RAM size as populated on the board and uncomment the "
+"line for this ram size. When not specifying the "
+"``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will be"
+" chosen by default. After saving the changes, follow the remaining steps "
+"from |ref-build-uboot|."
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:4
+msgid ""
+"The kernel is packaged in a FIT image together with the device tree. "
+"U-Boot has been adapted to be able to load a FIT image and boot the "
+"kernel contained in it. As a result, the kernel Image has to packaged in "
+"a FIT image."
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:9
+msgid "Setup sources"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:39
+msgid "Build the kernel"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:56
+msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image.gz"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:81
+msgid "Package the kernel in a FIT image"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:83
+msgid ""
+"To simply replace the kernel, you will need an ``image tree source`` "
+"(.its) file. If you already built our BSP with Yocto, you can get the its"
+" file from the directory mentioned here: |ref-bsp-images| Or you can "
+"download the file here: |link-bsp-images|"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:88
+msgid ""
+"Copy the .its file to the current working directory, create a link to the"
+" kernel image and create the final fitImage with mkimage."
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:100
+msgid "Copy FIT image and kernel modules to SD Card"
+msgstr ""
+
+#: ../../source/bsp/imx8/development/kernel-standalone.rsti:102
+msgid ""
+"When one-time boot via netboot is not sufficient, the FIT image along "
+"with the kernel modules may be copied directly to a mounted SD card."
+msgstr ""
+
 #: ../../source/bsp/imx8/development/netboot.rsti:11
 msgid "Copy the kernel fitimage to your tftp directory:"
 msgstr ""
@@ -9253,37 +9429,7 @@ msgid ""
 "printed with:"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:257
-#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:766
-#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:766
-msgid ""
-"Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the "
-"phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM "
-"timings. These will be enabled for supported boards automatically, but "
-"they can also be enabled or disabled manually."
-msgstr ""
-
-#: ../../source/bsp/imx8/imx8mp/head.rst:261
-#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:770
-#: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1092
-#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:770
-msgid ""
-"Edit the file configs/phycore-|kernel-socname|\\_defconfig. The fixed RAM"
-" size with 2GHz timings will be used:"
-msgstr ""
-
-#: ../../source/bsp/imx8/imx8mp/head.rst:275
-#: ../../source/bsp/imx8/imx8mp/mainline-head.rst:784
-#: ../../source/bsp/imx8/imx8mp/pd24.1.2.rst:784
-msgid ""
-"Choose the correct RAM size as populated on the board and uncomment the "
-"line for this ram size. When not specifying the "
-"``CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX`` option, the 1.5GHz timings will be"
-" chosen by default. After saving the changes, follow the remaining steps "
-"from |ref-build-uboot|."
-msgstr ""
-
-#: ../../source/bsp/imx8/imx8mp/head.rst:343
+#: ../../source/bsp/imx8/imx8mp/head.rst:332
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:923
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1168
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1198
@@ -9299,14 +9445,14 @@ msgid ""
 "the internal resistors are disabled."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:350
+#: ../../source/bsp/imx8/imx8mp/head.rst:339
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1179
 msgid ""
 "The device tree representation for UART1 pinmuxing: :imx-dt:`imx8mp-"
 "phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:356
+#: ../../source/bsp/imx8/imx8mp/head.rst:345
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:936
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1178
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1208
@@ -9326,7 +9472,7 @@ msgid ""
 "phyCORE-|soc|/|sbc| Hardware Manual section UARTs."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:366
+#: ../../source/bsp/imx8/imx8mp/head.rst:355
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:946
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1188
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1218
@@ -9341,14 +9487,14 @@ msgid ""
 "|ref-jp4| need to be set correctly."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:375
+#: ../../source/bsp/imx8/imx8mp/head.rst:364
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1204
 msgid ""
 "The device tree representation for RS232 and RS485: :imx-dt:`imx8mp-"
 "phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:383
+#: ../../source/bsp/imx8/imx8mp/head.rst:372
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:963
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1205
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1235
@@ -9360,7 +9506,7 @@ msgid ""
 "provided by our module and board."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:388
+#: ../../source/bsp/imx8/imx8mp/head.rst:377
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:968
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1210
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1240
@@ -9422,47 +9568,47 @@ msgid ""
 "chapter."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:412
+#: ../../source/bsp/imx8/imx8mp/head.rst:401
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1241
 msgid ""
 "DT configuration for the MMC (SD card slot) interface can be found here: "
 ":imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:415
+#: ../../source/bsp/imx8/imx8mp/head.rst:404
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1244
 msgid ""
 "DT configuration for the eMMC interface can be found here: :imx-dt"
 ":`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:426
+#: ../../source/bsp/imx8/imx8mp/head.rst:415
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1255
 msgid ":imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:432
+#: ../../source/bsp/imx8/imx8mp/head.rst:421
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1354
 msgid ""
 "Device tree configuration for the User I/O configuration can be found "
 "here: :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:437
+#: ../../source/bsp/imx8/imx8mp/head.rst:426
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1359
 msgid ""
 "General I²C1 bus configuration (e.g. |dt-som|.dtsi): :imx-dt:`imx8mp-"
 "phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:440
+#: ../../source/bsp/imx8/imx8mp/head.rst:429
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1362
 msgid ""
 "General I²C2 bus configuration (e.g. |dt-carrierboard|.dts) :imx-dt"
 ":`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:460
+#: ../../source/bsp/imx8/imx8mp/head.rst:449
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1392
 msgid ""
 "DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can"
@@ -9470,14 +9616,14 @@ msgid ""
 "som.dtsi?h=v5.15.71_2.2.2-phy3#n199`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:466
+#: ../../source/bsp/imx8/imx8mp/head.rst:455
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1454
 msgid ""
 "DT representation for I²C RTCs: :imx-dt:`imx8mp-phycore-"
 "som.dtsi?h=v5.15.71_2.2.2-phy3#n207`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:472
+#: ../../source/bsp/imx8/imx8mp/head.rst:461
 #: ../../source/bsp/imx8/imx8mp/mainline-head.rst:1132
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1805
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1835
@@ -9493,28 +9639,28 @@ msgid ""
 "device or a USB host. Each is connected to a USB 3.0 PHY."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:481
+#: ../../source/bsp/imx8/imx8mp/head.rst:470
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1469
 msgid ""
 "DT representation for USB Host: :imx-dt:`imx8mp-phyboard-pollux-"
 "rdk.dts?h=v5.15.71_2.2.2-phy3#n351`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:496
+#: ../../source/bsp/imx8/imx8mp/head.rst:485
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1484
 msgid ""
 "Device Tree CAN configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mp-"
 "phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:501
+#: ../../source/bsp/imx8/imx8mp/head.rst:490
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1489
 msgid ""
 "Device Tree PCIe configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mp-"
 "phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:507
+#: ../../source/bsp/imx8/imx8mp/head.rst:496
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1840
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1870
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1495
@@ -9525,7 +9671,7 @@ msgid ""
 "header contains a mono speaker, headphones, and line in signals."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:514
+#: ../../source/bsp/imx8/imx8mp/head.rst:503
 #: ../../source/bsp/imx8/imx8mp/pd22.1.1.rst:1847
 #: ../../source/bsp/imx8/imx8mp/pd22.1.2.rst:1877
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1502
@@ -9535,7 +9681,7 @@ msgid ""
 "output device."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:519
+#: ../../source/bsp/imx8/imx8mp/head.rst:508
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1507
 msgid ""
 "Device Tree Audio configuration: :imx-dt:`overlays/imx8mp-phyboard-"
@@ -9748,7 +9894,7 @@ msgid ""
 " to load both dtbos for LVDS interfaces."
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:530
+#: ../../source/bsp/imx8/imx8mp/head.rst:519
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1518
 msgid ""
 "Device tree description of LVDS-1 and HDMI can be found here: :imx-dt"
@@ -9756,7 +9902,7 @@ msgid ""
 ":`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:534
+#: ../../source/bsp/imx8/imx8mp/head.rst:523
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1522
 msgid ""
 "The device tree of LVDS-0 on PEB-AV-10 can be found here: :imx-"
@@ -9764,7 +9910,7 @@ msgid ""
 "av-010.dtso?h=v5.15.71_2.2.2-phy3#n133`"
 msgstr ""
 
-#: ../../source/bsp/imx8/imx8mp/head.rst:541
+#: ../../source/bsp/imx8/imx8mp/head.rst:530
 #: ../../source/bsp/imx8/imx8mp/pd23.1.0.rst:1529
 msgid ""
 "The device tree description of GPIO Fan can be found here: :imx-dt"
