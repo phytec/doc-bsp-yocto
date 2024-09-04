@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=9a1290c7"></script>
+        <script src="../../../_static/documentation_options.js?v=deb01958"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-5-ge2f699d
+                imx8mp-pd22.1.2-6-gdaf8df2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -80,13 +80,15 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#development">5. Development</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.1. Host Network Preparation</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.4. Standalone Build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.5. Accessing the Development states</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.6. Accessing the Latest Upstream Support</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.7. Format SD-Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.1. Standalone Build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#u-boot">5.2. U-Boot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kernel">5.3. Kernel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.4. Working with UUU-Tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. Host Network Preparation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.7. Accessing the Development states</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#accessing-the-latest-upstream-support">5.8. Accessing the Latest Upstream Support</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.9. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">6. Device Tree (DT)</a><ul>
@@ -288,16 +290,16 @@ Name</strong> drop-down menu empty and only choose your <strong>Article Number</
 should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
 <section id="sbc-components">
 <span id="imx8mp-head-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Pollux Components<a class="headerlink" href="#sbc-components" title="Link to this heading"></a></h3>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id5">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-front-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-front-components.jpg" src="../../../_images/phyBOARD-Pollux-front-components.jpg" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id6">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-back-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-back-components.jpg" src="../../../_images/phyBOARD-Pollux-back-components.jpg" style="width: 85%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -593,6 +595,8 @@ lpddr4_pmu_train_2d_imem_202006.bin</strong>: DDR PHY firmware images</p></li>
 <li><p><strong>imx-boot</strong>: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
 Trusted Firmware and DDR firmware. This is the final bootloader image which is
 bootable.</p></li>
+<li><p><strong>fitImage</strong>: Linux kernel FIT image</p></li>
+<li><p><strong>fitImage-its*.its</strong></p></li>
 <li><p><strong>Image</strong>: Linux kernel image</p></li>
 <li><p><strong>Image.config</strong>: Kernel configuration</p></li>
 <li><p><strong>imx8mp-phyboard-pollux-rdk*.dtb</strong>: Kernel device tree file</p></li>
@@ -615,46 +619,46 @@ bootable.</p></li>
 select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-head-bootswitch">
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id5">
+<tr class="row-odd"><td><figure class="align-default" id="id7">
 <img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
 <figcaption>
-<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id6">
+<td><figure class="align-default" id="id8">
 <img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
 <figcaption>
-<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</td>
-<td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
-<figcaption>
-<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</td>
-</tr>
-<tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
-<figcaption>
-<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id9">
-<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
+<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
 <figcaption>
-<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id10">
+</tr>
+<tr class="row-even"><td><figure class="align-default" id="id10">
+<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<figcaption>
+<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id11">
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
+<figcaption>
+<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id12">
 <img alt="../../../_images/Test_Mode.png" src="../../../_images/Test_Mode.png" />
 <figcaption>
-<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -1155,8 +1159,430 @@ BSPs: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=
 </section>
 <section id="development">
 <span id="imx8mp-head-development"></span><h1><span class="section-number">5. </span>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
+<p>Starting with this release, the boot behaviour in U-Boot changes. Before, kernel
+and device tree came as separate blobs. Now, both will be included in a single
+FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions
+is moved to a boot script which itself is part of a separate FIT image blob.
+To revert to the old style of booting, you may do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">run legacyboot</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This way of booting is deprecated and will be removed in the next release.
+By default, booting via this command will return an error as kernel and
+device tree are missing in the boot partition.</p>
+</div>
+<section id="standalone-build">
+<h2><span class="section-number">5.1. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
+<p>In this section, we describe how to build the U-Boot and the Linux kernel
+without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on our
+<a class="reference external" href="https://git.phytec.de/">Git server</a> at git://git.phytec.de.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Should your company firewall/gateway inhibit the git protocol, you may use
+HTTP or HTTPS instead (e.g. git clone git://git.phytec.de/u-boot-imx)</p>
+</div>
+<section id="git-repositories">
+<h3><span class="section-number">5.1.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Used U-Boot repository:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git://git.phytec.de/u-boot-imx
+</pre></div>
+</div>
+</li>
+<li><p>Our U-Boot is based on the u-boot-imx and adds board-specific patches.</p></li>
+<li><p>Used Linux kernel repository:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git://git.phytec.de/linux-imx
+</pre></div>
+</div>
+</li>
+<li><p>Our i.MX 8M Plus kernel is based on the linux-imx kernel.</p></li>
+</ul>
+<p>To find out which u-boot and kernel tags to use for a specific board, have a
+look at your BSP source folder:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-phytec/recipes-kernel/linux/linux-imx-phytec_*.bb
+meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="get-the-sdk">
+<h3><span class="section-number">5.1.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
+<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
+<ul>
+<li><p>Move to the Yocto build directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>phytec-qt6demo-image<span class="w"> </span><span class="c1"># or another image</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="install-the-sdk">
+<h3><span class="section-number">5.1.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Set correct permissions and install the SDK:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-5.0.x.sh
+<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-5.0.x.sh
+<span class="go">============================================================================================================</span>
+<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/5.0.x):</span>
+<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/5.0.x&quot;. Proceed [Y/n]? Y</span>
+<span class="go">Extracting SDK...done</span>
+<span class="go">Setting it up...done</span>
+<span class="go">SDK has been successfully set up and is ready to be used.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="using-the-sdk">
+<h3><span class="section-number">5.1.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
+<p>Activate the toolchain for your shell by sourcing the <em>environment-setup</em> file
+in the toolchain directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/5.0.x/environment-setup-cortexa53-crypto-phytec-linux
+</pre></div>
+</div>
+</section>
+<section id="installing-required-tools">
+<h3><span class="section-number">5.1.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Link to this heading"></a></h3>
+<p>Building Linux and U-Boot out-of-tree requires some additional host tool
+dependencies to be installed. For Ubuntu you can install them with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span>flex<span class="w"> </span>libssl-dev
+</pre></div>
+</div>
+</section>
+</section>
+<section id="u-boot">
+<span id="imx8mp-head-development-build-uboot"></span><h2><span class="section-number">5.2. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h2>
+<section id="build-u-boot">
+<h3><span class="section-number">5.2.1. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h3>
+<section id="get-the-source-code">
+<h4><span class="section-number">5.2.1.1. </span>Get the source code<a class="headerlink" href="#get-the-source-code" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Get the U-Boot sources:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx
+</pre></div>
+</div>
+</li>
+<li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
+notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
+<li><p>The <strong>tag</strong> used in this release is called v2024.04_2.0.0-phy3</p></li>
+<li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
+<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2024.04_2.0.0-phy3
+</pre></div>
+</div>
+</li>
+<li><p>Set up a build environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/5.0.x/environment-setup-cortexa53-crypto-phytec-linux
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="get-the-needed-binaries">
+<h4><span class="section-number">5.2.1.2. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
+<p>To build the bootloader, you need to copy these files to your u-boot-imx
+build directory and rename them to fit with <em>mkimage</em> script:</p>
+<ul class="simple">
+<li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
+<strong>bl31.bin</strong>): bl31-imx8mp.bin</p></li>
+<li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
+<li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
+<strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
+lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+lpddr4_imem_2d_*.bin</p></li>
+</ul>
+<p>If you already built our BSP with Yocto, you can get the
+bl31-imx8mp.bin, tee.bin and lpddr4_*.bin from the directory mentioned
+here: <a class="reference internal" href="#imx8mp-head-images"><span class="std std-ref">BSP Images</span></a></p>
+<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
+</section>
+<section id="build-the-bootloader">
+<h4><span class="section-number">5.2.1.3. </span>Build the bootloader<a class="headerlink" href="#build-the-bootloader" title="Link to this heading"></a></h4>
+<ul>
+<li><p>build flash.bin (imx-boot):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>phycore-imx8mp_defconfig
+<span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>flash.bin
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="flash-the-bootloader-to-a-block-device">
+<h4><span class="section-number">5.2.1.4. </span>Flash the bootloader to a block device<a class="headerlink" href="#flash-the-bootloader-to-a-block-device" title="Link to this heading"></a></h4>
+<p>The flash.bin can be found at u-boot-imx/ directory and now can be
+flashed. A chip-specific offset is needed:</p>
+<table class="docutils align-default" id="offset-table">
+<thead>
+<tr class="row-odd"><th class="head"><p>SoC</p></th>
+<th class="head"><p>Offset User Area</p></th>
+<th class="head"><p>Offset Boot Partition</p></th>
+<th class="head"><p>eMMC Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i.MX 8M Plus</p></td>
+<td><p>32 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk2</p></td>
+</tr>
+</tbody>
+</table>
+<p>E.g. flash SD card:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The specific offset values are also declared in the Yocto variables
+“BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
+</div>
+</section>
+</section>
+<section id="build-u-boot-with-a-fixed-ram-size">
+<h3><span class="section-number">5.2.2. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h3>
+<p>If you cannot boot your system anymore because the hardware introspection in the
+EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
+You should still contact support and flash the correct EEPROM data, as this
+could lead to unexpected behavior.</p>
+<p>Follow the steps to get the U-boot sources and check the correct branch in the
+<strong>Build U-Boot</strong> section.</p>
+<p>Edit the file configs/phycore-imx8mp_defconfig:</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
+CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y</span>
+</pre></div>
+</div>
+<p>Choose the correct RAM size as populated on the board and uncomment the line for
+this ram size.
+After saving the changes, follow the remaining steps from Build U-Boot.</p>
+</section>
+<section id="build-u-boot-with-a-fixed-ram-frequency">
+<h3><span class="section-number">5.2.3. </span>Build U-Boot With a Fixed RAM Frequency<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-frequency" title="Link to this heading"></a></h3>
+<p>Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-i.MX 8M Plus SoMs
+with revision 1549.3 and newer also support 2GHz RAM timings. These will be
+enabled for supported boards automatically, but they can also be enabled or
+disabled manually.</p>
+<p>Edit the file configs/phycore-imx8mp_defconfig.
+The fixed RAM size with 2GHz timings will be used:</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
+CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y</span>
+CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
+CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+</pre></div>
+</div>
+<p>Choose the correct RAM size as populated on the board and uncomment the line
+for this ram size. When not specifying the
+<code class="docutils literal notranslate"><span class="pre">CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX</span></code> option, the 1.5GHz timings will
+be chosen by default. After saving the changes, follow the remaining steps from
+<a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
+</section>
+</section>
+<section id="kernel">
+<h2><span class="section-number">5.3. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h2>
+<p>The kernel is packaged in a FIT image together with the device tree. U-Boot has
+been adapted to be able to load a FIT image and boot the kernel contained in it.
+As a result, the kernel Image has to packaged in a FIT image.</p>
+<section id="setup-sources">
+<h3><span class="section-number">5.3.1. </span>Setup sources<a class="headerlink" href="#setup-sources" title="Link to this heading"></a></h3>
+<ul>
+<li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
+<li><p>The tag needed for this release is called v6.6.23-2.2.0-phy4</p></li>
+<li><p>Check out the needed linux-imx tag:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/linux-imx
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/linux-imx/
+<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
+<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v6.6.23-2.2.0-phy4
+</pre></div>
+</div>
+</li>
+<li><p>For committing changes, it is highly recommended to switch to a new branch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>&lt;new-branch&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Set up a build environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/5.0.x/environment-setup-cortexa53-crypto-phytec-linux
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="build-the-kernel">
+<h3><span class="section-number">5.3.2. </span>Build the kernel<a class="headerlink" href="#build-the-kernel" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Build the linux kernel:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>imx8_phytec_defconfig
+<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install kernel modules to e.g. NFS directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
+</pre></div>
+</div>
+</li>
+<li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image.gz</p></li>
+<li><p>The dtb can be found at
+~/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb</p></li>
+<li><p>For (re-)building only Devicetrees and -overlays, it is sufficient to run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>dtbs
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are facing the following build issue:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
+</pre></div>
+</div>
+<p>Make sure you installed the package <em>“libyaml-dev”</em> on your host system:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libyaml-dev
+</pre></div>
+</div>
+</div>
+</section>
+<section id="package-the-kernel-in-a-fit-image">
+<h3><span class="section-number">5.3.3. </span>Package the kernel in a FIT image<a class="headerlink" href="#package-the-kernel-in-a-fit-image" title="Link to this heading"></a></h3>
+<p>To simply replace the kernel, you will need an <code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">tree</span> <span class="pre">source</span></code> (.its)
+file. If you already built our BSP with Yocto, you can get the its file from the
+directory mentioned here: <a class="reference internal" href="#imx8mp-head-images"><span class="std std-ref">BSP Images</span></a> Or you can download the file here:
+<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/</a></p>
+<p>Copy the .its file to the current working directory, create a link to the kernel
+image and create the final fitImage with mkimage.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>/path/to/yocto/deploydir/fitimage-its*.its<span class="w"> </span>.
+<span class="go">                  &amp;&amp; ln -s arch/arm64/boot/Image.gz linux.bin</span>
+<span class="go">                  &amp;&amp; uboot-mkimage -f fitImage-its*.its fitImage</span>
+</pre></div>
+</div>
+</section>
+<section id="copy-fit-image-and-kernel-modules-to-sd-card">
+<h3><span class="section-number">5.3.4. </span>Copy FIT image and kernel modules to SD Card<a class="headerlink" href="#copy-fit-image-and-kernel-modules-to-sd-card" title="Link to this heading"></a></h3>
+<p>When one-time boot via netboot is not sufficient, the FIT image along with the
+kernel modules may be copied directly to a mounted SD card.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>fitImage<span class="w"> </span>/path/to/sdcard/boot/
+<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/path/to/sdcard/root/<span class="w"> </span>modules_install
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-uuu-tool">
+<h2><span class="section-number">5.4. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+<a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool
+documentation</a>.</p>
+<section id="host-preparations-for-uuu-tool-usage">
+<h3><span class="section-number">5.4.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
+<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<p>This BASH command adds UUU only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it permanently, add this line to
+<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set udev rules (documented in <code class="docutils literal notranslate"><span class="pre">uuu</span> <span class="pre">-udev</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;uuu -udev &gt;&gt; /etc/udev/rules.d/70-uuu.rules&quot;</span>
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="get-images">
+<h3><span class="section-number">5.4.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
+<p>Download imx-boot from our server or get it from your Yocto build directory at
+build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
+you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.</p>
+</section>
+<section id="prepare-target">
+<h3><span class="section-number">5.4.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
+<p>Set the <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
+<a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
+</section>
+<section id="starting-bootloader-via-uuu-tool">
+<h3><span class="section-number">5.4.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
+</pre></div>
+</div>
+<p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">(X1)</span></a>, as usual.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default boot command when booting with UUU-Tool is set to fastboot. If
+you want to change this, please adjust the environment variable bootcmd_mfg
+in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
+UUU-tool the default environment is loaded. Saveenv has no effect. If you
+want to change the boot command permanently for UUU-boot, you need to change
+this in U-Boot code.</p>
+</div>
+</section>
+<section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
+<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+.wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; mmc partconf 2 0 0 0</span>
+<span class="go">u-boot=&gt; mmc partconf 2</span>
+<span class="go">EXT_CSD[179], PARTITION_CONFIG:</span>
+<span class="go">BOOT_ACK: 0x0</span>
+<span class="go">BOOT_PARTITION_ENABLE: 0x0</span>
+<span class="go">PARTITION_ACCESS: 0x0</span>
+</pre></div>
+</div>
+<p>or check <a class="reference internal" href="pd24.1.2.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
+not used!</p>
+<p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
+done by default, which makes partup again superior flash option.</p>
+</div>
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc<span class="w"> </span>imx-boot
+</pre></div>
+</div>
+</section>
+<section id="flashing-wic-image-to-emmc-via-uuu-tool">
+<h3><span class="section-number">5.4.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
+</pre></div>
+</div>
+</section>
+<section id="flashing-spi-nor-flash-via-uuu-tool">
+<h3><span class="section-number">5.4.7. </span>Flashing SPI NOR Flash via UUU-Tool<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu-tool" title="Link to this heading"></a></h3>
+<p>Execute and power up the board:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi
+</pre></div>
+</div>
+<p>This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
+environment so the default environment of the new U-Boot gets loaded:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; env erase</span>
+<span class="go">u-boot=&gt; reset</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="host-network-preparation">
-<h2><span class="section-number">5.1. </span>Host Network Preparation<a class="headerlink" href="#host-network-preparation" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.5. </span>Host Network Preparation<a class="headerlink" href="#host-network-preparation" title="Link to this heading"></a></h2>
 <p>For various tasks involving a network in the Bootloader, some host services are
 required to be set up. On the development host, a TFTP, NFS and DHCP server must
 be installed and configured. The following tools will be needed to boot via
@@ -1165,7 +1591,7 @@ Ethernet:</p>
 </pre></div>
 </div>
 <section id="tftp-server-setup">
-<h3><span class="section-number">5.1.1. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.5.1. </span>TFTP Server Setup<a class="headerlink" href="#tftp-server-setup" title="Link to this heading"></a></h3>
 <ul>
 <li><p>First, create a directory to store the TFTP files:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/tftp
@@ -1223,7 +1649,7 @@ We also need a network connection between the embedded board and the TFTP
 server. The server should be set to IP 192.168.3.10 and
 netmask 255.255.255.0.</p>
 <section id="nfs-server-setup">
-<h4><span class="section-number">5.1.1.1. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.5.1.1. </span>NFS Server Setup<a class="headerlink" href="#nfs-server-setup" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Create an nfs directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/srv/nfs
@@ -1247,7 +1673,7 @@ directory is exported and the “lab network” address of the development host 
 </ul>
 </section>
 <section id="dhcp-server-setup">
-<h4><span class="section-number">5.1.1.2. </span>DHCP Server setup<a class="headerlink" href="#dhcp-server-setup" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.5.1.2. </span>DHCP Server setup<a class="headerlink" href="#dhcp-server-setup" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Create or edit the <code class="docutils literal notranslate"><span class="pre">/etc/kea/kea-dhcp4.conf</span></code> file; Using the internal subnet
 sample. Replace &lt;network-interface&gt; with the name for the physical network
@@ -1298,12 +1724,12 @@ the interface.</p>
 </section>
 </section>
 <section id="booting-the-kernel-from-a-network">
-<h2><span class="section-number">5.2. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.6. </span>Booting the Kernel from a Network<a class="headerlink" href="#booting-the-kernel-from-a-network" title="Link to this heading"></a></h2>
 <p>Booting from a network means loading the kernel and device tree over TFTP and
 the root file system over NFS. The bootloader itself must already be loaded from
 another available boot device.</p>
 <section id="place-images-on-host-for-netboot">
-<h3><span class="section-number">5.2.1. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.1. </span>Place Images on Host for Netboot<a class="headerlink" href="#place-images-on-host-for-netboot" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Copy the kernel fitimage to your tftp directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cp<span class="w"> </span>fitImage<span class="w"> </span>/srv/tftp
@@ -1333,7 +1759,7 @@ otherwise they are not accessible from the target:</p>
 </div>
 </section>
 <section id="set-the-bootenv-txt-for-netboot">
-<h3><span class="section-number">5.2.2. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.2. </span>Set the bootenv.txt for Netboot<a class="headerlink" href="#set-the-bootenv-txt-for-netboot" title="Link to this heading"></a></h3>
 <p>Create a bootenv.txt file in your tftp directory and write the following variables into it.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nfsroot=/srv/nfs
 overlays=&lt;overlayconfignames&gt;
@@ -1353,12 +1779,12 @@ Separate the config names by hashtag. For example:</p>
 </div>
 </section>
 <section id="network-settings-on-target">
-<h3><span class="section-number">5.2.3. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.3. </span>Network Settings on Target<a class="headerlink" href="#network-settings-on-target" title="Link to this heading"></a></h3>
 <p>To customize the targets ethernet configuration, please follow the description
 here: <a class="reference internal" href="#imx8mp-head-network"><span class="std std-ref">Network Environment Customization</span></a></p>
 </section>
 <section id="booting-from-an-embedded-board">
-<h3><span class="section-number">5.2.4. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.4. </span>Booting from an Embedded Board<a class="headerlink" href="#booting-from-an-embedded-board" title="Link to this heading"></a></h3>
 <p>Boot the board into the U-boot prompt and press any key to hold.</p>
 <ul>
 <li><p>To boot from a network, call:</p>
@@ -1370,403 +1796,10 @@ here: <a class="reference internal" href="#imx8mp-head-network"><span class="std
 </ul>
 </section>
 </section>
-<section id="working-with-uuu-tool">
-<h2><span class="section-number">5.3. </span>Working with UUU-Tool<a class="headerlink" href="#working-with-uuu-tool" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
-on the host to load and run the bootloader on the board through SDP (Serial
-Download Protocol). For detailed information visit
-<a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool
-documentation</a>.</p>
-<section id="host-preparations-for-uuu-tool-usage">
-<h3><span class="section-number">5.3.1. </span>Host preparations for UUU-Tool Usage<a class="headerlink" href="#host-preparations-for-uuu-tool-usage" title="Link to this heading"></a></h3>
-<ul>
-<li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
-<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
-<p>This BASH command adds UUU only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it permanently, add this line to
-<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p>Set udev rules (documented in <code class="docutils literal notranslate"><span class="pre">uuu</span> <span class="pre">-udev</span></code>):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;uuu -udev &gt;&gt; /etc/udev/rules.d/70-uuu.rules&quot;</span>
-<span class="gp">host:~$ </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</pre></div>
-</div>
-</li>
-</ul>
-</section>
-<section id="get-images">
-<h3><span class="section-number">5.3.2. </span>Get Images<a class="headerlink" href="#get-images" title="Link to this heading"></a></h3>
-<p>Download imx-boot from our server or get it from your Yocto build directory at
-build/deploy/images/phyboard-pollux-imx8mp-3/. For flashing a wic image to eMMC,
-you will also need phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.</p>
-</section>
-<section id="prepare-target">
-<h3><span class="section-number">5.3.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
-<p>Set the <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
-<a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">X5 (upper connector)</span></a> to your host.</p>
-</section>
-<section id="starting-bootloader-via-uuu-tool">
-<h3><span class="section-number">5.3.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
-<p>Execute and power up the board:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>spl<span class="w"> </span>imx-boot
-</pre></div>
-</div>
-<p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">(X1)</span></a>, as usual.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The default boot command when booting with UUU-Tool is set to fastboot. If
-you want to change this, please adjust the environment variable bootcmd_mfg
-in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
-UUU-tool the default environment is loaded. Saveenv has no effect. If you
-want to change the boot command permanently for UUU-boot, you need to change
-this in U-Boot code.</p>
-</div>
-</section>
-<section id="flashing-u-boot-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.3.5. </span>Flashing U-boot Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-u-boot-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
-the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
-bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
-.wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
-always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; mmc partconf 2 0 0 0</span>
-<span class="go">u-boot=&gt; mmc partconf 2</span>
-<span class="go">EXT_CSD[179], PARTITION_CONFIG:</span>
-<span class="go">BOOT_ACK: 0x0</span>
-<span class="go">BOOT_PARTITION_ENABLE: 0x0</span>
-<span class="go">PARTITION_ACCESS: 0x0</span>
-</pre></div>
-</div>
-<p>or check <a class="reference internal" href="pd24.1.2.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
-<p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
-not used!</p>
-<p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
-done by default, which makes partup again superior flash option.</p>
-</div>
-<p>Execute and power up the board:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc<span class="w"> </span>imx-boot
-</pre></div>
-</div>
-</section>
-<section id="flashing-wic-image-to-emmc-via-uuu-tool">
-<h3><span class="section-number">5.3.6. </span>Flashing wic Image to eMMC via UUU-Tool<a class="headerlink" href="#flashing-wic-image-to-emmc-via-uuu-tool" title="Link to this heading"></a></h3>
-<p>Execute and power up the board:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
-</pre></div>
-</div>
-</section>
-<section id="flashing-spi-nor-flash-via-uuu-tool">
-<h3><span class="section-number">5.3.7. </span>Flashing SPI NOR Flash via UUU-Tool<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu-tool" title="Link to this heading"></a></h3>
-<p>Execute and power up the board:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi
-</pre></div>
-</div>
-<p>This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
-environment so the default environment of the new U-Boot gets loaded:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot=&gt; env erase</span>
-<span class="go">u-boot=&gt; reset</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="standalone-build">
-<h2><span class="section-number">5.4. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
-<p>In this section, we describe how to build the U-Boot and the Linux kernel
-without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
-procedure makes the most sense for development. The U-Boot source code,
-the Linux kernel, and all other git repositories are available on our
-<a class="reference external" href="https://git.phytec.de/">Git server</a> at git://git.phytec.de.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Should your company firewall/gateway inhibit the git protocol, you may use
-HTTP or HTTPS instead (e.g. git clone git://git.phytec.de/u-boot-imx)</p>
-</div>
-<section id="git-repositories">
-<h3><span class="section-number">5.4.1. </span>Git Repositories<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
-<ul>
-<li><p>Used U-Boot repository:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git://git.phytec.de/u-boot-imx
-</pre></div>
-</div>
-</li>
-<li><p>Our U-Boot is based on the u-boot-imx and adds board-specific patches.</p></li>
-<li><p>Used Linux kernel repository:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git://git.phytec.de/linux-imx
-</pre></div>
-</div>
-</li>
-<li><p>Our i.MX 8M Plus kernel is based on the linux-imx kernel.</p></li>
-</ul>
-<p>To find out which u-boot and kernel tags to use for a specific board, have a
-look at your BSP source folder:</p>
-<blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
-meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
-</pre></div>
-</div>
-</div></blockquote>
-</section>
-<section id="get-the-sdk">
-<h3><span class="section-number">5.4.2. </span>Get the SDK<a class="headerlink" href="#get-the-sdk" title="Link to this heading"></a></h3>
-<p>You can download the SDK <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/sdk/ampliphy-vendor-xwayland/">here</a>, or build it yourself with Yocto:</p>
-<ul>
-<li><p>Move to the Yocto build directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
-<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>phytec-qt6demo-image<span class="w"> </span><span class="c1"># or another image</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</section>
-<section id="install-the-sdk">
-<h3><span class="section-number">5.4.3. </span>Install the SDK<a class="headerlink" href="#install-the-sdk" title="Link to this heading"></a></h3>
-<ul>
-<li><p>Set correct permissions and install the SDK:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-4.0.13.sh
-<span class="gp">host:~$ </span>./phytec-ampliphy-vendor-xwayland-glibc-x86_64-phytec-qt6demo-image-cortexa53-crypto-toolchain-4.0.13.sh
-<span class="go">============================================================================================================</span>
-<span class="go">Enter target directory for SDK (default: /opt/ampliphy-vendor-xwayland/4.0.13):</span>
-<span class="go">You are about to install the SDK to &quot;/opt/ampliphy-vendor-xwayland/4.0.13&quot;. Proceed [Y/n]? Y</span>
-<span class="go">Extracting SDK...done</span>
-<span class="go">Setting it up...done</span>
-<span class="go">SDK has been successfully set up and is ready to be used.</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</section>
-<section id="using-the-sdk">
-<h3><span class="section-number">5.4.4. </span>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h3>
-<p>Activate the toolchain for your shell by sourcing the <em>environment-setup</em> file
-in the toolchain directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
-</pre></div>
-</div>
-</section>
-<section id="installing-required-tools">
-<h3><span class="section-number">5.4.5. </span>Installing Required Tools<a class="headerlink" href="#installing-required-tools" title="Link to this heading"></a></h3>
-<p>Building Linux and U-Boot out-of-tree requires some additional host tool
-dependencies to be installed. For Ubuntu you can install them with:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span>flex<span class="w"> </span>libssl-dev
-</pre></div>
-</div>
-</section>
-<section id="build-imx-boot">
-<h3><span class="section-number">5.4.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
-<section id="get-the-needed-binaries">
-<h4><span class="section-number">5.4.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
-<p>To build the imx-boot, you need to <strong>copy</strong> these <strong>files</strong> to your u-boot-imx
-<strong>build directory</strong> and rename them to fit with <em>mkimage tool</em> script:</p>
-<ul class="simple">
-<li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
-<strong>bl31.bin</strong>): bl31-imx8mp.bin</p></li>
-<li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
-<li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
-<strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
-lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
-lpddr4_imem_2d_*.bin</p></li>
-</ul>
-<p>If you already build our BSP with Yocto, you can get
-the bl31-imx8mp.bin, tee.bin and lpddr4_*.bin from the directory
-mentioned here: <a class="reference internal" href="#imx8mp-head-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure you rename the files you need so that they are compatible with the
-<em>mkimage tool</em>.</p>
-</div>
-</section>
-<section id="build-u-boot">
-<h4><span class="section-number">5.4.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h4>
-<ul id="imx8mp-head-development-build-uboot">
-<li><p>Get the U-Boot sources:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx
-</pre></div>
-</div>
-</li>
-<li><p>To get the correct <em>U-Boot</em> <strong>tag</strong> you need to take a look at our release
-notes, which can be found here: <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
-<li><p>The <strong>tag</strong> needed at this release is called v2022.04_2.2.2-phy5</p></li>
-<li><p>Check out the needed <em>U-Boot</em> <strong>tag</strong>:</p></li>
-</ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/u-boot-imx/
-<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v2022.04_2.2.2-phy5
-</pre></div>
-</div>
-<ul>
-<li><p>Technically, you can now build the U-Boot, but practically there are some
-further steps necessary:</p>
-<ul>
-<li><p>Create your own development branch:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>&lt;new-branch&gt;
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can name your development branch as you like, this is just an example.</p>
-</div>
-</li>
-</ul>
-</li>
-<li><p>Copy all binaries into the U-Boot build directory</p></li>
-<li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
-</pre></div>
-</div>
-</li>
-<li><p>build flash.bin (imx-boot):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>phycore-imx8mp_defconfig
-<span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>flash.bin
-</pre></div>
-</div>
-</li>
-</ul>
-<p>The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
-chip-specific offset is needed:</p>
-<table class="docutils align-default" id="offset-table">
-<thead>
-<tr class="row-odd"><th class="head"><p>SoC</p></th>
-<th class="head"><p>Offset User Area</p></th>
-<th class="head"><p>Offset Boot Partition</p></th>
-<th class="head"><p>eMMC Device</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>i.MX 8M Plus</p></td>
-<td><p>32 kiB</p></td>
-<td><p>0 kiB</p></td>
-<td><p>/dev/mmcblk2</p></td>
-</tr>
-</tbody>
-</table>
-<p>E.g. flash SD card:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>flash.bin<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd<span class="o">[</span>x<span class="o">]</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">conv</span><span class="o">=</span>sync
-</pre></div>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>The specific offset values are also declared in the Yocto variables “BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
-</div>
-</section>
-<section id="build-u-boot-with-a-fixed-ram-size">
-<h4><span class="section-number">5.4.6.3. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h4>
-<p>If you cannot boot your system anymore because the hardware introspection in the
-EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
-You should still contact support and flash the correct EEPROM data, as this
-could lead to unexpected behavior.</p>
-<p>Follow the steps to get the U-boot sources and check the correct branch in the
-<strong>Build U-Boot</strong> section.</p>
-<p>Edit the file configs/phycore-imx8mp_defconfig:</p>
-<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
-CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y</span>
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y</span>
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y</span>
-</pre></div>
-</div>
-<p>Choose the correct RAM size as populated on the board and uncomment the line for
-this ram size.
-After saving the changes, follow the remaining steps from Build U-Boot.</p>
-<p>Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-i.MX 8M Plus SoMs with revision 1549.3 and
-newer also support 2GHz RAM timings. These will be enabled for supported boards
-automatically, but they can also be enabled or disabled manually.</p>
-<p>Edit the file configs/phycore-imx8mp_defconfig.
-The fixed RAM size with 2GHz timings will be used:</p>
-<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
-CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_1GB=y</span>
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_2GB=y</span>
-<span class="c1"># CONFIG_PHYCORE_IMX8MP_RAM_SIZE_4GB=y</span>
-CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
-CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
-</pre></div>
-</div>
-<p>Choose the correct RAM size as populated on the board and uncomment the line
-for this ram size. When not specifying the
-<code class="docutils literal notranslate"><span class="pre">CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX</span></code> option, the 1.5GHz timings will
-be chosen by default. After saving the changes, follow the remaining steps from
-<a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
-</section>
-</section>
-<section id="build-kernel">
-<h3><span class="section-number">5.4.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Link to this heading"></a></h3>
-<ul>
-<li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp">release notes</a></p></li>
-<li><p>The tag needed for this release is called v5.15.71_2.2.2-phy3</p></li>
-<li><p>Check out the needed linux-imx tag:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/linux-imx
-<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/linux-imx/
-<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-<span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>checkout<span class="w"> </span>tags/v5.15.71_2.2.2-phy3
-</pre></div>
-</div>
-</li>
-<li><p>For committing changes, it is highly recommended to switch to a new branch:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>git<span class="w"> </span>switch<span class="w"> </span>--create<span class="w"> </span>&lt;new-branch&gt;
-</pre></div>
-</div>
-</li>
-<li><p>Set up a build environment:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy-vendor-xwayland/4.0.13/environment-setup-cortexa53-crypto-phytec-linux
-</pre></div>
-</div>
-</li>
-<li><p>Build the linux kernel:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>imx_v8_defconfig<span class="w"> </span>imx8_phytec_distro.config<span class="w"> </span>imx8_phytec_platform.config
-<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-</pre></div>
-</div>
-</li>
-<li><p>Install kernel modules to e.g. NFS directory:</p></li>
-</ul>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> host:~/linux-imx$ make INSTALL_MOD_PATH=/home/&lt;user&gt;/&lt;rootfspath&gt; modules_install</span>
-</pre></div>
-</div>
-</div></blockquote>
-<ul>
-<li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
-<li><p>The dtb can be found at
-~/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb</p></li>
-<li><p>For (re-)building only Devicetrees and -overlays, it is sufficient to run</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>dtbs
-</pre></div>
-</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are facing the following build issue:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
-</pre></div>
-</div>
-<p>Make sure you installed the package <em>“libyaml-dev”</em> on your host system:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libyaml-dev
-</pre></div>
-</div>
-</div>
-</section>
-<section id="copy-kernel-to-sd-card">
-<h3><span class="section-number">5.4.8. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Link to this heading"></a></h3>
-<p>When one-time boot via netboot is not sufficient, the kernel along with its
-modules and the corresponding device tree blob may be copied directly to a
-mounted SD card.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>arch/arm64/boot/Image<span class="w"> </span>/path/to/sdcard/boot/
-<span class="gp">host:~/linux-imx$ </span>cp<span class="w"> </span>arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dtb<span class="w"> </span>/path/to/sdcard/boot/oftree
-<span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/path/to/sdcard/root/<span class="w"> </span>modules_install
-</pre></div>
-</div>
-</section>
-</section>
 <section id="accessing-the-development-states">
-<h2><span class="section-number">5.5. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.7. </span>Accessing the Development states<a class="headerlink" href="#accessing-the-development-states" title="Link to this heading"></a></h2>
 <section id="development-state-of-current-release">
-<h3><span class="section-number">5.5.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.7.1. </span>Development state of current release<a class="headerlink" href="#development-state-of-current-release" title="Link to this heading"></a></h3>
 <p>These release manifests exist to give you access to the development states
 of the <em>Yocto</em> BSP. They will not be displayed in the phyLinux selection
 menu but need to be selected manually. This can be done using the following
@@ -1782,7 +1815,7 @@ will pull all the latest changes from our Git repositories:</p>
 </div>
 </section>
 <section id="development-state-of-upcoming-release">
-<h3><span class="section-number">5.5.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.7.2. </span>Development state of upcoming release<a class="headerlink" href="#development-state-of-upcoming-release" title="Link to this heading"></a></h3>
 <p>Also development states of upcoming releases can be accessed this way.
 For this execute the following command and look for a release with a higher
 PDXX.Y number than the latest one (BSP-Yocto-NXP-i.MX8MP-PD23.1.0) and <code class="docutils literal notranslate"><span class="pre">.y</span></code> at the
@@ -1793,7 +1826,7 @@ end:</p>
 </section>
 </section>
 <section id="accessing-the-latest-upstream-support">
-<h2><span class="section-number">5.6. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.8. </span>Accessing the Latest Upstream Support<a class="headerlink" href="#accessing-the-latest-upstream-support" title="Link to this heading"></a></h2>
 <p>We have a vanilla manifest that makes use of the Yocto master branches (not an
 NXP release), Linux, and U-Boot. This can be used to test the latest upstream
 kernel/U-Boot.</p>
@@ -1807,13 +1840,13 @@ be broken from time to time. We try to fix the master on a regular basis.</p>
 </div>
 </section>
 <section id="format-sd-card">
-<span id="imx8mp-head-format-sd"></span><h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
+<span id="imx8mp-head-format-sd"></span><h2><span class="section-number">5.9. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
 <p>Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The
 easiest way to do this is to use the UI program Gparted.</p>
 <section id="gparted">
-<h3><span class="section-number">5.7.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.9.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get GParted:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gparted
@@ -1838,7 +1871,7 @@ easiest way to do this is to use the UI program Gparted.</p>
 </ul>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
-<h4><span class="section-number">5.7.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.9.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Running gparted on host systems which are using resize2fs version 1.46.6 and older
@@ -1873,7 +1906,7 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.wic image to it. Then unmount it a
 </ul>
 </section>
 <section id="create-the-third-partition">
-<h4><span class="section-number">5.7.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.9.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>
@@ -4184,8 +4217,8 @@ used. Suspend/resume is possible with:</p>
 </section>
 <section id="thermal-management">
 <h2><span class="section-number">7.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
-<section id="u-boot">
-<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<section id="id3">
+<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>The previous temperature control in the U-Boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -4196,8 +4229,8 @@ the boot log:</p>
 </pre></div>
 </div>
 </section>
-<section id="kernel">
-<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
+<section id="id4">
+<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
