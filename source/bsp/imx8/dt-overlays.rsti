@@ -22,7 +22,7 @@ You can read and write the file on booted target from linux:
    :substitutions:
 
    target:~$ cat /boot/bootenv.txt
-   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dt-carrierboard|-peb-eval-01.dtbo |dtbo-peb-av-10|
 
 Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
 available the overlays variable can be set directly in the U-Boot environment.
@@ -30,9 +30,9 @@ available the overlays variable can be set directly in the U-Boot environment.
 .. code-block::
    :substitutions:
 
-   u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> setenv overlays |dtbo-peb-av-10|
    u-boot=> printenv overlays
-   overlays=|dt-carrierboard|-peb-av-010.dtbo
+   overlays=|dtbo-peb-av-10|
    u-boot=> boot
 
 If a user defined ``${overlays}`` variable should be directly loaded from U-Boot
@@ -43,7 +43,7 @@ variable needs to be set as a flag:
    :substitutions:
 
    u-boot=> setenv no_bootenv 1
-   u-boot=> setenv overlays |dt-carrierboard|-peb-av-010.dtbo
+   u-boot=> setenv overlays |dtbo-peb-av-10|
    u-boot=> boot
 
 More information about the external environment can be found in

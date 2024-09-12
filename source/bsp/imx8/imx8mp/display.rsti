@@ -9,7 +9,7 @@ overlays for the different interfaces.
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
 HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10                imx8mp-phyboard-pollux-peb-av-010.dtbo
+LVDS0     PEB-AV-10                |dtbo-peb-av-10|
                                    (loaded by default)
 LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
 MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo

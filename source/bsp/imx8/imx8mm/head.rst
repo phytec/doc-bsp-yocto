@@ -60,6 +60,7 @@
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som
 .. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
+.. |dtbo-peb-av-10| replace:: imx8mm-phyboard-polis-peb-av-010.dtbo
 
 .. IMX8(MM) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n59`
