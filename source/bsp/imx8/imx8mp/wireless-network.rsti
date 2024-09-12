@@ -19,7 +19,7 @@ PEB-WLBT-05.
 
    .. code-block::
 
-      overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+      overlays=imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
 
    The changes will be applied after a reboot:
 
