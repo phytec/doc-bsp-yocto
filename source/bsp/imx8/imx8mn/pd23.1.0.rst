@@ -57,6 +57,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis
 .. |dt-som| replace:: imx8mn-phycore-som
+.. |dtbo-peb-av-10| replace:: imx8mn-phyboard-polis-peb-av-010.dtbo
 
 .. IMX8(MN) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`

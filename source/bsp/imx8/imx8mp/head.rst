@@ -60,6 +60,7 @@
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 .. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
+.. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-10.dtbo
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
@@ -284,13 +285,14 @@ To revert to the old style of booting, you may do
 .. _imx8mp-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
-::
+.. code-block::
+   :substitutions:
 
    imx8mp-isi-csi1.dtbo
    imx8mp-isi-csi2.dtbo
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
-   imx8mp-phyboard-pollux-peb-av-010.dtbo
+   |dtbo-peb-av-10|
    imx8mp-phyboard-pollux-peb-av-012.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
    imx8mp-phycore-no-eth.dtbo
