@@ -6,6 +6,10 @@ with the Linux kernel sysfs interface. All available backlight devices in the
 system can be found in the folder /sys/class/backlight. Reading the appropriate
 files and writing to them allows you to control the backlight.
 
+.. note::
+   Some boards with multiple display connectors might have multiple backlight
+   controls in /sys/class/backlight. For example: backlight0 and backlight1
+
 *  To get, for example, the maximum brightness level (max_brightness) execute:
 
    .. code-block:: console
