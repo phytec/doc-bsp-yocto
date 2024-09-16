@@ -111,6 +111,7 @@
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
+.. |weston-hdmi-mode| replace:: preferred
 
 
 .. M-Core specific

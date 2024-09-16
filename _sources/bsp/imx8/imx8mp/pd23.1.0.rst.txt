@@ -103,6 +103,7 @@
    Starting with BSP-Yocto-i.MX8MP-PD22.1.1 we have to switch from PWM fan
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
+.. |weston-hdmi-mode| replace:: current
 
 .. |ref-serial| replace:: :ref:`X2 <imx8mp-pd23.1.0-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd23.1.0-components>`
