@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=265398db"></script>
+        <script src="../../../_static/documentation_options.js?v=3b62037f"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-7-g902fceb
+                imx8mp-pd22.1.2-11-ge0c8572
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2346,32 +2346,14 @@ be found at
 The Bluetooth device needs to be set up manually:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>up
 
-<span class="gp">target:~$ </span>hciconfig
+<span class="gp">target:~$ </span>hciconfig<span class="w"> </span>-a
 
 <span class="go">hci0:   Type: Primary  Bus: UART</span>
 <span class="go">        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1</span>
 <span class="go">        UP RUNNING PSCAN</span>
 <span class="go">        RX bytes:1392 acl:0 sco:0 events:76 errors:0</span>
 <span class="go">        TX bytes:1198 acl:0 sco:0 commands:76 errors:0</span>
-
-<span class="gp">target:~$ </span>hciconfig<span class="w"> </span>-a
-
-<span class="go">hci0:   Type: Primary  Bus: UART</span>
-<span class="go">        BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1</span>
-<span class="go">        UP RUNNING PSCAN</span>
-<span class="go">        RX bytes:3179 acl:8 sco:0 events:104 errors:0</span>
-<span class="go">        TX bytes:1599 acl:8 sco:0 commands:85 errors:0</span>
-<span class="go">        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87</span>
-<span class="go">        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3</span>
-<span class="go">        Link policy: RSWITCH SNIFF</span>
-<span class="go">        Link mode: SLAVE ACCEPT</span>
-<span class="go">        Name: &#39;phyboard-polaris-imx8m-2&#39;</span>
-<span class="go">        Class: 0x200000</span>
-<span class="go">        Service Classes: Audio</span>
-<span class="go">        Device Class: Miscellaneous,</span>
-<span class="go">        HCI Version: 4.1 (0x7)  Revision: 0x60</span>
-<span class="go">        LMP Version: 4.1 (0x7)  Subversion: 0x2209</span>
-<span class="go">        Manufacturer: Broadcom Corporation (15)</span>
+<span class="go">        ...</span>
 </pre></div>
 </div>
 <p>Now you can scan your environment for visible Bluetooth devices. Bluetooth is

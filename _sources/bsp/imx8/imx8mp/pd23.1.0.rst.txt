@@ -58,6 +58,7 @@
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 .. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
+.. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-010.dtbo
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50`
