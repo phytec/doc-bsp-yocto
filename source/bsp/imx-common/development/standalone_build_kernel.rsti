@@ -38,8 +38,8 @@ Build Kernel
 
 *  Install kernel modules to e.g. NFS directory:
 
-  .. code-block:: console
-     :substitutions:
+   .. code-block:: console
+      :substitutions:
 
       host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
 
