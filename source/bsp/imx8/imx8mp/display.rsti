@@ -77,6 +77,11 @@ imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
 Dual Display
 ~~~~~~~~~~~~
 
+.. note::
+
+   For dual and triple display output you can not use LVDS1 (onboard) and HDMI
+   together.
+
 For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
 have to be set to the:
 
@@ -106,11 +111,6 @@ be loaded at the bootenv.txt and the weston.ini should look like this:
    [output]
    name=LVDS-1
    mode=current
-
-.. note::
-
-   For dual and triple display output you can not use LVDS1 (onboard) and HDMI
-   together.
 
 Triple Display
 ~~~~~~~~~~~~~~
