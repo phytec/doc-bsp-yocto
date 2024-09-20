@@ -295,7 +295,6 @@ To revert to the old style of booting, you may do
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
    |dtbo-peb-av-10|
-   imx8mp-phyboard-pollux-peb-av-012.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
    imx8mp-phycore-no-eth.dtbo
    imx8mp-phycore-no-rtc.dtbo
