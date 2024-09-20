@@ -1,6 +1,8 @@
 Display
 -------
 
+.. supported-display-interfaces-marker-start
+
 The |sbc| supports up to 4 different display outputs. Three can be used
 simultaneously. The following table shows the required extensions and devicetree
 overlays for the different interfaces.
@@ -15,6 +17,8 @@ LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
 MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo
 ========= ======================== ======================================
 
+.. supported-display-interfaces-marker-end
+
 .. note::
 
    *  When changing Weston output, make sure to match the audio output as well.
@@ -24,7 +28,7 @@ HDMI is always enabled in the devicetree. The other interfaces can be enabled
 with Device Tree Overlay.
 
 The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10'' edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-12.
+10'' edt,etml1010g0dka display for the |lvds-display-adapters|.
 
 .. note::
 
@@ -86,6 +90,8 @@ have to be set to the:
    [output]
    name=LVDS-1
    mode=current
+
+.. no-peb-av-12-marker
 
 For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
 be loaded at the bootenv.txt and the weston.ini should look like this:

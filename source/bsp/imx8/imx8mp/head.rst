@@ -112,6 +112,7 @@
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
+.. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
 
 
@@ -514,6 +515,24 @@ Device Tree Audio configuration:
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
+   :end-before: .. supported-display-interfaces-marker-start
+
+The |sbc| supports up to 3 different display outputs. Two can be used
+simultaneously. The following table shows the required extensions and devicetree
+overlays for the different interfaces.
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+HDMI      |sbc|                    no overlay needed (enabled by default)
+LVDS0     PEB-AV-10                |dtbo-peb-av-10|
+                                   (loaded by default)
+LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
+========= ======================== ======================================
+
+.. include:: display.rsti
+   :start-after: .. supported-display-interfaces-marker-end
+   :end-before: .. no-peb-av-12-marker
 
 .. include:: /bsp/qt6.rsti
 
