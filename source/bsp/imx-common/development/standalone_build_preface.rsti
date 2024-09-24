@@ -55,6 +55,8 @@ You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
       host:~$ source sources/poky/oe-init-build-env
       host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
 
+After a successful build the SDK installer is deployed to ``build/deploy*/sdk``.
+
 .. install-sdk-marker
 
 Install the SDK
