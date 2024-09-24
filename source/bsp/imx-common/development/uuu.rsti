@@ -32,7 +32,7 @@ Get Images
 ..........
 
 Download imx-boot from our server or get it from your Yocto build directory at
-build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
+build/deploy-|yocto-distro|/images/|yocto-machinename|/. For flashing a wic image to eMMC,
 you will also need |yocto-imagename|-|yocto-machinename|.rootfs.wic.
 
 Prepare Target
