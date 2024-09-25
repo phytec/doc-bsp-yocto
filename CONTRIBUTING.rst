@@ -321,6 +321,46 @@ Organization:
    content on GitHub, at least 1 other person need to approve a pull request
    and thus approve the content being added to a manual.
 
+Internationalization
+====================
+
+The documentation supports internationalization via the Sphinx extension
+``sphinx-intl``. The extension is used to extract translatable messages from
+the documentation and store them in *.po files. These files are then used to
+generate translated html and pdf versions of the documentation.
+
+All translation strings from a certain language are compated into a few files
+for the whole documentation. This allows to share translation messages for
+identical strings in multiple manuals.::
+
+   ./locale/zh_CN/LC_MESSAGES/sphinx.po
+   ./locale/zh_CN/LC_MESSAGES/index.po
+   ./locale/zh_CN/LC_MESSAGES/yocto.po
+   ./locale/zh_CN/LC_MESSAGES/contributing_links.po
+   ./locale/zh_CN/LC_MESSAGES/bsp.po
+
+To add support for new languages, extend the build commands in tox.ini and
+re-build the documentation to generate relevant po files.::
+
+   tox -e py3-intl
+
+After the po files are generated, translators can start translating the
+documentation. The translated po files are then used to generate translated
+html and pdf versions of the documentation.::
+
+   tox -e py3-html
+   tox -e py3-pdf
+
+To add new language links to the sidebar menu for the html documentation, add
+the language path to the ``languages`` list in the ``conf.py`` file.::
+
+   html_context = {
+       # Language selector, works together with versions.html in templates
+       'languages': [
+           ['en', pages_root],
+           ['zh_CN', pages_root + '/zh_CN']
+       ]
+   }
 
 Unresolved Issues
 =================

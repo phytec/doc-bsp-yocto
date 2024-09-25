@@ -32,14 +32,27 @@ Make also sure that your system has following tools installed
 Building the Documentation
 --------------------------
 
-Build the documentation as HTML, which is the default build target::
+There are 3 build targets available:
 
-   tox
+- ``tox -e py3-html``: Build the documentation as HTML for the default
+  language (en). This build command builds the documentation in multi-core mode
+  and is the fastest. Building the documentation in other languages does not
+  support parallel processing and is significantly slower.
 
-To produce a LaTeX generated PDF documentation, specify the target explicitly::
+- ``tox -e py3-intl``: Update the internationalization index files and
+  build the documentation as HTML for all languages, but English.
 
-   tox -e py3-pdf
+- ``tox -e py3-pdf``: Build the documentation as a PDF file for all
+  languages.
 
-Open the locally built HTML pages in your webbrowser::
+Open the locally built HTML pages in your webbrowser in the default language::
 
    xdg-open build/html/index.html
+
+Or for a translated language::
+
+   xdg-open build/html/zh_CN/index.html
+
+PDF files are available at::
+
+   build/latex/<lang>/doc-bsp-yocto.pdf
