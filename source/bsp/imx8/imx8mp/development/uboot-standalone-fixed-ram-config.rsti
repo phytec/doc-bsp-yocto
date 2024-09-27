@@ -20,3 +20,22 @@ The fixed RAM size with 2GHz timings will be used:
    CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
 
 After saving the changes, follow the remaining steps from |ref-build-uboot|.
+
+Build U-Boot With a Fixed RAM Frequency
+.......................................
+
+Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can
+also be built with just fixed RAM Frequency while the RAM size will still be
+used from EEPROM.
+
+Edit the file configs/phycore-|kernel-socname|\_defconfig.
+The RAM size from EEPROM with fixed frequency will be used:
+
+.. code-block:: kconfig
+
+   CONFIG_TARGET_PHYCORE_IMX8MP=y
+   CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
+   # CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
+   # CONFIG_PHYCORE_IMX8MP_USE_1_5GHZ_RAM_TIMINGS=y
+
+After saving the changes, follow the remaining steps from |ref-build-uboot|.
