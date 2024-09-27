@@ -760,7 +760,7 @@ Execute and power up the board:
 .. _imx8mp-pd24.1.2-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
 
-.. include:: development/uboot-standalone-fixed-ramsize.yaml
+.. include:: development/uboot-standalone-fixed-ram-config.rsti
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
