@@ -1,5 +1,8 @@
-Build Kernel
-............
+Kernel standalone build
+-----------------------
+
+Setup sources
+.............
 
 *  The used |kernel-repo-name| branch can be found in the `release notes
    <releasenotes_>`_
@@ -27,6 +30,9 @@ Build Kernel
       :substitutions:
 
       host:~/|kernel-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+Build the kernel
+................
 
 *  Build the linux kernel:
 

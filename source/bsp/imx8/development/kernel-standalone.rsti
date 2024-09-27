@@ -1,5 +1,5 @@
-Kernel
-------
+Kernel standalone build
+-----------------------
 
 The kernel is packaged in a FIT image together with the device tree. U-Boot has
 been adapted to be able to load a FIT image and boot the kernel contained in it.
