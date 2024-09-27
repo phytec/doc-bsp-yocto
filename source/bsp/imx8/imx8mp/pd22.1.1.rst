@@ -83,6 +83,7 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd22.1.1-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd22.1.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd22.1.1-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd22.1.1-development-build-uboot>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 
 
@@ -967,8 +968,14 @@ Execute and power up the board:
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-   :end-before: .. build-uboot-marker
+
+.. _imx8mp-pd22.1.1-development-build-uboot:
+
+U-Boot standalone build
+-----------------------
+
+Get the source code
+...................
 
 *  Get the U-Boot sources:
 
@@ -1001,7 +1008,6 @@ Execute and power up the board:
 
          You can name your development branch as you like, this is just an example.
 
-*  Copy all binaries into the U-Boot build directory
 *  Set up a build environment:
 
    .. code-block:: console
@@ -1016,6 +1022,34 @@ Execute and power up the board:
 
       host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
 
+Get the needed binaries
+.......................
+
+To build the bootloader, you need to **copy** these **files** to your |u-boot-repo-name|
+**build directory** and rename them to fit with *mkimage* script:
+
+*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
+   **bl31.bin**): bl31-|kernel-socname|.bin
+*  **OPTEE image** (optional): tee.bin
+*  **DDR firmware files** (*mkimage tool* compatible format
+   **lpddr4_[i,d]mem_\*d_\*.bin**):
+   lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+   lpddr4_imem_2d_*.bin
+
+If you already built our BSP with Yocto, you can get the
+bl31-|kernel-socname|.bin, tee.bin and lpddr4_*.bin from the directory mentioned
+here: |ref-bsp-images|
+
+Or you can download the files here: |link-boot-tools|
+
+.. warning::
+
+   Make sure you rename the files you need so that they are compatible with the
+   *mkimage tool*.
+
+Build the bootloader
+....................
+
 *  build flash.bin (imx-boot):
 
    .. code-block:: console
@@ -1023,6 +1057,9 @@ Execute and power up the board:
 
       host:~$ make phycore-|kernel-socname|_defconfig
       host:~$ make flash.bin
+
+Flash the bootloader to a block device
+......................................
 
 The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
 chip-specific offset is needed:

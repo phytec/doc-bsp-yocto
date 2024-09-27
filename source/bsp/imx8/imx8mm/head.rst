@@ -92,6 +92,7 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mm-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mm-head-development-build-uboot>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mm-head-format-sd>`
 
@@ -239,6 +240,7 @@ Development
 .. include:: /bsp/imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. _imx8mm-head-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti

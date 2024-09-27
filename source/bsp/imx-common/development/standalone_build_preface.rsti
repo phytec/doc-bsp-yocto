@@ -1,5 +1,5 @@
-Standalone Build
-----------------
+Standalone Build preparation
+----------------------------
 
 In this section, we describe how to build the U-Boot and the Linux kernel
 without using the `Yocto Project <https://www.yoctoproject.org/>`__. This

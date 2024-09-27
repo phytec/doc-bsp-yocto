@@ -1,35 +1,10 @@
-Build imx-boot
-..............
-
-Get the needed binaries
-~~~~~~~~~~~~~~~~~~~~~~~
-
-To build the imx-boot, you need to **copy** these **files** to your |u-boot-repo-name|
-**build directory** and rename them to fit with *mkimage tool* script:
-
-*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
-   **bl31.bin**): bl31-|kernel-socname|.bin
-*  **OPTEE image** (optional): tee.bin
-*  **DDR firmware files** (*mkimage tool* compatible format
-   **lpddr4_[i,d]mem_\*d_\*.bin**):
-   lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
-   lpddr4_imem_2d_*.bin
-
-If you already build our BSP with Yocto, you can get
-the bl31-|kernel-socname|.bin, tee.bin and lpddr4_*.bin from the directory
-mentioned here: |ref-bsp-images|
-
-Or you can download the files here: |link-boot-tools|
-
-.. warning::
-
-   Make sure you rename the files you need so that they are compatible with the
-   *mkimage tool*.
-
-Build U-Boot
-~~~~~~~~~~~~
+U-Boot standalone build
+-----------------------
 
 .. build-uboot-marker
+
+Get the source code
+...................
 
 *  Get the U-Boot sources:
 
@@ -40,37 +15,50 @@ Build U-Boot
 
 *  To get the correct *U-Boot* **tag** you need to take a look at our release
    notes, which can be found here: `release notes <releasenotes_>`_
-*  The **tag** needed at this release is called |u-boot-tag|
+*  The **tag** used in this release is called |u-boot-tag|
 *  Check out the needed *U-Boot* **tag**:
 
-.. code-block:: console
-   :substitutions:
+   .. code-block:: console
+      :substitutions:
 
-   host:~$ cd ~/|u-boot-repo-name|/
-   host:~/|u-boot-repo-name|$ git fetch --all --tags
-   host:~/|u-boot-repo-name|$ git checkout tags/|u-boot-tag|
+      host:~$ cd ~/|u-boot-repo-name|/
+      host:~/|u-boot-repo-name|$ git fetch --all --tags
+      host:~/|u-boot-repo-name|$ git checkout tags/|u-boot-tag|
 
-*  Technically, you can now build the U-Boot, but practically there are some
-   further steps necessary:
-
-   *  Create your own development branch:
-
-      .. code-block:: console
-         :substitutions:
-
-         host:~/|u-boot-repo-name|$ git switch --create <new-branch>
-
-      .. note::
-
-         You can name your development branch as you like, this is just an example.
-
-*  Copy all binaries into the U-Boot build directory
 *  Set up a build environment:
 
    .. code-block:: console
       :substitutions:
 
       host:~/|u-boot-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+Get the needed binaries
+.......................
+
+To build the bootloader, you need to **copy** these **files** to your |u-boot-repo-name|
+**build directory** and rename them to fit with *mkimage* script:
+
+*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
+   **bl31.bin**): bl31-|kernel-socname|.bin
+*  **OPTEE image** (optional): tee.bin
+*  **DDR firmware files** (*mkimage tool* compatible format
+   **lpddr4_[i,d]mem_\*d_\*.bin**):
+   lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+   lpddr4_imem_2d_*.bin
+
+If you already built our BSP with Yocto, you can get the
+bl31-|kernel-socname|.bin, tee.bin and lpddr4_*.bin from the directory mentioned
+here: |ref-bsp-images|
+
+Or you can download the files here: |link-boot-tools|
+
+.. warning::
+
+   Make sure you rename the files you need so that they are compatible with the
+   *mkimage tool*.
+
+Build the bootloader
+....................
 
 *  build flash.bin (imx-boot):
 
@@ -80,8 +68,12 @@ Build U-Boot
       host:~/|u-boot-repo-name|$ make |u-boot-defconfig|
       host:~/|u-boot-repo-name|$ make flash.bin
 
-The flash.bin can be found at |u-boot-repo-name|/ directory and now can be flashed. A
-chip-specific offset is needed:
+
+Flash the bootloader to a block device
+......................................
+
+The flash.bin can be found at |u-boot-repo-name|/ directory and now can be
+flashed. A chip-specific offset is needed:
 
 .. _offset-table:
 
@@ -99,12 +91,13 @@ E.g. flash SD card:
    host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
 
 .. hint::
-   The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
+   The specific offset values are also declared in the Yocto variables
+   "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
 
 .. build-uboot-fixed-ram-size-marker
 
 Build U-Boot With a Fixed RAM Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..................................
 
 If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
@@ -127,4 +120,4 @@ Edit the file configs/phycore-|kernel-socname|\_defconfig:
 
 Choose the correct RAM size as populated on the board and uncomment the line for
 this ram size.
-After saving the changes, follow the remaining steps from Build U-Boot.
+After saving the changes, follow the remaining steps from |ref-build-uboot|.
