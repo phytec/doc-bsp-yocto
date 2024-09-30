@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=daaca557"></script>
+        <script src="../../../_static/documentation_options.js?v=23f61b6e"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-16-g28d9cda
+                imx8mp-pd22.1.2-19-g1765cdf
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1986,7 +1986,6 @@ imx8mp-isi-csi2.dtbo
 imx8mp-isp-csi1.dtbo
 imx8mp-isp-csi2.dtbo
 imx8mp-phyboard-pollux-peb-av-10.dtbo
-imx8mp-phyboard-pollux-peb-av-012.dtbo
 imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
 imx8mp-phycore-no-eth.dtbo
 imx8mp-phycore-no-rtc.dtbo
@@ -3868,7 +3867,7 @@ Start the video playback with one of these commands:</p>
 </section>
 <section id="display">
 <h2><span class="section-number">7.17. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
-<p>The phyBOARD-Pollux supports up to 4 different display outputs. Three can be used
+<p>The phyBOARD-Pollux supports up to 3 different display outputs. Two can be used
 simultaneously. The following table shows the required extensions and devicetree
 overlays for the different interfaces.</p>
 <table class="docutils align-default">
@@ -3892,10 +3891,6 @@ overlays for the different interfaces.</p>
 <td><p>phyBOARD-Pollux</p></td>
 <td><p>disabled if PEB-AV-10 overlay is used</p></td>
 </tr>
-<tr class="row-odd"><td><p>MIPI</p></td>
-<td><p>PEB-AV-12 (MIPI to LVDS)</p></td>
-<td><p>imx8mp-phyboard-pollux-peb-av-012.dtbo</p></td>
-</tr>
 </tbody>
 </table>
 <div class="admonition note">
@@ -3908,7 +3903,7 @@ overlays for the different interfaces.</p>
 <p>HDMI is always enabled in the devicetree. The other interfaces can be enabled
 with Device Tree Overlay.</p>
 <p>The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10’’ edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-12.</p>
+10’’ edt,etml1010g0dka display for the PEB-AV-10.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The current display driver limits the pixel clock for a display connected to
@@ -3947,6 +3942,11 @@ imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.</p>
 </section>
 <section id="dual-display">
 <h4><span class="section-number">7.17.1.2. </span>Dual Display<a class="headerlink" href="#dual-display" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For dual and triple display output you can not use LVDS1 (onboard) and HDMI
+together.</p>
+</div>
 <p>For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
 have to be set to the:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
@@ -3955,40 +3955,6 @@ mode=preferred
 
 [output]
 name=LVDS-1
-mode=current
-</pre></div>
-</div>
-<p>For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
-be loaded at the bootenv.txt and the weston.ini should look like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=off
-
-[output]
-name=LVDS-1
-mode=current
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For dual and triple display output you can not use LVDS1 (onboard) and HDMI
-together.</p>
-</div>
-</section>
-<section id="triple-display">
-<h4><span class="section-number">7.17.1.3. </span>Triple Display<a class="headerlink" href="#triple-display" title="Link to this heading"></a></h4>
-<p>Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
-load both dtbos for LVDS interfaces.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
-name=HDMI-A-1
-mode=preferred
-
-[output]
-name=LVDS-1
-mode=current
-
-[output]
-name=LVDS-2
 mode=current
 </pre></div>
 </div>

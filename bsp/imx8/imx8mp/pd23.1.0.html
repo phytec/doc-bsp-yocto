@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=daaca557"></script>
+        <script src="../../../_static/documentation_options.js?v=23f61b6e"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-16-g28d9cda
+                imx8mp-pd22.1.2-19-g1765cdf
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -3825,7 +3825,7 @@ overlays for the different interfaces.</p>
 <p>HDMI is always enabled in the devicetree. The other interfaces can be enabled
 with Device Tree Overlay.</p>
 <p>The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10’’ edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-12.</p>
+10’’ edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-012.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The current display driver limits the pixel clock for a display connected to
@@ -3864,6 +3864,11 @@ imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.</p>
 </section>
 <section id="dual-display">
 <h4><span class="section-number">7.17.1.2. </span>Dual Display<a class="headerlink" href="#dual-display" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For dual and triple display output you can not use LVDS1 (onboard) and HDMI
+together.</p>
+</div>
 <p>For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
 have to be set to the:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
@@ -3885,11 +3890,6 @@ mode=off
 name=LVDS-1
 mode=current
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For dual and triple display output you can not use LVDS1 (onboard) and HDMI
-together.</p>
 </div>
 </section>
 <section id="triple-display">
