@@ -34,6 +34,51 @@ Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
 the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.
 
+Flash eMMC via Network in Linux on Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is also possible to install the OS at eMMC from your Linux host. As before,
+you need a complete image on your host.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Show your available image files on the host:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ls /srv/tftp
+   |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+   |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
+
+Send the image with the ``bmaptool`` command combined with ssh through the network
+to the eMMC of your device:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2"
+
+Flash eMMC via Network in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can update the eMMC from your target.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Take a compressed or decompressed image with the accompanying block map file
+`*.bmap` on the host and send it with `ssh` through the network to the eMMC of
+the target with a one-line command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+
 Flash eMMC from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -116,51 +161,6 @@ Write the image to the eMMC:
 
    MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
-Flash eMMC via Network in Linux on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can update the eMMC from your target.
-
-.. tip::
-
-   A working network is necessary! |ref-setup-network-host|
-
-Take a compressed or decompressed image with the accompanying block map file
-`*.bmap` on the host and send it with `ssh` through the network to the eMMC of
-the target with a one-line command:
-
-.. code-block:: console
-   :substitutions:
-
-   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
-
-Flash eMMC via Network in Linux on Host
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-It is also possible to install the OS at eMMC from your Linux host. As before,
-you need a complete image on your host.
-
-.. tip::
-
-   A working network is necessary! |ref-setup-network-host|
-
-Show your available image files on the host:
-
-.. code-block:: console
-   :substitutions:
-
-   host:~$ ls /srv/tftp
-   |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
-   |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
-
-Send the image with the ``bmaptool`` command combined with ssh through the network
-to the eMMC of your device:
-
-.. code-block:: console
-   :substitutions:
-
-   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2"
-
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
 
@@ -188,44 +188,6 @@ Load image over tftp into RAM and then write it to eMMC:
 
 Flash eMMC from USB stick
 .........................
-
-Flash eMMC from USB stick in U-Boot on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. tip::
-
-   This step only works if the size of the image file is less than 1GB due to
-   limited usage of RAM size in the Bootloader after enabling OPTEE.
-
-These steps will show how to update the eMMC via a USB device. Configure the
-|ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
-in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
-the USB slot.
-
-Load your image from the USB device to RAM:
-
-.. code-block::
-
-   u-boot=> usb start
-   starting USB...
-   USB0:   USB EHCI 1.00
-   scanning bus 0 for devices... 2 USB Device(s) found
-          scanning usb for storage devices... 1 Storage Device(s) found
-   u-boot=> fatload usb 0:1 0x58000000 phytec-headless-image-|yocto-machinename|.rootfs.wic
-   497444864 bytes read in 31577 ms (15 MiB/s)
-
-Write the image to the eMMC:
-
-.. code-block::
-
-   u-boot=> mmc dev 2
-   switch to partitions #0, OK
-   mmc2(part 0) is current device
-   u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc write 0x58000000 0x0 ${nblk}
-
-   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
-   u-boot=> boot
 
 Flash eMMC from USB in Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -272,6 +234,44 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       Before this will work, you need to configure the |ref-bootswitch| to
       **eMMC**.
 
+Flash eMMC from USB stick in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in the Bootloader after enabling OPTEE.
+
+These steps will show how to update the eMMC via a USB device. Configure the
+|ref-bootswitch| to SD Card and insert an SD card. Power on the board and stop
+in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
+the USB slot.
+
+Load your image from the USB device to RAM:
+
+.. code-block::
+
+   u-boot=> usb start
+   starting USB...
+   USB0:   USB EHCI 1.00
+   scanning bus 0 for devices... 2 USB Device(s) found
+          scanning usb for storage devices... 1 Storage Device(s) found
+   u-boot=> fatload usb 0:1 0x58000000 phytec-headless-image-|yocto-machinename|.rootfs.wic
+   497444864 bytes read in 31577 ms (15 MiB/s)
+
+Write the image to the eMMC:
+
+.. code-block::
+
+   u-boot=> mmc dev 2
+   switch to partitions #0, OK
+   mmc2(part 0) is current device
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc write 0x58000000 0x0 ${nblk}
+
+   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
+   u-boot=> boot
+
 Flash eMMC from SD Card
 .......................
 
@@ -282,6 +282,51 @@ To create a new partition or enlarge your SD card, see |ref-format-sd|.
 
 Alternatively, flash a partup package to the SD card, as described in
 |ref-getting-started|. This will ensure the full space of the SD card is used.
+
+Flash eMMC from SD card in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can also flash the eMMC on Linux. You only need a partup package or WIC
+image saved on the SD card.
+
+*  Show your saved partup package or WIC image files on the SD card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.rootfs.partup
+      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
+
+*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+   partition) using `partup`_:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk2
+
+   Flashing the partup package has the advantage of using the full capacity of
+   the eMMC device, adjusting partitions accordingly.
+
+   .. note::
+
+      Alternatively, ``bmaptool`` may be used instead:
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+
+      Keep in mind that the root partition does not make use of the full space when
+      flashing with ``bmaptool``.
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. warning::
+
+      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
 
 Flash eMMC from SD card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,51 +375,6 @@ Flash eMMC from SD card in U-Boot on Target
       MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 *  Power off the board and change the |ref-bootswitch| to eMMC.
-
-Flash eMMC from SD card in Linux on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can also flash the eMMC on Linux. You only need a partup package or WIC
-image saved on the SD card.
-
-*  Show your saved partup package or WIC image files on the SD card:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ ls
-      |yocto-imagename|-|yocto-machinename|.rootfs.partup
-      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
-      |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
-
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
-   partition) using `partup`_:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk2
-
-   Flashing the partup package has the advantage of using the full capacity of
-   the eMMC device, adjusting partitions accordingly.
-
-   .. note::
-
-      Alternatively, ``bmaptool`` may be used instead:
-
-      .. code-block:: console
-         :substitutions:
-
-         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
-
-      Keep in mind that the root partition does not make use of the full space when
-      flashing with ``bmaptool``.
-
-*  After a complete write, your board can boot from eMMC.
-
-   .. warning::
-
-      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
 
 Flash SPI NOR Flash
 -------------------
