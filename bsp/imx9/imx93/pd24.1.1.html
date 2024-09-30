@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=da597b74"></script>
+        <script src="../../../_static/documentation_options.js?v=de081f53"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-12-g50077ca
+                imx8mp-pd22.1.2-13-g86e5017
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1480,14 +1480,11 @@ For more information on how to find the device name, see the section
 </pre></div>
 </div>
 </li>
-<li><p>Install kernel modules to e.g. NFS directory:</p></li>
-</ul>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> host:~/linux-imx$ make INSTALL_MOD_PATH=/home/&lt;user&gt;/&lt;rootfspath&gt; modules_install</span>
+<li><p>Install kernel modules to e.g. NFS directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span><span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/&lt;user&gt;/&lt;rootfspath&gt;<span class="w"> </span>modules_install
 </pre></div>
 </div>
-</div></blockquote>
-<ul>
+</li>
 <li><p>The Image can be found at ~/linux-imx/arch/arm64/boot/Image</p></li>
 <li><p>The dtb can be found at
 ~/linux-imx/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dtb</p></li>
