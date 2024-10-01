@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=222edc48"></script>
+        <script src="../../../_static/documentation_options.js?v=a5393eb9"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-21-g2107c2c
+                imx8mp-pd22.1.2-21-g30ad53a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -712,22 +712,8 @@ available. From a high-level point of view, an eMMC device is like an SD card.
 Therefore, it is possible to flash the <strong>WIC image</strong> (<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.wic</span></code>) from
 the Yocto build system directly to the eMMC. The image contains the
 bootloader, kernel, device tree, device tree overlays, and root file system.</p>
-<section id="flash-emmc-via-network-in-linux-on-target">
-<h4><span class="section-number">4.2.1.1. </span>Flash eMMC via Network in Linux on Target<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-target" title="Link to this heading"></a></h4>
-<p>You can update the eMMC from your target.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
-</div>
-<p>Take a compressed or decompressed image with the accompanying block map file
-<cite>*.bmap</cite> on the host and send it with <cite>ssh</cite> through the network to the eMMC of
-the target with a one-line command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
-</pre></div>
-</div>
-</section>
 <section id="flash-emmc-via-network-in-linux-on-host">
-<h4><span class="section-number">4.2.1.2. </span>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.2.1.1. </span>Flash eMMC via Network in Linux on Host<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-host" title="Link to this heading"></a></h4>
 <p>It is also possible to install the OS at eMMC from your Linux host. As before,
 you need a complete image on your host.</p>
 <div class="admonition tip">
@@ -743,6 +729,20 @@ you need a complete image on your host.</p>
 <p>Send the image with the <code class="docutils literal notranslate"><span class="pre">bmaptool</span></code> command combined with ssh through the network
 to the eMMC of your device:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.*<span class="w"> </span>root@192.168.3.11:/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ssh<span class="w"> </span>root@192.168.3.11<span class="w"> </span><span class="s2">&quot;bmaptool copy /tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz /dev/mmcblk2&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="flash-emmc-via-network-in-linux-on-target">
+<h4><span class="section-number">4.2.1.2. </span>Flash eMMC via Network in Linux on Target<a class="headerlink" href="#flash-emmc-via-network-in-linux-on-target" title="Link to this heading"></a></h4>
+<p>You can update the eMMC from your target.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
+</div>
+<p>Take a compressed or decompressed image with the accompanying block map file
+<cite>*.bmap</cite> on the host and send it with <cite>ssh</cite> through the network to the eMMC of
+the target with a one-line command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>scp<span class="w"> </span>&lt;USER&gt;@192.168.3.10:/srv/tftp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.*<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bmaptool<span class="w"> </span>copy<span class="w"> </span>/tmp/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
 </section>
