@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=a5393eb9"></script>
+        <script src="../../../_static/documentation_options.js?v=3e9430dc"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-21-g30ad53a
+                imx8mp-pd22.1.2-22-ge078953
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1034,37 +1034,8 @@ populated on the phyCORE-i.MX 8M Mini.</p>
 <p class="admonition-title">Tip</p>
 <p>A working network is necessary! <a class="reference internal" href="#imx8mm-head-development"><span class="std std-ref">Setup Network Host</span></a></p>
 </div>
-<section id="flash-spi-nor-from-network-in-u-boot-on-target">
-<h4><span class="section-number">4.3.1.1. </span>Flash SPI NOR from Network in U-Boot on Target<a class="headerlink" href="#flash-spi-nor-from-network-in-u-boot-on-target" title="Link to this heading"></a></h4>
-<p>Similar to updating the eMMC over a network, be sure to set up the development
-host correctly. The IP needs to be set to 192.168.3.10, the netmask to
-255.255.255.0, and a TFTP server needs to be available. Before reading and
-writing is possible, the SPI NOR flash needs to be probed:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf probe
-SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
-</pre></div>
-</div>
-<ul>
-<li><p>A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
-use the correct image file. Load the image over tftp, erase and write the
-bootloader to the flash:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi
-u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
-device 0 offset 0x0, size 0x1c0b20
-1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
-</pre></div>
-</div>
-</li>
-<li><p>Erase the environment partition as well. This way, the environment can be
-written after booting from SPI NOR flash:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf erase 0x400000 0x100000
-</pre></div>
-</div>
-</li>
-</ul>
-</section>
 <section id="flash-spi-nor-from-network-in-kernel-on-target">
-<h4><span class="section-number">4.3.1.2. </span>Flash SPI NOR from Network in kernel on Target<a class="headerlink" href="#flash-spi-nor-from-network-in-kernel-on-target" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.3.1.1. </span>Flash SPI NOR from Network in kernel on Target<a class="headerlink" href="#flash-spi-nor-from-network-in-kernel-on-target" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Copy the image from the host to the target:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi<span class="w"> </span>root@192.168.3.11:/root
@@ -1094,29 +1065,24 @@ written after booting from SPI NOR flash:</p>
 </li>
 </ul>
 </section>
-</section>
-<section id="flash-spi-nor-flash-from-sd-card">
-<h3><span class="section-number">4.3.2. </span>Flash SPI NOR Flash from SD Card<a class="headerlink" href="#flash-spi-nor-flash-from-sd-card" title="Link to this heading"></a></h3>
-<p>The bootloader on SPI NOR flash can be also flashed with SD Card.</p>
-<section id="flash-spi-nor-from-sd-card-in-u-boot-on-target">
-<h4><span class="section-number">4.3.2.1. </span>Flash SPI NOR from SD Card in U-Boot on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-u-boot-on-target" title="Link to this heading"></a></h4>
-<ul>
-<li><p>Copy the SPI NOR flash U-boot image
-imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi to the first partition
-on the SD Card.</p></li>
-<li><p>Before reading and writing are possible, the SPI-NOR flash
-needs to be probed:</p>
+<section id="flash-spi-nor-from-network-in-u-boot-on-target">
+<h4><span class="section-number">4.3.1.2. </span>Flash SPI NOR from Network in U-Boot on Target<a class="headerlink" href="#flash-spi-nor-from-network-in-u-boot-on-target" title="Link to this heading"></a></h4>
+<p>Similar to updating the eMMC over a network, be sure to set up the development
+host correctly. The IP needs to be set to 192.168.3.10, the netmask to
+255.255.255.0, and a TFTP server needs to be available. Before reading and
+writing is possible, the SPI NOR flash needs to be probed:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf probe
-SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
 </pre></div>
 </div>
-</li>
-<li><p>A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
-use the correct image file. Load the image from the SD Card, erase and write
-the bootloader to the flash:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; mmc dev 1
-u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi
+<ul>
+<li><p>A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
+use the correct image file. Load the image over tftp, erase and write the
+bootloader to the flash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; tftp ${loadaddr} imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi
 u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
+device 0 offset 0x0, size 0x1c0b20
+1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
 </pre></div>
 </div>
 </li>
@@ -1128,8 +1094,12 @@ written after booting from SPI NOR flash:</p>
 </li>
 </ul>
 </section>
+</section>
+<section id="flash-spi-nor-flash-from-sd-card">
+<h3><span class="section-number">4.3.2. </span>Flash SPI NOR Flash from SD Card<a class="headerlink" href="#flash-spi-nor-flash-from-sd-card" title="Link to this heading"></a></h3>
+<p>The bootloader on SPI NOR flash can be also flashed with SD Card.</p>
 <section id="flash-spi-nor-from-sd-card-in-kernel-on-target">
-<h4><span class="section-number">4.3.2.2. </span>Flash SPI NOR from SD Card in kernel on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-kernel-on-target" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.3.2.1. </span>Flash SPI NOR from SD Card in kernel on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-kernel-on-target" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Copy the SPI NOR flash U-boot image
 imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi to the first partition
@@ -1157,6 +1127,36 @@ on the SD Card.</p></li>
 <li><p>Erase the u-boot partition and flash it:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>flash_erase<span class="w"> </span>/dev/mtd0<span class="w"> </span>0x0<span class="w"> </span><span class="m">60</span>
 <span class="gp">target:~$ </span>flashcp<span class="w"> </span>/mnt/imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi<span class="w"> </span>/dev/mtd0
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="flash-spi-nor-from-sd-card-in-u-boot-on-target">
+<h4><span class="section-number">4.3.2.2. </span>Flash SPI NOR from SD Card in U-Boot on Target<a class="headerlink" href="#flash-spi-nor-from-sd-card-in-u-boot-on-target" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Copy the SPI NOR flash U-boot image
+imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi to the first partition
+on the SD Card.</p></li>
+<li><p>Before reading and writing are possible, the SPI-NOR flash
+needs to be probed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf probe
+SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+</pre></div>
+</div>
+</li>
+<li><p>A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
+use the correct image file. Load the image from the SD Card, erase and write
+the bootloader to the flash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; mmc dev 1
+u-boot=&gt; fatload mmc 1:1 ${loadaddr} imx-boot-phyboard-polis-imx8mm-5-fspi.bin-flash_evk_flexspi
+u-boot=&gt; sf update ${loadaddr} 0 ${filesize}
+</pre></div>
+</div>
+</li>
+<li><p>Erase the environment partition as well. This way, the environment can be
+written after booting from SPI NOR flash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; sf erase 0x400000 0x100000
 </pre></div>
 </div>
 </li>
