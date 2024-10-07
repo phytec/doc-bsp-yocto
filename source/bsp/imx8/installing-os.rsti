@@ -404,38 +404,6 @@ populated on the phyCORE-|soc|.
 
    A working network is necessary! |ref-setup-network-host|
 
-Flash SPI NOR from Network in U-Boot on Target
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Similar to updating the eMMC over a network, be sure to set up the development
-host correctly. The IP needs to be set to 192.168.3.10, the netmask to
-255.255.255.0, and a TFTP server needs to be available. Before reading and
-writing is possible, the SPI NOR flash needs to be probed:
-
-.. code-block::
-
-   u-boot=> sf probe
-   SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
-
-*  A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
-   use the correct image file. Load the image over tftp, erase and write the
-   bootloader to the flash:
-
-   .. code-block::
-      :substitutions:
-
-      u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-      u-boot=> sf update ${loadaddr} 0 ${filesize}
-      device 0 offset 0x0, size 0x1c0b20
-      1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
-
-*  Erase the environment partition as well. This way, the environment can be
-   written after booting from SPI NOR flash:
-
-   .. code-block::
-
-      u-boot=> sf erase 0x400000 0x100000
-
 Flash SPI NOR from Network in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -470,36 +438,30 @@ Flash SPI NOR from Network in kernel on Target
       target:~$ flash_erase /dev/mtd0 0x0 60
       target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
 
-Flash SPI NOR Flash from SD Card
-................................
-
-The bootloader on SPI NOR flash can be also flashed with SD Card.
-
-Flash SPI NOR from SD Card in U-Boot on Target
+Flash SPI NOR from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
-   on the SD Card.
+Similar to updating the eMMC over a network, be sure to set up the development
+host correctly. The IP needs to be set to 192.168.3.10, the netmask to
+255.255.255.0, and a TFTP server needs to be available. Before reading and
+writing is possible, the SPI NOR flash needs to be probed:
 
-*  Before reading and writing are possible, the SPI-NOR flash
-   needs to be probed:
+.. code-block::
 
-   .. code-block::
+   u-boot=> sf probe
+   SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
 
-      u-boot=> sf probe
-      SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
-
-*  A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
-   use the correct image file. Load the image from the SD Card, erase and write
-   the bootloader to the flash:
+*  A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
+   use the correct image file. Load the image over tftp, erase and write the
+   bootloader to the flash:
 
    .. code-block::
       :substitutions:
 
-      u-boot=> mmc dev 1
-      u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
       u-boot=> sf update ${loadaddr} 0 ${filesize}
+      device 0 offset 0x0, size 0x1c0b20
+      1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
 
 *  Erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
@@ -507,6 +469,11 @@ Flash SPI NOR from SD Card in U-Boot on Target
    .. code-block::
 
       u-boot=> sf erase 0x400000 0x100000
+
+Flash SPI NOR Flash from SD Card
+................................
+
+The bootloader on SPI NOR flash can be also flashed with SD Card.
 
 Flash SPI NOR from SD Card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -545,6 +512,39 @@ Flash SPI NOR from SD Card in kernel on Target
 
       target:~$ flash_erase /dev/mtd0 0x0 60
       target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+
+Flash SPI NOR from SD Card in U-Boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Copy the SPI NOR flash U-boot image
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
+   on the SD Card.
+
+*  Before reading and writing are possible, the SPI-NOR flash
+   needs to be probed:
+
+   .. code-block::
+
+      u-boot=> sf probe
+      SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+
+*  A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
+   use the correct image file. Load the image from the SD Card, erase and write
+   the bootloader to the flash:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> mmc dev 1
+      u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> sf update ${loadaddr} 0 ${filesize}
+
+*  Erase the environment partition as well. This way, the environment can be
+   written after booting from SPI NOR flash:
+
+   .. code-block::
+
+      u-boot=> sf erase 0x400000 0x100000
 
 RAUC
 ----
