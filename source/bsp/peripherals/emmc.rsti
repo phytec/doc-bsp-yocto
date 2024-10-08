@@ -238,20 +238,6 @@ Increasing the filesystem size can be done while it is mounted.  But you can
 also boot the board from an SD card and then resize the file system on the eMMC
 partition while it is not mounted.
 
-*  Resize the filesystem to a new partition size:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ resize2fs /dev/|emmcdev|p2
-      resize2fs 1.46.1 (9-Feb-2021)
-      Filesystem at /dev/|emmcdev|p2 is mounted on /; on-line resizing required
-      [ 131.609512] EXT4-fs (|emmcdev|p2): resizing filesystem
-      from 454136 to 7367680 blocks
-      old_desc_blocks = 4, new_desc_blocks = 57
-      [ 131.970278] EXT4-fs (|emmcdev|p2): resized filesystem to 7367680
-      The filesystem on /dev/|emmcdev|p2 is now 7367680 (1k) blocks long
-
 Enable pseudo-SLC Mode
 ......................
 
