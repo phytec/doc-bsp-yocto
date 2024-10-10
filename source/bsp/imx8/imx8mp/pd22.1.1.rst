@@ -1292,11 +1292,158 @@ mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
 information about the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
 
-.. include:: ../../peripherals/wireless-network.rsti
-   :end-before: .. bluetooth_chapter_start_label
+Connecting to a WLAN Network
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First set the correct regulatory domain for your country:
+
+.. code-block:: console
+
+   target:~$ iw reg set DE
+   target:~$ iw reg get
+
+You will see:
+
+.. code-block::
+
+   country DE: DFS-ETSI
+      (2400 - 2483 @ 40), (N/A, 20), (N/A)
+      (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+      (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+      (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+      (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+
+Set up the wireless interface:
+
+.. code-block:: console
+
+   target:~$ ip link
+   target:~$ ip link set up dev wlan0
+
+Now you can scan for available networks:
+
+.. code-block:: console
+
+   target:~$ iw wlan0 scan | grep SSID
+
+You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.
+
+To do so, add the network-credentials to the file ``/etc/wpa_supplicant.conf``:
+
+.. code-block::
+
+   country=DE
+   network={
+       ssid="<SSID>"
+       proto=WPA2
+       psk="<KEY>"
+   }
+
+Now a connection can be established:
+
+.. code-block:: console
+
+   target:~$ wpa_supplicant -D nl80211 -c /etc/wpa_supplicant.conf -i wlan0 -B
+
+This should result in the following output:
+
+.. code-block::
+
+   ...
+   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+
+To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
+
+First, create the directory:
+
+.. code-block:: console
+
+   target:~$ mkdir -p /etc/systemd/network/
+
+Then add the following configuration snippet in ``/etc/systemd/network/10-wlan0.network``:
+
+.. code-block::
+
+   # file /etc/systemd/network/10-wlan0.network
+   [Match]
+   Name=wlan0
+
+   [Network]
+   DHCP=yes
+
+Now, restart the network daemon so that the configuration takes effect:
+
+.. code-block:: console
+
+   target:~$ systemctl restart systemd-networkd
+
+Bluetooth
+.........
 
 Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
 is described in the WLAN section.
+
+Bluetooth is connected to |bluetooth-uart| interface. More information about the module can
+be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
+The Bluetooth device needs to be set up manually:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 up
+
+   target:~$ hciconfig -a
+
+   hci0:   Type: Primary  Bus: UART
+           BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+           UP RUNNING PSCAN
+           RX bytes:1392 acl:0 sco:0 events:76 errors:0
+           TX bytes:1198 acl:0 sco:0 commands:76 errors:0
+           ...
+
+Now you can scan your environment for visible Bluetooth devices. Bluetooth is
+not visible during a default startup.
+
+.. code-block:: console
+
+   target:~$ hcitool scan
+   Scanning ...
+          XX:XX:XX:XX:XX:XX       <SSID>
+
+Visibility
+~~~~~~~~~~
+
+To activate visibility:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 piscan
+
+To disable visibility:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 noscan
+
+Connect
+~~~~~~~
+
+.. code-block:: console
+
+   target:~$ bluetoothctl
+   [bluetooth]# discoverable on
+   Changing discoverable on succeeded
+   [bluetooth]# pairable on
+   Changing pairable on succeeded
+   [bluetooth]# agent on
+   Agent registered
+   [bluetooth]# default-agent
+   Default agent request successful
+   [bluetooth]# scan on
+   [NEW] Device XX:XX:XX:XX:XX:XX <name>
+   [bluetooth]# connect XX:XX:XX:XX:XX:XX
 
 .. include:: ../../peripherals/wireless-network.rsti
    :start-after: .. bluetooth_chapter_start_label
