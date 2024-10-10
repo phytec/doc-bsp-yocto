@@ -55,8 +55,7 @@ This should result in the following output:
 
 .. code-block::
 
-   ...
-   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+   Successfully initialized wpa_supplicant
 
 To finish the configuration you can configure DHCP to receive an IP address
 (supported by most WLAN access points). For other possible IP configurations,
