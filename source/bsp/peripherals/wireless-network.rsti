@@ -57,32 +57,8 @@ This should result in the following output:
 
    Successfully initialized wpa_supplicant
 
-To finish the configuration you can configure DHCP to receive an IP address
-(supported by most WLAN access points). For other possible IP configurations,
+The ip address is automatically configured over DHCP. For other possible IP configurations,
 see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
-
-First, create the directory:
-
-.. code-block:: console
-
-   target:~$ mkdir -p /etc/systemd/network/
-
-Then add the following configuration snippet in ``/etc/systemd/network/10-wlan0.network``:
-
-.. code-block::
-
-   # file /etc/systemd/network/10-wlan0.network
-   [Match]
-   Name=wlan0
-
-   [Network]
-   DHCP=yes
-
-Now, restart the network daemon so that the configuration takes effect:
-
-.. code-block:: console
-
-   target:~$ systemctl restart systemd-networkd
 
 Bluetooth
 .........
