@@ -23,6 +23,7 @@
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 .. |expansion-connector| replace:: X8
+.. |bluetooth-uart| replace:: UART2
 
 
 .. Linux Kernel
