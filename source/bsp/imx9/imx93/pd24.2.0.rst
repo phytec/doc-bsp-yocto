@@ -381,7 +381,7 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 
 ::
 
-   imx93-phyboard-nash-peb-av-010.dtbo
+   imx93-phyboard-nash-peb-av-10.dtbo
    imx93-phycore-rpmsg.dtbo
    imx93-phycore-no-emmc.dtbo
    imx93-phycore-no-eth.dtbo
@@ -621,7 +621,7 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:imx-dt:`imx93-phyboard-nash-peb-av-010.dtso?h=v6.6.23-2.0.0-phy8#n57`
+:imx-dt:`imx93-phyboard-nash-peb-av-10.dtso?h=v6.6.23-2.0.0-phy8#n57`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -635,7 +635,7 @@ The device tree of PEB-AV-02 can be found here:
 :imx-dt:`imx93-phyboard-segin-peb-av-02.dtso?h=v6.6.23-2.0.0-phy8`
 
 The device tree of PEB-AV-10 can be found here:
-:imx-dt:`imx93-phyboard-nash-peb-av-010.dtso?h=v6.6.23-2.0.0-phy8`
+:imx-dt:`imx93-phyboard-nash-peb-av-10.dtso?h=v6.6.23-2.0.0-phy8`
 
 .. include:: peripherals/pm.rsti
 
