@@ -22,10 +22,10 @@
 
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
-.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
-.. |kernel-repo-name| replace:: linux-imx
-.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
+.. |kernel-defconfig| replace:: imx9_phytec_defconfig
+.. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
+.. |kernel-repo-name| replace:: linux-phytec-imx
+.. |kernel-repo-url| replace:: git://github.com/phytec/linux-phytec-imx.git
 .. |kernel-socname| replace:: imx93
 .. |kernel-tag| replace:: v6.6.23-2.0.0-phy8
 .. |emmcdev| replace:: mmcblk0
