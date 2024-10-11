@@ -265,7 +265,8 @@ To revert to the old style of booting, you may do
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
 .. _imx8mp-head-development-build-uboot:
-.. include:: ../development/uboot-standalone.rsti
+.. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: development/uboot-standalone-fixed-ram-config.rsti
 .. include:: ../development/kernel-standalone.rsti
 .. include:: ../../imx-common/development/uuu.rsti
 

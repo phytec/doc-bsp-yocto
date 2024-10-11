@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=23f61b6e"></script>
+        <script src="../../../_static/documentation_options.js?v=1c8c967f"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-19-g1765cdf
+                imx8mp-pd22.1.2-21-g9d84083
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -83,8 +83,10 @@
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.1. Host Network Preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.3. Working with UUU-Tool</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.4. Standalone Build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.5. Format SD-Card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.4. Standalone Build preparation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.5. U-Boot standalone build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.6. Kernel standalone build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#format-sd-card">5.7. Format SD-Card</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#device-tree-dt">6. Device Tree (DT)</a><ul>
@@ -1213,8 +1215,8 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 </section>
-<section id="standalone-build">
-<h2><span class="section-number">5.4. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
+<section id="standalone-build-preparation">
+<h2><span class="section-number">5.4. </span>Standalone Build preparation<a class="headerlink" href="#standalone-build-preparation" title="Link to this heading"></a></h2>
 <p>In this section, we describe how to build the U-Boot and the Linux kernel
 without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
 procedure makes the most sense for development. The U-Boot source code,
@@ -1296,41 +1298,11 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 </pre></div>
 </div>
 </section>
-<section id="build-imx-boot">
-<h3><span class="section-number">5.4.6. </span>Build imx-boot<a class="headerlink" href="#build-imx-boot" title="Link to this heading"></a></h3>
-<section id="get-the-needed-binaries">
-<h4><span class="section-number">5.4.6.1. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
-<p>To build the imx-boot, you need to <strong>gather</strong> these <strong>files</strong> for
-later use with <strong>imx-mkimage tool</strong>:</p>
-<ul class="simple">
-<li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
-<strong>bl31.bin</strong>): bl31-imx93.bin</p></li>
-<li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
-<li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
-<strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
-lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
-lpddr4_imem_2d_*.bin</p></li>
-<li><p><strong>Container image</strong>: mx93a1-ahab-container.img</p></li>
-</ul>
-<p>If you already built our BSP with Yocto, you can get
-these files from the directory mentioned here: <a class="reference internal" href="#imx93-pd24-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
-<p>Or you can download the files from the PHYTEC download server (<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/</a>).
-You can use the commands below to download all the files from that server:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>./artefacts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./artefacts
-<span class="gp">host:~/artefacts$ </span>wget<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//bl31-imx93.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//tee.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//mx93a1-ahab-container.img
-<span class="gp">host:~/artefacts$ </span><span class="nb">cd</span><span class="w"> </span>..
-</pre></div>
-</div>
 </section>
-<section id="build-u-boot">
-<h4><span class="section-number">5.4.6.2. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h4>
+<section id="u-boot-standalone-build">
+<h2><span class="section-number">5.5. </span>U-Boot standalone build<a class="headerlink" href="#u-boot-standalone-build" title="Link to this heading"></a></h2>
+<section id="get-the-source-code">
+<h3><span class="section-number">5.5.1. </span>Get the source code<a class="headerlink" href="#get-the-source-code" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get the U-Boot sources:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx
@@ -1367,6 +1339,42 @@ further steps necessary:</p>
 </pre></div>
 </div>
 </li>
+</ul>
+</section>
+<section id="get-the-needed-binaries">
+<h3><span class="section-number">5.5.2. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h3>
+<p>To build the imx-boot, you need to <strong>gather</strong> these <strong>files</strong> for
+later use with <strong>imx-mkimage tool</strong>:</p>
+<ul class="simple">
+<li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
+<strong>bl31.bin</strong>): bl31-imx93.bin</p></li>
+<li><p><strong>OPTEE image</strong> (optional): tee.bin</p></li>
+<li><p><strong>DDR firmware files</strong> (<em>mkimage tool</em> compatible format
+<strong>lpddr4_[i,d]mem_*d_*.bin</strong>):
+lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+lpddr4_imem_2d_*.bin</p></li>
+<li><p><strong>Container image</strong>: mx93a1-ahab-container.img</p></li>
+</ul>
+<p>If you already built our BSP with Yocto, you can get
+these files from the directory mentioned here: <a class="reference internal" href="#imx93-pd24-1-1-images"><span class="std std-ref">BSP Images</span></a></p>
+<p>Or you can download the files from the PHYTEC download server (<a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/</a>).
+You can use the commands below to download all the files from that server:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>./artefacts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./artefacts
+<span class="gp">host:~/artefacts$ </span>wget<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//bl31-imx93.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//tee.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_dmem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_1d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//lpddr4_imem_2d_v202201.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools//mx93a1-ahab-container.img
+<span class="gp">host:~/artefacts$ </span><span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
+</div>
+</section>
+<section id="build-the-bootloader">
+<h3><span class="section-number">5.5.3. </span>Build the bootloader<a class="headerlink" href="#build-the-bootloader" title="Link to this heading"></a></h3>
+<ul>
 <li><p>Build u-boot:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>&lt;defconfig&gt;
 <span class="gp">host:~/u-boot-imx$ </span>make
@@ -1379,9 +1387,8 @@ further steps necessary:</p>
 </div>
 </li>
 </ul>
-</section>
 <section id="build-final-flash-bin-with-imx-mkimage">
-<h4><span class="section-number">5.4.6.3. </span>Build final flash.bin with imx-mkimage<a class="headerlink" href="#build-final-flash-bin-with-imx-mkimage" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.5.3.1. </span>Build final flash.bin with imx-mkimage<a class="headerlink" href="#build-final-flash-bin-with-imx-mkimage" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Get imx-mkimage:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/nxp-imx/imx-mkimage
@@ -1418,6 +1425,10 @@ further steps necessary:</p>
 </div></blockquote>
 </li>
 </ul>
+</section>
+</section>
+<section id="flash-the-bootloader-to-a-block-device">
+<h3><span class="section-number">5.5.4. </span>Flash the bootloader to a block device<a class="headerlink" href="#flash-the-bootloader-to-a-block-device" title="Link to this heading"></a></h3>
 <p>The flash.bin can be found at imx-mkimage/iMX9/ directory and now can be flashed. A
 chip-specific offset is needed:</p>
 <table class="docutils align-default" id="offset-table">
@@ -1452,8 +1463,10 @@ For more information on how to find the device name, see the section
 </div>
 </section>
 </section>
-<section id="build-kernel">
-<h3><span class="section-number">5.4.7. </span>Build Kernel<a class="headerlink" href="#build-kernel" title="Link to this heading"></a></h3>
+<section id="kernel-standalone-build">
+<h2><span class="section-number">5.6. </span>Kernel standalone build<a class="headerlink" href="#kernel-standalone-build" title="Link to this heading"></a></h2>
+<section id="setup-sources">
+<h3><span class="section-number">5.6.1. </span>Setup sources<a class="headerlink" href="#setup-sources" title="Link to this heading"></a></h3>
 <ul>
 <li><p>The used linux-imx branch can be found in the <a class="reference external" href="https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93">release notes</a></p></li>
 <li><p>The tag needed for this release is called v6.1.55_2.2.0-phy3</p></li>
@@ -1475,6 +1488,11 @@ For more information on how to find the device name, see the section
 </pre></div>
 </div>
 </li>
+</ul>
+</section>
+<section id="build-the-kernel">
+<h3><span class="section-number">5.6.2. </span>Build the kernel<a class="headerlink" href="#build-the-kernel" title="Link to this heading"></a></h3>
+<ul>
 <li><p>Build the linux kernel:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>imx_v8_defconfig<span class="w"> </span>imx9_phytec_distro.config<span class="w"> </span>imx9_phytec_platform.config
 <span class="gp">host:~/linux-imx$ </span>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
@@ -1508,7 +1526,7 @@ For more information on how to find the device name, see the section
 </div>
 </section>
 <section id="copy-kernel-to-sd-card">
-<h3><span class="section-number">5.4.8. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.6.3. </span>Copy Kernel to SD Card<a class="headerlink" href="#copy-kernel-to-sd-card" title="Link to this heading"></a></h3>
 <p>When one-time boot via netboot is not sufficient, the kernel along with its
 modules and the corresponding device tree blob may be copied directly to a
 mounted SD card.</p>
@@ -1520,13 +1538,13 @@ mounted SD card.</p>
 </section>
 </section>
 <section id="format-sd-card">
-<h2><span class="section-number">5.5. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.7. </span>Format SD-Card<a class="headerlink" href="#format-sd-card" title="Link to this heading"></a></h2>
 <p>Most images are larger than the default root partition. To flash any storage
 device with SD Card, the rootfs needs to be expanded or a separate partition
 needs to be created. There are some different ways to format the SD Card.  The
 easiest way to do this is to use the UI program Gparted.</p>
 <section id="gparted">
-<h3><span class="section-number">5.5.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.7.1. </span>Gparted<a class="headerlink" href="#gparted" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get GParted:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gparted
@@ -1551,7 +1569,7 @@ easiest way to do this is to use the UI program Gparted.</p>
 </ul>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <section id="expand-rootfs">
-<h4><span class="section-number">5.5.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.7.1.1. </span>Expand rootfs<a class="headerlink" href="#expand-rootfs" title="Link to this heading"></a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Running gparted on host systems which are using resize2fs version 1.46.6 and older
@@ -1586,7 +1604,7 @@ phytec-qt6demo-image-phyboard-segin-imx93-2.wic image to it. Then unmount it aga
 </ul>
 </section>
 <section id="create-the-third-partition">
-<h4><span class="section-number">5.5.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.7.1.2. </span>Create the Third Partition<a class="headerlink" href="#create-the-third-partition" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Choose your SD Card device at the drop-down menu on the top right</p></li>
 </ul>

@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=23f61b6e"></script>
+        <script src="../../../_static/documentation_options.js?v=1c8c967f"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-19-g1765cdf
+                imx8mp-pd22.1.2-21-g9d84083
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -80,9 +80,9 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#development">5. Development</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#standalone-build">5.1. Standalone Build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#u-boot">5.2. U-Boot</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#kernel">5.3. Kernel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.1. Standalone Build preparation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.2. U-Boot standalone build</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.3. Kernel standalone build</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#working-with-uuu-tool">5.4. Working with UUU-Tool</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. Host Network Preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
@@ -290,16 +290,16 @@ Name</strong> drop-down menu empty and only choose your <strong>Article Number</
 should show you the necessary <strong>Machine Name</strong> for your specific hardware</p>
 <section id="sbc-components">
 <span id="imx8mp-head-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Pollux Components<a class="headerlink" href="#sbc-components" title="Link to this heading"></a></h3>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-front-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-front-components.jpg" src="../../../_images/phyBOARD-Pollux-front-components.jpg" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (top)</strong></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-back-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-back-components.jpg" src="../../../_images/phyBOARD-Pollux-back-components.jpg" style="width: 85%;" /></a>
 <figcaption>
-<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>phyBOARD-Pollux Components (bottom)</strong></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -619,46 +619,46 @@ bootable.</p></li>
 select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-head-bootswitch">
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id7">
+<tr class="row-odd"><td><figure class="align-default" id="id5">
 <img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
 <figcaption>
-<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-text">eMMC</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id8">
+<td><figure class="align-default" id="id6">
 <img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
 <figcaption>
-<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id9">
+<td><figure class="align-default" id="id7">
 <img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
 <figcaption>
-<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 </tr>
-<tr class="row-even"><td><figure class="align-default" id="id10">
+<tr class="row-even"><td><figure class="align-default" id="id8">
 <img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
 <figcaption>
-<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id11">
+<td><figure class="align-default" id="id9">
 <img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
 <figcaption>
-<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+<p><span class="caption-text">SD Card</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id12">
+<td><figure class="align-default" id="id10">
 <img alt="../../../_images/Test_Mode.png" src="../../../_images/Test_Mode.png" />
 <figcaption>
-<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+<p><span class="caption-text">Test Mode</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
@@ -1173,8 +1173,8 @@ To revert to the old style of booting, you may do</p>
 By default, booting via this command will return an error as kernel and
 device tree are missing in the boot partition.</p>
 </div>
-<section id="standalone-build">
-<h2><span class="section-number">5.1. </span>Standalone Build<a class="headerlink" href="#standalone-build" title="Link to this heading"></a></h2>
+<section id="standalone-build-preparation">
+<h2><span class="section-number">5.1. </span>Standalone Build preparation<a class="headerlink" href="#standalone-build-preparation" title="Link to this heading"></a></h2>
 <p>In this section, we describe how to build the U-Boot and the Linux kernel
 without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
 procedure makes the most sense for development. The U-Boot source code,
@@ -1257,12 +1257,10 @@ dependencies to be installed. For Ubuntu you can install them with:</p>
 </div>
 </section>
 </section>
-<section id="u-boot">
-<span id="imx8mp-head-development-build-uboot"></span><h2><span class="section-number">5.2. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h2>
-<section id="build-u-boot">
-<h3><span class="section-number">5.2.1. </span>Build U-Boot<a class="headerlink" href="#build-u-boot" title="Link to this heading"></a></h3>
+<section id="u-boot-standalone-build">
+<span id="imx8mp-head-development-build-uboot"></span><h2><span class="section-number">5.2. </span>U-Boot standalone build<a class="headerlink" href="#u-boot-standalone-build" title="Link to this heading"></a></h2>
 <section id="get-the-source-code">
-<h4><span class="section-number">5.2.1.1. </span>Get the source code<a class="headerlink" href="#get-the-source-code" title="Link to this heading"></a></h4>
+<h3><span class="section-number">5.2.1. </span>Get the source code<a class="headerlink" href="#get-the-source-code" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Get the U-Boot sources:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/u-boot-imx
@@ -1287,9 +1285,9 @@ notes, which can be found here: <a class="reference external" href="https://git.
 </ul>
 </section>
 <section id="get-the-needed-binaries">
-<h4><span class="section-number">5.2.1.2. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h4>
-<p>To build the bootloader, you need to copy these files to your u-boot-imx
-build directory and rename them to fit with <em>mkimage</em> script:</p>
+<h3><span class="section-number">5.2.2. </span>Get the needed binaries<a class="headerlink" href="#get-the-needed-binaries" title="Link to this heading"></a></h3>
+<p>To build the bootloader, you need to <strong>copy</strong> these <strong>files</strong> to your u-boot-imx
+<strong>build directory</strong> and rename them to fit with <em>mkimage</em> script:</p>
 <ul class="simple">
 <li><p><strong>ARM Trusted firmware binary</strong> (<em>mkimage tool</em> compatible format
 <strong>bl31.bin</strong>): bl31-imx8mp.bin</p></li>
@@ -1303,9 +1301,14 @@ lpddr4_imem_2d_*.bin</p></li>
 bl31-imx8mp.bin, tee.bin and lpddr4_*.bin from the directory mentioned
 here: <a class="reference internal" href="#imx8mp-head-images"><span class="std std-ref">BSP Images</span></a></p>
 <p>Or you can download the files here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you rename the files you need so that they are compatible with the
+<em>mkimage tool</em>.</p>
+</div>
 </section>
 <section id="build-the-bootloader">
-<h4><span class="section-number">5.2.1.3. </span>Build the bootloader<a class="headerlink" href="#build-the-bootloader" title="Link to this heading"></a></h4>
+<h3><span class="section-number">5.2.3. </span>Build the bootloader<a class="headerlink" href="#build-the-bootloader" title="Link to this heading"></a></h3>
 <ul>
 <li><p>build flash.bin (imx-boot):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~/u-boot-imx$ </span>make<span class="w"> </span>phycore-imx8mp_defconfig
@@ -1316,7 +1319,7 @@ here: <a class="reference internal" href="#imx8mp-head-images"><span class="std 
 </ul>
 </section>
 <section id="flash-the-bootloader-to-a-block-device">
-<h4><span class="section-number">5.2.1.4. </span>Flash the bootloader to a block device<a class="headerlink" href="#flash-the-bootloader-to-a-block-device" title="Link to this heading"></a></h4>
+<h3><span class="section-number">5.2.4. </span>Flash the bootloader to a block device<a class="headerlink" href="#flash-the-bootloader-to-a-block-device" title="Link to this heading"></a></h3>
 <p>The flash.bin can be found at u-boot-imx/ directory and now can be
 flashed. A chip-specific offset is needed:</p>
 <table class="docutils align-default" id="offset-table">
@@ -1345,9 +1348,8 @@ flashed. A chip-specific offset is needed:</p>
 “BOOTLOADER_SEEK” and “BOOTLOADER_SEEK_EMMC”</p>
 </div>
 </section>
-</section>
 <section id="build-u-boot-with-a-fixed-ram-size">
-<h3><span class="section-number">5.2.2. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.5. </span>Build U-Boot With a Fixed RAM Size<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size" title="Link to this heading"></a></h3>
 <p>If you cannot boot your system anymore because the hardware introspection in the
 EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
 You should still contact support and flash the correct EEPROM data, as this
@@ -1364,10 +1366,10 @@ CONFIG_PHYCORE_IMX8MP_RAM_SIZE_FIX=y
 </div>
 <p>Choose the correct RAM size as populated on the board and uncomment the line for
 this ram size.
-After saving the changes, follow the remaining steps from Build U-Boot.</p>
+After saving the changes, follow the remaining steps from <a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
 </section>
-<section id="build-u-boot-with-a-fixed-ram-frequency">
-<h3><span class="section-number">5.2.3. </span>Build U-Boot With a Fixed RAM Frequency<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-frequency" title="Link to this heading"></a></h3>
+<section id="build-u-boot-with-a-fixed-ram-size-and-frequency">
+<h3><span class="section-number">5.2.6. </span>Build U-Boot With a Fixed RAM Size and Frequency<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-size-and-frequency" title="Link to this heading"></a></h3>
 <p>Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-i.MX 8M Plus SoMs
 with revision 1549.3 and newer also support 2GHz RAM timings. These will be
 enabled for supported boards automatically, but they can also be enabled or
@@ -1383,15 +1385,26 @@ CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
 CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
 </pre></div>
 </div>
-<p>Choose the correct RAM size as populated on the board and uncomment the line
-for this ram size. When not specifying the
-<code class="docutils literal notranslate"><span class="pre">CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX</span></code> option, the 1.5GHz timings will
-be chosen by default. After saving the changes, follow the remaining steps from
-<a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
+<p>After saving the changes, follow the remaining steps from <a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
+</section>
+<section id="build-u-boot-with-a-fixed-ram-frequency">
+<h3><span class="section-number">5.2.7. </span>Build U-Boot With a Fixed RAM Frequency<a class="headerlink" href="#build-u-boot-with-a-fixed-ram-frequency" title="Link to this heading"></a></h3>
+<p>Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can
+also be built with just fixed RAM Frequency while the RAM size will still be
+used from EEPROM.</p>
+<p>Edit the file configs/phycore-imx8mp_defconfig.
+The RAM size from EEPROM with fixed frequency will be used:</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>CONFIG_TARGET_PHYCORE_IMX8MP=y
+CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y</span>
+<span class="c1"># CONFIG_PHYCORE_IMX8MP_USE_1_5GHZ_RAM_TIMINGS=y</span>
+</pre></div>
+</div>
+<p>After saving the changes, follow the remaining steps from <a class="reference internal" href="#imx8mp-head-development-build-uboot"><span class="std std-ref">Build U-Boot</span></a>.</p>
 </section>
 </section>
-<section id="kernel">
-<h2><span class="section-number">5.3. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h2>
+<section id="kernel-standalone-build">
+<h2><span class="section-number">5.3. </span>Kernel standalone build<a class="headerlink" href="#kernel-standalone-build" title="Link to this heading"></a></h2>
 <p>The kernel is packaged in a FIT image together with the device tree. U-Boot has
 been adapted to be able to load a FIT image and boot the kernel contained in it.
 As a result, the kernel Image has to packaged in a FIT image.</p>
@@ -4171,8 +4184,8 @@ used. Suspend/resume is possible with:</p>
 </section>
 <section id="thermal-management">
 <h2><span class="section-number">7.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
-<section id="id3">
-<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="u-boot">
+<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
 <p>The previous temperature control in the U-Boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -4183,8 +4196,8 @@ the boot log:</p>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="kernel">
+<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
