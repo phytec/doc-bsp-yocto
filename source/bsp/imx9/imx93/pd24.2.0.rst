@@ -35,9 +35,9 @@
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
-.. |u-boot-defconfig| replace:: imx93-phyboard-segin_defconfig
-.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phyboard-segin_defconfig`` or ``imx93-phyboard-nash_defconfig``, depending on the board you are about to build for.
-.. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb`` or ``imx93-phyboard-nash.dtb``, depending on the board you are about to build for.
+.. |u-boot-defconfig| replace:: imx93-phycore_defconfig
+.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phycore_defconfig``
+.. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb``
 .. |u-boot-imx-mkimage-tag| replace:: lf-6.6.23-2.0.0
 .. |u-boot-soc-name| replace:: iMX9
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
