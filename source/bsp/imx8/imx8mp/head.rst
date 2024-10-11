@@ -390,6 +390,13 @@ module and board.
 .. include:: wireless-network.rsti
 
 .. include:: ../../peripherals/wireless-network.rsti
+   :end-before: .. bluetooth_chapter_start_label
+
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
+is described in the WLAN section.
+
+.. include:: ../../peripherals/wireless-network.rsti
+   :start-after: .. bluetooth_chapter_start_label
 
 .. note::
 
