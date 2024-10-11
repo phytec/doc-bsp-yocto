@@ -88,6 +88,8 @@ Now, restart the network daemon so that the configuration takes effect:
 Bluetooth
 .........
 
+.. bluetooth_chapter_start_label
+
 Bluetooth is connected to UART2 interface. More information about the module can
 be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.

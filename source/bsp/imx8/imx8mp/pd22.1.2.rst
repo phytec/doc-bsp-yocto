@@ -1285,6 +1285,13 @@ information about the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
 
 .. include:: ../../peripherals/wireless-network.rsti
+   :end-before: .. bluetooth_chapter_start_label
+
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
+is described in the WLAN section.
+
+.. include:: ../../peripherals/wireless-network.rsti
+   :start-after: .. bluetooth_chapter_start_label
 
 .. note::
 
