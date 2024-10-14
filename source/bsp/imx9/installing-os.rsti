@@ -41,8 +41,8 @@ saved on the SD card.
       :substitutions:
 
       target:~$ ls
-      |yocto-imagename|-|yocto-machinename|.partup
-      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+      |yocto-imagename|-|yocto-machinename|.rootfs.partup
+      |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext|
 
 *  Show list of available MMC devices:
 
@@ -68,7 +68,7 @@ saved on the SD card.
    .. code-block:: console
       :substitutions:
 
-      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/|emmcdev|
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/|emmcdev|
 
    .. tip::
 
@@ -85,14 +85,14 @@ saved on the SD card.
       .. code-block:: console
          :substitutions:
 
-         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.rootfs.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
 
       For compressed WIC images (\*.wic.xz):
 
       .. code-block:: console
          :substitutions:
 
-         target:~$ zstdcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+         target:~$ zstdcat |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext| | sudo dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
 
       Keep in mind that the root partition does not make use of the full space
       when flashing with ``dd``.
@@ -122,7 +122,7 @@ bootloader, kernel, device tree, device tree overlays, and root file system.
    .. code-block:: console
       :substitutions:
 
-      host:~$ unxz phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
+      host:~$ unxz |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext|
 
 Flash eMMC via Network in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,7 +139,7 @@ the network to the eMMC of the target with a one-line command:
 .. code-block:: console
    :substitutions:
 
-   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.rootfs.wic" | dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,7 +157,7 @@ Show your available image files on the host:
    :substitutions:
 
    host:~$ ls
-   |yocto-imagename|-|yocto-machinename|.wic
+   |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
 Send the image with the ``dd`` command combined with ssh through the network
 to the eMMC of your device:
@@ -165,7 +165,7 @@ to the eMMC of your device:
 .. code-block:: console
    :substitutions:
 
-   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic bs=1M status=progress | ssh root@192.168.3.11 "dd of=/dev/|emmcdev| conv=fsync"
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.rootfs.wic bs=1M status=progress | ssh root@192.168.3.11 "dd of=/dev/|emmcdev| conv=fsync"
 
 Flash eMMC U-Boot image via Network from running U-Boot
 .......................................................
@@ -200,7 +200,7 @@ Flash eMMC from USB in Linux
 
 These steps will show how to flash the eMMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
-|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
+|yocto-imagename|-|yocto-machinename|.rootfs.wic). Set the |ref-bootswitch| to SD Card.
 
 *  Insert and mount the USB stick:
 
@@ -224,7 +224,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
       target:~$ cd /mnt
       target:~$ ls
-      |yocto-imagename|-|yocto-machinename|.wic
+      |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
 *  Show list of available MMC devices:
 
@@ -249,7 +249,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.rootfs.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
 
 *  After a complete write, your board can boot from eMMC.
 
