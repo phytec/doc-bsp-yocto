@@ -201,13 +201,13 @@ First Start-up
      was processed for ``phytec-qt6demo-image``
    * **phytec-headless-image-phyboard-*-imx93-*.tar.gz**: when bitbake-build
      was processed for ``phytec-headless-image``
-*  **phytec-\*.wic.xz**: Compressed bootable SD
+*  **phytec-\*.rootfs.wic.xz**: Compressed bootable SD
    card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
    and Root file system.
 
-   * **phytec-qt6demo-image-phyboard-*-imx93-*.wic.xz**: when bitbake-build
+   * **phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build
      was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx93-*.wic.xz**: when bitbake-build
+   * **phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build
      was processed for ``phytec-headless-image``
 *  **imx93-11x11-evk_m33_\*.bin**, binaries of demo applications for the
    Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux
