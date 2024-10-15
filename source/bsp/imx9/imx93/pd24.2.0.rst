@@ -230,7 +230,7 @@ Bootmode Switch (S3)
    Hardware revision baseboard:
 
    *  |sbc-segin|: 1472.5
-   *  |sbc-nash|: 1616.0
+   *  |sbc-nash|: 1616.0, 1616.1
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
