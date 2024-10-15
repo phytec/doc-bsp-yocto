@@ -19,6 +19,7 @@
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyCORE-i.MX93
 .. |debug-uart| replace:: ttyLP0
+.. |serial-uart| replace:: ttyLP6
 .. |expansion-connector| replace:: X16
 
 
