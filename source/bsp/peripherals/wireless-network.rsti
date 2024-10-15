@@ -60,6 +60,8 @@ This should result in the following output:
 The ip address is automatically configured over DHCP. For other possible IP configurations,
 see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
 
+.. no-bluetooth-marker
+
 Bluetooth
 .........
 
