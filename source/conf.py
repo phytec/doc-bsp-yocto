@@ -45,6 +45,7 @@ exclude_patterns = [
 extlinks = {
     'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s', None),
     'linux-phytec': ('https://github.com/phytec/linux-phytec/%s', None),
+    'linux-phytec-imx': ('https://github.com/phytec/linux-phytec-imx/%s', None),
     'yocto-bootenv': ('https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=%s', None)
 }
 
