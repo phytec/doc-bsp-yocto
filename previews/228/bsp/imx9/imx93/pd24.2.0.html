@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=dd8bd272"></script>
+        <script src="../../../_static/documentation_options.js?v=3b73cf90"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-40-ge6bfe8b
+                imx8mp-pd22.1.2-45-gd4912a4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -110,8 +110,8 @@
 <li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.11. USB Host Controller</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">7.12. RS232/RS485</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#can-fd">7.13. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio-on-phyboard-segin">7.14. Audio on phyBOARD-Segin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio-on-phyboard-nash">7.15. Audio on phyBOARD-Nash</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-segin">7.14. Audio on phyBOARD-Segin i.MX 93</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-nash">7.15. Audio on phyBOARD-Nash i.MX 93</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#video">7.16. Video</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#display">7.17. Display</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#power-management">7.18. Power Management</a></li>
@@ -634,8 +634,8 @@ Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux</p></li>
 <p class="admonition-title">Tip</p>
 <p>Hardware revision baseboard:</p>
 <ul class="simple">
-<li><p>phyBOARD-Segin-i.MX 93: 1472.5</p></li>
-<li><p>phyBOARD-Nash-i.MX 93: 1616.0</p></li>
+<li><p>phyBOARD-Segin i.MX 93: 1472.5</p></li>
+<li><p>phyBOARD-Nash i.MX 93: 1616.0, 1616.1</p></li>
 </ul>
 </div>
 <p>The phyBOARD-Segin/Nash i.MX 93 features a boot switch with four individually switchable ports to
@@ -1856,13 +1856,13 @@ activated.</p>
 <span id="imx93-pd24-2-0-network"></span><h2><span class="section-number">7.2. </span>Network<a class="headerlink" href="#network" title="Link to this heading"></a></h2>
 <p>phyBOARD-Segin/Nash i.MX 93 provides two ethernet interfaces.</p>
 <ul class="simple">
-<li><p>On <strong>phyBOARD-Segin</strong> we have:</p>
+<li><p>On phyBOARD-Segin i.MX 93 we have:</p>
 <ul>
 <li><p>a 100 megabit Ethernet provided by phyCORE-i.MX93</p></li>
 <li><p>and 100 megabit Ethernet provided by phyBOARD.</p></li>
 </ul>
 </li>
-<li><p>On <strong>phyBOARD-Nash</strong> we have:</p>
+<li><p>On phyBOARD-Nash i.MX 93 we have:</p>
 <ul>
 <li><p>a 100 megabit Ethernet provided by phyCORE-i.MX93</p></li>
 <li><p>and 1 gigabit Ethernet provided by phyBOARD.</p></li>
@@ -1967,6 +1967,112 @@ set when the external environment is being loaded.</p>
 </div>
 </li>
 </ul>
+</section>
+</section>
+<section id="wlan">
+<h3><span class="section-number">7.2.2. </span>WLAN<a class="headerlink" href="#wlan" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For now, only phyBOARD-Segin i.MX 93 supports WLAN/Bluetooth features. WLAN/Bluetooth is
+thus not supported on phyBOARD-Nash i.MX 93 yet.</p>
+</div>
+<p>WLAN and Bluetooth on the phyBOARD-Segin i.MX 93 are provided by the PEB-WLBT-05 expansion card.
+The PEB-WLBT-05 for phyBOARD-Segin i.MX 93 Quickstart Guide shows you how to install the
+PEB-WLBT-05.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With the BSP Version PD24.2 and newer, the PEB-WLBT-05 overlay needs to be activated first,
+otherwise the PEB-WLBT-05 won’t be recognized.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/boot/bootenv.txt
+</pre></div>
+</div>
+<p>Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
+overlays!):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx93-phyboard-segin-peb-wlbt-05.dtbo
+</pre></div>
+</div>
+<p>The changes will be applied after a reboot:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>reboot
+</pre></div>
+</div>
+<p>For further information about devicetree overlays, read the <a class="reference internal" href="#imx93-pd24-2-0-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
+</div>
+<p>For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+<a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, bluetooth is not supported on phyBOARD-Segin i.MX 93 with PEB-WLBT-05
+expansion card due to hard-wired connections. However, it is possible to
+re-work PEB-WLBT-05 card by adjusting solder pads and enabling bluetooth in
+the software. Please contact your PHYTEC representative for more information.</p>
+</div>
+<section id="connecting-to-a-wlan-network">
+<h4><span class="section-number">7.2.2.1. </span>Connecting to a WLAN Network<a class="headerlink" href="#connecting-to-a-wlan-network" title="Link to this heading"></a></h4>
+<p>First set the correct regulatory domain for your country:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
+</pre></div>
+</div>
+<p>You will see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<p>Set up the wireless interface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link
+<span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>dev<span class="w"> </span>wlan0
+</pre></div>
+</div>
+<p>Now you can scan for available networks:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
+</pre></div>
+</div>
+<p>You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.</p>
+<p>To do so, add the network-credentials to the file <code class="docutils literal notranslate"><span class="pre">/etc/wpa_supplicant.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country=DE
+network={
+    ssid=&quot;&lt;SSID&gt;&quot;
+    proto=WPA2
+    psk=&quot;&lt;KEY&gt;&quot;
+}
+</pre></div>
+</div>
+<p>Now a connection can be established:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-D<span class="w"> </span>nl80211<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant.conf<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-B
+</pre></div>
+</div>
+<p>This should result in the following output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+</pre></div>
+</div>
+<p>To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section <cite>Changing the Network Configuration</cite> in the <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap">Yocto Reference Manual (scarthgap)</a>.</p>
+<p>First, create the directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+</pre></div>
+</div>
+<p>Then add the following configuration snippet in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/network/10-wlan0.network</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<p>Now, restart the network daemon so that the configuration takes effect:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -2643,7 +2749,7 @@ can be used for interfacing analog sensors.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/sys/bus/iio/devices/iio:deviceX/in_voltageY_raw
 </pre></div>
 </div>
-<p>On phyBOARD-Nash the ADC lines are accessible on X16 expansion connector:</p>
+<p>On phyBOARD-Nash i.MX 93 the ADC lines are accessible on X16 expansion connector:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>ADC input</p></th>
@@ -2929,11 +3035,11 @@ Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.</p>
 </section>
 <section id="rs232-rs485">
 <h2><span class="section-number">7.12. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
-<p>The <strong>phyBOARD-Nash</strong> i.MX 93 SoC provides one RS232/RS485 serial port.</p>
+<p>The phyBOARD-Nash i.MX 93 i.MX 93 SoC provides one RS232/RS485 serial port.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>RS232 with HW flow control and RS485 are not working due to HW bug on the
-phyBOARD-Nash PCB revision 1616.0</p>
+phyBOARD-Nash i.MX 93 PCB revision 1616.0</p>
 </div>
 <section id="rs232">
 <h3><span class="section-number">7.12.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
@@ -2944,12 +3050,12 @@ phyBOARD-Nash PCB revision 1616.0</p>
 </div>
 </li>
 <li><p>Configuration of the UART interface can be done with stty. For example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span><span class="w"> </span><span class="m">115200</span><span class="w"> </span>crtscts<span class="w"> </span>raw<span class="w"> </span>-echo
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/ttyLP6<span class="w"> </span><span class="m">115200</span><span class="w"> </span>crtscts<span class="w"> </span>raw<span class="w"> </span>-echo
 </pre></div>
 </div>
 </li>
 <li><p>With a simple echo and cat, basic communication can be tested. Example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">123</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">123</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/ttyLP6
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cat<span class="w"> </span>/dev/ttyUSB2
@@ -2963,7 +3069,7 @@ phyBOARD-Nash PCB revision 1616.0</p>
 <h3><span class="section-number">7.12.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
 <p>For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span><span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/ttyLP6<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>More information about the linux-serial-test tool and its parameters can be
@@ -3077,8 +3183,8 @@ on options and usage.</p>
 <a class="reference external" href="https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147">https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147</a> or
 <a class="reference external" href="https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105">https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105</a></p>
 </section>
-<section id="audio-on-phyboard-segin">
-<h2><span class="section-number">7.14. </span>Audio on phyBOARD-Segin<a class="headerlink" href="#audio-on-phyboard-segin" title="Link to this heading"></a></h2>
+<section id="audio-on-sbc-segin">
+<h2><span class="section-number">7.14. </span>Audio on phyBOARD-Segin i.MX 93<a class="headerlink" href="#audio-on-sbc-segin" title="Link to this heading"></a></h2>
 <p>On phyBOARD-Segin i.MX 93 the TI TLV320AIC3007 audio codec is used. It uses I2S
 for data transmission and I2C for codec control. The audio signals available
 are:</p>
@@ -3164,13 +3270,13 @@ capture operations.</p>
 <a class="reference external" href="https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62">https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62</a></p>
 </section>
 </section>
-<section id="audio-on-phyboard-nash">
-<h2><span class="section-number">7.15. </span>Audio on phyBOARD-Nash<a class="headerlink" href="#audio-on-phyboard-nash" title="Link to this heading"></a></h2>
+<section id="audio-on-sbc-nash">
+<h2><span class="section-number">7.15. </span>Audio on phyBOARD-Nash i.MX 93<a class="headerlink" href="#audio-on-sbc-nash" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Due to HW bug Audio is broken on phyBOARD-Nash i.MX 93 PCB revision: 1616.0</p>
 </div>
-<p>To use audio with phyBOARD-Nash an additional adapter for the Audio/Video
+<p>To use audio with phyBOARD-Nash i.MX 93 an additional adapter for the Audio/Video
 connector is needed. The PEB-AV-10 (1531.1 revision) can be bought separately to
 the Kit. PEB-AV-10 is populated with a TI TLV320AIC3007 audio codec. Audio
 support is done via the I2S interface and controlled via I2C.</p>
@@ -3648,6 +3754,41 @@ a selected trip point can be implemented</p>
 <p class="admonition-title">Note</p>
 <p>The actual values of the thermal trip points may differ since we mount CPUs
 with different temperature grades.</p>
+</div>
+</section>
+<section id="pwm-fan">
+<h3><span class="section-number">7.19.3. </span>PWM Fan<a class="headerlink" href="#pwm-fan" title="Link to this heading"></a></h3>
+<p>A PWM fan can be connected to the phyBOARD-Nash i.MX 93 connector X48 (label FAN).</p>
+<p>Afterwards, a PWM fan overlay needs to be activated, otherwise PWM fan won’t
+be recognized.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/boot/bootenv.txt
+</pre></div>
+</div>
+<p>The bootenv.txt file should look like this (it can also contain other devicetree
+overlays!):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx93-phyboard-nash-pwm-fan.dtbo
+</pre></div>
+</div>
+<p>The changes will be applied after a reboot:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>reboot
+</pre></div>
+</div>
+</div></blockquote>
+<p>For further information about devicetree overlays, read the <a class="reference internal" href="#imx93-pd24-2-0-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
+<p>The SoC only contains one temperature sensor which is already used by the
+thermal frequency scaling. The fan thus can not be controlled by the kernel.
+We use lmsensors with hwmon for this instead. lmsensors reads the temperature
+periodically and adjusts output PWM duty-cycle accordingly. By default,
+temperature threshold for PWM fan to activate is set to 60°C.</p>
+<p>The settings can be configured in the configuration file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/fancontrol
+</pre></div>
+</div>
+<p>Fan control is started by a systemd service during boot. This can be disabled
+with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>disable<span class="w"> </span>fancontrol
+</pre></div>
 </div>
 </section>
 </section>

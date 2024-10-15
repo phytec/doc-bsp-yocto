@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=dd8bd272"></script>
+        <script src="../../../_static/documentation_options.js?v=3b73cf90"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-40-ge6bfe8b
+                imx8mp-pd22.1.2-45-gd4912a4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2940,12 +2940,12 @@ phyBOARD-Nash PCB revision 1616.0</p>
 </div>
 </li>
 <li><p>Configuration of the UART interface can be done with stty. For example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span><span class="w"> </span><span class="m">115200</span><span class="w"> </span>crtscts<span class="w"> </span>raw<span class="w"> </span>-echo
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/ttyLP6<span class="w"> </span><span class="m">115200</span><span class="w"> </span>crtscts<span class="w"> </span>raw<span class="w"> </span>-echo
 </pre></div>
 </div>
 </li>
 <li><p>With a simple echo and cat, basic communication can be tested. Example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">123</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">123</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/ttyLP6
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cat<span class="w"> </span>/dev/ttyUSB2
@@ -2959,7 +2959,7 @@ phyBOARD-Nash PCB revision 1616.0</p>
 <h3><span class="section-number">7.12.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
 <p>For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/<span class="p">|</span>serial-uart<span class="p">|</span><span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>linux-serial-test<span class="w"> </span>-p<span class="w"> </span>/dev/ttyLP6<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--rs485<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>More information about the linux-serial-test tool and its parameters can be
@@ -3644,6 +3644,41 @@ a selected trip point can be implemented</p>
 <p class="admonition-title">Note</p>
 <p>The actual values of the thermal trip points may differ since we mount CPUs
 with different temperature grades.</p>
+</div>
+</section>
+<section id="pwm-fan">
+<h3><span class="section-number">7.19.3. </span>PWM Fan<a class="headerlink" href="#pwm-fan" title="Link to this heading"></a></h3>
+<p>A PWM fan can be connected to the phyBOARD-Nash i.MX 93 connector X48 (label FAN).</p>
+<p>Afterwards, a PWM fan overlay needs to be activated, otherwise PWM fan won’t
+be recognized.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/boot/bootenv.txt
+</pre></div>
+</div>
+<p>The bootenv.txt file should look like this (it can also contain other devicetree
+overlays!):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>overlays=imx93-phyboard-nash-pwm-fan.dtbo
+</pre></div>
+</div>
+<p>The changes will be applied after a reboot:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>reboot
+</pre></div>
+</div>
+</div></blockquote>
+<p>For further information about devicetree overlays, read the <a class="reference internal" href="#imx93-pd24-1-1-device-tree"><span class="std std-ref">device tree</span></a> chapter.</p>
+<p>The SoC only contains one temperature sensor which is already used by the
+thermal frequency scaling. The fan thus can not be controlled by the kernel.
+We use lmsensors with hwmon for this instead. lmsensors reads the temperature
+periodically and adjusts output PWM duty-cycle accordingly. By default,
+temperature threshold for PWM fan to activate is set to 60°C.</p>
+<p>The settings can be configured in the configuration file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/fancontrol
+</pre></div>
+</div>
+<p>Fan control is started by a systemd service during boot. This can be disabled
+with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>disable<span class="w"> </span>fancontrol
+</pre></div>
 </div>
 </section>
 </section>
