@@ -14,6 +14,8 @@
 .. |kit| replace:: **phyBOARD-Segin i.MX 93 and phyBOARD-Nash i.MX 93 Kit**
 .. |kit-ram-size| replace:: 1GiB
 .. |sbc| replace:: phyBOARD-Segin/Nash i.MX 93
+.. |sbc-segin| replace:: phyBOARD-Segin i.MX 93
+.. |sbc-nash| replace:: phyBOARD-Nash i.MX 93
 .. |soc| replace:: i.MX 93
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyCORE-i.MX93
@@ -226,8 +228,8 @@ Bootmode Switch (S3)
 
    Hardware revision baseboard:
 
-   *  phyBOARD-Segin-i.MX 93: 1472.5
-   *  phyBOARD-Nash-i.MX 93: 1616.0
+   *  |sbc-segin|: 1472.5
+   *  |sbc-nash|: 1616.0
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
@@ -431,12 +433,12 @@ Network
 
 |sbc| provides two ethernet interfaces.
 
-*  On **phyBOARD-Segin** we have:
+*  On |sbc-segin| we have:
 
    *  a 100 megabit Ethernet provided by |som|
    *  and 100 megabit Ethernet provided by phyBOARD.
 
-*  On **phyBOARD-Nash** we have:
+*  On |sbc-nash| we have:
 
    *  a 100 megabit Ethernet provided by |som|
    *  and 1 gigabit Ethernet provided by phyBOARD.
@@ -460,7 +462,7 @@ DT configuration for the eMMC interface can be found here:
 
 .. include:: /bsp/peripherals/adc.rsti
 
-On phyBOARD-Nash the ADC lines are accessible on X16 expansion connector:
+On |sbc-nash| the ADC lines are accessible on X16 expansion connector:
 
 ========= ========
 ADC input X16 pin
@@ -530,11 +532,11 @@ DT representation for USB Host:
 RS232/RS485
 -----------
 
-The **phyBOARD-Nash** i.MX 93 SoC provides one RS232/RS485 serial port.
+The |sbc-nash| i.MX 93 SoC provides one RS232/RS485 serial port.
 
 .. warning::
    RS232 with HW flow control and RS485 are not working due to HW bug on the
-   phyBOARD-Nash PCB revision 1616.0
+   |sbc-nash| PCB revision 1616.0
 
 .. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti
@@ -558,10 +560,10 @@ Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147` or
 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105`
 
-Audio on phyBOARD-Segin
------------------------
+Audio on |sbc-segin|
+--------------------
 
-On phyBOARD-Segin i.MX 93 the TI TLV320AIC3007 audio codec is used. It uses I2S
+On |sbc-segin| the TI TLV320AIC3007 audio codec is used. It uses I2S
 for data transmission and I2C for codec control. The audio signals available
 are:
 
@@ -606,14 +608,14 @@ as the default input source.
 Device Tree Audio configuration:
 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62`
 
-Audio on phyBOARD-Nash
-----------------------
+Audio on |sbc-nash|
+-------------------
 
 .. warning::
 
-   Due to HW bug Audio is broken on phyBOARD-Nash i.MX 93 PCB revision: 1616.0
+   Due to HW bug Audio is broken on |sbc-nash| PCB revision: 1616.0
 
-To use audio with phyBOARD-Nash an additional adapter for the Audio/Video
+To use audio with |sbc-nash| an additional adapter for the Audio/Video
 connector is needed. The PEB-AV-10 (1531.1 revision) can be bought separately to
 the Kit. PEB-AV-10 is populated with a TI TLV320AIC3007 audio codec. Audio
 support is done via the I2S interface and controlled via I2C.
