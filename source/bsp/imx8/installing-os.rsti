@@ -211,7 +211,7 @@ Load your image from the USB device to RAM:
    USB0:   USB EHCI 1.00
    scanning bus 0 for devices... 2 USB Device(s) found
           scanning usb for storage devices... 1 Storage Device(s) found
-   u-boot=> fatload usb 0:1 ${loadaddr} phytec-headless-image-|yocto-machinename|.rootfs.wic
+   u-boot=> fatload usb 0:1 0x58000000 phytec-headless-image-|yocto-machinename|.rootfs.wic
    497444864 bytes read in 31577 ms (15 MiB/s)
 
 Write the image to the eMMC:
@@ -222,7 +222,7 @@ Write the image to the eMMC:
    switch to partitions #0, OK
    mmc2(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+   u-boot=> mmc write 0x58000000 0x0 ${nblk}
 
    MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
    u-boot=> boot
