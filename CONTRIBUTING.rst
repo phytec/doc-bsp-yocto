@@ -362,6 +362,17 @@ the language path to the ``languages`` list in the ``conf.py`` file.::
        ]
    }
 
+Edit translation messages with Poedit
+-------------------------------------
+
+Poedit is a popular translation editor that can be used to edit the po files.
+To align with the linebreaks that Sphinx is using, make sure to set the
+following options in Files/Preferences/Advanced.::
+
+   Line endings: Unix
+   Unselect "Wrap at"
+   Select "Preserve formatting of existing files"
+
 Unresolved Issues
 =================
 
