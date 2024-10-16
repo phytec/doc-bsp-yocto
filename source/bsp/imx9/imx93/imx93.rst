@@ -22,3 +22,12 @@ BSP-Yocto-NXP-i.MX93-PD24.1.0
 
    pd24.1.0
 
+BSP-Yocto-NXP-i.MX93-PD24.2.0
+=============================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   pd24.2.0

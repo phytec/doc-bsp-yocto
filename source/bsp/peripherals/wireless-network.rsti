@@ -85,6 +85,8 @@ Now, restart the network daemon so that the configuration takes effect:
 
    target:~$ systemctl restart systemd-networkd
 
+.. no-bluetooth-marker
+
 Bluetooth
 .........
 
