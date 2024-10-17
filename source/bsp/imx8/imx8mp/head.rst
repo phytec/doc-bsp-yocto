@@ -311,7 +311,7 @@ To revert to the old style of booting, you may do
    imx8mp-vm017-csi2-fpdlink.dtbo
 
 .. _imx8mp-head-ubootexternalenv:
-.. include:: ../dt-overlays.rsti
+.. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
