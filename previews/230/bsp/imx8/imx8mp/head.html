@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=8eb1d4e1"></script>
+        <script src="../../../_static/documentation_options.js?v=9fec26ef"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,7 +41,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-33-g64f1d9c
+                imx8mp-pd22.1.2-33-g7d0bad1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -2067,29 +2067,19 @@ u-boot=&gt; env set no_bootenv 1
 overlays and having overlays disabled, remove the overlays definition line from
 the bootenv.txt file instead of setting no_bootenv.</p>
 </section>
-<section id="extension-command">
-<h4><span class="section-number">6.2.2.2. </span>Extension Command<a class="headerlink" href="#extension-command" title="Link to this heading"></a></h4>
-<p>The U-Boot extension command makes it possible to easily apply overlays that
-have been detected and added to a list by the board code callback
-<a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2022.04_2.2.2-phy5#n149">extension_board_scan()</a>.
-Overlays applied this way disable components that are not populated on the SoM.
-The detection is done with the EEPROM data (EEPROM SoM Detection) found on the
-SoM i2c EEPROM.</p>
+<section id="som-variants">
+<h4><span class="section-number">6.2.2.2. </span>SoM Variants<a class="headerlink" href="#som-variants" title="Link to this heading"></a></h4>
+<p>Additional overlays are applied automatically to disable components that are not
+populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM
+Detection) found on the SoM i2c EEPROM.</p>
 <p>It depends on the SoM variant if any device tree overlays will be applied. To check
 if an overlay will be applied on the running SoM in U-Boot, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; extension scan
-Found 1 extension board(s).
-u-boot=&gt; extension list
-Extension 0: phyCORE-i.MX8MP no SPI flash
-        Manufacturer:           PHYTEC
-        Version:
-        Devicetree overlay:     imx8mp-phycore-no-spiflash.dtbo
-        Other information:      SPI flash not populated on SoM
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; env print fit_extensions
 </pre></div>
 </div>
 <p>If the EEPROM data is not available, no device tree overlays are applied.</p>
-<p>To prevent running the extension command during boot the <code class="docutils literal notranslate"><span class="pre">${no_extensions}</span></code>
-variable can be set to <cite>1</cite> in the bootloader environment:</p>
+<p>To prevent application of the SoM variant related overlays the
+<code class="docutils literal notranslate"><span class="pre">${no_extensions}</span></code> variable can be set to <cite>1</cite> in the bootloader environment:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_extensions 1
 u-boot=&gt; boot
 </pre></div>
