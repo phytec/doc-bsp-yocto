@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=fd432834"></script>
+        <script src="../../../_static/documentation_options.js?v=fd6d5c01"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -42,7 +42,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-33-gdd64db6
+                imx8mp-pd22.1.2-33-g64f1d9c
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1633,19 +1633,19 @@ imx8mp-vm017-csi2-fpdlink.dtbo
 <p><code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。</p>
 <p><code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量可以直接在U-Boot环境中设置，也可以作为外部 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 环境文件的一部分。默认情况下， <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量来自位于启动分区的外部 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 环境文件。您可以在启动的目标设备上从Linux读取和写入该文件：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/boot/bootenv.txt
-<span class="go">overlays=conf-imx8mp-phyboard-pollux-rdk-peb-eval-01.dtbo#conf-imx8mp-phyboard-pollux-peb-av-010.dtbo</span>
+<span class="go">overlays=imx8mp-phyboard-pollux-rdk-peb-eval-01.dtbo imx8mp-phyboard-pollux-peb-av-010.dtbo</span>
 </pre></div>
 </div>
 <p>更改将在下次重启后生效。如果没有可用的 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文件，则可以直接在U-Boot环境中设置overlay变量。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv overlays conf-imx8mp-phyboard-pollux-peb-av-010.dtbo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv overlays imx8mp-phyboard-pollux-peb-av-010.dtbo
 u-boot=&gt; printenv overlays
-overlays=conf-imx8mp-phyboard-pollux-peb-av-010.dtbo
+overlays=imx8mp-phyboard-pollux-peb-av-010.dtbo
 u-boot=&gt; boot
 </pre></div>
 </div>
 <p>如果用户定义的 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量应该直接从U-Boot环境加载，但仍然有一个外部的 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文件，则需要将设置 <code class="docutils literal notranslate"><span class="pre">${no_bootenv}</span></code> 变量：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_bootenv 1
-u-boot=&gt; setenv overlays conf-imx8mp-phyboard-pollux-peb-av-010.dtbo
+u-boot=&gt; setenv overlays imx8mp-phyboard-pollux-peb-av-010.dtbo
 u-boot=&gt; boot
 </pre></div>
 </div>
