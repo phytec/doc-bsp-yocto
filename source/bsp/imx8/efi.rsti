@@ -1,0 +1,32 @@
+EFI Boot
+--------
+
+Standardboot in U-Boot also supports booting distros over efi. By default the
+U-Boot will search for a bootscript first, which is used to boot our Ampliphy
+distro. If it does not find any bootscript, it will search for bootable efi
+applications. So for booting over efi just make sure you don't have our distro
+installed.
+
+Disable booting with efi
+........................
+
+To disable booting with efi you have to set the ``doefiboot`` variable to 0.
+Also make sure you do not have ``efi`` or ``efi_mgr`` specified in the
+``bootmeths`` environment variable.
+
+.. code-block:: console
+
+   u-boot=> setenv doefiboot 0
+   u-boot=> env save; env save;
+
+Switch to only efi boot
+.......................
+
+If you want to only boot with efi, you can set the ``bootmeths`` environment
+variable to efi. Also make sure you have the ``doefiboot`` environment variable
+set to 1.
+
+.. code-block:: console
+
+   u-boot=> setenv bootmeths efi
+   u-boot=> env save; env save;

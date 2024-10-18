@@ -1,0 +1,51 @@
+Installing a distro
+...................
+
+With efi you can install and boot different distros like openSUSE, Fedora or
+Debian. First you have to get the iso Image from their website. For example:
+
+https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/
+
+Then copy the .iso file to a usb stick for example. Make sure you select the
+correct device:
+
+.. code-block:: console
+
+   sudo dd if=file.iso of=/dev/sdx bs=1M conv=fsync status=progress
+
+Insert the USB stick into the board and boot it. GRUB will then prompt you with
+a menu where you can select what to do. Here select install. Then you have to
+click through the installation menu. This is relatively straightforward and
+differs a bit for every distro. You can install the distro for example to emmc
+(|emmcdev-uboot|) or sdcard (|sdcarddev-uboot|). Make sure you do not overwrite
+your U-Boot during the install. Best to choose a different medium to install to
+than the U-Boot is stored on. Otherwise manual partitioning will be required.
+The automatic partitioning will start at the beginning of the disk. To not
+overwrite the U-Boot, use an offset of 4MiB at the beginning of the disk.
+
+During the Installation of Debian you will be asked, if you want to Force the
+GRUB installation to the EFI removable media path. Select no. Also select no,
+when you will be asked if you want to update the NVRAM variables. Otherwise the
+grub-dummy installation step will fail and you will be sent back to the
+"Force GRUB installation" prompt.
+
+After the installation is complete, reboot the board and remove the
+installation medium (USB-stick). The board should then boot the distro you
+installed.
+
+If that does not happen, check if there is a boot option set for the distro.
+The easiest way is with the ``eficonfig`` command.
+
+.. code-block:: console
+
+   u-boot=> eficonfig
+
+That will open a menu. Then you can select ``Edit Boot Option``. It will show
+you the current boot options. If this is empty or you don't find your distro,
+select ``Add Boot Option`` to add a new one. For debian for example you only
+need to set the description and the file. You can enter whatever you want into
+the description field. When you select the file field, you can select the disc
+you installed the distro on and partition number one. For example
+"|emmcdev-uboot|:1" for emmc, or "|sdcarddev-uboot|:1" for sdcard. The file you
+need to select is at ``EFI/debian/grubaa64.efi``. After that save, quit and
+reset the board. The board should then boot into debian.
