@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=390990b4"></script>
+        <script src="../../../_static/documentation_options.js?v=1bb5d655"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -42,7 +42,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-32-g4a1b940
+                imx8mp-pd22.1.2-33-gc432b91
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -718,7 +718,7 @@ starting USB...
 USB0:   USB EHCI 1.00
 scanning bus 0 for devices... 2 USB Device(s) found
        scanning usb for storage devices... 1 Storage Device(s) found
-u-boot=&gt; fatload usb 0:1 ${loadaddr} phytec-headless-image-|yocto-machinename|.rootfs.wic
+u-boot=&gt; fatload usb 0:1 0x58000000 phytec-headless-image-|yocto-machinename|.rootfs.wic
 497444864 bytes read in 31577 ms (15 MiB/s)
 </pre></div>
 </div>
@@ -727,7 +727,7 @@ u-boot=&gt; fatload usb 0:1 ${loadaddr} phytec-headless-image-|yocto-machinename
 switch to partitions #0, OK
 mmc2(part 0) is current device
 u-boot=&gt; setexpr nblk ${filesize} / 0x200
-u-boot=&gt; mmc write ${loadaddr} 0x0 ${nblk}
+u-boot=&gt; mmc write 0x58000000 0x0 ${nblk}
 
 MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
 u-boot=&gt; boot
