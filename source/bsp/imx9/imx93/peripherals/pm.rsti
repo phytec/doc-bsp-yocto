@@ -28,6 +28,11 @@ LowDrive (LD) with SWFFC  900 MHz          625 MT/s         800mV
 The |soc| BSP supports the VFS feature. The Linux kernel provides a LPM driver
 that allows setting VDD_SOC, CPU freq and DDR speed.
 
+.. note::
+   Low-cost |soc| SoC variants such as parts numbers NXP IMX9301/IMX9302 do not
+   support VFS features. Those SoCs always run in LowDrive (LD) mode. Hence,
+   the Linux LPM driver is disabled automatically for SoMs with such SoCs.
+
 * To put the device in **OverDrive (OD)** mode type:
 
    .. code-block:: console
