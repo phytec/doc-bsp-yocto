@@ -238,6 +238,8 @@ select the phyCORE-|soc| default bootsource.
 
 .. include:: ../installing-os.rsti
 
+.. include:: /bsp/efi.rsti
+
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
