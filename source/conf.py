@@ -75,6 +75,9 @@ html_title = 'PHYTEC BSP Documentation'
 html_show_sphinx = False
 html_baseurl = 'https://phytec.github.io/doc-bsp-yocto/'
 
+# Add robots.txt so search engines can index the site
+html_extra_path = ['sphinx/static/robots.txt']
+
 # Link scheme
 sitemap_url_scheme = "{lang}{link}"
 sitemap_locales = ['zh_CN']
