@@ -35,6 +35,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx_rtd_theme',
     'sphinx_substitution_extensions',
+    'sphinx_sitemap',
 ]
 
 # List of patterns, relative to source directory, that match files and
@@ -72,6 +73,11 @@ html_logo = 'sphinx/static/logo-phytec.svg'
 html_favicon = 'sphinx/static/favicon.ico'
 html_title = 'PHYTEC BSP Documentation'
 html_show_sphinx = False
+html_baseurl = 'https://phytec.github.io/doc-bsp-yocto/'
+
+# Link scheme
+sitemap_url_scheme = "{lang}{link}"
+sitemap_locales = ['zh_CN']
 
 html_theme_options = {
     'logo_only': False,
