@@ -2,3 +2,4 @@ Sphinx==7.2.6
 sphinx-rtd-theme==2.0.0
 Sphinx-Substitution-Extensions==2022.2.16.0
 sphinx-intl==2.2.0
+sphinx-sitemap==2.6.0
