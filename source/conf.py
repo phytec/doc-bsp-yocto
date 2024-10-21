@@ -20,10 +20,7 @@ copyright = '2024, PHYTEC Messtechnik GmbH'
 author = 'PHYTEC'
 
 # Use git describe to get the version e.g.: imx8-pd23.1.0-1-gb1830e
-release = re.sub('', '', os.popen('git describe --tags').read().strip())
-
-# Assign to the version variable, to list the version in the html as well.
-version = release
+version = re.sub('', '', os.popen('git describe --tags').read().strip())
 
 # -- General configuration ---------------------------------------------------
 
@@ -111,10 +108,23 @@ latex_engine = 'xelatex'
 latex_elements = {
     'fontpkg':
     '\\usepackage{lmodern}',
-    'preamble':
-    '''
-      \\usepackage{fontspec}
-      \\setmonofont{DejaVu Sans Mono}[Scale=0.8]
+    'preamble': r'''
+      \usepackage{fontspec}
+      \setmonofont{DejaVu Sans Mono}[Scale=0.8]
+      \makeatletter
+      % Redefine Header and Footer style
+      \fancypagestyle{normal}{
+        \fancyhf{}
+        \fancyfoot[R]{{\py@HeaderFamily\thepage}}
+        \fancyfoot[L]{{\py@HeaderFamily\nouppercase{\leftmark}}}
+        \fancyhead[L]{{\py@HeaderFamily \@title}}
+        \fancyhead[R]{{\py@HeaderFamily Documentation Rev.: \textit{''' + version + r'''}}}
+        \renewcommand{\headrulewidth}{0.4pt}
+        \renewcommand{\footrulewidth}{0.4pt}
+      }
+      % Redefine \chaptermark to exclude chapter number
+      \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \makeatother
     ''',
 }
 
@@ -122,7 +132,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/head',
         'imx8mp-head.tex',
-        'L-1017e.Ax i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -130,7 +140,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/mainline-head',
         'imx8mp-mainline-head.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -138,7 +148,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd24.1.2',
         'imx8mp-pd24.1.2.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual PD24.1.2',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -146,7 +156,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd24.1.1',
         'imx8mp-pd24.1.1.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual PD24.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -154,7 +164,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd23.1.0',
         'imx8mp-pd23.1.0.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -162,7 +172,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd22.1.2',
         'imx8mp-pd22.1.2.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual PD22.1.2',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -170,7 +180,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd22.1.1',
         'imx8mp-pd22.1.1.tex',
-        'i.MX 8M Plus BSP Manual',
+        'i.MX 8M Plus BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -178,7 +188,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/head',
         'imx8mm-head.tex',
-        'L-1002e.Ax i.MX 8M Mini BSP Manual',
+        'i.MX 8M Mini BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -186,7 +196,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/pd23.1.0',
         'imx8mm-pd23.1.0.tex',
-        'i.MX 8M Mini BSP Manual',
+        'i.MX 8M Mini BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -194,7 +204,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/pd22.1.1',
         'imx8mm-pd22.1.1.tex',
-        'i.MX 8M Mini BSP Manual',
+        'i.MX 8M Mini BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -202,7 +212,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/head',
         'imx8mn-head.tex',
-        'L-1002e.Ax i.MX 8M Mini BSP Manual',
+        'i.MX 8M Mini BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -210,7 +220,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/pd23.1.0',
         'imx8mn-pd23.1.0.tex',
-        'i.MX 8M Nano BSP Manual',
+        'i.MX 8M Nano BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -218,7 +228,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/pd22.1.1',
         'imx8mn-pd22.1.1.tex',
-        'i.MX 8M Nano BSP Manual',
+        'i.MX 8M Nano BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -226,7 +236,7 @@ latex_documents = [
     (
         'bsp/imx9/imx93/pd24.1.0',
         'imx93-pd24.1.0.tex',
-        'i.MX 93 BSP Manual',
+        'i.MX 93 BSP Manual PD24.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -234,7 +244,7 @@ latex_documents = [
     (
         'bsp/imx9/imx93/pd24.1.1',
         'imx93-pd24.1.1.tex',
-        'i.MX 93 BSP Manual',
+        'i.MX 93 BSP Manual PD24.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
