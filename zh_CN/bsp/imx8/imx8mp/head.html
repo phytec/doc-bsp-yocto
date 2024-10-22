@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=1bb5d655"></script>
+        <script src="../../../_static/documentation_options.js?v=c11daaee"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -42,7 +42,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-33-gc432b91
+                imx8mp-pd22.1.2-35-g928abd32
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1698,49 +1698,61 @@ imx8mp-vm017-csi2-fpdlink.dtbo
 <p id="imx8mp-head-ubootexternalenv">可以在Linux或U-Boot运行时配置overlay。overlay是在引导命令调用后、内核加载之前的引导过程中生效。接下来的部分将更详细地解释配置方法。</p>
 <section id="set-overlays-variable">
 <h4><span class="section-number">6.2.2.1. </span>设置 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量<a class="headerlink" href="#set-overlays-variable" title="Link to this heading"></a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。</p>
-<p><code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量可以直接在U-Boot环境中设置，也可以作为外部 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 环境文件的一部分。默认情况下， <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量来自位于启动分区的外部 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 环境文件。您可以在启动的目标设备上从Linux读取和写入该文件：</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> U-Boot environment variable contains a number-sign (#)
+separated list of overlays that will be applied during boot. The overlays
+listed in the overlays variable must be included in the FIT image. Overlays set
+in the $KERNEL_DEVICETREE Yocto machine variable will automatically be added to
+the FIT image.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> variable can either be set directly in the U-Boot
+environment or can be part of the external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> environment file.
+When desired to use the overlays variable as set manually in the U-Boot
+environment, disable bootenv by setting <code class="docutils literal notranslate"><span class="pre">env</span> <span class="pre">set</span> <span class="pre">no_bootenv</span> <span class="pre">1</span></code> as the overlays
+variable may be overwritten during the execution of the boot script.
+By default, the <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> variable comes from the external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code>
+environment file which is located in the boot partition.
+You can read and write the file on booted target from linux:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>cat<span class="w"> </span>/boot/bootenv.txt
-<span class="go">overlays=imx8mp-phyboard-pollux-rdk-peb-eval-01.dtbo imx8mp-phyboard-pollux-peb-av-10.dtbo</span>
+<span class="go">overlays=conf-imx8mp-phyboard-pollux-rdk-peb-eval-01.dtbo#imx8mp-phyboard-pollux-peb-av-10.dtbo</span>
 </pre></div>
 </div>
 <p>更改将在下次重启后生效。如果没有可用的 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文件，则可以直接在U-Boot环境中设置overlay变量。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv overlays imx8mp-phyboard-pollux-peb-av-10.dtbo
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv overlays conf-imx8mp-phyboard-pollux-peb-av-10.dtbo
 u-boot=&gt; printenv overlays
-overlays=imx8mp-phyboard-pollux-peb-av-10.dtbo
+overlays=conf-imx8mp-phyboard-pollux-peb-av-10.dtbo
 u-boot=&gt; boot
 </pre></div>
 </div>
 <p>如果用户定义的 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量应该直接从U-Boot环境加载，但仍然有一个外部的 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文件，则需要将设置 <code class="docutils literal notranslate"><span class="pre">${no_bootenv}</span></code> 变量：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_bootenv 1
-u-boot=&gt; setenv overlays imx8mp-phyboard-pollux-peb-av-10.dtbo
+u-boot=&gt; setenv overlays conf-imx8mp-phyboard-pollux-peb-av-10.dtbo
 u-boot=&gt; boot
 </pre></div>
 </div>
 <p>有关外部环境的更多信息，请参见 U-boot External Environment subsection of the
 <a class="reference internal" href="#imx8mp-head-ubootexternalenv"><span class="std std-ref">device tree overlay section</span></a>。</p>
-<p>我们使用 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量中列出的overlay，可以在U-Boot的环境中将 <code class="docutils literal notranslate"><span class="pre">${no_overlays}</span></code> 变量设置为 <cite>1</cite>。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_overlays 1
-u-boot=&gt; boot
+<p>We use the <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> variable for overlays describing expansion boards and
+cameras that can not be detected during run time. To prevent applying overlays
+unset the overlays variable and set no_bootenv to anything other than 0.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; env delete overlays
+u-boot=&gt; env set no_bootenv 1
 </pre></div>
 </div>
+<p>If desired to use the bootenv.txt file for setting U-Boot variables other than
+overlays and having overlays disabled, remove the overlays definition line from
+the bootenv.txt file instead of setting no_bootenv.</p>
 </section>
-<section id="extension-command">
-<h4><span class="section-number">6.2.2.2. </span>扩展命令<a class="headerlink" href="#extension-command" title="Link to this heading"></a></h4>
-<p>U-Boot扩展命令使得能够轻松应用由板代码回调  <a class="reference external" href="https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2022.04_2.2.2-phy5#n149">extension_board_scan()</a> 检测并添加到列表中的overlay。以这种方式应用的overlay会禁用在核心板上未贴装的组件。检测是通过在核心板 i2c EEPROM中找到的EEPROM数据（EEPROM SoM Detection）完成的。</p>
+<section id="som-variants">
+<h4><span class="section-number">6.2.2.2. </span>SoM Variants<a class="headerlink" href="#som-variants" title="Link to this heading"></a></h4>
+<p>Additional overlays are applied automatically to disable components that are not
+populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM
+Detection) found on the SoM i2c EEPROM.</p>
 <p>这取决于核心板型号是否会应用任何设备树overlay。要检查在U-Boot中运行的SoM是否会应用overlay，请运行：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; extension scan
-Found 1 extension board(s).
-u-boot=&gt; extension list
-Extension 0: phyCORE-i.MX8MP no SPI flash
-        Manufacturer:           PHYTEC
-        Version:
-        Devicetree overlay:     imx8mp-phycore-no-spiflash.dtbo
-        Other information:      SPI flash not populated on SoM
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; env print fit_extensions
 </pre></div>
 </div>
 <p>如果没有可用的EEPROM数据，则不应用任何设备树overlay。</p>
-<p>为了防止在启动时运行扩展命令，可以在bootloader环境中将 <code class="docutils literal notranslate"><span class="pre">${no_extensions}</span></code> 变量设置为 <cite>1</cite> ：</p>
+<p>To prevent application of the SoM variant related overlays the
+<code class="docutils literal notranslate"><span class="pre">${no_extensions}</span></code> variable can be set to <cite>1</cite> in the bootloader environment:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv no_extensions 1
 u-boot=&gt; boot
 </pre></div>
