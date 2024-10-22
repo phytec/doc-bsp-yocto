@@ -71,3 +71,49 @@ default policy used in the BSP is step_wise.
 
    The actual values of the thermal trip points may differ since we mount CPUs
    with different temperature grades.
+
+PWM Fan
+........
+
+A PWM fan can be connected to the phyBOARD-Nash i.MX 93 connector X48 (label FAN).
+
+Afterwards, a PWM fan overlay needs to be activated, otherwise PWM fan won't
+be recognized.
+
+.. code-block:: console
+
+   target:~$ vi /boot/bootenv.txt
+
+The bootenv.txt file should look like this (it can also contain other devicetree
+overlays!):
+
+.. code-block::
+
+   overlays=imx93-phyboard-nash-pwm-fan.dtbo
+
+The changes will be applied after a reboot:
+
+   .. code-block:: console
+
+      target:~$ reboot
+
+For further information about devicetree overlays, read the |ref-dt| chapter.
+
+The SoC only contains one temperature sensor which is already used by the
+thermal frequency scaling. The fan thus can not be controlled by the kernel.
+We use lmsensors with hwmon for this instead. lmsensors reads the temperature
+periodically and adjusts output PWM duty-cycle accordingly. By default,
+temperature threshold for PWM fan to activate is set to 60°C.
+
+The settings can be configured in the configuration file:
+
+.. code-block::
+
+   /etc/fancontrol
+
+Fan control is started by a systemd service during boot. This can be disabled
+with:
+
+.. code-block:: console
+
+   target:~$ systemctl disable fancontrol
