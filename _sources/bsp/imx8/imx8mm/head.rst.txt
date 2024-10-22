@@ -23,6 +23,7 @@
 .. |som| replace:: phyCORE-i.MX8MM
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
+.. |bluetooth-uart| replace:: UART2
 .. |expansion-connector| replace:: X8
 
 

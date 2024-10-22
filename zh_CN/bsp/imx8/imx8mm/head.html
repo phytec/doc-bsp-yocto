@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c11daaee"></script>
+        <script src="../../../_static/documentation_options.js?v=2fe429d5"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -42,7 +42,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-35-g928abd32
+                imx8mp-pd22.1.2-40-gdb2ca67a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1945,33 +1945,19 @@ network={
 </pre></div>
 </div>
 <p>这会得到如下输出：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
-ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Successfully initialized wpa_supplicant
 </pre></div>
 </div>
-<p>要完成配置，您可以配置DHCP以接收IP地址（大多数WLAN接入点都支持）。有关其他可能的IP配置，请参阅 <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone">Yocto Reference Manual (kirkstone)</a> 中的“更改网络配置”部分。</p>
-<p>首先，创建目录：</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
-</pre></div>
-</div>
-<p>然后在 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/network/10-wlan0.network</span></code> 中添加以下配置片段：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># file /etc/systemd/network/10-wlan0.network
-[Match]
-Name=wlan0
-
-[Network]
-DHCP=yes
-</pre></div>
-</div>
-<p>现在，请重启网络守护进程以使配置生效：</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
-</pre></div>
-</div>
+<p>The ip address is automatically configured over DHCP. For other possible IP configurations,
+see section <cite>Changing the Network Configuration</cite> in the <a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone">Yocto Reference Manual (kirkstone)</a>.</p>
 </section>
 </section>
 <section id="bluetooth">
 <h3><span class="section-number">7.3.3. </span>蓝牙<a class="headerlink" href="#bluetooth" title="Link to this heading"></a></h3>
-<p>蓝牙已连接到UART2接口。有关该模块的更多信息，请访问 <a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a>。蓝牙设备需要手动设置：</p>
+<p>Bluetooth is connected to UART2 interface. More information about the module can
+be found at
+<a class="reference external" href="https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf">https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf</a>.
+The Bluetooth device needs to be set up manually:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hciconfig<span class="w"> </span>hci0<span class="w"> </span>up
 
 <span class="gp">target:~$ </span>hciconfig<span class="w"> </span>-a
