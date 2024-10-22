@@ -18,7 +18,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=011d8023"></script>
+        <script src="../../../_static/documentation_options.js?v=12e47fb0"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -42,7 +42,7 @@
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                imx8mp-pd22.1.2-37-gea365675
+                imx8mp-pd22.1.2-37-gba83a43f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -996,7 +996,8 @@ can select what to do. Here select install. Then you have to click through the i
 This is relatively straightforward and differs a bit for every distro. You can install the distro
 for example to emmc (mmc2) or sdcard (mmc1). Make sure you do not overwrite your U-Boot during the
 install. Best to choose a different medium to install to than the U-Boot is stored on. Otherwise
-manual partitioning might be required.</p>
+manual partitioning will be required. The automatic partitioning will start at the beginning of the
+disk. To not overwrite the U-Boot, use an offset of 4MiB at the beginning of the disk.</p>
 <p>During the Installation of Debian you will be asked, if you want to Force the GRUB installation to
 the EFI removable media path. Select no. Also select no, when you will be asked if you want to
 update the NVRAM variables. Otherwise the grub-dummy installation step will fail and you will be
