@@ -234,10 +234,6 @@ example works for any block device such as eMMC, SD card, or hard disk.
        1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
        2      72.4MB  7617MB  7545MB  primary  ext4
 
-Increasing the filesystem size can be done while it is mounted.  But you can
-also boot the board from an SD card and then resize the file system on the eMMC
-partition while it is not mounted.
-
 *  Resize the filesystem to a new partition size:
 
    .. code-block:: console
@@ -251,6 +247,10 @@ partition while it is not mounted.
       old_desc_blocks = 4, new_desc_blocks = 57
       [ 131.970278] EXT4-fs (|emmcdev|p2): resized filesystem to 7367680
       The filesystem on /dev/|emmcdev|p2 is now 7367680 (1k) blocks long
+
+Increasing the filesystem size can be done while it is mounted.  But you can
+also boot the board from an SD card and then resize the file system on the eMMC
+partition while it is not mounted.
 
 Enable pseudo-SLC Mode
 ......................
