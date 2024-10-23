@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
@@ -6,21 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. PHYTEC Documentation &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/code-block.css?v=7a82ee62" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=fb453b8e" />
 
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=e2ca9303"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=db63282f"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -40,9 +38,6 @@
             PHYTEC BSP Documentation
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                imx8mp-pd22.1.2-40-gdb2ca67a
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -289,7 +284,8 @@ should show you the necessary <strong>Machine Name</strong> for your specific ha
 </figure>
 </td>
 <td><figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../../../_images/polis-back.jpg"><img alt="../../../_images/polis-back.jpg" src="../../../_images/polis-back.jpg" style="width: 95%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/polis-back.jpg"><img alt="../../../_images/polis-back.jpg" src="../../../_images/polis-back.jpg" style="width: 95%;" />
+</a>
 <figcaption>
 <p><span class="caption-text">phyBOARD-Polis Components (bottom)</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
@@ -1986,7 +1982,7 @@ The main intention of this file is to store the <code class="docutils literal no
 it easy to pre-define the overlays in Yocto depending on the used machine. The
 content from the file is defined in the Yocto recipe bootenv found in
 meta-phytec:
-<a class="reference external" href="https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=hardknott">https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=hardknott</a></p>
+<a class="extlink-yocto-bootenv reference external" href="https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=hardknott">https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=hardknott</a></p>
 <p>Other variables can be set in this file, too. They will overwrite the existing
 settings in the environment. But only variables evaluated after issuing the boot
 command can be overwritten, such as <code class="docutils literal notranslate"><span class="pre">${nfsroot}</span></code> or <code class="docutils literal notranslate"><span class="pre">${mmcargs}</span></code>. Changing other
@@ -2137,7 +2133,7 @@ found here: <a class="reference external" href="https://github.com/cbrake/linux-
 kernel documentation:
 <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
 <p>The device tree representation for RS232 and RS485:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n188</a></p>
 </section>
 </section>
 <section id="network">
@@ -2156,7 +2152,7 @@ and netmask for eth0 is:</p>
 <p>The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the FEC ethernet IP core where the ethernet PHY is populated on the SoM can
-be found here: <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53</a>.</p>
+be found here: <a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53</a>.</p>
 <p></p>
 <section id="network-environment-customization">
 <h3><span class="section-number">7.3.1. </span>Network Environment Customization<a class="headerlink" href="#network-environment-customization" title="Link to this heading"></a></h3>
@@ -2405,9 +2401,9 @@ handling). In this case, /dev/mmcblk1 must be used for formatting and
 mounting. The cards are always mounted as being writable.</p>
 </div>
 <p>DT configuration for the MMC (SD card slot) interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n266</a></p>
 <p>DT configuration for the eMMC interface can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n315</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC Devices<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
@@ -2979,7 +2975,7 @@ is defined inside of the SPI master node in the module DTS. The SPI node
 contains all devices connected to this SPI bus which is in this case only the
 SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n71">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n71</a></p>
+<p><a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n71">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n71</a></p>
 </section>
 </section>
 <section id="gpios">
@@ -3128,7 +3124,7 @@ settings.</p>
 </li>
 </ul>
 <p>Device tree configuration for the User I/O configuration can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n37</a></p>
 </section>
 <section id="i2c-bus">
 <h2><span class="section-number">7.9. </span>I²C Bus<a class="headerlink" href="#i2c-bus" title="Link to this heading"></a></h2>
@@ -3140,9 +3136,9 @@ of some I²C devices integrated into our phyBOARD-Polis.</p>
 the bus frequency and the pin control settings including scl-gpios and sda-gpios
 which are alternate pin configurations used for bus recovery.</p>
 <p>General I²C1 bus configuration (e.g. imx8mm-phycore-som.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy#n102</a></p>
 <p>General I²C4 bus configuration (e.g. imx8mm-phyboard-polis-rdk.dtsi):
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149</a></p>
 </section>
 <section id="eeprom">
 <h2><span class="section-number">7.10. </span>EEPROM<a class="headerlink" href="#eeprom" title="Link to this heading"></a></h2>
@@ -3212,7 +3208,7 @@ hardware introspection from the ID area to the normal area.</p>
 </div>
 <p>DT representation, e.g. in phyCORE-i.MX 8M Mini file imx8mm-phycore-som.dtsi can be
 found in our PHYTEC git:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n271</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -3291,7 +3287,7 @@ to ram state, type:</p>
 the alarm function doesn’t support seconds.</p>
 </div>
 <p>DT representation for I²C RTCs:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n277</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
@@ -3318,7 +3314,7 @@ imx8mm.dtsi:</p>
 </pre></div>
 </div>
 <p>DT representation for USB Host:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy9#n240</a></p>
 </section>
 <section id="usb-otg">
 <h2><span class="section-number">7.13. </span>USB OTG<a class="headerlink" href="#usb-otg" title="Link to this heading"></a></h2>
@@ -3408,7 +3404,7 @@ one to the USB Device Controller (UDC).</p>
 </div>
 <p>Both USB interfaces are configured as host in the kernel device tree
 imx8mm-phyboard-polis.dtsi. See:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n228">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n228</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n228">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n228</a></p>
 </section>
 </section>
 <section id="can-fd">
@@ -3529,7 +3525,7 @@ on options and usage.</p>
 Slower rates can be selected but may not work correctly.</p>
 </div>
 <p>Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106</a></p>
 </section>
 <section id="pcie">
 <h2><span class="section-number">7.15. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
@@ -3737,7 +3733,7 @@ use different sampling rates and formats for simultaneous playback and
 capture operations.</p>
 </div>
 <p>Device Tree Audio configuration:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17#n56</a></p>
 </section>
 </section>
 <section id="video">
@@ -3875,7 +3871,7 @@ controls in /sys/class/backlight. For example: backlight0 and backlight1</p>
 </li>
 </ul>
 <p>The device tree of PEB-AV-10 can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mm-phyboard-polis-peb-av-010.dtso?h=v5.10.72_2.2.0-phy17</a></p>
 </section>
 </section>
 <section id="power-management">
@@ -4481,6 +4477,12 @@ shown above.</p>
         
     </dl>
     
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx8mp-pd22.1.2-42-g5a3815c5</dd>
+    </dl>
   </div>
 </div><script>
       jQuery(function () {

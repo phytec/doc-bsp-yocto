@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh-CN" data-content_root="../../../">
 <head>
@@ -6,22 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. PHYTEC 文档 &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/code-block.css?v=7a82ee62" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=fb453b8e" />
 
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=2fe429d5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../../_static/translations.js?v=beaddf03"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=b688fa57"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=beaddf03"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="搜索" href="../../../search.html" />
@@ -41,9 +39,6 @@
             PHYTEC BSP Documentation
               <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                imx8mp-pd22.1.2-40-gdb2ca67a
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
@@ -196,7 +191,7 @@
 <tr class="row-odd"><td><p>发布日期</p></td>
 <td><p>2024/01/10</p></td>
 </tr>
-<tr class="row-even"><td><p>是 … 的分支</p></td>
+<tr class="row-even"><td><p>是 ... 的分支</p></td>
 <td><p>i.MX 8M Plus BSP手册</p></td>
 </tr>
 </tbody>
@@ -242,13 +237,15 @@
 <section id="sbc-components">
 <span id="imx8mp-pd23-1-0-components"></span><h3><span class="section-number">1.1.1. </span>phyBOARD-Pollux 器件<a class="headerlink" href="#sbc-components" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-front-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-front-components.jpg" src="../../../_images/phyBOARD-Pollux-front-components.jpg" style="width: 90%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-front-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-front-components.jpg" src="../../../_images/phyBOARD-Pollux-front-components.jpg" style="width: 90%;" />
+</a>
 <figcaption>
 <p><span class="caption-text"><strong>phyBOARD-Pollux 器件图（顶部）</strong></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-back-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-back-components.jpg" src="../../../_images/phyBOARD-Pollux-back-components.jpg" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/phyBOARD-Pollux-back-components.jpg"><img alt="../../../_images/phyBOARD-Pollux-back-components.jpg" src="../../../_images/phyBOARD-Pollux-back-components.jpg" style="width: 85%;" />
+</a>
 <figcaption>
 <p><span class="caption-text"><strong>phyBOARD-Pollux 器件图（底部）</strong></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
@@ -1359,7 +1356,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </div>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>具体的偏移值也在Yocto变量”BOOTLOADER_SEEK”和”BOOTLOADER_SEEK_EMMC”中声明。</p>
+<p>具体的偏移值也在Yocto变量&quot;BOOTLOADER_SEEK&quot;和&quot;BOOTLOADER_SEEK_EMMC&quot;中声明。</p>
 </div>
 </section>
 <section id="build-u-boot-with-a-fixed-ram-size">
@@ -1445,7 +1442,7 @@ CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
 </pre></div>
 </div>
-<p>确保您在主机系统上安装了 <em>“libyaml-dev”</em> 包：</p>
+<p>确保您在主机系统上安装了 <em>&quot;libyaml-dev&quot;</em> 包：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libyaml-dev
 </pre></div>
 </div>
@@ -1558,11 +1555,11 @@ CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS=y
 </ul>
 <img alt="../../../_images/gparted1.png" src="../../../_images/gparted1.png" />
 <ul class="simple">
-<li><p>选择更大的未分配区域，然后点击”New”：</p></li>
+<li><p>选择更大的未分配区域，然后点击&quot;New&quot;：</p></li>
 </ul>
 <img alt="../../../_images/gparted6.png" src="../../../_images/gparted6.png" />
 <ul class="simple">
-<li><p>点击”Add”</p></li>
+<li><p>点击&quot;Add&quot;</p></li>
 </ul>
 <img alt="../../../_images/gparted7.png" src="../../../_images/gparted7.png" />
 <ul class="simple">
@@ -1681,7 +1678,7 @@ u-boot=&gt; boot
 </section>
 <section id="u-boot-external-environment">
 <h3><span class="section-number">6.2.3. </span>U-boot外部环境<a class="headerlink" href="#u-boot-external-environment" title="Link to this heading"></a></h3>
-<p>在Linux内核启动时，外部环境 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文本文件将从MMC设备的引导分区或通过TFTP加载。该文件的主要目的是存储 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量。这使得根据使用的机器在Yocto中预定义overlay变得更加容易。文件的内容在meta-phytec中的Yocto recipe中的bootenv中定义： <a class="reference external" href="https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=kirkstone">https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=kirkstone</a></p>
+<p>在Linux内核启动时，外部环境 <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> 文本文件将从MMC设备的引导分区或通过TFTP加载。该文件的主要目的是存储 <code class="docutils literal notranslate"><span class="pre">${overlays}</span></code> 变量。这使得根据使用的机器在Yocto中预定义overlay变得更加容易。文件的内容在meta-phytec中的Yocto recipe中的bootenv中定义： <a class="extlink-yocto-bootenv reference external" href="https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=kirkstone">https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=kirkstone</a></p>
 <p>该文件中也可以设置其他变量。这些变量将覆盖环境中现有的设置。但只有在发出boot命令后计算的变量才能被覆盖，例如 <code class="docutils literal notranslate"><span class="pre">${nfsroot}</span></code> 或 <code class="docutils literal notranslate"><span class="pre">${mmcargs}</span></code>。更改在该文件修改其他变量将不会有作用。请参见网络启动期间的用法作为示例。</p>
 <p>如果无法加载外部环境，启动过程将继续进行，并使用现有环境设置的值。</p>
 </section>
@@ -1706,7 +1703,7 @@ u-boot=&gt; boot
 </section>
 <section id="accessing-peripherals">
 <h1><span class="section-number">7. </span>访问外设<a class="headerlink" href="#accessing-peripherals" title="Link to this heading"></a></h1>
-<p>要查找本文中所述的PHYTEC的phyCORE-i.MX 8M Plus BSP支持的板卡和核心板，请访问  <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0">our BSP</a> 网页，并在下载部分点击相应的BSP版本。在这里，您可以在”硬件订货号”列中找到所有支持的硬件，并在“Machine Name”下的相应单元格中找到正确的机器名称。</p>
+<p>要查找本文中所述的PHYTEC的phyCORE-i.MX 8M Plus BSP支持的板卡和核心板，请访问  <a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD23.1.0">our BSP</a> 网页，并在下载部分点击相应的BSP版本。在这里，您可以在&quot;硬件订货号&quot;列中找到所有支持的硬件，并在“Machine Name”下的相应单元格中找到正确的机器名称。</p>
 <p>为了实现最大的软件重用，Linux内核提供了一个巧妙的软件架构，将软件组件分层为特定于板的部分。BSP（板级支持包）尽可能地对套件的功能进行模块化。当开发定制的主板或甚至客户特定的模块时，大部分软件支持可以在不易出错的复制粘贴情况下重新使用。与板相关的内核代码可以在内核代码库中的设备树（DT）中找到，路径为 <code class="docutils literal notranslate"><span class="pre">arch/arm64/boot/dts/freescale/*.dts</span></code> 。</p>
 <p>实际上，软件重用是Linux内核最重要的特性之一，尤其是在ARM实现中，它必须应对大量复杂的系统级芯片（SoC）CPU的可能性。整个特定于板的硬件在设备树（DT）中描述，并不属于内核镜像本身。硬件描述在一个单独的二进制文件中，称为设备树二进制文件（Device Tree Blob，DTB）（参见 <a class="reference internal" href="#imx8mp-pd23-1-0-device-tree"><span class="std std-ref">device tree</span></a>）。</p>
 <p>请阅读PHYTEC i.MX 8M Plus BSP设备树概念部分，以了解我们的 i.MX 8 BSP设备树模型。</p>
@@ -1726,7 +1723,7 @@ u-boot=&gt; boot
 </pre></div>
 </div>
 <p>字符串的第一部分 MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX 指定了引脚（在这个例子中是 UART1_RXD）。字符串的第二部分（UART1_DCE_RX）是该引脚所选的复用项。引脚设置值（右侧的十六进制值）定义了引脚的不同模式，例如，内部拉电阻是否被激活。在当前情况下，内部拉电阻被禁用。</p>
-<p>UART1引脚复用的设备树表示： <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536</a></p>
+<p>UART1引脚复用的设备树表示： <a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n536</a></p>
 </section>
 <section id="rs232-rs485">
 <h2><span class="section-number">7.2. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
@@ -1754,7 +1751,7 @@ u-boot=&gt; boot
 </div>
 </li>
 </ul>
-<p>主机应该打印出 “123”。</p>
+<p>主机应该打印出 &quot;123&quot;。</p>
 </section>
 <section id="rs485">
 <h3><span class="section-number">7.2.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
@@ -1764,7 +1761,7 @@ u-boot=&gt; boot
 </div>
 <p>有关linux-serial-test工具及其参数的更多信息，请访问此链接：<a class="reference external" href="https://github.com/cbrake/linux-serial-test">linux-serial-test</a></p>
 <p>在Linux内核文档中描述了在如何在C代码中调用IOCTL： <a class="reference external" href="https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt">https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt</a></p>
-<p>RS232和RS485的设备树表示：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341</a></p>
+<p>RS232和RS485的设备树表示：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n341</a></p>
 </section>
 </section>
 <section id="network">
@@ -1783,10 +1780,10 @@ u-boot=&gt; boot
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth0: 192.168.3.11/24
 </pre></div>
 </div>
-<p>根据您的硬件配置，设备树的以太网设置可能会分为两个文件：核心板的DT文件和底板的DT。FEC以太网IP核心的设备树设置，其中以太网PHY被集成在核心板上，可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50</a>。</p>
+<p>根据您的硬件配置，设备树的以太网设置可能会分为两个文件：核心板的DT文件和底板的DT。FEC以太网IP核心的设备树设置，其中以太网PHY被集成在核心板上，可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n50</a>。</p>
 <p>The device tree set up for EQOS Ethernet IP core where the PHY is populated
 on the phyBOARD-Pollux can be found here:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150</a>.</p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n150</a>.</p>
 <section id="network-environment-customization">
 <h3><span class="section-number">7.3.1. </span>网络环境定制化<a class="headerlink" href="#network-environment-customization" title="Link to this heading"></a></h3>
 <section id="u-boot-network-environment">
@@ -2025,8 +2022,8 @@ The Bluetooth device needs to be set up manually:</p>
 <p class="admonition-title">小技巧</p>
 <p>这些分区设备节点仅在SD卡包含有效的分区表时可用（类似于“硬盘”的处理）。如果没有分区表，则整个设备可以作为文件系统使用（类似于“软盘”的处理）。在这种情况下，必须使用 /dev/mmcblk1 进行格式化和挂载。卡片始终以可写方式挂载。</p>
 </div>
-<p>MMC（SD卡槽）接口的DT配置可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380</a></p>
-<p>eMMC接口的DT配置可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223</a></p>
+<p>MMC（SD卡槽）接口的DT配置可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n380</a></p>
+<p>eMMC接口的DT配置可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223</a></p>
 </section>
 <section id="emmc-devices">
 <h2><span class="section-number">7.5. </span>eMMC设备<a class="headerlink" href="#emmc-devices" title="Link to this heading"></a></h2>
@@ -2288,7 +2285,7 @@ i.e. 3719168 KiB
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>blkdiscard<span class="w"> </span>-f<span class="w"> </span>--secure<span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
-<p>选项 –secure 确保命令在 eMMC 设备擦除所有块之前会等待。-f (强制) 选项在擦除之前禁用所有检查，当 eMMC 设备包含已有数据的分区时需要使用此选项。</p>
+<p>选项 --secure 确保命令在 eMMC 设备擦除所有块之前会等待。-f (强制) 选项在擦除之前禁用所有检查，当 eMMC 设备包含已有数据的分区时需要使用此选项。</p>
 </li>
 </ul>
 <div class="admonition tip">
@@ -2348,11 +2345,11 @@ i.e. 3719168 KiB
 </tbody>
 </table>
 <p>之后使用mmc工具从用户空间设置引导分区：</p>
-<p>(对于 ‘boot0’) :</p>
+<p>(对于 'boot0') :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
-<p>(对于’boot1’)：</p>
+<p>(对于'boot1')：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
 </pre></div>
 </div>
@@ -2503,7 +2500,7 @@ Device       Boot StartCHS        EndCHS      StartLBA     EndLBA    Sectors   S
 </div>
 <p>它列出了所有MTD设备及其对应的分区名称。闪存节点在模块DTS中的SPI主节点内定义。SPI节点包含连接到此SPI总线的所有设备，在这种情况下只有SPI NOR闪存。</p>
 <p>设备树中SPI主节点的定义可以在这里找到：</p>
-<p><a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76</a></p>
+<p><a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n76</a></p>
 </section>
 </section>
 <section id="gpios">
@@ -2614,13 +2611,13 @@ CONFIG_GPIO_SYSFS=y
 </div>
 </li>
 </ul>
-<p>GPIO配置的设备树配置可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229</a></p>
+<p>GPIO配置的设备树配置可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n229</a></p>
 </section>
 <section id="i2c-bus">
 <h2><span class="section-number">7.9. </span>I²C总线<a class="headerlink" href="#i2c-bus" title="Link to this heading"></a></h2>
 <p>该 i.MX 8M Plus 包含多个多主机 fast-mode I²C模块。PHYTEC板提供了许多不同的I²C设备，这些设备连接到 i.MX 8M Plus 的I²C模块。 本节描述了我们 phyBOARD-Pollux 中集成的一些I²C设备的基本设备使用及其设备树（DT）表示。</p>
 <p>i2c的设备树节点包含一些设置，例如时钟频率，用于设置总线频率，以及引脚控制设置，包括scl-gpios和sda-gpios，这些是用于总线恢复的备用引脚配置。</p>
-<p>I²C1 总线DT配置（例如 imx8mp-phycore-som.dtsi）：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110</a></p>
+<p>I²C1 总线DT配置（例如 imx8mp-phycore-som.dtsi）：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n110</a></p>
 <p>I²C2总线DT配置（例如 imx8mp-phyboard-pollux-rdk.dts ）: imx-dt:<cite>imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n212</cite></p>
 </section>
 <section id="eeprom">
@@ -2666,7 +2663,7 @@ CONFIG_GPIO_SYSFS=y
 <p class="admonition-title">备注</p>
 <p>如果您删除了两个EEPROM空间，请联系我们的支持团队！</p>
 </div>
-<p>DT 表示，例如在 phyCORE-i.MX 8M Plus 文件 imx8mp-phycore-som.dtsi 中可以在我们的 PHYTEC git 中找到： <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199</a></p>
+<p>DT 表示，例如在 phyCORE-i.MX 8M Plus 文件 imx8mp-phycore-som.dtsi 中可以在我们的 PHYTEC git 中找到： <a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199</a></p>
 </section>
 </section>
 <section id="rtc">
@@ -2694,7 +2691,7 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 <span class="go">Thu Jan  1 00:01:26 UTC 1970</span>
 </pre></div>
 </div>
-<p>使用日期命令更改日期和时间。日期命令以以下语法设置时间：”YYYY-MM-DD hh:mm:ss (+|-)hh:mm”：</p>
+<p>使用日期命令更改日期和时间。日期命令以以下语法设置时间：&quot;YYYY-MM-DD hh:mm:ss (+|-)hh:mm&quot;：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;2022-03-02 11:15:00 +0100&quot;</span>
 <span class="go">Wed Mar  2 10:15:00 UTC 2022</span>
 </pre></div>
@@ -2778,14 +2775,14 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 </div>
 </li>
 </ul>
-<p>I²C RTCs的DT表示： <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207</a></p>
+<p>I²C RTCs的DT表示： <a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n207</a></p>
 </section>
 </section>
 <section id="usb-host-controller">
 <h2><span class="section-number">7.12. </span>USB主控制器<a class="headerlink" href="#usb-host-controller" title="Link to this heading"></a></h2>
-<p>i.MX 8M Plus SoC的USB控制器为众多消费类便携设备提供了一种低成本的连接解决方案，实现USB设备之间的数据传输，传输速度可达4 Gbit/s（超高速’SS’）。USB子系统具有两个独立的USB控制器。这两个控制器都能够作为USBDevice或USB Host使用。每个核心都连接到一个USB 3.0物理层（PHY）。</p>
+<p>i.MX 8M Plus SoC的USB控制器为众多消费类便携设备提供了一种低成本的连接解决方案，实现USB设备之间的数据传输，传输速度可达4 Gbit/s（超高速'SS'）。USB子系统具有两个独立的USB控制器。这两个控制器都能够作为USBDevice或USB Host使用。每个核心都连接到一个USB 3.0物理层（PHY）。</p>
 <p>统一的BSP支持大容量存储设备和键盘。其他与USB相关的设备驱动程序必须根据需要在内核配置中启用。由于udev，所有连接的存储设备都会获得唯一的ID，并可以在 <code class="docutils literal notranslate"><span class="pre">/dev/disk/by-id</span></code> 中找到。这些ID可以在 <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> 中用于以不同的方式挂载不同的USB存储设备。</p>
-<p>USB主机的DT表示：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351</a></p>
+<p>USB主机的DT表示：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351</a></p>
 </section>
 <section id="can-fd">
 <h2><span class="section-number">7.13. </span>CAN FD<a class="headerlink" href="#can-fd" title="Link to this heading"></a></h2>
@@ -2846,7 +2843,7 @@ snvs_rtc 30370000.snvs:snvs-rtc-lp
 <tr class="row-odd"><td><p>TX bytes</p></td>
 <td><p>发送字节数</p></td>
 </tr>
-<tr class="row-even"><td><p>errors…</p></td>
+<tr class="row-even"><td><p>errors...</p></td>
 <td><p>总线错误统计信息</p></td>
 </tr>
 </tbody>
@@ -2879,7 +2876,7 @@ BitRate=500000
 <p>mcp2518fd SPI到CAN FD只支持从125kB/s开始的波特率。可以选择更慢的速率，但可能无法正常工作。</p>
 </div>
 <p>Device Tree CAN configuration of imx8mp-phyboard-pollux-rdk.dts:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175</a></p>
 </section>
 <section id="pcie">
 <h2><span class="section-number">7.14. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
@@ -2959,7 +2956,7 @@ manual: <a class="reference external" href="https://phytec.github.io/doc-bsp-yoc
 <p>某些PCIe设备，例如以太网卡，即使没有从 <code class="docutils literal notranslate"><span class="pre">/lib/firmware/</span></code> 加载固件文件，也可能正常工作，而你收到了如上输出第一行所示的错误消息。这是因为一些制造商在卡片本身提供了固件作为后备。在这种情况下，设备的行为和输出在很大程度上依赖于制造商的固件。</p>
 </div>
 <p>Device Tree PCIe configuration of imx8mp-phyboard-pollux-rdk.dts:
-<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287</a></p>
+<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287</a></p>
 </section>
 <section id="audio">
 <h2><span class="section-number">7.15. </span>音频<a class="headerlink" href="#audio" title="Link to this heading"></a></h2>
@@ -2982,7 +2979,7 @@ manual: <a class="reference external" href="https://phytec.github.io/doc-bsp-yoc
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsamixer
 </pre></div>
 </div>
-<p>您应该会看到很多选项，因为音频IC具有许多可以测试的功能。通过SSH打开alsamixer可能更好，而不是通过串行控制台，因为控制台的图形效果更好。所有混音点都有单声道或立体声增益控制。”MM”表示该功能被静音（左右输出均为静音），可以通过按’ <strong>m</strong> ‘切换。您还可以通过按’ <strong>&lt;</strong> ‘ for left and ‘ <strong>&gt;</strong> ‘切换右声道输出。使用 <strong>tab</strong> 键，您可以在播放和录音控制之间切换。</p>
+<p>您应该会看到很多选项，因为音频IC具有许多可以测试的功能。通过SSH打开alsamixer可能更好，而不是通过串行控制台，因为控制台的图形效果更好。所有混音点都有单声道或立体声增益控制。&quot;MM&quot;表示该功能被静音（左右输出均为静音），可以通过按' <strong>m</strong> '切换。您还可以通过按' <strong>&lt;</strong> ' for left and ' <strong>&gt;</strong> '切换右声道输出。使用 <strong>tab</strong> 键，您可以在播放和录音控制之间切换。</p>
 </section>
 <section id="restore-default-volumes">
 <h3><span class="section-number">7.15.2. </span>恢复默认音量<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
@@ -3002,7 +2999,7 @@ manual: <a class="reference external" href="https://phytec.github.io/doc-bsp-yoc
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>vi<span class="w"> </span>/etc/asound.conf
 </pre></div>
 </div>
-<p>要将PEB-AV-10设置为输出，请将 <em>playback.pcm</em> 从 “dummy” 设置为 “pebav10”:</p>
+<p>要将PEB-AV-10设置为输出，请将 <em>playback.pcm</em> 从 &quot;dummy&quot; 设置为 &quot;pebav10&quot;:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[...]
 
 pcm.asymed {
@@ -3067,7 +3064,7 @@ pcm.asymed {
 <p class="admonition-title">提示</p>
 <p>由于播放和录音共享硬件接口，因此无法在同时进行播放和录音操作时使用不同的采样率和格式。</p>
 </div>
-<p>音频DT配置：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58</a></p>
+<p>音频DT配置：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58</a></p>
 </section>
 </section>
 <section id="video">
@@ -3131,7 +3128,7 @@ pcm.asymed {
 </div>
 <p>HDMI在设备树中始终启用。其他接口可以通过设备树overlay进行启用。</p>
 <p>The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10’’ edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-012.</p>
+10'' edt,etml1010g0dka display for the PEB-AV-10 and PEB-AV-012.</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>当前的显示驱动程序将连接到LVDS的显示器的像素时钟限制为74.25MHz（或其分频）。如果这不符合您的显示要求，请联系支持团队以获得进一步的帮助。</p>
@@ -3270,8 +3267,8 @@ controls in /sys/class/backlight. For example: backlight0 and backlight1</p>
 <p>有关所有文件的文档，请参见 <a class="reference external" href="https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight">https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-class-backlight</a>。</p>
 </li>
 </ul>
-<p>LVDS-1和HDMI的设备树描述可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264</a> <a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191</a></p>
-<p>PEB-AV-10上的LVDS-0设备树可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133</a></p>
+<p>LVDS-1和HDMI的设备树描述可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n264</a> <a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n191</a></p>
+<p>PEB-AV-10上的LVDS-0设备树可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n133</a></p>
 </section>
 </section>
 <section id="power-management">
@@ -3458,7 +3455,7 @@ anymore and will not function with the new release.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>disable<span class="w"> </span>fancontrol
 </pre></div>
 </div>
-<p>GPIO风扇的设备树描述可以在这里找到：<a class="reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33</a></p>
+<p>GPIO风扇的设备树描述可以在这里找到：<a class="extlink-imx-dt reference external" href="https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33">https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n33</a></p>
 </section>
 </section>
 <section id="watchdog">
@@ -3529,7 +3526,7 @@ ShutdownWatchdogSec=10min
 </tr>
 </tbody>
 </table>
-<p>关于OCOTP_CTRL中的熔丝与启动/mac/…配置之间的完整列表和详细映射，请参阅 i.MX 8M Plus 安全参考手册中的“熔丝映射”部分。</p>
+<p>关于OCOTP_CTRL中的熔丝与启动/mac/...配置之间的完整列表和详细映射，请参阅 i.MX 8M Plus 安全参考手册中的“熔丝映射”部分。</p>
 <section id="reading-fuse-values-in-uboot">
 <h3><span class="section-number">7.24.1. </span>在uBoot中读取熔丝值<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
 <p>您可以使用内存映射的shadow寄存器读取fuse寄存器的内容。要计算内存地址，请使用以下公式计算：</p>
@@ -3765,6 +3762,12 @@ u-boot=&gt; bootaux 0x80000000
         
     </dl>
     
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx8mp-pd22.1.2-42-g5a3815c5</dd>
+    </dl>
   </div>
 </div><script>
       jQuery(function () {

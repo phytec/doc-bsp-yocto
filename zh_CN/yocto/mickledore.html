@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh-CN" data-content_root="../">
 <head>
@@ -6,22 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Yocto 项目 &mdash; PHYTEC BSP Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/css/code-block.css?v=7a82ee62" />
       <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=fb453b8e" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=2fe429d5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/translations.js?v=beaddf03"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=b688fa57"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -41,9 +39,6 @@
             PHYTEC BSP Documentation
               <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                imx8mp-pd22.1.2-40-gdb2ca67a
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
@@ -982,7 +977,7 @@ NOTE: Writing buildhistory
 <p>正如您所见，控制台输出了清楚地说明了构建信息。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>使用 <em>外部源</em> 会破坏 <em>Yocto</em> 的许多内部依赖机制。无法保证源目录的任何更改都会被构建过程自动抓取并合并到根文件系统或 SD 卡镜像中。您必须始终使用 <em>–force</em>。例如，编译 <em>barebox</em> 并将其重新部署到 <em>deploy/images/&lt;machine&gt;</em> 执行</p>
+<p>使用 <em>外部源</em> 会破坏 <em>Yocto</em> 的许多内部依赖机制。无法保证源目录的任何更改都会被构建过程自动抓取并合并到根文件系统或 SD 卡镜像中。您必须始终使用 <em>--force</em>。例如，编译 <em>barebox</em> 并将其重新部署到 <em>deploy/images/&lt;machine&gt;</em> 执行</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile<span class="w"> </span>--force
 <span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>deploy
 </pre></div>
@@ -1384,7 +1379,7 @@ SRC_URI:append<span class="w"> </span><span class="o">=</span><span class="w"> <
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile<span class="w"> </span>--force<span class="w"> </span><span class="c1"># or linux-mainline, linux-ti, linux-imx, u-boot-imx</span>
 </pre></div>
 </div>
-<p>参数“–force”很重要，因为 <em>Yocto</em> 无法识别源代码是否已被更改。</p>
+<p>参数“--force”很重要，因为 <em>Yocto</em> 无法识别源代码是否已被更改。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>您无法在 <em>devshell</em> 中执行 <em>bitbake</em> 命令。您必须先退出devshell模式。</p>
@@ -1616,7 +1611,7 @@ python<span class="w"> </span>do_env:append()<span class="w"> </span>{
 }
 </pre></div>
 </div>
-<p>在上述示例中， <em>Python</em> 的多行字符串语法  <strong>“”” text “””</strong> 可以避免在 <em>Python</em> 代码中插入多个换行符 <em>\n</em>。 <em>Python</em> 函数 <em>env_add</em> 可以用于添加和替换环境文件。</p>
+<p>在上述示例中， <em>Python</em> 的多行字符串语法  <strong>&quot;&quot;&quot; text &quot;&quot;&quot;</strong> 可以避免在 <em>Python</em> 代码中插入多个换行符 <em>\n</em>。 <em>Python</em> 函数 <em>env_add</em> 可以用于添加和替换环境文件。</p>
 <p>下一个示例显示如何删除已添加的环境文件，例如 <em>,</em> <em>/env/boot/mmc</em></p>
 <div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend</span>
 python<span class="w"> </span>do_env:append()<span class="w"> </span>{
@@ -2056,7 +2051,7 @@ SCONF_VERSION<span class="w"> </span><span class="o">=</span><span class="w"> </
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ $</span>CC<span class="w"> </span>main.c<span class="w"> </span>-o<span class="w"> </span>main
 </pre></div>
 </div>
-<p>环境变量 $CC 包含 ARM 交叉编译器的路径和其他所需的编译器参数，如 <em>-march</em>、<em>-sysroot</em> 和 <em>–mfloat-abi</em>。</p>
+<p>环境变量 $CC 包含 ARM 交叉编译器的路径和其他所需的编译器参数，如 <em>-march</em>、<em>-sysroot</em> 和 <em>--mfloat-abi</em>。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>您不能仅使用编译器名称来编译程序，例如</p>
@@ -2172,7 +2167,7 @@ SUBSYSTEM==&quot;input&quot;,<span class="w"> </span>KERNEL==&quot;event[0-9]*&q
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>您无法在 <em>RUN</em> 属性中启动守护进程或大型脚本。请参阅 <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D">https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D</a> 。</p>
-<p>这仅适用于执行时间非常短的前台任务。长时间运行的事件进程可能会阻碍此设备或从设备的后续所有事件。启动守护进程或其他长时间运行的进程并不适合 <em>udev</em>；派生进程（无论是否和母进程分离）都将在母进程事件处理完成后无条件被终止。如果需要执行其他任务，您可以考虑使用特殊属性 <em>ENV {SYSTEMD_WANTS} =”service-name.service”</em> 和 <em>systemd</em> 服务。</p>
+<p>这仅适用于执行时间非常短的前台任务。长时间运行的事件进程可能会阻碍此设备或从设备的后续所有事件。启动守护进程或其他长时间运行的进程并不适合 <em>udev</em>；派生进程（无论是否和母进程分离）都将在母进程事件处理完成后无条件被终止。如果需要执行其他任务，您可以考虑使用特殊属性 <em>ENV {SYSTEMD_WANTS} =&quot;service-name.service&quot;</em> 和 <em>systemd</em> 服务。</p>
 <p>请参阅https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd。</p>
 </div>
 </section>
@@ -2234,6 +2229,12 @@ SUBSYSTEM==&quot;input&quot;,<span class="w"> </span>KERNEL==&quot;event[0-9]*&q
         
     </dl>
     
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx8mp-pd22.1.2-42-g5a3815c5</dd>
+    </dl>
   </div>
 </div><script>
       jQuery(function () {
