@@ -1,9 +1,14 @@
 .. Download links
+.. _`static-pdf-dl`: ../_static/scarthgap.pdf
 
 .. Yocto
 .. |yocto-codename| replace:: Scarthgap
 .. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-------------------------------------------------------------+
 | |yocto-ref-manual|                                          |
