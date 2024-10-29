@@ -320,6 +320,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 
 .. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti
+.. include:: /bsp/peripherals/rs485-halfduplex.rsti
 
 The device tree representation for RS232 and RS485:
 :imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n220`
