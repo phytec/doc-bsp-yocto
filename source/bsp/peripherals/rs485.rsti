@@ -1,6 +1,11 @@
 RS485
 .....
 
+.. hint::
+
+   Remember to use bus termination resistors of 120 Ohm at each end of the bus,
+   when using longer cables.
+
 For easy testing, look at the linux-serial-test. This tool is called the IOCTL
 for RS485 and sends a constant stream of data.
 
@@ -11,6 +16,23 @@ for RS485 and sends a constant stream of data.
 
 More information about the linux-serial-test tool and its parameters can be
 found here: `linux-serial-test <https://github.com/cbrake/linux-serial-test>`_
+
+The linux-serial-test will automatically set ioctls, but they can also be set
+manually with rs485conf.
+
+You can show the current config with:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ rs485conf /dev/ttymxc1
+
+You can show all options with:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ rs485conf /dev/ttymxc1 -h
 
 Documentation for calling the IOCTL within c-code is described in the Linux
 kernel documentation:

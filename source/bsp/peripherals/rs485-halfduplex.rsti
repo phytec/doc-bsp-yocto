@@ -1,0 +1,58 @@
+RS485 half-duplex
+~~~~~~~~~~~~~~~~~
+
+For half-duplex mode your connection setup should look like this:
+
+.. image:: ./images/RS485_halfduplex_connection.png
+
+Which function is on which pin is described in the hardware manual.
+
+For half-duplex mode you can set the ioctls manually like this:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ rs485conf /dev/ttymxc1 -e 1 -r 0
+   target:~$ rs485conf /dev/ttymxc1
+   = Current configuration:
+   RS485 enabled:                true
+   RTS on send:                  high
+   RTS after send:               low
+   RTS delay before send:        0
+   RTS delay after send:         0
+   Receive during sending data:  false
+   Bus termination enabled:  false
+
+Then you can test if sending and receiving works like this:
+
+.. code-block:: console
+   :substitutions:
+
+   target1:~$ cat /dev/ttymxc1
+   target2:~$ echo test > /dev/ttymxc1
+
+You should see "test" printed out on target1. You can also switch the roles and
+send on target2 and receive on target1.
+
+Alternatively you can also test with the linux-serial-test tool:
+
+.. code-block:: console
+   :substitutions:
+
+   target1:~$ linux-serial-test -s -e -f -p /dev/ttymxc1 -b 115200 --rs485 0 -t -i 8
+   ...
+   /dev/ttymxc1: count for this session: rx=57330, tx=0, rx err=0
+   target2:~$ linux-serial-test -s -e -f -p /dev/ttymxc1 -b 115200 --rs485 0 -r -o 5
+   ...
+   /dev/ttymxc1: count for this session: rx=0, tx=57330, rx err=0
+
+In this example target1 will be the receiver and target2 will be the
+transmitter. You should also be able to switch the roles. Remember to first
+start the receiver and then the transmitter immediately after. The receiver
+will receive for 8 sec and the transmitter will send for 5 sec. The receiver
+needs to receive for a bit longer than the transmitter sends. At the end the
+program will print the final "count for this session". There you can check,
+that all transmitted frames were received.
+
+All the tests are target to target, but can also be done with host to target
+with a USB to rs485 converter. You may need to adjust the interfaces then.
