@@ -78,8 +78,11 @@ html_extra_path = ['sphinx/static/robots.txt',
                    'sphinx/static/googledd12f2e41658d61e.html']
 
 # Link scheme
-sitemap_url_scheme = "{lang}{link}"
-sitemap_locales = ['zh_CN']
+sitemap_url_scheme = "{link}"
+# When adding a lang prefix, this would also affect the english version, which
+# currently does not have a language prefix as it is the default. Therefore, we
+# currently only support a sitemap without alternative links.
+sitemap_locales = [None]
 
 html_theme_options = {
     'logo_only': False,
