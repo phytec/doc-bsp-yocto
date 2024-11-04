@@ -1,0 +1,90 @@
+Switch back to legacyboot
+-------------------------
+
+.. warning::
+   As we switched to standardboot with fitimage as default, legacyboot is
+   deprecated. We kept the option to switch back to legacyboot for this
+   release, but it will be removed in the future.
+
+Changes in Yocto
+................
+
+By default, the fitImage and bootscript will be deployed into the wic.xz Image.
+To switch back to legacyboot, you need to replace the fitImage and bootscript
+for the kernel image and the devicetrees. They are still in the deploy
+folder from the Yocto build, so you can manually copy them to the boot
+partition on your device. Otherwise you can do the following changes in Yocto
+to get the kernel and devicetrees deployed in the Image again.
+
+First create the variable `KERNEL_DEVICETREE_DEPLOY`. This can be done for
+example in the local.conf file in your build directory `conf/local.conf`.
+The variable is basically a copy of the `KERNEL_DEVICETREE` variable that is
+set in conf/machine/|yocto-machinename|.conf in meta-phytec but the `freescale`
+at the beginning needs to be removed, so that only the devicetree filename are
+left. In the end it should look something like this:
+
+.. code-block::
+
+   KERNEL_DEVICETREE_DEPLOY = " \
+        imx8mp-phyboard-pollux-rdk.dtb \
+        imx8mp-phyboard-pollux-isp-csi1.dtbo \
+        imx8mp-phyboard-pollux-isp-csi2.dtbo \
+        imx8mp-phyboard-pollux-isi-csi1.dtbo \
+        imx8mp-phyboard-pollux-isi-csi2.dtbo \
+        imx8mp-phyboard-pollux-peb-av-10.dtbo \
+        imx8mp-phyboard-pollux-peb-wlbt-05.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi1.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port1.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi2.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi2-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm016-csi2-fpdlink-port1.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi1.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi1-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi1-fpdlink-port1.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi2.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi2-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm017-csi2-fpdlink-port1.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi1.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi1-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi1-fpdlink-port1.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi2.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi2-fpdlink-port0.dtbo \
+        imx8mp-phyboard-pollux-vm020-csi2-fpdlink-port1.dtbo \
+        imx8mp-phycore-no-eth.dtbo \
+        imx8mp-phycore-no-rtc.dtbo \
+        imx8mp-phycore-no-spiflash.dtbo \
+        imx8mp-phycore-rpmsg.dtbo \
+   "
+
+Then add this line:
+
+.. code-block::
+
+   IMAGE_BOOT_FILES:mx8m-nxp-bsp:append = " Image oftree ${KERNEL_DEVICETREE_DEPLOY}"
+
+.. note::
+   A clean might be required for this to work.
+
+   .. code-block::
+      :substitutions:
+
+      bitbake -c cleanall |yocto-imagename|
+
+Then start the build:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ bitbake |yocto-imagename|
+
+Changes in U-Boot environment
+.............................
+
+To re-enable legacyboot set the following variable:
+
+.. code-block:: console
+
+   uboot=> setenv dolegacyboot 1
+   uboot=> env save; env save;
+   uboot=> boot

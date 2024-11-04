@@ -292,6 +292,8 @@ To revert to the old style of booting, you may do
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
+.. include:: /bsp/imx8/development/legacy_boot_deprecated.rsti
+
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
