@@ -1,3 +1,17 @@
+Otherwise you can show the content of a FIT image including all overlay
+configs in the FIT image with this command in Linux:
+
+.. code-block:: console
+
+   host:~$ dumpimage -l /boot/fitImage
+
+or in U-Boot:
+
+.. code-block:: console
+
+   u-boot=> load mmc ${mmcdev}:1 ${loadaddr} fitImage
+   u-boot=> iminfo
+
 The usage of overlays can be configured during runtime in Linux or U-Boot.
 Overlays are applied during the boot process in the bootloader after the
 boot command is called and before the kernel is loaded. The next sections
