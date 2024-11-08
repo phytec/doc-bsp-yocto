@@ -160,6 +160,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mp/pd24.1.0_nxp',
+        'imx8mp-pd24.1.0_nxp.tex',
+        'i.MX 8M Plus BSP Manual PD24.1.0 NXP',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mp/pd24.1.2',
         'imx8mp-pd24.1.2.tex',
         'i.MX 8M Plus BSP Manual PD24.1.2',

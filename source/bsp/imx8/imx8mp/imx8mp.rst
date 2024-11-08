@@ -22,6 +22,16 @@ Mainline HEAD
 
    mainline-head
 
+BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+==============================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   pd24.1.0_nxp
+
 BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 ===================================
 
