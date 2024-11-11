@@ -29,7 +29,19 @@
 +-------------------------------------+------------------+------------------+------------+
 | BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1 | Minor            | 2024-04-09       | released   |
 +-------------------------------------+------------------+------------------+------------+
-| BSP-Yocto-NXP-i.MX8MP-PD24.1.0      | Major            | 2024-11-06       | released   |
+| BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2 | Minor            | 2024-06-26       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX8MP-PD24.1.0      | Major            | 2024-11-07       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-NXP-i.MX93-PD24.2.0       | Major            | 2024-10-08       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0 | Major            | 2024-07-19       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0  | Major            | 2024-06-27       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM62x-PD24.1.0   | Major            | 2024-06-27       | released   |
++-------------------------------------+------------------+------------------+------------+
+| BSP-Yocto-Ampliphy-AM64x-PD24.1.0   | Major            | 2024-06-27       | released   |
 +-------------------------------------+------------------+------------------+------------+
 
 
@@ -724,42 +736,53 @@ release number, and the hardware you are working on
    *   1: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc1
    *   2: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc2
    *   3: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
-   *   4: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
-   *   5: BSP-Yocto-Ampliphy-i.MX8MP-master
-   *   6: BSP-Yocto-FSL-i.MX8MP-ALPHA1
-   *   7: BSP-Yocto-FSL-i.MX8MP-ALPHA2
-   *   8: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc1
-   *   9: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc2
-   *   10: BSP-Yocto-FSL-i.MX8MP-PD21.1.0
-   *   11: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc1
-   *   12: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc2
-   *   13: BSP-Yocto-FSL-i.MX8MP-PD21.1.1
-   *   14: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc1
-   *   15: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc2
-   *   16: BSP-Yocto-FSL-i.MX8MP-PD21.1.2
-   *   17: BSP-Yocto-FSL-i.MX8MP-PD21.1.3-rc1
-   *   18: BSP-Yocto-FSL-i.MX8MP-PD21.1.3
-   *   19: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc1
-   *   20: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc2
-   *   21: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc3
-   *   22: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc4
-   *   23: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
-   *   24: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc1
-   *   25: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc2
-   *   26: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc3
-   *   27: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc4
-   *   28: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
-   *   29: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
-   *   30: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc1
-   *   31: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc2
-   *   32: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc3
-   *   33: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc4
-   *   34: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc5
-   *   35: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc6
-   *   36: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
-   *   37: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
+   *   4: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+   *   5: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2-rc1
+   *   6: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
+   *   7: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+   *   8: BSP-Yocto-Ampliphy-i.MX8MP-master
+   *   9: BSP-Yocto-FSL-i.MX8MP-ALPHA1
+   *   10: BSP-Yocto-FSL-i.MX8MP-ALPHA2
+   *   11: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc1
+   *   12: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc2
+   *   13: BSP-Yocto-FSL-i.MX8MP-PD21.1.0
+   *   14: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc1
+   *   15: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc2
+   *   16: BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+   *   17: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc1
+   *   18: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc2
+   *   19: BSP-Yocto-FSL-i.MX8MP-PD21.1.2
+   *   20: BSP-Yocto-FSL-i.MX8MP-PD21.1.3-rc1
+   *   21: BSP-Yocto-FSL-i.MX8MP-PD21.1.3
+   *   22: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc1
+   *   23: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc2
+   *   24: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc3
+   *   25: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc4
+   *   26: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+   *   27: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc1
+   *   28: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc2
+   *   29: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc3
+   *   30: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc4
+   *   31: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+   *   32: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc1
+   *   33: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc2
+   *   34: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
+   *   35: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
+   *   36: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc1
+   *   37: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc2
+   *   38: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc3
+   *   39: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc4
+   *   40: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc5
+   *   41: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc6
+   *   42: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+   *   43: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
+   *   44: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc1
+   *   45: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc2
+   *   46: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc3
+   *   47: BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+   *   48: BSP-Yocto-NXP-i.MX8MP-PD24.1.y
 
-   # Exemplary output for chosen BSP-Yocto-NXP-i.MX93-PD24.1.0
+   # Exemplary output for chosen BSP-Yocto-NXP-i.MX8MP-PD24.1.0
    *********************************************************************
    * Please choose one of the available builds:
    *
@@ -770,13 +793,32 @@ release number, and the hardware you are working on
    1: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
                                 Pollux PL1552.2
                                 PB-03123-001.A3
-                                distro: ampliphy
+                                distro: ampliphy-vendor
                                 target: phytec-headless-image
    2: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
                                 Pollux PL1552.2
                                 PB-03123-001.A3
-                                distro: ampliphy-xwayland
+                                distro: ampliphy-vendor-rauc
+                                target: phytec-headless-bundle
+                                target: phytec-headless-image
+   3: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: ampliphy-vendor-xwayland
+                                target: -c populate_sdk phytec-qt6demo-image
                                 target: phytec-qt6demo-image
+                                target: phytec-vision-image
+   4: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: securiphy-vendor
+                                target: phytec-securiphy-bundle
+                                target: phytec-securiphy-image
+   5: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: securiphy-vendor-provisioning
+                                target: phytec-provisioning-image
 
 
 If you cannot identify your board with the information given in the selector,
@@ -792,7 +834,7 @@ you can always run
    * The current BSP configuration is:
    *
    * SoC:  refs/heads/imx8mp
-   * Release:  BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+   * Release:  BSP-Yocto-NXP-i.MX8MP-PD24.1.0
    *
    **********************************************
 
