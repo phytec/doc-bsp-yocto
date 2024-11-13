@@ -63,7 +63,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
-.. |dtbo-rpmsg| replace:: imx8mp-phycore-rpmsg.dtbo
+.. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
 .. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-10.dtbo
 
 .. IMX8(MP) specific
