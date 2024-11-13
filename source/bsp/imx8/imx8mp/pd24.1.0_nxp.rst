@@ -88,17 +88,17 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-head-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd24.1.0_nxp-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd24.1.0_nxp-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd24.1.0_nxp-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd24.1.0_nxp-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-pd24.1.0_nxp-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd24.1.0_nxp-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd24.1.0_nxp-development>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd24.1.0_nxp-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd24.1.0_nxp-development-build-uboot>`
 .. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-head-format-sd>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.0_nxp-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -111,11 +111,11 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd24.1.0_nxp-components>`
+.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd24.1.0_nxp-components>`
+.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd24.1.0_nxp-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-pd24.1.0_nxp-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
 
@@ -174,14 +174,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-head-components:
+.. _imx8mp-pd24.1.0_nxp-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-getting-started:
+.. _imx8mp-pd24.1.0_nxp-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -203,7 +203,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-head-images:
+.. _imx8mp-pd24.1.0_nxp-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -241,7 +241,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
-.. _imx8mp-head-bootswitch:
+.. _imx8mp-pd24.1.0_nxp-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: ../installing-os.rsti
@@ -253,7 +253,7 @@ select the phyCORE-|soc| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-development:
+.. _imx8mp-pd24.1.0_nxp-development:
 
 Development
 ===========
@@ -275,7 +275,7 @@ To revert to the old style of booting, you may do
    device tree are missing in the boot partition.
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
-.. _imx8mp-head-development-build-uboot:
+.. _imx8mp-pd24.1.0_nxp-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
 .. include:: development/uboot-standalone-fixed-ram-config.rsti
 .. include:: ../development/kernel-standalone.rsti
@@ -288,7 +288,7 @@ To revert to the old style of booting, you may do
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
-.. _imx8mp-head-format-sd:
+.. _imx8mp-pd24.1.0_nxp-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -298,7 +298,7 @@ To revert to the old style of booting, you may do
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-device-tree:
+.. _imx8mp-pd24.1.0_nxp-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -323,7 +323,7 @@ To revert to the old style of booting, you may do
    imx8mp-vm017-csi2.dtbo
    imx8mp-vm017-csi2-fpdlink.dtbo
 
-.. _imx8mp-head-ubootexternalenv:
+.. _imx8mp-pd24.1.0_nxp-ubootexternalenv:
 .. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -383,7 +383,7 @@ correctly.
 The device tree representation for RS232 and RS485:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`
 
-.. _imx8mp-head-network:
+.. _imx8mp-pd24.1.0_nxp-network:
 
 Network
 -------
