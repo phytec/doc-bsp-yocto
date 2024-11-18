@@ -106,3 +106,5 @@ Activate the following DISTRO_FEATURES in your distrobution
 +-----------------+----------------------------------------------------------------+
 | update          | Activate rauc A/B update system                                |
 +-----------------+----------------------------------------------------------------+
+
+.. include:: common/phytec-pki.rsti
