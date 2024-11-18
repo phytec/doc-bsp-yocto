@@ -303,6 +303,22 @@ latex_documents = [
         'manual',
         False,
     ),
+    (
+        'security/kirkstone-sec',
+        'kirkstone-sec.tex',
+        'Security Manual Kirkstone',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
+        'security/scarthgap-sec',
+        'scarthgap-sec.tex',
+        'Security Manual Scarthgap',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------
