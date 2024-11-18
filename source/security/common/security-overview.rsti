@@ -1,0 +1,107 @@
+SECURIphy Overview
+==================
+
+SECURIphy is the PHYTEC secure linux distribution and a part of the security packages phyKNOX.
+
+.. image:: images/phyknox-packages.png
+
+With increasing digitization and networking, the protection of embedded systems against unauthorized access and targeted attacks is more important
+than ever. Guaranteeing this type of security, along with functional security, is a major challenge in electronics design.
+PHYTEC supports you in minimizing risks by considering security requirements during the development of our hardware and board support packages.
+On top of these deployment-ready solutions, we support you with individual project consulting on complex security principles.
+
+Security is a process encompassing all parts of a device and all development phases of its lifetime.
+
+Short Crypto Refresher
+----------------------
+
++----------------------------+-----------------------------------------------------------+
+| Function                   |                 Description                               |
++============================+===========================================================+
+| Symmetric cryptography     | The same key for encryption or decryption                 |
++----------------------------+-----------------------------------------------------------+
+| Public key cryptography    | | Two mathematically dependent keys for encryption or     |
+|                            | | decryption. The public key is used for encryption while |
+|                            | | the private key is used for decryption.                 |
++----------------------------+-----------------------------------------------------------+
+| Hash                       | One-way function, fixed output size (SHA*)                |
++----------------------------+-----------------------------------------------------------+
+| HMAC                       | Data authentication using hash and shared secret          |
++----------------------------+-----------------------------------------------------------+
+| Signature                  | | Data authentication using public-key cryptography       |
+|                            | | (keys & certificates, RSA & ECDSA)                      |
++----------------------------+-----------------------------------------------------------+
+| Unauthenticated encryption | | Attackers can‘t read private data but could modify it   |
+|                            | | (AES-CBC, AES-XTS, ...)                                 |
++----------------------------+-----------------------------------------------------------+
+| Authenticated encryption   | | Attacker can‘t read private data and modification is    |
+|                            | | detetcted (AEAD: AES GCM, AEGIS)                        |
++----------------------------+-----------------------------------------------------------+
+| Trusted Keys               | | Symmetric key with variable length is a key type of the |
+|                            | | existing kernel keyring service.                        |
+|                            | | Require the availability of a Trust Source for greater  |
+|                            | | security like a TPM, NXP CAAM or TEE                    |
++----------------------------+-----------------------------------------------------------+
+| Encrypted Keys             | | Symmetric key with variable length is a key type of the |
+|                            | | existing kernel keyring service.                        |
++----------------------------+-----------------------------------------------------------+
+
+Recommended Security Requirements
+---------------------------------
+
+As of the writing of this manual, recommendations apply to key lengths, certificates, and hash values.
+These recommendations come from BSI (Bundesamt für Sicherheit in der Informationstechnik) and NIST (National Institute of Standards and Technology).
+
+In the technical and connected world, it is important to build a "security by design” approach that thwarts intrusion
+into your product, data, and intellectual property at multiple levels.
+
+.. image:: images/security-pyramide.png
+
+Here are the Security features from the Standard BSP.
+
+* **Basic Security**
+    Basic Security is the fundament of the security measures implementations and includes support for basic modules such as:
+
+    * True Number Generator and Cryptographic support
+    * Secure Boot
+    * Secure Key Storage and Usage
+    * Secure Storage
+    * Secure Updates
+
+* **Parts from Access Control**
+    Access Control regulates the access of users and services to the device and components in the device according to the least privilege access principle.
+
+    * Secure Console
+    * Secure Shell
+    * User and Role Management
+
+* **Provisioning**
+    Provisioning includes the activation of hardware security features like Secure Boot and the generation of specific keys and X509 certificates on the device in secure manufacturing like the PHYTEC secure production area.
+
+More Additional Security Features (not part of this BSP)
+
+* **Network Security**
+    Network Security enables secure connections to connected devices or servers via Ethernet, WLAN, and LTE, but also secures access to the device from outside.
+
+    * Remote Access
+    * Server, Cloud Integration Tools
+    * Intrusion Protection
+    * Firewall
+    * Container
+
+* **Interface Security**
+    Interface Security secures the interfaces against third-party access and enables the secure connection of intended devices.
+
+    * USB
+    * Field Bus
+
+* **Hardening**
+    Hardening refers to the reduction of software components and kernel configuration to a necessary minimum.
+
+* **Physical Security**
+    Physical Security secures the device from direct physical access to protect the corresponding application and data from external access.
+
+    * Secure Debug
+    * Tamper Protection
+    * Housing
+    * Encapsulation of the circuit board
