@@ -1,0 +1,146 @@
+Keys and Certificates Management
+================================
+
+Public Key Infrastructure Tree (PKI tree)
+-----------------------------------------
+
+To use a secure boot with a signed bootloader and a signed kernel image, several keys and certificates are required to sign the images.
+The key and certificate creation is a manual process and the public key infrastructure (PKI) tree must be in place before you start your build.
+This BSP includes the PHYTECD development pki-tree as an example. You are obligated to create your own pki-tree with your own keys and certificates.
+
+.. note::
+    It is highly recommended to use different keys for different parts of your system to avoid a single point of failure regarding your security concept.
+
+PHYTEC Development Keys (phytec-dev-ca)
+---------------------------------------
+
+The included phytec-dev-ca example consists of a self-signed main-ca and three derived sub-ca's for bootloader, Fit-Image, and RAUC updates.
+
+.. image:: images/phytec-pki.svg
+
+The recipes for Bootloader, FIT-Image, and RAUC depend on the recipe phytec-dev-ca. If you build the BSP for the first time,
+the PHYTEC development keys are downloaded from https://github.com/phytec/phytec-dev-ca to yocto/phytec-dev-ca.
+They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC bundles.
+
++--------------------+-------------------------------------------------------+------------+
+| Name               | Description                                           | Key Type   |
++====================+=======================================================+============+
+| main-ca            | self-signed Certificate authority                     | RSA-4096   |
++--------------------+-------------------------------------------------------+------------+
+| nxp_ahab_pki       | NXP HABv4 Key Authority for i.MX93                    | NIST P-521 |
++--------------------+-------------------------------------------------------+------------+
+|| nxp_habv4_pki     || NXP HABv4 Key Authority for i.MX6/UL/ULL and         || RSA-4096  |
+||                   || i.MX8M Nano/Mini/Plus                                ||           |
++--------------------+-------------------------------------------------------+------------+
+| ti_k3              | TI K3 Key Authority for AM62 / AM64 / AM68            | RSA-4096   |
++--------------------+-------------------------------------------------------+------------+
+| fit                | Kernel FIT-Image signing key and certificate          | RSA-4096   |
++--------------------+-------------------------------------------------------+------------+
+|| kernel-modsign    || Key for the Linux kernel module signing facility,    || RSA-4096  |
+||                   || independent of CA                                    ||           |
++--------------------+-------------------------------------------------------+------------+
+|| rauc-intermediate || RAUC ca (intermediate ca) and                        || RSA-2048  |
+||                   || RAUC ca sign development key for signing the bundles ||           |
++--------------------+-------------------------------------------------------+------------+
+|| rauc-intermediate || RAUC ca for device certificates to encrypt           || RSA-4096  |
+|| -crypt            || update bundles                                       ||           |
++--------------------+-------------------------------------------------------+------------+
+
+The SOC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot container files,
+which are verified with the SOC internal unit and SOC rom loader or dedicated controllers in the SOC.
+
+All keys and certificates are stored in an XCA database phytec-dev-ca.xdb, which can be configured with the open-source
+application XCA from https://hohnstaedt.de/xca/.
+| The password for the phytec-dev-ca.xdb is: phytec-dev-ca
+
+Only the necessary keys and certificates for the build process are exported to the directory.
+
+.. code-block:: console
+
+    The phytec-dev-ca is installed in the directory
+    /<path to>/yocto
+    |--build
+    |--phytec-dev-ca
+    |--source
+
+All keys and certificates are in an XCA database and are not copied to different paths from the packages in the build folder.
+The directory contains only the necessary certificates and keys for the building process.
+
+.. warning::
+    * Use the PHYTEC development keys only for the first test.
+    * The PHYTEC development keys are not secure!
+    * Create and use your own keys and certificates!
+
+Create Your Own PKI Tree
+------------------------
+
+Please create your PKI offline with a separate system.
+For example, boot a read-only system from USB which you only use to create the PKI.
+The phytec-dev-ca is created with XCA from https://hohnstaedt.de/xca/, but you can use any other tool, too.
+
+Change PKI-Tree from phytec-dev-ca to Your Own PKI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*, the path to your PKI tree is initially defined:
+
+.. code-block:: console
+
+    CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
+
+If you want to change the path, then reinit the CERT_PATH ?= in your layer or overwrite the CERT_PATH in the conf/local.conf
+
+The name of your PKI tree must have a name other than phytec-dev-ca. The recipe for phytec-dev-ca uses the name "phytec-dev-ca"
+as a parameter for the clean command.
+
+After the CERT_PATH has been changed, you must clean and rebuild the bootloader, FIT-Image, RAUC bundles, and the rootfs!
+
+Create NXP AHAB / HABV4 Keys
+----------------------------
+
+NXP provided scripts to create keys and certificates for NXP AHAB or NXP HABV4.
+The scripts can found:
+
+imx-code-signing-tool repository: https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads
+
+You can use this script or a PKI application like the XCA to create the keys and certificates to sign the bootloader or boot container.
+
+For creation, the SRK table and SRK Fuses from the SRK certificates are scripts in the imx-code-signing-tool repository in the folder add-ons
+which used the srktool.
+You can find the srktool in the image deploy directory after a yocto build of the nxp-cst tool.
+
+.. code-block:: console
+
+    host:~$ bitbake nxp-cst
+
+More information about cst and HAB4 API you can find in the doc folder of the imx-code-signing-tool repository
+
+Create TI K3 keys
+-----------------
+
+In Progress
+
+Create FIT key
+--------------
+
+You can create the FIT Key with  a PKI Tool or openssl.
+
+For the signing of the FIT-Image the private key is used.
+The public key is build into  as device-tree node in the bootloader and used for the
+FIT-Image verification.
+
+The certificate is not necessary for the signing and verfication of the FIT-Image.
+
+Create Kernel Modul Signing key
+-------------------------------
+
+You can create the Key and certificate for kernel module signing with a PKI tool or openssl.
+You must combine the private key and the certificate to one file.
+
+.. code-block:: console
+
+    host:~$ cat private.key certificate.pem > kernel_modsign.pem
+
+Create rauc update certificates
+-------------------------------
+
+You can create the Key and certificate for rauc with a PKI tool or openssl.
+please check the rauc documentation for more details: https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration
