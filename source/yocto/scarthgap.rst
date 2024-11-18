@@ -1499,7 +1499,7 @@ to your *build/conf/local.conf*. Do not forget to rebuild the image
 
    host:~$ bitbake phytec-qt6demo-image
 
-Create your own Layer create layer
+Create your own layer
 ..................................
 
 Creating your layer should be one of the first tasks when customizing the BSP.
