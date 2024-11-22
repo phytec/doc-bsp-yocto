@@ -8,6 +8,7 @@ Welcome to the Documentation for our Yocto BSPs.
    :caption: Contents
 
    yocto/manual-index
+   rauc/manual-index
    bsp/imx8/imx8
    bsp/imx9/imx9
 
