@@ -1,0 +1,54 @@
+Secure Boot
+===========
+
+Chain of Trust
+--------------
+
+Secure boot is used to ensure that only trustworthy, signed software can be executed on the controller.
+This is the first stage of the Chain-of-Trust. With the Chain-of-Trust, signed programs are always started
+by other previously verified programs.
+This ensures that even the end application is at the highest layer of trustworthiness.
+
+.. image:: images/chain-of-trust.jpg
+
+Boot Process
+------------
+
+The boot process differs between the SOC and the vendor of the SOC's.
+The main boot process is the following
+
+.. image:: images/image-verification.svg
+
+1. The Trusted ROM-bootloader, which is part of the SOC, verifies the boot container (U-boot spl, ATF, firmware, op-tee)
+with the internal unit (**Boot Step 1**)
+
++------------------------------------------+-----------+
+| SOC                                      | Unit      |
++==========================================+===========+
+| NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus | NXP HABV4 |
++------------------------------------------+-----------+
+| NXP i.MX93, i.MX91, i.MX95               | NXP AHAB  |
++------------------------------------------+-----------+
+| TI AM62x, AM64x, AM68x                   | R5        |
++------------------------------------------+-----------+
+
+2. u-boot SPL loads u-boot proper from the FIT image and ATF (ARM Trusted Firmware) and optionally OP-TEE.
+3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel, DTB, and ramdisk. (**Boot Step 2**)
+4. If built with signed kernel modules (standard), Linux will only load kernel modules verifies with a kernel compiled in public key
+
+Image Signing
+-------------
+
+In the following flowchart you can see the signing process for different parts of an image.
+
+.. image:: images/image-signing.svg
+
+1. A Hash is created for the binary file like the boot container, Kernel FIT-Image, kernel modules, op-tee applications
+or the rauc update bundle.
+2. A signature is from the hash with a private key.
+3. The signature is added to the binary file.
+
+Activate Secure Boot
+--------------------
+
+Bootloader und kernel user space
