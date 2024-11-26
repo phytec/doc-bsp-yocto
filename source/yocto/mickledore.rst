@@ -1176,6 +1176,8 @@ source directory, run the line
 
    SRCTREECOVEREDTASKS="" BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_PASSTHROUGH_ADDITIONS SRCTREECOVEREDTASKS" bitbake <recipe> -c patch
 
+.. _mickledore_bsp-customization:
+
 BSP Customization
 -----------------
 
