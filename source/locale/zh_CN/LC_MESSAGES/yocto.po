@@ -60,7 +60,7 @@ msgstr "XXXX/XX/XX"
 #: ../../source/yocto/kirkstone.rst:17 ../../source/yocto/mickledore.rst:17
 #: ../../source/yocto/scarthgap.rst:17
 msgid "Is Branch of"
-msgstr "主文档"
+msgstr "母文档"
 
 #: ../../source/yocto/kirkstone.rst:21 ../../source/yocto/mickledore.rst:21
 #: ../../source/yocto/scarthgap.rst:21
@@ -217,7 +217,7 @@ msgstr "**硬件手册**：核心板和配套底板的详细硬件描述。"
 #: ../../source/yocto/kirkstone.rst:63 ../../source/yocto/mickledore.rst:45
 #: ../../source/yocto/scarthgap.rst:45
 msgid "**Yocto Guide**: A comprehensive guide for the Yocto version the phyCORE uses. This guide contains an overview of Yocto; introducing, installing, and customizing the PHYTEC BSP; how to work with programs like Poky and Bitbake; and much more."
-msgstr "**Yocto 指南**：phyCORE 使用的 Yocto 版本的综合指南。本指南包含: Yocto 概述；PHYTEC BSP 介绍、编译和定制化修改；如何使用 Poky 和 Bitbake 等编译框架。"
+msgstr "**Yocto 手册**：phyCORE 使用的 Yocto 版本的综合指南。本指南包含: Yocto 概述；PHYTEC BSP 介绍、编译和定制化修改；如何使用 Poky 和 Bitbake 等编译框架。"
 
 #: ../../source/yocto/kirkstone.rst:67 ../../source/yocto/mickledore.rst:49
 #: ../../source/yocto/scarthgap.rst:49
@@ -227,7 +227,7 @@ msgstr "**BSP 手册**：phyCORE 的 BSP 版本专用手册。可在此处找到
 #: ../../source/yocto/kirkstone.rst:70 ../../source/yocto/mickledore.rst:52
 #: ../../source/yocto/scarthgap.rst:52
 msgid "**Development Environment Guide**: This guide shows how to work with the Virtual Machine (VM) Host PHYTEC has developed and prepared to run various Development Environments. There are detailed step-by-step instructions for Eclipse and Qt Creator, which are included in the VM. There are instructions for running demo projects for these programs on a phyCORE product as well. Information on how to build a Linux host PC yourself is also a part of this guide."
-msgstr "**开发环境指南**：本指南介绍了如何使用 PHYTEC 虚拟机来搭建多样的开发环境。VM 中包含了 Eclipse 和 Qt Creator 的详细上手指导，还说明了如何将所编译出的demo程序放到phyCORE 核心板上运行。本指南同时也介绍了如何在本地Linux ubuntu上搭建完整的开发环境。"
+msgstr "**开发环境指南**：本指南介绍了如何使用 PHYTEC 虚拟机来搭建多样的开发环境。VM 中包含了 Eclipse 和 Qt Creator 的详细上手指导，还说明了如何将所编译出的demo程序放到phyCORE 核心板上运行。本指南同时也介绍了如何在本地Linux ubuntu上搭建完整的应用开发环境。"
 
 #: ../../source/yocto/kirkstone.rst:77 ../../source/yocto/mickledore.rst:59
 #: ../../source/yocto/scarthgap.rst:59
@@ -237,7 +237,7 @@ msgstr "**引脚复用表**：phyCORE 核心板附带一个引脚复用表（Exc
 #: ../../source/yocto/kirkstone.rst:84 ../../source/yocto/mickledore.rst:66
 #: ../../source/yocto/scarthgap.rst:66
 msgid "On top of these standard manuals and guides, PHYTEC will also provide Product Change Notifications, Application Notes, and Technical Notes. These will be done on a case-by-case basis. Most of the documentation can be found in the applicable download page of our products."
-msgstr "除了这些标准手册和指南之外，PHYTEC 还将提供产品变更通知、应用说明和技术说明。这些服务将根据具体案例进行针对性提供。大多数文档都可以在我们产品的下载页面中找到。"
+msgstr "除了这些标准手册和指南之外，PHYTEC 还将提供产品变更通知、应用说明和技术说明。这些文档将根据具体案例进行针对性提供。大多数文档都可以在我们产品的下载页面中找到。"
 
 #: ../../source/yocto/kirkstone.rst:90 ../../source/yocto/mickledore.rst:72
 #: ../../source/yocto/scarthgap.rst:72
@@ -247,12 +247,12 @@ msgstr "Yocto 介绍"
 #: ../../source/yocto/kirkstone.rst:92 ../../source/yocto/mickledore.rst:74
 #: ../../source/yocto/scarthgap.rst:74
 msgid "Yocto is the smallest SI metric system prefix. Like milli equates to ``m = 10^-3``, and so is yocto ``y = 10^-24``. Yocto is also a project working group of the `Linux Foundation <https://www.linuxfoundation.org/>`_ and therefore backed up by several major companies in the field. On the `Yocto Project website <https://www.yoctoproject.org/>`_ you can read the official introduction:"
-msgstr "Yocto 是最小的国际单位制前缀。就像milli是描述 ``10^-3`` 一样，yocto 是描述 ``10^-24`` 。Yocto 也是  `Linux 基金会 <https://www.linuxfoundation.org/>`_ 支持的项目，因此得到了该领域几家大公司的支持。在 `Yocto 项目网站 <https://www.yoctoproject.org/>`_ 上您可以阅读官方的介绍："
+msgstr "Yocto 是最小的国际单位制前缀。就像milli是描述 ``10^-3`` 一样，yocto 是描述 ``10^-24`` 。Yocto 也是  `Linux 基金会 <https://www.linuxfoundation.org/>`_ 支持的项目，因此得到了该领域几家主流公司的支持。在 `Yocto 项目网站 <https://www.yoctoproject.org/>`_ 上您可以阅读官方的介绍："
 
 #: ../../source/yocto/kirkstone.rst:98 ../../source/yocto/mickledore.rst:80
 #: ../../source/yocto/scarthgap.rst:80
 msgid "The Yocto Project is an open-source collaboration project that provides templates, tools, and methods to help you create custom Linux-based systems for embedded products regardless of the hardware architecture. It was founded in 2010 as a collaboration among many hardware manufacturers, open-source operating systems vendors, and electronics companies to bring some order to the chaos of embedded Linux development."
-msgstr "Yocto 项目是一个开源协作项目，它提供模板、工具和方法，为您的嵌入式产品创建基于 Linux 的自定义系统，同时不用过多的关注底层硬件架构。该项目由众多硬件制造商、开源操作系统供应商和电子公司合作开发，成立于2010年，旨在为嵌入式 Linux系统开发的混乱局面带来一些秩序。"
+msgstr "Yocto 项目是一个开源协作项目，它提供模板、工具和方法，为您的嵌入式产品创建基于 Linux 的自定义系统，同时不用过多的关注底层硬件架构。该项目由众多硬件制造商、开源操作系统供应商和电子公司合作开发，成立于2010年，旨在引导嵌入式 Linux系统开发走向标准化。"
 
 #: ../../source/yocto/kirkstone.rst:105 ../../source/yocto/mickledore.rst:87
 #: ../../source/yocto/scarthgap.rst:87
@@ -478,7 +478,7 @@ msgstr "Linux主机开发环境"
 
 #: ../../source/yocto/kirkstone.rst:232
 msgid "To build *Yocto* you need a compatible *Linux* host development machine. The list of supported distributions can be found in the reference manual: https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions"
-msgstr "要编译 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions"
+msgstr "构建 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions"
 
 #: ../../source/yocto/kirkstone.rst:237 ../../source/yocto/mickledore.rst:219
 #: ../../source/yocto/scarthgap.rst:219
@@ -493,7 +493,7 @@ msgstr "BSP 框架"
 #: ../../source/yocto/kirkstone.rst:242 ../../source/yocto/mickledore.rst:224
 #: ../../source/yocto/scarthgap.rst:224
 msgid "The BSP consists roughly of three parts. BSP management, BSP metadata, and BSP content. The management consists of *Repo* and phyLinux while the metadata depends on the SOC, which describes how to build the software. The content comprises PHYTEC's *Git* repositories and external sources."
-msgstr "BSP 大致由三部分组成。BSP 包管理、BSP 元数据和 BSP 内容源。包管理包括 *Repo* 和 phyLinux，而元数据取决于 SOC，它描述了如何构建软件。BSP 内容源来自 PHYTEC 的 *Git* 仓库和外部源。"
+msgstr "BSP 大致由三部分组成。BSP 包管理、BSP 元数据和 BSP 代码源。包管理包括 *Repo* 和 phyLinux，而元数据取决于 SOC，它描述了如何构建软件。BSP 内容源来自 PHYTEC 的 *Git* 仓库和外部源。"
 
 #: ../../source/yocto/kirkstone.rst:248 ../../source/yocto/mickledore.rst:230
 #: ../../source/yocto/scarthgap.rst:230
@@ -676,7 +676,7 @@ msgstr "这是我们用于集成 Qt6 和展示Qt6 demo的Layer。其特点是：
 #: ../../source/yocto/kirkstone.rst:376 ../../source/yocto/mickledore.rst:358
 #: ../../source/yocto/scarthgap.rst:358
 msgid "`Qt6 with eglfs backend <https://doc.qt.io/qt-5/embedded-linux.html>`_ for PHYTEC's AM335x, i.MX 6 and RK3288 platforms"
-msgstr "基于 PHYTEC AM335x、i.MX 6 和 RK3288 平台的 `带有 eglfs 后台的 Qt6 <https://doc.qt.io/qt-5/embedded-linux.html>`_ "
+msgstr "针对 PHYTEC AM335x、i.MX 6 和 RK3288 平台的 `带有 eglfs 后台的 Qt6 <https://doc.qt.io/qt-5/embedded-linux.html>`_ "
 
 #: ../../source/yocto/kirkstone.rst:378 ../../source/yocto/mickledore.rst:360
 #: ../../source/yocto/scarthgap.rst:360
@@ -801,11 +801,11 @@ msgstr "这是 i.MX Yocto 项目发行版的Layer。"
 #: ../../source/yocto/kirkstone.rst:448 ../../source/yocto/mickledore.rst:430
 #: ../../source/yocto/scarthgap.rst:430
 msgid "BSP Content"
-msgstr "BSP 内容源"
+msgstr "BSP 代码源"
 
 #: ../../source/yocto/kirkstone.rst:450
 msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`kirkstone_gen-source-mirrors`."
-msgstr "当您首次开始使用 *Bitbake* 时，BSP 内容源会从不同的线上源提取。所有相关的源文件都会被下载并拷贝到在 *Yocto* 中被配置为 ``DL_DIR`` 的本地目录中。如果您想备份包含完整内容源的 BSP，您也必须备份这些源文件。在 :ref:`kirkstone_gen-source-mirrors` 一章中会作出进一步解释。"
+msgstr "当您首次开始使用 *Bitbake* 时，BSP 代码会从不同的线上源提取。所有相关的源文件都会被下载并拷贝到在 *Yocto* 中被配置为 ``DL_DIR`` 的本地目录中。如果您想备份包含完整内容源的 BSP，您也必须备份这些源文件。在 :ref:`kirkstone_gen-source-mirrors` 一章中会作出进一步解释。"
 
 #: ../../source/yocto/kirkstone.rst:457 ../../source/yocto/mickledore.rst:439
 #: ../../source/yocto/scarthgap.rst:439
@@ -1231,7 +1231,7 @@ msgstr "在 Intel Core i7 上，首次编译大约需要 40 分钟。但是所�
 #: ../../source/yocto/kirkstone.rst:1042 ../../source/yocto/mickledore.rst:991
 #: ../../source/yocto/scarthgap.rst:1000
 msgid "Images images"
-msgstr "镜像 镜像"
+msgstr "镜像"
 
 #: ../../source/yocto/kirkstone.rst:1044 ../../source/yocto/mickledore.rst:993
 #: ../../source/yocto/scarthgap.rst:1002
@@ -1246,7 +1246,7 @@ msgstr "测试镜像最简单的方法是将核心板配置为 SD 卡启动，�
 #: ../../source/yocto/kirkstone.rst:1057 ../../source/yocto/mickledore.rst:1006
 #: ../../source/yocto/scarthgap.rst:1015
 msgid "Here <your_device> could be \"sde\", for example, depending on your system. Be very careful when selecting the right drive! Selecting the wrong drive can erase your hard drive! The parameter conv=fsync forces a data buffer to write to the device before dd returns."
-msgstr "这里<your_device>可以是“sde”，具体取决于您的系统。选择正确的硬盘驱动时要非常小心！选择错误的硬盘驱动可能会擦除您的硬盘！参数 conv=fsync 强制数据缓冲区在 dd 返回之前写入硬盘。"
+msgstr "这里<your_device>可以是“sde”，具体取决于您的系统。选择硬盘驱动时要非常小心！选择错误的硬盘驱动可能会擦除您的硬盘！参数 conv=fsync 强制数据缓冲区在 dd 返回之前写入硬盘。"
 
 #: ../../source/yocto/kirkstone.rst:1062 ../../source/yocto/mickledore.rst:1011
 #: ../../source/yocto/scarthgap.rst:1020
@@ -1302,7 +1302,7 @@ msgstr "但是您可能需要先安装一些依赖才能运行toaster"
 
 #: ../../source/yocto/kirkstone.rst:1124
 msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
-msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"
+msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"控制台，请通过串口或网络
 
 #: ../../source/yocto/kirkstone.rst:1135 ../../source/yocto/mickledore.rst:1084
 #: ../../source/yocto/scarthgap.rst:1085
@@ -1332,7 +1332,7 @@ msgstr "正如您所见，控制台输出了清楚地说明了构建信息。"
 #: ../../source/yocto/kirkstone.rst:1198 ../../source/yocto/mickledore.rst:1147
 #: ../../source/yocto/scarthgap.rst:1148
 msgid "Using *externalsrc* breaks a lot of *Yocto's* internal dependency mechanisms. It is not guaranteed that any changes to the source directory are automatically picked up by the build process and incorporated into the root filesystem or SD card image. You have to always use *--force*. E.g. to compile *barebox* and redeploy it to *deploy/images/<machine>* execute"
-msgstr "使用 *外部源* 会破坏 *Yocto* 的许多内部依赖机制。无法保证源目录的任何更改都会被构建过程自动抓取并合并到根文件系统或 SD 卡镜像中。您必须始终使用 *--force*。例如，编译 *barebox* 并将其重新部署到 *deploy/images/<machine>* 执行"
+msgstr "使用 *外部源* 会破坏 *Yocto* 的许多内部依赖机制。在构建过程中，源目录下的更改并不能保证被自动抓取并合并到根文件系统或 SD 卡镜像中。您必须始终使用 *--force*。例如，在编译 *barebox* 并将其重新部署到 *deploy/images/<machine>* 时需要执行"
 
 #: ../../source/yocto/kirkstone.rst:1210 ../../source/yocto/mickledore.rst:1159
 #: ../../source/yocto/scarthgap.rst:1160
@@ -1387,7 +1387,7 @@ msgstr "禁用 Qt 示例demo"
 #: ../../source/yocto/kirkstone.rst:1247 ../../source/yocto/mickledore.rst:1196
 #: ../../source/yocto/scarthgap.rst:1197
 msgid "By default, the BSP image *phytec-qt6demo-image* starts a Qt6 Demo application on the attached display or monitor. If you want to stop the demo and use the *Linux* framebuffer console behind it, connect to the target via serial cable or *ssh* and execute the shell command"
-msgstr "默认情况下，BSP 映像 *phytec-qt6demo-image* 会在连接的显示器或监视器上启动 Qt6 示例应用程序。如果要停止示例并使用其依赖的 *Linux* framebuffer控制台，请通过串口或网络 *ssh* 连接到目标并执行 shell 命令"
+msgstr "默认情况下，BSP 映像 *phytec-qt6demo-image* 会在连接的显示器或监视器上启动 Qt6 示例应用程序。如果要停止示例并使用后台得 *Linux* framebuffer 控制台，请通过串口或网络 *ssh* 连接到目标并执行 shell 命令"
 
 #: ../../source/yocto/kirkstone.rst:1256 ../../source/yocto/mickledore.rst:1205
 #: ../../source/yocto/scarthgap.rst:1206
@@ -1417,22 +1417,22 @@ msgstr "之后重新编译镜像"
 #: ../../source/yocto/kirkstone.rst:1293 ../../source/yocto/mickledore.rst:1242
 #: ../../source/yocto/scarthgap.rst:1243
 msgid "Framebuffer Console"
-msgstr "帧缓冲区控制台"
+msgstr "Framebuffer 控制台"
 
 #: ../../source/yocto/kirkstone.rst:1295 ../../source/yocto/mickledore.rst:1244
 #: ../../source/yocto/scarthgap.rst:1245
 msgid "On boards with a display interface, the framebuffer console is enabled per default. You can attach a USB keyboard and log in. To change the keyboard layout from the English default to German, type"
-msgstr "在具有显示接口的核心板上，默认启用帧缓冲控制台。您可以连接 USB 键盘并登录。要将键盘布局从默认的英语更改为德语，请键入"
+msgstr "在具有显示接口的核心板上，默认启用Framebuffer控制台。您可以连接 USB 键盘并登录。要将键盘布局从默认的英语更改为德语，请键入"
 
 #: ../../source/yocto/kirkstone.rst:1303 ../../source/yocto/mickledore.rst:1252
 #: ../../source/yocto/scarthgap.rst:1253
 msgid "To detach the framebuffer console, run"
-msgstr "如果要分离帧缓冲控制台，请运行"
+msgstr "如果要退出Framebuffer控制台，请运行"
 
 #: ../../source/yocto/kirkstone.rst:1309 ../../source/yocto/mickledore.rst:1258
 #: ../../source/yocto/scarthgap.rst:1259
 msgid "To completely deactivate the framebuffer console, disable the following kernel configuration option"
-msgstr "要完全停用帧缓冲控制台，请禁用以下内核配置选项"
+msgstr "要完全停用Framebuffer控制台，请禁用以下内核配置选项"
 
 #: ../../source/yocto/kirkstone.rst:1316 ../../source/yocto/mickledore.rst:1265
 #: ../../source/yocto/scarthgap.rst:1266
@@ -1511,7 +1511,7 @@ msgstr "在目标镜像上安装一些辅助程序。"
 #: ../../source/yocto/kirkstone.rst:1402 ../../source/yocto/mickledore.rst:1351
 #: ../../source/yocto/scarthgap.rst:1352
 msgid "The leading whitespace is essential for the append command."
-msgstr "命令前的空格非常重要。"
+msgstr "程序包名称前的空格非常重要。"
 
 #: ../../source/yocto/kirkstone.rst:1404 ../../source/yocto/mickledore.rst:1353
 #: ../../source/yocto/scarthgap.rst:1354
@@ -1818,7 +1818,7 @@ msgstr "使用 *devtool* 修改Kernel或Bootloader "
 #: ../../source/yocto/kirkstone.rst:1796 ../../source/yocto/mickledore.rst:1745
 #: ../../source/yocto/scarthgap.rst:1746
 msgid "*Apart from using the standard versions of kernel and bootloader which are provided in the recipes, you can modify the source code or use our own repositories to build your customized kernel.*"
-msgstr "*除了使用recipes中提供的标准kernel和bootloader外，您还可以修改源代码或使用自己的git仓库来构建您的自定义kernel 。*"
+msgstr "*除了使用recipes中提供的标准kernel和bootloader外，您可以选择在yocto中用devtool直接修改源代码或单独下载我们的git仓库来构建您的自定义kernel 。* 以下是两种修改方式的优劣对比"
 
 #: ../../source/yocto/kirkstone.rst:1801 ../../source/yocto/kirkstone.rst:1858
 #: ../../source/yocto/kirkstone.rst:2001 ../../source/yocto/mickledore.rst:1750

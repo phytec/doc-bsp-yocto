@@ -32,4 +32,4 @@ msgstr "Phytec 的 Yocto BSP 以开源许可证发布，我们欢迎对我们的
 
 #: ../../source/contributing_links.rst:10
 msgid "If you have a **question related to our Yocto BSPs** or notice **issues with this documentation**, we encourage you to open an Issue or Pull-Request on the Github repository `doc-bsp-yocto <https://github.com/phytec/doc-bsp-yocto>`__. Have a look at the `Contributing guide <https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`__ for more information."
-msgstr "如果您对我们的 Yocto BSP 有**问题**或注意到本文档的**问题**，我们鼓励您在Github 仓库 `doc-bsp-yocto <https://github.com/phytec/doc-bsp-yocto>`__ 上打开一个 Issue 或 Pull Request。查阅`贡献指南 <https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`__以获取更多信息。"
+msgstr "如果您对我们的 Yocto BSP 有 **疑问** 或注意到本文档的任何 **问题**，我们鼓励您在Github 仓库 `doc-bsp-yocto <https://github.com/phytec/doc-bsp-yocto>`__ 上打开一个 Issue 或 Pull Request。查阅 `贡献指南 <https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`__ 以获取更多信息。"
