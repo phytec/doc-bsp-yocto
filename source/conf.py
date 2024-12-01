@@ -98,8 +98,8 @@ html_context = {
     "conf_py_path": "/source/",
     # Language selector, works together with versions.html in templates
     'languages': [
-        ['en', pages_root]
-        #['zh_CN', pages_root + '/zh_CN']
+        ['en', pages_root],
+        ['zh_CN', pages_root + '/zh_CN']
     ]
 }
 
