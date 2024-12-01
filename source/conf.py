@@ -335,6 +335,14 @@ latex_documents = [
         'manual',
         False,
     ),
+    (
+        'coprocessor/coprocessor',
+        'coprocessor.tex',
+        'Coprocessor Application Manual',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
 ]
 
 # -- Linkcheck options ----------------------------------------------------
