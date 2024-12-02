@@ -131,8 +131,8 @@ latex_elements = {
         \fancyhf{}
         \fancyfoot[R]{{\py@HeaderFamily\thepage}}
         \fancyfoot[L]{{\py@HeaderFamily\nouppercase{\leftmark}}}
-        \fancyhead[L]{{\py@HeaderFamily \@title}}
-        \fancyhead[R]{{\py@HeaderFamily Documentation Rev.: \textit{''' + version + r'''}}}
+        \fancyhead[L]{{\py@HeaderFamily \fontsize{9}{10.8}\selectfont \@title}}
+        \fancyhead[R]{{\py@HeaderFamily \fontsize{9}{10.8}\selectfont Doc-rev.: \textit{''' + version + r'''}}}
         \renewcommand{\headrulewidth}{0.4pt}
         \renewcommand{\footrulewidth}{0.4pt}
       }
