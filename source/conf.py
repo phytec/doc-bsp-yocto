@@ -306,7 +306,7 @@ latex_documents = [
     (
         'rauc/kirkstone',
         'rauc-kirkstone.tex',
-        'RAUC Update \& Device Management Manual Kirkstone',
+        'RAUC Update \\& Device Management Manual Kirkstone',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -314,7 +314,7 @@ latex_documents = [
     (
         'rauc/mickledore',
         'rauc-mickledore.tex',
-        'RAUC Update \& Device Management Manual Mickledore',
+        'RAUC Update \\& Device Management Manual Mickledore',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -322,7 +322,7 @@ latex_documents = [
     (
         'rauc/scarthgap',
         'rauc-scarthgap.tex',
-        'RAUC Update \& Device Management Manual Scarthgap',
+        'RAUC Update \\& Device Management Manual Scarthgap',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
