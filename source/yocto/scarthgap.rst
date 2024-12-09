@@ -47,6 +47,8 @@
 
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
+.. _yocto-man-scarthgap:
+
 The Yocto Project
 =================
 
@@ -1606,6 +1608,8 @@ As you can see, the recipe *linux-mainline* has version *5.15.102-phy1*. In
 the PHYTEC's *linux-mainline*  *Git* repository, you will find a corresponding
 tag *v5.15.102-phy1*. The version of the *barebox* recipe is 2022.02.0-phy1.
 On i.MX8M\* modules the output will contain *linux-imx* and *u-boot-imx*.
+
+.. _yocto-man-scarthgap-kernel-and-bootloader-conf:
 
 Kernel and Bootloader Configuration
 ...................................
