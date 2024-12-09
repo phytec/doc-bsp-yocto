@@ -81,7 +81,9 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check |ref-disable-emmc-part| from Linux.
+   or check :ref:`Disable booting from eMMC boot partitions
+   <emmc-disable-boot-part>` from Linux.
+
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!

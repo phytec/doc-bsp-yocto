@@ -83,7 +83,6 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-mainline-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-mainline-head-components>`
-.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-mainline-head-format-sd>`
 
 
@@ -736,7 +735,8 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check |ref-disable-emmc-part| from Linux.
+   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+   from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!

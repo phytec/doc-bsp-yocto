@@ -97,7 +97,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd24.1.0_nxp-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd24.1.0_nxp-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd24.1.0_nxp-development-build-uboot>`
-.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.0_nxp-format-sd>`
 
 
