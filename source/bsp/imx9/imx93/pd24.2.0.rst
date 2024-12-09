@@ -71,8 +71,7 @@
 .. |yocto-imageext| replace:: wic.xz
 .. |yocto-machinename| replace:: phyboard-segin-imx93-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.0
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-sdk-rev| replace:: 5.0
 .. |yocto-sdk-a-core| replace:: cortexa55
 

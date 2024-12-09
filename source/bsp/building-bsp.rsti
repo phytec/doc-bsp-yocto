@@ -3,14 +3,14 @@ Building the BSP
 
 This section will guide you through the general build process of the |soc| BSP
 using Yocto and the phyLinux script. For more information about our
-meta-layer or Yocto in general visit: |yocto-ref-manual|_.
+meta-layer or Yocto in general visit: |yocto-ref-manual|.
 
 Basic Set-Up
 ------------
 
 If you have never created a Phytec BSP with Yocto on your computer, you should
 take a closer look at the chapter BSP Workspace Installation in the
-|yocto-ref-manual|_.
+|yocto-ref-manual|.
 
 Get the BSP
 -----------
