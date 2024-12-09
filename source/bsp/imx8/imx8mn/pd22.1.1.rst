@@ -85,6 +85,7 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-pd22.1.1-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-pd22.1.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-pd22.1.1-components>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.2-format-sd>`
 
 
 .. IMX8(MN) specific replacements
@@ -556,9 +557,8 @@ Flash eMMC from SD Card
 
 Even if there is no network available, you can update the eMMC. For that, you
 only need a ready-to-use image file (``*.wic``) located on the SD card.
-Because the image file is quite large, you have to enlarge your SD card to use
-its full space (if it was not enlarged before). To enlarge your SD card, see
-Resizing ext4 Root Filesystem.
+Because the image file is quite large, you have to create a third partition.
+To create a new partition or enlarge your SD card, see |ref-format-sd|.
 
 Flash eMMC from SD card in u-boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
