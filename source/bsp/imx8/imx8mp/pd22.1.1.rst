@@ -1946,8 +1946,30 @@ of some usages of various tools:
    refer to the schematic or the hardware manual of your board to ensure that it
    is not already in use.
 
-.. include:: ../peripherals/gpios.rsti
-   :start-after: .. gpios-via-sysfs-marker
+GPIOs via sysfs
+...............
+
+.. warning::
+
+   Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
+   instead.
+
+Support to access GPIOs via sysfs is not enabled by default any more.
+It is only possible with manually enabling ``CONFIG_GPIO_SYSFS`` in the kernel
+configuration. To make ``CONFIG_GPIO_SYSFS`` visible in menuconfig the option
+``CONFIG_EXPERT`` has to be enabled first.
+
+You can also add this option for example to the defconfig you use in
+``arch/arm64/configs/`` in the linux kernel sources. For our NXP based releases,
+this could be for example ``imx8_phytec_distro.config``::
+
+   ..
+   CONFIG_EXPERT=y
+   CONFIG_GPIO_SYSFS=y
+   ..
+
+Otherwise you can create a new config fragment. This is described in our
+`Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_.
 
 LEDs
 ----
@@ -2062,7 +2084,97 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n165`
 
-.. include:: /bsp/peripherals/pcie.rsti
+PCIe
+----
+
+The phyCORE-|soc| has one Mini-PCIe slot. In general, PCIe autodetects new
+devices on the bus. After connecting the device and booting up the system, you
+can use the command lspci to see all PCIe devices recognized.
+
+*  Type:
+
+   .. code-block:: console
+
+      target:~$ lspci -v
+
+*  You will receive:
+
+   .. code-block::
+
+      00:00.0 PCI bridge: Synopsys, Inc. Device abcd (rev 01) (prog-if 00 [Normal decode])
+              Flags: bus master, fast devsel, latency 0, IRQ 218
+              Memory at 18000000 (64-bit, non-prefetchable) [size=1M]
+              Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
+              I/O behind bridge: None
+              Memory behind bridge: 18100000-181fffff [size=1M]
+              Prefetchable memory behind bridge: None
+              [virtual] Expansion ROM at 18200000 [disabled] [size=64K]
+              Capabilities: [40] Power Management version 3
+              Capabilities: [50] MSI: Enable+ Count=1/1 Maskable+ 64bit+
+              Capabilities: [70] Express Root Port (Slot-), MSI 00
+              Capabilities: [100] Advanced Error Reporting
+              Capabilities: [148] L1 PM Substates
+              Kernel driver in use: dwc3-haps
+
+      01:00.0 Network controller: Intel Corporation WiFi Link 5100
+              Subsystem: Intel Corporation WiFi Link 5100 AGN
+              Flags: fast devsel
+              Memory at 18100000 (64-bit, non-prefetchable) [disabled] [size=8K]
+              Capabilities: [c8] Power Management version 3
+              Capabilities: [d0] MSI: Enable- Count=1/1 Maskable- 64bit+
+              Capabilities: [e0] Express Endpoint, MSI 00
+              Capabilities: [100] Advanced Error Reporting
+              Capabilities: [140] Device Serial Number 00-24-d6-ff-ff-84-0d-1e
+              Kernel modules: iwlwifi
+
+In this example, the PCIe device is the *Intel Corporation WiFi Link 5100*.
+
+For PCIe devices, you have to enable the correct driver in the kernel
+configuration. This WLAN card, for example, is manufactured by Intel. The
+option for the driver, which must be enabled, is named ``CONFIG_IWLWIFI`` and can be
+found under *Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat* in
+the kernel configuration.
+
+*  In order to activate the driver, follow the instructions from our
+   `Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_.
+
+   -  The linux-imx is represented by: **virtual/kernel**
+
+For some devices like the WLAN card, additional binary firmware blobs are
+needed. These firmware blobs have to be placed in ``/lib/firmware/`` before the
+device can be used.
+
+*  Type:
+
+   .. code-block:: console
+
+      host:~$ scp -r <firmware> root@192.168.3.11:/lib/firmware
+
+*  For example, if you try to bring up the network interface:
+
+   .. code-block:: console
+
+      target:~$ ip link set up wlp1s0
+
+*  You will get the following output on the serial console:
+
+   .. code-block:: console
+
+      [   58.682104] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
+      [   58.690822] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
+      [   58.696577] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0
+      [   58.831022] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
+      [   58.839679] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled
+      [   58.845435] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0
+      [   58.902797] IPv6: ADDRCONF(NETDEV_UP): wlp1s0: link is not ready
+
+.. tip::
+
+   Some PCIe devices, e.g. the Ethernet card, may function properly even if no
+   firmware blob is loaded from ``/lib/firmware/`` and you received an error message
+   as shown in the first line of the output above. This is because some
+   manufacturers provide the firmware as a fallback on the card itself. In this
+   case, the behavior and output depend strongly on the manufacturer's firmware.
 
 Device Tree PCIe configuration of imx8mm-phyboard-polis.dtsi:
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy17#n277`
