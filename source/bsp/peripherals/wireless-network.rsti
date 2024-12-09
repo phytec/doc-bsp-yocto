@@ -58,7 +58,7 @@ This should result in the following output:
    Successfully initialized wpa_supplicant
 
 The ip address is automatically configured over DHCP. For other possible IP configurations,
-see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
+see section `Changing the Network Configuration` in the |yocto-ref-manual|.
 
 .. no-bluetooth-marker
 

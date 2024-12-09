@@ -69,8 +69,7 @@
 .. |yocto-imageext| replace:: wic.xz
 .. |yocto-machinename| replace:: phyboard-segin-imx93-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.1.1
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (mickledore)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (mickledore) <yocto-man-mickledore>`
 .. |yocto-sdk-rev| replace:: 4.2.3
 .. |yocto-sdk-a-core| replace:: cortexa55
 

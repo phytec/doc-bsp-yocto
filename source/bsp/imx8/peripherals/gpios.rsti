@@ -138,4 +138,4 @@ this could be for example ``imx8_phytec_distro.config``::
    ..
 
 Otherwise you can create a new config fragment. This is described in our
-`Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_.
+|yocto-ref-manual-kernel-and-bootloader-conf|.
