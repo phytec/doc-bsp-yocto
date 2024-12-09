@@ -71,8 +71,8 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.y
-.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=PoDEHw
+.. |yocto-ref-manual| replace:: L-813e.A13 Yocto Reference Manual (hardknott)
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
 .. _yocto-ref-manual-kernel-and-bootloader-config: https://www.phytec.de/cdocuments/?doc=UIHsG#YoctoReferenceManualHardknottL813e-A12-KernelandBootloaderConfiguration
 .. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
