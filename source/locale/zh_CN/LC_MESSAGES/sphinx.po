@@ -20,7 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: ../../source/sphinx/templates/versions.html:9
 msgid "Languages"
 msgstr "语言"
 
