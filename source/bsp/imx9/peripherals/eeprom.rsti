@@ -48,12 +48,12 @@ select the correct RAM configuration. This makes it possible to use the same
 bootloader image for different RAM sizes and choose the correct DTS overlays
 automatically.
 
-If the first 265 bytes of the normal area are deleted, the bootloader will fall
+If the first 256 bytes of the normal area are deleted, the bootloader will fall
 back to the |som| Kit RAM setup, which is |kit-ram-size| RAM.
 
 .. warning::
 
-   Data in the first 265 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50)
+   Data in the first 256 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50)
    shouldn't be erased or corrupted! This might influence the behavior of the
    bootloader. The board might not boot correctly anymore.
 

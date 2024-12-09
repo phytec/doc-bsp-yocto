@@ -3,7 +3,7 @@ I2C EEPROM on |som|
 
 .. warning::
 
-   The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 265 bytes of the
+   The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 256 bytes of the
    normal EEPROM area (bus: I2C-0 addr: 0x51) should not be erased or
    overwritten. As this will influence the behavior of the bootloader. The board
    might not boot correctly anymore.
@@ -43,13 +43,13 @@ select the correct RAM configuration. This makes it possible to use the same
 bootloader image for different RAM sizes and choose the correct DTS overlays
 automatically.
 
-If the EEPROM ID page data and the first 265 bytes of the normal area are
+If the EEPROM ID page data and the first 256 bytes of the normal area are
 deleted, the bootloader will fall back to the |som| Kit RAM setup, which
 is |kit-ram-size| RAM.
 
 .. warning::
 
-   The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 265 bytes of the
+   The EEPROM ID page (bus: I2C-0 addr: 0x59) and the first 256 bytes of the
    normal EEPROM area (bus: I2C-0 addr: 0x51) should not be erased or
    overwritten. As this will influence the behavior of the bootloader. The board
    might not boot correctly anymore.
