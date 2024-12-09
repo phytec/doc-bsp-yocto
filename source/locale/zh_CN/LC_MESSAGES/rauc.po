@@ -1,0 +1,807 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, PHYTEC Messtechnik GmbH
+# This file is distributed under the same license as the PHYTEC BSP Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd24.1.0-nxp-19-ga3c4ac3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-09 18:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
+msgstr ""
+
+msgid "|rauc-manual|"
+msgstr ""
+
+msgid "Document Title"
+msgstr ""
+
+msgid "|rauc-manual| |yocto-codename|"
+msgstr ""
+
+msgid "Document Type"
+msgstr ""
+
+msgid "RAUC Update & Device Management Manual"
+msgstr ""
+
+msgid "Release Date"
+msgstr ""
+
+msgid "XXXX/XX/XX"
+msgstr ""
+
+msgid "Is Branch of"
+msgstr ""
+
+msgid "Compatible BSPs"
+msgstr ""
+
+msgid "BSP Release Type"
+msgstr ""
+
+msgid "BSP Release Date"
+msgstr ""
+
+msgid "BSP Status"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+msgstr ""
+
+msgid "Major"
+msgstr ""
+
+msgid "14.12.2022"
+msgstr ""
+
+msgid "released"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.1"
+msgstr ""
+
+msgid "Minor"
+msgstr ""
+
+msgid "20.06.2023"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
+msgstr ""
+
+msgid "11.08.2022"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1"
+msgstr ""
+
+msgid "23.05.2023"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MM-PD23.1.0"
+msgstr ""
+
+msgid "12.12.2023"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62x-PD23.2.0"
+msgstr ""
+
+msgid "28.09.2023"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+msgstr ""
+
+msgid "This manual was tested using the Yocto version |yocto-codename|."
+msgstr ""
+
+msgid "Introduction"
+msgstr ""
+
+msgid "PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports the `RAUC <https://rauc.readthedocs.io/en/latest/>`_ (Robust Auto-Update Controller) mechanism. RAUC controls the procedure of updating a device with new firmware. This includes updating the Linux kernel, Device Tree, and root filesystem. For eMMC devices only, it can also update the bootloader."
+msgstr ""
+
+msgid "This manual describes how RAUC is used and implemented on various PHYTEC platforms. Note, that different modules use different bootloaders and flash storage devices, which affects the way things are handled by RAUC. Make sure to read the correct sections fitting your platform."
+msgstr ""
+
+msgid "This manual contains machine-specific paths and variable contents. Make sure you are using the correct machine and device names for your application when executing any commands."
+msgstr ""
+
+msgid "System Configuration"
+msgstr ""
+
+msgid "RAUC can be used with both eMMC and NAND flash storage. Using the distro ``ampliphy-rauc`` or ``ampliphy-vendor-rauc``, it is enabled by default and requires no additional setup to get started. RAUC can be used in different update scenarios. As an example, we configured the BSP to use an A/B setup to have a completely redundant system (including the bootloader on eMMC devices). Note, that there is an additional partition named ``config`` storing persistent configuration data not being changed when updating."
+msgstr ""
+
+msgid "RAUC BSP Example Setup"
+msgstr ""
+
+msgid "The partition layout is defined in the ``/etc/rauc/system.conf`` file. As an example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:"
+msgstr ""
+
+msgid "/etc/rauc/system.conf"
+msgstr ""
+
+msgid "Note, that the devices specified in the slots are different depending on the selected machine."
+msgstr ""
+
+msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <kirkstone_rauc-switch-keyrings>` for more information."
+msgstr ""
+
+msgid "Design Considerations"
+msgstr ""
+
+msgid "In order to prevent the system from locking up, it may be a good idea to utilize a hardware watchdog. In case the Linux Kernel does not boot or another catastrophic event occurs that prevents the system from operating normally, the hardware watchdog then resets the system. By default, the hardware watchdog is disabled. To enable it, refer to the corresponding BSP manual that fits your SoM."
+msgstr ""
+
+msgid "Other important design considerations, as well as a checklist, can be found in the official RAUC documentation: https://rauc.readthedocs.io/en/latest/checklist.html"
+msgstr ""
+
+msgid "Initial Setup"
+msgstr ""
+
+msgid "To use RAUC, the flash device needs to be written with a complete Linux system and bootloader. The preferred method to do this is using the included tool `partup <https://partup.readthedocs.io/en/latest/>`_."
+msgstr ""
+
+msgid "Flash Storage"
+msgstr ""
+
+msgid "To flash the device with the correct partitions/volumes, use a partup package built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution. Prebuilt partup packages can be found in the BSP release. It is also possible to build a package with this distribution yourself using Yocto. Change ``local.conf`` so separate build directories are created, storing the images and packages for the RAUC system:"
+msgstr ""
+
+msgid "build/conf/local.conf"
+msgstr ""
+
+msgid "Then initialize the build directory with the OE init script:"
+msgstr ""
+
+msgid "Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x) or ``ampliphy-vendor-rauc`` (for i.MX8):"
+msgstr ""
+
+msgid "Any image built with this distro now includes a full A/B system. Build the image as usual:"
+msgstr ""
+
+msgid "The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc`` directory, e.g.:"
+msgstr ""
+
+msgid "This partup package contains all the necessary data and configuration to flash an eMMC. `Partup <https://github.com/phytec/partup>`__ can be obtained from its `release page <https://github.com/phytec/partup/releases>`_. Also, see its README for detailed `installation instructions <https://github.com/phytec/partup#installation>`_. Partup is already installed in our Ampliphy images, ``phytec-headless-image`` and can be directly used e.g. from an SD card."
+msgstr ""
+
+msgid "To flash the initial RAUC system, a booted non-RAUC system is needed first on a different flash device. E.g. you could boot a regular ``phytec-headless-image`` image with distro ``ampliphy`` from an SD card."
+msgstr ""
+
+msgid "eMMC"
+msgstr ""
+
+msgid "While running a non-RAUC system from an SD card on the target, copy the ``.partup`` package built with distro ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` to the running target first:"
+msgstr ""
+
+msgid "Then install the partup package to the eMMC:"
+msgstr ""
+
+msgid "Now the target can boot the flashed A/B system."
+msgstr ""
+
+msgid "NAND"
+msgstr ""
+
+msgid "There are scripts provided with the bootloader barebox that previously were used to initialize NAND flash with an A/B system: ``rauc_init_nand``, ``rauc_flash_nand_from_tftp`` and ``rauc_flash_nand_from_mmc``. These scripts are deprecated. It is advised to use the script ``rauc-flash-nand`` provided in the Linux environment with PHYTEC's distribution *Ampliphy*."
+msgstr ""
+
+msgid "With raw NAND flash the kernel, device tree, and root filesystem are written individually. Initialize the NAND flash with the correct volumes from a Linux on the target:"
+msgstr ""
+
+msgid "The initialization script will automatically utilize all available space of NAND flash. The NAND device is also determined automatically by finding the device root in ``/proc/mtd``."
+msgstr ""
+
+msgid "On i.MX6 and i.MX6UL devices with barebox, use bbu (barebox update) to flash the bootloader:"
+msgstr ""
+
+msgid "The A/B system on NAND Flash is now ready to be booted."
+msgstr ""
+
+msgid "Bootloader"
+msgstr ""
+
+msgid "Booting the A/B System by Default"
+msgstr ""
+
+msgid "Booting the A/B system is done mostly automatically by the bootloader since the Yocto release *hardknott*. For devices with eMMC flash storage, the corresponding setting is written into the bootloader environment during the building of the BSP. In particular, if the distribution ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` is used, as described previously, the bootloader should automatically start the A/B system and have the variables set for RAUC accordingly."
+msgstr ""
+
+msgid "This automatic setting can be manually changed by setting one variable in the bootloader. The procedure is described in more detail in the following chapters for U-Boot and barebox."
+msgstr ""
+
+msgid "U-Boot"
+msgstr ""
+
+msgid "After a successful boot into a Linux environment, this command is used to view the available parameters:"
+msgstr ""
+
+msgid "You may see this parameter along with others in the output:"
+msgstr ""
+
+msgid "To manually disable or enable booting the A/B system with RAUC, set this variable to ``0`` or ``1``:"
+msgstr ""
+
+msgid "This parameter can also be edited in U-Boot. Restart your board and hit any key to stop the automatic boot. The environment variables can now be viewed:"
+msgstr ""
+
+msgid "and set:"
+msgstr ""
+
+msgid "Barebox"
+msgstr ""
+
+msgid "In barebox, the system to be booted can be selected directly by its name. To boot the A/B system, including RAUC, ``bootchooser`` is used. To boot e.g. a regular SD card without RAUC use ``mmc`` instead, or ``nand`` for NAND devices:"
+msgstr ""
+
+msgid "Creating RAUC Bundles"
+msgstr ""
+
+msgid "To update your system with RAUC, a RAUC bundle (``.raucb``) needs to be created. It contains all required images and scripts for the update and a RAUC ``manifest.raucm`` that describes the content of the bundle for the RAUC update on the target. The BSP includes a Yocto target that lets you build a RAUC bundle from your Yocto build."
+msgstr ""
+
+msgid "To create the bundle with Yocto, run the following in ``build/`` with the distribution ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` set up, as described previously:"
+msgstr ""
+
+msgid "This results in the creation of a ``.raucb`` bundle file in ``deploy/images/<MACHINE>/`` which can be used for updating the system as described later. There is no need to create a ``manifest.raucm`` manually as it is created automatically during the build of the bundle. As a reference, the created manifest would look something like this:"
+msgstr ""
+
+msgid "manifest.raucm"
+msgstr ""
+
+msgid "For more information about the manifest format, see https://rauc.readthedocs.io/en/latest/reference.html#manifest."
+msgstr ""
+
+msgid "Updating with RAUC"
+msgstr ""
+
+msgid "To update the target system with RAUC, the RAUC bundle file previously created first needs to be copied to the board or to a memory device that can be mounted in Linux. One way is to copy the bundle file with ``scp``, but this requires enough space left on the board's filesystem. To do this, boot the target board to Linux and connect it via Ethernet to your host PC."
+msgstr ""
+
+msgid "On the host, run:"
+msgstr ""
+
+msgid "On the target, the bundle can be verified:"
+msgstr ""
+
+msgid "and the output should look similar to this:"
+msgstr ""
+
+msgid "To check the current state of the system, run:"
+msgstr ""
+
+msgid "and get output similar to this:"
+msgstr ""
+
+msgid "To update the currently inactive system with the downloaded bundle, run:"
+msgstr ""
+
+msgid "and reboot afterward:"
+msgstr ""
+
+msgid "With the success of the update, RAUC automatically switches the active system to the newly updated system. Now during reboot, RAUC counts the boot attempts of the kernel and if it fails more often than specified in the state framework of the system, RAUC switches back to the old system and marks the new system as bad. If the boot attempt to the kernel is successful, the new system is marked as good and the old system can now be updated with the same instructions. After two successful ``rauc install`` and ``reboot``, both systems are updated."
+msgstr ""
+
+msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <kirkstone_rauc-automatic-updates-usb>` you can find below."
+msgstr ""
+
+msgid "Changing the Active Boot Slot"
+msgstr ""
+
+msgid "It is possible to switch the active system manually:"
+msgstr ""
+
+msgid "After a reboot, the target now starts from the other system."
+msgstr ""
+
+msgid "Switching RAUC Keyrings"
+msgstr ""
+
+msgid "PHYTEC's distribution comes with keys and certificates used for development and demonstration purposes only. To change to a different PKI when devices are already rolled out, RAUC's keyring must be changed. This chapter describes the full procedure from a development state to a production state. Keep in mind, that it is always a better idea to roll out your devices with a production keyring in the first place, instead of relying on a development one for too long. The following diagram shows the general process of switching keyrings for RAUC:"
+msgstr ""
+
+msgid "Keyring Switching Process"
+msgstr ""
+
+msgid "Create new certificates and keys for your own PKI. See our security manual for a detailed description on how to create a custom PKI. For this document, we refer to this newly created PKI as \"production\", as opposed to the existing \"development\" keys."
+msgstr ""
+
+msgid "Move the generated keys and certificates, to your main Yocto build directory root, alongside with ``build/`` and ``sources/``."
+msgstr ""
+
+msgid "Be careful where you store the private keys! These should in no way be made publicly available. E.g. do not store the private keys in a public Git repository. Otherwise, unauthorized entities could create RAUC bundles that can be installed on your target system!"
+msgstr ""
+
+msgid "Now, a RAUC bundle must be created that contains the new \"production\" CA keyring in its root filesystem but is still signed by the \"development\" CA. With this, the system is converted from a \"development\" system to a \"production\" system. To achieve this, exchange the file ``ca.cert.pem`` installed by the RAUC recipe in the Yocto sources. Create a file ``rauc_%.bbappend`` in your own Yocto layer:"
+msgstr ""
+
+msgid "recipes-core/rauc/rauc_%.bbappend"
+msgstr ""
+
+msgid "Build the same RAUC bundle as before, now with the exchanged keyring:"
+msgstr ""
+
+msgid "Install the resulting RAUC bundle as usual. The target now has the image with the \"production\" keyring installed in its other slot (\"System B\" in the figure above). Reboot to start that system."
+msgstr ""
+
+msgid "All future RAUC bundles for the \"production\" system must now also be signed by the \"production\" CA. For this, change the key and certificate to your newly generated \"production\" ones in the bundle recipe:"
+msgstr ""
+
+msgid "recipes-images/bundles/customer-headless-bundle.bb"
+msgstr ""
+
+msgid "Rebuild the RAUC bundle:"
+msgstr ""
+
+msgid "These and any future bundles are now ready to be installed on your \"production\" target system and have been fully migrated away from the \"development\" system. This also means that now only bundles signed by the \"production\" CA can be installed on the target (and e.g. \"development\" bundles cannot)."
+msgstr ""
+
+msgid "Use Case Examples"
+msgstr ""
+
+msgid "Automatic Updates from USB Flash Drive with RAUC"
+msgstr ""
+
+msgid "One of the most prominent use cases for RAUC might be an automatic update system from a USB flash drive. This use case is implemented in the BSP as a reference example. We combine only standard Linux mechanisms with RAUC to build the system. The kernel notifies *udev* when a device gets plugged into the USB port. We use a custom *udev* rule to trigger a systemd service when this event happens."
+msgstr ""
+
+msgid "10-update-usb.rules"
+msgstr ""
+
+msgid "The service automatically mounts the USB flash drive and notifies the application."
+msgstr ""
+
+msgid "update-usb@.service"
+msgstr ""
+
+msgid "In our reference implementation, we simply use a shell script for the application logic."
+msgstr ""
+
+msgid "update_usb.sh"
+msgstr ""
+
+msgid "The update logic can be integrated into an application using the *systemd D-Bus API*. RAUC does not need to be called by its command-line interface but can be integrated with D-Bus."
+msgstr ""
+
+msgid "RAUC features a D-Bus API interface (see https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api)."
+msgstr ""
+
+msgid "Security Measurement: Downgrade Barrier"
+msgstr ""
+
+msgid "As a second reference example, we will implement a security mechanism: a downgrade barrier. When you detect a security vulnerability on your system, you will fix it and update your system. The systems with the new software will now be secure again. If an attacker gets a hold of the old software update bundle, which still has a valid signature, the attacker might have the possibility to install the old software and still take advantage of the previously fixed security vulnerability. To prevent this from happening, you could revoke the updated certificate for every single update and create a new one. This might be difficult to handle, depending on the environment. A simpler solution would be to allow updates only in one direction using a version check."
+msgstr ""
+
+msgid "rauc_downgrade_barrier.sh"
+msgstr ""
+
+msgid "The script is installed on the target but it is not activated. You need to remove the developer mode line in the script to activate it."
+msgstr ""
+
+msgid "Streaming Bundles over HTTP"
+msgstr ""
+
+msgid "Instead of copying the bundle to the device, the bundle can be streamed over HTTP. Using bundle streaming has the advantage of not requiring local storage on the target. A simple approach to this is running NGINX inside a Docker container. The following example shows how to implement a minimal download server enabling HTTP range requests to support this feature."
+msgstr ""
+
+msgid "Create a Dockerfile with the following content:"
+msgstr ""
+
+msgid "Dockerfile"
+msgstr ""
+
+msgid "Configure NGINX to enable HTTP range requests and point it to the bundle file."
+msgstr ""
+
+msgid "nginx.conf"
+msgstr ""
+
+msgid "Place a bundle in the ``bundles`` sub-directory. The folder structure looks like the following after creating all configuration files:"
+msgstr ""
+
+msgid "Build and run the docker container on the host system:"
+msgstr ""
+
+msgid "Install the bundle on the currently inactive target partitions:"
+msgstr ""
+
+msgid "After the update finishes the target may display the following error which has no impact on the success of the update:"
+msgstr ""
+
+msgid "Reference"
+msgstr ""
+
+msgid "Boot Logic Implementation"
+msgstr ""
+
+msgid "The implementation details described in this chapter serve as a reference guide. PHYTEC BSPs that have RAUC support include these by default and the changes are already incorporated."
+msgstr ""
+
+msgid "U-Boot Environment Variables"
+msgstr ""
+
+msgid "For U-Boot, the boot logic that selects the correct partitions to boot from is implemented in its environment. As a reference, these are the most important U-Boot variables that are used for the A/B system with RAUC:"
+msgstr ""
+
+msgid "For BSP-Yocto-NXP-i.MX8M*-PD23.1.0:"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Function"
+msgstr ""
+
+msgid "BOOT_ORDER"
+msgstr ""
+
+msgid "Contains a space-separated list of boot targets in the order they should be tried. This parameter is automatically set by RAUC."
+msgstr ""
+
+msgid "BOOT_<slot>_LEFT"
+msgstr ""
+
+msgid "Contains the number of remaining boot attempts to perform for the respective slot. This parameter is automatically set by RAUC."
+msgstr ""
+
+msgid "``raucboot``"
+msgstr ""
+
+msgid "Contains the boot logic that sets the partitions so the correct system is loaded."
+msgstr ""
+
+msgid "``doraucboot``"
+msgstr ""
+
+msgid "Enables booting the A/B system if set to 1 and disables it if set to 0."
+msgstr ""
+
+msgid "``raucslot``"
+msgstr ""
+
+msgid "Contains the current boot slot used in BOOT_<slot>_LEFT."
+msgstr ""
+
+msgid "``raucargs``"
+msgstr ""
+
+msgid "Sets the Kernel bootargs like console, root, and RAUC lot."
+msgstr ""
+
+msgid "``raucdev``"
+msgstr ""
+
+msgid "Sets the eMMC as the boot device."
+msgstr ""
+
+msgid "``raucrootpart``"
+msgstr ""
+
+msgid "Sets the root filesystem partitions of the device."
+msgstr ""
+
+msgid "``raucpart``"
+msgstr ""
+
+msgid "Sets the boot partitions of the device."
+msgstr ""
+
+msgid "``loadraucimage``"
+msgstr ""
+
+msgid "Loads the Kernel image into RAM."
+msgstr ""
+
+msgid "``loadraucfdt``"
+msgstr ""
+
+msgid "Loads the device tree into RAM."
+msgstr ""
+
+msgid "These environment variables are defined in ``include/configs/phycore_<SOC>.h`` in the u-boot source code."
+msgstr ""
+
+msgid "For BSP-Yocto-Ampliphy-AM6xx-PD23.2.0:"
+msgstr ""
+
+msgid "``init_rauc``"
+msgstr ""
+
+msgid "``raucbootpart``"
+msgstr ""
+
+msgid "These environment variables are defined in ``include/environment/phytec/rauc.env`` in the u-boot source code."
+msgstr ""
+
+msgid "A change in the partition layout, e.g. when using an additional data partition, may require changing the variables ``raucrootpart`` and ``raucpart``. Make sure to rebuild your image with the new bootloader environment after you have made the appropriate changes."
+msgstr ""
+
+msgid "Barebox Bootchooser Framework"
+msgstr ""
+
+msgid "For the barebox, the boot logic that selects the correct partitions to boot from is implemented using the bootchooser and state framework. See the barebox documentation for detailed information about these: `Barebox Bootchooser Framework <https://www.barebox.org/doc/latest/user/bootchooser.html>`_, `Barebox State Framework <https://www.barebox.org/doc/latest/user/state.html>`_."
+msgstr ""
+
+msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <kirkstone_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
+msgstr ""
+
+msgid "Afterward, rebuild the image and flash the new bootloader."
+msgstr ""
+
+msgid "Be aware that by adding the state framework configuration, the first 160 bytes of the EEPROM are occupied and can no longer be used for user-specific purposes."
+msgstr ""
+
+msgid "The following device tree snippet shows an example of the state framework configuration used with the BSP. As can be seen, the EEPROM is used as a backend for the state information:"
+msgstr ""
+
+msgid "To be able to boot from two systems alternately, the bootchooser needs to be aware of the state framework configuration. For each system, a boot script is required. For a system with NAND flash, the boot script of the first system may look like the following:"
+msgstr ""
+
+msgid "/env/boot/system0"
+msgstr ""
+
+msgid "The second boot script has the same structure but uses the partitions containing the second system. Machines with eMMC flash use similar boot scripts, albeit the mounting and boot arguments look different."
+msgstr ""
+
+msgid "Run the following commands to create the required bootchooser non-volatile environment variables:"
+msgstr ""
+
+msgid "eMMC Boot Partitions"
+msgstr ""
+
+msgid "With eMMC flash storage it is possible to use the dedicated boot partitions for redundantly storing the bootloader."
+msgstr ""
+
+msgid "By default, bundles built with our BSP (e.g. ``phytec-headless-bundle``) contain the bootloader for updating eMMC boot partitions accordingly."
+msgstr ""
+
+msgid "Note, that the U-Boot environment still resides in the user area before the first partition. The user area also still contains the bootloader which the image first shipped during its initialization process."
+msgstr ""
+
+msgid "To manually write the bootloader to the eMMC boot partitions, first disable the write protection:"
+msgstr ""
+
+msgid "Write the bootloader to the eMMC boot partitions:"
+msgstr ""
+
+msgid "This example is valid for the i.MX 8M Mini SoC. Note, that other SoCs may have different bootloader files and require different offsets where the bootloader is expected, specified by the seek parameter. See the following table for the different offsets being required by each SoC:"
+msgstr ""
+
+msgid "SoC"
+msgstr ""
+
+msgid "Offset User Area"
+msgstr ""
+
+msgid "Offset Boot Partition"
+msgstr ""
+
+msgid "eMMC Device"
+msgstr ""
+
+msgid "i.MX 6"
+msgstr ""
+
+msgid "1 kiB"
+msgstr ""
+
+msgid "0 kiB"
+msgstr ""
+
+msgid "/dev/mmcblk3"
+msgstr ""
+
+msgid "barebox.bin"
+msgstr ""
+
+msgid "i.MX 6UL"
+msgstr ""
+
+msgid "/dev/mmcblk1"
+msgstr ""
+
+msgid "i.MX 8M"
+msgstr ""
+
+msgid "33 kiB"
+msgstr ""
+
+msgid "/dev/mmcblk0"
+msgstr ""
+
+msgid "imx-boot"
+msgstr ""
+
+msgid "i.MX 8M Mini"
+msgstr ""
+
+msgid "/dev/mmcblk2"
+msgstr ""
+
+msgid "i.MX 8M Nano"
+msgstr ""
+
+msgid "32 kiB"
+msgstr ""
+
+msgid "i.MX 8M Plus"
+msgstr ""
+
+msgid "AM62x AM62Ax AM64x"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "0 kiB 512 kiB 2560 kiB"
+msgstr ""
+
+msgid "tiboot3.bin tispl.bin u-boot.img"
+msgstr ""
+
+msgid "Bootloader Offsets"
+msgstr ""
+
+msgid "Note that the offset is different, depending on whether the bootloader resides in the user area or the boot partitions of the eMMC."
+msgstr ""
+
+msgid "After a bootloader has been written to the eMMC boot partitions, booting from these can be enabled by using the following command:"
+msgstr ""
+
+msgid "This also means that only the bootloaders written in the eMMC boot partitions are used. The bootloader in the user area is not used anymore. These steps are also executed by RAUC internally when updating the target system with a bundle."
+msgstr ""
+
+msgid "To disable booting from the eMMC boot partitions simply enter the following command:"
+msgstr ""
+
+msgid "After this command, the eMMC user area is used to provide the bootloader."
+msgstr ""
+
+msgid "When using U-Boot, a similar command is also available in the bootloader:"
+msgstr ""
+
+msgid "Table of Contents"
+msgstr ""
+
+msgid "RAUC Update & Device Management Manuals"
+msgstr ""
+
+msgid "Kirkstone"
+msgstr ""
+
+msgid "Mickledore"
+msgstr ""
+
+msgid "Scarthgap"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX93-PD24.1.0"
+msgstr ""
+
+msgid "05.02.2024"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX93-PD24.1.1"
+msgstr ""
+
+msgid "08.05.2024"
+msgstr ""
+
+msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <mickledore_rauc-switch-keyrings>` for more information."
+msgstr ""
+
+msgid "To flash the device with the correct partitions/volumes, use a partup package built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution. Prebuilt partup packages can be found in the BSP release. It is also possible to build an image with this distribution yourself using Yocto. Separate build directories are created, storing the images and packages for the RAUC system. Initialize the build directory with the OE init script:"
+msgstr ""
+
+msgid "Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8 mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):"
+msgstr ""
+
+msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <mickledore_rauc-automatic-updates-usb>` you can find below."
+msgstr ""
+
+msgid "``raucinit``"
+msgstr ""
+
+msgid "Sets the Kernel bootargs like console, root, and RAUC slot."
+msgstr ""
+
+msgid "A change in the partition layout, e.g. when using an additional data partition, may require changing the variables ``raucrootpart`` and ``raucbootpart``. Make sure to rebuild your image with the new bootloader environment after you have made the appropriate changes."
+msgstr ""
+
+msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <mickledore_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
+msgstr ""
+
+msgid "i.MX 93"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
+msgstr ""
+
+msgid "2024-04-02"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1"
+msgstr ""
+
+msgid "2024-04-09"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2"
+msgstr ""
+
+msgid "2024-06-26"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MP-PD24.1.0"
+msgstr ""
+
+msgid "2024-11-07"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX93-PD24.2.0"
+msgstr ""
+
+msgid "2024-10-08"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
+msgstr ""
+
+msgid "2024-07-19"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
+msgstr ""
+
+msgid "2024-06-27"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
+msgstr ""
+
+msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <scarthgap_rauc-switch-keyrings>` for more information."
+msgstr ""
+
+msgid "Creating transition bundles"
+msgstr ""
+
+msgid "Updating to a new major release can require a special RAUC bundle."
+msgstr ""
+
+msgid "When updating to a Scarthgap based release, add the following to your ``local.conf`` and rebuild the RAUC bundle:"
+msgstr ""
+
+msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <scarthgap_rauc-automatic-updates-usb>` you can find below."
+msgstr ""
+
+msgid "These environment variables are defined in ``include/env/phytec/rauc.env`` in the u-boot source code."
+msgstr ""
+
+msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <scarthgap_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
+msgstr ""
+

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 18:21+0200\n"
+"POT-Creation-Date: 2024-12-09 18:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -20,6 +20,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
+msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
+msgstr ""
 
 msgid "|yocto-ref-manual|"
 msgstr "|yocto-ref-manual|"
@@ -802,7 +804,7 @@ msgid "Maybe you need to install some requirements, first"
 msgstr "但是您可能需要先安装一些依赖才能运行toaster"
 
 msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
-msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"控制台，请通过串口或网络
+msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行\"控制台，请通过串口或网"
 
 msgid "BSP Features of meta-phytec and meta-ampliphy"
 msgstr "meta-phytec 和 meta-ampliphy 的特点"
@@ -972,7 +974,8 @@ msgstr "执行命令 *bitbake-layers show-layers* 应该会打印所有已启用
 msgid "to your *build/conf/local.conf*. Do not forget to rebuild the image"
 msgstr "到您的 *build/conf/local.conf*。不要添加后忘记重新构建镜像"
 
-msgid "Create your own Layer create layer"
+#, fuzzy
+msgid "Create your own layer"
 msgstr "创建自己的Layer 创建Layer"
 
 msgid "Creating your layer should be one of the first tasks when customizing the BSP. You have two basic options. You can either copy and rename our *meta-ampliphy*, or you can create a new layer that will contain your changes. The better option depends on your use case. *meta-ampliphy* is our example of how to create a custom *Linux* distribution that will be updated in the future. If you want to benefit from those changes and are, in general, satisfied with the userspace configuration, it could be the best solution to create your own layer on top of *Ampliphy*. If you need to rework a lot of information and only need the basic hardware support from PHYTEC, it would be better to copy *meta-ampliphy*, rename it, and adapt it to your needs. You can also have a look at the OpenEmbedded layer index to find different distribution layers. If you just need to add your own application to the image, create your own layer."
@@ -1839,6 +1842,54 @@ msgstr "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1"
 msgid "2024-04-09"
 msgstr "2024-04-09"
 
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2"
+msgstr "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1"
+
+#, fuzzy
+msgid "2024-06-26"
+msgstr "2024-04-02"
+
+#, fuzzy
+msgid "BSP-Yocto-NXP-i.MX8MP-PD24.1.0"
+msgstr "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
+
+#, fuzzy
+msgid "2024-11-07"
+msgstr "2024-04-09"
+
+#, fuzzy
+msgid "BSP-Yocto-NXP-i.MX93-PD24.2.0"
+msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.0"
+
+#, fuzzy
+msgid "2024-10-08"
+msgstr "2024-04-09"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
+
+#, fuzzy
+msgid "2024-07-19"
+msgstr "2024-04-09"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+
+#, fuzzy
+msgid "2024-06-27"
+msgstr "2024-04-02"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+
 msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
 msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/scarthgap/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
 
@@ -1919,3 +1970,4 @@ msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用
 
 #~ msgid "Now we clean the */build* directory by deleting everything except */build/conf/* but including */build/conf/sanity* . We change *site.conf* as follows"
 #~ msgstr "现在我们将清理 */build* 目录，删除 */build/conf/* 以外的所有文件以及*/build/conf/sanity*。我们对 *site.conf* 修改如下。"
+
