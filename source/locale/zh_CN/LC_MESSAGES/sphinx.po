@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 19:16+0200\n"
+"POT-Creation-Date: 2024-12-09 18:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -22,6 +22,9 @@ msgstr ""
 
 msgid "Languages"
 msgstr "语言"
+
+msgid "Version"
+msgstr ""
 
 #~ msgid "Versions"
 #~ msgstr "版本"
