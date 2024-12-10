@@ -67,9 +67,8 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (scarthgap)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#scarthgap
-.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/scarthgap.html#kernel-and-bootloader-configuration
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
+.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 .. |yocto-sdk-rev| replace:: 5.0.1
 
@@ -83,7 +82,6 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-mainline-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-mainline-head-components>`
-.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-mainline-head-format-sd>`
 
 
@@ -736,7 +734,8 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check |ref-disable-emmc-part| from Linux.
+   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+   from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!

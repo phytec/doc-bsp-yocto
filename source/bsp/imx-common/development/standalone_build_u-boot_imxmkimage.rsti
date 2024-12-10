@@ -162,7 +162,8 @@ E.g. flash SD card:
 
    In the command above, replace ``<sd-card>`` with your sd-card device name.
    For more information on how to find the device name, see the section
-   |ref-getting-started-find-correct-device| in Getting Started.
+   :ref:`Finding the Correct Device <getting-started-find-correct-device>` in
+   Getting Started.
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"

@@ -77,9 +77,8 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD23.1.y
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (kirkstone)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#kirkstone
-.. _yocto-ref-manual-kernel-and-bootloader-config: https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (kirkstone) <yocto-man-kirkstone>`
+.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-kirkstone-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace:: 4.0.13
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
@@ -92,7 +91,6 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
-.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mn-head-format-sd>`
 
 

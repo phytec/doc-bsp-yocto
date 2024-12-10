@@ -69,8 +69,7 @@
 .. |yocto-imageext| replace:: wic.xz
 .. |yocto-machinename| replace:: phyboard-segin-imx93-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.1.0
-.. |yocto-ref-manual| replace:: Yocto Reference Manual (mickledore)
-.. _yocto-ref-manual: https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html#mickledore
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (mickledore) <yocto-man-mickledore>`
 .. |yocto-sdk-rev| replace:: 4.2.2
 .. |yocto-sdk-a-core| replace:: cortexa55
 
@@ -83,8 +82,6 @@
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx93-pd24.1.0-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
-.. |ref-disable-emmc-part| replace:: :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-.. |ref-getting-started-find-correct-device| replace:: :ref:`Finding the Correct Device <getting-started-find-correct-device>`
 
 
 .. IMX93 specific
@@ -596,7 +593,8 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check |ref-disable-emmc-part| from Linux.
+   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+   from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!

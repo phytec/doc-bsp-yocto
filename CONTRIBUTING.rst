@@ -181,6 +181,28 @@ substitutions are used.
            host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
 
 
+Internal vs. external Links
+..............
+
+When linking to internal (doc-bsp-yocto) documents or chapters,
+cross-references must be used. Referencing via external links is not allowed as
+external links are not sensitive to the currently selected language.
+
+Example::
+
+   Create a label for the section you want to reference to:
+
+      .. _introduction-label:
+
+      Introduction
+      ============
+
+
+   Reference the label in the text:
+
+      For more information on the build process, see :ref:`building-bsp`.
+
+
 Important Tasks When Extending the Documentation
 ------------------------------------------------
 

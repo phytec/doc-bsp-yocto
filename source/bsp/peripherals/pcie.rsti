@@ -49,9 +49,8 @@ option for the driver, which must be enabled, is named ``CONFIG_IWLWIFI`` and ca
 found under *Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat* in
 the kernel configuration.
 
-*  In order to activate the driver, follow the instructions from our Yocto
-   manual: `Kernel and Bootloader Configuration
-   <https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration>`__
+*  In order to activate the driver, follow the instructions from our
+   |yocto-ref-manual-kernel-and-bootloader-conf|.
 
    -  The linux-imx is represented by: **virtual/kernel**
 
