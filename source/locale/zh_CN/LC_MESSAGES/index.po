@@ -20,19 +20,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: ../../source/index.rst:6
 msgid "Contents"
 msgstr "目录"
 
-#: ../../source/index.rst:14
 msgid "Contribute"
 msgstr "贡献"
 
-#: ../../source/index.rst:2
 msgid "Welcome to the PHYTEC BSP Documentation"
 msgstr "欢迎阅读 PHYTEC BSP 文档"
 
-#: ../../source/index.rst:4
 msgid "Welcome to the Documentation for our Yocto BSPs."
 msgstr "欢迎阅读我们的 Yocto BSP 文档。"
 
