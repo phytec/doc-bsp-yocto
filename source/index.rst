@@ -7,6 +7,7 @@ Welcome to the Documentation for our Yocto BSPs.
    :maxdepth: 1
    :caption: Contents
 
+   coprocessor/index
    yocto/manual-index
    rauc/manual-index
    bsp/imx8/imx8
