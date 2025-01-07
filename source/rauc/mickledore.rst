@@ -72,7 +72,7 @@ RAUC BSP Example Setup
 The partition layout is defined in the ``/etc/rauc/system.conf`` file. As an
 example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:
 
-.. code-block::
+.. code-block:: cfg
    :caption: /etc/rauc/system.conf
 
    [system]
@@ -156,7 +156,7 @@ build an image with this distribution yourself using Yocto. Separate build
 directories are created, storing the images and packages for the RAUC system.
 Initialize the build directory with the OE init script:
 
-.. code-block::
+.. code-block:: console
 
    host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source sources/poky/oe-init-build-env
 
@@ -275,7 +275,7 @@ the available parameters:
 
 You may see this parameter along with others in the output:
 
-.. code-block:: console
+.. code-block::
 
    doraucboot=1
 
@@ -334,7 +334,7 @@ described later. There is no need to create a ``manifest.raucm`` manually as it
 is created automatically during the build of the bundle. As a reference, the
 created manifest would look something like this:
 
-.. code-block::
+.. code-block:: cfg
    :caption: manifest.raucm
 
    [update]
@@ -379,7 +379,7 @@ On the target, the bundle can be verified:
 
 and the output should look similar to this:
 
-.. code-block:: console
+.. code-block::
 
    rauc-Message: 12:52:49.821: Reading bundle: /phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
    rauc-Message: 12:52:49.830: Verifying bundle...
@@ -421,7 +421,7 @@ To check the current state of the system, run:
 
 and get output similar to this:
 
-.. code-block:: console
+.. code-block::
 
    === System Info ===
    Compatible:  phyboard-segin-imx6ul-6
@@ -596,7 +596,7 @@ happens.
 The service automatically mounts the USB flash drive and notifies the
 application.
 
-.. code-block::
+.. code-block:: systemd
    :caption: update-usb@.service
 
    [Unit]
@@ -616,7 +616,7 @@ application.
 In our reference implementation, we simply use a shell script for the
 application logic.
 
-.. code-block::
+.. code-block:: sh
    :caption: update_usb.sh
 
    #!/bin/sh
@@ -659,7 +659,7 @@ updated certificate for every single update and create a new one. This might be
 difficult to handle, depending on the environment. A simpler solution would be
 to allow updates only in one direction using a version check.
 
-.. code-block::
+.. code-block:: sh
    :caption: rauc_downgrade_barrier.sh
 
    #!/bin/sh
@@ -702,7 +702,7 @@ server enabling HTTP range requests to support this feature.
 
 Create a Dockerfile with the following content:
 
-.. code-block::
+.. code-block:: dockerfile
    :caption: Dockerfile
 
    FROM nginx
@@ -712,7 +712,7 @@ Create a Dockerfile with the following content:
 
 Configure NGINX to enable HTTP range requests and point it to the bundle file.
 
-.. code-block::
+.. code-block:: nginx
    :caption: nginx.conf
 
    events {}
@@ -830,7 +830,7 @@ chapter in the Yocto reference manual. The state framework configuration is
 already included with our BSP for the supported SoC and can be directly included
 in the main barebox device tree. E.g. for i.MX6 based module:
 
-.. code-block::
+.. code-block:: devicetree
 
    #include "imx6qdl-phytec-state.dtsi"
 
@@ -846,7 +846,7 @@ The following device tree snippet shows an example of the state framework
 configuration used with the BSP. As can be seen, the EEPROM is used as a backend
 for the state information:
 
-.. code-block::
+.. code-block:: devicetree
 
    / {
        aliases {
@@ -929,7 +929,7 @@ aware of the state framework configuration. For each system, a boot script is
 required. For a system with NAND flash, the boot script of the first system may
 look like the following:
 
-.. code-block::
+.. code-block:: sh
    :caption: /env/boot/system0
 
    #!/bin/sh
@@ -949,7 +949,7 @@ mounting and boot arguments look different.
 Run the following commands to create the required bootchooser non-volatile
 environment variables:
 
-.. code-block:: console
+.. code-block::
 
    barebox$ nv bootchooser.state_prefix=state.bootstate
    barebox$ nv bootchooser.system0.boot=system0
@@ -1043,4 +1043,3 @@ When using U-Boot, a similar command is also available in the bootloader:
 
    u-boot=> mmc partconf 2 0 0 0  # disable
    u-boot=> mmc partconf 2 0 1 0  # enable
-
