@@ -51,7 +51,7 @@
 .. |sdcarddev-uboot| replace:: mmc 1
 
 .. IMX8(MP) specific
-.. |u-boot-socname-config| replace:: IMX8MP
+.. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
 .. |u-boot-tag| replace:: v2024.04_2.0.0-phy7
 
 
