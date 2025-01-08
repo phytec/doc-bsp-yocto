@@ -1509,6 +1509,12 @@ to your *build/conf/local.conf*. Do not forget to rebuild the image
 
    host:~$ bitbake phytec-qt6demo-image
 
+.. tip::
+
+   After adding additional external or own layers, it makes sense to reflect
+   those additions by deriving an own manifest file, cmp
+   :ref:`kirkstone_phylinux-advanced-usage`
+
 Create your own layer
 ..................................
 
