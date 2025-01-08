@@ -9,20 +9,20 @@
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD24.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD24.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _`static-pdf-dl`: ../../../_static/imx8mp-head.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mp-libra-fpsc-head.pdf
 
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2024.04-2.0.0-phy7#n177
 
 
 .. General Substitutions
-.. |doc-id| replace:: L-1017e.Ax
-.. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
+.. |doc-id| replace:: L-XXXXX.Xx
+.. |kit| replace:: **Libra i.MX 8M Plus FPSC Kit**
 .. |kit-ram-size| replace:: 2GiB
-.. |sbc| replace:: phyBOARD-Pollux
+.. |sbc| replace:: Libra
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MP
+.. |som| replace:: phyCORE-i.MX8MP-FPSC
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
 .. |bluetooth-uart| replace:: UART3
@@ -34,12 +34,12 @@
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
-.. |kernel-socname| replace:: imx8mp
+.. |kernel-socname| replace:: imx8mp-fpsc
 .. |kernel-tag| replace:: v6.6.23-2.0.0-phy10
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
-.. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
+.. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
 .. |u-boot-offset| replace:: 32
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
@@ -51,7 +51,7 @@
 .. |sdcarddev-uboot| replace:: mmc 1
 
 .. IMX8(MP) specific
-.. |u-boot-socname-config| replace:: IMX8MP
+.. |u-boot-socname-config| replace:: IMX8MP_LIBRA
 .. |u-boot-tag| replace:: v2024.04_2.0.0-phy7
 
 
@@ -61,42 +61,42 @@
 
 
 .. Devicetree
-.. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
-.. |dt-som| replace:: imx8mp-phycore-som
-.. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
-.. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-10.dtbo
+.. |dt-carrierboard| replace:: imx8mp-libra-rdk-fpsc
+.. |dt-som| replace:: imx8mp-phycore-fpsc
+.. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-fpsc-rpmsg.dtbo
+.. |dtbo-peb-av-10| replace:: imx8mp-libra-peb-av-10.dtbo
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L50`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
-.. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
+.. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP-FPSC
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
-.. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
+.. |yocto-machinename| replace:: libra-imx8mp-1
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD24.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD24.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-FPSC-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  5.0.x
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-head-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-head-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-libra-fpsc-head-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-libra-fpsc-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-libra-fpsc-head-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-libra-fpsc-head-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-libra-fpsc-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-libra-fpsc-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-libra-fpsc-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-libra-fpsc-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-libra-fpsc-head-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-libra-fpsc-head-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -109,11 +109,11 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-head-components>`
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-libra-fpsc-head-components>`
+.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-libra-fpsc-head-components>`
+.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-libra-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-libra-fpsc-head-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
 
@@ -129,11 +129,11 @@
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-----------------------+----------------------+
-| |doc-id| |soc| BSP    |                      |
-| ManualHead            |                      |
+| |doc-id| |soc| FPSC   |                      |
+| BSP ManualHead        |                      |
 +-----------------------+----------------------+
-| Document Title        | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+| Document Title        | |doc-id| |soc| FPSC  |
+|                       | BSP Manual Head      |
 +-----------------------+----------------------+
 | Document Type         | BSP Manual           |
 +-----------------------+----------------------+
@@ -143,8 +143,8 @@
 +-----------------------+----------------------+
 | Release Date          | XXXX/XX/XX           |
 +-----------------------+----------------------+
-| Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+| Is Branch of          | |doc-id| |soc| FPSC  |
+|                       | BSP Manual Head      |
 +-----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
@@ -172,14 +172,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-head-components:
+.. _imx8mp-libra-fpsc-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-getting-started:
+.. _imx8mp-libra-fpsc-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -201,7 +201,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-head-images:
+.. _imx8mp-libra-fpsc-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -217,7 +217,7 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
+*  **imx8mp-libra-rdk-fpsc*.dtb**: Kernel device tree file
 *  **imx8mp-phy*.dtbo**: Kernel device tree overlay files
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
@@ -239,7 +239,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the phyCORE-|soc| default bootsource.
 
-.. _imx8mp-head-bootswitch:
+.. _imx8mp-libra-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: ../installing-os.rsti
@@ -251,7 +251,7 @@ select the phyCORE-|soc| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-development:
+.. _imx8mp-libra-fpsc-head-development:
 
 Development
 ===========
@@ -273,9 +273,8 @@ To revert to the old style of booting, you may do
    device tree are missing in the boot partition.
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
-.. _imx8mp-head-development-build-uboot:
+.. _imx8mp-libra-fpsc-head-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
-.. include:: development/uboot-standalone-fixed-ram-config.rsti
 .. include:: ../development/kernel-standalone.rsti
 .. include:: ../../imx-common/development/uuu.rsti
 
@@ -286,7 +285,7 @@ To revert to the old style of booting, you may do
 
 .. include:: /bsp/imx8/development/upstream_manifest.rsti
 
-.. _imx8mp-head-format-sd:
+.. _imx8mp-libra-fpsc-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -296,7 +295,7 @@ To revert to the old style of booting, you may do
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-head-device-tree:
+.. _imx8mp-libra-fpsc-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -321,7 +320,7 @@ To revert to the old style of booting, you may do
    imx8mp-vm017-csi2.dtbo
    imx8mp-vm017-csi2-fpdlink.dtbo
 
-.. _imx8mp-head-ubootexternalenv:
+.. _imx8mp-libra-fpsc-head-ubootexternalenv:
 .. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -381,7 +380,7 @@ correctly.
 The device tree representation for RS232 and RS485:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`
 
-.. _imx8mp-head-network:
+.. _imx8mp-libra-fpsc-head-network:
 
 Network
 -------
