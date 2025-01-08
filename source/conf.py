@@ -208,6 +208,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mp-fpsc-libra/head',
+        'imx8mp-fpsc-libra-head.tex',
+        'i.MX 8M Plus FPSC Libra BSP Manual DRAFT',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mm/head',
         'imx8mm-head.tex',
         'i.MX 8M Mini BSP Manual DRAFT',

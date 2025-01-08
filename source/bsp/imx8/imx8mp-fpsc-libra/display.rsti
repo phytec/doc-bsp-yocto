@@ -14,7 +14,7 @@ HDMI      |sbc|                    no overlay needed (enabled by default)
 LVDS0     PEB-AV-10                |dtbo-peb-av-10|
                                    (loaded by default)
 LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
-MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo
+MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-libra-peb-av-012.dtbo
 ========= ======================== ======================================
 
 .. supported-display-interfaces-marker-end
