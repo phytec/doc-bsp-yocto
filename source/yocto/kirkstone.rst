@@ -1045,8 +1045,8 @@ working correctly
 The first compile process takes about 40 minutes on a modern Intel Core i7. All
 subsequent builds will use the filled caches and should take about 3 minutes.
 
-Images images
--------------
+Images
+------
 
 If everything worked, the images can be found under
 
