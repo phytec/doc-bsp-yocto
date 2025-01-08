@@ -6,7 +6,7 @@ with revision 1549.3 and newer also support 2GHz RAM timings. These will be
 enabled for supported boards automatically, but they can also be enabled or
 disabled manually.
 
-Edit the file configs/phycore-|kernel-socname|\_defconfig.
+Edit the file configs/|u-boot-defconfig|.
 The fixed RAM size with 2GHz timings will be used:
 
 .. code-block:: kconfig
@@ -28,7 +28,7 @@ Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can
 also be built with just fixed RAM Frequency while the RAM size will still be
 used from EEPROM.
 
-Edit the file configs/phycore-|kernel-socname|\_defconfig.
+Edit the file configs/|u-boot-defconfig|.
 The RAM size from EEPROM with fixed frequency will be used:
 
 .. code-block:: kconfig

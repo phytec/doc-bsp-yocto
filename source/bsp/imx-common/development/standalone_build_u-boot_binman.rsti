@@ -107,7 +107,7 @@ could lead to unexpected behavior.
 Follow the steps to get the U-boot sources and check the correct branch in the
 **Build U-Boot** section.
 
-Edit the file configs/phycore-|kernel-socname|\_defconfig:
+Edit the file configs/|u-boot-defconfig|:
 
 .. code-block:: kconfig
    :substitutions:

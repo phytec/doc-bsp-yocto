@@ -19,7 +19,7 @@ PEB-WLBT-05.
 
    .. code-block::
 
-      overlays=conf-imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+      overlays=conf-imx8mp-libra-peb-wlbt-05.dtbo
 
    The changes will be applied after a reboot:
 
