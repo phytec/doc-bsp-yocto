@@ -112,11 +112,11 @@ Edit the file configs/phycore-|kernel-socname|\_defconfig:
 .. code-block:: kconfig
    :substitutions:
 
-   CONFIG_TARGET_PHYCORE_|u-boot-socname-config|=y
-   CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_FIX=y
-   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_1GB=y
-   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_2GB=y
-   # CONFIG_PHYCORE_|u-boot-socname-config|_RAM_SIZE_4GB=y
+   CONFIG_TARGET_|u-boot-socname-config|=y
+   CONFIG_|u-boot-socname-config|_RAM_SIZE_FIX=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_1GB=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_2GB=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_4GB=y
 
 Choose the correct RAM size as populated on the board and uncomment the line for
 this ram size.

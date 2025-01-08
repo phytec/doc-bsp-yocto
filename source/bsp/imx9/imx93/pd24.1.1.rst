@@ -47,7 +47,7 @@
 .. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
 
 .. IMX93 specific
-.. |u-boot-socname-config| replace:: IMX93
+.. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2023.04_2.2.0-phy3
 
 
