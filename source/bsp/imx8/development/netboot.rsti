@@ -79,4 +79,4 @@ Boot the board into the U-boot prompt and press any key to hold.
    .. code-block:: console
 
       u-boot=> setenv boot_targets ethernet
-      u-boot=> bootflow -lb
+      u-boot=> bootflow scan -lb
