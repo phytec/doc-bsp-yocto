@@ -7,6 +7,7 @@
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
 .. _`static-pdf-dl`: ../../../_static/imx8mm-head.pdf
 
@@ -238,16 +239,30 @@ select the phyCORE-|soc| default bootsource.
 Development
 ===========
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
-.. include:: /bsp/imx-common/development/netboot.rsti
+Starting with this release, the boot behaviour in U-Boot changes. Before, kernel
+and device tree came as separate blobs. Now, both will be included in a single
+FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions
+is moved to a boot script which itself is part of a separate FIT image blob.
+To revert to the old style of booting, you may do
 
-.. include:: /bsp/imx-common/development/uuu.rsti
+.. code-block:: console
+
+   u-boot=> run legacyboot
+
+.. note::
+
+   This way of booting is deprecated and will be removed in the next release.
+   By default, booting via this command will return an error as kernel and
+   device tree are missing in the boot partition.
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. _imx8mm-head-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: /bsp/imx8/development/kernel-standalone.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
+.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/imx8/development/netboot.rsti
 
 .. include:: /bsp/imx8/development/development_manifests.rsti
 
@@ -256,6 +271,8 @@ Development
 .. _imx8mm-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
+
+.. include:: /bsp/imx8/development/legacy_boot_deprecated.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
