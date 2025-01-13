@@ -47,6 +47,8 @@
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-imx
 .. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+.. |emmcdev-uboot| replace:: mmc 2
+.. |sdcarddev-uboot| replace:: mmc 1
 
 
 .. IMX8(MM) specific
@@ -229,6 +231,9 @@ select the phyCORE-|soc| default bootsource.
 .. include:: bootmode-switch.rsti
 
 .. include:: ../installing-os.rsti
+
+.. include:: ../efi.rsti
+.. include:: /bsp/installing-distro-efi.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                                DEVELOPMENT
