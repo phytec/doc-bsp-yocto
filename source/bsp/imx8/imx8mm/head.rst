@@ -30,10 +30,10 @@
 
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
-.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
-.. |kernel-repo-name| replace:: linux-imx
-.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
+.. |kernel-defconfig| replace:: imx8_phytec_defconfig
+.. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
+.. |kernel-repo-name| replace:: linux-phytec-imx
+.. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mm
 .. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
 .. |emmcdev| replace:: mmcblk2
