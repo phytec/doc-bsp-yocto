@@ -47,7 +47,7 @@
 .. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
 
 .. IMX8(MN) specific
-.. |u-boot-socname-config| replace:: IMX8MN
+.. |u-boot-socname-config| replace:: PHYCORE_IMX8MN
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 

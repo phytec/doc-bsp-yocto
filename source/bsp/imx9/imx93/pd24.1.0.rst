@@ -47,7 +47,7 @@
 
 
 .. IMX93 specific
-.. |u-boot-socname-config| replace:: IMX93
+.. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2023.04_2.1.0-phy1
 
 

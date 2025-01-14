@@ -49,7 +49,7 @@
 
 
 .. IMX8(MM) specific
-.. |u-boot-socname-config| replace:: IMX8MM
+.. |u-boot-socname-config| replace:: PHYCORE_IMX8MM
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
 
