@@ -65,7 +65,7 @@
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som
 .. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
-.. |dtbo-peb-av-10| replace:: imx8mm-phyboard-polis-peb-av-010.dtbo
+.. |dtbo-peb-av-10| replace:: imx8mm-phyboard-polis-peb-av-10.dtbo
 
 .. IMX8(MM) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n59`
@@ -291,7 +291,7 @@ To revert to the old style of booting, you may do
 ::
 
    imx8mm-phyboard-polis-peb-eval-01.dtbo
-   imx8mm-phyboard-polis-peb-av-010.dtbo
+   |dtbo-peb-av-10|
    imx8mm-phycore-rpmsg.dtbo
    imx8mm-phycore-no-eth.dtbo
    imx8mm-phycore-no-spiflash.dtbo
