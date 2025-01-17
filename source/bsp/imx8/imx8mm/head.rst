@@ -302,7 +302,7 @@ To revert to the old style of booting, you may do
    imx8mm-dual-vm017-fpdlink.dtbo
 
 .. _imx8mm-head-ubootexternalenv:
-.. include:: ../dt-overlays.rsti
+.. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                        ACCESSING PERIPHERALS
