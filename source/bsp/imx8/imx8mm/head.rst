@@ -516,6 +516,9 @@ Device Tree CAN configuration of |dt-carrierboard|.dts:
 
 .. include:: /bsp/peripherals/pcie.rsti
 
+Device Tree PCIe configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n257`
+
 Audio
 -----
 
