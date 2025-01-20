@@ -1125,7 +1125,7 @@ DT representation for USB Host:
 CAN FD
 ------
 
-The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
 Linux standard CAN framework which builds upon then the Linux network layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
