@@ -207,6 +207,8 @@ First Start-up
 * **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
   Trusted Firmware and DDR firmware. This is the final bootloader image which is
   bootable.
+*  **fitImage**: Linux kernel FIT image
+*  **fitImage-its\*.its**: FIT image configuration file
 * **Image**: Linux kernel image
 * **Image.config**: Kernel configuration
 * **imx8mm-phyboard-polis-rdk*.dtb**: Kernel device tree file
