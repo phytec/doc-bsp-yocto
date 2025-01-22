@@ -36,6 +36,11 @@ with the internal unit (**Boot Step 1**)
 3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel, DTB, and ramdisk. (**Boot Step 2**)
 4. If built with signed kernel modules (standard), Linux will only load kernel modules verifies with a kernel compiled in public key
 
+If you use the DISTRO_FEATURE secureboot or a secure-machine, then the bootloader is configured additionally:
+1. The bootloader is signed and is used in the images (wic, partup and bmap).
+2. The bootloader boots only signed kernel fitImage after a verification.
+3. The bootloader use only the built-in environment and only loads some necessary variables for RAUC update mechanism.
+
 Image Signing
 -------------
 
@@ -47,6 +52,84 @@ In the following flowchart you can see the signing process for different parts o
 or the rauc update bundle.
 2. A signature is from the hash with a private key.
 3. The signature is added to the binary file.
+
+Configuration Class for Signing images
+--------------------------------------
+All variables to adjust the bootloader and kernel fitImage signing process can be found in the
+*source/meta-ampliphy/secureboot.bbclass*
+
+At first the necessary variables for signing the bootloader for the different SOC types.
+The variable :code:`BOOTLOADER_SIGN` is obsolete, because the DISTRO_FEATURES secureboot includes the Bootloader signing.
+
+    .. code-block:: console
+
+        BOOTLOADER_SIGN ??= "true"
+        BOOTLOADER_SIGN[type] = "boolean"
+
+        CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
+        # for NXP HABv4 based systems
+        BOOTLOADER_SIGN_IMG_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem"
+        BOOTLOADER_SIGN_CSF_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem"
+        BOOTLOADER_SIGN_SRKFUSE_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/SRK_1_2_3_4_table.bin"
+        BOOTLOADER_HABV4_SRK_INDEX ??= "0"
+
+        # AHAB
+        AHAB_SRK_TABLE_BIN ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK_1_2_3_4_table.bin"
+        AHAB_SRK_PUB_CERT ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK1_sha512_secp521r1_v3_usr_crt.pem"
+        AHAB_SRK_INDEX ?= "0"
+
+        # for TI K3
+        BOOTLOADER_TI_K3_MPK_KEY ??= "${CERT_PATH}/ti_k3/keys/phytecSMPK.pem"
+        BOOTLOADER_TI_K3_DEGENERATE_KEY ??= "${CERT_PATH}/ti_k3/keys/ti-degenerate-key.pem"
+
+In the following view you can see the necessary variables for signing the kernel fitImage.
+The FITIMAGE_PUBKEY_SIGNATURE_PATH is only important, when using the :code:`FITIMAGE_SIGN_ENGINE="software".`
+This means, that the u-boot validates the kernel fitImage und use the compiled in public key.
+The alternative is that the NXP HAB unit validates the kernel fitImage, then the :code:`FITIMAGE_SIGN_ENGINE="nxphab"`
+must be set. This is only possible for NXP SOC's with HAB unit and u-boot as bootloader.
+
+    .. code-block:: console
+
+        FITIMAGE_SIGN ?= "true"
+        FITIMAGE_SIGN[type] = "boolean"
+
+        FITIMAGE_NO_DTB_OVERLAYS ?= "false"
+        FITIMAGE_NO_DTB_OVERLAYS[type] = "boolean"
+
+        FITIMAGE_SIGNER ?= "customer"
+        FITIMAGE_PUBKEY_SIGNATURE_PATH ?= "${WORKDIR}/signature_node.dtsi"
+
+        FITIMAGE_SIGN_ENGINE ?= "software"
+
+        FITIMAGE_SIGN_KEY_PATH ?= "${CERT_PATH}/fit/FIT-4096.key"
+        FITIMAGE_HASH ?= "sha256"
+        FITIMAGE_SIGNATURE_ENCRYPTION ?= "rsa4096"
+        FITIMAGE_SIGNER_VERSION ?= "vPD20.0.0"
+
+Building a signed image
+-----------------------
+
+To build a signed provisioning image for the configuration of the device,
+which can boot from sd-card or Serial Downloader, then the :code:`DISTRO` needs to be set
+to :code:`securiphy-provisioning or securiphy-vendor-provisioning`.
+The main parts for the provisioning-image are the bootloader and the fitImage, which includes
+an initramfs with all necessary tools.
+
+    .. code-block:: console
+
+        # for NXP SOC
+        host$ bitbake phytec-provisioning-image
+
+        # for TI K3 SOC
+        host$ bitbake phytec-headless-image
+
+To build the securiphy image for the eMMC or ubifs with rauc update support,
+then the :code:`DISTRO` needs to be set to :code:`securiphy or securiphy-vendor`.
+
+    .. code-block:: console
+
+        # for all SOC
+        host$ bitbake phytec-securiphy-image
 
 Activate Secure Boot
 --------------------
