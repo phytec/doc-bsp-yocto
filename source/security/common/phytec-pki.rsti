@@ -118,13 +118,13 @@ Create TI K3 keys
 
 In Progress
 
-Create FIT key
---------------
+Create Kernel FIT-Image key
+---------------------------
 
-You can create the FIT Key with  a PKI Tool or openssl.
+You can create the Kernel FIT-Image Key with a PKI Tool or openssl.
 
-For the signing of the FIT-Image the private key is used.
-The public key is build into  as device-tree node in the bootloader and used for the
+For the signing of the Kernel FIT-Image the private key is used.
+The public key is build into as device-tree node in the bootloader and used for the
 FIT-Image verification.
 
 The certificate is not necessary for the signing and verfication of the FIT-Image.
