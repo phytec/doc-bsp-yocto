@@ -70,7 +70,7 @@ Distro ampliphy-(vendor)-secure
 -------------------------------
 
 The distro ampliphy-(vendor)-secure with the phytec-security-image is an example of a production image with secure-update support.
-The phytec-security-image.rootfs.wic can boot only from an eMMC!
+The phytec-security-image.rootfs.wic or phytec-security-image.rootfs.partup can boot only from an eMMC!
 
 Distro ampliphy-(vendor)-provisioning
 -------------------------------------
@@ -108,5 +108,4 @@ Activate the following DISTRO_FEATURES in your distrobution
 +-----------------+----------------------------------------------------------------+
 
 .. include:: common/secure-boot.rsti
-
 .. include:: common/phytec-pki.rsti
