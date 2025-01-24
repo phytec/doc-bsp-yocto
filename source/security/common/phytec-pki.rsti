@@ -1,3 +1,5 @@
+.. _b9bac35c-c97a-4305-9eeb-6a2eb8e7be84:
+
 Keys and Certificates Management
 ================================
 
@@ -97,7 +99,7 @@ Create NXP AHAB / HABV4 Keys
 ----------------------------
 
 NXP provided scripts to create keys and certificates for NXP AHAB or NXP HABV4.
-The scripts can found:
+The scripts can be found:
 
 imx-code-signing-tool repository: https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads
 
@@ -105,13 +107,17 @@ You can use this script or a PKI application like the XCA to create the keys and
 
 For creation, the SRK table and SRK Fuses from the SRK certificates are scripts in the imx-code-signing-tool repository in the folder add-ons
 which used the srktool.
-You can find the srktool in the image deploy directory after a yocto build of the nxp-cst tool.
+You can install the srktool with
 
 .. code-block:: console
 
-    host:~$ bitbake nxp-cst
+    host$ apt install imx-code-signing-tool
+    # or build from source
+    host$ make -C code/obj.linux64 OSTYPE=linux64 ENCRYPTION=yes
 
-More information about cst and HAB4 API you can find in the doc folder of the imx-code-signing-tool repository
+More information about cst and HAB4 API you can find in the doc folder of the imx-code-signing-tool repository.
+
+
 
 Create TI K3 keys
 -----------------
