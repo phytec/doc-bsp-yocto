@@ -22,15 +22,18 @@ The main boot process is the following
 1. The Trusted ROM-bootloader, which is part of the SOC, verifies the boot container (U-boot spl, ATF, firmware, op-tee)
 with the internal unit (**Boot Step 1**)
 
-+------------------------------------------+-----------+
-| SOC                                      | Unit      |
-+==========================================+===========+
-| NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus | NXP HABV4 |
-+------------------------------------------+-----------+
-| NXP i.MX93, i.MX91, i.MX95               | NXP AHAB  |
-+------------------------------------------+-----------+
-| TI AM62x, AM64x, AM68x                   | R5        |
-+------------------------------------------+-----------+
++-------------------------------------------+--------------------+---------------------+
+| SOC                                       | Unit               | Boot mode           |
++===========================================+====================+=====================+
+|| NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus || NXP HABV4         || Single: Cortex-A   |
+||                                          ||                   ||                    |
++-------------------------------------------+--------------------+---------------------+
+|| NXP i.MX93, i.MX91, i.MX95               || NXP AHAB          || LPboot: M33        |
+||                                          || + EdgeLock secure || Single: A35 -> M33 |
+||                                          || enclave           || DUAL: M33 + A35    |
++-------------------------------------------+--------------------+---------------------+
+| TI AM62x, AM64x, AM68x                    | R5                 |                     |
++-------------------------------------------+--------------------+---------------------+
 
 2. u-boot SPL loads u-boot proper from the FIT image and ATF (ARM Trusted Firmware) and optionally OP-TEE.
 3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel, DTB, and ramdisk. (**Boot Step 2**)
@@ -130,8 +133,3 @@ then the :code:`DISTRO` needs to be set to :code:`securiphy or securiphy-vendor`
 
         # for all SOC
         host$ bitbake phytec-securiphy-image
-
-Activate Secure Boot
---------------------
-
-Bootloader und kernel user space
