@@ -135,4 +135,5 @@ Activate the following DISTRO_FEATURES in your distrobution
 
 .. include:: common/secure-boot.rsti
 .. include:: common/activate-secureboot.rsti
+.. include:: common/kernel-module-signing.rsti
 .. include:: common/phytec-pki.rsti
