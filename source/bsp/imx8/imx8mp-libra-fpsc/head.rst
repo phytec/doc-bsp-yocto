@@ -273,6 +273,21 @@ To revert to the old style of booting, you may do
    device tree are missing in the boot partition.
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
+
+.. warning::
+   Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Scarthgap NXP-based BSPs
+   can cause issues when building U-Boot or Linux kernel tools for host use. If you encounter an
+   "undefined reference" error, a workaround is to prepend the host's binutils to the PATH.
+
+   .. code-block:: console
+
+      host$ export PATH=/usr/bin:$PATH
+
+   Run this after sourcing the SDK *environment-setup* file.
+
+   Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
+   without requiring any modifications.
+
 .. _imx8mp-libra-fpsc-head-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
 .. include:: ../development/kernel-standalone.rsti
