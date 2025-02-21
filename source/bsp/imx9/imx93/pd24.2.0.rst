@@ -363,6 +363,21 @@ Execute and power up the board:
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
 
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
+
+.. warning::
+   Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Scarthgap NXP-based BSPs
+   can cause issues when building U-Boot or Linux kernel tools for host use. If you encounter an
+   "undefined reference" error, a workaround is to prepend the host's binutils to the PATH.
+
+   .. code-block:: console
+
+      host$ export PATH=/usr/bin:$PATH
+
+   Run this after sourcing the SDK *environment-setup* file.
+
+   Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
+   without requiring any modifications.
+
 .. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: ../../imx-common/development/standalone_build_kernel.rsti
 
