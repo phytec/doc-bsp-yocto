@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 18:56+0100\n"
+"POT-Creation-Date: 2025-02-25 09:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
 msgstr ""
@@ -758,7 +758,8 @@ msgstr "现在您可以构建第一个镜像了。我们建议从较小的非图
 msgid "The first compile process takes about 40 minutes on a modern Intel Core i7. All subsequent builds will use the filled caches and should take about 3 minutes."
 msgstr "在 Intel Core i7 上，首次编译大约需要 40 分钟。但是所有的后续构建都将复用之前的缓存，编译大约需要 3 分钟。"
 
-msgid "Images images"
+#, fuzzy
+msgid "Images"
 msgstr "镜像"
 
 msgid "If everything worked, the images can be found under"
@@ -1689,6 +1690,7 @@ msgstr "在另一个 shell 中监控系统日志也是非常有帮助的，尤�
 msgid "You cannot start daemons or heavy scripts in a *RUN* attribute. See https://www.freedesktop.org/software/systemd/man/latest/udev.html ."
 msgstr "您无法在 *RUN* 属性中启动守护进程或大型脚本。请参阅 https://www.freedesktop.org/software/systemd/man/latest/udev.html 。"
 
+#, python-brace-format
 msgid "This can only be used for very short-running foreground tasks. Running an event process for a long period of time may block all further events for this or a dependent device. Starting daemons or other long-running processes is not appropriate for *udev*; the forked processes, detached or not, will be unconditionally killed after the event handling has finished. You can use the special attribute *ENV{SYSTEMD_WANTS}=\"service-name.service\"* and a *systemd*\\ service instead."
 msgstr "这仅适用于执行时间非常短的前台任务。长时间运行的事件进程可能会阻碍此设备或从设备的后续所有事件。启动守护进程或其他长时间运行的进程并不适合 *udev*；派生进程（无论是否和母进程分离）都将在母进程事件处理完成后无条件被终止。如果需要执行其他任务，您可以考虑使用特殊属性 *ENV {SYSTEMD_WANTS} =\"service-name.service\"* 和 *systemd* 服务。"
 
@@ -1864,6 +1866,14 @@ msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.0"
 
 #, fuzzy
 msgid "2024-10-08"
+msgstr "2024-04-09"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD25.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+
+#, fuzzy
+msgid "2024-12-20"
 msgstr "2024-04-09"
 
 #, fuzzy
