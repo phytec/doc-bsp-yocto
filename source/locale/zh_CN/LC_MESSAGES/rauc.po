@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd24.1.0-nxp-19-ga3c4ac3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 18:15+0100\n"
+"POT-Creation-Date: 2025-02-25 09:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
 msgstr ""
@@ -797,6 +797,18 @@ msgid "When updating to a Scarthgap based release, add the following to your ``l
 msgstr ""
 
 msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <scarthgap_rauc-automatic-updates-usb>` you can find below."
+msgstr ""
+
+msgid "Adaptive Updates and HTTP Streaming"
+msgstr ""
+
+msgid "RAUC supports updating only the differences between installed versions. This is most commonly known as \"delta updates\" in other update clients. However, with RAUC, no intermediate updates are necessary for this process to work. The RAUC client automatically selects and install only the needed data from any newer update bundle. This distinguishes RAUC's \"adaptive updates\" from the traditional \"delta updates\". Read more about adaptive updates in the official RAUC documentation: https://rauc.readthedocs.io/en/latest/advanced.html#adaptive-updates"
+msgstr ""
+
+msgid "By default, PHYTEC images and bundles built with the Yocto distro ``ampliphy-rauc`` and ``ampliphy-vendor-rauc`` support RAUC adaptive updates."
+msgstr ""
+
+msgid "Together with :ref:`scarthgap_rauc-http-streaming`, adaptive updates allow for only downloading necessary data needed for an update. See the following link for the official RAUC documentation: https://rauc.readthedocs.io/en/latest/advanced.html#http-streaming"
 msgstr ""
 
 msgid "These environment variables are defined in ``include/env/phytec/rauc.env`` in the u-boot source code."
