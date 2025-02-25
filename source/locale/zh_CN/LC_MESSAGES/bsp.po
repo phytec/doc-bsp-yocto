@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 18:56+0100\n"
+"POT-Creation-Date: 2025-03-06 18:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -18,9 +18,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 msgid "i.MX 8M Plus Manuals"
+msgstr "i.MX 8M Plus 手册"
+
+#, fuzzy
+msgid "Libra i.MX 8M Plus FPSC Manuals"
 msgstr "i.MX 8M Plus 手册"
 
 msgid "i.MX 8M Mini Manuals"
@@ -365,6 +369,13 @@ msgstr "**lpddr4_pmu_train_2d_dmem_202006.bin, lpddr4_pmu_train_2d_imem_202006.b
 msgid "**imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM Trusted Firmware and DDR firmware. This is the final bootloader image which is bootable."
 msgstr "**imx-boot**：由imx-mkimage编译的bootloader镜像，包括SPL、U-Boot、ARM可信固件和DDR固件。这是最终的可引导bootloader镜像。"
 
+msgid "**fitImage**: Linux kernel FIT image"
+msgstr "**fitImage**: Linux内核FIT镜像"
+
+#, fuzzy
+msgid "**fitImage-its\\*.its**: FIT image configuration file"
+msgstr "**Image.config**: 内核config文件"
+
 msgid "**Image**: Linux kernel image"
 msgstr "**Image**: Linux内核镜像"
 
@@ -662,200 +673,61 @@ msgstr "RAUC"
 msgid "The RAUC (Robust Auto-Update Controller) mechanism support has been added to meta-ampliphy. It controls the procedure of updating a device with new firmware. This includes updating the Linux kernel, Device Tree, and root filesystem. PHYTEC has written an online manual on how we have intergraded RAUC into our BSPs: |rauc-manual|_."
 msgstr "BSP支持RAUC（Robust Auto-Update Controller）。它管理设备固件更新的过程。这包括更新Linux内核、设备树和根文件系统。PHYTEC已撰写了一份在线手册，介绍如何在我们的BSP中集成RAUC： |rauc-manual|_ 。"
 
+#, fuzzy
+msgid "EFI Boot"
+msgstr "imx-boot"
+
+msgid "Standardboot in U-Boot also supports booting distros over efi. By default the U-Boot will search for a bootscript first, which is used to boot our Ampliphy distro. If it does not find any bootscript, it will search for bootable efi applications. So for booting over efi just make sure you don't have our distro installed."
+msgstr ""
+
+msgid "Disable booting with efi"
+msgstr ""
+
+msgid "To disable booting with efi you have to set the ``doefiboot`` variable to 0. Also make sure you do not have ``efi`` or ``efi_mgr`` specified in the ``bootmeths`` environment variable."
+msgstr ""
+
+msgid "Switch to only efi boot"
+msgstr ""
+
+msgid "If you want to only boot with efi, you can set the ``bootmeths`` environment variable to efi. Also make sure you have the ``doefiboot`` environment variable set to 1."
+msgstr ""
+
+#, fuzzy
+msgid "Installing a distro"
+msgstr "安装操作系统"
+
+msgid "With efi you can install and boot different distros like openSUSE, Fedora or Debian. First you have to get the iso Image from their website. For example:"
+msgstr ""
+
+msgid "https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/"
+msgstr ""
+
+msgid "Then copy the .iso file to a usb stick for example. Make sure you select the correct device:"
+msgstr ""
+
+msgid "Insert the USB stick into the board and boot it. GRUB will then prompt you with a menu where you can select what to do. Here select install. Then you have to click through the installation menu. This is relatively straightforward and differs a bit for every distro. You can install the distro for example to emmc (|emmcdev-uboot|) or sdcard (|sdcarddev-uboot|). Make sure you do not overwrite your U-Boot during the install. Best to choose a different medium to install to than the U-Boot is stored on. Otherwise manual partitioning will be required. The automatic partitioning will start at the beginning of the disk. To not overwrite the U-Boot, use an offset of 4MiB at the beginning of the disk."
+msgstr ""
+
+msgid "During the Installation of Debian you will be asked, if you want to Force the GRUB installation to the EFI removable media path. Select no. Also select no, when you will be asked if you want to update the NVRAM variables. Otherwise the grub-dummy installation step will fail and you will be sent back to the \"Force GRUB installation\" prompt."
+msgstr ""
+
+msgid "After the installation is complete, reboot the board and remove the installation medium (USB-stick). The board should then boot the distro you installed."
+msgstr ""
+
+msgid "If that does not happen, check if there is a boot option set for the distro. The easiest way is with the ``eficonfig`` command."
+msgstr ""
+
+msgid "That will open a menu. Then you can select ``Edit Boot Option``. It will show you the current boot options. If this is empty or you don't find your distro, select ``Add Boot Option`` to add a new one. For debian for example you only need to set the description and the file. You can enter whatever you want into the description field. When you select the file field, you can select the disc you installed the distro on and partition number one. For example \"|emmcdev-uboot|:1\" for emmc, or \"|sdcarddev-uboot|:1\" for sdcard. The file you need to select is at ``EFI/debian/grubaa64.efi``. After that save, quit and reset the board. The board should then boot into debian."
+msgstr ""
+
 msgid "Development"
 msgstr "开发"
 
-msgid "Host Network Preparation"
-msgstr "主机网络准备"
+msgid "Starting with this release, the boot behaviour in U-Boot changes. Before, kernel and device tree came as separate blobs. Now, both will be included in a single FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions is moved to a boot script which itself is part of a separate FIT image blob. To revert to the old style of booting, you may do"
+msgstr "从这个版本开始，U-Boot中的启动行为发生了变化。之前，内核和设备树是作为单独的二进制文件提供的。现在，二者将被包含在一个单一的FIT镜像二进制文件中。此外，PHYTEC ampliphy发行版的启动逻辑被移到了一个启动脚本中，该脚本本身是一个单独的FIT镜像二进制文件的一部分。要恢复到旧的启动方式，您可以执行"
 
-msgid "For various tasks involving a network in the Bootloader, some host services are required to be set up. On the development host, a TFTP, NFS and DHCP server must be installed and configured. The following tools will be needed to boot via Ethernet:"
-msgstr "为了在bootloader中执行涉及网络的各种任务，需要配置一些主机服务。在开发主机上，必须安装和配置TFTP、NFS和DHCP服务。启动以太网所需的工具如下："
-
-msgid "TFTP Server Setup"
-msgstr "TFTP服务设置"
-
-msgid "First, create a directory to store the TFTP files:"
-msgstr "首先，创建一个目录来存储TFTP文件："
-
-msgid "Then copy your BSP image files to this directory and make sure other users have read access to all the files in the tftp directory, otherwise they are not accessible from the target."
-msgstr "然后将您的BSP镜像文件复制到此目录，并确保other用户也对tftp目录中的所有文件具有读取权限，否则将无法从开发板访问这些文件。"
-
-msgid "You also need to configure a static IP address for the appropriate interface. The default IP address of the PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10 with netmask 255.255.255.0 is a good choice."
-msgstr "您还需要为相应的接口配置一个静态IP地址。PHYTEC开发板的默认IP地址是192.168.3.11。可以将主机地址设置为192.168.3.10，子网掩码为255.255.255.0"
-
-msgid "Replace <network-interface> with the network interface you configured and want to connect the board to. You can show all network interfaces by not specifying a network interface."
-msgstr "将 <network-interface> 替换为连接到开发板的网络接口。您可以通过不指定网络接口来显示所有可选网络接口。"
-
-msgid "The message you receive should contain this:"
-msgstr "返回的结果应包含以下内容："
-
-msgid "Create or edit the ``/etc/default/tftpd-hpa`` file:"
-msgstr "创建或编辑 ``/etc/default/tftpd-hpa`` 文件："
-
-msgid "Set TFTP_DIRECTORY to your TFTP server root directory"
-msgstr "将 TFTP_DIRECTORY 设置为您的 TFTP 服务器根目录"
-
-msgid "Set TFTP_ADDRESS to the host address the server is listening to (set to 0.0.0.0:69 to listen to all local IPs)"
-msgstr "将TFTP_ADDRESS设置为TFTP服务监听的主机地址（设置为0.0.0.0:69以监听69端口上所有IP）。"
-
-msgid "Set TFTP_OPTIONS, the following command shows the available options:"
-msgstr "设置 TFTP_OPTIONS，以下命令显示可配置的选项："
-
-msgid "Restart the services to pick up the configuration changes:"
-msgstr "重新启动服务以应用配置更改："
-
-msgid "Now connect the ethernet port of the board to your host system. We also need a network connection between the embedded board and the TFTP server. The server should be set to IP 192.168.3.10 and netmask 255.255.255.0."
-msgstr "现在将开发板的以太网端口连接到您的主机。我们还需要在开发板和运行TFTP服务的主机之间建立网络连接。TFTP服务器的IP地址应设置为192.168.3.10，子网掩码为255.255.255.0。"
-
-msgid "NFS Server Setup"
-msgstr "NFS服务器设置"
-
-msgid "Create an nfs directory:"
-msgstr "创建一个NFS目录："
-
-msgid "The NFS server is not restricted to a certain file system location, so all we have to do on most distributions is modify the file ``/etc/exports`` and export our root file system to the embedded network. In this example file, the whole directory is exported and the \"lab network\" address of the development host is 192.168.3.10. The IP address has to be adapted to the local needs:"
-msgstr "NFS服务对文件共享的路径没有限制，因此在大多数linux发行版中，我们只需修改文件 ``/etc/exports`` ，并将我们的根文件系统共享到网络。在这个示例文件中，整个目录被共享在主机地址为192.168.3.10的IP地址上。注意这个地址需要根据本地情况进行调整："
-
-msgid "Now the NFS-Server has to read the ``/etc/exportfs`` file again:"
-msgstr "现在NFS服务器需要再次读取 ``/etc/exportfs`` 文件："
-
-msgid "DHCP Server setup"
-msgstr "DHCP服务器设置"
-
-msgid "Create or edit the ``/etc/kea/kea-dhcp4.conf`` file; Using the internal subnet sample. Replace <network-interface> with the name for the physical network interface:"
-msgstr "创建或编辑 ``/etc/kea/kea-dhcp4.conf`` 文件；以内部子网为例，将 <network-interface> 替换为物理网络接口的名称："
-
-msgid "Be careful when creating subnets as this may interfere with the company network policy. To be on the safe side, use a different network and specify that via the ``interfaces`` configuration option."
-msgstr "在创建子网时请小心，因为这可能会扰乱公司网络政策。为了安全起见，请使用不同的子网，并通过 ``interfaces`` 配置选项指定该网络。"
-
-msgid "Now the DHCP-Server has to read the ``/etc/kea/kea-dhcp4.conf`` file again:"
-msgstr "现在DHCP服务需要重新读取 ``/etc/kea/kea-dhcp4.conf`` 文件："
-
-msgid "When you boot/restart your host PC and don't have the network interface, as specified in the kea-dhcp4 config, already active the kea-dhcp4-server will fail to start. Make sure to start/restart the systemd service when you connect the interface."
-msgstr "当您启动/重启主机时，如果kea-dhcp4配置中指定的网络接口未处于活动状态，kea-dhcp4-server将无法启动。因此请确保在连接接口后启动或者重启该systemd服务。"
-
-msgid "Booting the Kernel from a Network"
-msgstr "从网络启动内核"
-
-msgid "Booting from a network means loading the kernel and device tree over TFTP and the root file system over NFS. The bootloader itself must already be loaded from another available boot device."
-msgstr "从网络启动意味着通过TFTP加载内核和设备树，并通过NFS加载根文件系统。但bootloader需要从另外的的启动设备加载。"
-
-msgid "Place Images on Host for Netboot"
-msgstr "在主机上放置网络启动的镜像"
-
-msgid "Copy the kernel image to your tftp directory:"
-msgstr "将内核镜像复制到您的tftp目录中："
-
-msgid "Copy the devicetree to your tftp directory:"
-msgstr "将设备树复制到您的tftp目录："
-
-msgid "Copy all the overlays you want to use into your tftp directory:"
-msgstr "将您想要使用的所有overlay文件复制到您的tftp目录中："
-
-msgid "Make sure other users have read access to all the files in the tftp directory, otherwise they are not accessible from the target:"
-msgstr "确保other用户对tftp目录中的所有文件具有读取权限，否则将无法从开发板访问它们："
-
-msgid "Extract the rootfs to your nfs directory:"
-msgstr "将根文件系统解压到您的NFS目录中："
-
-msgid "Make sure you extract with sudo to preserve the correct ownership."
-msgstr "请确保使用sudo执行命令，以保留根文件系统中文件的所属权限。"
-
-msgid "Set the bootenv.txt for Netboot"
-msgstr "设置网络启动的bootenv.txt文件"
-
-msgid "Create a bootenv.txt file in your tftp directory and write the following variables into it."
-msgstr "在您的tftp目录中创建一个bootenv.txt文件，并将以下变量写入其中。"
-
-msgid "<overlayfilenames> has to be replaced with the devicetree overlay filenames that you want to use. Separate the filenames by spaces. For example:"
-msgstr "<overlayfilenames> 必须替换为您想要使用的overlay设备树文件名。用空格分隔文件名。例如："
-
-msgid "All supported devicetree overlays are in the |ref-dt| chapter."
-msgstr "所有支持的设备树overlay在 |ref-dt| 章节中。"
-
-msgid "Network Settings on Target"
-msgstr "开发板上的网络设置"
-
-msgid "To customize the targets ethernet configuration, please follow the description here: |ref-network|"
-msgstr "如果要自定义开发板上的以太网配置，请按照此处的说明进行操作： |ref-network|"
-
-msgid "Booting from an Embedded Board"
-msgstr "从开发板启动"
-
-msgid "Boot the board into the U-boot prompt and press any key to hold."
-msgstr "将开发板启动到U-boot，按任意键暂停。"
-
-msgid "To boot from a network, call:"
-msgstr "要从网络启动，请运行："
-
-msgid "Working with UUU-Tool"
-msgstr "使用UUU工具"
-
-msgid "The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute on the host to load and run the bootloader on the board through SDP (Serial Download Protocol). For detailed information visit https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_."
-msgstr "NXP的镜像更新工具（UUU-Tool）是一款在主机上运行的软件，用于通过SDP（串行下载协议）在开发板上下载并运行bootloader。有关详细信息，请访问 https://github.com/nxp-imx/mfgtools 或下载 `官方UUU工具文档 <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_。"
-
-msgid "Host preparations for UUU-Tool Usage"
-msgstr "使用UUU工具的准备"
-
-msgid "Follow the instructions from https://github.com/nxp-imx/mfgtools#linux."
-msgstr "请按照 https://github.com/nxp-imx/mfgtools#linux 上的说明进行操作。"
-
-msgid "If you built UUU from source, add it to ``PATH``:"
-msgstr "如果您要从源代码编译UUU，请将其添加到 ``PATH`` 中："
-
-msgid "This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to ``~/.bashrc``."
-msgstr "这个BASH命令只是暂时将UUU添加到 ``PATH`` 中。要永久添加，请将此行添加到 ``~/.bashrc`` 中。"
-
-msgid "Set udev rules (documented in ``uuu -udev``):"
-msgstr "设置udev规则（在 ``uuu -udev`` 中有详细说明）："
-
-msgid "Get Images"
-msgstr "获取镜像"
-
-msgid "Download imx-boot from our server or get it from your Yocto build directory at build/deploy-|yocto-distro|/images/|yocto-machinename|/. For flashing a wic image to eMMC, you will also need |yocto-imagename|-|yocto-machinename|.rootfs.wic."
-msgstr "从我们的服务器下载imx-boot，或者从您Yocto工程中的build/deploy-|yocto-distro|/images/|yocto-machinename|/路径获取。要将wic镜像烧写到eMMC，你还需要 |yocto-imagename|-|yocto-machinename|.rootfs.wic。"
-
-msgid "Prepare Target"
-msgstr "开发板准备"
-
-msgid "Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port |ref-usb-otg| to your host."
-msgstr "将 |ref-bootswitch| 设置为 **USB串行下载**。同时，将 USB 端口 |ref-usb-otg| 连接到主机。"
-
-msgid "Starting bootloader via UUU-Tool"
-msgstr "通过UUU工具启动bootloader"
-
-msgid "Execute and power up the board:"
-msgstr "执行并给开发板上电："
-
-msgid "You can see the bootlog on the console via |ref-debugusbconnector|, as usual."
-msgstr "您可以像往常一样通过 |ref-debugusbconnector| 在终端上查看启动日志。"
-
-msgid "The default boot command when booting with UUU-Tool is set to fastboot. If you want to change this, please adjust the environment variable bootcmd_mfg in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU-tool the default environment is loaded. Saveenv has no effect. If you want to change the boot command permanently for UUU-boot, you need to change this in U-Boot code."
-msgstr "UUU工具使用的默认启动命令为fastboot。如果您想更改此设置，请在U-Boot提示符下使用setenv bootcmd_mfg修改环境变量bootcmd_mfg。但是请注意，当开发板再次使用UUU工具启动时，默认环境变量会被加载，saveenv重启后不生效。如果您想永久的更改U-boot的启动命令，则需要更改U-Boot代码。"
-
-msgid "Flashing U-boot Image to eMMC via UUU-Tool"
-msgstr "通过UUU工具将U-boot镜像烧写到eMMC"
-
-msgid "UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the bootloader to reside in the eMMC USER partition. Flashing next U-Boot version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device always using U-boot saved in BOOT partitions. To fix this in U-Boot:"
-msgstr "UUU将U-boot刷入eMMC BOOT（硬件）启动分区后，会在eMMC中设置BOOT_PARTITION_ENABLE。这带来一个问题，因为我们希望bootloader保存在eMMC 的USER分区中。如果烧写入新的包含U-boot的.wic镜像而不禁用BOOT_PARTITION_ENABLE位，将导致设备始终使用保存在BOOT分区中的U-boot。为了在U-Boot中解决此问题，需要："
-
-msgid "or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>` from Linux."
-msgstr ""
-
-msgid "This way the bootloader is still flashed to eMMC BOOT partitions but it is not used!"
-msgstr "这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！"
-
-msgid "When using **partup** tool and ``.partup`` package for eMMC flashing this is done by default, which makes partup again superior flash option."
-msgstr "在使用 **partup** 工具和 ``.partup`` 包进行eMMC烧写时，上述过程是默认进行的，这是partup的优势，简化烧写过程。"
-
-msgid "Flashing wic Image to eMMC via UUU-Tool"
-msgstr "通过UUU工具将wic镜像烧写到eMMC"
-
-msgid "Flashing SPI NOR Flash via UUU-Tool"
-msgstr "通过UUU工具烧写SPI NOR Flash"
-
-msgid "This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old environment so the default environment of the new U-Boot gets loaded:"
-msgstr "这将更新SPI NOR Flash上的U-Boot，但不会更新环境。您可能需要擦除旧环境，以便加载新U-Boot的默认环境："
+msgid "This way of booting is deprecated and will be removed in the next release. By default, booting via this command will return an error as kernel and device tree are missing in the boot partition."
+msgstr "这种启动方式已被弃用，并将在下一个版本中移除。默认情况下，通过此命令启动将返回错误，因为启动分区中缺少内核和设备树。"
 
 msgid "Standalone Build preparation"
 msgstr "独立编译准备"
@@ -913,6 +785,15 @@ msgstr "安装所需工具"
 
 msgid "Building Linux and U-Boot out-of-tree requires some additional host tool dependencies to be installed. For Ubuntu you can install them with:"
 msgstr "独立编译Linux kernel和U-Boot需要主机安装一些额外的工具。对于Ubuntu，您可以使用以下命令安装它们："
+
+msgid "Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Scarthgap NXP-based BSPs can cause issues when building U-Boot or Linux kernel tools for host use. If you encounter an \"undefined reference\" error, a workaround is to prepend the host's binutils to the PATH."
+msgstr ""
+
+msgid "Run this after sourcing the SDK *environment-setup* file."
+msgstr ""
+
+msgid "Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work without requiring any modifications."
+msgstr ""
 
 msgid "U-Boot standalone build"
 msgstr "单独编译U-Boot"
@@ -1010,7 +891,8 @@ msgstr "如果您的系统因为EEPROM中的硬件信息损坏或丢失而无法
 msgid "Follow the steps to get the U-boot sources and check the correct branch in the **Build U-Boot** section."
 msgstr "按照步骤获取U-boot源代码，并切换到 **Build U-Boot** 章节说明的分支。"
 
-msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig:"
+#, fuzzy
+msgid "Edit the file configs/|u-boot-defconfig|:"
 msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig:"
 
 msgid "Choose the correct RAM size as populated on the board and uncomment the line for this ram size. After saving the changes, follow the remaining steps from |ref-build-uboot|."
@@ -1018,6 +900,9 @@ msgstr "选择正确的RAM大小，确保与核心板上的贴装的器件一致
 
 msgid "Kernel standalone build"
 msgstr "单独编译内核"
+
+msgid "The kernel is packaged in a FIT image together with the device tree. U-Boot has been adapted to be able to load a FIT image and boot the kernel contained in it. As a result, the kernel Image has to packaged in a FIT image."
+msgstr "内核与设备树一起打包在FIT镜像中。U-Boot已被配置为能够加载FIT镜像并引导其中包含的内核。因此，内核镜像必须打包在FIT镜像中。"
 
 msgid "Setup sources"
 msgstr "配置源代码"
@@ -1043,8 +928,8 @@ msgstr "编译Linux内核："
 msgid "Install kernel modules to e.g. NFS directory:"
 msgstr "安装内核模块，比如安装到 NFS 目录："
 
-msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image"
-msgstr "镜像可以在 ~/|kernel-repo-name|/arch/arm64/boot/Image 找到"
+msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image.gz"
+msgstr "镜像可以在 ~/|kernel-repo-name|/arch/arm64/boot/Image.gz 找到"
 
 msgid "The dtb can be found at ~/|kernel-repo-name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb"
 msgstr "dtb文件可以在 ~/|kernel-repo-name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb 找到"
@@ -1058,11 +943,209 @@ msgstr "如果您遇到以下编译问题："
 msgid "Make sure you installed the package *\"libyaml-dev\"* on your host system:"
 msgstr "确保您在主机系统上安装了 *\"libyaml-dev\"* 包："
 
-msgid "Copy Kernel to SD Card"
-msgstr "将内核复制到SD卡"
+msgid "Package the kernel in a FIT image"
+msgstr "将内核打包成FIT镜像"
 
-msgid "When one-time boot via netboot is not sufficient, the kernel along with its modules and the corresponding device tree blob may be copied directly to a mounted SD card."
-msgstr "内核及module和对应的设备树二进制文件可以用以下方式复制到已挂载的SD卡上。"
+msgid "To simply replace the kernel, you will need an ``image tree source`` (.its) file. If you already built our BSP with Yocto, you can get the its file from the directory mentioned here: |ref-bsp-images| Or you can download the file here: |link-bsp-images|"
+msgstr "要简单地替换内核，您需要一个 ``image tree source`` (.its)文件。如果您已经使用Yocto编译了我们的BSP，可以从此处提到的目录获取its文件： |ref-bsp-images| 或者您可以在这里下载该文件： |link-bsp-images| "
+
+msgid "Copy the .its file to the current working directory, create a link to the kernel image and create the final fitImage with mkimage."
+msgstr "将 .its 文件复制到当前工作目录，创建一个指向内核镜像的链接，并使用 mkimage 创建最终的 fitImage。"
+
+msgid "Copy FIT image and kernel modules to SD Card"
+msgstr "将FIT镜像和内核模块复制到SD卡"
+
+msgid "When one-time boot via netboot is not sufficient, the FIT image along with the kernel modules may be copied directly to a mounted SD card."
+msgstr "FIT镜像以及内核module可以用以下方式复制到已挂载的SD卡上。"
+
+msgid "Working with UUU-Tool"
+msgstr "使用UUU工具"
+
+msgid "The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute on the host to load and run the bootloader on the board through SDP (Serial Download Protocol). For detailed information visit https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_."
+msgstr "NXP的镜像更新工具（UUU-Tool）是一款在主机上运行的软件，用于通过SDP（串行下载协议）在开发板上下载并运行bootloader。有关详细信息，请访问 https://github.com/nxp-imx/mfgtools 或下载 `官方UUU工具文档 <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_。"
+
+msgid "Host preparations for UUU-Tool Usage"
+msgstr "使用UUU工具的准备"
+
+msgid "Follow the instructions from https://github.com/nxp-imx/mfgtools#linux."
+msgstr "请按照 https://github.com/nxp-imx/mfgtools#linux 上的说明进行操作。"
+
+msgid "If you built UUU from source, add it to ``PATH``:"
+msgstr "如果您要从源代码编译UUU，请将其添加到 ``PATH`` 中："
+
+msgid "This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to ``~/.bashrc``."
+msgstr "这个BASH命令只是暂时将UUU添加到 ``PATH`` 中。要永久添加，请将此行添加到 ``~/.bashrc`` 中。"
+
+msgid "Set udev rules (documented in ``uuu -udev``):"
+msgstr "设置udev规则（在 ``uuu -udev`` 中有详细说明）："
+
+msgid "Get Images"
+msgstr "获取镜像"
+
+msgid "Download imx-boot from our server or get it from your Yocto build directory at build/deploy-|yocto-distro|/images/|yocto-machinename|/. For flashing a wic image to eMMC, you will also need |yocto-imagename|-|yocto-machinename|.rootfs.wic."
+msgstr "从我们的服务器下载imx-boot，或者从您Yocto工程中的build/deploy-|yocto-distro|/images/|yocto-machinename|/路径获取。要将wic镜像烧写到eMMC，你还需要 |yocto-imagename|-|yocto-machinename|.rootfs.wic。"
+
+msgid "Prepare Target"
+msgstr "开发板准备"
+
+msgid "Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port |ref-usb-otg| to your host."
+msgstr "将 |ref-bootswitch| 设置为 **USB串行下载**。同时，将 USB 端口 |ref-usb-otg| 连接到主机。"
+
+msgid "Starting bootloader via UUU-Tool"
+msgstr "通过UUU工具启动bootloader"
+
+msgid "Execute and power up the board:"
+msgstr "执行并给开发板上电："
+
+msgid "You can see the bootlog on the console via |ref-debugusbconnector|, as usual."
+msgstr "您可以像往常一样通过 |ref-debugusbconnector| 在终端上查看启动日志。"
+
+msgid "The default boot command when booting with UUU-Tool is set to fastboot. If you want to change this, please adjust the environment variable bootcmd_mfg in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU-tool the default environment is loaded. Saveenv has no effect. If you want to change the boot command permanently for UUU-boot, you need to change this in U-Boot code."
+msgstr "UUU工具使用的默认启动命令为fastboot。如果您想更改此设置，请在U-Boot提示符下使用setenv bootcmd_mfg修改环境变量bootcmd_mfg。但是请注意，当开发板再次使用UUU工具启动时，默认环境变量会被加载，saveenv重启后不生效。如果您想永久的更改U-boot的启动命令，则需要更改U-Boot代码。"
+
+msgid "Flashing U-boot Image to eMMC via UUU-Tool"
+msgstr "通过UUU工具将U-boot镜像烧写到eMMC"
+
+msgid "UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the bootloader to reside in the eMMC USER partition. Flashing next U-Boot version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device always using U-boot saved in BOOT partitions. To fix this in U-Boot:"
+msgstr "UUU将U-boot刷入eMMC BOOT（硬件）启动分区后，会在eMMC中设置BOOT_PARTITION_ENABLE。这带来一个问题，因为我们希望bootloader保存在eMMC 的USER分区中。如果烧写入新的包含U-boot的.wic镜像而不禁用BOOT_PARTITION_ENABLE位，将导致设备始终使用保存在BOOT分区中的U-boot。为了在U-Boot中解决此问题，需要："
+
+msgid "or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>` from Linux."
+msgstr ""
+
+msgid "This way the bootloader is still flashed to eMMC BOOT partitions but it is not used!"
+msgstr "这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！"
+
+msgid "When using **partup** tool and ``.partup`` package for eMMC flashing this is done by default, which makes partup again superior flash option."
+msgstr "在使用 **partup** 工具和 ``.partup`` 包进行eMMC烧写时，上述过程是默认进行的，这是partup的优势，简化烧写过程。"
+
+msgid "Flashing wic Image to eMMC via UUU-Tool"
+msgstr "通过UUU工具将wic镜像烧写到eMMC"
+
+msgid "Flashing SPI NOR Flash via UUU-Tool"
+msgstr "通过UUU工具烧写SPI NOR Flash"
+
+msgid "This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old environment so the default environment of the new U-Boot gets loaded:"
+msgstr "这将更新SPI NOR Flash上的U-Boot，但不会更新环境。您可能需要擦除旧环境，以便加载新U-Boot的默认环境："
+
+msgid "Host Network Preparation"
+msgstr "主机网络准备"
+
+msgid "For various tasks involving a network in the Bootloader, some host services are required to be set up. On the development host, a TFTP, NFS and DHCP server must be installed and configured. The following tools will be needed to boot via Ethernet:"
+msgstr "为了在bootloader中执行涉及网络的各种任务，需要配置一些主机服务。在开发主机上，必须安装和配置TFTP、NFS和DHCP服务。启动以太网所需的工具如下："
+
+msgid "TFTP Server Setup"
+msgstr "TFTP服务设置"
+
+msgid "First, create a directory to store the TFTP files:"
+msgstr "首先，创建一个目录来存储TFTP文件："
+
+msgid "Then copy your BSP image files to this directory and make sure other users have read access to all the files in the tftp directory, otherwise they are not accessible from the target."
+msgstr "然后将您的BSP镜像文件复制到此目录，并确保other用户也对tftp目录中的所有文件具有读取权限，否则将无法从开发板访问这些文件。"
+
+msgid "You also need to configure a static IP address for the appropriate interface. The default IP address of the PHYTEC evaluation boards is 192.168.3.11. Setting a host address 192.168.3.10 with netmask 255.255.255.0 is a good choice."
+msgstr "您还需要为相应的接口配置一个静态IP地址。PHYTEC开发板的默认IP地址是192.168.3.11。可以将主机地址设置为192.168.3.10，子网掩码为255.255.255.0"
+
+msgid "Replace <network-interface> with the network interface you configured and want to connect the board to. You can show all network interfaces by not specifying a network interface."
+msgstr "将 <network-interface> 替换为连接到开发板的网络接口。您可以通过不指定网络接口来显示所有可选网络接口。"
+
+msgid "The message you receive should contain this:"
+msgstr "返回的结果应包含以下内容："
+
+msgid "Create or edit the ``/etc/default/tftpd-hpa`` file:"
+msgstr "创建或编辑 ``/etc/default/tftpd-hpa`` 文件："
+
+msgid "Set TFTP_DIRECTORY to your TFTP server root directory"
+msgstr "将 TFTP_DIRECTORY 设置为您的 TFTP 服务器根目录"
+
+msgid "Set TFTP_ADDRESS to the host address the server is listening to (set to 0.0.0.0:69 to listen to all local IPs)"
+msgstr "将TFTP_ADDRESS设置为TFTP服务监听的主机地址（设置为0.0.0.0:69以监听69端口上所有IP）。"
+
+msgid "Set TFTP_OPTIONS, the following command shows the available options:"
+msgstr "设置 TFTP_OPTIONS，以下命令显示可配置的选项："
+
+msgid "Restart the services to pick up the configuration changes:"
+msgstr "重新启动服务以应用配置更改："
+
+msgid "Now connect the ethernet port of the board to your host system. We also need a network connection between the embedded board and the TFTP server. The server should be set to IP 192.168.3.10 and netmask 255.255.255.0."
+msgstr "现在将开发板的以太网端口连接到您的主机。我们还需要在开发板和运行TFTP服务的主机之间建立网络连接。TFTP服务器的IP地址应设置为192.168.3.10，子网掩码为255.255.255.0。"
+
+msgid "NFS Server Setup"
+msgstr "NFS服务器设置"
+
+msgid "Create an nfs directory:"
+msgstr "创建一个NFS目录："
+
+msgid "The NFS server is not restricted to a certain file system location, so all we have to do on most distributions is modify the file ``/etc/exports`` and export our root file system to the embedded network. In this example file, the whole directory is exported and the \"lab network\" address of the development host is 192.168.3.10. The IP address has to be adapted to the local needs:"
+msgstr "NFS服务对文件共享的路径没有限制，因此在大多数linux发行版中，我们只需修改文件 ``/etc/exports`` ，并将我们的根文件系统共享到网络。在这个示例文件中，整个目录被共享在主机地址为192.168.3.10的IP地址上。注意这个地址需要根据本地情况进行调整："
+
+msgid "Now the NFS-Server has to read the ``/etc/exportfs`` file again:"
+msgstr "现在NFS服务器需要再次读取 ``/etc/exportfs`` 文件："
+
+msgid "DHCP Server setup"
+msgstr "DHCP服务器设置"
+
+msgid "Create or edit the ``/etc/kea/kea-dhcp4.conf`` file; Using the internal subnet sample. Replace <network-interface> with the name for the physical network interface:"
+msgstr "创建或编辑 ``/etc/kea/kea-dhcp4.conf`` 文件；以内部子网为例，将 <network-interface> 替换为物理网络接口的名称："
+
+msgid "Be careful when creating subnets as this may interfere with the company network policy. To be on the safe side, use a different network and specify that via the ``interfaces`` configuration option."
+msgstr "在创建子网时请小心，因为这可能会扰乱公司网络政策。为了安全起见，请使用不同的子网，并通过 ``interfaces`` 配置选项指定该网络。"
+
+msgid "Now the DHCP-Server has to read the ``/etc/kea/kea-dhcp4.conf`` file again:"
+msgstr "现在DHCP服务需要重新读取 ``/etc/kea/kea-dhcp4.conf`` 文件："
+
+msgid "When you boot/restart your host PC and don't have the network interface, as specified in the kea-dhcp4 config, already active the kea-dhcp4-server will fail to start. Make sure to start/restart the systemd service when you connect the interface."
+msgstr "当您启动/重启主机时，如果kea-dhcp4配置中指定的网络接口未处于活动状态，kea-dhcp4-server将无法启动。因此请确保在连接接口后启动或者重启该systemd服务。"
+
+msgid "Booting the Kernel from a Network"
+msgstr "从网络启动内核"
+
+msgid "Booting from a network means loading the kernel and device tree over TFTP and the root file system over NFS. The bootloader itself must already be loaded from another available boot device."
+msgstr "从网络启动意味着通过TFTP加载内核和设备树，并通过NFS加载根文件系统。但bootloader需要从另外的的启动设备加载。"
+
+msgid "Place Images on Host for Netboot"
+msgstr "在主机上放置网络启动的镜像"
+
+msgid "Copy the kernel fitimage to your tftp directory:"
+msgstr "将内核fitimage复制到您的tftp目录中："
+
+msgid "Copy the bootscript to your tftp directory:"
+msgstr "将启动脚本复制到您的tftp目录中："
+
+msgid "Make sure other users have read access to all the files in the tftp directory, otherwise they are not accessible from the target:"
+msgstr "确保other用户对tftp目录中的所有文件具有读取权限，否则将无法从开发板访问它们："
+
+msgid "Extract the rootfs to your nfs directory:"
+msgstr "将根文件系统解压到您的NFS目录中："
+
+msgid "Make sure you extract with sudo to preserve the correct ownership."
+msgstr "请确保使用sudo执行命令，以保留根文件系统中文件的所属权限。"
+
+msgid "Set the bootenv.txt for Netboot"
+msgstr "设置网络启动的bootenv.txt文件"
+
+msgid "Create a bootenv.txt file in your tftp directory and write the following variables into it."
+msgstr "在您的tftp目录中创建一个bootenv.txt文件，并将以下变量写入其中。"
+
+msgid "<overlayconfignames> has to be replaced with the devicetree overlay config names that you want to use. Separate the config names by hashtag. For example:"
+msgstr "<overlayconfignames> 替换为您想要使用的设备树overlay配置名称。用#号分隔配置名称。例如："
+
+msgid "All supported devicetree overlays are in the |ref-dt| chapter. Or can be printed with:"
+msgstr "所有支持的设备树overlay文件都在 |ref-dt| 章节中。或者可以通过以下命令打印："
+
+msgid "Network Settings on Target"
+msgstr "开发板上的网络设置"
+
+msgid "To customize the targets ethernet configuration, please follow the description here: |ref-network|"
+msgstr "如果要自定义开发板上的以太网配置，请按照此处的说明进行操作： |ref-network|"
+
+msgid "Booting from an Embedded Board"
+msgstr "从开发板启动"
+
+msgid "Boot the board into the U-boot prompt and press any key to hold."
+msgstr "将开发板启动到U-boot，按任意键暂停。"
+
+msgid "To boot from a network, call:"
+msgstr "要从网络启动，请运行："
 
 msgid "Accessing the Development states"
 msgstr "获取BSP开发中版本"
@@ -1151,6 +1234,38 @@ msgstr "按绿色勾确认更改。"
 msgid "Now you can mount the new partition and copy e.g. |yocto-imagename|-|yocto-machinename|.wic image to it. Then unmount it again:"
 msgstr "现在您可以挂载新的分区并将 |yocto-imagename|-|yocto-machinename|.wic 镜像复制到其中。然后卸载它："
 
+msgid "Switch back to legacyboot"
+msgstr ""
+
+msgid "As we switched to standardboot with fitimage as default, legacyboot is deprecated. We kept the option to switch back to legacyboot for this release, but it will be removed in the future."
+msgstr ""
+
+msgid "Changes in Yocto"
+msgstr ""
+
+msgid "By default, the fitImage and bootscript will be deployed into the wic.xz Image. To switch back to legacyboot, you need to replace the fitImage and bootscript for the kernel image and the devicetrees. They are still in the deploy folder from the Yocto build, so you can manually copy them to the boot partition on your device. Otherwise you can do the following changes in Yocto to get the kernel and devicetrees deployed in the Image again."
+msgstr ""
+
+msgid "First create the variable `KERNEL_DEVICETREE_DEPLOY`. This can be done for example in the local.conf file in your build directory `conf/local.conf`. The variable is basically a copy of the `KERNEL_DEVICETREE` variable that is set in conf/machine/|yocto-machinename|.conf in meta-phytec but the `freescale` at the beginning needs to be removed, so that only the devicetree filename are left. In the end it should look something like this:"
+msgstr ""
+
+msgid "Then add this line:"
+msgstr ""
+
+msgid "A clean might be required for this to work."
+msgstr ""
+
+#, fuzzy
+msgid "Then start the build:"
+msgstr "开始构建"
+
+#, fuzzy
+msgid "Changes in U-Boot environment"
+msgstr "在Linux环境下更改开发板上的U-boot环境变量"
+
+msgid "To re-enable legacyboot set the following variable:"
+msgstr ""
+
 msgid "Device Tree (DT)"
 msgstr "设备树 (DT)"
 
@@ -1196,34 +1311,50 @@ msgstr "设备树Overlay是可以在启动时合并到设备树中的设备树�
 msgid "Available overlays for |yocto-machinename|.conf are:"
 msgstr "|yocto-machinename|.conf 可用的overlay文件有："
 
+msgid "Otherwise you can show the content of a FIT image including all overlay configs in the FIT image with this command in Linux:"
+msgstr ""
+
+#, fuzzy
+msgid "or in U-Boot:"
+msgstr "编译u-boot："
+
 msgid "The usage of overlays can be configured during runtime in Linux or U-Boot. Overlays are applied during the boot process in the bootloader after the boot command is called and before the kernel is loaded. The next sections explain the configuration in more detail."
 msgstr "可以在Linux或U-Boot环境下配置overlay。overlay是在引导命令调用后、内核加载之前生效。接下来的部分将更详细地解释配置方法。"
 
+#, python-brace-format
 msgid "Set ``${overlays}`` variable"
 msgstr "设置 ``${overlays}`` 变量"
 
-msgid "The ``${overlays}`` U-Boot environment variable contains a space-separated list of overlays that will be applied during boot. Depending on the boot source the overlays have to either be placed in the boot partition of eMMC/SD-Card or are loaded over tftp. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable will be automatically added to the boot partition of the final WIC image."
+#, fuzzy, python-brace-format
+msgid "The ``${overlays}`` U-Boot environment variable contains a number-sign (#) separated list of overlays that will be applied during boot. The overlays listed in the overlays variable must be included in the FIT image. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable will automatically be added to the FIT image."
 msgstr "``${overlays}`` U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。"
 
-msgid "The ``${overlays}`` variable can be either set directly in the U-Boot environment or can be part of the external ``bootenv.txt`` environment file. By default, the ``${overlays}`` variable comes from the external ``bootenv.txt`` environment file which is located in the boot partition. You can read and write the file on booted target from linux:"
+#, fuzzy, python-brace-format
+msgid "The ``${overlays}`` variable can either be set directly in the U-Boot environment or can be part of the external ``bootenv.txt`` environment file. When desired to use the overlays variable as set manually in the U-Boot environment, disable bootenv by setting ``env set no_bootenv 1`` as the overlays variable may be overwritten during the execution of the boot script. By default, the ``${overlays}`` variable comes from the external ``bootenv.txt`` environment file which is located in the boot partition. You can read and write the file on booted target from linux:"
 msgstr "``${overlays}`` 变量可以直接在U-Boot环境中设置，也可以作为外部 ``bootenv.txt`` 环境文件的一部分。默认情况下， ``${overlays}`` 变量来自位于启动分区的 ``bootenv.txt`` 文件。您可以在已启动的开发板上从Linux读取和写入该文件："
 
 msgid "Changes will take effect after the next reboot. If no ``bootenv.txt`` file is available the overlays variable can be set directly in the U-Boot environment."
 msgstr "更改将在下次重启后生效。如果没有可用的 ``bootenv.txt`` 文件，可以直接在U-Boot环境中设置overlay变量。"
 
+#, python-brace-format
 msgid "If a user defined ``${overlays}`` variable should be directly loaded from U-Boot environment but there is still an external ``bootenv.txt`` available, the ``${no_bootenv}`` variable needs to be set as a flag:"
 msgstr "如果用户定义了 ``${overlays}`` 变量，同时存在 ``bootenv.txt`` 文件，则需要设置 ``${no_bootenv}`` 变量："
 
 msgid "More information about the external environment can be found in |ubootexternalenv|."
 msgstr "有关环境的更多信息，请参见 |ubootexternalenv|。"
 
-msgid "We use the ``${overlays}`` variable for overlays describing expansion boards and cameras that can not be detected during run time. To prevent applying overlays listed in the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can be set to `1` in the bootloader environment."
+#, fuzzy, python-brace-format
+msgid "We use the ``${overlays}`` variable for overlays describing expansion boards and cameras that can not be detected during run time. To prevent applying overlays unset the overlays variable and set no_bootenv to anything other than 0."
 msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 ``${overlays}`` 变量中列出的overlay，可以在U-Boot的环境中将 ``${no_overlays}`` 变量设置为 `1`。"
 
-msgid "Extension Command"
-msgstr "扩展命令"
+msgid "If desired to use the bootenv.txt file for setting U-Boot variables other than overlays and having overlays disabled, remove the overlays definition line from the bootenv.txt file instead of setting no_bootenv."
+msgstr ""
 
-msgid "The U-Boot extension command makes it possible to easily apply overlays that have been detected and added to a list by the board code callback `extension_board_scan() <overlaycallback_>`_. Overlays applied this way disable components that are not populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM Detection) found on the SoM i2c EEPROM."
+msgid "SoM Variants"
+msgstr ""
+
+#, fuzzy
+msgid "Additional overlays are applied automatically to disable components that are not populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM Detection) found on the SoM i2c EEPROM."
 msgstr "使用U-Boot扩展命令能够轻松加载由回调函数  `extension_board_scan() <overlaycallback_>`_ 检测并添加到列表中的overlay。以这种方式应用的overlay会禁用核心板上未贴装的组件。检测是通过读取出厂EEPROM数据（EEPROM SoM Detection）来实现的。"
 
 msgid "It depends on the SoM variant if any device tree overlays will be applied. To check if an overlay will be applied on the running SoM in U-Boot, run:"
@@ -1232,15 +1363,18 @@ msgstr "这取决于核心板型号是否会应用任何设备树overlay。要�
 msgid "If the EEPROM data is not available, no device tree overlays are applied."
 msgstr "如果没有可用的EEPROM数据，则不加载任何设备树overlay。"
 
-msgid "To prevent running the extension command during boot the ``${no_extensions}`` variable can be set to `1` in the bootloader environment::"
+#, fuzzy, python-brace-format
+msgid "To prevent application of the SoM variant related overlays the ``${no_extensions}`` variable can be set to `1` in the bootloader environment::"
 msgstr "为了禁止在启动时自动运行扩展命令，可以在bootloader环境中将 ``${no_extensions}`` 变量设置为 `1` ："
 
 msgid "U-boot External Environment"
 msgstr "U-boot外部环境"
 
+#, python-brace-format
 msgid "During the start of the Linux Kernel the external environment ``bootenv.txt`` text file will be loaded from the boot partition of an MMC device or via TFTP. The main intention of this file is to store the ``${overlays}`` variable. This makes it easy to pre-define the overlays in Yocto depending on the used machine. The content from the file is defined in the Yocto recipe bootenv found in meta-phytec: |yocto-bootenv-link|"
 msgstr "在Linux内核启动时，外部环境 ``bootenv.txt`` 文本文件将从MMC设备的boot分区或通过TFTP加载。该文件的主要目的是存储 ``${overlays}`` 变量。这可以针对不同的machine在Yocto中预定义不同的overlay配置。文件的内容在meta-phytec中的Yocto recipe中的bootenv中定义： |yocto-bootenv-link|"
 
+#, python-brace-format
 msgid "Other variables can be set in this file, too. They will overwrite the existing settings in the environment. But only variables evaluated after issuing the boot command can be overwritten, such as ``${nfsroot}`` or ``${mmcargs}``. Changing other variables in that file will not have an effect. See the usage during netboot as an example."
 msgstr "该文件中也可以设置其他变量。这些变量将覆盖环境中现有的设置。但只有对boot命令后进行计算的变量生效，例如 ``${nfsroot}`` 或 ``${mmcargs}``。在文件中更改其他变量将不会有作用。以网络启动的用法作为示例。"
 
@@ -1271,7 +1405,8 @@ msgstr "访问外设"
 msgid "To find out which boards and modules are supported by the release of PHYTEC's phyCORE-|soc| BSP described herein, visit |dlpage-bsp|_ web page and click the corresponding BSP release in the download section. Here you can find all hardware supported in the columns \"Hardware Article Number\" and the correct machine name in the corresponding cell under \"Machine Name\"."
 msgstr "要查找本文中所述的PHYTEC的phyCORE-|soc| BSP支持的开发板和核心板，请访问  |dlpage-bsp|_ 网页，并在下载部分点击相应的BSP版本。在这里，您可以在\"Hardware Article Number\"列中找到所有支持的硬件，并在\"Machine Name\"下的相应单元格中找到正确的\"Machine Name\"。"
 
-msgid "To achieve maximum software reuse, the Linux kernel offers a sophisticated infrastructure that layers software components into board-specific parts. The BSP tries to modularize the kit features as much as possible. When a customized baseboard or even a customer-specific module is developed, most of the software support can be re-used without error-prone copy-and-paste. The kernel code corresponding to the boards can be found in device trees (DT) in the kernel repository under ``arch/arm64/boot/dts/freescale/*.dts``."
+#, fuzzy
+msgid "To achieve maximum software reuse, the Linux kernel offers a sophisticated infrastructure that layers software components into board-specific parts. The BSP tries to modularize the kit features as much as possible. When a customized baseboard or even a customer-specific module is developed, most of the software support can be reused without error-prone copy-and-paste. The kernel code corresponding to the boards can be found in device trees (DT) in the kernel repository under ``arch/arm64/boot/dts/freescale/*.dts``."
 msgstr "为了最大化软件的可复用性，Linux内核提供了一个巧妙的软件架构，软件会根据不同硬件组件来分层。BSP（板级支持包）尽可能地对套件的功能进行模块化。当定制开发板或自定义核心板时，大部分软件配置可以简单的复制粘贴。与具体的开发板相关的内核代码可以在内核代码仓库中的设备树（DT）中找到，路径为 ``arch/arm64/boot/dts/freescale/*.dts`` 。"
 
 msgid "In fact, software reuse is one of the most important features of the Linux kernel, especially of the ARM implementation which always has to fight with an insane number of possibilities of the System-on-Chip CPUs. The whole board-specific hardware is described in DTs and is not part of the kernel image itself. The hardware description is in its own separate binary, called the Device Tree Blob (DTB) (section |ref-dt|)."
@@ -2094,8 +2229,9 @@ msgstr "两个USB接口在内核设备树 |dt-carrierboard|.dts 中被配置为�
 msgid "CAN FD"
 msgstr "CAN FD"
 
-msgid "The |sbc| two flexCAN interfaces supporting CAN FD. They are supported by the Linux standard CAN framework which builds upon then the Linux network layer. Using this framework, the CAN interfaces behave like an ordinary Linux network device, with some additional features special to CAN. More information can be found in the Linux Kernel documentation: https://www.kernel.org/doc/html/latest/networking/can.html"
-msgstr "|sbc| 支持两个 flexCAN 接口，支持 CAN FD。这些接口支持 Linux 标准 CAN 框架，该框架建立在 Linux 网络层之上。使用这个框架，CAN 接口表现得像普通的 Linux 网络设备，同时具备一些 CAN 特有的附加功能。更多信息可以在 Linux 内核文档中找到：https://www.kernel.org/doc/html/latest/networking/can.html"
+#, fuzzy
+msgid "The |sbc| has one CAN interface supporting CAN FD. It is supported by the Linux standard CAN framework which builds upon then the Linux network layer. Using this framework, the CAN interfaces behave like an ordinary Linux network device, with some additional features special to CAN. More information can be found in the Linux Kernel documentation: https://www.kernel.org/doc/html/latest/networking/can.html"
+msgstr "|sbc| 具有一个支持CAN FD的flexCAN接口。它们由Linux标准CAN框架支持，该框架建立在Linux网络层之上。使用该框架，CAN接口表现得像普通的Linux网络设备，并具有一些特定于CAN的附加功能。更多信息可以在Linux内核文档中找到：https://www.kernel.org/doc/html/latest/networking/can.html"
 
 msgid "phyBOARD-Polis has an external CANFD chip MCP2518FD connected over SPI. There are different interfaces involved, which limits the datarate capabilities of CANFD."
 msgstr "phyBOARD-Polis 具有一个通过 SPI 连接的外部 CAN FD 芯片 MCP2518FD。由于使用了SPI，限制了 CAN FD 的数据传输速率上限。"
@@ -2220,6 +2356,10 @@ msgstr "您将在串口控制台上获得以下输出："
 
 msgid "Some PCIe devices, e.g. the Ethernet card, may function properly even if no firmware blob is loaded from ``/lib/firmware/`` and you received an error message as shown in the first line of the output above. This is because some manufacturers provide the firmware as a fallback on the card itself. In this case, the behavior and output depend strongly on the manufacturer's firmware."
 msgstr "某些PCIe设备，例如以太网卡，即使没有从 ``/lib/firmware/`` 加载固件文件，也可能正常工作，而你收到了如上输出第一行所示的错误消息。这是因为一些制造商在板卡本身提供了固件作为后备。在这种情况下，设备的行为和输出在很大程度上依赖于制造商的固件。"
+
+#, fuzzy
+msgid "Device Tree PCIe configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n257`"
+msgstr " |dt-carrierboard|.dts的设备树PCIe配置：:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
 
 msgid "Audio"
 msgstr "音频"
@@ -3010,6 +3150,21 @@ msgstr "查找u-boot分区的擦除块数量："
 msgid "The RAUC (Robust Auto-Update Controller) mechanism support has been added to meta-ampliphy. It controls the procedure of updating a device with new firmware. This includes updating the Linux kernel, Device Tree, and root filesystem. PHYTEC has written an online manual on how we have intergraded RAUC into our BSPs: `L-1006e.A3 RAUC Update & Device Management Manual <https://www.phytec.de/cdocuments/?doc=BKXvGQ>`__."
 msgstr "BSP支持RAUC（Robust Auto-Update Controller）。它管理设备固件更新的过程。这包括更新Linux内核、设备树和根文件系统。PHYTEC已撰写了一份在线手册，介绍如何在我们的BSP中集成RAUC：`L-1006e.A3 RAUC 更新与设备管理手册 <https://www.phytec.de/cdocuments/?doc=BKXvGQ>`__。"
 
+msgid "Copy the kernel image to your tftp directory:"
+msgstr "将内核镜像复制到您的tftp目录中："
+
+msgid "Copy the devicetree to your tftp directory:"
+msgstr "将设备树复制到您的tftp目录："
+
+msgid "Copy all the overlays you want to use into your tftp directory:"
+msgstr "将您想要使用的所有overlay文件复制到您的tftp目录中："
+
+msgid "<overlayfilenames> has to be replaced with the devicetree overlay filenames that you want to use. Separate the filenames by spaces. For example:"
+msgstr "<overlayfilenames> 必须替换为您想要使用的overlay设备树文件名。用空格分隔文件名。例如："
+
+msgid "All supported devicetree overlays are in the |ref-dt| chapter."
+msgstr "所有支持的设备树overlay在 |ref-dt| 章节中。"
+
 msgid "Download imx-boot from our server or get it from your Yocto build directory at build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC, you will also need |yocto-imagename|-|yocto-machinename|.wic."
 msgstr "可以从我们的服务器下载imx-boot，或者从Yocto编译目录中的build/deploy/images/|yocto-machinename|/获取它。要将wic镜像烧写到eMMC，你还需要 |yocto-imagename|-|yocto-machinename|.wic。"
 
@@ -3034,6 +3189,15 @@ msgstr "flash.bin 文件可以在 u-boot-imx/ 目录中找到。需要一个特�
 msgid "/dev/mmcblk2"
 msgstr "/dev/mmcblk2"
 
+msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image"
+msgstr "镜像可以在 ~/|kernel-repo-name|/arch/arm64/boot/Image 找到"
+
+msgid "Copy Kernel to SD Card"
+msgstr "将内核复制到SD卡"
+
+msgid "When one-time boot via netboot is not sufficient, the kernel along with its modules and the corresponding device tree blob may be copied directly to a mounted SD card."
+msgstr "内核及module和对应的设备树二进制文件可以用以下方式复制到已挂载的SD卡上。"
+
 msgid "*Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed down to the carrier board and used there are included in this dtsi."
 msgstr "*Carrierboard.dtsi* - 包括来自于 |soc| SoC 的外设，在底板上使用的外设的设备树配置包含在这个 dtsi 中。"
 
@@ -3042,6 +3206,28 @@ msgstr "*Board.dts* - 包含底板和核心板的dtsi文件。以及使能一些
 
 msgid "Device Tree overlays are device tree fragments that can be merged into a device tree during boot time. These are for example hardware descriptions of an expansion board. They are instead of being added to the device tree as an extra include, now applied as an overlay. They also may only contain setting the status of a node depending on if it is mounted or not. The device tree overlays are placed next to the other device tree files in our Linux kernel repository in the subfolder ``arch/arm64/boot/dts/freescale/overlays``."
 msgstr "设备树Overlay是可以在启动时合并到设备树中的设备树片段。例如扩展板的硬件描述。对比源码中的include，overlay是用覆盖的方式来生效。overlay也可以根据节点是否连接来设置节点状态。设备树Overlay与我们Linux内核仓库中的其他设备树文件一起放在子文件夹 ``arch/arm64/boot/dts/freescale/overlays`` 中。"
+
+#, python-brace-format
+msgid "The ``${overlays}`` U-Boot environment variable contains a space-separated list of overlays that will be applied during boot. Depending on the boot source the overlays have to either be placed in the boot partition of eMMC/SD-Card or are loaded over tftp. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable will be automatically added to the boot partition of the final WIC image."
+msgstr "``${overlays}`` U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。"
+
+#, python-brace-format
+msgid "The ``${overlays}`` variable can be either set directly in the U-Boot environment or can be part of the external ``bootenv.txt`` environment file. By default, the ``${overlays}`` variable comes from the external ``bootenv.txt`` environment file which is located in the boot partition. You can read and write the file on booted target from linux:"
+msgstr "``${overlays}`` 变量可以直接在U-Boot环境中设置，也可以作为外部 ``bootenv.txt`` 环境文件的一部分。默认情况下， ``${overlays}`` 变量来自位于启动分区的 ``bootenv.txt`` 文件。您可以在已启动的开发板上从Linux读取和写入该文件："
+
+#, python-brace-format
+msgid "We use the ``${overlays}`` variable for overlays describing expansion boards and cameras that can not be detected during run time. To prevent applying overlays listed in the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can be set to `1` in the bootloader environment."
+msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 ``${overlays}`` 变量中列出的overlay，可以在U-Boot的环境中将 ``${no_overlays}`` 变量设置为 `1`。"
+
+msgid "Extension Command"
+msgstr "扩展命令"
+
+msgid "The U-Boot extension command makes it possible to easily apply overlays that have been detected and added to a list by the board code callback `extension_board_scan() <overlaycallback_>`_. Overlays applied this way disable components that are not populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM Detection) found on the SoM i2c EEPROM."
+msgstr "使用U-Boot扩展命令能够轻松加载由回调函数  `extension_board_scan() <overlaycallback_>`_ 检测并添加到列表中的overlay。以这种方式应用的overlay会禁用核心板上未贴装的组件。检测是通过读取出厂EEPROM数据（EEPROM SoM Detection）来实现的。"
+
+#, python-brace-format
+msgid "To prevent running the extension command during boot the ``${no_extensions}`` variable can be set to `1` in the bootloader environment::"
+msgstr "为了禁止在启动时自动运行扩展命令，可以在bootloader环境中将 ``${no_extensions}`` 变量设置为 `1` ："
 
 msgid "The following is an example of the pin muxing of the UART1 device in imx8mm-phyboard-polis.dtsi:"
 msgstr "以下是imx8mm-phyboard-polis.dtsi中UART1设备的引脚复用示例："
@@ -3342,8 +3528,13 @@ msgstr "两个USB接口在内核设备树 |dt-carrierboard|.dtsi 中配置为Hos
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dtsi: :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`"
 msgstr "|dt-carrierboard| 的设备树CAN配置： :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`"
 
-msgid "|doc-id| |soc| BSP ManualHead"
+#, fuzzy
+msgid "|doc-id| |soc| FPSC BSP ManualHead"
 msgstr "|doc-id| |soc| BSP ManualHead"
+
+#, fuzzy
+msgid "|doc-id| |soc| FPSC BSP Manual Head"
+msgstr "|doc-id| |soc| BSP 手册模板"
 
 msgid "On our web page, you can see all supported Machines with the available Article Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_."
 msgstr "在我们的网页上，您可以查看适用于BSP版本 |yocto-manifestname| 的所有Machine及其对应的Article Numbers(产品型号)： `网页 <dlpage-bsp_>`_."
@@ -3351,11 +3542,13 @@ msgstr "在我们的网页上，您可以查看适用于BSP版本 |yocto-manifes
 msgid "If you choose a specific **Machine Name** in the section **Supported Machines**, you can see which **Article Numbers** are available under this machine and also a short description of the hardware information. In case you only have the **Article Number** of your hardware, you can leave the **Machine Name** drop-down menu empty and only choose your **Article Number**. Now it should show you the necessary **Machine Name** for your specific hardware"
 msgstr "如果您在“Supported Machines”一栏选择了特定的 **Machine Name** ，您可以查看该machine下可用的 **Article Numbers** 以及硬件信息的简短描述。如果您只有硬件的 **Article Numbers** ，您可以将 **Machine Name** 下拉菜单留空，仅选择您的 **Article Numbers** 。现在，它应该会显示您特定硬件所需的 **Machine Name** "
 
-msgid "**phyBOARD-Pollux Components (top)**"
-msgstr "**phyBOARD-Pollux 器件图（顶部）**"
+#, fuzzy
+msgid "**Libra Components (top)**"
+msgstr "|sbc| 器件（顶部）"
 
-msgid "**phyBOARD-Pollux Components (bottom)**"
-msgstr "**phyBOARD-Pollux 器件图（底部）**"
+#, fuzzy
+msgid "**Libra Components (bottom)**"
+msgstr "|sbc| 器件（底部）"
 
 msgid "To boot from an SD card, the |ref-bootswitch| needs to be set to the following position:"
 msgstr "要从SD卡启动， |ref-bootswitch| 需要设置为以下位置："
@@ -3363,14 +3556,12 @@ msgstr "要从SD卡启动， |ref-bootswitch| 需要设置为以下位置："
 msgid "**bl31-imx8mp.bin**: ARM Trusted Firmware binary"
 msgstr "**bl31-imx8mp.bin**: ARM可信固件二进制文件"
 
-msgid "**fitImage**: Linux kernel FIT image"
-msgstr "**fitImage**: Linux内核FIT镜像"
-
 msgid "**fitImage-its\\*.its**"
 msgstr "**fitImage-its\\*.its**"
 
-msgid "**imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file"
-msgstr "**imx8mp-phyboard-pollux-rdk*.dtb**: 内核设备树文件"
+#, fuzzy
+msgid "**imx8mp-libra-rdk-fpsc*.dtb**: Kernel device tree file"
+msgstr "**imx8mn-phyboard-polis*.dtb**: 内核设备树文件"
 
 msgid "**imx8mp-phy*.dtbo**: Kernel device tree overlay files"
 msgstr "**imx8mp-phy*.dtbo**: 内核设备树overlay文件"
@@ -3390,180 +3581,9 @@ msgstr "该 |sbc| 具有一个（启动源配置）开关，配有四个可单�
 msgid "eMMC"
 msgstr "eMMC"
 
-msgid "Test Mode"
+#, fuzzy
+msgid "JTAG Mode"
 msgstr "测试模式"
-
-#, fuzzy
-msgid "EFI Boot"
-msgstr "imx-boot"
-
-msgid "Standardboot in U-Boot also supports booting distros over efi. By default the U-Boot will search for a bootscript first, which is used to boot our Ampliphy distro. If it does not find any bootscript, it will search for bootable efi applications. So for booting over efi just make sure you don't have our distro installed."
-msgstr ""
-
-msgid "Disable booting with efi"
-msgstr ""
-
-msgid "To disable booting with efi you have to set the ``doefiboot`` variable to 0. Also make sure you do not have ``efi`` or ``efi_mgr`` specified in the ``bootmeths`` environment variable."
-msgstr ""
-
-msgid "Switch to only efi boot"
-msgstr ""
-
-msgid "If you want to only boot with efi, you can set the ``bootmeths`` environment variable to efi. Also make sure you have the ``doefiboot`` environment variable set to 1."
-msgstr ""
-
-#, fuzzy
-msgid "Installing a distro"
-msgstr "安装操作系统"
-
-msgid "With efi you can install and boot different distros like openSUSE, Fedora or Debian. First you have to get the iso Image from their website. For example:"
-msgstr ""
-
-msgid "https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/"
-msgstr ""
-
-msgid "Then copy the .iso file to a usb stick for example. Make sure you select the correct device:"
-msgstr ""
-
-msgid "Insert the USB stick into the board and boot it. GRUB will then prompt you with a menu where you can select what to do. Here select install. Then you have to click through the installation menu. This is relatively straightforward and differs a bit for every distro. You can install the distro for example to emmc (|emmcdev-uboot|) or sdcard (|sdcarddev-uboot|). Make sure you do not overwrite your U-Boot during the install. Best to choose a different medium to install to than the U-Boot is stored on. Otherwise manual partitioning will be required. The automatic partitioning will start at the beginning of the disk. To not overwrite the U-Boot, use an offset of 4MiB at the beginning of the disk."
-msgstr ""
-
-msgid "During the Installation of Debian you will be asked, if you want to Force the GRUB installation to the EFI removable media path. Select no. Also select no, when you will be asked if you want to update the NVRAM variables. Otherwise the grub-dummy installation step will fail and you will be sent back to the \"Force GRUB installation\" prompt."
-msgstr ""
-
-msgid "After the installation is complete, reboot the board and remove the installation medium (USB-stick). The board should then boot the distro you installed."
-msgstr ""
-
-msgid "If that does not happen, check if there is a boot option set for the distro. The easiest way is with the ``eficonfig`` command."
-msgstr ""
-
-msgid "That will open a menu. Then you can select ``Edit Boot Option``. It will show you the current boot options. If this is empty or you don't find your distro, select ``Add Boot Option`` to add a new one. For debian for example you only need to set the description and the file. You can enter whatever you want into the description field. When you select the file field, you can select the disc you installed the distro on and partition number one. For example \"|emmcdev-uboot|:1\" for emmc, or \"|sdcarddev-uboot|:1\" for sdcard. The file you need to select is at ``EFI/debian/grubaa64.efi``. After that save, quit and reset the board. The board should then boot into debian."
-msgstr ""
-
-msgid "Starting with this release, the boot behaviour in U-Boot changes. Before, kernel and device tree came as separate blobs. Now, both will be included in a single FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions is moved to a boot script which itself is part of a separate FIT image blob. To revert to the old style of booting, you may do"
-msgstr "从这个版本开始，U-Boot中的启动行为发生了变化。之前，内核和设备树是作为单独的二进制文件提供的。现在，二者将被包含在一个单一的FIT镜像二进制文件中。此外，PHYTEC ampliphy发行版的启动逻辑被移到了一个启动脚本中，该脚本本身是一个单独的FIT镜像二进制文件的一部分。要恢复到旧的启动方式，您可以执行"
-
-msgid "This way of booting is deprecated and will be removed in the next release. By default, booting via this command will return an error as kernel and device tree are missing in the boot partition."
-msgstr "这种启动方式已被弃用，并将在下一个版本中移除。默认情况下，通过此命令启动将返回错误，因为启动分区中缺少内核和设备树。"
-
-msgid "Build U-Boot With a Fixed RAM Size and Frequency"
-msgstr "编译支持固定RAM大小与频率的U-Boot"
-
-msgid "Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM timings. These will be enabled for supported boards automatically, but they can also be enabled or disabled manually."
-msgstr "从PD23.1.0 NXP或PD24.1.2 Mainline 版本开始，PCB为1549.3版本的核心板及更新版本的phyCORE-|soc| SoM支持2GHz内存时序。这些将在支持的板上自动启用，但也可以手动启用或禁用。"
-
-msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig. The fixed RAM size with 2GHz timings will be used:"
-msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用固定的2GHz时序的RAM大小："
-
-msgid "After saving the changes, follow the remaining steps from |ref-build-uboot|."
-msgstr "在保存更改后，按照 |ref-build-uboot| 中剩下的步骤操作。"
-
-msgid "Build U-Boot With a Fixed RAM Frequency"
-msgstr "编译固定的RAM频率的U-Boot"
-
-msgid "Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can also be built with just fixed RAM Frequency while the RAM size will still be used from EEPROM."
-msgstr "从PD24.1.2 Mainline版本或者 PD24.1.0 NXP 版本开始，U-Boot可以编译成只固定RAM频率，RAM大小还是保持从EEPROM读取。"
-
-msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig. The RAM size from EEPROM with fixed frequency will be used:"
-msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用EEPROM中配置的容量与固定的频率RAM配置："
-
-msgid "The kernel is packaged in a FIT image together with the device tree. U-Boot has been adapted to be able to load a FIT image and boot the kernel contained in it. As a result, the kernel Image has to packaged in a FIT image."
-msgstr "内核与设备树一起打包在FIT镜像中。U-Boot已被配置为能够加载FIT镜像并引导其中包含的内核。因此，内核镜像必须打包在FIT镜像中。"
-
-msgid "The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image.gz"
-msgstr "镜像可以在 ~/|kernel-repo-name|/arch/arm64/boot/Image.gz 找到"
-
-msgid "Package the kernel in a FIT image"
-msgstr "将内核打包成FIT镜像"
-
-msgid "To simply replace the kernel, you will need an ``image tree source`` (.its) file. If you already built our BSP with Yocto, you can get the its file from the directory mentioned here: |ref-bsp-images| Or you can download the file here: |link-bsp-images|"
-msgstr "要简单地替换内核，您需要一个 ``image tree source`` (.its)文件。如果您已经使用Yocto编译了我们的BSP，可以从此处提到的目录获取its文件： |ref-bsp-images| 或者您可以在这里下载该文件： |link-bsp-images| "
-
-msgid "Copy the .its file to the current working directory, create a link to the kernel image and create the final fitImage with mkimage."
-msgstr "将 .its 文件复制到当前工作目录，创建一个指向内核镜像的链接，并使用 mkimage 创建最终的 fitImage。"
-
-msgid "Copy FIT image and kernel modules to SD Card"
-msgstr "将FIT镜像和内核模块复制到SD卡"
-
-msgid "When one-time boot via netboot is not sufficient, the FIT image along with the kernel modules may be copied directly to a mounted SD card."
-msgstr "FIT镜像以及内核module可以用以下方式复制到已挂载的SD卡上。"
-
-msgid "Copy the kernel fitimage to your tftp directory:"
-msgstr "将内核fitimage复制到您的tftp目录中："
-
-msgid "Copy the bootscript to your tftp directory:"
-msgstr "将启动脚本复制到您的tftp目录中："
-
-msgid "<overlayconfignames> has to be replaced with the devicetree overlay config names that you want to use. Separate the config names by hashtag. For example:"
-msgstr "<overlayconfignames> 替换为您想要使用的设备树overlay配置名称。用#号分隔配置名称。例如："
-
-msgid "All supported devicetree overlays are in the |ref-dt| chapter. Or can be printed with:"
-msgstr "所有支持的设备树overlay文件都在 |ref-dt| 章节中。或者可以通过以下命令打印："
-
-msgid "Switch back to legacyboot"
-msgstr ""
-
-msgid "As we switched to standardboot with fitimage as default, legacyboot is deprecated. We kept the option to switch back to legacyboot for this release, but it will be removed in the future."
-msgstr ""
-
-msgid "Changes in Yocto"
-msgstr ""
-
-msgid "By default, the fitImage and bootscript will be deployed into the wic.xz Image. To switch back to legacyboot, you need to replace the fitImage and bootscript for the kernel image and the devicetrees. They are still in the deploy folder from the Yocto build, so you can manually copy them to the boot partition on your device. Otherwise you can do the following changes in Yocto to get the kernel and devicetrees deployed in the Image again."
-msgstr ""
-
-msgid "First create the variable `KERNEL_DEVICETREE_DEPLOY`. This can be done for example in the local.conf file in your build directory `conf/local.conf`. The variable is basically a copy of the `KERNEL_DEVICETREE` variable that is set in conf/machine/|yocto-machinename|.conf in meta-phytec but the `freescale` at the beginning needs to be removed, so that only the devicetree filename are left. In the end it should look something like this:"
-msgstr ""
-
-msgid "Then add this line:"
-msgstr ""
-
-msgid "A clean might be required for this to work."
-msgstr ""
-
-#, fuzzy
-msgid "Then start the build:"
-msgstr "开始构建"
-
-#, fuzzy
-msgid "Changes in U-Boot environment"
-msgstr "在Linux环境下更改开发板上的U-boot环境变量"
-
-msgid "To re-enable legacyboot set the following variable:"
-msgstr ""
-
-msgid "Otherwise you can show the content of a FIT image including all overlay configs in the FIT image with this command in Linux:"
-msgstr ""
-
-#, fuzzy
-msgid "or in U-Boot:"
-msgstr "编译u-boot："
-
-#, fuzzy
-msgid "The ``${overlays}`` U-Boot environment variable contains a number-sign (#) separated list of overlays that will be applied during boot. The overlays listed in the overlays variable must be included in the FIT image. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable will automatically be added to the FIT image."
-msgstr "``${overlays}`` U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。"
-
-#, fuzzy
-msgid "The ``${overlays}`` variable can either be set directly in the U-Boot environment or can be part of the external ``bootenv.txt`` environment file. When desired to use the overlays variable as set manually in the U-Boot environment, disable bootenv by setting ``env set no_bootenv 1`` as the overlays variable may be overwritten during the execution of the boot script. By default, the ``${overlays}`` variable comes from the external ``bootenv.txt`` environment file which is located in the boot partition. You can read and write the file on booted target from linux:"
-msgstr "``${overlays}`` 变量可以直接在U-Boot环境中设置，也可以作为外部 ``bootenv.txt`` 环境文件的一部分。默认情况下， ``${overlays}`` 变量来自位于启动分区的 ``bootenv.txt`` 文件。您可以在已启动的开发板上从Linux读取和写入该文件："
-
-#, fuzzy
-msgid "We use the ``${overlays}`` variable for overlays describing expansion boards and cameras that can not be detected during run time. To prevent applying overlays unset the overlays variable and set no_bootenv to anything other than 0."
-msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 ``${overlays}`` 变量中列出的overlay，可以在U-Boot的环境中将 ``${no_overlays}`` 变量设置为 `1`。"
-
-msgid "If desired to use the bootenv.txt file for setting U-Boot variables other than overlays and having overlays disabled, remove the overlays definition line from the bootenv.txt file instead of setting no_bootenv."
-msgstr ""
-
-msgid "SoM Variants"
-msgstr ""
-
-#, fuzzy
-msgid "Additional overlays are applied automatically to disable components that are not populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM Detection) found on the SoM i2c EEPROM."
-msgstr "使用U-Boot扩展命令能够轻松加载由回调函数  `extension_board_scan() <overlaycallback_>`_ 检测并添加到列表中的overlay。以这种方式应用的overlay会禁用核心板上未贴装的组件。检测是通过读取出厂EEPROM数据（EEPROM SoM Detection）来实现的。"
-
-#, fuzzy
-msgid "To prevent application of the SoM variant related overlays the ``${no_extensions}`` variable can be set to `1` in the bootloader environment::"
-msgstr "为了禁止在启动时自动运行扩展命令，可以在bootloader环境中将 ``${no_extensions}`` 变量设置为 `1` ："
 
 msgid "The first part of the string MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX names the pad (in this example UART1_RXD). The second part of the string (UART1_DCE_RX) is the desired muxing option for this pad. The pad setting value (hex value on the right) defines different modes of the pad, for example, if internal pull resistors are activated or not. In this case, the internal resistors are disabled."
 msgstr "字符串的第一部分 MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX 指定了引脚（在这个例子中是 UART1_RXD）。字符串的第二部分（UART1_DCE_RX）是该引脚所选的复用项。引脚设置值（右侧的十六进制值）定义了引脚的不同模式，例如，内部拉电阻是否被激活。在当前情况下，内部拉电阻被禁用。"
@@ -3671,6 +3691,10 @@ msgstr "|soc| SoC的USB控制器为众多消费类便携设备提供了一种低
 #, fuzzy
 msgid "DT representation for USB Host: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L380`"
 msgstr "USB Host的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220`"
+
+#, fuzzy
+msgid "The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the Linux standard CAN framework which builds upon then the Linux network layer. Using this framework, the CAN interfaces behave like an ordinary Linux network device, with some additional features special to CAN. More information can be found in the Linux Kernel documentation: https://www.kernel.org/doc/html/latest/networking/can.html"
+msgstr "|sbc| 支持两个 flexCAN 接口，支持 CAN FD。这些接口支持 Linux 标准 CAN 框架，该框架建立在 Linux 网络层之上。使用这个框架，CAN 接口表现得像普通的 Linux 网络设备，同时具备一些 CAN 特有的附加功能。更多信息可以在 Linux 内核文档中找到：https://www.kernel.org/doc/html/latest/networking/can.html"
 
 #, fuzzy
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dts: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`"
@@ -3797,6 +3821,44 @@ msgstr "ISP"
 
 msgid "The |soc| SoC contains an Image Signal Processor (ISP). For more information see Using the ISPs on the |sbc| |soc| documentation. This documentation is also available in German."
 msgstr "|soc| SoC包含一个图像信号处理器（ISP）。有关更多信息，请参阅|sbc| |soc| 文档中的使用ISP部分。"
+
+msgid "|doc-id| |soc| BSP ManualHead"
+msgstr "|doc-id| |soc| BSP ManualHead"
+
+msgid "**phyBOARD-Pollux Components (top)**"
+msgstr "**phyBOARD-Pollux 器件图（顶部）**"
+
+msgid "**phyBOARD-Pollux Components (bottom)**"
+msgstr "**phyBOARD-Pollux 器件图（底部）**"
+
+msgid "**imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file"
+msgstr "**imx8mp-phyboard-pollux-rdk*.dtb**: 内核设备树文件"
+
+msgid "Test Mode"
+msgstr "测试模式"
+
+msgid "Build U-Boot With a Fixed RAM Size and Frequency"
+msgstr "编译支持固定RAM大小与频率的U-Boot"
+
+msgid "Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM timings. These will be enabled for supported boards automatically, but they can also be enabled or disabled manually."
+msgstr "从PD23.1.0 NXP或PD24.1.2 Mainline 版本开始，PCB为1549.3版本的核心板及更新版本的phyCORE-|soc| SoM支持2GHz内存时序。这些将在支持的板上自动启用，但也可以手动启用或禁用。"
+
+#, fuzzy
+msgid "Edit the file configs/|u-boot-defconfig|. The fixed RAM size with 2GHz timings will be used:"
+msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用固定的2GHz时序的RAM大小："
+
+msgid "After saving the changes, follow the remaining steps from |ref-build-uboot|."
+msgstr "在保存更改后，按照 |ref-build-uboot| 中剩下的步骤操作。"
+
+msgid "Build U-Boot With a Fixed RAM Frequency"
+msgstr "编译固定的RAM频率的U-Boot"
+
+msgid "Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can also be built with just fixed RAM Frequency while the RAM size will still be used from EEPROM."
+msgstr "从PD24.1.2 Mainline版本或者 PD24.1.0 NXP 版本开始，U-Boot可以编译成只固定RAM频率，RAM大小还是保持从EEPROM读取。"
+
+#, fuzzy
+msgid "Edit the file configs/|u-boot-defconfig|. The RAM size from EEPROM with fixed frequency will be used:"
+msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用EEPROM中配置的容量与固定的频率RAM配置："
 
 msgid "Mainline HEAD"
 msgstr "Mainline HEAD"
@@ -4033,6 +4095,9 @@ msgstr "2024/08/05"
 msgid "When the PCM-070 does not have the X1 extension connector populated, some Software features described here do not work. These are Wirless LAN, PCIe, CSI (cameras), PEB-AV-12, CAN, USB-OTG."
 msgstr "当PCM-070开发板没有安装X1扩展连接器时，此处描述的一些软件功能将无法使用。这些功能包括无线局域网、PCIe、CSI（摄像头）、PEB-AV-12、CAN和USB-OTG。"
 
+msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig:"
+msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig:"
+
 msgid "Choose the correct RAM size as populated on the board and uncomment the line for this ram size. For Article number 0F\\ **8**\\ 443I, use [...]_4GB_2GHZ, for 0F\\ **5**\\ 443I, use [...]_4GB. After saving the changes, follow the remaining steps from |ref-build-uboot|."
 msgstr "选择与板上配置匹配的正确RAM大小，并取消注释该RAM大小的行。对于型号0F\\ **8**\\ 443I，请使用 [...]_4GB_2GHZ；对于0F\\ **5**\\ 443I，请使用 [...]_4GB。保存更改后，请按照 |ref-build-uboot| 进行操作。"
 
@@ -4086,6 +4151,9 @@ msgstr "GPIO风扇的设备树：:imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72
 
 msgid "Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM timings. These will be enabled for supported boards automatically, but they can also be enabled or disabled manually."
 msgstr "从PD23.1.0版本开始，带有1549.3及更高版本的phyCORE-|soc| SoM也支持2GHz的RAM时序。这将在支持的核心板上自动启用，但也可以手动启用或禁用。"
+
+msgid "Edit the file configs/phycore-|kernel-socname|\\_defconfig. The fixed RAM size with 2GHz timings will be used:"
+msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用固定的2GHz时序的RAM大小："
 
 msgid "Choose the correct RAM size as populated on the board and uncomment the line for this ram size. When not specifying the ``CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS`` option, the 1.5GHz timings will be chosen by default. After saving the changes, follow the remaining steps from |ref-build-uboot|."
 msgstr "选择正确的RAM大小，根据板上的配置取消该RAM大小的注释。当不指定 ``CONFIG_PHYCORE_IMX8MP_USE_2GHZ_RAM_TIMINGS`` 选项时，默认将选择1.5GHz的时序。保存更改后，按照 |ref-build-uboot| 中的剩余步骤进行操作。"
@@ -4391,6 +4459,7 @@ msgstr "在上述命令中，将 ``<sd-card>`` 替换为您的SD卡设备名称�
 msgid "Make sure the boot partition is mounted! If it is not you can mount it with:"
 msgstr "确保boot分区已挂载！如果没有，您可以使用以下命令进行挂载："
 
+#, python-brace-format
 msgid "We use the ``${overlays}`` variable for overlays describing expansion boards that can not be detected during run time. To prevent applying overlays listed in the ``${overlays}`` variable during boot, the ``${no_overlays}`` variable can be set to `1` in the bootloader environment."
 msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法检测到的扩展板。为了禁止在启动时应用列在 ``${overlays}`` 变量中的overlay，可以在bootloader环境中将 ``${no_overlays}`` 变量设置为 `1`。"
 

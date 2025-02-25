@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, PHYTEC Messtechnik GmbH
+# This file is distributed under the same license as the PHYTEC BSP Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd24.1.0-nxp-48-g8498718\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-06 18:24+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
+msgstr ""
+
+msgid "This manual is a draft version and is currently **work in progress**. It will undergo significant changes over time."
+msgstr ""
+
+msgid "We value your feedback, questions, and suggestions and encourage you to open an issue or pull request in the linked repository to get in contact."
+msgstr ""
+
+msgid "Coprocessor Application Manual"
+msgstr ""
+
+msgid "Document Title"
+msgstr ""
+
+msgid "Document Type"
+msgstr ""
+
+msgid "Generic Application Guide"
+msgstr ""
+
+msgid "Release Date"
+msgstr ""
+
+msgid "XXXX/XX/XX"
+msgstr ""
+
+msgid "This manual applies to all Phytec releases from kernel version x."
+msgstr ""
+
+msgid "Introduction"
+msgstr ""
+
+msgid "Most modern SoCs include one of more coprocessors beside an application processor. In most cases the application processor runs Linux, while the coprocessor may run an RTOS. This manuals goes into detail how to utilize the coprocessor efficiently for projects."
+msgstr ""
+
+msgid "The manual explains generic principles and applies those principles in examples for a specific platform and tools. It gives in introduction to OpenAMP, Zephyr and Protocol Buffers (protobuf)."
+msgstr ""
+
+msgid "Use Cases"
+msgstr ""
+
+msgid "Data Processing"
+msgstr ""
+
+msgid "Sensors and Real-Time"
+msgstr ""
+
+msgid "Interface Virtualization"
+msgstr ""
+
+msgid "Overview of Technologies"
+msgstr ""
+
+msgid "OpenAMP"
+msgstr ""
+
+msgid "The `OpenAMP <http://openampproject.org>`_ Project which \"seeks to standardize the interactions between operating environments in a heterogeneous embedded system through open source solutions for Asymmetric MultiProcessing (AMP).\" This introduction explains the main components and terms, the `OpenAMP documentation <https://openamp.readthedocs.io/en/latest/openamp/index.html>`_ goes into further detail. OpenAMP is available in Linux as well as in RTOS (e.g. Zephyr) and Vendor SDKs (e.g. NXP MCUX, TI SDK, STM32Cube). The OpenAMP framework consists of several components:"
+msgstr ""
+
+msgid "Components"
+msgstr ""
+
+msgid "Shared Memory"
+msgstr ""
+
+msgid "In SoCs, where coprocessors are integrated on the same die they typically communicate by exchanging data via sharing memory sections."
+msgstr ""
+
+msgid "Interrupts"
+msgstr ""
+
+msgid "Minimum set of one interrupt line per communicating core. This interrupt is often implemented in hardware blocks of the SoC, e.g. the \"Messaging Unit (MU)\" on the NXP i.MX8MP."
+msgstr ""
+
+msgid "remoteproc"
+msgstr ""
+
+msgid "Life Cycle Management (LCM) to manage and update the software running on coprocessors. The `remoteproc documentation <https://docs.kernel.org/staging/remoteproc.html>`_ on Kernel.org goes into further technical details."
+msgstr ""
+
+msgid "RPMsg"
+msgstr ""
+
+msgid "Exchange of messages, api that enables Inter Processor Communications (IPC). The `rpmsg documentation <https://docs.kernel.org/staging/rpmsg.html>`_ on Kernel.org goes into further technical details."
+msgstr ""
+
+msgid "VirtIO, Virtqueue, Vring"
+msgstr ""
+
+msgid "**VirtIO** provides a standardized framework for efficient message exchange between processing units using virtualization. **Virtqueue** is the abstract structure that manages the queues of messages and buffers for communication between these units. **Vring** is the specific circular buffer implementation used within a Virtqueue that organizes the descriptors for the messages being exchanged. There are ringbuffers for both directions (read, write). This set of infrastructure components can be used in combination with RPMsg to improve performance and reduce synchronization between Cores."
+msgstr ""
+
+msgid "RPC based on RPMsg"
+msgstr ""
+
+msgid "TBD"
+msgstr ""
+
+msgid "RPMsg Messaging Protocol"
+msgstr ""
+
+msgid "communication stack consisting of several protocol layers:"
+msgstr ""
+
+msgid "Transport Layer:"
+msgstr ""
+
+msgid "MAC Layer:"
+msgstr ""
+
+msgid "Physical Layer:"
+msgstr ""
+
+msgid "Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)"
+msgstr ""
+
+msgid "Libmetal"
+msgstr ""
+
+msgid "Protocol Buffers"
+msgstr ""
+
+msgid "Zephyr"
+msgstr ""
+
+msgid "NXP MCUX"
+msgstr ""
+
+msgid "Application Architectures"
+msgstr ""
+
+msgid "VirtIO"
+msgstr ""
+
+msgid "RPmsg + Protobuf"
+msgstr ""
+
+msgid "Examples and Resources"
+msgstr ""
+
+msgid "The Zephyr Inter-Processor Communication (IPC) Subsystem includes some `samples <https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html>`_:"
+msgstr ""
+
+msgid "**Remoteproc:** The remoteproc framework is used to load and manage firmware on coprocessors. It also ensures to register the resource table and the RPMsg service. If RPMsg is used, flashing the firmware via a SWD debug adapter is not possible."
+msgstr ""
+
+msgid "Furthermore, remoteproc only reads firmware files from the ``/lib/firmware`` directory. Loading firmware binaries from another location will result in errors."
+msgstr ""
+
+msgid "**Resources:**"
+msgstr ""
+
+msgid "`NXP AN5317 - Loading code to Coprocessor <https://www.nxp.com/docs/en/application-note/AN5317.pdf>`_"
+msgstr ""
+
+msgid "Hello World"
+msgstr ""
+
+msgid "Run the Sample"
+msgstr ""
+
+msgid "Make sure the devicetree overlay ``imx8mp-phycore-rpmsg.dtbo`` is activated, the BSP manual for your platform explains how to activate this."
+msgstr ""
+
+msgid "Restart the target and execute in U-Boot:"
+msgstr ""
+
+msgid "Save the environment in U-Boot in order to enable the m-core on every boot by default. Executing ``saveenv`` twice will save the environment to the redundant MMC partition as well."
+msgstr ""
+
+msgid "The target will now boot and you can build and flash the Zephyr application with:"
+msgstr ""
+
+msgid "Zephyr should now boot with"
+msgstr ""
+
+msgid "OpenAMP using resource table"
+msgstr ""
+
+msgid "The `openamp_rsc_table <https://docs.zephyrproject.org/latest/samples/subsys/ipc/openamp_rsc_table/README.html>`_ sample \"demonstrates how to use OpenAMP with Zephyr based on a resource table. It is designed to respond to [..]\" the `rpmsg client <https://elixir.bootlin.com/linux/latest/source/samples/rpmsg/rpmsg_client_sample.c>`_ and `rpmsg tty <https://elixir.bootlin.com/linux/latest/source/drivers/tty/rpmsg_tty.c>`_ samples in the Linux Kernel. This sample demonstrates communication between Zephyr (coprocessor) and Linux (application processor) using OpenAMP. It creates the two RPMsg endpoints:"
+msgstr ""
+
+msgid "rpmsg-client-sample"
+msgstr ""
+
+msgid "Demonstrates generic RPMsg message exchange (Ping-pong) between Zephyr and Linux."
+msgstr ""
+
+msgid "rpmsg-tty"
+msgstr ""
+
+msgid "A TTY service that virtualizes a serial connection at `/dev/rpmsg-tty` in Linux, facilitating data exchange with Zephyr over this virtualized interface."
+msgstr ""
+
+msgid "Prepare Linux"
+msgstr ""
+
+msgid "The example has been tested with the imx8mp and the `BSP-Yocto-NXP-i.MX8MP-PD24.1.0 <https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD24.1.0>`_. However, some modifications are necessary to be able to communicate in between Zephyr and Linux with RPMsg. The devicetree overlay that enables rpmsg has to be enabled. You can edit this line directly in bootenv.txt in the boot partition."
+msgstr ""
+
+msgid "Changes in 'bootenv.txt'"
+msgstr ""
+
+msgid "Changes in the devicetree overlay 'imx8mp-phycore-rpmsg.dtbo'"
+msgstr ""
+
+msgid "Prepare Zephyr"
+msgstr ""
+
+msgid "The sample needs some board specific settings and a devicetree overlay for the phyBOARD Pollux. This will be upstreamed soon and maybe it is possible to make the Zephyr sample fully generic."
+msgstr ""
+
+msgid "You can see a branch with the required changes `here <https://github.com/PHYTEC-Messtechnik-GmbH/sdk-zephyr/tree/WIP/j.remmert%40phytec.de/openamp_rsc_pollux>`_."
+msgstr ""
+
+msgid "Build Zephyr and copy the firmware to ``/lib/firmware`` on the target:"
+msgstr ""
+
+msgid "Start the Zephyr application with remoteproc:"
+msgstr ""
+
+msgid "Zephyr should now boot now. The kernel module ``rpmsg_client_sample`` should load automatically and respond to the running m-core."
+msgstr ""
+
+msgid "If the the kernel Module does not load automatically, you can manually load it:"
+msgstr ""
+
+msgid "**Serial Communication**"
+msgstr ""
+
+msgid "Once the demo is running, it opens two serial devices (``/dev/ttyRPMSG0``, ``/dev/ttyRPMSG1``), one to send/receive any messages to Zephyr and one for the Zephyr shell backend."
+msgstr ""
+
+msgid "Remoteproc ensures to register the resource table and the RPMsg service. Running firmware via debug adapter is not possible when using RPMsg."
+msgstr ""
+
+msgid "Remoteproc only reads firmware files from the ``/lib/firmware`` directory! If you try to load a binary from another location errors will occur!"
+msgstr ""
+
+msgid "Console Output Linux"
+msgstr ""
+
+msgid "Debugging"
+msgstr ""
+
+msgid "Print resource table in Linux"
+msgstr ""
+
+msgid "Print related memory areas in Linux:"
+msgstr ""
+
+msgid "Other Examples"
+msgstr ""
+
+msgid "The following examples exist in Zephyr, however, they are specific to SoCs that have multiple instances of Zephyr running in the same SoC. They are partly related to Zephyrs `ipc_service <https://docs.zephyrproject.org/latest/services/ipc/ipc_service/ipc_service.html>`_ and not suitable for communication with Linux."
+msgstr ""
+
+msgid "`OpenAMP Sample <https://docs.zephyrproject.org/latest/samples/subsys/ipc/openamp/README.html#openamp>`_"
+msgstr ""
+
+msgid "sample builds different images for two targets running Zephyr. Both targets setup virtqueue and virtio and communicate with each other via RPMsg. This sample is mainly used to evaluate SoCs with two Cortex M devices and can not be used with Linux."
+msgstr ""
+
+msgid "`openamp-system-reference <https://github.com/OpenAMP/openamp-system-reference>`_"
+msgstr ""
+
+msgid "Several samples for both platforms, Linux and Zephyr that demonstrate different aspects of OpenAMP."
+msgstr ""
+
+msgid "`Samples in ipc_service/ <https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html>`_"
+msgstr ""
+
+msgid "Examples related to Zephyr ipc_service subsystem. Note that not all of those examples may be applicable to heterogeneous systems with one core running Linux and the other Zephyr."
+msgstr ""
+
+msgid "Current Problems"
+msgstr ""
+
+msgid "This section lists current problems that need work."
+msgstr ""
+
+msgid "Shell not working in Zephyr for Linux SoCs."
+msgstr ""
+
+msgid "There may be a problem with interrupts and nxp deactivated the shell for the imx8qm  boards. https://github.com/zephyrproject-rtos/zephyr/pull/79428"
+msgstr ""
+
+msgid "Table of Contents"
+msgstr ""
+
