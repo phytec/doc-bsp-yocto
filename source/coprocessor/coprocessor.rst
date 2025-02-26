@@ -43,6 +43,9 @@ Use Cases
 Data Processing
 ...............
 
+Time-Critical Communication
+...........................
+
 Sensors and Real-Time
 .....................
 
@@ -52,8 +55,22 @@ Interface Virtualization
 Overview of Technologies
 ========================
 
+Real-Time Operating Systems (RTOS)
+----------------------------------
+
+Zephyr
+......
+
+
+MCUXpresso SDK (NXP)
+....................
+
+Additional Softwarestacks
+-------------------------
+
 OpenAMP
--------
+.......
+
 
 The `OpenAMP <http://openampproject.org>`_ Project which "seeks to standardize
 the interactions between operating environments in a heterogeneous embedded
@@ -65,7 +82,7 @@ goes into further detail. OpenAMP is available in Linux as well as in RTOS
 framework consists of several components:
 
 Components
-..........
+^^^^^^^^^^
 
 Shared Memory
     In SoCs, where coprocessors are integrated on the same die they typically
@@ -103,7 +120,7 @@ RPC based on RPMsg
     TBD
 
 RPMsg Messaging Protocol
-........................
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 communication stack consisting of several protocol layers:
 
@@ -117,16 +134,11 @@ Physical Layer:
    Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)
 
 Libmetal
---------
+^^^^^^^^
 
 Protocol Buffers
-----------------
+................
 
-Zephyr
-------
-
-NXP MCUX
---------
 
 Application Architectures
 =========================
