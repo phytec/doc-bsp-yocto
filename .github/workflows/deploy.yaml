@@ -22,7 +22,6 @@ jobs:
     - name: Render Documentation
       run: |
         tox -e py3-intl
-        tox -e py3-html
         tox -e py3-pdf
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
