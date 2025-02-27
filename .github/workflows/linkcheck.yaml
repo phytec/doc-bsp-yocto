@@ -16,4 +16,4 @@ jobs:
           sudo apt install python3-pip tox -y
           pip3 install -r requirements/setup.txt
     - name: Check External Links
-      run: tox -e py3-linkcheck
+      run: tox -e linkcheck

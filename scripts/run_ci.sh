@@ -10,7 +10,7 @@ pip3 install -r requirements/setup.txt || exit 1
 # Run checks and exit if any of them fails
 scripts/check_filesize.sh || exit 1
 scripts/check_filenames.sh || exit 1
-tox -e py3-spellcheck || exit 1
-tox -e py3-linkcheck || exit 1
-tox -e py3-html || exit 1
-tox -e py3-pdf || exit 1
+tox -e spellcheck || exit 1
+tox -e linkcheck || exit 1
+tox -e intl || exit 1
+tox -e pdf || exit 1

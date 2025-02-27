@@ -31,8 +31,8 @@ jobs:
 
     - name: Build PDF Documentation
       run: |
-        tox -e py3-intl
-        tox -e py3-pdf
+        tox -e intl
+        tox -e pdf
 
       ######## CREATE RELEASE and UPLOAD BUILD ARTIFACTS ########
     - name: Extract tag name

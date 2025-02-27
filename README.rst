@@ -34,16 +34,19 @@ Building the Documentation
 
 There are 3 build targets available:
 
-- ``tox -e py3-html``: Build the documentation as HTML for the default
-  language (en). This build command builds the documentation in multi-core mode
-  and is the fastest. Building the documentation in other languages does not
-  support parallel processing and is significantly slower.
+- ``tox -e html``: Build the documentation as HTML for the default language
+  (en). This build command builds the documentation in multi-core mode and is
+  the fastest. Building the documentation in other languages does not support
+  parallel processing and is significantly slower.
 
-- ``tox -e py3-intl``: Update the internationalization index files and
-  build the documentation as HTML for all languages, but English.
+  In addition the html build uses sphinx-autobuild to automatically rebuild the
+  documentation when a source file changes. The documentation is afterwards
+  hosted on a free port on your local machine. Exit with CTRL+C.
 
-- ``tox -e py3-pdf``: Build the documentation as a PDF file for all
-  languages.
+- ``tox -e intl``: Update the internationalization index files and build the
+  documentation as HTML for all languages.
+
+- ``tox -e pdf``: Build the documentation as a PDF file for all languages.
 
 Open the locally built HTML pages in your webbrowser in the default language::
 

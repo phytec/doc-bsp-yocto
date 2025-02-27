@@ -364,14 +364,14 @@ identical strings in multiple manuals.::
 To add support for new languages, extend the build commands in tox.ini and
 re-build the documentation to generate relevant po files.::
 
-   tox -e py3-intl
+   tox -e intl
 
 After the po files are generated, translators can start translating the
 documentation. The translated po files are then used to generate translated
 html and pdf versions of the documentation.::
 
-   tox -e py3-html
-   tox -e py3-pdf
+   tox -e html
+   tox -e pdf
 
 To add new language links to the sidebar menu for the html documentation, add
 the language path to the ``languages`` list in the ``conf.py`` file.::
