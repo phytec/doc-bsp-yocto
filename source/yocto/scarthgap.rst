@@ -2364,8 +2364,8 @@ example translates to a single *Python* function in the file
 Changing the Network Configuration
 ..................................
 
-To tweak IP addresses, routes, and gateways at runtime you can use the tools
-*ifconfig* and *ip* . Some examples
+To tweak IP addresses, routes, and gateways at runtime you can use the
+*iproute2* tools. Some examples
 
 .. code-block:: console
 
