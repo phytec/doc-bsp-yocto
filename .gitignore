@@ -13,3 +13,8 @@ storage/
 build/
 .vscode/
 *.mo
+
+# Even though translation messages are part of the repository, they are added
+# here to avoid confusion with contributors that see changes in those files.
+# *.po files can be updated by the maintainers manually.
+*.po
