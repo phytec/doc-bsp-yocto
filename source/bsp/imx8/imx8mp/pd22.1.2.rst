@@ -2514,7 +2514,7 @@ your BSP::
 
 This will require about 1GB of additional space on the SD Card. Instructions
 on how to install and use the NXP examples can be found at
-https://community.nxp.com/t5/Blogs/PyeIQ-3-x-Release-User-Guide/ba-p/1305998.
+https://community.nxp.com/t5/NXP-Tech-Blog/PyeIQ-3-x-Release-User-Guide/ba-p/1305998.
 
 .. hint::
 
