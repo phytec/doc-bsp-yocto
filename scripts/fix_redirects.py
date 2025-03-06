@@ -35,9 +35,7 @@ def update_links_in_file(file_path, redirects):
 
     for old_url, new_url in redirects.items():
         # Skip URLs ending with ".git"
-        if old_url.endswith('.git'):
-            continue
-        elif old_url in content:
+        if not old_url.endswith('.git') and old_url in content:
             content = content.replace(old_url, new_url)
 
     with open(file_path, 'w') as file:
