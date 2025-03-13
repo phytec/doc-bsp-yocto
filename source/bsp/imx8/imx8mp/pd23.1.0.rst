@@ -1114,9 +1114,9 @@ be chosen by default. After saving the changes, follow the remaining steps from
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mp-pd23.1.0-format-sd:
 
@@ -1592,7 +1592,7 @@ of some usages of various tools:
    refer to the schematic or the hardware manual of your board to ensure that it
    is not already in use.
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
    :start-after: .. gpios-via-sysfs-marker
 
 .. include:: /bsp/peripherals/leds.rsti

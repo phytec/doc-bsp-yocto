@@ -291,15 +291,15 @@ To revert to the old style of booting, you may do
 .. _imx8mp-head-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
 .. include:: development/uboot-standalone-fixed-ram-config.rsti
-.. include:: ../development/kernel-standalone.rsti
+.. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: ../../imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
-.. include:: /bsp/imx8/development/netboot.rsti
+.. include:: /bsp/imx-common/development/netboot_fit.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mp-head-format-sd:
 
@@ -453,7 +453,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L76`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 

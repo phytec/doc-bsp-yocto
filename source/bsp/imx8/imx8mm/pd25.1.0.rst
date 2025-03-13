@@ -280,15 +280,15 @@ To revert to the old style of booting, you may do
 
 .. _imx8mm-pd25.1.0-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
-.. include:: /bsp/imx8/development/kernel-standalone.rsti
+.. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
-.. include:: /bsp/imx8/development/netboot.rsti
+.. include:: /bsp/imx-common/development/netboot_fit.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mm-pd25.1.0-format-sd:
 
@@ -422,7 +422,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L77`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 
