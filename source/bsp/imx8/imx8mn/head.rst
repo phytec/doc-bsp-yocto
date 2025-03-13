@@ -240,9 +240,9 @@ Development
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mn-head-format-sd:
 
@@ -370,7 +370,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n78`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 

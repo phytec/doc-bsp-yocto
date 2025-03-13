@@ -768,8 +768,8 @@ Execute and power up the board:
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mp-pd24.1.2-format-sd:
 
@@ -995,7 +995,7 @@ DT configuration for the eMMC interface can be found here:
 The definition of the SPI master node in the device tree can be found here:
 :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L67`
 
-.. include:: ../peripherals/gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 

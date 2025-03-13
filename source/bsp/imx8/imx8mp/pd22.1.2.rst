@@ -1118,9 +1118,9 @@ After saving the changes, follow the remaining steps from |ref-build-uboot|.
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
-.. include:: /bsp/imx8/development/development_manifests.rsti
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx8/development/upstream_manifest.rsti
+.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
