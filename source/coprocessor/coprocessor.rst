@@ -55,7 +55,7 @@ Overview of Technologies
 OpenAMP
 -------
 
-The `OpenAMP <http://openampproject.org>`_ Project which "seeks to standardize
+The `OpenAMP <https://www.openampproject.org/>`_ Project which "seeks to standardize
 the interactions between operating environments in a heterogeneous embedded
 system through open source solutions for Asymmetric MultiProcessing (AMP)."
 This introduction explains the main components and terms, the `OpenAMP
