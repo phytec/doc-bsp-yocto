@@ -34,23 +34,77 @@ coprocessor may run an RTOS. This manuals goes into detail how to utilize the
 coprocessor efficiently for projects.
 
 The manual explains generic principles and applies those principles in examples
-for a specific platform and tools. It gives in introduction to OpenAMP, Zephyr
-and Protocol Buffers (protobuf).
+for a specific platform and tools. It gives in introduction into
+useable coprocessor software stacks and RTOS like Zephyr, MCUXpresso and OpenAMP
+
+For now this manual is focused on the NXP i.MX platform,
+but it is tried to keep the manual as generic as possible.
 
 Use Cases
 ---------
 
-Data Processing
-...............
+There are several use cases for coprocessors in embedded systems.
+Almost every task that is time-critical and cannot be handled by the
+application processor can be offloaded to a coprocessor.
+
+This can be either an internal or external coprocessor.
+Both have their advantages and disadvantages.
+Advantages on internal coprocessors are for example
+a more simple firmware update management, a more efficient communication
+between the coprocessor and the application processor and a probably more
+inexpensive PCB design.
+External coprocessors have, for example,
+the advantages of more interfaces in addition to
+the ones of the application processor, and they are starting up directly,
+not depending on the application processor.
+
+Here are some more explicit use-case examples to give an idea of the
+possibilities:
+
+Energy-Saving
+.............
+
+If you're building an energy-critical application, you may don't want to
+have to whole SoC active the whole time to save energy.
+In this case it is possible to send the application processor to sleep while,
+for example, listening to i2c with the coprocessor and waking up the
+application processor if a special command is received.
+
 
 Time-Critical Communication
 ...........................
 
+Some protocols may require sending or receiving data in
+real-time.
+If there is no hardware IP-core that is capable of handling the
+desired protocol, the coprocessor could help out to support it through
+building it in software.
+
 Sensors and Real-Time
 .....................
 
+Some applications may require a sensor to be read in
+a time-critical manner (e.g. an accelerometer) to detect small value changes
+in a short time frame.
+This can be done by a coprocessor
+to ensure that the sensor is read at the right time.
+The data can be buffered and fed to the application processor if
+it has time to process the data.
+
 Interface Virtualization
 ........................
+
+On SoCs like the i.MX9 series there is the FLEXIO interface.
+Received data on this interface needs to be processed in a time-critical
+manner because it is lacking a FIFO buffer.
+If serial data with higher speeds is received, the application processor
+may need to process too many interrupts. That could possibly
+slow down other running applications.
+Another problem is the interrupt latency. The application processor could
+possibly lose some data frames.
+
+The coprocessor can be used to read the data from the interface, buffer it
+and send it to the application processor when it has time to process it.
 
 Overview of Technologies
 ========================
