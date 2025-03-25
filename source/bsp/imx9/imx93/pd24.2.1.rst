@@ -396,8 +396,8 @@ Execute and power up the board:
    imx93-phyboard-segin-peb-eval-01.dtbo
    imx93-phyboard-segin-peb-wlbt-05.dtbo
    imx93-phycore-rpmsg.dtbo
-   imx93-phycore-no-emmc.dtbo
-   imx93-phycore-no-eth.dtbo
+   imx91-imx93-phycore-no-emmc.dtbo
+   imx91-imx93-phycore-no-eth.dtbo
 
 Available overlays for phyboard-nash-imx93-1.conf are:
 
@@ -408,8 +408,8 @@ Available overlays for phyboard-nash-imx93-1.conf are:
    imx93-phyboard-nash-pwm-fan.dtbo
    imx93-phyboard-nash-vm016.dtbo
    imx93-phycore-rpmsg.dtbo
-   imx93-phycore-no-emmc.dtbo
-   imx93-phycore-no-eth.dtbo
+   imx91-imx93-phycore-no-emmc.dtbo
+   imx91-imx93-phycore-no-eth.dtbo
 
 .. _imx93-PD24.2.1-ubootexternalenv:
 .. include:: ../dt-overlays.rsti
