@@ -28,139 +28,405 @@ This manual applies to all Phytec releases from kernel version x.
 Introduction
 ============
 
-Most modern SoCs include one of more coprocessors beside an application
+Most modern SoCs include one or more coprocessors beside an application
 processor. In most cases the application processor runs Linux, while the
-coprocessor may run an RTOS. This manuals goes into detail how to utilize the
+coprocessor may run an RTOS. This manual goes into detail how to utilize the
 coprocessor efficiently for projects.
 
 The manual explains generic principles and applies those principles in examples
-for a specific platform and tools. It gives in introduction to OpenAMP, Zephyr
-and Protocol Buffers (protobuf).
+for a specific platform and tools. It gives an introduction into
+coprocessor software stacks and RTOS like Zephyr, MCUXpresso and OpenAMP
+
+For now this manual is focused on the NXP i.MX platform,
+but an attempt is made to keep the manual as generic as possible.
+
+Internal vs. External Coprocessor
+---------------------------------
+
+A coprocessor can be internal or external (Of the application processors SoC).
+Both have their advantages and disadvantages. Advantages on internal
+coprocessors are for example a more simple firmware update management,
+a more efficient communication between the coprocessor and the application
+processor and a probably more inexpensive PCB design.
+External coprocessors have, for example, the advantages of more interfaces in
+addition to the ones of the application processor, and they are starting up
+directly, not depending on the application processor.
+
+This manual focuses on internal coprocessors of the PHYTEC SoMs.
 
 Use Cases
 ---------
 
-Data Processing
-...............
+There are several use cases for coprocessors in embedded systems. Almost every
+time-critical task that cannot be handled by the application processor can be
+offloaded to a coprocessor.
+
+Here are some more explicit use-case examples to give an idea of the
+possibilities:
+
+Energy Constrained Applications
+...............................
+
+For energy constrained applications, it may be beneficial to reduce the active
+time of the entire SoC to conserve power. In such cases, the application
+processor can be put into sleep mode while the coprocessor remains active to,
+for example, monitor I2C communication and wake up the application processor
+upon receiving a specific command.
+
+
+Time-Critical Communication
+...........................
+
+Some protocols may require sending or receiving data in real-time. If there is
+no hardware IP-core that is capable of handling the desired protocol, the
+coprocessor could help out to support it through building it in software.
 
 Sensors and Real-Time
 .....................
 
+Some applications may require a sensor to be read in a time-critical manner
+(e.g. an accelerometer) to detect small value changes in a short time frame.
+This can be done by a coprocessor to ensure that the sensor is read at the
+right time. The data can be buffered and fed to the application processor if
+it has time to process the data.
+
 Interface Virtualization
 ........................
+
+On SoCs like the i.MX9 series there is the FLEXIO interface
+(compare RPi PIO, Microchip CLC). Received data on this interface needs to be
+processed in a time-critical manner because it is lacking a FIFO buffer.
+If serial data with higher speeds is received, the application processor
+may need to process too many interrupts. That could slow down other running
+applications. Another problem is the interrupt latency. The application
+processor could possibly lose data frames.
+
+The coprocessor can be used to read the data from the interface, buffer it
+and send it to the application processor when it has time to process it.
 
 Overview of Technologies
 ========================
 
-OpenAMP
--------
+Real-Time Operating Systems (RTOS) and Development Frameworks
+-------------------------------------------------------------
 
-The `OpenAMP <https://www.openampproject.org/>`_ Project which "seeks to standardize
+There are multiple RTOS and SDKs available that can be used on coprocessors.
+
+Zephyr
+......
+
+Zephyr is an Open Source and vendor neutral RTOS that is is governed by the
+Linux Foundation and supported by various companies and a large community.
+It is designed to be small and efficient and is suitable for a wide range of
+devices from simple embedded devices to complex SoCs.
+The key feature is the platform independence, which allows developing
+applications with a generic API that can run on multiple platforms without
+modification.
+
+It supports a wide range of SoCs and boards from various manufacturers
+based on different processor architectures. There is also support for a lot
+of different peripherals and interfaces,
+as well as a wide range of communication protocols.
+(e.g. TCP/IP stack, Bluetooth, CAN, USB, etc.)
+
+Zephyr supports the coprocessor on multiple phyBOARDs,
+including the phyBOARD Pollux (i.MX8MP), Polis (i.MX8MM), Nash (i.MX93),
+Electra (AM64x) and Lyra (AM62x).
+
+It should be mentioned, that not all hardware features are available in Zephyr
+yet. The support is constantly being expanded through NXP and the Zephyr
+community. Despite this PHYTEC recommends using Zephyr for new projects because
+of its many advantages.
+
+You can find more information about using Zephyr in the `Zephyr Documentation
+<https://docs.zephyrproject.org/latest/introduction/index.html>`_ website.
+
+.. hint::
+   Please reach out to us if there is any feature missing in Zephyr that you
+   need for your project. We will try our best to get that feature implemented.
+
+MCUXpresso SDK (NXP)
+....................
+
+The MCUX SDK is a software development kit for NXP microcontrollers and
+microprocessors. It provides a comprehensive set of peripheral drivers,
+middlewares and examples for all NXP Platforms.
+MCUX gives the possibility to use different RTOS like FreeRTOS, Azure RTOS
+or even using it BareMetal.
+
+If Zephyr is not suitable for your project (e.g. because of missing features),
+MCUX SDK is the alternative. You can use it either with the MCUX SDK
+or repository-managed via make and cpp.
+
+Here are some resources to get started with MCUX:
+
+- `MCUXpresso SDK <https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK>`_
+
+- `PHYTEC MCUX-SDK <https://github.com/phytec/mcux-sdk>`_
+
+- `MCUXpresso VS-Code IDE <https://www.nxp.com/design/design-center/training/TIP-GETTING-STARTED-WITH-MCUXPRESSO-FOR-VS-CODE>`_
+
+- `MCUXpresso IDE <https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE>`_
+
+Additional Software Stacks
+--------------------------
+
+OpenAMP
+.......
+
+
+The `OpenAMP <http://openampproject.org>`_ Project "seeks to standardize
 the interactions between operating environments in a heterogeneous embedded
 system through open source solutions for Asymmetric MultiProcessing (AMP)."
+
 This introduction explains the main components and terms, the `OpenAMP
 documentation <https://openamp.readthedocs.io/en/latest/openamp/index.html>`_
-goes into further detail. OpenAMP is available in Linux as well as in RTOS
-(e.g. Zephyr) and Vendor SDKs (e.g. NXP MCUX, TI SDK, STM32Cube). The OpenAMP
-framework consists of several components:
+goes into further detail.
+OpenAMP is available in Linux as well as in RTOS
+(e.g. Zephyr) and Vendor SDKs (e.g. NXP MCUX, TI SDK, STM32Cube).
 
-Components
-..........
+In general, OpenAMP is a framework that allows communication between
+asymmetric processor cores inside a SoC via shared memory.
+
+A differentiation is made between a master core
+(mostly the application processor) and one or more remote cores (coprocessors).
+The master core has to load the firmware on the remote core, start it and
+prepare shared memory regions for communication.
+
+The OpenAMP framework consists of two main components:
+
+remoteproc
+^^^^^^^^^^
+
+The remoteproc framework is used to control the life cycle of a remote
+processor. It is responsible for loading the firmware, starting and stopping
+the remote processor and managing the resources of both cores.
+The `remoteproc documentation <https://docs.kernel.org/staging/remoteproc.html>`_
+on Kernel.org goes into further technical details.
+
+RPMsg
+^^^^^
+
+RPMsg is a messaging protocol that is used to exchange messages between the
+master core and remote cores. It is built on top of VirtIO and Virtqueue and
+uses the shared memory regions prepared by remoteproc to exchange messages.
+
+The communication stack is consisting of several protocol layers, similar
+to the OSI model:
+
+Transport Layer (3):
+   RPMsg
+
+MAC Layer (2):
+   VirtIO, Virtqueue, Vring
+
+Physical Layer (1):
+   Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)
+
+
+Normally VirtIO is used to exchange messages between virtual machines in
+a hypervisor environment. In the context of OpenAMP, VirtIO is used to
+exchange messages between the master core and remote cores while
+being very efficient. The Virtqueue is underlying VirtIO and
+organizes the messages in a circular buffer. The Vring is the specific
+implementation of the buffer inside the Virtqueue.
+
+The `rpmsg documentation <https://docs.kernel.org/staging/rpmsg.html>`_
+on Kernel.org goes into further technical details.
+
+
+Requirements
+^^^^^^^^^^^^
 
 Shared Memory
-    In SoCs, where coprocessors are integrated on the same die they typically
-    communicate by exchanging data via sharing memory sections.
+    To exchange messages between the cores, a shared memory region is required.
 
 Interrupts
     Minimum set of one interrupt line per communicating core. This interrupt is
     often implemented in hardware blocks of the SoC, e.g. the "Messaging Unit
     (MU)" on the NXP i.MX8MP.
 
-remoteproc
-    Life Cycle Management (LCM) to manage and update the software running on
-    coprocessors. The `remoteproc documentation
-    <https://docs.kernel.org/staging/remoteproc.html>`_ on Kernel.org goes into
-    further technical details.
+Resource Table
+    The resource table is a data structure that describes the shared memory
+    regions and the VirtIO devices that are used for communication between the
+    cores. It is used by the remoteproc framework to prepare the shared memory
+    regions and the VirtIO devices. Ensure that the resource table is correctly
+    included in the firmware binary of the remote core.
+    (e.g. in Zephyr use ``CONFIG_OPENAMP_RSC_TABLE=y``)
 
-RPMsg
-    Exchange of messages, api that enables Inter Processor Communications
-    (IPC). The `rpmsg documentation
-    <https://docs.kernel.org/staging/rpmsg.html>`_ on Kernel.org goes into
-    further technical details.
-
-VirtIO, Virtqueue, Vring
-   **VirtIO** provides a standardized framework for efficient message exchange
-   between processing units using virtualization. **Virtqueue** is the abstract
-   structure that manages the queues of messages and buffers for communication
-   between these units. **Vring** is the specific circular buffer
-   implementation used within a Virtqueue that organizes the descriptors for
-   the messages being exchanged. There are ringbuffers for both directions
-   (read, write). This set of infrastructure components can be used in
-   combination with RPMsg to improve performance and reduce synchronization
-   between Cores.
-
-RPC based on RPMsg
-    TBD
-
-RPMsg Messaging Protocol
-........................
-
-communication stack consisting of several protocol layers:
-
-Transport Layer:
-   RPMsg
-
-MAC Layer:
-   VirtIO, Virtqueue, Vring
-
-Physical Layer:
-   Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)
-
-Libmetal
---------
 
 Protocol Buffers
-----------------
+................
 
-Zephyr
-------
-
-NXP MCUX
---------
 
 Application Architectures
 =========================
 
+Typical Usage
+-------------
+
+.. figure:: images/openamp_typical_usage.png
+   :alt: Typical Usage
+
+   Typical Application Architecture with OpenAMP (source: `OpenAMP Whitepaper
+   <https://www.openampproject.org/docs/whitepapers/Introduction_to_OpenAMPlib_v1.1a.pdf>`_)
+
+
+A typical application architecture when using OpenAMP is using two cores.
+One application processor (typically running Linux) while the coprocessor
+is processing time-critical tasks.
+
 VirtIO
 ------
 
-RPmsg + Protobuf
-----------------
+RPmsg + Overlaying Protocol
+---------------------------
+
+Sometimes it can be necessary to use an overlaying protocol on top of RPMsg
+to exchange more complex data structures.
+
+This could be done with using a protocol like `Protocol Buffers
+<https://developers.google.com/protocol-buffers>`_ or `Flat Buffers
+<https://google.github.io/flatbuffers/>`_ to serialize and deserialize the
+data structures.
+
+Getting Started
+===============
+
+There are multiple ways to get started with using a coprocessor.
+
+First of all you need to decide which RTOS you want to use.
+
+If you want to use Zephyr, you can use the `Zephyr Getting Started Guide
+<https://docs.zephyrproject.org/latest/getting_started/index.html>`_.
+
+.. note::
+
+   When building a Zephyr project / sample for a SoC, the board naming can be
+   confusing. The naming convention is ``<board>/<soc>/<core>``. For example,
+   to build a Zephyr project for the phyBOARD Pollux (i.MX8MP) with the
+   M7 core, the board name is ``phyboard_pollux/mimx8ml8/m7``.
+
+When compiling the firmware, you'll get two binary files. One ``.elf`` file for
+starting the remote processor via remoteproc, which includes the resource
+table, and one ``.bin`` file for starting the remote processor via the
+bootloader.
+
+
+Starting the Coprocessor via Remoteproc
+---------------------------------------
+
+To start a remote processor via remoteproc, you need to place
+the firmware into the ``/lib/firmware`` directory on the target.
+
+This can be done using SCP (e.g., for development), by copying the file to the
+SD card, or by including it in the Yocto build (e.g., for production use).
+
+Make sure the devicetree overlay that enables remoteproc support is activated.
+You can find more information about how to activate the devicetree overlay in
+the BSP manual for your platform.
+
+.. code-block:: console
+
+   target:~$ echo /lib/firmware/{your_firmware}.elf > /sys/class/remoteproc/remoteproc0/firmware
+   target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+
+.. hint::
+
+   If your device has multiple coprocessors, please make sure you use the
+   correct remoteproc device.
+
+
+Starting the Coprocessor via Bootloader
+---------------------------------------
+
+Starting the Coprocessor via the bootloader is platform specific.
+You can find more information in the BSP manual for your platform.
+
+Using this method can be useful, if you want to have the coprocessor running
+before the application processor boots up, for example for applications that
+need to have a fast response time on startup.
+
+Here is the manual for the i.MX8MP for example:
+`Running the M7 Core <https://phytec.github.io/doc-bsp-yocto/bsp/imx8/imx8mp/head.html#running-mcore-examples>`_
+
+
+Starting the Coprocessor via Debug Probe
+----------------------------------------
+
+It is possible to start the coprocessor via a debug probe like J-Link or
+OpenOCD. This is useful for debugging the firmware on the coprocessor, or
+for starting up the coprocessor in a development environment.
+
+On most PHYTEC boards, you can use a PEB-EVAL-01 shield to connect the
+debug probe to the board via a 20-pin JTAG connector.
+
+When using Zephyr you can simply use the command
+
+.. code-block:: console
+
+   host:zephyrproject/zephyr$ west debug
+
+to start gdb and load / start the firmware on the coprocessor.
+
+
+.. warning::
+
+   Please note that it is not possible to use inter processor communication via
+   RPMsg when not starting the coprocessor via remoteproc!
+   This is because remoteproc prepares Linux and the shared memory for
+   communication!
+
+   This is especially impractical when you want to debug your
+   coprocessor firmware via a debug probe, if your system requires the
+   use of communication between the cores.
+
+
+Accessing the serial console
+----------------------------
+
+The coprocessor firmware can output messages via a serial console.
+It differs from platform to platform how to gain access to the serial console.
+
+For example, on the i.MX8 platform, you'll get a serial console via the
+debug USB port on the board.
+On i.MX93 (on segin board) on the other hand, you can access it via RS232
+on the PEB-EVAL-01.
+
+It's recommended to take a look into the corresponding BSP or Zephyr
+manual for your platform to find out how to access the serial console.
+
+Zephyr offers a shell backend to be able to access a shell via RPMsg.
+This can help for debugging purposes or to send commands to the coprocessor.
+Take a look here: :ref:`openamp-using-resource-table`
+
+The easiest way to communicate on the Linux side through RPMsg is via the
+``tty-rpmsg`` driver. This driver creates a tty device in ``/dev`` that can
+be used to send and receive messages to the coprocessor.
+
 
 Examples and Resources
 ======================
 
-The Zephyr Inter-Processor Communication (IPC) Subsystem includes some `samples
-<https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html>`_:
+This section gives an overview of examples and resources that can be used
+to get started with a coprocessor.
 
-
-.. note::
-
-   **Remoteproc:** The remoteproc framework is used to load and manage firmware
-   on coprocessors. It also ensures to register the resource table and the
-   RPMsg service. If RPMsg is used, flashing the firmware via a SWD debug
-   adapter is not possible.
-
-   Furthermore, remoteproc only reads firmware files from the ``/lib/firmware``
-   directory. Loading firmware binaries from another location will result in
-   errors.
+The examples are focused on the NXP i.MX platform and Zephyr for now, but the
+principles can be applied to other platforms as well.
 
 **Resources:**
 
 * `NXP AN5317 - Loading code to Coprocessor <https://www.nxp.com/docs/en/application-note/AN5317.pdf>`_
+* `Zephyr IPC Samples <https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html>`_
+
 
 Hello World
 -----------
+
+The `hello_world <https://docs.zephyrproject.org/latest/samples/hello_world/README.html>`_
+sample is a simple example Zephyr project, that prints "Hello World!" to the
+serial console.
 
 Run the Sample
 ..............
@@ -198,6 +464,9 @@ Run the Sample
 
       target_m7:~$ *** Booting Zephyr OS build v3.7.0 ***
                    Hello World! phyboard_pollux/mimx8ml8/m7
+
+
+.. _openamp-using-resource-table:
 
 OpenAMP using resource table
 ----------------------------
@@ -371,7 +640,7 @@ Zephyr shell backend.
 .. note::
 
    Remoteproc ensures to register the resource table and the RPMsg service.
-   Running firmware via debug adapter is not possible when using RPMsg.
+   Running firmware via debug probe is not possible when using RPMsg.
 
 .. warning::
 
