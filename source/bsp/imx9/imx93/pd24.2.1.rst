@@ -405,6 +405,7 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 
    imx93-phyboard-nash-jtag.dtbo
    imx93-phyboard-nash-peb-av-10.dtbo
+   imx93-phyboard-nash-peb-wlbt-07.dtbo
    imx93-phyboard-nash-pwm-fan.dtbo
    imx93-phyboard-nash-vm016.dtbo
    imx93-phycore-rpmsg.dtbo
