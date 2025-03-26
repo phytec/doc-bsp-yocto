@@ -12,8 +12,8 @@ For full-duplex mode you can set the ioctls manually like this:
 .. code-block:: console
    :substitutions:
 
-   target:~$ rs485conf /dev/ttymxc1 -e 1 -r 1
-   target:~$ rs485conf /dev/ttymxc1
+   target:~$ rs485conf /dev/|serial-uart| -e 1 -r 1
+   target:~$ rs485conf /dev/|serial-uart|
    = Current configuration:
    RS485 enabled:                true
    RTS on send:                  high
@@ -28,8 +28,8 @@ Also here you can do the echo test to see if sending and receiving works:
 .. code-block:: console
    :substitutions:
 
-   target1:~$ cat /dev/ttymxc1
-   target2:~$ echo test > /dev/ttymxc1
+   target1:~$ cat /dev/|serial-uart|
+   target2:~$ echo test > /dev/|serial-uart|
 
 You should see "test" printed out on target1. You can also switch the roles and
 send on target2 and receive on target1.
@@ -40,12 +40,12 @@ linux-serial-test tool:
 .. code-block:: console
    :substitutions:
 
-   target1:~$ linux-serial-test -s -e -f -p /dev/ttymxc1 -b 115200 --rs485 0 -o 10 -i 15 -W 2
+   target1:~$ linux-serial-test -s -e -f -p /dev/|serial-uart| -b 115200 --rs485 0 -o 10 -i 15 -W 2
    ...
-   /dev/ttymxc1: count for this session: rx=114660, tx=118755, rx err=0
-   target2:~$ linux-serial-test -s -e -f -p /dev/ttymxc1 -b 115200 --rs485 0 -o 10 -i 15 -W 2
+   /dev/|serial-uart|: count for this session: rx=114660, tx=118755, rx err=0
+   target2:~$ linux-serial-test -s -e -f -p /dev/|serial-uart| -b 115200 --rs485 0 -o 10 -i 15 -W 2
    ...
-   /dev/ttymxc1: count for this session: rx=118755, tx=114660, rx err=0
+   /dev/|serial-uart|: count for this session: rx=118755, tx=114660, rx err=0
 
 In this example both targets will send and receive simultaneously. They will
 receive for 15sec and send for 10sec. The receiver needs to receive a bit

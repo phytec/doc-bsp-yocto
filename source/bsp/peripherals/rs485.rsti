@@ -25,14 +25,14 @@ You can show the current config with:
 .. code-block:: console
    :substitutions:
 
-   target:~$ rs485conf /dev/ttymxc1
+   target:~$ rs485conf /dev/|serial-uart|
 
 You can show all options with:
 
 .. code-block:: console
    :substitutions:
 
-   target:~$ rs485conf /dev/ttymxc1 -h
+   target:~$ rs485conf /dev/|serial-uart| -h
 
 Documentation for calling the IOCTL within c-code is described in the Linux
 kernel documentation:
