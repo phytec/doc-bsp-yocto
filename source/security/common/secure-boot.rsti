@@ -40,6 +40,7 @@ with the internal unit (**Boot Step 1**)
 4. If built with signed kernel modules (standard), Linux will only load kernel modules verifies with a kernel compiled in public key
 
 If you use the DISTRO_FEATURE secureboot or a secure-machine, then the bootloader is configured additionally:
+
 1. The bootloader is signed and is used in the images (wic, partup and bmap).
 2. The bootloader boots only signed kernel fitImage after a verification.
 3. The bootloader use only the built-in environment and only loads some necessary variables for RAUC update mechanism.
@@ -133,3 +134,8 @@ then the :code:`DISTRO` needs to be set to :code:`securiphy or securiphy-vendor`
 
         # for all SOC
         host$ bitbake phytec-securiphy-image
+
+.. note::
+    If you have some boot warnings or errors like  /initrd.image: incomplete write or the kernel boot fails,
+    then please check the size for cma (kernel boot parameter, setting in bootloader).
+    The allocate RAM for cma can be too much, which is import for systems with 256 MByte or 512 Mbyte RAM.
