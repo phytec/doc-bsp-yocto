@@ -12,16 +12,19 @@
    .. code-block:: console
 
       target:~$ ip -d -s link show can0
-      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
-         link/can  promiscuity 0  allmulti 0 minmtu 0 maxmtu 0
-         can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 72 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+         link/can  promiscuity 0 allmulti 0 minmtu 0 maxmtu 0
+         can <FD> state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
                bitrate 500000 sample-point 0.875
-               tq 25 prop-seg 37 phase-seg1 32 phase-seg2 10 sjw 1 brp 1
+               tq 25 prop-seg 37 phase-seg1 32 phase-seg2 10 sjw 5 brp 1
                flexcan: tseg1 2..96 tseg2 2..32 sjw 1..16 brp 1..1024 brp_inc 1
+               dbitrate 2000000 dsample-point 0.750
+               dtq 25 dprop-seg 7 dphase-seg1 7 dphase-seg2 5 dsjw 2 dbrp 1
                flexcan: dtseg1 2..39 dtseg2 2..8 dsjw 1..4 dbrp 1..1024 dbrp_inc 1
                clock 40000000
                re-started bus-errors arbit-lost error-warn error-pass bus-off
-               0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus platform parentdev 443a0000.can
+               0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536
+      gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 parentbus platform parentdev 443a0000.can
          RX:  bytes packets errors dropped  missed   mcast
                   0       0      0       0       0       0
          TX:  bytes packets errors dropped carrier collsns
@@ -45,26 +48,41 @@ errors...  Bus Error Statistics
 
 
 The CAN configuration is done in the systemd configuration
-file ``/lib/systemd/network/can0.network``. For a persistent change of (as an
+file ``/lib/systemd/network/11-can.network``. For a persistent change of (as an
 example, the default bitrates), change the configuration in the BSP
-under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network`` in
+under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/11-can.network`` in
 the root filesystem and rebuild the root filesystem.
 
 .. code-block::
 
    [Match]
-   Name=can0
+   Name=can*
 
-   [Can]
+   [CAN]
    BitRate=500000
+   DataBitRate=2000000
+   FDMode=yes
 
-The bitrate can also be changed manually, for example, to make use of the
-flexible bitrate:
+.. note::
+   By default, we enable CAN-FD (flexible datarate) in our BSP. In case CAN Classic
+   is required one needs to remove options ``FDMode`` and ``DataBitRate`` from the
+   ``/lib/systemd/network/11-can.network`` file.
+
+To disable flexible datarate manually, one can use:
+
+.. code-block:: console
+
+   target:~$ ip link set can0 down
+   target:~$ ip link set can0 type can bitrate 500000 dbitrate 0 fd off
+   target:~$ ip link set can0 up
+
+The bitrate can also be changed manually, for example:
 
 .. code-block:: console
 
    target:~$ ip link set can0 down
    target:~$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+   target:~$ ip link set can0 up
 
 You can send messages with cansend or receive messages with candump:
 
