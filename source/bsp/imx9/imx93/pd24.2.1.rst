@@ -22,6 +22,7 @@
 .. |som| replace:: phyCORE-i.MX93
 .. |debug-uart| replace:: ttyLP0
 .. |serial-uart| replace:: ttyLP6
+.. |bluetooth-uart| replace:: UART5
 .. |expansion-connector| replace:: X16
 
 
@@ -468,7 +469,6 @@ Network
 .. include:: wireless-network.rsti
 
 .. include:: ../../peripherals/wireless-network.rsti
-   :end-before: .. no-bluetooth-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
