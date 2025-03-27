@@ -16,7 +16,7 @@ import re
 # -- Project information -----------------------------------------------------
 
 project = 'PHYTEC BSP Documentation'
-copyright = '2024, PHYTEC Messtechnik GmbH'
+copyright = '2025, PHYTEC Messtechnik GmbH'
 author = 'PHYTEC'
 
 # Use git describe to get the version e.g.: imx8-pd23.1.0-1-gb1830e
