@@ -820,7 +820,89 @@ with some additional features special to CAN. More information can be found in
 the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-.. include:: ../peripherals/canfd.rsti
+*  Use:
+
+   .. code-block:: console
+
+      target:~$ ip link
+
+   to see the state of the interfaces. The CAN interface should show up as
+   can0.
+
+*  To get information on can0, such as bit rate and error counters, type:
+
+   .. code-block:: console
+
+      target:~$ ip -d -s link show can0
+      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+         link/can  promiscuity 0  allmulti 0 minmtu 0 maxmtu 0
+         can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+               bitrate 500000 sample-point 0.875
+               tq 25 prop-seg 37 phase-seg1 32 phase-seg2 10 sjw 1 brp 1
+               flexcan: tseg1 2..96 tseg2 2..32 sjw 1..16 brp 1..1024 brp_inc 1
+               flexcan: dtseg1 2..39 dtseg2 2..8 dsjw 1..4 dbrp 1..1024 dbrp_inc 1
+               clock 40000000
+               re-started bus-errors arbit-lost error-warn error-pass bus-off
+               0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus platform parentdev 443a0000.can
+         RX:  bytes packets errors dropped  missed   mcast
+                  0       0      0       0       0       0
+         TX:  bytes packets errors dropped carrier collsns
+                  0       0      0       0       0       0
+
+The output contains a standard set of parameters also shown for Ethernet
+interfaces, so not all of these are necessarily relevant for CAN (for example
+the MAC address). The following output parameters contain useful information:
+
+========== =============================
+can0       Interface Name
+========== =============================
+NOARP	     CAN cannot use ARP protocol
+MTU	     Maximum Transfer Unit
+RX packets Number of Received Packets
+TX packets Number of Transmitted Packets
+RX bytes   Number of Received Bytes
+TX bytes   Number of Transmitted Bytes
+errors...  Bus Error Statistics
+========== =============================
+
+
+The CAN configuration is done in the systemd configuration
+file ``/lib/systemd/network/can0.network``. For a persistent change of (as an
+example, the default bitrates), change the configuration in the BSP
+under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network`` in
+the root filesystem and rebuild the root filesystem.
+
+.. code-block::
+
+   [Match]
+   Name=can0
+
+   [Can]
+   BitRate=500000
+
+The bitrate can also be changed manually, for example, to make use of the
+flexible bitrate:
+
+.. code-block:: console
+
+   target:~$ ip link set can0 down
+   target:~$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+
+You can send messages with cansend or receive messages with candump:
+
+.. code-block:: console
+
+   target:~$ cansend can0 123#45.67
+   target:~$ candump can0
+
+To generate random CAN traffic for testing purposes, use cangen:
+
+.. code-block:: console
+
+   target:~$ cangen
+
+``cansend --help`` and ``candump --help`` provide help messages for further information
+on options and usage.
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n147` or
