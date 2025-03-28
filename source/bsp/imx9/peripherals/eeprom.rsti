@@ -24,13 +24,19 @@ EEPROM write protection, use:
 
 .. code-block:: console
 
-	target:~$ gpioset 2 21=0
+   target:~$ gpioset -t0 -c 2 21=0
 
 Then the EEPROM can be written to:
 
 .. code-block:: console
 
    target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-2/device/2-0058/eeprom bs=32 count=1
+
+To re-enable EEPROM wire protection, use:
+
+.. code-block:: console
+
+   target:~$ gpioset -t0 -c 2 21=1
 
 .. warning::
 
