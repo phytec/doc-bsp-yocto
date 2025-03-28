@@ -67,9 +67,7 @@ Bluetooth
 
 .. bluetooth_chapter_start_label
 
-Bluetooth is connected to |bluetooth-uart| interface. More information about the module can
-be found at
-https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
+Bluetooth is connected to |bluetooth-uart| interface.
 The Bluetooth device needs to be set up manually:
 
 .. code-block:: console
