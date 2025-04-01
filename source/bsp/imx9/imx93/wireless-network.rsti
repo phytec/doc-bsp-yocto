@@ -74,3 +74,9 @@ With PEB-WLBT-07 adapter, we use MAYA-W2 from u-blox for WLAN and Bluetooth supp
 This module supports dual-band 2,4 GHz and 5 GHz bandwidth and can be run in several modes,
 like client mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more.
 More information about the module can be found at https://content.u-blox.com/sites/default/files/documents/MAYA-W2_DataSheet_UBX-22009721.pdf
+
+.. note::
+   The following WLAN chapter assumes wireless network interface name is ``wlan0``.
+   However with PEB-WLBT-07 adapter the name of the WLAN interface is actually ``mlan0``.
+   Thus when using commands to configure wireless network, substitute ``wlan0`` with
+   ``mlan0`` when using PEB-WLBT-07 on |sbc-nash|.
