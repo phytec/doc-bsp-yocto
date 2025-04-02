@@ -224,6 +224,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mm/pd25.1.0',
+        'imx8mm-pd25.1.0.tex',
+        'i.MX 8M Mini BSP Manual PD25.1.0',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mm/pd23.1.0',
         'imx8mm-pd23.1.0.tex',
         'i.MX 8M Mini BSP Manual PD23.1.0',
