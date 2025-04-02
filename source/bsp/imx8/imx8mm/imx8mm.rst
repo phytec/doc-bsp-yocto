@@ -12,6 +12,16 @@ HEAD
 
    head
 
+BSP-Yocto-NXP-i.MX8MM-PD25.1.0
+==============================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   pd25.1.0
+
 BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 ==============================
 
