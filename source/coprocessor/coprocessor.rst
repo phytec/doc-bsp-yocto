@@ -351,6 +351,7 @@ need to have a fast response time on startup.
 Here is the manual for the i.MX8MP for example:
 `Running the M7 Core <https://phytec.github.io/doc-bsp-yocto/bsp/imx8/imx8mp/head.html#running-mcore-examples>`_
 
+.. _starting-coprocessor-via-debug-probe:
 
 Starting the Coprocessor via Debug Probe
 ----------------------------------------
@@ -368,7 +369,7 @@ When using Zephyr you can simply use the command
 
    host:zephyrproject/zephyr$ west debug
 
-to start gdb and load / start the firmware on the coprocessor.
+to start GDB and load / start the firmware on the coprocessor.
 
 
 .. warning::
@@ -404,6 +405,160 @@ Take a look here: :ref:`openamp-using-resource-table`
 The easiest way to communicate on the Linux side through RPMsg is via the
 ``tty-rpmsg`` driver. This driver creates a tty device in ``/dev`` that can
 be used to send and receive messages to the coprocessor.
+
+
+Debugging the Coprocessor
+-------------------------
+
+In some cases it can be necessary to get a deeper insight into the coprocessor
+firmware to find bugs or to optimize the performance.
+To do that a debug probe like a J-Link is necessary.
+
+If the firmware does not need to communicate with the application processor
+via RPMsg, the coprocessor can be started easily via the debug probe and
+debugged with GDB. (see :ref:`starting-coprocessor-via-debug-probe`)
+
+If the firmware needs to communicate with the application processor via RPMsg,
+the preparation in order to start the coprocessor and the communication
+between the cores is a bit more complex. This is because remoteproc prepares
+the shared memory and the Linux Kernel for communication but GDB
+also needs to know in which state the coprocessor is.
+
+.. hint::
+
+   Before you start debugging, please make sure your J-Link is compatible with
+   the arm-core you want to debug. You can find this information in the
+   Segger knowledge base. (for example: `J-Link Base 9 <https://kb.segger.com/J-Link_BASE_V9>`_)
+
+When debugging the coprocessor firmware, you can use the following methods:
+
+Debug a non remoteproc firmware
+...............................
+
+1. Connect the debug probe to the board. (e.g. via PEB-EVAL-01)
+2. Start the coprocessor via the debug probe. With west:
+
+   .. code-block:: console
+
+      host:zephyrproject/zephyr$ west debug
+
+3. Load the firmware on the coprocessor via GDB.
+
+   .. code-block:: console
+
+      (gdb) load
+
+4. Set a breakpoint and start the firmware on the coprocessor via GDB.
+
+   .. code-block:: console
+
+      (gdb) break main
+      (gdb) continue
+
+
+Debugging a remoteproc firmware
+...............................
+
+.. note::
+
+   This is a workaround to debug a remoteproc firmware. It is neither the most
+   convenient way to debug a processor nor is it recommended by NXP.
+   Maybe there will be a better solution in the future but for now this is the
+   only way found to debug a remoteproc firmware.
+
+Prerequisites:
+
+- Have the target booted up and connected to the host via debug usb and J-Link.
+- Have the firmware in ``/lib/firmware`` on the target. For example
+  :ref:`openamp-using-resource-table` (Make sure it is the same file you are
+  debugging with GDB!)
+- Have the resource table included in the firmware binary.
+- Have the remoteproc device enabled in the devicetree.
+- Have a serial console to the coprocessor. (e.g. via ttyUSB1)
+- Have a shell of the application processor open (e.g. via SSH)
+
+
+1. Start a debugserver with west:
+
+   .. code-block:: console
+
+      host:zephyrproject/zephyr$ west debugserver --runner jlink --iface jtag
+
+2. Start GDB with your firmware in a new terminal:
+
+   .. code-block:: console
+
+      host:zephyrproject/zephyr$ gdb-multiarch build/zephyr/zephyr.elf -tui
+
+3. Connect to the debugserver:
+
+   .. code-block:: console
+
+      (gdb) target remote :2331
+
+4. Reset the coprocessor and load the firmware:
+
+   .. code-block:: console
+
+      (gdb) monitor reset
+      (gdb) load
+
+5. Insert needed kernel modules on the target (e.g. rpmsg_tty.ko)
+
+   .. code-block:: console
+
+      target:~$ modprobe rpmsg_tty
+
+6. Start the firmware on the coprocessor via remoteproc:
+
+   .. code-block:: console
+
+      target:~$ echo /lib/firmware/zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+      target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+7. The Linux shell freezes now because GDB is halting the coprocessor.
+   Continue the execution in GDB:
+
+   .. code-block:: console
+
+      (gdb) continue
+
+8. Zephyr will not boot up and hang in a fault condition. This is expected.
+   To overcome this issue, break execution with Ctrl+C, reset the coprocessor
+   and continue again.
+
+   .. code-block:: console
+
+      (gdb) monitor reset
+      (gdb) continue
+
+9. The coprocessor should now boot up, and you can debug the firmware via GDB.
+
+.. hint::
+   It is important to use JTAG as debug interface. Using SWD will
+   reset and halt the whole SoC which will cause unexpected behavior.
+
+
+GDB hints
+.........
+
+Here are some useful GDB commands to debug the coprocessor firmware:
+
+- ``monitor reset``: Reset the coprocessor
+- ``monitor halt``: Halt the coprocessor
+- ``break main``: Set a breakpoint at the main function
+- ``break main.c:42``: Set a breakpoint at line 42 in main.c
+- ``watch *(unsigned short*)0x30a30010``: Set a watchpoint on a 16-bit memory
+  address(e.g. some register)
+- ``print var``: Print the value of a variable in the current context
+- ``backtrace``: Print the current stack trace
+- ``continue``: Continue the execution
+- ``step``: Step into the next function
+
+If the command doesn't get ambiguous, you can shorten the command.
+For example, you can use ``b main`` instead of ``break main`` or ``c``
+instead of ``continue``. This is useful if you have to type the command
+multiple times.
 
 
 Examples and Resources
