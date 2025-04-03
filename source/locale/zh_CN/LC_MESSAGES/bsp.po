@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 18:24+0100\n"
+"POT-Creation-Date: 2025-04-02 08:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -23,9 +23,8 @@ msgstr ""
 msgid "i.MX 8M Plus Manuals"
 msgstr "i.MX 8M Plus 手册"
 
-#, fuzzy
 msgid "Libra i.MX 8M Plus FPSC Manuals"
-msgstr "i.MX 8M Plus 手册"
+msgstr "Libra i.MX 8M Plus FPSC 手册"
 
 msgid "i.MX 8M Mini Manuals"
 msgstr "i.MX 8M Mini 手册"
@@ -37,7 +36,7 @@ msgid "i.MX 8 Manuals"
 msgstr "i.MX 8 手册"
 
 msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
-msgstr ""
+msgstr "pdf格式的文档： `下载 <static-pdf-dl_>`_"
 
 msgid "|doc-id| |soc| BSP Manual Head"
 msgstr "|doc-id| |soc| BSP 手册模板"
@@ -72,7 +71,6 @@ msgstr "母文档"
 msgid "The table below shows the Compatible BSPs for this manual:"
 msgstr "下表显示了与本手册兼容的 BSP："
 
-#, fuzzy
 msgid "Compatible BSPs"
 msgstr "适用BSP"
 
@@ -86,7 +84,7 @@ msgid "BSP Status"
 msgstr "BSP 状态"
 
 msgid "This BSP manual guides you through the installation and creation steps for the Board Support Package (BSP) and describes how to handle the interfaces for the |kit|. Furthermore, this document describes how to create BSP images from the source code. This is useful for those who need to change the default image and need a way to implement these changes in a simple and reproducible way. Further, some sections of this manual require executing commands on a personal computer (host). Any and all of these commands are assumed to be executed on a Linux Operating System."
-msgstr "本手册指导您完成BSP包的安装、编译和烧写，并描述如何使用 |kit| 的硬件接口。本手册还包括如何从源码编译内核、u-boot镜像。本手册包含需要在PC(linux操作系统)上执行的指令。"
+msgstr "本手册指导您完成BSP包的安装、编译和烧写，并描述如何使用 |kit| 的硬件接口。本手册还包括如何从源码编译内核、u-boot镜像。本手册包含需要在PC(Linux操作系统)上执行的指令。"
 
 msgid "This document contains code examples that describe the communication with the board over the serial shell. The code examples lines begin with \"host:~$\", \"target:~$\" or \"u-boot=>\". This describes where the commands are to be executed. Only after these keywords must the actual command be copied."
 msgstr "本文档包含指令示例，描述如何在串口终端上与核心板进行交互。指令示例以“host:~$”、“target:~$”或“u-boot=>”开头，开头的这些关键字描述了指令执行的软件环境。如果需要复制这些指令，请仅复制这些关键字之后的内容。"
@@ -277,16 +275,14 @@ msgstr "给开发板通电"
 msgid "Building the BSP"
 msgstr "编译BSP"
 
-#, fuzzy
 msgid "This section will guide you through the general build process of the |soc| BSP using Yocto and the phyLinux script. For more information about our meta-layer or Yocto in general visit: |yocto-ref-manual|."
-msgstr "本节将指导您使用Yocto和phyLinux脚本进行 |soc| BSP的编译。更多有关phytec meta-layer和Yocto的信息，请访问： |yocto-ref-manual|_ 。"
+msgstr "本节将指导您使用Yocto和phyLinux脚本进行 |soc| BSP的编译。更多有关phytec meta-layer和Yocto的信息，请访问： |yocto-ref-manual| 。"
 
 msgid "Basic Set-Up"
 msgstr "基本设置"
 
-#, fuzzy
 msgid "If you have never created a Phytec BSP with Yocto on your computer, you should take a closer look at the chapter BSP Workspace Installation in the |yocto-ref-manual|."
-msgstr "如果您从未在您的主机上使用Yocto编译过Phytec BSP，您应查看 |yocto-ref-manual|_ 中的BSP Workspace安装一节。"
+msgstr "如果您从未在您的主机上使用Yocto编译过Phytec BSP，您应查看 |yocto-ref-manual| 中的BSP Workspace安装一节。"
 
 msgid "Get the BSP"
 msgstr "下载BSP"
@@ -372,9 +368,8 @@ msgstr "**imx-boot**：由imx-mkimage编译的bootloader镜像，包括SPL、U-B
 msgid "**fitImage**: Linux kernel FIT image"
 msgstr "**fitImage**: Linux内核FIT镜像"
 
-#, fuzzy
 msgid "**fitImage-its\\*.its**: FIT image configuration file"
-msgstr "**Image.config**: 内核config文件"
+msgstr "**fitImage-its\\*.its**: FIT镜像配置文件"
 
 msgid "**Image**: Linux kernel image"
 msgstr "**Image**: Linux内核镜像"
@@ -673,58 +668,56 @@ msgstr "RAUC"
 msgid "The RAUC (Robust Auto-Update Controller) mechanism support has been added to meta-ampliphy. It controls the procedure of updating a device with new firmware. This includes updating the Linux kernel, Device Tree, and root filesystem. PHYTEC has written an online manual on how we have intergraded RAUC into our BSPs: |rauc-manual|_."
 msgstr "BSP支持RAUC（Robust Auto-Update Controller）。它管理设备固件更新的过程。这包括更新Linux内核、设备树和根文件系统。PHYTEC已撰写了一份在线手册，介绍如何在我们的BSP中集成RAUC： |rauc-manual|_ 。"
 
-#, fuzzy
 msgid "EFI Boot"
-msgstr "imx-boot"
+msgstr "EFI 启动"
 
 msgid "Standardboot in U-Boot also supports booting distros over efi. By default the U-Boot will search for a bootscript first, which is used to boot our Ampliphy distro. If it does not find any bootscript, it will search for bootable efi applications. So for booting over efi just make sure you don't have our distro installed."
-msgstr ""
+msgstr "U-boot也支持通过efi启动核心板。U-boot会默认先搜寻一个启动脚本，然后使用该脚本启动Ampliphy发行版。如果未搜索出该启动脚本，将会启动efi例程。所以，通过efi启动前，需要确认您并没有安装我们的发行版。"
 
 msgid "Disable booting with efi"
-msgstr ""
+msgstr "关闭efi启动"
 
 msgid "To disable booting with efi you have to set the ``doefiboot`` variable to 0. Also make sure you do not have ``efi`` or ``efi_mgr`` specified in the ``bootmeths`` environment variable."
-msgstr ""
+msgstr "要关闭efi启动，需要将 ``doefiboot`` 变量设置为0.并且确认您没有在 ``bootmeths`` 环境变量中定义 ``efi`` 或者 ``efi_mgr`` "
 
 msgid "Switch to only efi boot"
-msgstr ""
+msgstr "切换efi启动模式"
 
 msgid "If you want to only boot with efi, you can set the ``bootmeths`` environment variable to efi. Also make sure you have the ``doefiboot`` environment variable set to 1."
-msgstr ""
+msgstr "如果您想要通过efi启动，可以设置 ``bootmeths`` 环境变量到efi。同时将 ``doefiboot`` 环境变量值配置为1。"
 
-#, fuzzy
 msgid "Installing a distro"
 msgstr "安装操作系统"
 
 msgid "With efi you can install and boot different distros like openSUSE, Fedora or Debian. First you have to get the iso Image from their website. For example:"
-msgstr ""
+msgstr "使用efi可以安装、启动不同的linux发行版，如openSUSE, Fedora以及Debian。首先你需要从它们的官方网站下载iso镜像，如："
 
 msgid "https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/"
-msgstr ""
+msgstr "https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/"
 
 msgid "Then copy the .iso file to a usb stick for example. Make sure you select the correct device:"
-msgstr ""
+msgstr "然后复制.iso文件到比如U盘。请确认输入了正确的设备名："
 
 msgid "Insert the USB stick into the board and boot it. GRUB will then prompt you with a menu where you can select what to do. Here select install. Then you have to click through the installation menu. This is relatively straightforward and differs a bit for every distro. You can install the distro for example to emmc (|emmcdev-uboot|) or sdcard (|sdcarddev-uboot|). Make sure you do not overwrite your U-Boot during the install. Best to choose a different medium to install to than the U-Boot is stored on. Otherwise manual partitioning will be required. The automatic partitioning will start at the beginning of the disk. To not overwrite the U-Boot, use an offset of 4MiB at the beginning of the disk."
-msgstr ""
+msgstr "将U盘插入板并启动。GRUB会用菜单提示接下来做什么。这里选择安装。然后按照向导操作。这个过程很直接，不同的发行版可能有些区别。你可以将发行版安装在emmc (|emmcdev-uboot|) 或sd卡 (|sdcarddev-uboot|)。 确保在安装时不要覆盖u-boot。最好是和uboot选择不同的存储器件，否则需要手工分区。 自动分区会从硬盘的头部开始分区， 为了避免覆盖u-boot， 使用从硬盘头部4MiB的偏移量后的区域。"
 
 msgid "During the Installation of Debian you will be asked, if you want to Force the GRUB installation to the EFI removable media path. Select no. Also select no, when you will be asked if you want to update the NVRAM variables. Otherwise the grub-dummy installation step will fail and you will be sent back to the \"Force GRUB installation\" prompt."
-msgstr ""
+msgstr "在安装Debian时会被问，你是否想要强制安装GRUB到EFI可移动存储路径。 选择不。 当被问倒你是否要更新NVRAM变量，也选择不。 否则grub-dummy安装步骤会失败，并且会退回倒 \"强制GRUB安装\" 提示界面。"
 
 msgid "After the installation is complete, reboot the board and remove the installation medium (USB-stick). The board should then boot the distro you installed."
-msgstr ""
+msgstr "在安装完成后，重新启动设备并移除安装介质（U盘）。设备会启动刚刚安装的发行版系统。"
 
 msgid "If that does not happen, check if there is a boot option set for the distro. The easiest way is with the ``eficonfig`` command."
-msgstr ""
+msgstr "如果启动失败，请检查启动选项是否设置了该发行版。最简单的方法是使用 ``eficonfig`` 命令。"
 
 msgid "That will open a menu. Then you can select ``Edit Boot Option``. It will show you the current boot options. If this is empty or you don't find your distro, select ``Add Boot Option`` to add a new one. For debian for example you only need to set the description and the file. You can enter whatever you want into the description field. When you select the file field, you can select the disc you installed the distro on and partition number one. For example \"|emmcdev-uboot|:1\" for emmc, or \"|sdcarddev-uboot|:1\" for sdcard. The file you need to select is at ``EFI/debian/grubaa64.efi``. After that save, quit and reset the board. The board should then boot into debian."
-msgstr ""
+msgstr "这将打开一个菜单。然后你可以选择 ``Edit Boot Option`` 。它会显示当前的启动选项。如果这是空的或者找不到你的发行版，选择 ``Add Boot Option`` 以添加一个新的选项。例如对于debian，你只需要设置描述和文件。你可以随意输入描述字段中的内容。当你选择文件字段时，可以选择安装发行版的磁盘和第一个分区。例如eMMC \"|emmcdev-uboot|:1\" ，或SD卡 \"|sdcarddev-uboot|:1\" 。你需要选择的文件位于 ``EFI/debian/grubaa64.efi`` 。之后保存，退出并重置板子。板子应该会启动进入debian。"
 
 msgid "Development"
 msgstr "开发"
 
 msgid "Starting with this release, the boot behaviour in U-Boot changes. Before, kernel and device tree came as separate blobs. Now, both will be included in a single FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions is moved to a boot script which itself is part of a separate FIT image blob. To revert to the old style of booting, you may do"
-msgstr "从这个版本开始，U-Boot中的启动行为发生了变化。之前，内核和设备树是作为单独的二进制文件提供的。现在，二者将被包含在一个单一的FIT镜像二进制文件中。此外，PHYTEC ampliphy发行版的启动逻辑被移到了一个启动脚本中，该脚本本身是一个单独的FIT镜像二进制文件的一部分。要恢复到旧的启动方式，您可以执行"
+msgstr "从这个版本开始，U-Boot中的启动行为发生了变化。之前，内核和设备树是作为单独的二进制文件提供的。现在，二者将被包含在一个单一的FIT镜像二进制文件中。此外，PHYTEC ampliphy发行版的启动逻辑被移到了一个启动脚本中，该脚本是以FIT镜像二进制文件的一部分存在。要恢复到旧的启动方式，您可以执行"
 
 msgid "This way of booting is deprecated and will be removed in the next release. By default, booting via this command will return an error as kernel and device tree are missing in the boot partition."
 msgstr "这种启动方式已被弃用，并将在下一个版本中移除。默认情况下，通过此命令启动将返回错误，因为启动分区中缺少内核和设备树。"
@@ -787,13 +780,13 @@ msgid "Building Linux and U-Boot out-of-tree requires some additional host tool 
 msgstr "独立编译Linux kernel和U-Boot需要主机安装一些额外的工具。对于Ubuntu，您可以使用以下命令安装它们："
 
 msgid "Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Scarthgap NXP-based BSPs can cause issues when building U-Boot or Linux kernel tools for host use. If you encounter an \"undefined reference\" error, a workaround is to prepend the host's binutils to the PATH."
-msgstr ""
+msgstr "在较旧的主机发行版（例如，Ubuntu 20.04 LTS）上使用Scarthgap NXP基础的BSP时，构建用于主机的U-Boot或Linux内核工具可能会出现问题。如果遇到 \"undefined reference\" 错误，一种解决方法是在PATH环境变量中添加主机的binutils。"
 
 msgid "Run this after sourcing the SDK *environment-setup* file."
-msgstr ""
+msgstr "在加载SDK *environment-setup* 后，运行此命令。"
 
 msgid "Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work without requiring any modifications."
-msgstr ""
+msgstr "请注意，在较新版本的发行版（如Ubuntu 22.04）中未观察到SDK相关问题，这些发行版似乎无需任何修改即可正常工作。"
 
 msgid "U-Boot standalone build"
 msgstr "单独编译U-Boot"
@@ -808,7 +801,7 @@ msgid "To get the correct *U-Boot* **tag** you need to take a look at our releas
 msgstr "要获取正确的 *U-Boot* **tag**，您需要查看我们的release notes，可以在这里找到：`release notes <releasenotes_>`_"
 
 msgid "The **tag** used in this release is called |u-boot-tag|"
-msgstr "此版本中使用的**tag**称为 |u-boot-tag|"
+msgstr "此版本中使用的 **tag** 称为 |u-boot-tag|"
 
 msgid "Check out the needed *U-Boot* **tag**:"
 msgstr "查看所需的 *U-Boot* **tag**："
@@ -891,9 +884,8 @@ msgstr "如果您的系统因为EEPROM中的硬件信息损坏或丢失而无法
 msgid "Follow the steps to get the U-boot sources and check the correct branch in the **Build U-Boot** section."
 msgstr "按照步骤获取U-boot源代码，并切换到 **Build U-Boot** 章节说明的分支。"
 
-#, fuzzy
 msgid "Edit the file configs/|u-boot-defconfig|:"
-msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig:"
+msgstr "编辑文件 configs/|u-boot-defconfig|:"
 
 msgid "Choose the correct RAM size as populated on the board and uncomment the line for this ram size. After saving the changes, follow the remaining steps from |ref-build-uboot|."
 msgstr "选择正确的RAM大小，确保与核心板上的贴装的器件一致，取消注释该RAM大小的行。保存更改后，按照 |ref-build-uboot| 章节的剩余步骤进行操作。"
@@ -1010,7 +1002,7 @@ msgid "UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
 msgstr "UUU将U-boot刷入eMMC BOOT（硬件）启动分区后，会在eMMC中设置BOOT_PARTITION_ENABLE。这带来一个问题，因为我们希望bootloader保存在eMMC 的USER分区中。如果烧写入新的包含U-boot的.wic镜像而不禁用BOOT_PARTITION_ENABLE位，将导致设备始终使用保存在BOOT分区中的U-boot。为了在U-Boot中解决此问题，需要："
 
 msgid "or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>` from Linux."
-msgstr ""
+msgstr "或者在linux中检查 :ref:`用从eMMC boot分区启动 <emmc-disable-boot-part>` "
 
 msgid "This way the bootloader is still flashed to eMMC BOOT partitions but it is not used!"
 msgstr "这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！"
@@ -1235,36 +1227,34 @@ msgid "Now you can mount the new partition and copy e.g. |yocto-imagename|-|yoct
 msgstr "现在您可以挂载新的分区并将 |yocto-imagename|-|yocto-machinename|.wic 镜像复制到其中。然后卸载它："
 
 msgid "Switch back to legacyboot"
-msgstr ""
+msgstr "切换旧启动模式"
 
 msgid "As we switched to standardboot with fitimage as default, legacyboot is deprecated. We kept the option to switch back to legacyboot for this release, but it will be removed in the future."
-msgstr ""
+msgstr "由于我们已经切换到fitimage启动模式，旧启动模式已被弃用。在本版本中我们保留了切换回旧启动模式的选项，但该选项将在未来移除。"
 
 msgid "Changes in Yocto"
-msgstr ""
+msgstr "Yocto中的更改"
 
 msgid "By default, the fitImage and bootscript will be deployed into the wic.xz Image. To switch back to legacyboot, you need to replace the fitImage and bootscript for the kernel image and the devicetrees. They are still in the deploy folder from the Yocto build, so you can manually copy them to the boot partition on your device. Otherwise you can do the following changes in Yocto to get the kernel and devicetrees deployed in the Image again."
-msgstr ""
+msgstr "默认情况下，fitImage和启动脚本将被部署到wic.xz镜像中。要切换回旧启动模式，您需要用内核镜像和设备树替换fitImage和启动脚本。它们在Yocto构建的deploy文件夹中，因此您可以手动将其复制到设备的引导分区上。或者，您可以在Yocto中进行以下更改，以再次在镜像中部署内核和设备树。"
 
 msgid "First create the variable `KERNEL_DEVICETREE_DEPLOY`. This can be done for example in the local.conf file in your build directory `conf/local.conf`. The variable is basically a copy of the `KERNEL_DEVICETREE` variable that is set in conf/machine/|yocto-machinename|.conf in meta-phytec but the `freescale` at the beginning needs to be removed, so that only the devicetree filename are left. In the end it should look something like this:"
-msgstr ""
+msgstr "首先创建变量 `KERNEL_DEVICETREE_DEPLOY` 。例如，可以在构建目录conf/local.conf中的local.conf文件中进行此操作。该变量是meta-phytec在 conf/machine/|yocto-machinename|.conf 中设置的 `KERNEL_DEVICETREE` 变量的副本，但需要删除开头的 `freescale` ，仅保留设备树文件名。最终应类似于以下内容："
 
 msgid "Then add this line:"
-msgstr ""
+msgstr "然后加入这一行："
 
 msgid "A clean might be required for this to work."
-msgstr ""
+msgstr "需要clean来让改动生效"
 
-#, fuzzy
 msgid "Then start the build:"
-msgstr "开始构建"
+msgstr "开始构建："
 
-#, fuzzy
 msgid "Changes in U-Boot environment"
-msgstr "在Linux环境下更改开发板上的U-boot环境变量"
+msgstr "U-Boot环境变量修改"
 
 msgid "To re-enable legacyboot set the following variable:"
-msgstr ""
+msgstr "通过设置以下变量重新使能旧启动模式："
 
 msgid "Device Tree (DT)"
 msgstr "设备树 (DT)"
@@ -1294,7 +1284,7 @@ msgid "*Module.dtsi* - Module includes all devices mounted on the SoM, such as P
 msgstr "*Module.dtsi* - 文件包括所有安装在核心板上的设备，例如PMIC和RAM。"
 
 msgid "*Board.dts* - include the module dtsi file. Devices that come from the |soc| SoC but are just routed down to the carrier board and used there are included in this dts."
-msgstr "*Board.dts* - 包含module dtsi 文件。从SoC |soc| 引出并在底板使用的设备也包含在此 dts 中。"
+msgstr "*Board.dts* - 包含核心板 dtsi 文件。从SoC |soc| 引出并在底板使用的设备也包含在此 dts 中。"
 
 msgid "*Overlay.dtso* - enable/disable features depending on optional hardware that may be mounted or missing on SoM or baseboard (e.g SPI flash or PEB-AV-10)"
 msgstr "*Overlay.dtso* - 根据核心板或底板上可选硬件（例如 SPI 闪存或 PEB-AV-10）的情况来启用/禁用一些功能。"
@@ -1312,11 +1302,10 @@ msgid "Available overlays for |yocto-machinename|.conf are:"
 msgstr "|yocto-machinename|.conf 可用的overlay文件有："
 
 msgid "Otherwise you can show the content of a FIT image including all overlay configs in the FIT image with this command in Linux:"
-msgstr ""
+msgstr "可以在linux中使用以下命令来列出FIT镜像中所有的overlay配置"
 
-#, fuzzy
 msgid "or in U-Boot:"
-msgstr "编译u-boot："
+msgstr "或者在u-boot："
 
 msgid "The usage of overlays can be configured during runtime in Linux or U-Boot. Overlays are applied during the boot process in the bootloader after the boot command is called and before the kernel is loaded. The next sections explain the configuration in more detail."
 msgstr "可以在Linux或U-Boot环境下配置overlay。overlay是在引导命令调用后、内核加载之前生效。接下来的部分将更详细地解释配置方法。"
@@ -1325,13 +1314,13 @@ msgstr "可以在Linux或U-Boot环境下配置overlay。overlay是在引导命�
 msgid "Set ``${overlays}`` variable"
 msgstr "设置 ``${overlays}`` 变量"
 
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "The ``${overlays}`` U-Boot environment variable contains a number-sign (#) separated list of overlays that will be applied during boot. The overlays listed in the overlays variable must be included in the FIT image. Overlays set in the $KERNEL_DEVICETREE Yocto machine variable will automatically be added to the FIT image."
-msgstr "``${overlays}`` U-Boot 环境变量包含一个以空格分隔的overlay文件列表，这些overlay文件将在启动过程中应用。根据启动源，overlay文件必须放置在 eMMC/SD 卡的启动分区中，或者通过 tftp 加载。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到最终 WIC 镜像的启动分区中。"
+msgstr "``${overlays}`` U-Boot 环境变量包含一个以井号#分隔的overlay文件列表，这些overlay文件将在启动过程中应用。overlays变量中的overlay列表会包含在FIT镜像中。在 $KERNEL_DEVICETREE 这个 Yocto machine 变量中设置的 overlay 文件将自动添加到FIT镜像中。"
 
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "The ``${overlays}`` variable can either be set directly in the U-Boot environment or can be part of the external ``bootenv.txt`` environment file. When desired to use the overlays variable as set manually in the U-Boot environment, disable bootenv by setting ``env set no_bootenv 1`` as the overlays variable may be overwritten during the execution of the boot script. By default, the ``${overlays}`` variable comes from the external ``bootenv.txt`` environment file which is located in the boot partition. You can read and write the file on booted target from linux:"
-msgstr "``${overlays}`` 变量可以直接在U-Boot环境中设置，也可以作为外部 ``bootenv.txt`` 环境文件的一部分。默认情况下， ``${overlays}`` 变量来自位于启动分区的 ``bootenv.txt`` 文件。您可以在已启动的开发板上从Linux读取和写入该文件："
+msgstr "``${overlays}`` 变量可以直接在U-Boot环境中设置，也可以作为外部 ``bootenv.txt`` 环境文件的一部分。当希望使用在U-Boot环境中手工配置的overlay变量，可以配置 ``env set no_bootenv 1`` ，因为overlay变量可能在运行启动脚本时被覆盖。默认情况下， ``${overlays}`` 变量来自位于启动分区的 ``bootenv.txt`` 文件。您可以在已启动的开发板上从Linux读取和写入该文件："
 
 msgid "Changes will take effect after the next reboot. If no ``bootenv.txt`` file is available the overlays variable can be set directly in the U-Boot environment."
 msgstr "更改将在下次重启后生效。如果没有可用的 ``bootenv.txt`` 文件，可以直接在U-Boot环境中设置overlay变量。"
@@ -1343,29 +1332,28 @@ msgstr "如果用户定义了 ``${overlays}`` 变量，同时存在 ``bootenv.tx
 msgid "More information about the external environment can be found in |ubootexternalenv|."
 msgstr "有关环境的更多信息，请参见 |ubootexternalenv|。"
 
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "We use the ``${overlays}`` variable for overlays describing expansion boards and cameras that can not be detected during run time. To prevent applying overlays unset the overlays variable and set no_bootenv to anything other than 0."
-msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 ``${overlays}`` 变量中列出的overlay，可以在U-Boot的环境中将 ``${no_overlays}`` 变量设置为 `1`。"
+msgstr "我们使用 ``${overlays}`` 变量来描述在运行时无法自动检测的扩展板和摄像头。如果想禁用 ``${overlays}`` 变量中列出的overlay，可以在U-Boot的环境中将overlay变量unset，并且将 ``${no_overlays}`` 变量设置为 `1`。"
 
 msgid "If desired to use the bootenv.txt file for setting U-Boot variables other than overlays and having overlays disabled, remove the overlays definition line from the bootenv.txt file instead of setting no_bootenv."
-msgstr ""
+msgstr "如果希望通过 bootenv.txt 文件设置除overlay之外的 U-Boot 变量并且禁用overlay，可以从 bootenv.txt 文件中删除overlay定义行，而不是设置 no_bootenv。"
 
 msgid "SoM Variants"
-msgstr ""
+msgstr "不同的SoM配置"
 
-#, fuzzy
 msgid "Additional overlays are applied automatically to disable components that are not populated on the SoM. The detection is done with the EEPROM data (EEPROM SoM Detection) found on the SoM i2c EEPROM."
-msgstr "使用U-Boot扩展命令能够轻松加载由回调函数  `extension_board_scan() <overlaycallback_>`_ 检测并添加到列表中的overlay。以这种方式应用的overlay会禁用核心板上未贴装的组件。检测是通过读取出厂EEPROM数据（EEPROM SoM Detection）来实现的。"
+msgstr "核心板会自动加载额外的overlay，以禁用核心板未贴装的组件。通过读取出厂EEPROM数据（EEPROM SoM Detection）来实现自动加载对应的overlay。"
 
 msgid "It depends on the SoM variant if any device tree overlays will be applied. To check if an overlay will be applied on the running SoM in U-Boot, run:"
-msgstr "这取决于核心板型号是否会应用任何设备树overlay。要检查在U-Boot中运行的SoM是否会应用overlay，请运行："
+msgstr "核心板型号会决定是否应用设备树overlay。要在U-Boot环境中查询是否会应用某个overlay，请运行："
 
 msgid "If the EEPROM data is not available, no device tree overlays are applied."
 msgstr "如果没有可用的EEPROM数据，则不加载任何设备树overlay。"
 
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "To prevent application of the SoM variant related overlays the ``${no_extensions}`` variable can be set to `1` in the bootloader environment::"
-msgstr "为了禁止在启动时自动运行扩展命令，可以在bootloader环境中将 ``${no_extensions}`` 变量设置为 `1` ："
+msgstr "要禁止启动时自动加载不同核心板的overlay，可以在bootloader环境中将 ``${no_extensions}`` 变量设置为 `1` ："
 
 msgid "U-boot External Environment"
 msgstr "U-boot外部环境"
@@ -1405,7 +1393,6 @@ msgstr "访问外设"
 msgid "To find out which boards and modules are supported by the release of PHYTEC's phyCORE-|soc| BSP described herein, visit |dlpage-bsp|_ web page and click the corresponding BSP release in the download section. Here you can find all hardware supported in the columns \"Hardware Article Number\" and the correct machine name in the corresponding cell under \"Machine Name\"."
 msgstr "要查找本文中所述的PHYTEC的phyCORE-|soc| BSP支持的开发板和核心板，请访问  |dlpage-bsp|_ 网页，并在下载部分点击相应的BSP版本。在这里，您可以在\"Hardware Article Number\"列中找到所有支持的硬件，并在\"Machine Name\"下的相应单元格中找到正确的\"Machine Name\"。"
 
-#, fuzzy
 msgid "To achieve maximum software reuse, the Linux kernel offers a sophisticated infrastructure that layers software components into board-specific parts. The BSP tries to modularize the kit features as much as possible. When a customized baseboard or even a customer-specific module is developed, most of the software support can be reused without error-prone copy-and-paste. The kernel code corresponding to the boards can be found in device trees (DT) in the kernel repository under ``arch/arm64/boot/dts/freescale/*.dts``."
 msgstr "为了最大化软件的可复用性，Linux内核提供了一个巧妙的软件架构，软件会根据不同硬件组件来分层。BSP（板级支持包）尽可能地对套件的功能进行模块化。当定制开发板或自定义核心板时，大部分软件配置可以简单的复制粘贴。与具体的开发板相关的内核代码可以在内核代码仓库中的设备树（DT）中找到，路径为 ``arch/arm64/boot/dts/freescale/*.dts`` 。"
 
@@ -1467,7 +1454,7 @@ msgid "RS485"
 msgstr "RS485"
 
 msgid "Remember to use bus termination resistors of 120 Ohm at each end of the bus, when using longer cables."
-msgstr ""
+msgstr "在使用较长电缆时，请记得在总线两端各使用120欧姆的终端电阻。"
 
 msgid "For easy testing, look at the linux-serial-test. This tool is called the IOCTL for RS485 and sends a constant stream of data."
 msgstr "为了方便测试，请查看linux-serial-test。这个工具会通过调用RS485的IOCTL，发送恒定的数据流。"
@@ -1476,44 +1463,43 @@ msgid "More information about the linux-serial-test tool and its parameters can 
 msgstr "有关linux-serial-test工具及其参数的更多信息，请访问此链接：`linux-serial-test <https://github.com/cbrake/linux-serial-test>`_"
 
 msgid "The linux-serial-test will automatically set ioctls, but they can also be set manually with rs485conf."
-msgstr ""
+msgstr "linux-serial-test会自动设置ioctl，也可以通过rs485conf手动设置。"
 
 msgid "You can show the current config with:"
-msgstr ""
+msgstr "你可以用以下命令显示当前配置："
 
-#, fuzzy
 msgid "You can show all options with:"
-msgstr "您可以通过以下方式恢复已保存的alsa设置："
+msgstr "您可以通过以下方式列出帮助选项："
 
 msgid "Documentation for calling the IOCTL within c-code is described in the Linux kernel documentation: https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt"
 msgstr "Linux kernel文档描述了如何在C代码中调用IOCTL： https://www.kernel.org/doc/Documentation/serial/serial-rs485.txt"
 
 msgid "RS485 half-duplex"
-msgstr ""
+msgstr "RS485 半双工"
 
 msgid "For half-duplex mode your connection setup should look like this:"
-msgstr ""
+msgstr "对于半双工模式，应按下图方式连接："
 
 msgid "Which function is on which pin is described in the hardware manual."
-msgstr ""
+msgstr "硬件手册中有描述各个引脚的功能。"
 
 msgid "For half-duplex mode you can set the ioctls manually like this:"
-msgstr ""
+msgstr "对于半双工模式，您可以手动设置 ioctls，如下所示："
 
 msgid "Then you can test if sending and receiving works like this:"
-msgstr ""
+msgstr "然后您可以测试发送和接收是否正常工作，方法如下："
 
 msgid "You should see \"test\" printed out on target1. You can also switch the roles and send on target2 and receive on target1."
-msgstr ""
+msgstr "您应该会在target1上看到 \"test\" 打印出来。您也可以切换角色，在target2上发送并在target1上接收。"
 
 msgid "Alternatively you can also test with the linux-serial-test tool:"
-msgstr ""
+msgstr "或者，您还可以使用 linux-serial-test 工具进行测试："
 
 msgid "In this example target1 will be the receiver and target2 will be the transmitter. You should also be able to switch the roles. Remember to first start the receiver and then the transmitter immediately after. The receiver will receive for 8 sec and the transmitter will send for 5 sec. The receiver needs to receive for a bit longer than the transmitter sends. At the end the program will print the final \"count for this session\". There you can check, that all transmitted frames were received."
-msgstr ""
+msgstr "在此示例中，target1将是接收器，target2将是发射器。您还可以切换角色。请记住，先启动接收方，然后再启动发射方。接收方将接收8秒，发射方将在5秒内发送。接收方需要比发射器发送的时间稍长一些。程序结束时会打印最终的 \"count for this session\" 。在那里，您可以检查所有发送的帧是否都被接收到。"
 
 msgid "All the tests are target to target, but can also be done with host to target with a USB to rs485 converter. You may need to adjust the interfaces then."
-msgstr ""
+msgstr "所有测试都是target到target，但也可以使用 USB 到 RS485 转换器进行主机到目标的测试。您可能需要调整接口。"
 
 msgid "The device tree representation for RS232 and RS485: :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n291`"
 msgstr "RS232和RS485的设备树表示：:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n291`"
@@ -1617,16 +1603,14 @@ msgstr "现在可以建立连接："
 msgid "This should result in the following output:"
 msgstr "这会得到如下输出："
 
-#, fuzzy
 msgid "The ip address is automatically configured over DHCP. For other possible IP configurations, see section `Changing the Network Configuration` in the |yocto-ref-manual|."
-msgstr "要完成配置，您可以配置DHCP以接收IP地址（大多数WLAN接入点都支持）。有关其他可能的IP配置，请参阅 |yocto-ref-manual|_ 中的“更改网络配置”部分。"
+msgstr "ip地址自动通过DHCP配置。有关其他可能的IP配置，请参阅 |yocto-ref-manual| 中的“更改网络配置”部分。"
 
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#, fuzzy
 msgid "Bluetooth is connected to |bluetooth-uart| interface. More information about the module can be found at https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf. The Bluetooth device needs to be set up manually:"
-msgstr "蓝牙已连接到UART2接口。有关该模块的更多信息，请访问 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf。蓝牙设备需要手动设置："
+msgstr "蓝牙连接到 |bluetooth-uart| 接口。有关该模块的更多信息，请访问 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf。蓝牙设备需要手动设置："
 
 msgid "Now you can scan your environment for visible Bluetooth devices. Bluetooth is not visible during a default startup."
 msgstr "现在您可以扫描环境中的可见蓝牙设备。在默认配置下，蓝牙是不可见的。"
@@ -1644,7 +1628,7 @@ msgid "Connect"
 msgstr "连接"
 
 msgid "If the connection fails with the error message: \"Failed to connect: org.bluez.Error.Failed\" try restarting PulseAudio with:"
-msgstr "如果连接失败并出现错误信息：“连接失败：org.bluez.Error.Failed”，请尝试使用以下命令重新启动PulseAudio："
+msgstr "如果连接失败并出现错误信息： \"Failed to connect: org.bluez.Error.Failed\"，请尝试使用以下命令重新启动PulseAudio："
 
 msgid "SD/MMC Card"
 msgstr "SD/MMC 卡"
@@ -2006,9 +1990,8 @@ msgstr "默认情况下不再支持通过sysfs访问GPIO。只有手动在内核
 msgid "You can also add this option for example to the defconfig you use in ``arch/arm64/configs/`` in the linux kernel sources. For our NXP based releases, this could be for example ``imx8_phytec_distro.config``::"
 msgstr "您也可以将此选项添加到您在 Linux 内核源代码 ``arch/arm64/configs/`` 目录下使用的 defconfig 中。例如，我们基于 NXP 的BSP版本，这个defconfig可以是  ``imx8_phytec_distro.config`` ::"
 
-#, fuzzy
 msgid "Otherwise you can create a new config fragment. This is described in our |yocto-ref-manual-kernel-and-bootloader-conf|."
-msgstr "您也可以创建一个新的config片段。有关详细信息，请参阅我们的《Yocto参考手册<yocto-ref-manual-kernel-and-bootloader-config_>》。"
+msgstr "您也可以创建一个新的config片段。有关详细信息，请参阅我们的 |yocto-ref-manual-kernel-and-bootloader-conf|。"
 
 msgid "Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:"
 msgstr "设备树 |dt-carrierboard|.dts 中一些GPIO引脚的管脚复用："
@@ -2229,7 +2212,6 @@ msgstr "两个USB接口在内核设备树 |dt-carrierboard|.dts 中被配置为�
 msgid "CAN FD"
 msgstr "CAN FD"
 
-#, fuzzy
 msgid "The |sbc| has one CAN interface supporting CAN FD. It is supported by the Linux standard CAN framework which builds upon then the Linux network layer. Using this framework, the CAN interfaces behave like an ordinary Linux network device, with some additional features special to CAN. More information can be found in the Linux Kernel documentation: https://www.kernel.org/doc/html/latest/networking/can.html"
 msgstr "|sbc| 具有一个支持CAN FD的flexCAN接口。它们由Linux标准CAN框架支持，该框架建立在Linux网络层之上。使用该框架，CAN接口表现得像普通的Linux网络设备，并具有一些特定于CAN的附加功能。更多信息可以在Linux内核文档中找到：https://www.kernel.org/doc/html/latest/networking/can.html"
 
@@ -2338,9 +2320,8 @@ msgstr "在这个例子中，PCIe设备是 *英特尔 WiFi Link 5100* 。"
 msgid "For PCIe devices, you have to enable the correct driver in the kernel configuration. This WLAN card, for example, is manufactured by Intel. The option for the driver, which must be enabled, is named ``CONFIG_IWLWIFI`` and can be found under *Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat* in the kernel configuration."
 msgstr "对于PCIe设备，您必须在内核配置中启用正确的驱动程序。例如，这款WLAN卡是由英特尔制造的。必须启用的驱动程序选项名为 ``CONFIG_IWLWIFI`` ，可以在内核配置中的 *Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimate* 下找到。"
 
-#, fuzzy
 msgid "In order to activate the driver, follow the instructions from our |yocto-ref-manual-kernel-and-bootloader-conf|."
-msgstr "为了激活驱动程序，请按照我们的Yocto手册中的说明进行操作： `内核和引导加载程序配置 <https://phytec.github.io/doc-bsp-yocto/yocto/kirkstone.html#kernel-and-bootloader-configuration>`__ "
+msgstr "为了激活驱动程序，请按照我们的Yocto手册中的说明进行操作： |yocto-ref-manual-kernel-and-bootloader-conf| "
 
 msgid "The linux-imx is represented by: **virtual/kernel**"
 msgstr "linux-imx的表示为：**virtual/kernel**"
@@ -2357,9 +2338,8 @@ msgstr "您将在串口控制台上获得以下输出："
 msgid "Some PCIe devices, e.g. the Ethernet card, may function properly even if no firmware blob is loaded from ``/lib/firmware/`` and you received an error message as shown in the first line of the output above. This is because some manufacturers provide the firmware as a fallback on the card itself. In this case, the behavior and output depend strongly on the manufacturer's firmware."
 msgstr "某些PCIe设备，例如以太网卡，即使没有从 ``/lib/firmware/`` 加载固件文件，也可能正常工作，而你收到了如上输出第一行所示的错误消息。这是因为一些制造商在板卡本身提供了固件作为后备。在这种情况下，设备的行为和输出在很大程度上依赖于制造商的固件。"
 
-#, fuzzy
 msgid "Device Tree PCIe configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n257`"
-msgstr " |dt-carrierboard|.dts的设备树PCIe配置：:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
+msgstr "|dt-carrierboard|.dts的设备树PCIe配置：:imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n257`"
 
 msgid "Audio"
 msgstr "音频"
@@ -3316,9 +3296,8 @@ msgstr "两个USB接口在内核设备树imx8mm-phyboard-polis.dtsi中配置为H
 msgid "Device Tree CAN configuration of imx8mm-phyboard-polis.dtsi: :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106`"
 msgstr "imx8mm-phyboard-polis.dtsi的设备树CAN配置： :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n106`"
 
-#, fuzzy
 msgid "In order to activate the driver, follow the instructions from our `Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_."
-msgstr "您也可以创建一个新的config片段。有关详细信息，请参阅我们的《Yocto参考手册<yocto-ref-manual-kernel-and-bootloader-config_>》。"
+msgstr "使能驱动的方法。请参阅我们的 `Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_。"
 
 msgid "You should see a lot of options as the audio-IC has many features you can experiment with. It might be better to open alsamixer via ssh instead of the serial console, as the console graphical effects are better. You have either mono or stereo gain controls for all mix points. \"MM\" means the feature is muted (both output, left & right), which can be toggled by hitting **m**. You can also toggle by hitting '**<**' for left and '**>**' for right output. With the **tab** key, you can switch between controls for playback and recording."
 msgstr "您应该会看到很多选项，因为音频IC具有许多可以配置的功能选项。通过SSH打开alsamixer可能比通过串口控制台更好，因为控制台的图形效果更佳。您可以为所有混合点使用单声道或立体声增益控制。“MM”表示该功能被静音（左右输出均为静音），可以通过按 **m** 键切换。您还可以通过按'**<**'键切换左声道和'**>**'键切换右声道。使用 **tab** 键，您可以在播放和录音的控制之间切换。"
@@ -3395,9 +3374,8 @@ msgstr "将一个可用的镜像烧写到SD卡，并创建一个EXT4格式的第
 msgid "The regulator for the SD card reset pin has been disabled to ensure compatibility with 1532.1 revision baseboards. If you have a revision 1532.2(a) or higher baseboard, you may enable the device tree nodes for highest performance. In the imx8mm-phyboard-polis-rdk-u-boot.dtsi file, remove the following lines::"
 msgstr "SD卡复位引脚的regulator已被禁用，以确保与1532.1版本底板的兼容性。如果您拥有1532.2(a)或更高版本的主板，您可以启用设备树节点以获得最佳性能。在imx8mm-phyboard-polis-rdk-u-boot.dtsi文件中，删除以下行："
 
-#, fuzzy
 msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see section `Changing the Network Configuration` in the |yocto-ref-manual|."
-msgstr "要完成配置，您可以配置DHCP以接收IP地址（大多数WLAN接入点都支持）。有关其他可能的IP配置，请参阅 |yocto-ref-manual|_ 中的“更改网络配置”部分。"
+msgstr "要完成配置，您可以配置DHCP以接收IP地址（大多数WLAN接入点都支持）。有关其他可能的IP配置，请参阅 |yocto-ref-manual| 中的“更改网络配置”部分。"
 
 msgid "The |sbc| populated with the |soc| SoC is supported."
 msgstr "支持的 |soc| 系统芯片 (SoC) 的 |sbc|。"
@@ -3528,13 +3506,11 @@ msgstr "两个USB接口在内核设备树 |dt-carrierboard|.dtsi 中配置为Hos
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dtsi: :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`"
 msgstr "|dt-carrierboard| 的设备树CAN配置： :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`"
 
-#, fuzzy
 msgid "|doc-id| |soc| FPSC BSP ManualHead"
-msgstr "|doc-id| |soc| BSP ManualHead"
+msgstr "|doc-id| |soc| FPSC BSP ManualHead"
 
-#, fuzzy
 msgid "|doc-id| |soc| FPSC BSP Manual Head"
-msgstr "|doc-id| |soc| BSP 手册模板"
+msgstr "|doc-id| |soc| FPSC BSP 手册模板"
 
 msgid "On our web page, you can see all supported Machines with the available Article Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_."
 msgstr "在我们的网页上，您可以查看适用于BSP版本 |yocto-manifestname| 的所有Machine及其对应的Article Numbers(产品型号)： `网页 <dlpage-bsp_>`_."
@@ -3542,13 +3518,11 @@ msgstr "在我们的网页上，您可以查看适用于BSP版本 |yocto-manifes
 msgid "If you choose a specific **Machine Name** in the section **Supported Machines**, you can see which **Article Numbers** are available under this machine and also a short description of the hardware information. In case you only have the **Article Number** of your hardware, you can leave the **Machine Name** drop-down menu empty and only choose your **Article Number**. Now it should show you the necessary **Machine Name** for your specific hardware"
 msgstr "如果您在“Supported Machines”一栏选择了特定的 **Machine Name** ，您可以查看该machine下可用的 **Article Numbers** 以及硬件信息的简短描述。如果您只有硬件的 **Article Numbers** ，您可以将 **Machine Name** 下拉菜单留空，仅选择您的 **Article Numbers** 。现在，它应该会显示您特定硬件所需的 **Machine Name** "
 
-#, fuzzy
 msgid "**Libra Components (top)**"
-msgstr "|sbc| 器件（顶部）"
+msgstr "Libra 器件（顶部）"
 
-#, fuzzy
 msgid "**Libra Components (bottom)**"
-msgstr "|sbc| 器件（底部）"
+msgstr "Libra 器件（底部）"
 
 msgid "To boot from an SD card, the |ref-bootswitch| needs to be set to the following position:"
 msgstr "要从SD卡启动， |ref-bootswitch| 需要设置为以下位置："
@@ -3559,9 +3533,8 @@ msgstr "**bl31-imx8mp.bin**: ARM可信固件二进制文件"
 msgid "**fitImage-its\\*.its**"
 msgstr "**fitImage-its\\*.its**"
 
-#, fuzzy
 msgid "**imx8mp-libra-rdk-fpsc*.dtb**: Kernel device tree file"
-msgstr "**imx8mn-phyboard-polis*.dtb**: 内核设备树文件"
+msgstr "**imx8mp-libra-rdk-fpsc*.dtb**: 内核设备树文件"
 
 msgid "**imx8mp-phy*.dtbo**: Kernel device tree overlay files"
 msgstr "**imx8mp-phy*.dtbo**: 内核设备树overlay文件"
@@ -3581,16 +3554,14 @@ msgstr "该 |sbc| 具有一个（启动源配置）开关，配有四个可单�
 msgid "eMMC"
 msgstr "eMMC"
 
-#, fuzzy
 msgid "JTAG Mode"
-msgstr "测试模式"
+msgstr "JTAG模式"
 
 msgid "The first part of the string MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX names the pad (in this example UART1_RXD). The second part of the string (UART1_DCE_RX) is the desired muxing option for this pad. The pad setting value (hex value on the right) defines different modes of the pad, for example, if internal pull resistors are activated or not. In this case, the internal resistors are disabled."
 msgstr "字符串的第一部分 MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX 指定了引脚（在这个例子中是 UART1_RXD）。字符串的第二部分（UART1_DCE_RX）是该引脚所选的复用项。引脚设置值（右侧的十六进制值）定义了引脚的不同模式，例如，内部拉电阻是否被激活。在当前情况下，内部拉电阻被禁用。"
 
-#, fuzzy
 msgid "The device tree representation for UART1 pinmuxing: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L373`"
-msgstr "UART1引脚复用的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L387`"
+msgstr "UART1引脚复用的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L373`"
 
 msgid "The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART to USB converter expansion. This USB is brought out at Micro-USB connector X1. UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a multi-protocol transceiver for RS-232 and RS-485, available at pin header connector |ref-serial| at the RS-232 level, or at the RS-485 level. The configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and |ref-jp4| on the baseboard. For more information about the correct setup please refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs."
 msgstr "phyCORE-|soc| 支持最多 4 个 UART 单元。在 |sbc| 上，UART1（调试串口）和 UART4 的 TTL 电平信号被连接到 Silicon Labs CP2105 UART 到 USB 转换IC。这个 USB 信号通过 Micro-USB 连接器 X1 输出。UART3 位于 X6（扩展连接器），为 TTL 电平信号。UART2 连接到一个多协议收发器IC，可转换为 RS-232 或 RS-485，RS-232 和 RS-485 信号位于连接器 |ref-serial| 。多协议配置通过主板上的跳线 |ref-jp3| 和 |ref-jp4| 完成。更多信息，请参阅 phyCORE-|soc|/|sbc| 硬件手册中的 UARTs 部分。"
@@ -3599,29 +3570,28 @@ msgid "We use the same device tree node for RS-232 and RS-485. RS-485 mode can b
 msgstr "对于RS-232和RS-485，使用相同的设备树节点。RS485模式可以通过ioctl TIOCSRS485 来启用。双向通讯支持也可以通过ioctl进行配置。请查看我们的小示例应用程序rs485test，该程序也包含在BSP中。需要设置跳线 |ref-jp3| 和 |ref-jp4| 。"
 
 msgid "RS485 full-duplex"
-msgstr ""
+msgstr "RS485 全双工"
 
 msgid "For full-duplex mode your connection setup should look like this:"
-msgstr ""
+msgstr "对于全双工模式，您应按下图连接："
 
 msgid "For full-duplex mode you can set the ioctls manually like this:"
-msgstr ""
+msgstr "对于全双工模式，您可以手动设置 ioctls，如下所示："
 
 msgid "Also here you can do the echo test to see if sending and receiving works:"
-msgstr ""
+msgstr "您还可以进行echo测试以查看发送和接收是否正常工作："
 
 msgid "To check if the full-duplex operation works, you need to use the linux-serial-test tool:"
-msgstr ""
+msgstr "要检查全双工操作是否正常工作，您需要使用 linux-serial-test 工具："
 
 msgid "In this example both targets will send and receive simultaneously. They will receive for 15sec and send for 10sec. The receiver needs to receive a bit longer, so that all sent messages will get received. Remember to start both targets almost simultaneously. A small difference in start time is accounted for with the ``-W 2`` option. At the end the program will print the final \"count for this session\". There you can check that all transmitted frames were received."
-msgstr ""
+msgstr "在此示例中，两个目标设备将同时发送和接收。它们将在15秒内接收并在10秒内发送。接收方需要接收更长时间，以便所有发送的消息都能接收到。请记住几乎同时启动两个目标设备。启动时间的微小差异可以通过-W 2选项来弥补。最后程序将打印“本会话的最终计数”。在那里您可以检查所有传输的帧是否都被接收。"
 
 msgid "All the test examples are target to target, but can also be done with host to target with a USB to rs485 converter. You may need to adjust the interfaces for commands to work on the host then."
-msgstr ""
+msgstr "所有的测试示例都是目标设备到目标设备的，但也可以通过USB到RS485转换器在主机与目标之间完成。可能需要调整接口以便命令在主机上正常工作。"
 
-#, fuzzy
 msgid "The device tree representation for RS232 and RS485: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`"
-msgstr "RS232和RS485的设备树： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251`"
+msgstr "RS232和RS485的设备树： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`"
 
 msgid "|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our module and board."
 msgstr "|sbc|-|soc| 提供两个以太网接口。我们的核心板和底板各提供一个千兆以太网接口。"
@@ -3651,58 +3621,46 @@ msgid "For further information about devicetree overlays, read the |ref-dt| chap
 msgstr "有关设备树overlay的更多信息，请阅读 |ref-dt| 章节。"
 
 msgid "Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated is described in the WLAN section."
-msgstr ""
+msgstr "开发板 |sbc| 可以通过PEB-WLBT-05扩展板支持蓝牙。如何在系统中使能它在WLAN部分中有描述。"
 
-#, fuzzy
 msgid "DT configuration for the MMC (SD card slot) interface can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`"
-msgstr "MMC（SD卡插槽）接口的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261`"
+msgstr "MMC（SD卡插槽）接口的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`"
 
-#, fuzzy
 msgid "DT configuration for the eMMC interface can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`"
-msgstr "eMMC接口的DT配置：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181`"
+msgstr "eMMC接口的DT配置：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`"
 
-#, fuzzy
 msgid ":linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L76`"
-msgstr "I²C RTCs 的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L175`"
+msgstr ":linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L76`"
 
-#, fuzzy
 msgid "Device tree configuration for the User I/O configuration can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L255`"
-msgstr "GPIO的设备树配置：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L160`"
+msgstr "GPIO的设备树配置：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L255`"
 
-#, fuzzy
 msgid "General I²C1 bus configuration (e.g. |dt-som|.dtsi): :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L113`"
-msgstr "I²C1 总线DT配置（例如 |dt-som|.dtsi）： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L81`"
+msgstr "I²C1 总线DT配置（例如 |dt-som|.dtsi）： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L113`"
 
-#, fuzzy
 msgid "General I²C2 bus configuration (e.g. |dt-carrierboard|.dts) :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L239`"
-msgstr "I²C2总线DT配置（例如 |dt-carrierboard|.dts）： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L145`"
+msgstr "I²C2总线DT配置（例如 |dt-carrierboard|.dts）： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L239`"
 
-#, fuzzy
 msgid "DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be found in our PHYTEC git: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L201`"
-msgstr "核心板 phyCORE-|soc| 的设备树imx8mp-phycore-som.dtsi可以在PHYTEC git中找到： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L169`"
+msgstr "核心板 phyCORE-|soc| 的设备树imx8mp-phycore-som.dtsi可以在PHYTEC git中找到： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L201`"
 
-#, fuzzy
 msgid "DT representation for I²C RTCs: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L208`"
-msgstr "I²C RTCs 的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L175`"
+msgstr "I²C RTCs 的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L208`"
 
 msgid "The USB controller of the |soc| SoC provides a low-cost connectivity solution for numerous consumer portable devices by providing a mechanism for data transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed 'SS'). The USB subsystem has two independent USB controller cores. Both cores are capable of acting as a USB peripheral device or a USB host. Each is connected to a USB 3.0 PHY."
 msgstr "|soc| SoC的USB控制器为众多消费类便携设备提供了一种低成本的连接解决方案，实现USB设备之间的数据传输，传输速度可达4 Gbit/s（超高速'SS'）。USB子系统具有两个独立的USB控制器。这两个控制器都能够作为USBDevice或USB Host使用。每个核心都连接到一个USB 3.0物理层（PHY）。"
 
-#, fuzzy
 msgid "DT representation for USB Host: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L380`"
-msgstr "USB Host的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220`"
+msgstr "USB Host的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L380`"
 
-#, fuzzy
 msgid "The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the Linux standard CAN framework which builds upon then the Linux network layer. Using this framework, the CAN interfaces behave like an ordinary Linux network device, with some additional features special to CAN. More information can be found in the Linux Kernel documentation: https://www.kernel.org/doc/html/latest/networking/can.html"
 msgstr "|sbc| 支持两个 flexCAN 接口，支持 CAN FD。这些接口支持 Linux 标准 CAN 框架，该框架建立在 Linux 网络层之上。使用这个框架，CAN 接口表现得像普通的 Linux 网络设备，同时具备一些 CAN 特有的附加功能。更多信息可以在 Linux 内核文档中找到：https://www.kernel.org/doc/html/latest/networking/can.html"
 
-#, fuzzy
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dts: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`"
 
-#, fuzzy
 msgid "Device Tree PCIe configuration of |dt-carrierboard|.dts: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 PCIE 配置： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345`"
 
 msgid "Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono speaker, headphones, and line in signals."
 msgstr "支持的播放设备包括HDMI和PEB-AV-10连接器上的TI TLV320AIC3007音频编解码器（CODEC）IC。在AV连接器上，有一个符合OMTP标准的3.5mm耳机插孔和一个8针排针。8针排针包含单声道扬声器、耳机和line-in信号。"
@@ -3710,9 +3668,8 @@ msgstr "支持的播放设备包括HDMI和PEB-AV-10连接器上的TI TLV320AIC30
 msgid "Using the PEB-AV-10 connector for display output along HDMI as audio output is not supported. The audio output device must match the video output device."
 msgstr "使用PEB-AV-10连接器进行显示输出时，不支持通过HDMI作为音频输出。音频输出设备必须与视频输出设备匹配。"
 
-#, fuzzy
 msgid "Device Tree Audio configuration: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L58`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 音频 配置： :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L58`"
 
 msgid "The |sbc| supports up to 3 different display outputs. Two can be used simultaneously. The following table shows the required extensions and devicetree overlays for the different interfaces."
 msgstr "该 |sbc| 支持多达3种不同的显示输出。可以同时使用两种。下表显示了不同接口所需的扩展板和设备树overlay。"
@@ -3792,17 +3749,14 @@ msgstr "对于双显示和三显示输出，您无法同时使用LVDS1（板载�
 msgid "For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes have to be set to the:"
 msgstr "在HDMI和LVDS0（PEB-AV-10）的双屏模式下进行双显示时，两个模式必须设置为："
 
-#, fuzzy
 msgid "Device tree description of LVDS-1 and HDMI can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L294` :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L218`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "LVDS-1和HDMI的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L294` :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L218`"
 
-#, fuzzy
 msgid "The device tree of LVDS-0 on PEB-AV-10 can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L133`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "PEB-AV-10扩展板的LVDS-0的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L133`"
 
-#, fuzzy
 msgid "The device tree description of GPIO Fan can be found here: :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L35`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "GPIO风扇的设备树：:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L35`"
 
 msgid "snvs Power Key"
 msgstr "snvs电源按键"
@@ -3843,9 +3797,8 @@ msgstr "编译支持固定RAM大小与频率的U-Boot"
 msgid "Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs with revision 1549.3 and newer also support 2GHz RAM timings. These will be enabled for supported boards automatically, but they can also be enabled or disabled manually."
 msgstr "从PD23.1.0 NXP或PD24.1.2 Mainline 版本开始，PCB为1549.3版本的核心板及更新版本的phyCORE-|soc| SoM支持2GHz内存时序。这些将在支持的板上自动启用，但也可以手动启用或禁用。"
 
-#, fuzzy
 msgid "Edit the file configs/|u-boot-defconfig|. The fixed RAM size with 2GHz timings will be used:"
-msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用固定的2GHz时序的RAM大小："
+msgstr "编辑文件 configs/|u-boot-defconfig|。将使用2GHz时序大小固定的RAM配置："
 
 msgid "After saving the changes, follow the remaining steps from |ref-build-uboot|."
 msgstr "在保存更改后，按照 |ref-build-uboot| 中剩下的步骤操作。"
@@ -3856,16 +3809,14 @@ msgstr "编译固定的RAM频率的U-Boot"
 msgid "Starting with PD24.1.2 mainline release or PD24.1.0 NXP release, U-Boot can also be built with just fixed RAM Frequency while the RAM size will still be used from EEPROM."
 msgstr "从PD24.1.2 Mainline版本或者 PD24.1.0 NXP 版本开始，U-Boot可以编译成只固定RAM频率，RAM大小还是保持从EEPROM读取。"
 
-#, fuzzy
 msgid "Edit the file configs/|u-boot-defconfig|. The RAM size from EEPROM with fixed frequency will be used:"
-msgstr "编辑文件 configs/phycore-|kernel-socname|\\_defconfig。将使用EEPROM中配置的容量与固定的频率RAM配置："
+msgstr "编辑文件 configs/|u-boot-defconfig|。将使用EEPROM中配置的容量与固定的频率RAM配置："
 
 msgid "Mainline HEAD"
 msgstr "Mainline HEAD"
 
-#, fuzzy
 msgid "BSP-Yocto-NXP-i.MX8MP-PD24.1.0"
-msgstr "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
+msgstr "BSP-Yocto-NXP-i.MX8MP-PD24.1.0"
 
 msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2"
 msgstr "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2"
@@ -3958,7 +3909,7 @@ msgid "DT representation for USB Host: :linux-phytec:`blob/v6.6.21-phy1/arch/arm
 msgstr "USB Host的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220`"
 
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dts: :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
 
 msgid "The mainline BSP currently only supports software rendering."
 msgstr "Mainline BSP目前仅支持软件渲染。"
@@ -4195,10 +4146,10 @@ msgid "DT representation for USB Host: :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h
 msgstr "USB主机的DT表示：:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n351`"
 
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`"
+msgstr "|dt-carrierboard|.dts 的设备树 CAN 配置： :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n175`"
 
 msgid "Device Tree PCIe configuration of |dt-carrierboard|.dts: :imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
-msgstr " |dt-carrierboard|.dts的设备树PCIe配置：:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
+msgstr "|dt-carrierboard|.dts的设备树PCIe配置：:imx-dt:`imx8mp-phyboard-pollux-rdk.dts?h=v5.15.71_2.2.2-phy3#n287`"
 
 msgid "Device Tree Audio configuration: :imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`"
 msgstr "音频DT配置：:imx-dt:`overlays/imx8mp-phyboard-pollux-peb-av-010.dtso?h=v5.15.71_2.2.2-phy3#n58`"
@@ -4227,13 +4178,11 @@ msgstr "|doc-id| |soc| BSP手册"
 msgid "Scarthgap"
 msgstr "Scarthgap"
 
-#, fuzzy
 msgid "2024/11/08"
-msgstr "2024/04/08"
+msgstr "2024/11/08"
 
-#, fuzzy
 msgid "2024/11/06"
-msgstr "2024/01/10"
+msgstr "2024/11/06"
 
 msgid "2024/04/08"
 msgstr "2024/04/08"
@@ -4289,9 +4238,8 @@ msgstr "i.MX 93 手册"
 msgid "i.MX 9 Manuals"
 msgstr "i.MX 9 手册"
 
-#, fuzzy
 msgid "BSP-Yocto-NXP-i.MX93-PD24.2.0"
-msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.0"
+msgstr "BSP-Yocto-NXP-i.MX93-PD24.2.0"
 
 msgid "BSP-Yocto-NXP-i.MX93-PD24.1.1"
 msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.1"
@@ -4452,9 +4400,8 @@ msgstr "编译最终的 flash.bin 二进制文件"
 msgid "The flash.bin can be found at imx-mkimage/|u-boot-soc-name|/ directory and now can be flashed. A chip-specific offset is needed:"
 msgstr "flash.bin可以在imx-mkimage/|u-boot-soc-name|/目录下找到，现在可以进行烧写。需要一个特定于芯片的偏移量："
 
-#, fuzzy
 msgid "In the command above, replace ``<sd-card>`` with your sd-card device name. For more information on how to find the device name, see the section :ref:`Finding the Correct Device <getting-started-find-correct-device>` in Getting Started."
-msgstr "在上述命令中，将 ``<sd-card>`` 替换为您的SD卡设备名称。有关如何找到设备名称的更多信息，请参阅入门部分中的 |ref-getting-started-find-correct-device| 。"
+msgstr "在上述命令中，将 ``<sd-card>`` 替换为您的SD卡设备名称。有关如何找到设备名称的更多信息，请参阅入门部分中的 :ref:`找到正确的设备名 <getting-started-find-correct-device>` 。"
 
 msgid "Make sure the boot partition is mounted! If it is not you can mount it with:"
 msgstr "确保boot分区已挂载！如果没有，您可以使用以下命令进行挂载："
@@ -4485,7 +4432,7 @@ msgid "The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO4_07). <X> identifies t
 msgstr "GPIO被标识为GPIO<X>_<Y>（例如，GPIO4_07）。<X>标识GPIO Bank，并从1到4计数，而<Y>表示Bank内的GPIO。<Y>从0到31计数（每个Bank有32个GPIO）。"
 
 msgid "Order of GPIOchips in ``i.MX 93 Application Processor Reference Manual`` and in Linux kernel differ!"
-msgstr " ``i.MX 93 Application Processor Reference Manual`` 中的GPIO芯片顺序与Linux内核中的顺序不同！"
+msgstr "``i.MX 93 Application Processor Reference Manual`` 中的GPIO芯片顺序与Linux内核中的顺序不同！"
 
 msgid "GPIOchip address"
 msgstr "GPIOchip 地址"
@@ -4710,7 +4657,7 @@ msgid "The |soc| BSP supports the VFS feature. The Linux kernel provides a LPM d
 msgstr "|soc| BSP支持VFS功能。Linux内核提供了一个LPM驱动程序，可以设置VDD_SOC、CPU频率和DDR速度。"
 
 msgid "Low-cost |soc| SoC variants such as parts numbers NXP IMX9301/IMX9302 do not support VFS features. Those SoCs always run in LowDrive (LD) mode. Hence, the Linux LPM driver is disabled automatically for SoMs with such SoCs."
-msgstr ""
+msgstr "低成本的 |soc| SoC比如NXP IMX9301/IMX9302这些型号不支持VFS功能。这些SoC会固定运行在 LowDrive（LD）模式。因此在使用这些SoC的核心板时，Linux的LPM驱动会自动禁用。"
 
 msgid "To put the device in **OverDrive (OD)** mode type:"
 msgstr "要将设备置于 **OverDrive（OD）** 模式，请输入："
@@ -4766,24 +4713,20 @@ msgstr "内核热管理使用这些触发点来触发事件并改变温控行为
 msgid "If the value of the SoC temperature in the sysfs file temp reaches *trip_point_1*, the board immediately shuts down to avoid any heat damage. If this doesn't meet you expectations, an external supervisor circuit that starts the module again with X_ONOFF signal when the temperature drops below a selected trip point can be implemented"
 msgstr "如果sysfs文件中的SoC温度值达到 *trip_point_1* ，主板将立即关闭以避免任何热损伤。如果这不符合您的期望，可以实现一个外部监控电路，当温度降到选定的触发点以下时，通过X_ONOFF信号重新启动模块"
 
-#, fuzzy
 msgid "PWM Fan"
-msgstr "GPIO风扇"
+msgstr "PWM风扇"
 
 msgid "A PWM fan can be connected to the phyBOARD-Nash i.MX 93 connector X48 (label FAN)."
-msgstr ""
+msgstr "可以在phyBOARD-Nash i.MX 93的连接器X48 (标注 FAN)连接一个PWM风扇。"
 
-#, fuzzy
 msgid "Afterwards, a PWM fan overlay needs to be activated, otherwise PWM fan won't be recognized."
-msgstr "对于BSP版本PD22.1及更新版本，需要先激活PEB-WLBT-05 Overlay，否则PEB-WLBT-05将无法被识别。"
+msgstr "从本版本开始，需要先激活PWM风扇Overlay，否则PWM风扇将无法被识别。"
 
-#, fuzzy
 msgid "The bootenv.txt file should look like this (it can also contain other devicetree overlays!):"
-msgstr "之后，bootenv.txt 文件应该如下所示（它还可以包含其他设备树overlay！）："
+msgstr "bootenv.txt 文件应该如下所示（它还可以包含其他设备树overlay！）："
 
-#, fuzzy
 msgid "The SoC only contains one temperature sensor which is already used by the thermal frequency scaling. The fan thus can not be controlled by the kernel. We use lmsensors with hwmon for this instead. lmsensors reads the temperature periodically and adjusts output PWM duty-cycle accordingly. By default, temperature threshold for PWM fan to activate is set to 60°C."
-msgstr "一个GPIO控制的风扇可以连接到 |sbc|-|soc|。该SoC包含一个温度传感器，该传感器被用于热频率调节。风扇无法通过内核进行控制。我们使用lmsensors和hwmon来实现这一点。lmsensors定期读取温度，并在可配置的阈值下启用或禁用风扇。对于  |sbc|-|soc|，这个阈值是60°C。"
+msgstr "该SoC只包含一个温度传感器，而该传感器被用于热频率调节，因此风扇无法通过内核进行控制。我们使用lmsensors和hwmon来代替。lmsensors定期读取温度，并在可配置的阈值下配置风扇PWM的输出。默认启动PWM风扇的温度阈值是60°C。"
 
 msgid "bbnsm Power Key"
 msgstr "bbnsm 电源键"
@@ -5134,7 +5077,7 @@ msgid "DT representation for USB Host: :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.
 msgstr "USB Host的DT：:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190` 或 :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n180`"
 
 msgid "The **phyBOARD-Nash** i.MX 93 SoC provides one RS232/RS485 serial port."
-msgstr "**phyBOARD-Nash** i.MX 93 SoC 提供一个 RS232/RS485 串口。"
+msgstr "开发板 **phyBOARD-Nash** i.MX 93 SoC 提供一个 RS232/RS485 串口。"
 
 msgid "RS232 with HW flow control and RS485 are not working due to HW bug on the phyBOARD-Nash PCB revision 1616.0"
 msgstr "由于phyBOARD-Nash PCB版本1616.0上的硬件缺陷，RS232的硬件流控制和RS485无法正常工作"
@@ -5199,150 +5142,116 @@ msgstr "生成RSA公钥并验证其内容："
 msgid "Device tree TPM configuration can be found here: :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n151`"
 msgstr "TPM的设备树配置：:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n151`"
 
-#, fuzzy
 msgid "2024/10/08"
-msgstr "2024/04/08"
+msgstr "2024/10/08"
 
-#, fuzzy
 msgid "**phytec-\\*.rootfs.wic.xz**: Compressed bootable SD card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel and Root file system."
-msgstr "**phytec-\\*.wic.xz**：bitbake-image编译生成的压缩的可引导SD卡镜像，包括bootloader、设备树二进制文件（DTB）、内核和根文件系统。"
+msgstr "**phytec-\\*.rootfs.wic.xz**：bitbake-image编译生成的压缩的可引导SD卡镜像，包括bootloader、设备树二进制文件（DTB）、内核和根文件系统。"
 
-#, fuzzy
 msgid "**phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build was processed for ``phytec-qt6demo-image``"
-msgstr "**phytec-qt6demo-image-phyboard-*-imx93-*.wic.xz**：在使用bitbake-build编译 ``phytec-qt5demo-image`` 时"
+msgstr "**phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**：在使用bitbake-build编译 ``phytec-qt5demo-image`` 时"
 
-#, fuzzy
 msgid "**phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build was processed for ``phytec-headless-image``"
-msgstr "**phytec-headless-image-phyboard-*-imx93-*.wic.xz**：在使用bitbake-build编译 ``phytec-headless-image`` 时"
+msgstr "**phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**：在使用bitbake-build编译 ``phytec-headless-image`` 时"
 
-#, fuzzy
 msgid "|sbc-segin|: 1472.5"
-msgstr "phyBOARD-Segin-i.MX 93: 1472.5"
+msgstr "|sbc-segin|: 1472.5"
 
 msgid "|sbc-nash|: 1616.0, 1616.1"
-msgstr ""
+msgstr "|sbc-nash|: 1616.0, 1616.1"
 
-#, fuzzy
 msgid "These steps will show how to flash the eMMC on Linux with a USB stick. You only need a complete image saved on the USB stick and a bootable WIC image. (e.g. |yocto-imagename|-|yocto-machinename|.rootfs.wic). Set the |ref-bootswitch| to SD Card."
-msgstr "下面这些步骤展示如何在Linux系统上使用USB大容量存储设备烧写eMMC。您需要一个保存了完整镜像的U盘和一个可从SD卡启动的核心板（例如 |yocto-imagename|-|yocto-machinename|.wic）。将 |ref-bootswitch| 设置为SD卡启动。"
+msgstr "下面这些步骤展示如何在Linux系统上使用U盘烧写eMMC。您需要一个保存了完整镜像的U盘和一个可启动的WIC镜像（例如 |yocto-imagename|-|yocto-machinename|.rootfs.wic）。将 |ref-bootswitch| 设置为SD卡启动。"
 
-#, fuzzy
 msgid "The device tree representation for UART1 pinmuxing: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L259`"
-msgstr "UART1引脚复用的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L387`"
+msgstr "UART1引脚复用的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L259`"
 
-#, fuzzy
 msgid "On |sbc-segin| we have:"
-msgstr "在 **phyBOARD-Segin** 上，我们有："
+msgstr "在 |sbc-segin| 上，我们有："
 
-#, fuzzy
 msgid "On |sbc-nash| we have:"
-msgstr "在 **phyBOARD-Nash** 上，我们有："
+msgstr "在 |sbc-nash| 上，我们有："
 
 msgid "For now, only |sbc-segin| supports WLAN/Bluetooth features. WLAN/Bluetooth is thus not supported on |sbc-nash| yet."
-msgstr ""
+msgstr "现在只有 |sbc-segin| 支持WLAN/蓝牙功能。 |sbc-nash| 还不支持WLAN/蓝牙。"
 
-#, fuzzy
 msgid "WLAN and Bluetooth on the |sbc-segin| are provided by the PEB-WLBT-05 expansion card. The PEB-WLBT-05 for |sbc-segin| Quickstart Guide shows you how to install the PEB-WLBT-05."
-msgstr "在 |sbc| 上，WLAN和蓝牙由PEB-WLBT-05扩展板提供。PEB-WLBT-05的 |sbc| 快速入门指南向您展示了如何安装PEB-WLBT-05。"
+msgstr "在 |sbc-segin| 上，WLAN和蓝牙由PEB-WLBT-05扩展板提供。PEB-WLBT-05的 |sbc-segin| 快速入门指南向您展示了如何安装PEB-WLBT-05。"
 
-#, fuzzy
 msgid "With the BSP Version PD24.2 and newer, the PEB-WLBT-05 overlay needs to be activated first, otherwise the PEB-WLBT-05 won't be recognized."
-msgstr "对于BSP版本PD22.1及更新版本，需要先激活PEB-WLBT-05 Overlay，否则PEB-WLBT-05将无法被识别。"
+msgstr "对于BSP版本PD24.2及更新版本，需要先激活PEB-WLBT-05 Overlay，否则PEB-WLBT-05将无法被识别。"
 
 msgid "By default, bluetooth is not supported on |sbc-segin| with PEB-WLBT-05 expansion card due to hard-wired connections. However, it is possible to re-work PEB-WLBT-05 card by adjusting solder pads and enabling bluetooth in the software. Please contact your PHYTEC representative for more information."
-msgstr ""
+msgstr "默认情况下，安装了PEB-WLBT-05扩展板的 |sbc-segin| 并不支持蓝牙。但是，可以通过修改PEB-WLBT-05扩展版同时在软件中使能蓝牙来实现。请连接PHYTEC以获得更多信息。"
 
-#, fuzzy
 msgid "DT configuration for the MMC (SD card slot) interface can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L213` or here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L202`"
-msgstr "MMC（SD卡插槽）接口的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L261`"
+msgstr "MMC（SD卡插槽）接口的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L213` or here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L202`"
 
-#, fuzzy
 msgid "DT configuration for the eMMC interface can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194` or here:"
-msgstr "eMMC接口的DT配置：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181`"
+msgstr "eMMC接口的DT配置：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194` 或者这里："
 
-#, fuzzy
 msgid "On |sbc-nash| the ADC lines are accessible on X16 expansion connector:"
-msgstr "在phyBOARD-Nash上，ADC线路可以通过X16扩展连接器访问："
+msgstr "在 |sbc-nash| 上，ADC线路可以通过X16扩展连接器访问："
 
-#, fuzzy
 msgid "Device tree configuration for the User I/O configuration can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso#L33`"
-msgstr "GPIO的设备树配置：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L160`"
+msgstr "GPIO的设备树配置：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso#L33`"
 
-#, fuzzy
 msgid "General I²C3 bus configuration (e.g. |dt-som|.dtsi): :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L88`"
-msgstr "I²C1 总线DT配置（例如 |dt-som|.dtsi）： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L81`"
+msgstr "I²C3 总线DT配置（例如 |dt-som|.dtsi）： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L88`"
 
-#, fuzzy
 msgid "General I²C2 bus configuration for |dt-carrierboard|.dts: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L155` or for imx93-phyboard-nash.dts: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L113`"
-msgstr "|dt-carrierboard|.dts的I²C2总线DT配置：:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n155` 或者 imx93-phyboard-nash.dts: :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n113`"
+msgstr "|dt-carrierboard|.dts的I²C2总线DT配置: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L155` 或者 imx93-phyboard-nash.dts:  :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L113`"
 
-#, fuzzy
 msgid "DT representation, e.g. in phyCORE-|soc| file can be found in our PHYTEC git: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L172`"
-msgstr "核心板 phyCORE-|soc| 的设备树imx8mp-phycore-som.dtsi可以在PHYTEC git中找到： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L169`"
+msgstr "核心板 phyCORE-|soc| 的设备树可以在PHYTEC git中找到： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L172`"
 
-#, fuzzy
 msgid "DT representation for I²C RTCs: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L173` or :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L122`"
-msgstr "I²C RTCs 的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L175`"
+msgstr "I²C RTCs 的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L173` 或者 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L122`\""
 
-#, fuzzy
 msgid "DT representation for USB Host: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L193` or :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181`"
-msgstr "USB Host的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L220`"
+msgstr "USB Host的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L193` 或者 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181`"
 
-#, fuzzy
 msgid "The |sbc-nash| i.MX 93 SoC provides one RS232/RS485 serial port."
-msgstr "**phyBOARD-Nash** i.MX 93 SoC 提供一个 RS232/RS485 串口。"
+msgstr "|sbc-nash| i.MX 93 SoC 提供一个 RS232/RS485 串口。"
 
-#, fuzzy
 msgid "RS232 with HW flow control and RS485 are not working due to HW bug on the |sbc-nash| PCB revision 1616.0"
-msgstr "由于phyBOARD-Nash PCB版本1616.0上的硬件缺陷，RS232的硬件流控制和RS485无法正常工作"
+msgstr "由于 |sbc-nash| PCB版本1616.0上的硬件缺陷，RS232的硬件流控制和RS485无法正常工作"
 
-#, fuzzy
 msgid "The device tree representation for RS232 and RS485: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L174`"
-msgstr "RS232和RS485的设备树： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L251`"
+msgstr "RS232和RS485的设备树： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L174`"
 
-#, fuzzy
 msgid "Device Tree CAN configuration of |dt-carrierboard|.dts: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147` or :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147` 或者 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105`"
 
-#, fuzzy
 msgid "Audio on |sbc-segin|"
-msgstr "phyBOARD-Segin上的音频"
+msgstr "|sbc-segin| 上的音频"
 
-#, fuzzy
 msgid "On |sbc-segin| the TI TLV320AIC3007 audio codec is used. It uses I2S for data transmission and I2C for codec control. The audio signals available are:"
-msgstr "在 |sbc| 上使用了 TI TLV320AIC3007 音频编解码器（CODEC）。它使用 I2S 进行数据传输，使用 I2C 进行控制。可用的音频信号有："
+msgstr "在 |sbc-segin| 上使用了 TI TLV320AIC3007 音频编解码器（CODEC）。它使用 I2S 进行数据传输，使用 I2C 进行控制。可用的音频信号有："
 
-#, fuzzy
 msgid "Device Tree Audio configuration: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "|dt-carrierboard|.dts 的设备树 音频 配置： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62`"
 
-#, fuzzy
 msgid "Audio on |sbc-nash|"
-msgstr "phyBOARD-Nash上的音频"
+msgstr "|sbc-nash| 上的音频"
 
-#, fuzzy
 msgid "Due to HW bug Audio is broken on |sbc-nash| PCB revision: 1616.0"
-msgstr "由于硬件缺陷，phyBOARD-Nash i.MX 93 PCB 版本：1616.0上的音频功能不可用"
+msgstr "由于硬件缺陷，|sbc-nash| PCB 版本：1616.0上的音频功能不可用"
 
-#, fuzzy
 msgid "To use audio with |sbc-nash| an additional adapter for the Audio/Video connector is needed. The PEB-AV-10 (1531.1 revision) can be bought separately to the Kit. PEB-AV-10 is populated with a TI TLV320AIC3007 audio codec. Audio support is done via the I2S interface and controlled via I2C."
-msgstr "要在phyBOARD-Nash上使用音频，需要在Audio/Video接口连接一个扩展板。PEB-AV-10（1531.1修订版）可以单独购买，并未随套件一起提供。PEB-AV-10配备了TI TLV320AIC3007音频编解码器（CODEC）。音频支持通过I2S接口实现，并通过I2C控制。"
+msgstr "要在 |sbc-nash| 上使用音频，需要在Audio/Video接口连接一个扩展板。PEB-AV-10（1531.1修订版）可以单独购买，并未随套件一起提供。PEB-AV-10配备了TI TLV320AIC3007音频编解码器（CODEC）。音频支持通过I2S接口实现，并通过I2C控制。"
 
-#, fuzzy
 msgid "Device Tree Audio configuration: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso#L56`"
-msgstr " |dt-carrierboard|.dts 的设备树 CAN 配置： :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`"
+msgstr "音频的设备树配置： :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso#L56`"
 
-#, fuzzy
 msgid "The device tree of PEB-AV-02 can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "PEB-AV-02的设备树配置：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso`"
 
-#, fuzzy
 msgid "The device tree of PEB-AV-10 can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "PEB-AV-10的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso`"
 
-#, fuzzy
 msgid "Device tree TPM configuration can be found here: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L151`"
-msgstr "LVDS的设备树：:linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`"
+msgstr "TPM的设备树：:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L151`"
 
 #~ msgid "Build imx-boot"
 #~ msgstr "编译 imx-boot"
