@@ -1,22 +1,22 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD25.1.0
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/sdk/ampliphy-vendor-xwayland/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.wic
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD23.1.0/images/ampliphy-vendor-xwayland/phyboard-polis-imx8mm-5/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/sdk/ampliphy-vendor/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
-.. _`static-pdf-dl`: ../../../_static/imx8mm-head.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mm-pd25.1.0.pdf
 
 .. IMX8(MM) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2022.04_2.2.2-phy5#n120
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2024.04-2.2.0-phy10#n129
 
 
 .. General Replacements
-.. |doc-id| replace:: L-1002e.Ax
+.. |doc-id| replace:: PD25.1.0 NXP
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Polis
@@ -79,12 +79,12 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD24.1.0
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD25.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD24.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
-.. |yocto-sdk-rev| replace:: 5.0.x
+.. |yocto-sdk-rev| replace:: 5.0.8
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Refs
@@ -119,31 +119,31 @@
 
 +----------------------+----------------------+
 | |doc-id| |soc| BSP                          |
-| Manual Head                                 |
+| Manual                                      |
 +----------------------+----------------------+
 | Document Title       | |doc-id| |soc| BSP   |
-|                      | Manual Head          |
+|                      | Manual               |
 +----------------------+----------------------+
 | Document Type        | BSP Manual           |
 +----------------------+----------------------+
 | Article Number       | |doc-id|             |
 +----------------------+----------------------+
-| Yocto Manual         |                      |
+| Yocto Manual         | Scarthgap            |
 +----------------------+----------------------+
-| Release Date         | XXXX/XX/XX           |
+| Release Date         | 2025/03/28           |
 +----------------------+----------------------+
 | Is Branch of         | |doc-id| |soc| BSP   |
-|                      | Manual Head          |
+|                      | Manual               |
 +----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ================= ==========
-Compatible BSPs  BSP Release Type BSP Release  Date BSP Status
+==================== ================ ================= ==========
+Compatible BSPs      BSP Release Type BSP Release  Date BSP Status
 
-================ ================ ================= ==========
-..
-================ ================ ================= ==========
+==================== ================ ================= ==========
+|yocto-manifestname| Major            2025/03/28        Released
+==================== ================ ================= ==========
 
 .. include:: ../../intro.rsti
 
@@ -583,9 +583,3 @@ The device tree of PEB-AV-10 can be found here:
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti
-
-.. +---------------------------------------------------------------------------+
-..                          BSP EXTENSIONS
-.. +---------------------------------------------------------------------------+
-
-.. include:: /bsp/bsp-extensions.rsti
