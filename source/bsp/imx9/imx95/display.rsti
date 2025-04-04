@@ -1,0 +1,50 @@
+Display
+-------
+
+.. supported-display-interfaces-marker-start
+
+The |sbc| supports up to 3 different display outputs. The following table shows
+the required extensions and devicetree overlays for the different interfaces.
+The PEB-AV-20 is not supported yet.
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+LVDS1     PEB-AV-10                |dtbo-peb-av-10|
+LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds.dtso
+MIPI      PEB-AV-20
+========= ======================== ======================================
+
+.. supported-display-interfaces-marker-end
+
+.. note::
+
+   *  When changing Weston output, make sure to match the audio output as well.
+   *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
+
+The default-enabled Interface is LVDS0 (onboard LVDS). We support a
+10'' edt,etml1010g0dka display for the |lvds-display-adapters|.
+
+.. note::
+
+   The current display driver limits the pixel clock for a display connected to
+   LVDS to 74.25Mhz (or a divider of it).  If this does not fit your display
+   requirements, please contact Support for further help.
+
+Weston Configuration
+....................
+
+In order to get an output from Weston on the correct display, it still needs to
+be configured correctly. This will be done at /etc/xdg/weston/weston.ini.
+
+Single Display
+~~~~~~~~~~~~~~
+
+In our BSP, the default Weston output is set to LVDS-1 (onboard LVDS).
+
+.. code-block::
+   :substitutions:
+
+   [output]
+   name=LVDS-1
+   mode=preferred
