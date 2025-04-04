@@ -1,0 +1,284 @@
+Secure Key Storage
+==================
+
+A fundamental aspect of security is integrity and confidentiality. Many applications require an embedded device to keep sensitive data.
+The standard solution to this problem is to use encryption to protect the data and ensure that only authorized users have access to the encryption key.
+When a user interacts directly with a system, the encryption key can be protected with a password, pin code, or fingerprint that is provided by the user.
+However, many embedded devices work without user interaction, so this is not an option in those cases.
+
+In the BSP, three different variants of Secure Key Storage can be implemented, depending on hardware support.
+The available hardware support is activated with :code:`MACHINE_FEATURE`.
+
++---------------------+-------------------------------------+------------------+
+|| Type of            || Hardware Support                   || MACHINE_FEATURE |
+|| Secure Key Storage ||                                    ||                 |
++=====================+=====================================+==================+
+|| NXP CAAM           || * all NXP i.MX6, i.MX6UL           || caam            |
+||                    || * all i.MX8M series                ||                 |
+||                    ||                                    ||                 |
++---------------------+-------------------------------------+------------------+
+|| Trusted Execution  || * all NXP i.MX SOC                 || optee           |
+|| Environment TEE    || * all TI K3 SOC                    ||                 |
++---------------------+-------------------------------------+------------------+
+|| Trusted platform   || * on base boards for i.MX8M series || tpm             |
+|| Module TPM         || * on phyGATE-Tauri-S / L           ||                 |
+||                    || * on i.MX9 phyBOARD-Nash           ||                 |
++---------------------+-------------------------------------+------------------+
+
+Machines built with the :code:`MACHINE_FEATURE` have all necessary prerequisites enabled.
+
+NXP i.MX CAAM
+-------------
+
+The NXP i.MX6, i.MX6UL and i.MX8M series processors include hardware encryption through NXP's Cryptographic Accelerator and Assurance Module
+(CAAM, also known as SEC4). The CAAM combines functions to create a modular and scalable acceleration and assurance engine.
+
+More information about the CAAM module can be found in the corresponding NXP reference Manual:
+`i:MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_
+
+Prerequisites and Caveats
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Secureboot is required for trusted CAAM Key blob functionality. If Secure Boot Keys are burned, the keys are locked.
+After a reset, the CAAM unit creates internal keys for the signing and encryption CAAM blobs.
+These keys are internal in the CAAM and can not be read out and overwritten.
+
+Test and using
+^^^^^^^^^^^^^^
+
+You can use the CAAM unit accelerator with the cryptodev driver.
+
+.. code-block:: console
+
+    kernel$ openssl rand -engine devcrypto -hex 30
+    kernel$ openssl ecparam -engine devcrypto -genkey -out eckey.pem -name prime256v1
+
+Trusted Execution Environment: OP-TEE
+-------------------------------------
+
+OP-TEE is a Trusted Execution Environment (TEE) designed as a companion to a non-secure Linux kernel running on Arm;
+Cortex-A cores using the TrustZone technology.
+
+OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SOC.
+This allows users who are interested in utilizing `OP-TEE <https://optee.readthedocs.io/en/latest/>`_ to use and test it on their devices.
+
+.. warning::
+
+    If you want to use OP-TEE in production, then you must configure the complete isolation between
+    the normal and secure TrustZone world.
+    `For more information <https://optee.readthedocs.io/en/latest/architecture/platforms/nxp.html>`_
+
+OP-TEE is divided into the following components:
+
+* OP-TEE kernel: The kernel acts as a secure world OS. This kernel is signed by HABv4.
+* tee-supplicant: Helper daemon allowing OP-TEE to read/write from/to secure storage. In practice, this means OP-TEE will save encrypted and authenticated data in the filesystem.
+* xtest: Utilities to test OP-TEE.
+
+Prerequisites and Caveats
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Secure Boot is required for OP-TEE to prevent a malicious OP-TEE kernel from loading.
+* It is furthermore required to allow the generation of a hardware unique key that OP-TEE can use to derive a key for secure storage encryption and other use cases.
+* Trusted Application Key-Pair: `OP-TEE signs trusted applications  <https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair>`_ in order to ensure their authenticity and integrity. By default, OP-TEE uses a pre-generated key, which you must replace with your own before using OP-TEE in production.
+
+Testing OP-TEE
+^^^^^^^^^^^^^^
+
+**xtest**
+    * When OP-TEE is enabled during the build, the "xtest" utility will be shipped.
+    * Executing "xtest" will run a couple of tests supplied by the OP-TEE project to ensure it is working as intended.
+
+**Memory Isolation: devmem2**
+    * OP-TEE will load itself into a defined region in RAM. This region is reserved in Linux and does not attempt to allocate memory in this area.
+    * OP-TEE modifies the device tree of Linux during startup to ensure this.
+    * During runtime, the following nodes will be visible in the device tree:
+
+    .. code-block:: console
+
+        kernel$ dtc -I dtb -O dts /proc/device-tree
+        reserved-memory {
+                #address-cells = <0x02>;
+                #size-cells = <0x02>;
+                ranges;
+
+                linux,cma {
+                        linux,cma-default;
+                        alloc-ranges = <0x00 0x40000000 0x00 0x40000000>;
+                        compatible = "shared-dma-pool";
+                        size = <0x00 0x28000000>;
+                        reusable;
+                };
+
+                optee_shm@0x57c00000 {
+                        reg = <0x00 0x57c00000 0x00 0x400000>;
+                        no-map;
+                };
+
+                optee_core@0x56000000 {
+                        reg = <0x00 0x56000000 0x00 0x1c00000>;
+                        no-map;
+                };
+        };
+
+    * optee_core denotes the secure world memory region. It is not accessible, even to the Linux kernel. optee_shm is the shared region between the normal and secure world, allowing normal-world client applications to exchange data with OP-TEE-trusted applications.
+    * Memory access policy enforcement can be tested using the "devmem2" utility.
+
+    .. code-block:: console
+
+        kernel$ devmem2 0x5600000
+
+        Memory mapped at address 0xffff88e2c000.
+        Bus error
+
+        kernel$ $?
+        135
+
+        kernel$ devmem2 0x57c00000
+        /dev/mem opened.
+        Memory mapped at address 0xffffb4f3c000.
+        Read at address  0x57C00000 (0xffffb4f3c000): 0xA0A28501
+
+    * In this example the 0x5600000 address is the optee_core region. Access is currently being blocked by the TZASC policy set up by OP-TEE, which causes a "Bus error". The shared region, on the other hand, is accessible.
+
+Trusted Platform Module (TPM) 2.0
+---------------------------------
+
+The Trusted Platform Module (TPM) is an international standard for a secure cryptoprocessor, a dedicated microcontroller designed to secure hardware through integrated cryptographic keys.
+The TPM 2.0 is:
+
+* specified from the `Trusted Computing Group (TCG) <https://trustedcomputinggroup.org/resource/pc-client-platform-tpm-profile-ptp-specification/>`_
+* TCG and Common Criteria (CC) certified EAL4+
+* updateable for the Firmware
+* available from different manufacturers
+* used to create and store keys and certificates that can be used for filesystem encryption, device identification, and authentication
+* a safe on the device, because the persistent keys are in the TPM and the key blobs can only be encrypted with the specific TPM
+
+The Linux kernel has driver support for the TPM. TPM is the standard trusted key in the kernel keyring service.
+The `middleware for the TPM <https://github.com/tpm2-software>`_ is Open Source and supports OpenSSL, PKCS#11, and more.
+`More information about the software stack for the TPM 2.0:  <https://tpm2-software.github.io/>`_
+`A practical guide for using the TPM 2.0: <https://link.springer.com/content/pdf/10.1007%2F978-1-4302-6584-9.pdf>`_
+
+The TPM is not on the SOM, it is located on the carrier board.
+
+Initialization of the TPM
+^^^^^^^^^^^^^^^^^^^^^^^^^
+The TPM 2.0 must be initialized at first with the command *tss2_provision*.
+This command is used in the tool *physecurekeystorage-install*, when you use the *trustedtpm* key type.
+
+Kernel Key Retention Service for filesystem Encryption
+------------------------------------------------------
+
+"The Linux key-management facility is primarily a way for various kernel components to retain or cache security data, authentication keys, encryption keys, and other data in the kernel."
+Linux kernel is a kernel’s facility for “password caching”, which stores them in a computer’s memory (RAM) during an active user’s/system session.
+The Linux keyring accessing is via syscalls from the user space into the kernel space. Applications to access are keyctl, systemd-ask-password and others.
+
+The documentation about the Kernel Key Retention service can be found at `<https://www.kernel.org/doc/html/latest/security/keys/core.html>`_
+The following description and implementation are based on the `<https://www.kernel.org/doc/html/latest/security/keys/trusted-encrypted.html>`_
+
+* The kernel standard trusted key types are trusted tpm, trusted tee and trusted caam.
+  The encrypted blobs are stored in the file trusted_key.blob in the first boot partition and in the  third partition with name config.
+* The secure caam is only suported in the NXP vendor based BSP and used the black key blob mechanism and used the kernel key type logon.
+  The encrypted blobs are stored in the file  tksecure_key.
+
+The following table list the supported key types for the different SOC`s.
+
++-------------+------------------+-------------+-------------+------------+-------------+
+|| Key        || depend on the   || NXP        || NXP        || NXP       || TI         |
+|| Type       || MACHINE_FEATURE || i.MX6 (UL) || i.MX8M MNP || i.MX93/91 || AM6 Series |
++=============+==================+=============+=============+============+=============+
+| trustedtpm  | tpm2             | x           | x           | x          | x           |
++-------------+------------------+-------------+-------------+------------+-------------+
+| trustedtee  | optee            | x           | x           | x          | x           |
++-------------+------------------+-------------+-------------+------------+-------------+
+| trustedcaam | caam             | x (not ULL) | x           |            |             |
++-------------+------------------+-------------+-------------+------------+-------------+
+| securecaam  | caam             |             | x           |            |             |
++-------------+------------------+-------------+-------------+------------+-------------+
+
+
+Secure Key Storage Initialization with phySecureKeyStorage Tool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The tool *physecurekeystorage-install* is part of the ramdisk userspace of phytec-provisioning-initramfs
+and included in the meta-ampliphy layer of the PHYTEC Standard BSP.
+you can find the tool `here <https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage>`_.
+
+The *physecurekeystorage-install* tool can initialize all supported secure key storages of your machine, but always only one can be active.
+For example, the phyBOARD-Polis-imx8mm supports Trusted TEE, Trusted TPM, Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.
+
+.. code-block:: console
+
+    PHYTEC Install Script v1.7 for Secure Key Storage
+
+    Usage:  physecurekeystorage-install [PARAMETER] [ACTION]
+
+    Example:
+        physecurekeystorage-install --newkeystorage trustedtpm
+        physecurekeystorage-install --deletekeystorage
+        physecurekeystorage-install --loadkeystorage
+        physecurekeystorage-install --pkcs11testkey
+
+    One of the following action can be selected:
+        -n | --newkeystorage <value>  Create new Secure Key Storage
+                                trustedcaam (only NXP controller)
+                                trustedtee
+                                trustedtpm
+                                securecaam (black blob only NXP Vendor BSP)
+        -d | --deletekeystorage Erase the existing Secure Key Storage
+        -l | --loadkeystorage   Load the existing Secure Key Storage
+        -p | --pkcs11testkey    Create an ECC testkey with user pin 1234
+        -h | --help             This Help
+        -v | --version          The version of physecurekeystorage-install
+
+
+Cryptographic Token Interface PKCS#11
+-------------------------------------
+
+Also known as "Cryptoki". PKCS#11 specifies a number of standard calls to relay cryptographic requests (such as a signing operation) to
+a third party module. Such a module may be a TPM or OP-TEE, it is a software PKCS#11 trusted application that appears to the userland as one.
+
+The library or pkcs11-module-path for PKCS#11 depend on the device:
+* TPM 2.0: /usr/lib/libtpm2_pkcs11.so.0
+* OP-TEE: /usr/lib/libckteec.so.0
+* SmartCards: /usr/lib/opensc-pkcs11.so
+
+The following provider.conf is for the usage with openssl 3.0 and a TPM 2.0. Please set the pkcs11-module-path to your selected Secure key storage.
+
+.. code-block:: console
+
+    openssl_conf = openssl_init
+
+    [openssl_init]
+    providers = provider_sect
+
+    [provider_sect]
+    default = default_sect
+    pkcs11 = pkcs11_sect
+
+    [default_sect]
+    activate = 1
+
+    [pkcs11_sect]
+    module = /usr/lib/ossl-modules/pkcs11.so
+    pkcs11-module-path = /usr/lib/pkcs11/libtpm2_pkcs11.so
+    activate = 1
+
+If the TPM 2.0 is initialized e.g. with the tool physecurekeystorage, then you can create a device certificate.
+
+.. code-block:: console
+
+    #set TPM Pin
+    kernel$ TPM_PIN=1234
+    # Create self-signed certificate
+    kernel$ OPENSSL_CONF=provider.cnf openssl req -new -x509 -provider tpm2 -days 100 -subj '/CN=my_key/' -key "pkcs11:model=SLB9670;manufacturer=Infineon;token=test;object=test-keypair;type=private;pin-value=${TPM_PIN}" -out ecc.crt
+    # Write Device Cert to TPM
+    kernel$  pkcs11-tool --module /usr/lib/pkcs11/libtpm2_pkcs11.so -w ecc.crt -y cert -a iotdm-cert --pin ${TPM_PIN} -d 2
+
+.. note::
+    For device identification on a server or cloud provider, you need a Certificate Authority to sign the device certificate.
+
+* You can find a more detailed example with Op-tee `<https://optee.readthedocs.io/en/latest/building/userland_integration.html>`_
+* Examples with openssl for the TPM 2.0: `<https://github.com/tpm2-software/tpm2-tss-engine>`_
+
+`OpenSSL <https://www.openssl.org/>`_ is a robust, commercial-grade, full-featured software library for general-purpose cryptography and secure communication.
+
