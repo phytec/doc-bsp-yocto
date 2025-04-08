@@ -12,7 +12,7 @@ PEB-WLBT-05 on |sbc-segin|
 
 .. tip::
 
-   With the BSP Version PD24.2 and newer, the PEB-WLBT-05 overlay needs to be activated first,
+   With the BSP Version PD24.2.0 and newer, the PEB-WLBT-05 overlay needs to be activated first,
    otherwise the PEB-WLBT-05 won't be recognized.
 
    .. code-block:: console
