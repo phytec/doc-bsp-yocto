@@ -130,7 +130,7 @@ configuration. To make ``CONFIG_GPIO_SYSFS`` visible in menuconfig the option
 
 You can also add this option for example to the defconfig you use in
 ``arch/arm64/configs/`` in the linux kernel sources. For our NXP based releases,
-this could be for example ``imx8_phytec_distro.config``::
+this could be for example |kernel-defconfig|::
 
    ..
    CONFIG_EXPERT=y
