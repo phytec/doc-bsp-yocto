@@ -412,7 +412,8 @@ Debugging the Coprocessor
 
 In some cases it can be necessary to get a deeper insight into the coprocessor
 firmware to find bugs or to optimize the performance.
-To do that a debug probe like a J-Link is necessary.
+To do that you can use any JTAG debugger.
+The following sections describe it with the J-Link as an example.
 
 If the firmware does not need to communicate with the application processor
 via RPMsg, the coprocessor can be started easily via the debug probe and
@@ -427,8 +428,10 @@ also needs to know in which state the coprocessor is.
 .. hint::
 
    Before you start debugging, please make sure your J-Link is compatible with
-   the arm-core you want to debug. You can find this information in the
+   the architecture of the ARM-core you want to debug.
+   Most cores are possible, for example the A- or M-Core or the DSP. You can find this information in the
    Segger knowledge base. (for example: `J-Link Base 9 <https://kb.segger.com/J-Link_BASE_V9>`_)
+
 
 When debugging the coprocessor firmware, you can use the following methods:
 
@@ -441,6 +444,11 @@ Debug a non remoteproc firmware
    .. code-block:: console
 
       host:zephyrproject/zephyr$ west debug
+
+   .. hint::
+      The only thing `west debug` does is to start a JLinkGDBServer and
+      GDB with the correct parameters for your target. If you don't want to use
+      or can't use west, you can do this manually as well.
 
 3. Load the firmware on the coprocessor via GDB.
 
@@ -456,8 +464,8 @@ Debug a non remoteproc firmware
       (gdb) continue
 
 
-Debugging a remoteproc firmware
-...............................
+Debugging a remoteproc firmware using GDB
+.........................................
 
 .. note::
 
@@ -560,6 +568,60 @@ For example, you can use ``b main`` instead of ``break main`` or ``c``
 instead of ``continue``. This is useful if you have to type the command
 multiple times.
 
+
+Debugging a remoteproc firmware using SEGGER Ozone
+..................................................
+
+Prerequisites:
+
+- Have the target booted up and connected to the host via debug USB and J-Link.
+- Have the firmware in ``/lib/firmware`` on the target. For example
+  :ref:`openamp-using-resource-table` (Make sure it is the same file you are
+  debugging with Ozone!)
+- Have the resource table included in the firmware binary.
+- Have the remoteproc device enabled in the devicetree.
+- Have a serial console to the coprocessor. (e.g. via ttyUSB1)
+- Have a shell of the application processor open (e.g. via SSH)
+
+SEGGER Ozone is a powerful graphical debugging tool that can be used to debug
+any kind of target with any kind of architecture.
+It makes it more easy to attach to a running program than GDB.
+
+Here are the steps how to connect to a running program:
+
+1. Start the target and load the firmware via remoteproc:
+
+   .. code-block:: console
+
+      target:~$ echo /lib/firmware/zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+      target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+2. Start SEGGER Ozone and use the new project wizard
+3. Select your target (for example MIMX8ML8_M7 for i.MX8MP), click next and
+   select the connected J-Link debug probe.
+4. Select the compiled elf file of your firmware and click next.
+5. Select "Do not set" for initial PC and Stack Pointer to ensure that nothing
+   is overwritten.
+6. Click "Finish" to create the project.
+7. Click on the small green arrow directly next to the "On/Off" button in the
+   top left corner of the window. Click on "Attach to running program".
+8. The target will halt, even though Ozone shows "CPU Running..."
+9. To fix this behavior just restart the coprocessor via remoteproc on the
+   target:
+
+   .. code-block:: console
+
+      target:~$ echo stop > /sys/class/remoteproc/remoteproc0/state
+      target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+10. The target should now boot up, and you can debug the firmware via Ozone.
+
+
+You can use debugging with Ozone not just to debug the firmware,
+but also to debug the remoteproc framework itself.
+This can be useful if you want to find out why the coprocessor is not booting
+up or why the communication is not working or if you just want to
+get a deeper insight into the remoteproc framework.
 
 Examples and Resources
 ======================
