@@ -456,8 +456,8 @@ Debug a non remoteproc firmware
       (gdb) continue
 
 
-Debugging a remoteproc firmware
-...............................
+Debugging a remoteproc firmware using GDB
+.........................................
 
 .. note::
 
@@ -549,6 +549,53 @@ Here are some useful gdb commands to debug the coprocessor firmware:
 - ``c``: Continue the execution
 - ``step``: Step into the next function
 
+
+Debugging a remoteproc firmware using SEGGER Ozone
+..................................................
+
+Prerequisites:
+
+- Have the target booted up and connected to the host via debug USB and J-Link.
+- Have the firmware in ``/lib/firmware`` on the target. (Make sure it is
+  the same file you are debugging with Ozone!)
+- Have the resource table included in the firmware binary.
+- Have the remoteproc device enabled in the devicetree.
+- Have a serial console to the coprocessor. (e.g. via ttyUSB1)
+- Have a shell of the application processor open (e.g. via SSH)
+
+SEGGER Ozone is a powerful graphical debugging tool that can be used to debug
+any kind of target with any kind of architecture.
+It makes it more easy to attach to a running program.
+
+Somehow it isn't as easy as it seems just pressing the button "Attach to
+Running Program". Here are the steps how to connect to a running program:
+
+1. Start the target and load the firmware via remoteproc:
+
+   .. code-block:: console
+
+      target:~$ echo /lib/firmware/zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+      target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+2. Start SEGGER Ozone and use the new project wizard
+3. Select your target (for example MIMX8ML8_M7 for i.MX8MP), click next and
+   select the connected J-Link debug probe.
+4. Select the compiled elf file of your firmware and click next.
+5. Select "Do not set" for initial PC and Stack Pointer to ensure that nothing
+   is overwritten.
+6. Click "Finish" to create the project.
+7. Click on the small green arrow directly next to the "On/Off" button in the
+   top left corner of the windows. Click on "Attach to running program".
+8. The target will halt somehow, even though Ozone shows "CPU Running..."
+9. To fix this behavior just restart the coprocessor via remoteproc on the
+   target:
+
+   .. code-block:: console
+
+      target:~$ echo stop > /sys/class/remoteproc/remoteproc0/state
+      target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
+
+10. The target should now boot up, and you can debug the firmware via Ozone.
 
 Examples and Resources
 ======================
