@@ -139,5 +139,6 @@ Activate the following DISTRO_FEATURES in your distrobution
 .. include:: common/devicetree-overlay.rsti
 .. include:: common/secure-key-storage.rsti
 .. include:: common/hardening.rsti
+.. include:: common/physical-security.rsti
 .. include:: common/soc-configuration-tools.rsti
 .. include:: common/phytec-pki.rsti
