@@ -4,6 +4,16 @@ SoC specific configuration tools
 In this chapter are tools, which can use for a better configuartion of features for your SoM.
 Mostly you can use the bootloader commands, but the parameters and addresses differs between the versions.
 
+NXP UUU (Universal Update Utility) -Tool
+----------------------------------------
+
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute on the host to load and
+run the bootloader on the board through SDP (Serial Download Protocol).
+For detailed information visit `<https://github.com/nxp-imx/mfgtools>`_ or download the
+`Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+
+More information and examples you can found in the SoC specific manuals.
+
 NXP i.MX6 and i.MX8M MNP eFuse tool crucible
 --------------------------------------------
 
