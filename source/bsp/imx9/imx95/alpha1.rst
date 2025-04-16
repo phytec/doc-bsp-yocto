@@ -335,6 +335,35 @@ General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
 :linux-phytec-imx:`tree/v6.6.52-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L190`
 
+EEPROM
+------
+
+The system features three I2C EEPROM devices distributed across the SoM and carrier board:
+
+On the |som| SoM:
+
+ * Board Detection EEPROM (write-protected)
+    * Bus: I2C-0
+    * Address: 0x51
+    * Purpose: Factory configuration for board identification
+
+ * User EEPROM
+    * Bus: I2C-0
+    * Address: 0x50
+    * Purpose: Available for user applications
+
+Device Tree Reference for SoM EEPROMs:
+:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L172`
+
+And on the |sbc| carrier board:
+
+ * Board Detection EEPROM
+    * Bus: I2C-4
+    * Address: 0x51
+    * Purpose: Reserved for carrier board identification
+
+Device Tree Reference for Carrier Board:
+:linux-phytec-imx:`tree/v6.6.52-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L190`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
