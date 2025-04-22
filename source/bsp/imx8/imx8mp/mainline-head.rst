@@ -174,7 +174,7 @@ First Start-up
 .. image:: images/SD_Card_Boot.png
 
 *  Insert the SD card
-*  Connect the target and the host with **mirco USB** on |ref-debugusbconnector|
+*  Connect the target and the host with **micro USB** on |ref-debugusbconnector|
    debug USB
 *  Power up the board
 
