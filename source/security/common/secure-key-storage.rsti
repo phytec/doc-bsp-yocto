@@ -195,6 +195,7 @@ The following table list the supported key types for the different SOC`s.
 | securecaam  | caam             |             | x           |            |             |
 +-------------+------------------+-------------+-------------+------------+-------------+
 
+.. _secure-key-storage-init:
 
 Secure Key Storage Initialization with phySecureKeyStorage Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
