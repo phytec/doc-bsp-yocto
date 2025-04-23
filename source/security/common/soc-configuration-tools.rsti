@@ -14,6 +14,21 @@ For detailed information visit `<https://github.com/nxp-imx/mfgtools>`_ or downl
 
 More information and examples you can found in the SoC specific manuals.
 
+
+Snagboot recover and reflashing tool
+------------------------------------
+
+An alternative to the NXP UUU tool is snagboot, which supports TI k3, STM32 and NXP SoC's.
+More information you can find `<https://github.com/bootlin/snagboot>`_
+
+partup - the system initialization program
+------------------------------------------
+
+The partup is the PHYTEC default program for partitioning and image installation on an embedded device.
+The partup image is created in the yocto build and is smaller as an wic image.
+
+More information you can find `<https://github.com/phytec/partup>`_
+
 NXP i.MX6 and i.MX8M MNP eFuse tool crucible
 --------------------------------------------
 
