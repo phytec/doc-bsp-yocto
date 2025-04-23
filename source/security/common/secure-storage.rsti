@@ -1,0 +1,190 @@
+Secure Storage
+==============
+
+Secure storage is a combination of the authenticated and encrypted filesystem that adds another layer of security to your product.
+It uses the kernel's cryptographic support to encrypt all the data you store in the root filesystem.
+Attempting to access this data without the correct encryption key returns random, meaningless bytes.
+
+The default implementation of secure storage in the PHYTEC BSP is the root filesystem encryption with integrity support:
+
+.. image:: images/secure-storage.svg
+
+This manual describes the integrity or/and encryption of the complete root filesystem. Note that on-the-fly encryption and decryption do introduce a small performance penalty in read and write speeds.
+
+Alternatives for the complete root filesystem with integrity and encryption are:
+
+    * Partition encryption: To protect some sensitive files but not pay the cost of encrypting the complete rootfs, you can keep the rootfs partition authenticated unencrypted and set up a specific authenticated encrypted partition where the sensitive files will be stored.
+    * File-specific encryption: Only separate folders and files will be encrypted.
+
+.. note::
+
+    * ampliphy-secure is an example of how integrity and encryption on embedded devices work. It uses encryption with integrity for a complete partition on eMMC. 
+    * Encrypting the entire root partition should be considered. However, this can only be done on the device.
+    * An integrity check with dm-integrity is a highly recommended addition to the filesystem encryption.
+
+Filesystem with Integrity vs Authenticated filesystem
+-----------------------------------------------------
+
+The actual standard BSP includes integrity support with hash sha-256,  which has protection against data error.
+An authenticated file system should use HMAC with signed hashes, which have protection against device-turned-off data manipulation from attackers.
+For this variant, an additional symmetric key is necessary.
+
+Requirements for Filesystem Encryption
+--------------------------------------
+
+* File integrity and encryption support for block devices (SD card, eMMC) or MTD device (NAND, NOR)
+* Secure Key Storage to securely store the authentication and encryption key
+* Secure Boot must be activated and the device must be locked for proper secure key storage.
+* A user login should be activated for access control on runtime.
+
+Boot Process Flow
+-----------------
+
+* bootloader verifies FIT-Image with linux-kernel image, device tree, and ramdisk before they are executed
+* Linux kernel executes the ramdisk (read-only filesystem)
+* The bootscript loads the authenticated encrypted filesystem encryption key with the CAAM, TEE or TPM unit in the RAM and encrypts the filesystem. After the encryption, the root filesystem will be switched and the boot process continues.
+
+Starting the Build Process
+--------------------------
+
+Filesystem integrity and encryption are included in the *DISTRO_FEATURE* secureboot and securestorage.
+
+You can choose in the *sources/meta-ampliphy/conf/distro/common-secure.inc* between
+
+  * fileauthorenc: use integrity or encrypted filesystem
+  * fileauthandenc: use integrity and encrypted filesystem
+
+This configuration is important for the RAUC update system because the use of integrity and
+encrypted filesystem are stacked and the number of device-mappers is doubled to use integrity or encrypted filesystem.
+
+.. code-block:: console
+
+    DISTRO_FEATURES += "securestorage"
+    #possible types: fileauthorenc , fileauthandenc
+    SECURE_STORAGE_TYPE = "fileauthandenc"
+    OVERRIDES_append = ":securestorage:${SECURE_STORAGE_TYPE}"
+
+This configuration changes the rauc system.conf configuration in the rootfs image for the target, too.
+The device change from the /dev/mtdblockX to the device mapper /dev/dm-x.
+With this changes the integrity and the encryption are retained during an update.
+
+Setup Secure Storage on your Device
+-----------------------------------
+
+The filesystem encryption ensures the target has a unique key or an equal key per device.
+
+The filesystem encryption process flow:
+
+* The filesystem encryption key is generated and stored encrypted with CAAM, TEE, or TPM.
+* Encryption is initialized.
+* The partition is formatted.
+* Data is copied to the encrypted partition.
+
+1. First Boot
+^^^^^^^^^^^^^
+
+From a high-level point of view, an eMMC device is like an SD card. Therefore, it is possible to flash the image phytec-provisioning-image
+from the Yocto build system directly to the SD card. The image contains the signed bootloader and signed FIT-Image with an initramfs.
+
+If your filesystem is not initialized, is damaged, or the key blob is deleted, then you can reinstall the encrypted filesystem with the following instructions.
+
+* Boot the phytec-provisioning-image from the SD card or load the provisioning fitImage with tftp to the memory in the bootloader
+* The device stops with the following message because there is no encrypted key stored in the folder /secrets:
+
+The default user is root with the password root:
+
+.. note::
+
+    If there is no login in 60s, then the system goes to power off
+
+    .. code-block:: console
+
+        Login timed out after 60 second
+        [ERROR] Key and Filesystem Initialization
+        The system will poweroff in 10 seconds
+        reboot: Power down
+
+* If this is your first boot from the device and no image is on the eMMC, please flash an image to the eMMC.
+
+2. Key Generation for Secure Storage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please follow the instructions in the chapter :ref:`secure-key-storage-init`
+
+3. Secure Storage Initialization with phySecureStorage tool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The tool physecurestorage-install is part of the initramfs userspace.
+
+The physecurestorage-install tool can initialize the filesystem with encryption, integrity, or both methods together.
+
+.. code-block:: console
+
+    PHYTEC Install Script v1.5 for Secure Storage
+
+    Usage:  physecurestorage-install [PARAMETER] [ACTION]
+
+    Example:
+    physecurestorage-install --flashpath /dev/mmcblk0
+    --filesystem /media/phytec-security-image.ext4
+    --flashlayout 5,6
+    --newsecurestorage intenc
+
+    One of the following action can be selected:
+        -n | --newsecurestorage <value>   Create new Secure Storage of type
+                                int     Root File System with integrity
+                                enc     Encrypted root file system
+                                intenc  Encrypted root file system with integrity
+        -h | --help             This Help
+        -v | --version          The version of the physecurestorage-install
+
+    The following PARAMETER must be set for new Secure Storage:
+        -p | --flashpath <flash device>
+        -s | --filesystem <path to root as tgz or ext4>
+        -l | --flashlayout <value>    partion number for the rootfs partitions
+                            5,6       rootfs partitions are 5 and 6
+        -L | --labelname <value>      label name for the partition
+
+* The parameter <flashpath> is the eMMC device.
+* The parameter <filesystem> is the path to tar.gz archive of the filesystem, which should be installed on the flash device.
+* Please copy the filesystem image, <IMAGENAME>-<MACHINE>.tar.gz, to a USB or MMC drive so that it can be installed on the target.
+  If you have installed a partup image at first, then partup image is mounted as squashfs and you can found the rootfs there.
+* The parameter <flashlayout> contains the rootfs partition.
+* The parameter RAUC initializes both RAUC rootfs partitions.
+* After the installation, power off the system:
+
+.. code-block:: console
+
+    kernel$ poweroff -f
+
+* Restart the system. After a successful installation, the system will boot to the kernel login console.
+
+Recover an Initialized Device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If your filesystem is damaged or the key blob is deleted, then you can reinstall the encrypted filesystem with the following options.
+
+    1. Reinitialize your device with the phytec-provisioning-image from the SD card (Boot in ramdisk)
+    2. Boot in rescue mode of the existing flash image with minimal tools support
+
+The following commands are for starting the rescue mode with a booted device from eMMC:
+
+    * Stop booting in the bootloader. The Protection Shield Level low is in default with password: root
+    * Add Linux bootargs in the bootloader and boot the fitImage from the eMMC:
+
+        * for barebox (i.MX6 and i.MX6UL)
+
+        .. code-block:: console
+
+            barebox$ global linux.bootargs.rescue="rescue=1"
+            barebox$ boot
+
+        * for u-boot:
+
+        .. code-block:: console
+
+            uboot$ run loadraucimage
+            uboot$ run raucargs
+            uboot$ setenv bootargs ${bootargs} rescue=1
+            uboot$ bootm ${loadaddr}
+
