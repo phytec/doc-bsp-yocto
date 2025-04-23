@@ -278,7 +278,7 @@ The following keys are available:
 | 3        | IMG4_1_sha256_4096_* | CSF4_1_sha256_4096_* | not revocable   |
 +----------+----------------------+----------------------+-----------------+
 
-Example for Revole Key Slot 0 on NXP SOC with HABV4
+Example for Revoke Key Slot 0 on NXP SOC with HABV4
 
 +-------------------------------------------------------+-----------------------------------+
 || barebox                                              || u-boot                           |
