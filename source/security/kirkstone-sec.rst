@@ -112,6 +112,7 @@ Activate the following DISTRO_FEATURES in your distrobution
 .. include:: common/kernel-module-signing.rsti
 .. include:: common/devicetree-overlay.rsti
 .. include:: common/secure-key-storage.rsti
+.. include:: common/secure-storage.rsti
 .. include:: common/hardening.rsti
 .. include:: common/physical-security.rsti
 .. include:: common/soc-configuration-tools.rsti
