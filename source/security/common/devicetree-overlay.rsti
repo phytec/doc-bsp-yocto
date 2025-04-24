@@ -26,6 +26,7 @@ Build Time
 The overlays set in the $KERNEL_DEVICETREE Yocto machine variable will be automatically added as a node to the signed FIT-Image.
 
 .. note::
+
     Only Device Tree Overlays in the FIT-Image can be used on the device.
 
 Run Time
@@ -33,7 +34,8 @@ Run Time
 
 The ${overlays} variable can be either set directly in the U-Boot environment. Or be a part of the external bootenv.txt  environment.
 
-..warning::
+.. warning::
+
     Manipulation Risk! The external bootenv.txt is not signed and protected against manipulation, so overlays can be changed and deleted in the bootenv.txt.
 
 The ${overlays} variable loaded from the external environment will always overwrite the value from the environment saved directly in the flash.
