@@ -1,0 +1,32 @@
+Security Vulnerabilities
+========================
+
+The used software can be affected by security vulnerabilities.
+A security vulnerability generally is a bug in software code that could allow an attacker to gain control of a system.
+It is essential to check the software regularly against published security flaws (Common Vulnerabilities and Exposures).
+
+The OpenEmbedded Core layer has a cve-check class to check the recipes against public CVEs.
+With this CVE check you get a list of all CVEs for the version of the package.
+Only the CVEs with a Patch with the name of the CVE in the recipe or CVEs in a Whitelists can be marked as fixed.
+There is no code analysis and you must start for every check a new yocto build.
+
+CycloneDX SBOM
+--------------
+
+`CycloneDX <https://cyclonedx.org/>`_ is an international Standard (`ECMA-424 <https://ecma-international.org/publications-and-standards/standards/ecma-424/>`_) for Bill of Materials
+and makes it simple to detect, triage, and report security vulnerabilities.
+The CycloneDX is in `JSON Format <https://cyclonedx.org/docs/1.6/json/>`_ and the component identifiers CPE and PURL enables the detection of known
+vulnerabilities.
+In the PHYTEC BSP you can activate the creation of a CycloneDX SBOM in your *local.conf*:
+
+.. code-block:: console
+
+    # include the sbom-cyclonedx class for SBOM creation
+    INHERIT += "sbom-cyclonedx"
+    # add information as property in the component
+    CYCLONEDX_EXPORT_PROPERTIES ?= "SRC_URI SRCREV"
+    # add config and builded file names for kernel and bootloader
+    CYCLONEDX_WITH_BUILDINFOS ?= "1"
+
+This generated SBOM has information about the bootloader and kernel build for code based CVE Analysis, which you
+can order as a service from PHYTEC.

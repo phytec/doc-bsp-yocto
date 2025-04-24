@@ -143,3 +143,4 @@ Activate the following DISTRO_FEATURES in your distrobution
 .. include:: common/physical-security.rsti
 .. include:: common/soc-configuration-tools.rsti
 .. include:: common/phytec-pki.rsti
+.. include:: common/vulnerabilities.rsti
