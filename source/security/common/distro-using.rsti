@@ -60,7 +60,7 @@ Secure boot, because signed images can be booted independence of the device stat
 Enable |branding-name| Features in your own Distro
 --------------------------------------------------
 
-Activate the following DISTRO_FEATURES in your distrobution
+Activate the following DISTRO_FEATURES in your distribution
 
 +-----------------+----------------------------------------------------------------+
 | DISTRO_FEATURES | Description                                                    |
