@@ -58,7 +58,7 @@ Introduction
 ============
 
 PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports different
-Security mechanism. The security features have inpact to the bootloader,
+Security mechanism. The security features have impact to the bootloader,
 the Linux kernel, Device Tree, and root filesystem.
 This manual describes how Security featuresis used and implemented on various
 PHYTEC platforms. Note, that different modules use different bootloaders and flash
@@ -518,15 +518,15 @@ Kernel Key Retention Service for filesystem Encryption
 ------------------------------------------------------
 
 "The Linux key-management facility is primarily a way for various kernel components to retain or cache security data, authentication keys, encryption keys, and other data in the kernel."
-Linux kernel is a kernel’s facility for “password caching”, which stores them in a computer’s memory (RAM) during an active user’s/system session.
+Linux kernel is a kernels facility for “password caching”, which stores them in a computers memory (RAM) during an active users/system session.
 The Linux keyring accessing is via syscalls from the user space into the kernel space. Applications to access are keyctl, systemd-ask-password and others.
 
 The documentation about the Kernel Key Retention service can be found at `<https://www.kernel.org/doc/html/latest/security/keys/core.html>`_
 The following description and implementation are based on the `<https://www.kernel.org/doc/html/latest/security/keys/trusted-encrypted.html>`_
 
 * The kernel standard trusted key types are trusted tpm, trusted tee and trusted caam.
-  The encrypted blobs are stored in the file trusted_key.blob in the first boot partition and in the  third partition with name config.
-* The secure caam is only suported in the NXP vendor based BSP and used the black key blob mechanism and used the kernel key type logon.
+  The encrypted blobs are stored in the file trusted_key.blob in the first boot partition and in the third partition with name config.
+* The secure caam is only supported in the NXP vendor based BSP and used the black key blob mechanism and used the kernel key type logon.
   The encrypted blobs are stored in the file  tksecure_key.
 
 The following table list the supported key types for the different SOC`s.
@@ -674,11 +674,11 @@ The most controllers allows you to regulate JTAG access with three security mode
 ||           ||          || any debugging.                        ||          ||          |
 +------------+-----------+----------------------------------------+-----------+-----------+
 
-The NXP Soc support differents authentification depend on the SoC or the state of the SoC
+The NXP Soc support different authentication depend on the SoC or the state of the SoC
 
 * NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can be activate independent of the lifecycle
 
-The Secure Debug Mechanism with authentification differs between NXP and TI.
+The Secure Debug Mechanism with authentication differs between NXP and TI.
 
 .. image:: images/secure-jtag.png
 
@@ -691,7 +691,7 @@ The Secure Debug Mechanism with authentification differs between NXP and TI.
 Additional information about JTAG Security can be found:
 
 * NXP:
-  `Secure Debug in i.MX6/7/8M Family of Application Precessors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_
+  `Secure Debug in i.MX6/7/8M Family of Application Processors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_
 * TI: `Secure Debug User Guide <https://downloads.ti.com/tisci/esd/latest/6_topic_user_guides/secure_debug.html?highlight=jtag>`_
   or in the restricted security resources for your SoC type.
 

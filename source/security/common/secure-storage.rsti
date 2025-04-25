@@ -18,7 +18,7 @@ Alternatives for the complete root filesystem with integrity and encryption are:
 
 .. note::
 
-    * ampliphy-secure is an example of how integrity and encryption on embedded devices work. It uses encryption with integrity for a complete partition on eMMC. 
+    * ampliphy-secure is an example of how integrity and encryption on embedded devices work. It uses encryption with integrity for a complete partition on eMMC.
     * Encrypting the entire root partition should be considered. However, this can only be done on the device.
     * An integrity check with dm-integrity is a highly recommended addition to the filesystem encryption.
 
@@ -141,7 +141,7 @@ The physecurestorage-install tool can initialize the filesystem with encryption,
     The following PARAMETER must be set for new Secure Storage:
         -p | --flashpath <flash device>
         -s | --filesystem <path to root as tgz or ext4>
-        -l | --flashlayout <value>    partion number for the rootfs partitions
+        -l | --flashlayout <value>    partition number for the rootfs partitions
                             5,6       rootfs partitions are 5 and 6
         -L | --labelname <value>      label name for the partition
 
