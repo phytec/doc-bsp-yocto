@@ -206,7 +206,7 @@ Once you have your bootable SD card, copy the :code:`tiboot3.bin` you generated 
 
     Now you must set JP8 on the development kit for AM62x in order to flash the keys.
 
-    .. image:: images/phycore-am62x/pb-07124_secureboot_JP8_J28.webp
+    .. image:: images/phycore-am62x/pb-07124_secureboot_JP8_J28.png
         :width: 700px
         :alt: phyCORE-AM62x JP8
 
@@ -217,7 +217,7 @@ Once you have your bootable SD card, copy the :code:`tiboot3.bin` you generated 
 
     Now you must set JP5 to pins 1 and 2 on the development kit in order to flash the keys.
 
-    .. image:: images/phycore-am64x/pb-07225_secureboot_JP5.webp
+    .. image:: images/phycore-am64x/pb-07225_secureboot_JP5.png
         :width: 700px
         :alt: phyCORE-AM64x JP5
 
