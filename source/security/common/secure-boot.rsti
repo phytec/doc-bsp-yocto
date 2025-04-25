@@ -17,7 +17,7 @@ Boot Process
 The boot process differs between the SOC and the vendor of the SOC's.
 The main boot process is the following
 
-.. image:: images/image-verification.svg
+.. image:: images/image-verification.png
 
 1. The Trusted ROM-bootloader, which is part of the SOC, verifies the boot container (U-boot spl, ATF, firmware, op-tee)
 with the internal unit (**Boot Step 1**)
@@ -50,7 +50,7 @@ Image Signing
 
 In the following flowchart you can see the signing process for different parts of an image.
 
-.. image:: images/image-signing.svg
+.. image:: images/image-signing.png
 
 1. A Hash is created for the binary file like the boot container, Kernel FIT-Image, kernel modules, op-tee applications
 or the rauc update bundle.

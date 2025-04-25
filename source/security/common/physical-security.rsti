@@ -46,7 +46,7 @@ The NXP Soc support differents authentification depend on the SoC or the state o
 
 The Secure Debug Mechanism with authentification differs between NXP and TI.
 
-.. image:: images/secure-jtag.svg
+.. image:: images/secure-jtag.png
 
 .. note::
 
