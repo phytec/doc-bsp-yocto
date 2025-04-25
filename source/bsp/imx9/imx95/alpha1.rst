@@ -20,8 +20,8 @@
 .. |soc| replace:: i.MX 95
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyCORE-i.MX95 FPSC
-.. |debug-uart| replace:: ttymxc0
-.. |serial-uart| replace:: ttymxc5
+.. |debug-uart| replace:: ttyLP6
+.. |serial-uart| replace:: ttyLP7
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X56
 
