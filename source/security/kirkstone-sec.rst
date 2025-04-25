@@ -1,6 +1,8 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/kirkstone-sec.pdf
 
+.. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init-kirkstone`
+
 .. Yocto
 .. |branding-name| replace:: Security
 .. |yocto-codename| replace:: Kirkstone
@@ -261,7 +263,7 @@ Once you have your bootable SD card, copy the :code:`tiboot3.bin` you generated 
 
     Now you must set JP8 on the development kit for AM62x in order to flash the keys.
 
-    .. image:: images/phycore-am62x/pb-07124_secureboot_JP8_J28.webp
+    .. image:: images/phycore-am62x/pb-07124_secureboot_JP8_J28.png
         :width: 700px
         :alt: phyCORE-AM62x JP8
 
@@ -272,7 +274,7 @@ Once you have your bootable SD card, copy the :code:`tiboot3.bin` you generated 
 
     Now you must set JP5 to pins 1 and 2 on the development kit in order to flash the keys.
 
-    .. image:: images/phycore-am64x/pb-07225_secureboot_JP5.webp
+    .. image:: images/phycore-am64x/pb-07225_secureboot_JP5.png
         :width: 700px
         :alt: phyCORE-AM64x JP5
 
@@ -543,7 +545,7 @@ The following table list the supported key types for the different SOC`s.
 +-------------+------------------+-------------+-------------+-------------+
 
 
-.. _secure-key-storage-init:
+.. _secure-key-storage-init-kirkstone:
 
 Secure Key Storage Initialization with phySecureKeyStorage Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -678,7 +680,7 @@ The NXP Soc support differents authentification depend on the SoC or the state o
 
 The Secure Debug Mechanism with authentification differs between NXP and TI.
 
-.. image:: images/secure-jtag.svg
+.. image:: images/secure-jtag.png
 
 .. note::
 
