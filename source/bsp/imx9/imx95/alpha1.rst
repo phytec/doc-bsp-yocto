@@ -368,7 +368,10 @@ Device Tree Reference for Carrier Board:
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L147`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L152`
+
+And the addions on the carrierboard:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L290`
 
 USB Host Controller
 -------------------
