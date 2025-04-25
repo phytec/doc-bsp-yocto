@@ -7,7 +7,7 @@ Attempting to access this data without the correct encryption key returns random
 
 The default implementation of secure storage in the PHYTEC BSP is the root filesystem encryption with integrity support:
 
-.. image:: images/secure-storage.svg
+.. image:: images/secure-storage.png
 
 This manual describes the integrity or/and encryption of the complete root filesystem. Note that on-the-fly encryption and decryption do introduce a small performance penalty in read and write speeds.
 
@@ -109,7 +109,7 @@ The default user is root with the password root:
 2. Key Generation for Secure Storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please follow the instructions in the chapter :ref:`secure-key-storage-init`
+Please follow the instructions in the chapter |secure-key-storage-init-link|
 
 3. Secure Storage Initialization with phySecureStorage tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

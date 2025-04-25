@@ -1,5 +1,3 @@
-.. _b9bac35c-c97a-4305-9eeb-6a2eb8e7be84:
-
 Keys and Certificates Management
 ================================
 
@@ -18,7 +16,7 @@ PHYTEC Development Keys (phytec-dev-ca)
 
 The included phytec-dev-ca example consists of a self-signed main-ca and three derived sub-ca's for bootloader, Fit-Image, and RAUC updates.
 
-.. image:: images/phytec-pki.svg
+.. image:: images/phytec-pki.png
 
 The recipes for Bootloader, FIT-Image, and RAUC depend on the recipe phytec-dev-ca. If you build the BSP for the first time,
 the PHYTEC development keys are downloaded from https://github.com/phytec/phytec-dev-ca to yocto/phytec-dev-ca.

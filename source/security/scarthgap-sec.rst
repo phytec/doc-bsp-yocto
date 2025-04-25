@@ -1,6 +1,8 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/scarthgap-sec.pdf
 
+.. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init`
+
 .. Yocto
 .. |branding-name| replace:: SECURIphy
 .. |yocto-codename| replace:: Scarthgap
