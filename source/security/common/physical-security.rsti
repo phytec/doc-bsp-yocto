@@ -36,7 +36,7 @@ The most controllers allows you to regulate JTAG access with three security mode
 ||           ||          || any debugging.                        ||          ||          |
 +------------+-----------+----------------------------------------+-----------+-----------+
 
-The NXP Soc support differents authentification depend on the SoC or the state of the SoC
+The NXP Soc support different authentication depend on the SoC or the state of the SoC
 
 * NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can be activate independent of the lifecycle
 * NXP i.MX93/i.MX91:
@@ -44,7 +44,7 @@ The NXP Soc support differents authentification depend on the SoC or the state o
     * In the OEM_CLOSED lifecycle mode is the authentication debug mode enabled.
     * In the OEM_LOCKED the ELE Debug and JTAG is disabled.
 
-The Secure Debug Mechanism with authentification differs between NXP and TI.
+The Secure Debug Mechanism with authentication differs between NXP and TI.
 
 .. image:: images/secure-jtag.png
 
@@ -57,7 +57,7 @@ The Secure Debug Mechanism with authentification differs between NXP and TI.
 Additional information about JTAG Security can be found:
 
 * NXP:
-  `Secure Debug in i.MX6/7/8M Family of Application Precessors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_
+  `Secure Debug in i.MX6/7/8M Family of Application Processors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_
   `Secure Debug on ELE-AP based i.MX SoCs AN14579 <https://www.nxp.com/webapp/Download?colCode=AN14579&isHTMLorPDF=HTML>`_
 * TI: `Secure Debug User Guide <https://downloads.ti.com/tisci/esd/latest/6_topic_user_guides/secure_debug.html?highlight=jtag>`_
   or in the restricted security resources for your SoC type.

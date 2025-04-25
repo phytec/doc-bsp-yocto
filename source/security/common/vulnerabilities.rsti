@@ -25,7 +25,7 @@ In the PHYTEC BSP you can activate the creation of a CycloneDX SBOM in your *loc
     INHERIT += "sbom-cyclonedx"
     # add information as property in the component
     CYCLONEDX_EXPORT_PROPERTIES ?= "SRC_URI SRCREV"
-    # add config and builded file names for kernel and bootloader
+    # add config and built file names for kernel and bootloader
     CYCLONEDX_WITH_BUILDINFOS ?= "1"
 
 This generated SBOM has information about the bootloader and kernel build for code based CVE Analysis, which you

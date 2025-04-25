@@ -1,7 +1,7 @@
 SoC specific configuration tools
 ================================
 
-In this chapter are tools, which can use for a better configuartion of features for your SoM.
+In this chapter are tools, which can use for a better configuration of features for your SoM.
 Mostly you can use the bootloader commands, but the parameters and addresses differs between the versions.
 
 NXP UUU (Universal Update Utility) -Tool
