@@ -73,7 +73,7 @@ Introduction
 ============
 
 PHYTEC's Yocto distribution Securiphy (former Ampliphy-secure) supports different
-Security mechanism. The security features have inpact to the bootloader,
+Security mechanism. The security features have impact to the bootloader,
 the Linux kernel, Device Tree, and root filesystem.
 This manual describes how Security featuresis used and implemented on various
 PHYTEC platforms. Note, that different modules use different bootloaders and flash

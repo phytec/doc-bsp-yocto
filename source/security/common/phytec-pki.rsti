@@ -336,10 +336,10 @@ For the signing of the Kernel FIT-Image the private key is used.
 The public key is build into as device-tree node in the bootloader and used for the
 FIT-Image verification.
 
-The certificate is not necessary for the signing and verfication of the FIT-Image.
+The certificate is not necessary for the signing and verification of the FIT-Image.
 
-Create Kernel Modul Signing key
--------------------------------
+Create Kernel Module Signing key
+--------------------------------
 
 You can create the Key and certificate for kernel module signing with a PKI tool or openssl.
 You must combine the private key and the certificate to one file.
