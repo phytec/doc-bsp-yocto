@@ -407,7 +407,7 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc-lvds.dtso#L14`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
 
 The device tree of LVDS-1 on PEB-AV-10 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`

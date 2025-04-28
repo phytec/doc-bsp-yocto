@@ -6,12 +6,16 @@ Display
 The |sbc| supports up to 3 different display outputs. The following table shows
 the required extensions and devicetree overlays for the different interfaces.
 The PEB-AV-20 is not supported yet.
+For the alpha release, we have included overlays for two different LVDS displays.
+These displays are ``edt,etml1010g3dra`` or ``powertip,ph128800t006-zhc01``.
+The name can be found on the back of the display.
 
 ========= ======================== ======================================
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
 LVDS1     PEB-AV-10                |dtbo-peb-av-10|
-LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds.dtso
+LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
+                                   imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 MIPI      PEB-AV-20
 ========= ======================== ======================================
 
@@ -22,8 +26,7 @@ MIPI      PEB-AV-20
    *  When changing Weston output, make sure to match the audio output as well.
    *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
 
-The default-enabled Interface is LVDS0 (onboard LVDS). We support a
-10'' edt,etml1010g0dka display for the |lvds-display-adapters|.
+The default interface is LVDS0 (onboard LVDS).
 
 .. note::
 
