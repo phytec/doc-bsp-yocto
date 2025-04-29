@@ -4,3 +4,4 @@ Sphinx-Substitution-Extensions==2025.2.19
 sphinx-intl==2.3.1
 sphinx-sitemap==2.6.0
 sphinx-autobuild==2024.10.3
+certifi==2025.1.31
