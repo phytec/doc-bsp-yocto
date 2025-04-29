@@ -371,7 +371,10 @@ latex_documents = [
 
 # -- Linkcheck options ----------------------------------------------------
 
-linkcheck_ignore = ["https://github.com/phytec/doc-bsp-yocto"]
+linkcheck_ignore = [
+    "https://github.com/phytec/doc-bsp-yocto",
+    "https://opencv.org/",
+]
 
 linkcheck_timeout = 60
 linkcheck_workers = 10
