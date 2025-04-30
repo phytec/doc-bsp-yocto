@@ -162,8 +162,56 @@ The TPM is not on the SOM, it is located on the carrier board.
 
 Initialization of the TPM
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The TPM 2.0 must be initialized at first with the command *tss2_provision*.
-This command is used in the tool *physecurekeystorage-install*, when you use the *trustedtpm* key type.
+This command is used in the tool *physecurekeystorage-install*,
+when you use the *trustedtpm* key type.
+
+Error codes of the TPM
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you want decode some TPM error codes, then use the command tpm2_rc_decode
+on the device.
+
+.. code-block:: console
+
+    target:~$ tpm2_rc_decode 0x00060025
+    fapi:No certificate
+
+* ErrorCode (0x00060025) Verify EK certificate
+
+  .. code-block:: console
+
+    target:~$ tss2_provision
+    ERROR:fapi:../tpm2-tss-4.0.2/src/tss2-fapi/api/Fapi_Provision.c:944:Fapi_Provision_Finish() ErrorCode (0x00060025) Verify EK certificate
+    ERROR:fapi:../tpm2-tss-4.0.2/src/tss2-fapi/api/Fapi_Provision.c:174:Fapi_Provision() ErrorCode (0x00060025) Provision
+
+  Reason: For the check of the manufacture TPM certificate a internet
+  connection is necessary.
+
+  Please check:
+
+  * your internet connection
+  * or deactivate the certificate check with adding
+    "ek_cert_less": "yes" to /etc/tpm2-tss/fapi-config.json
+
+* ErrorCode (0x98E) authorization HMAC check failed
+
+  .. code-block::
+
+    ERROR: Esys_DictionaryAttackLockReset(0x98E) - tpm:session(1):the authorization HMAC check failed and DA counter incremented
+    ERROR: Failed DictionaryLockout Reset
+
+  Reason: The TPM initialisation of the TPM with FAPI use HMAC with a
+  symmetric key. If the TPM configuration on the device is deleted or damaged,
+  then symmtric key for authtentication is lost.
+
+  To Reset the TPM completely:
+
+  .. code-block:: console
+
+    target:~$ tpm2_clear -c platform
+
 
 Kernel Key Retention Service for filesystem Encryption
 ------------------------------------------------------
