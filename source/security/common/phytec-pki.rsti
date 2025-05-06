@@ -4,23 +4,31 @@ Keys and Certificates Management
 Public Key Infrastructure Tree (PKI tree)
 -----------------------------------------
 
-To use a secure boot with a signed bootloader and a signed kernel image, several keys and certificates are required to sign the images.
-The key and certificate creation is a manual process and the public key infrastructure (PKI) tree must be in place before you start your build.
-This BSP includes the PHYTECD development pki-tree as an example. You are obligated to create your own pki-tree with your own keys and certificates.
+To use a secure boot with a signed bootloader and a signed kernel image,
+several keys and certificates are required to sign the images.
+The key and certificate creation is a manual process and the public key
+infrastructure (PKI) tree must be in place before you start your build.
+This BSP includes the PHYTECD development pki-tree as an example. You are
+obligated to create your own pki-tree with your own keys and certificates.
 
 .. note::
-    It is highly recommended to use different keys for different parts of your system to avoid a single point of failure regarding your security concept.
+   It is highly recommended to use different keys for different parts of your
+   system to avoid a single point of failure regarding your security concept.
 
 PHYTEC Development Keys (phytec-dev-ca)
 ---------------------------------------
 
-The included phytec-dev-ca example consists of a self-signed main-ca and three derived sub-ca's for bootloader, Fit-Image, and RAUC updates.
+The included phytec-dev-ca example consists of a self-signed main-ca and three
+derived sub-ca's for bootloader, Fit-Image, and RAUC updates.
 
 .. image:: images/phytec-pki.png
 
-The recipes for Bootloader, FIT-Image, and RAUC depend on the recipe phytec-dev-ca. If you build the BSP for the first time,
-the PHYTEC development keys are downloaded from https://github.com/phytec/phytec-dev-ca to yocto/phytec-dev-ca.
-They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC bundles.
+The recipes for Bootloader, FIT-Image, and RAUC depend on the
+recipe phytec-dev-ca. If you build the BSP for the first time,
+the PHYTEC development keys are downloaded from
+`<https://github.com/phytec/phytec-dev-ca>`_ to yocto/phytec-dev-ca.
+They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC
+bundles.
 
 +--------------------+-------------------------------------------------------+------------+
 | Name               | Description                                           | Key Type   |
@@ -46,310 +54,348 @@ They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC bu
 || -crypt            || update bundles                                       ||           |
 +--------------------+-------------------------------------------------------+------------+
 
-The SOC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot container files,
-which are verified with the SOC internal unit and SOC rom loader or dedicated controllers in the SOC.
+The SOC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot
+container files,
+which are verified with the SOC internal unit and SOC rom loader or dedicated
+controllers in the SOC.
 
-All keys and certificates are stored in an XCA database phytec-dev-ca.xdb, which can be configured with the open-source
-application XCA from https://hohnstaedt.de/xca/.
-| The password for the phytec-dev-ca.xdb is: phytec-dev-ca
+All keys and certificates are stored in an XCA database phytec-dev-ca.xdb,
+which can be configured with the open-source application XCA from
+`<https://hohnstaedt.de/xca/>`_.
+The password for the phytec-dev-ca.xdb is: phytec-dev-ca
 
-Only the necessary keys and certificates for the build process are exported to the directory.
+Only the necessary keys and certificates for the build process are exported to
+the directory.
 
 .. code-block:: console
 
-    The phytec-dev-ca is installed in the directory
-    /<path to>/yocto
-    |--build
-    |--phytec-dev-ca
-    |--source
+   The phytec-dev-ca is installed in the directory
+   /<path to>/yocto
+   |--build
+   |--phytec-dev-ca
+   |--source
 
-All keys and certificates are in an XCA database and are not copied to different paths from the packages in the build folder.
-The directory contains only the necessary certificates and keys for the building process.
+All keys and certificates are in an XCA database and are not copied to
+different paths from the packages in the build folder.
+The directory contains only the necessary certificates and keys for the
+building process.
 
 .. warning::
-    * Use the PHYTEC development keys only for the first test.
-    * The PHYTEC development keys are not secure!
-    * Create and use your own keys and certificates!
+   * Use the PHYTEC development keys only for the first test.
+   * The PHYTEC development keys are not secure!
+   * Create and use your own keys and certificates!
 
 Create Your Own PKI Tree
 ------------------------
 
 Please create your PKI offline with a separate system.
-For example, boot a read-only system from USB which you only use to create the PKI.
-The phytec-dev-ca is created with XCA from https://hohnstaedt.de/xca/, but you can use any other tool, too.
+For example, boot a read-only system from USB which you only use to create
+the PKI. The phytec-dev-ca is created with XCA from
+`<https://hohnstaedt.de/xca/>`_ , but you can use any other tool, too.
 
 Change PKI-Tree from phytec-dev-ca to Your Own PKI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*, the path to your PKI tree is initially defined:
+..................................................
+
+In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*,
+the path to your PKI tree is initially defined:
 
 .. code-block:: console
 
-    CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
+   CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
 
-If you want to change the path, then reinit the CERT_PATH ?= in your layer or overwrite the CERT_PATH in the conf/local.conf
+If you want to change the path, then reinit the CERT_PATH ?= in your layer or
+overwrite the CERT_PATH in the conf/local.conf
 
-The name of your PKI tree must have a name other than phytec-dev-ca. The recipe for phytec-dev-ca uses the name "phytec-dev-ca"
-as a parameter for the clean command.
+The name of your PKI tree must have a name other than phytec-dev-ca. The recipe
+for phytec-dev-ca uses the name "phytec-dev-ca" as a parameter for the clean
+command.
 
-After the CERT_PATH has been changed, you must clean and rebuild the bootloader, FIT-Image, RAUC bundles, and the rootfs!
+After the CERT_PATH has been changed, you must clean and rebuild the
+bootloader, FIT-Image, RAUC bundles, and the rootfs!
 
 Create NXP AHAB / HABV4 Keys
 ----------------------------
 
 NXP provided scripts to create keys and certificates for NXP AHAB or NXP HABV4.
-The scripts can be found:
+The scripts are from the
+`imx-code-signing-tool repository <https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads>`_
 
-imx-code-signing-tool repository: https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads
+You can use this script or a PKI application like the XCA to create the keys
+and certificates to sign the bootloader or boot container.
 
-You can use this script or a PKI application like the XCA to create the keys and certificates to sign the bootloader or boot container.
-
-For creation, the SRK table and SRK Fuses from the SRK certificates are scripts in the imx-code-signing-tool repository in the folder add-ons
+For creation, the SRK table and SRK Fuses from the SRK certificates are scripts
+in the imx-code-signing-tool repository in the folder add-ons
 which used the srktool.
 You can install the srktool with
 
 .. code-block:: console
 
-    host$ apt install imx-code-signing-tool
-    # or build from source
-    host$ make -C code/obj.linux64 OSTYPE=linux64 ENCRYPTION=yes
+   host:~$ apt install imx-code-signing-tool
+   # or build from source
+   host:~$ make -C code/obj.linux64 OSTYPE=linux64 ENCRYPTION=yes
 
-More information about cst and HAB4 API you can find in the doc folder of the imx-code-signing-tool repository.
-
-
+More information about cst and HAB4 API you can find in the doc folder of
+the imx-code-signing-tool repository.
 
 Create TI K3 keys
 -----------------
 
 Installing the SDK
-^^^^^^^^^^^^^^^^^^
-To create a copy of the OTP Keywriter that includes your own keys, you will need TI's MCU Plus SDK, CCS, SYSCONFIG,
-and the OTP keywriter source code.
+..................
+
+To create a copy of the OTP Keywriter that includes your own keys, you will
+need TI's MCU Plus SDK, CCS, SYSCONFIG, and the OTP keywriter source code.
 
 **For the TI AM62x**
-    * MCU Plus SDK for AM62x (09.01.00.39): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM62X/09.01.00.39
-    * CCS (12.2.0): https://www.ti.com/tool/download/CCSTUDIO/12.2.0
-    * SYSCONFIG (1.15): https://www.ti.com/tool/download/SYSCONFIG/1.15.0.2826
-    * Keywriter source code must be requested from the AM62X-RESTRICTED-SW section of the AM62x downloads page: https://www.ti.com/tool/PROCESSOR-SDK-AM62X
+   * MCU Plus SDK for AM62x (09.01.00.39): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM62X/09.01.00.39
+   * CCS (12.2.0): https://www.ti.com/tool/download/CCSTUDIO/12.2.0
+   * SYSCONFIG (1.15): https://www.ti.com/tool/download/SYSCONFIG/1.15.0.2826
+   * Keywriter source code must be requested from the AM62X-RESTRICTED-SW section of the AM62x downloads page: https://www.ti.com/tool/PROCESSOR-SDK-AM62X
 
 **For the TI AM64x**
-    * MCU Plus SDK for AM64x (09.00.00.35): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM64X/09.00.00.35
-    * CCS (12.4.0): https://www.ti.com/tool/download/CCSTUDIO/12.4.0
-    * SYSCONFIG (1.17): https://www.ti.com/tool/download/SYSCONFIG/1.17.0.3128
-    * Keywriter source code must be requested from the Request more information section of the AM64x product page: https://www.ti.com/product/AM6442
-    * Use keywriter v09x
+   * MCU Plus SDK for AM64x (09.00.00.35): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM64X/09.00.00.35
+   * CCS (12.4.0): https://www.ti.com/tool/download/CCSTUDIO/12.4.0
+   * SYSCONFIG (1.17): https://www.ti.com/tool/download/SYSCONFIG/1.17.0.3128
+   * Keywriter source code must be requested from the Request more information
+     section of the AM64x product page: https://www.ti.com/product/AM6442
+   * Use keywriter v09x
 
 .. note::
-   Building the keywriter has only been tested with version 09.01.00.39 (AM62x) and  09.00.00.35 (AM64x) of the MCU Plus SDK
+   Building the keywriter has only been tested with version 09.01.00.39 (AM62x)
+   and  09.00.00.35 (AM64x) of the MCU Plus SDK
    and may not work with other versions.
 
-Once you have the MCU Plus SDK set up, install the keywriter source to :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security`.
+Once you have the MCU Plus SDK set up, install the keywriter source to
+``<MCU_PLUS_SDK_DIRECTORY>/source/security``.
 
 Before we begin programming keys, we need to make one change to the source code.
-    * AM62x: In :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/main.c` remove line 57:
-    * AM64x: In :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/main.c` remove line 61:
+   * AM62x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/main.c`` remove line 57:
+   * AM64x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/main.c`` remove line 61:
 
   .. code-block::
 
-    -    keywriter_setVpp();
+   -    keywriter_setVpp();
 
-This is because there is a pin on the SoC that needs to be set high to write keys, and TI does this using I2C on their boards
-which requires this function to run. We will set this pin using a jumper on our board.
+This is because there is a pin on the SoC that needs to be set high to write
+keys, and TI does this using I2C on their boards which requires this function
+to run. We will set this pin using a jumper on our board.
 
 Generating keys
-^^^^^^^^^^^^^^^
-The keywriter source comes with a tool to help generate your own keys. To generate keys, go to
-    * AM62x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x`
-    * am64x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x`
+...............
+
+The keywriter source comes with a tool to help generate your own keys.
+To generate keys, go to
+
+   * AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``
+   * am64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``
 
 and run
 
-  .. code-block:: console
+.. code-block:: console
 
-    host$ ./gen_keywr_cert.sh -g
+   host:~$ ./gen_keywr_cert.sh -g
 
-This will create a set of five keys in the :code:`keys/` directory. You can use the keywriter to flash these keys to your hardware
+This will create a set of five keys in the ``keys/`` directory. You can use the
+keywriter to flash these keys to your hardware
 and you will need to keep them safe to use for signing your images as well.
 
 Building the Keywriter
-^^^^^^^^^^^^^^^^^^^^^^
+......................
 
-There are two methods for creating the keywriter. You can create one keywriter that contains all of your keys,
-or you can make one keywriter per key. The all at once approach is more straightforward, but if your key certificates
+There are two methods for creating the keywriter. You can create one keywriter
+that contains all of your keys,
+or you can make one keywriter per key. The all at once approach is more
+straightforward, but if your key certificates
 end up too large you may need to use the incremental approach.
 
 All at Once
 ~~~~~~~~~~~
 
-Using the keys generated in the previous step, we can now generate a keywriter to sign our hardware and enable secure boot. Go to
+Using the keys generated in the previous step, we can now generate a keywriter
+to sign our hardware and enable secure boot. Go to
 
-    * AM62x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x`
-    * AM64x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x`
+   * AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``
+   * AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``
 
 and run the following:
 
-  .. code-block:: console
+.. code-block:: console
 
-    host$ ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --msv 0xC0FFE -s keys_devel/smpk.pem --smek keys_devel/smek.key --keycnt 1 --keyrev 1
+   host:~$ ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --msv 0xC0FFE -s keys_devel/smpk.pem --smek keys_devel/smek.key --keycnt 1 --keyrev 1
 
 .. note::
-   If necessary you can write protect these fields using :code:`--msv-wp` :code:`-s-wp` :code:`--smek-wp` :code:`--keycnt-wp` and :code:`--keyrev-wp`, but this should only be done if necessary.
+   If necessary you can write protect these fields using ``--msv-wp`` ``-s-wp``
+   ``--smek-wp`` ``--keycnt-wp`` and ``--keyrev-wp``, but this should only be
+   done if necessary.
 
-This generates a certificate containing our keys (primary_cert.bin). We have left out the bmek and bmpk for now because with them included the certificate would exceed the 5400 byte limit. These are backup keys and are completely optional.
+This generates a certificate containing our keys (primary_cert.bin). We have
+left out the bmek and bmpk for now because with them included the certificate
+would exceed the 5400 byte limit. These are backup keys and are completely
+optional.
 
 To generate the binary itself, run the following commands, starting from the
-    * AM62x :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x`
-    * AM64x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x`
+   * AM62x ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``
+   * AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``
 
 directory where we left off:
 
   .. code-block:: console
 
-    host$  cd ../../x509cert
-    host$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
-    #--------------------
-    # AM62x
-    host$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
-    # AM64x
-    host$ cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
-    #--------------------
-    host$  make -sj PROFILE=debug clean
-    host$  make -sj PROFILE=debug
+   host:~$  cd ../../x509cert
+   host:~$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
+   #--------------------
+   # AM62x
+   host:~$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
+   # AM64x
+   host:~$ cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+   #--------------------
+   host:~$  make -sj PROFILE=debug clean
+   host:~$  make -sj PROFILE=debug
 
-The keywriter has now been built and is the :code:`tiboot3.bin` file in
-    * AM62x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang`
-    * AM64x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang`
+The keywriter has now been built and is the ``tiboot3.bin`` file in
+   * AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``
+   * AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``
 
 Incremental
 ~~~~~~~~~~~
 
-If you end up with a certificate exceeding 5400 bytes while trying to build and program all the keys at once,
-you may need to flash the keys incrementally. To do this you will need separate certificates for each key.
+If you end up with a certificate exceeding 5400 bytes while trying to build and
+program all the keys at once, you may need to flash the keys incrementally.
+To do this you will need separate certificates for each key.
 Starting in
 
-    * AM62x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x`,
-    * AM64x: :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x`,
+   * AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``,
+   * AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``,
 
 generate the first keywriter for the Model Specific Value (MSV):
 
   .. code-block:: console
-    :caption: MSV
+   :caption: MSV
 
-    host$  ./gen_keywr_cert.sh --msv 0xC0FFE -t tifek/ti_fek_public.pem
-    host$  cd ../../x509cert
-    host$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
-    #--------------------
-    # AM62x
-    host$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
-    # AM64x
-    host$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
-    #--------------------
-    host$  make -sj PROFILE=debug clean
-    host$  make -sj PROFILE=debug
+   host:~$  ./gen_keywr_cert.sh --msv 0xC0FFE -t tifek/ti_fek_public.pem
+   host:~$  cd ../../x509cert
+   host:~$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
+   #--------------------
+   # AM62x
+   host:~$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
+   # AM64x
+   host:~$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+   #--------------------
+   host:~$  make -sj PROFILE=debug clean
+   host:~$  make -sj PROFILE=debug
 
 .. note::
-   To write protect the MSV, use :code:`--msv-wp` while generating the certificate in the first command. This is optional and should only be done if necessary.
+   To write protect the MSV, use ``--msv-wp`` while generating the certificate
+   in the first command. This is optional and should only be done if necessary.
 
 The keywriter for the MSV has now been built and is the
-    * AM62x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang`.
-    * AM64x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang`.
+   * AM62x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``.
+   * AM64x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``.
 
-Save it elsewhere so that we can build the other keywriters without overwriting this one. Make sure that you keep track of the binaries
-so that you can flash them in the correct order later.
+Save it elsewhere so that we can build the other keywriters without overwriting
+this one. Make sure that you keep track of the binaries so that you can flash
+them in the correct order later.
 
 To get back to the starting directory,
 
-  .. code-block:: console
+.. code-block:: console
 
-    host$  cd ../../../scripts/cert_gen/am62x/
+   host:~$  cd ../../../scripts/cert_gen/am62x/
 
 Next we will generate the keywriter for the key count:
 
-  .. code-block:: console
-    :caption: Key Count
+.. code-block:: console
+   :caption: Key Count
 
-    host$  ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --keycnt 1
-    host$  cd ../../x509cert
-    host$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
-    #--------------------
-    # AM62x
-    host$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
-    # AM64x
-    host$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
-    #--------------------
-    host$  make -sj PROFILE=debug clean
-    host$  make -sj PROFILE=debug
+   host:~$  ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --keycnt 1
+   host:~$  cd ../../x509cert
+   host:~$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
+   #--------------------
+   # AM62x
+   host:~$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
+   # AM64x
+   host:~$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+   #--------------------
+   host:~$  make -sj PROFILE=debug clean
+   host:~$  make -sj PROFILE=debug
 
 .. note::
-   When writing keys incrementally it is important to not write protect the key count. This would prevent us from being able to write the key revision.
+   When writing keys incrementally it is important to not write protect the key
+   count. This would prevent us from being able to write the key revision.
 
 The keywriter for the key count has now been built and is the
-    * AM62x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang`.
-    * AM64x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang`.
+   * AM62x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``.
+   * AM64x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``.
 
-Save it elsewhere so that we can build the other keywriters without overwriting this one. Make sure that you keep track of the binaries
+Save it elsewhere so that we can build the other keywriters without overwriting
+this one. Make sure that you keep track of the binaries
 so that you can flash them in the correct order later.
 
 To get back to the starting directory,
 
-  .. code-block:: console
+.. code-block:: console
 
-    #--------------------
-    # AM62x
-    host$  cd ../../../scripts/cert_gen/am62x/
-    # AM64x
-    host$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
-    #--------------------
+   #--------------------
+   # AM62x
+   host:~$  cd ../../../scripts/cert_gen/am62x/
+   # AM64x
+   host:~$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+   #--------------------
 
 Finally we can generate the keywriter for the key revision:
 
-  .. code-block:: console
-    :caption: Key Revision
+.. code-block:: console
+   :caption: Key Revision
 
-    host$  ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --keyrev 1
-    host$  cd ../../x509cert
-    host$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
-    #--------------------
-    # AM62x
-    host$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
-    # AM64x
-    host$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
-    #--------------------
-    host$  make -sj PROFILE=debug clean
-    host$  make -sj PROFILE=debug
+   host:~$  ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --keyrev 1
+   host:~$  cd ../../x509cert
+   host:~$  python3 ../../../../../tools/bin2c/bin2c.py final_certificate.bin keycert.h KEYCERT
+   #--------------------
+   # AM62x
+   host:~$  cd ../../am62x-sk/r5fss0-0_nortos/ti-arm-clang/
+   # AM64x
+   host:~$  cd ../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+   #--------------------
+   host:~$  make -sj PROFILE=debug clean
+   host:~$  make -sj PROFILE=debug
 
 .. note::
-   To write protect the key revision, use :code:`--keyrev-wp` while generating the certificate in the first command.
+   To write protect the key revision, use ``--keyrev-wp`` while generating the certificate in the first command.
    This is optional and should only be done if necessary.
 
 The keywriter for the key count has now been built and is the
-    * AM62x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang`.
-    * AM64x: :code:`tiboot3.bin` file in :code:`<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang`.
+   * AM62x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``.
+   * AM64x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``.
 
-Make sure that you keep track of the binaries so that you can flash them in the correct order later.
+Make sure that you keep track of the binaries so that you can flash them in the
+correct order later.
 
 Create Kernel FIT-Image key
 ---------------------------
 
 You can create the Kernel FIT-Image Key with a PKI Tool or openssl.
 
-For the signing of the Kernel FIT-Image the private key is used.
-The public key is build into as device-tree node in the bootloader and used for the
-FIT-Image verification.
+For the signing of the Kernel FIT-Image the private key is used. The public key
+is build into as device-tree node in the bootloader and used for the FIT-Image
+verification.
 
-The certificate is not necessary for the signing and verification of the FIT-Image.
+The certificate is not necessary for the signing and verification of the
+FIT-Image.
 
 Create Kernel Module Signing key
 --------------------------------
 
-You can create the Key and certificate for kernel module signing with a PKI tool or openssl.
-You must combine the private key and the certificate to one file.
+You can create the Key and certificate for kernel module signing with a PKI
+tool or openssl. You must combine the private key and the certificate to one
+file.
 
 .. code-block:: console
 
-    host:~$ cat private.key certificate.pem > kernel_modsign.pem
+   host:~$ cat private.key certificate.pem > kernel_modsign.pem
 
 Create rauc update certificates
 -------------------------------
 
 You can create the Key and certificate for rauc with a PKI tool or openssl.
-please check the rauc documentation for more details: https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration
+More details on the
+`rauc documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_

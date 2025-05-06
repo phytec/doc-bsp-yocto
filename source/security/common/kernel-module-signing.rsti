@@ -1,20 +1,25 @@
 Kernel Module Signing
 =====================
 
-When the `kernel module signing facility <https://www.kernel.org/doc/html/latest/admin-guide/module-signing.html>`_ is enabled, Linux can enforce that only modules that have been signed with a specific key can be loaded.
-Keys with invalid signatures won't be allowed to load. This makes it harder for attackers to load malicious or manipulated modules.
+When the `kernel module signing facility <https://www.kernel.org/doc/html/latest/admin-guide/module-signing.html>`_
+is enabled, Linux can enforce that only modules that have been signed with
+a specific key can be loaded.
+Keys with invalid signatures won't be allowed to load. This makes it harder
+for attackers to load malicious or manipulated modules.
 
 This is enforced by the kernel and does not require userland support.
 
 Enable kernel module signing facility
 -------------------------------------
 
-To enable the kernel module signing facility, add the following DISTRO_FEATURE to your configuration file in *conf/distro/xyz.conf*
+To enable the kernel module signing facility, add the following DISTRO_FEATURE
+to your configuration file in *conf/distro/xyz.conf*
 
 .. code-block:: console
 
-    DISTRO_FEATURES += "kernelmodsign"
+   DISTRO_FEATURES += "kernelmodsign"
 
 .. warning::
-    By default, the kernel modules will be signed with PHYTEC's public, for example, the development key.
-    Unless you create your own key, this feature does not offer any protection.
+   By default, the kernel modules will be signed with PHYTEC's public,
+   for example, the development key.
+   Unless you create your own key, this feature does not offer any protection.
