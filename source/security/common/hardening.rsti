@@ -1,49 +1,54 @@
 Hardening of the System
 =======================
 
-The DISTRO_FEATURE hardening activates the kernel reduction with deselect fragments. The name of the deselection variable is KERNEL_FEATURES_DESELECT.
+The DISTRO_FEATURE hardening activates the kernel reduction with deselect
+fragments. The name of the deselection variable is KERNEL_FEATURES_DESELECT.
 
-The deselect fragment selection for bluetooth, can, optee, pci and wifi depend on MACHINE_FEATURES with the same name.
-If these features are not set in MASCHINE_FEATURES, then the deselect fragment with the same name is active, but can be selected independently from the MASCHINE_FEATURE too.
-The fragments debug, kvm, media and xen are selected by default and are independent from the machine feature.
+The deselect fragment selection for bluetooth, can, optee, pci and wifi depend
+on MACHINE_FEATURES with the same name.
+If these features are not set in MACHINE_FEATURES, then the deselect fragment
+with the same name is active, but can be selected independently from the
+MACHINE_FEATURE too. The fragments debug, kvm, media and xen are selected by
+default and are independent from the machine feature.
 
-Overwriting the initial definition of the variable KERNEL_FEATURES_DESELECT is possible.
+Overwriting the initial definition of the variable KERNEL_FEATURES_DESELECT is
+possible.
 
-+----------------+-----------------------------------+------------------+-------------------+
-|| Kernel        || Description                      || Selection with  || Selection with   |
-|| Fragment      ||                                  || KERNEL_FEATURES || MASCHINE_FEATURE |
-||               ||                                  || _DESELECT       ||                  |
-+================+===================================+==================+===================+
-|| hardening.cfg || Activate some hardening features ||                 ||                  |
-||               || in the kernel. This fragment is  || NO              || NO               |
-||               || the default active with the      ||                 ||                  |
-||               || distro feature hardening.        ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable the Bluetooth support.   || yes             || yes              |
-|| bluetooth.cfg ||                                  ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable the CAN support.         || yes             || yes              |
-|| can.cfg       ||                                  ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable kernel debug support.    || yes             || no               |
-|| debug.cfg     ||                                  || initial set     ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable kernel-based virtual     || yes             || no               |
-|| kvm.cfg       || machine support.                 || initial set     ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable the ANALOG / DIGITAL TV, || yes             || no               |
-|| media.cfg     || RADIO and SDR support            || initial set     ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable optee support.           || yes             || yes              |
-|| optee.cfg     ||                                  ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable PCI interface support.   || yes             || yes              |
-|| pci.cfg       ||                                  ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable wireless and WLAN        || yes             || yes              |
-|| wifi.cfg      || support                          ||                 ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
-|| deselect-     || Disable xen paravirtualisation   || yes             || no               |
-|| xen.cfg       ||                                  || initial set     ||                  |
-+----------------+-----------------------------------+------------------+-------------------+
++----------------+-----------------------------------+------------------+------------------+
+|| Kernel        || Description                      || Selection with  || Selection with  |
+|| Fragment      ||                                  || KERNEL_FEATURES || MACHINE_FEATURE |
+||               ||                                  || _DESELECT       ||                 |
++================+===================================+==================+==================+
+|| hardening.cfg || Activate some hardening features ||                 ||                 |
+||               || in the kernel. This fragment is  || NO              || NO              |
+||               || the default active with the      ||                 ||                 |
+||               || distro feature hardening.        ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable the Bluetooth support.   || yes             || yes             |
+|| bluetooth.cfg ||                                  ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable the CAN support.         || yes             || yes             |
+|| can.cfg       ||                                  ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable kernel debug support.    || yes             || no              |
+|| debug.cfg     ||                                  || initial set     ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable kernel-based virtual     || yes             || no              |
+|| kvm.cfg       || machine support.                 || initial set     ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable the ANALOG / DIGITAL TV, || yes             || no              |
+|| media.cfg     || RADIO and SDR support            || initial set     ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable optee support.           || yes             || yes             |
+|| optee.cfg     ||                                  ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable PCI interface support.   || yes             || yes             |
+|| pci.cfg       ||                                  ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable wireless and WLAN        || yes             || yes             |
+|| wifi.cfg      || support                          ||                 ||                 |
++----------------+-----------------------------------+------------------+------------------+
+|| deselect-     || Disable xen paravirtualisation   || yes             || no              |
+|| xen.cfg       ||                                  || initial set     ||                 |
++----------------+-----------------------------------+------------------+------------------+
 

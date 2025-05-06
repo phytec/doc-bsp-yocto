@@ -1,19 +1,23 @@
 Physical security
 =================
 
-To further protect your device, it is important to reduce attack vectors. Start by securing development features
-like JTAG and serial downloader. For activation or deactivation of controller features, is necessary to write and read eFuses.
+To further protect your device, it is important to reduce attack vectors.
+Start by securing development features
+like JTAG and serial downloader. For activation or deactivation of controller
+features, is necessary to write and read eFuses.
 
 .. warning::
 
-    The secure eFuse configuration can only be written once and is irreversible.
+   The secure eFuse configuration can only be written once and is irreversible.
 
 Secure JTAG
 -----------
 
 Most embedded devices provide a JTAG interface for debugging purposes.
-However, if left unprotected, this interface can become an important attack vector on the systems in series production.
-The most controllers allows you to regulate JTAG access with three security modes using OTP (One Time Programmable) eFuses:
+However, if left unprotected, this interface can become an important attack
+vector on the systems in series production.
+The most controllers allows you to regulate JTAG access with three security
+modes using OTP (One Time Programmable) eFuses:
 
 +------------+-----------+----------------------------------------+-----------+-----------+
 || Mode      || Security || Description                           || NXP      || TI       |
@@ -36,13 +40,15 @@ The most controllers allows you to regulate JTAG access with three security mode
 ||           ||          || any debugging.                        ||          ||          |
 +------------+-----------+----------------------------------------+-----------+-----------+
 
-The NXP Soc support different authentication depend on the SoC or the state of the SoC
+The NXP Soc support different authentication depend on the SoC or the state of
+the SoC
 
-* NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can be activate independent of the lifecycle
+* NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and
+  can be activate independent of the lifecycle
 * NXP i.MX93/i.MX91:
 
-    * In the OEM_CLOSED lifecycle mode is the authentication debug mode enabled.
-    * In the OEM_LOCKED the ELE Debug and JTAG is disabled.
+   * In the OEM_CLOSED lifecycle mode is the authentication debug mode enabled.
+   * In the OEM_LOCKED the ELE Debug and JTAG is disabled.
 
 The Secure Debug Mechanism with authentication differs between NXP and TI.
 
@@ -50,9 +56,11 @@ The Secure Debug Mechanism with authentication differs between NXP and TI.
 
 .. note::
 
-    The i.MX9 family supports additionally the asymmetric signed message based debug enablement, which has better security
-    compared to the password based mechanism (Secret response key).
-    Secure debug can only be enabled when the device is in OEM_CLOSED lifecycle. In this life cycle, only authenticated debug is allowed.
+   The i.MX9 family supports additionally the asymmetric signed message based
+   debug enablement, which has better security
+   compared to the password based mechanism (Secret response key).
+   Secure debug can only be enabled when the device is in OEM_CLOSED
+   lifecycle. In this life cycle, only authenticated debug is allowed.
 
 Additional information about JTAG Security can be found:
 
@@ -63,186 +71,187 @@ Additional information about JTAG Security can be found:
   or in the restricted security resources for your SoC type.
 
 Disable Debugging Mode only for NXP SoC
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.......................................
 
 Set JTAG to "Disabled debugging" mode:
 
 * i.MX6 and i.MX6UL/ULL with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        barebox$  mw -l -d /dev/imx-ocotp 0x18 0xC00000
+      barebox$  mw -l -d /dev/imx-ocotp 0x18 0xC00000
 
 * i.MX8M MNP with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        uboot$ fuse prog 1 3 0xC00000
+      u-boot=> fuse prog 1 3 0xC00000
 
 * i.MX9 family do not support this mode
 
-
 Disable JTAG Mode
-^^^^^^^^^^^^^^^^^
+.................
 
 .. note::
 
-    **only for NXP i.MX6 family and NXP i.MX8M MNP:**
+   **only for NXP i.MX6 family and NXP i.MX8M MNP:**
 
-    The HAB can normally enable JTAG debugging with the HAB_JDE-bit in the OCOTP SCS register.
-    The JTAG_HEO-bit can override this behavior.
-    If this feature is not required, it is highly recommended this be disabled.
+   The HAB can normally enable JTAG debugging with the HAB_JDE-bit in the
+   OCOTP SCS register.The JTAG_HEO-bit can override this behavior. If this
+   feature is not required, it is highly recommended this be disabled.
 
 * NXP i.MX6 and i.MX6UL/ULL with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable JTAG Mode
-        barebox$  mw -l -d /dev/imx-ocotp 0x18 0x00100000
-        # To prevent HAB from Enabling JTAG
-        barebox$  mw -l -d /dev/imx-ocotp 0x18 0x08000000
+      # Disable JTAG Mode
+      barebox$  mw -l -d /dev/imx-ocotp 0x18 0x00100000
+      # To prevent HAB from Enabling JTAG
+      barebox$  mw -l -d /dev/imx-ocotp 0x18 0x08000000
 
 * NXP i.MX8M MNP with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable JTAG Mode
-        uboot$ fuse prog 1 3 0x200000
-        # To prevent HAB from Enabling JTAG
-        uboot$ fuse prog 1 3 0x4000000
+      # Disable JTAG Mode
+      u-boot=> fuse prog 1 3 0x200000
+      # To prevent HAB from Enabling JTAG
+      u-boot=> fuse prog 1 3 0x4000000
 
 * NXP i.MX93/i.MX91 with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        #read status for OEM closed
-        uboot$ ahab_status
-        Lifecycle: 0x00000020, OEM Closed
-        # Set in OEM_LOCKED mode to disable JTAG and debug
-        uboot$ ele_message 0x20480000 0x20000 0602951780000000
-        # Reset the board to activate
-        uboot$ reset
-        #read Status
-        uboot$ ahab_status
-        Lifecycle: 0x00000100, OEM Locked
+      #read status for OEM closed
+      u-boot=> ahab_status
+      Lifecycle: 0x00000020, OEM Closed
+      # Set in OEM_LOCKED mode to disable JTAG and debug
+      u-boot=> ele_message 0x20480000 0x20000 0602951780000000
+      # Reset the board to activate
+      u-boot=> reset
+      #read Status
+      u-boot=> ahab_status
+      Lifecycle: 0x00000100, OEM Locked
 
-    or with the NXP i.MX9 EdgeLock Enclave (ELE) nxpele tool
+   or with the NXP i.MX9 EdgeLock Enclave (ELE) nxpele tool
 
-    .. code-block:: console
+   .. code-block:: console
 
-        # read status for OEM_CLOSED
-        host$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
-        ELE get info ends successfully:
-        Command:          0xda
-        Version:          2
-        Length:           160
-        SoC ID:           9300
-        SoC version:      A100
-        Life Cycle:       OEM_CLSD - 0x0040
+      # read status for OEM_CLOSED
+      host:~$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
+      ELE get info ends successfully:
+      Command:          0xda
+      Version:          2
+      Length:           160
+      SoC ID:           9300
+      SoC version:      A100
+      Life Cycle:       OEM_CLSD - 0x0040
 
-        # Set in OEM_LOCKED mode to disable JTAG and debug
-        host$ nxpele -p /dev/ttyUSB0 -f mx93 -vv forward-lifecycle-update -l OEM_LOCKED
+      # Set in OEM_LOCKED mode to disable JTAG and debug
+      host:~$ nxpele -p /dev/ttyUSB0 -f mx93 -vv forward-lifecycle-update -l OEM_LOCKED
 
-        INFO:spsdk.ele.ele_comm:Sent message information:
-        Command:         ELE_FWD_LIFECYCLE_UP_REQ - (0x95)
-        Command words:   2
-        Command data:    False
-        Response words:  2
-        Response data:   False
-        Response status: Success
+      INFO:spsdk.ele.ele_comm:Sent message information:
+      Command:         ELE_FWD_LIFECYCLE_UP_REQ - (0x95)
+      Command words:   2
+      Command data:    False
+      Response words:  2
+      Response data:   False
+      Response status: Success
 
-        Forward Lifecycle update ends successfully.
+      Forward Lifecycle update ends successfully.
 
-        #reset the board
-        host$ nxpele -p /dev/ttyUSB0 -f mx93 reset
-        # read status
-        host$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
-        ELE get info ends successfully:
-        Command:          0xda
-        Version:          2
-        Length:           160
-        SoC ID:           9300
-        SoC version:      A100
-        Life Cycle:       OEM_LCKD - 0x0200
+      #reset the board
+      host:~$ nxpele -p /dev/ttyUSB0 -f mx93 reset
+      # read status
+      host:~$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
+      ELE get info ends successfully:
+      Command:          0xda
+      Version:          2
+      Length:           160
+      SoC ID:           9300
+      SoC version:      A100
+      Life Cycle:       OEM_LCKD - 0x0200
 
 Disable Serial Downloader
 -------------------------
 
-Disabling the serial download support is recommended for security-enabled configurations:
+Disabling the serial download support is recommended for security-enabled
+configurations:
 
 * NXP i.MX6 with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable only Read Access for SDP
-        barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0004
-        # Disable SDP Mode Completely
-        barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0001
+      # Disable only Read Access for SDP
+      barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0004
+      # Disable SDP Mode Completely
+      barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0001
 
 * NXP i.MX6UL/ULL with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable only Read Access for SDP
-        barebox$ mw -l -d /dev/imx-ocotp 0x18 0x40000
-        # Disable SDP Mode Completely
-        barebox$ mw -l -d /dev/imx-ocotp 0x18 0x20000
+      # Disable only Read Access for SDP
+      barebox$ mw -l -d /dev/imx-ocotp 0x18 0x40000
+      # Disable SDP Mode Completely
+      barebox$ mw -l -d /dev/imx-ocotp 0x18 0x20000
 
 * NXP i.MX8M MNP with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable SDP Mode Completely
-        uboot$ fuse prog 2 0 0x200000
+      # Disable SDP Mode Completely
+      u-boot=> fuse prog 2 0 0x200000
 
 * NXP i.MX93/i.MX91 with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        # Disable SDP Mode Completely
-        in the process of clarification
+      # Disable SDP Mode Completely
+      in the process of clarification
 
 Force Internal Boot
 -------------------
-Ensure the device always boots in INTERNAL BOOT (FORCE_BT_FROM_FUSE) mode, ignoring BOOT_MODE pins.
+Ensure the device always boots in ``INTERNAL BOOT (FORCE_BT_FROM_FUSE)`` mode,
+ignoring ``BOOT_MODE`` pins.
 This setting is recommended for security-enabled configurations.
 
 At first you should burn the Boot Fuses.
 
 * NXP i.MX6 with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        barebox$  mw -l -d /dev/imx-ocotp 0x18 0x80000000
+      barebox$  mw -l -d /dev/imx-ocotp 0x18 0x80000000
 
 * NXP i.MX6UL/ULL with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        barebox$  mw -l -d /dev/imx-ocotp 0x18 0x10000
+      barebox$  mw -l -d /dev/imx-ocotp 0x18 0x10000
 
 * NXP i.MX8M MNP with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        uboot$ fuse prog 2 0 0x100000
+      u-boot=> fuse prog 2 0 0x100000
 
 * NXP i.MX93/i.MX91 with u-boot:
 
-    ================ ==========
-    Boot Device      BOOT_CFG0
-    ================ ==========
-    eMMC             0x20020002
-    SD Card          0x20000103
-    ================ ==========
+   ================ ==========
+   Boot Device      BOOT_CFG0
+   ================ ==========
+   eMMC             0x20020002
+   SD Card          0x20000103
+   ================ ==========
 
-    .. code-block:: console
+   .. code-block::
 
-        # set boot mode for eMMC with eMMC Bus width to 0b01 (8 bit)
-        # and BT_FUSE_SEL (Boot fuses already programmed) bit
-        uboot$ fuse prog 3 0 0x20020002
-        # set the FORCE_BT_FROM_FUSE bit
-        uboot$ fuse prog 3 0 0x40000000
+      # set boot mode for eMMC with eMMC Bus width to 0b01 (8 bit)
+      # and BT_FUSE_SEL (Boot fuses already programmed) bit
+      u-boot=> fuse prog 3 0 0x20020002
+      # set the FORCE_BT_FROM_FUSE bit
+      u-boot=> fuse prog 3 0 0x40000000
 
 
 Disable Boot from External Memory
@@ -251,12 +260,12 @@ By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.
 
 * NXP i.MX6 and i.MX6UL/ULL with barebox:
 
-    .. code-block:: console
+   .. code-block::
 
-        barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0008
+      barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0008
 
 * NXP i.MX8M MNP with u-boot:
 
-    .. code-block:: console
+   .. code-block::
 
-        uboot$ fuse prog 1 3 0x8000000
+      u-boot=> fuse prog 1 3 0x8000000

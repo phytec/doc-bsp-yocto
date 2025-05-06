@@ -1,140 +1,147 @@
 SoC specific configuration tools
 ================================
 
-In this chapter are tools, which can use for a better configuration of features for your SoM.
-Mostly you can use the bootloader commands, but the parameters and addresses differs between the versions.
+In this chapter are tools, which can use for a better configuration of features
+for your SoM. Mostly you can use the bootloader commands, but the parameters
+and addresses differs between the versions.
 
 NXP UUU (Universal Update Utility) -Tool
 ----------------------------------------
 
-The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute on the host to load and
-run the bootloader on the board through SDP (Serial Download Protocol).
-For detailed information visit `<https://github.com/nxp-imx/mfgtools>`_ or download the
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP
+(Serial Download Protocol). For detailed information visit
+`<https://github.com/nxp-imx/mfgtools>`_ or download the
 `Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
 
 More information and examples you can found in the SoC specific manuals.
 
-
 Snagboot recover and reflashing tool
 ------------------------------------
 
-An alternative to the NXP UUU tool is snagboot, which supports TI k3, STM32 and NXP SoC's.
-More information you can find `<https://github.com/bootlin/snagboot>`_
+An alternative to the NXP UUU tool is
+`snagboot <https://github.com/bootlin/snagboot>`_, which supports TI k3, STM32
+and NXP SoC's.
 
 partup - the system initialization program
 ------------------------------------------
 
-The partup is the PHYTEC default program for partitioning and image installation on an embedded device.
+The `partup <https://github.com/phytec/partup>`_ is the PHYTEC default program
+for partitioning and image installation on an embedded device.
 The partup image is created in the yocto build and is smaller as an wic image.
-
-More information you can find `<https://github.com/phytec/partup>`_
 
 NXP i.MX6 and i.MX8M MNP eFuse tool crucible
 --------------------------------------------
 
-You can use the tool `crucible <https://github.com/usbarmory/crucible>`_ to burn eFuses from kernel userspace.
-The tool is go based and is integrated in our *phytec-provisioning-image*.
+You can use the tool `crucible <https://github.com/usbarmory/crucible>`_ to
+burn eFuses from kernel userspace. The tool is go based and is integrated in
+our *phytec-provisioning-image*.
 
 e.g. to burn the SRK hash for the i.MX8MP:
 
 .. code-block:: console
 
-    SRK_HASH=( 0x9A842534 0xB0491AB4 0xD5B6A07B 0xFD92DCE7 0xC10DC87C 0xD8BD04A9 0x704E9FE4 0x9B025359 )
-    # Read the SRK hash at first to e.g. check if it is empty or the target SRK hash
-    for (( x=0; x<${#SRK_HASH[@]}; x++ ))
+   SRK_HASH=( 0x9A842534 0xB0491AB4 0xD5B6A07B 0xFD92DCE7 0xC10DC87C 0xD8BD04A9 0x704E9FE4 0x9B025359 )
+   # Read the SRK hash at first to e.g. check if it is empty or the target SRK hash
+   for (( x=0; x<${#SRK_HASH[@]}; x++ ))
 	do
-        # Read the SRK hash at first
-        rv=$(crucible -m IMX8MP -r 0 -b 16 -s read ${SRK_HASH[$x]})
-        #check if the SRK is zero
-        if [[ "$rv" =~ ^0x[0]*$ ]]; then
-            # write the SRK hash
-            crucible -m IMX8MP -r 0 -b 16  -Y -e big blow "OCOTP_SRK$x" ${SRK_HASH[$x]}
-        fi
-    done
+      # Read the SRK hash at first
+      rv=$(crucible -m IMX8MP -r 0 -b 16 -s read ${SRK_HASH[$x]})
+      #check if the SRK is zero
+      if [[ "$rv" =~ ^0x[0]*$ ]]; then
+         # write the SRK hash
+         crucible -m IMX8MP -r 0 -b 16  -Y -e big blow "OCOTP_SRK$x" ${SRK_HASH[$x]}
+      fi
+   done
 
-To burn the SRK hash to an other SoC, then replace IMX8MP with an other supported SoC.
-The supported SoC you can found `<https://github.com/usbarmory/crucible/tree/master/cmd/crucible/fusemaps>`_.
+To burn the SRK hash to an other SoC, then replace IMX8MP with an other
+supported SoC. The supported SoC you can found
+`<https://github.com/usbarmory/crucible/tree/master/cmd/crucible/fusemaps>`_.
 
 NXP i.MX9 EdgeLock Enclave (ELE) tools
 --------------------------------------
 
-NXP provided the `Secure Provisioning SDK (SPSDK) <https://github.com/nxp-mcuxpresso/spsdk/tree/master>`_.
+NXP provided the `Secure Provisioning SDK (SPSDK)
+<https://github.com/nxp-mcuxpresso/spsdk/tree/master>`_.
 You can install as python package on you host:
 
 .. code-block:: console
 
-    host$ python3 -m venv venv
-    host$ source venv/bin/activate
-    host$ python -m pip install --upgrade pip
-    host$ pip install spsdk
-    host$ spsdk --help
+   host:~$ python3 -m venv venv
+   host:~$ source venv/bin/activate
+   host:~$ python -m pip install --upgrade pip
+   host:~$ pip install spsdk
+   host:~$ spsdk --help
 
 The following presteps
-* use the bootloader with CONFIG_AHAB_BOOT=y and CONFIG_CMD_MEMORY=y support (provisioning variant)
+
+* use the bootloader with CONFIG_AHAB_BOOT=y and CONFIG_CMD_MEMORY=y support
+  (provisioning variant)
 * open a terminal with the serial port of your board e.g. /dev/ttyUSB0
 * power up your board
 * stop and login to the bootloader
 * close your serial connection
 
-Then you can use the nxpele tool in the uboot_serial mode to communicate and to configure the EdgeLock Enclave.
+Then you can use the nxpele tool in the uboot_serial mode to communicate and to
+configure the EdgeLock Enclave.
 
 The following preparatory steps are necessary:
 
 .. code-block:: console
 
-    host$ nxpele -h
-    Commands:
-    nxpele                        Utility for communication with the EdgeLock Enclave on target over BLHOST.
-    ├── batch                     Invoke nxpele commands defined in command file.
-    ├── commit                    Commit information.
-    ├── derive-key                Derive key.
-    ├── dump-debug-data           Dump ELE debug buffer data of EdgeLock Enclave firmware.
-    ├── ele-fw-auth               Authenticate and execute EdgeLock Enclave firmware.
-    ├── enable-apc                Send request to enable APC to EdgeLock Enclave.
-    ├── enable-rtc                Send request to enable RTC to EdgeLock Enclave.
-    ├── forward-lifecycle-update  Forward Lifecycle update to Closed or Locked state.
-    ├── generate-keyblob          Group of sub-commands related to generate Keyblob.
-    │   ├── DEK                   Generate DEK keyblob on EdgeLock Enclave.
-    │   ├── IEE                   Generate IEE keyblob atomic command on EdgeLock Enclave.
-    │   ├── IEE-KEYBLOB           Generate IEE keyblob on EdgeLock Enclave.
-    │   ├── OTFAD                 Generate OTFAD keyblob atomic command on EdgeLock Enclave.
-    │   └── OTFAD-KEYBLOB         Generate OTFAD keyblob on EdgeLock Enclave.
-    ├── get-ele-fw-status         Get status of EdgeLock Enclave firmware.
-    ├── get-ele-fw-version        Get version of EdgeLock Enclave firmware.
-    ├── get-ele-trng-state        Get status of EdgeLock Enclave TRNG.
-    ├── get-events                Get stored events in EdgeLock Enclave.
-    ├── get-info                  Get information from EdgeLock Enclave.
-    ├── load-keyblob              Load EdgeLock Enclave keyblob to hardware.
-    ├── oem-cntn-auth             Authenticate OEM container.
-    ├── ping                      Send general EdgeLock Enclave PING message.
-    ├── read-common-fuse          Read common fuse from EdgeLock Enclave.
-    ├── read-shadow-fuse          Read shadow fuse from EdgeLock Enclave.
-    ├── release-container         Release EdgeLock Enclave firmware message.
-    ├── reset                     Send general EdgeLock Enclave RESET message.
-    ├── reset-apc-context         Send request to reset APC context in EdgeLock Enclave.
-    ├── signed-message            Send signed message to EdgeLock Enclave.
-    ├── start-trng                Start True Random Number Generator in EdgeLock Enclave message.
-    ├── verify-image              Verify OEM image.
-    ├── write-fuse                Write one fuse by specifying index and data to be written.
-    └── write-shadow-fuse         Write one shadow fuse by specifying index and data to be written.
+   host:~$ nxpele -h
+   Commands:
+   nxpele                        Utility for communication with the EdgeLock Enclave on target over BLHOST.
+   ├── batch                     Invoke nxpele commands defined in command file.
+   ├── commit                    Commit information.
+   ├── derive-key                Derive key.
+   ├── dump-debug-data           Dump ELE debug buffer data of EdgeLock Enclave firmware.
+   ├── ele-fw-auth               Authenticate and execute EdgeLock Enclave firmware.
+   ├── enable-apc                Send request to enable APC to EdgeLock Enclave.
+   ├── enable-rtc                Send request to enable RTC to EdgeLock Enclave.
+   ├── forward-lifecycle-update  Forward Lifecycle update to Closed or Locked state.
+   ├── generate-keyblob          Group of sub-commands related to generate Keyblob.
+   │   ├── DEK                   Generate DEK keyblob on EdgeLock Enclave.
+   │   ├── IEE                   Generate IEE keyblob atomic command on EdgeLock Enclave.
+   │   ├── IEE-KEYBLOB           Generate IEE keyblob on EdgeLock Enclave.
+   │   ├── OTFAD                 Generate OTFAD keyblob atomic command on EdgeLock Enclave.
+   │   └── OTFAD-KEYBLOB         Generate OTFAD keyblob on EdgeLock Enclave.
+   ├── get-ele-fw-status         Get status of EdgeLock Enclave firmware.
+   ├── get-ele-fw-version        Get version of EdgeLock Enclave firmware.
+   ├── get-ele-trng-state        Get status of EdgeLock Enclave TRNG.
+   ├── get-events                Get stored events in EdgeLock Enclave.
+   ├── get-info                  Get information from EdgeLock Enclave.
+   ├── load-keyblob              Load EdgeLock Enclave keyblob to hardware.
+   ├── oem-cntn-auth             Authenticate OEM container.
+   ├── ping                      Send general EdgeLock Enclave PING message.
+   ├── read-common-fuse          Read common fuse from EdgeLock Enclave.
+   ├── read-shadow-fuse          Read shadow fuse from EdgeLock Enclave.
+   ├── release-container         Release EdgeLock Enclave firmware message.
+   ├── reset                     Send general EdgeLock Enclave RESET message.
+   ├── reset-apc-context         Send request to reset APC context in EdgeLock Enclave.
+   ├── signed-message            Send signed message to EdgeLock Enclave.
+   ├── start-trng                Start True Random Number Generator in EdgeLock Enclave message.
+   ├── verify-image              Verify OEM image.
+   ├── write-fuse                Write one fuse by specifying index and data to be written.
+   └── write-shadow-fuse         Write one shadow fuse by specifying index and data to be written.
 
-    host$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
-    ELE get info ends successfully:
-    Command:          0xda
-    Version:          2
-    Length:           160
-    SoC ID:           9300
-    SoC version:      A100
-    Life Cycle:       OEM_LCKD - 0x0200
-    SSSM state:       4
-    UUID:             2db3725f3951488ca5a51a8f575fdff5
-    SHA256 ROM PATCH: 725e3348349e8664b79b93020e8d2e2273d83f33fd9ea7381cce9999df6fbe9a
-    SHA256 FW:        49240dc9eb7f228738fc0d614539c2378d58f92be5df56d1547043deed8cd915
-    Advanced information:
-        OEM SRKH:       2c5dafba23032ee908bac0233f97e710d5e08d6784356d96bedf41a5ba6da06e0000000000000000000000000000000000000000000000000000000000000000
-        IMEM state:     202
-        CSAL state:     EdgeLock secure enclave random context initialization succeed
-        TRNG state:     TRNG entropy is valid and ready to be read
+   host:~$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
+   ELE get info ends successfully:
+   Command:          0xda
+   Version:          2
+   Length:           160
+   SoC ID:           9300
+   SoC version:      A100
+   Life Cycle:       OEM_LCKD - 0x0200
+   SSSM state:       4
+   UUID:             2db3725f3951488ca5a51a8f575fdff5
+   SHA256 ROM PATCH: 725e3348349e8664b79b93020e8d2e2273d83f33fd9ea7381cce9999df6fbe9a
+   SHA256 FW:        49240dc9eb7f228738fc0d614539c2378d58f92be5df56d1547043deed8cd915
+   Advanced information:
+      OEM SRKH:       2c5dafba23032ee908bac0233f97e710d5e08d6784356d96bedf41a5ba6da06e0000000000000000000000000000000000000000000000000000000000000000
+      IMEM state:     202
+      CSAL state:     EdgeLock secure enclave random context initialization succeed
+      TRNG state:     TRNG entropy is valid and ready to be read
 
 
 
