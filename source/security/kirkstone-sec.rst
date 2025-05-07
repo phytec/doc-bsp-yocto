@@ -2,6 +2,8 @@
 .. _`static-pdf-dl`: ../_static/kirkstone-sec.pdf
 
 .. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init-kirkstone`
+.. |secure-key-storage-link| replace:: :ref:`secure-key-storage-kirkstone`
+.. |phytec-pki-link| replace:: :ref:`phytec-pki-kirkstone`
 
 .. Yocto
 .. |branding-name| replace:: Security
@@ -94,7 +96,7 @@ Yocto stores these development keys to ``yocto/phytec-dev-ca``
 .. note::
     Create and use your own keys and certificates for signing your images.
     Burn the right key into the Controller eFuse.
-    Please refer to the chapter *Keys and Certificates Management*
+    Please refer to the chapter |secure-key-storage-link|
 
 eMMC Boot Partition to Enable Boot
 ----------------------------------
@@ -262,7 +264,7 @@ Activate Secure Boot for TI K3 SOC
 ----------------------------------
 
 You can only burn the Fuses with the OTP-Keywriter, which you have create in
-the chapter *Keys and Certificates Management:Create TI Key*
+the chapter |phytec-pki-link|
 To run the keywriter on your hardware we recommend starting with a regular SD
 card that has an unsigned image on it. Once you have your bootable SD card,
 copy the ``tiboot3.bin`` you generated into the boot partition of the SD card,
@@ -369,6 +371,8 @@ Example for Revoke Key Slot 0 on NXP SOC with HABV4
 
 .. include:: common/kernel-module-signing.rsti
 .. include:: common/devicetree-overlay.rsti
+
+.. _secure-key-storage-kirkstone:
 
 Secure Key Storage
 ==================
@@ -899,4 +903,5 @@ By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.
 
       u-boot=> fuse prog 1 3 0x8000000
 
+.. _phytec-pki-kirkstone:
 .. include:: common/phytec-pki.rsti
