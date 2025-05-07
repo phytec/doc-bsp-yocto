@@ -8,7 +8,7 @@ eFuse configuration.
 
    The secure eFuse configuration can only be written once and is irreversible!
 
-For Secure Boot are only public information are burned to SOC from NXP and TI.
+For Secure Boot only public information is burned to SOCs from NXP and TI.
 When building the yocto-secure distro for the first time, the bootloader image
 is signed with PHYTEC's development keys.
 Yocto stores these development keys to ``yocto/phytec-dev-ca``
@@ -16,7 +16,7 @@ Yocto stores these development keys to ``yocto/phytec-dev-ca``
 .. note::
    Create and use your own keys and certificates for signing your images.
    Burn the right key into the Controller eFuse.
-   Please refer to the chapter *Keys and Certificates Management*
+   Please refer to the chapter |secure-key-storage-link|
 
 eMMC Boot Partition to Enable Boot
 ----------------------------------
@@ -117,8 +117,8 @@ Check the current state of your device
       IND = ELE_BAD_KEY_HASH_FAILURE_IND (0xFA)
       STA = ELE_SUCCESS_IND (0xD6)
 
-   The ELE_BAD_KEY_HASH_FAILURE_IND is ok, because there is a zero hash in
-   the fuses, which is wrong for this signature.
+   The reason for the ``ELE_BAD_KEY_HASH_FAILURE_IND`` is the zero hash in
+   the fuses, which is wrong for the signature of the boot container.
 
 Burn the SRK
 ............
@@ -211,7 +211,7 @@ Activate Secure Boot for TI K3 SOC
 ----------------------------------
 
 You can only burn the Fuses with the OTP-Keywriter, which you have create in
-the chapter *Keys and Certificates Management:Create TI Key*
+the chapter |phytec-pki-link|
 To run the keywriter on your hardware we recommend starting with a regular
 SD card that has an unsigned image on it.
 Once you have your bootable SD card, copy the ``tiboot3.bin`` you generated
@@ -261,7 +261,7 @@ Next Steps after Activation of Secure Boot
      authentication for debugging purposes. That console can still be used to
      boot, so it should be disabled in the production firmware.
      See Protection Shield Level
-   * please check the NXP and TI websides for more information
+   * please check the NXP and TI websites for more information
 
 Key Revocation
 --------------
