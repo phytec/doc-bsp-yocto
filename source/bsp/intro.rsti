@@ -21,8 +21,7 @@ PHYTEC provides a variety of hardware and software documentation for
 all of our products. This includes any or all of the following:
 
 -  **QS Guide**: A short guide on how to set up and boot a phyCORE
-   board along with brief informationon building a BSP, the device
-   tree, and accessing peripherals.
+   board.
 -  **Hardware Manual**: A detailed description of the System on
    Module and accompanying carrierboard.
 -  **Yocto Guide**: A comprehensive guide for the Yocto version
