@@ -25,7 +25,7 @@ identifiers CPE and PURL enables the detection of known
 vulnerabilities. In the PHYTEC BSP you can activate the creation of a
 CycloneDX SBOM in your *local.conf*:
 
-.. code-block:: console
+.. code-block:: bash
 
    # include the sbom-cyclonedx class for SBOM creation
    INHERIT += "sbom-cyclonedx"
