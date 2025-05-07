@@ -66,7 +66,7 @@ Deactivate Device Tree Overlay Support
 To disable the Device Tree Overlay support set the following variable in
 ``sources/meta-ampliphy/classes/secureboot.bbclass`` to true
 
-.. code-block:: console
+.. code-block:: bash
 
    FITIMAGE_NO_DTB_OVERLAYS ?= "true"
 
@@ -75,7 +75,7 @@ If you do not want Device Tree Overlays in the FIT-Image,
 please remove fdto in the ``sources/meta-ampliphy/recipes-image/fitimage/phytec-secureboot-ramdisk-fitimage.bb``
 or in your own FIT-Image recipe.
 
-.. code-block:: console
+.. code-block:: bash
 
    FITIMAGE_SLOTS ?= "kernel fdt fdto ramdisk"
 

@@ -15,7 +15,7 @@ Enable kernel module signing facility
 To enable the kernel module signing facility, add the following DISTRO_FEATURE
 to your configuration file in *conf/distro/xyz.conf*
 
-.. code-block:: console
+.. code-block:: bash
 
    DISTRO_FEATURES += "kernelmodsign"
 

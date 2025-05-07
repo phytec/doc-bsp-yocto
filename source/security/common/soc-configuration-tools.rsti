@@ -39,7 +39,7 @@ our *phytec-provisioning-image*.
 
 e.g. to burn the SRK hash for the i.MX8MP:
 
-.. code-block:: console
+.. code-block:: bash
 
    SRK_HASH=( 0x9A842534 0xB0491AB4 0xD5B6A07B 0xFD92DCE7 0xC10DC87C 0xD8BD04A9 0x704E9FE4 0x9B025359 )
    # Read the SRK hash at first to e.g. check if it is empty or the target SRK hash
