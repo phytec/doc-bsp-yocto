@@ -688,7 +688,7 @@ Please set the pkcs11-module-path to your selected Secure key storage.
 If the TPM 2.0 is initialized e.g. with the tool physecurekeystorage,
 then you can create a device certificate.
 
-.. code-block:: ini
+.. code-block:: console
 
    #set TPM Pin
    target:~$ TPM_PIN=1234

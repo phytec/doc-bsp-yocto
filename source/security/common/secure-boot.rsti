@@ -74,7 +74,7 @@ At first the necessary variables for signing the bootloader for the different
 SOC types. The variable ``BOOTLOADER_SIGN`` is obsolete, because the
 DISTRO_FEATURES secureboot includes the Bootloader signing.
 
-.. code-block:: console
+.. code-block:: bash
 
    BOOTLOADER_SIGN ??= "true"
    BOOTLOADER_SIGN[type] = "boolean"
@@ -103,7 +103,7 @@ The alternative is that the NXP HAB unit validates the kernel fitImage, then
 the ``FITIMAGE_SIGN_ENGINE="nxphab"`` must be set. This is only possible for
 NXP SOC's with HAB unit and u-boot as bootloader.
 
-.. code-block:: console
+.. code-block:: bash
 
    FITIMAGE_SIGN ?= "true"
    FITIMAGE_SIGN[type] = "boolean"
