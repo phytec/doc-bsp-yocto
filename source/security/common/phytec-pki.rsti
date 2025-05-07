@@ -99,7 +99,7 @@ Change PKI-Tree from phytec-dev-ca to Your Own PKI
 In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*,
 the path to your PKI tree is initially defined:
 
-.. code-block:: console
+.. code-block:: bash
 
    CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
 
@@ -172,7 +172,7 @@ Before we begin programming keys, we need to make one change to the source code.
    * AM62x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/main.c`` remove line 57:
    * AM64x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/main.c`` remove line 61:
 
-  .. code-block::
+  .. code-block:: console
 
    -    keywriter_setVpp();
 

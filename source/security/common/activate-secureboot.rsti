@@ -280,7 +280,7 @@ used.
 To use a different key for the signature of bootloader images, change the
 following variables in ``sources/meta-ampliphy/classes/secureboot.bbclass``:
 
-.. code-block::
+.. code-block:: bash
 
    # for NXP with HABV4
    BOOTLOADER_SIGN_IMG_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem"

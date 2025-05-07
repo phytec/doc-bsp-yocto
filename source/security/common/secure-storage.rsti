@@ -81,7 +81,7 @@ This configuration is important for the RAUC update system because the use of
 integrity and encrypted filesystem are stacked and the number of device-mappers
 is doubled to use integrity or encrypted filesystem.
 
-.. code-block:: console
+.. code-block:: bash
 
    DISTRO_FEATURES += "securestorage"
    #possible types: fileauthorenc , fileauthandenc
