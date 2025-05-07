@@ -1,0 +1,85 @@
+ML Benchmark
+------------
+
+   ML Benchmark tool allows to easily compare the performance of TensorFlow Lite
+   models running on CPU (Cortex-A) and NPU, without the need to type in any
+   command.
+
+   -- NXP [ml_benchmark]_
+
+Note that NXP supplies instructions to run the demo as well. For completeness,
+references will be supplied.
+
+Prerequisites
+.............
+
+To be able to run the ML Benchmark demo application, you will need the
+following:
+
+1. Yocto Project setup with the PHYTEC BSP being built
+2. Ethernet cable, board connected to the internet
+3. Display for any of the supported SoCs PHYTEC SBCs
+4. Console connection to the SBC from host PC
+
+Yocto Project
+~~~~~~~~~~~~~
+
+Modifications in the Yocto Project are necessary as PHYTEC BSPs do not have the
+GoPoint suite included by default.
+Add the following to your local.conf::
+
+   IMAGE_INSTALL:append = " packagegroup-imx-gopoint packagegroup-imx-ml"
+
+Adding this causes the gopoint scripts/ui and the backend ml libraries to be
+installed, respectively.
+Build the phytec-qt6demo-image::
+
+   bitbake phytec-qt6demo-image
+
+and flash the Image to the board.
+
+Ethernet
+~~~~~~~~
+
+Connect an Ethernet cable to the SBC or make otherwise sure that the SBC has
+access to the internet. Otherwise the demo application is unable to download a
+ml model and fails.
+
+Display
+~~~~~~~
+
+Connect the Display accompanying the PHYTEC SBC to the SBC. You may also use
+your own display, however different hardware and/or software may be required.
+The results for this demo are put out as a graphical UI and when weston is
+unable to start the demo will not start, either.
+
+.. note::
+
+   The accompanying display supports touch. In that case no mouse is necessary.
+   When not using a touch display, a mouse is necessary as you need to click on
+   gui elements.
+
+Console
+~~~~~~~
+
+Connect a USB cable from your host PC to the respective port of the SBC.
+
+Running the demo
+................
+
+Boot the board. Ensure the display is working. When using your own display,
+ensure you have the correct dtbo applied and weston starts.
+Connect to the SBC via debug console and execute::
+
+   gopoint tui
+
+This will prompt you for a selection of different demos.
+Use the arrow keys to select the ML Benchmark demo and press Enter.
+On the display, a TFLite Benchmarking box should appear.
+The bottom text within the box should say ``Models are ready for inference``.
+Click/press on ``RUN BENCHMARKS!``.
+Sometimes the box may disappear, rerun the ML Benchmark in the terminal.
+NXP explains this and other issues here [ml_benchmark]_.
+
+.. [ml_benchmark] https://github.com/nxp-imx-support/nxp-demo-experience-demos-list/tree/lf-6.6.52_2.2.0/scripts/machine_learning/ml_benchmark#ml-benchmark-tool.
+

@@ -1,0 +1,27 @@
+..
+   GoPoint is only available for NXP vendor releases as NXP has override Syntax
+   in Yocto for nxp-bsp.
+   This file shall only be included in vendor BSP manuals.
+
+
+NXP GoPoint demo suite
+======================
+
+NXP provides demos for their EVK SBCs.
+They are bundled in a demo suite called GoPoint.
+It is advertised as
+
+   "GoPoint for i.MX Applications Processors is for users who are interested in
+   showcasing the various features and capabilities of NXP provided SoCs. The
+   demos included in this application are meant to be easy to run for users of
+   all skill levels, making complex use cases accessible to anyone. Users need
+   some knowledge when setting up equipment on Evaluation Kits (EVKs), such as
+   changing Device Tree Blob (DTB) files."
+
+   -- GoPoint for i.MX Applications Processors User Guide [GPNTUG]_
+
+Since most of the demos require different accessory hardware to be connected to
+the SBC to function properly, the list of required hardware will be presented
+within each demo section.
+
+.. [GPNTUG] https://www.nxp.com/design/design-center/software/i-mx-developer-resources/gopoint-for-i-mx-applications-processors:GOPOINT
