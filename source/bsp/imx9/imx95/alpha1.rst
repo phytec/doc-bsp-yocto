@@ -421,3 +421,11 @@ The device tree of LVDS-1 on PEB-AV-10 can be found here:
    :end-before: .. tm-gpio-fan-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
+
+.. +---------------------------------------------------------------------------+
+.. | NXP Demos                                                                 |
+.. +---------------------------------------------------------------------------+
+
+.. include:: ../../imx-common/GoPoint/introduction.rsti
+
+.. include:: ../../imx-common/GoPoint/ML_Benchmark.rsti
