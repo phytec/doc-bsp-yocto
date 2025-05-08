@@ -44,8 +44,8 @@ The main boot process is the following
 4. If built with signed kernel modules (standard), Linux will only load kernel
    modules verifies with a kernel compiled in public key
 
-If you use the DISTRO_FEATURE secureboot or a secure-machine, then the
-bootloader is configured additionally:
+If you use the DISTRO_FEATURE secureboot or a TI HS-SE machine variant, then
+the bootloader is configured additionally:
 
 1. The bootloader is signed and is used in the images (wic, partup and bmap).
 2. The bootloader boots only signed kernel fitImage after a verification.
