@@ -143,5 +143,128 @@ The following preparatory steps are necessary:
       CSAL state:     EdgeLock secure enclave random context initialization succeed
       TRNG state:     TRNG entropy is valid and ready to be read
 
+TPM Infineon Firmware Update Tool
+---------------------------------
+
+On PHYTEC Boards are TPMs from Infineon and this chapter describe an firmware
+update for this devices.
+
+At first you need access to the myInfineon Collaboration Platform (ICP) for
+downloading the
+* `TPM SLB 96xx Update Tool <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SLB%2096xx%20Update%20Tool%20only>`_
+* `Firmware for the TPM 2.0 from Infineon <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SPI%20SLB%209670%20Documents%20and%20Tools>`_
+
+For the registration on the myInfineon please follow the
+`ICP Guide <https://www.infineon.com/dgdl/Infineon-MyICP_Guide_registration_for_customers-ATI-v01_00-EN.pdf?fileId=5546d462696dbf120169b4cb500c4b34>`_.
+If you have access to the ICP, then login on `<https://mycases.infineon.com/>`_
+and "Create new case" to request access to the Update Tool and the Firmware for
+your device.
+
+If your case is accepted, then you can download the
+TPM_FU_v2.03.4733.00_ToolsOnly_Linux_SourceCode.tar.gz or newer on.
+For the installation of the TPM update tool in your image you need an
+recipe with name *recipes-devtools/infineon/infineon-tpm-updater_v2.03.4733.bb*
+
+.. code-block:: bash
+
+   SUMMARY = "INFINEON TPM FIRMWARE UPDATER"
+   LICENSE = "Proprietary"
+   LIC_FILES_CHKSUM = "file://../../License.txt;md5=36ca2c0688532edca7708132cbd7585e"
+
+   DEPENDS = "openssl"
+
+   SRC_URI = "file://TPM_FU_v2.03.4733.00_ToolsOnly_Linux_SourceCode.tar.gz"
+
+   # Uncomment, because compiler set it internally before
+   # In Makefile is a set for FORTIFY_SOURCE
+   CFLAGS += "-U_FORTIFY_SOURCE"
+   S = "${WORKDIR}/Source/TPMFactoryUpd"
+   B = "${WORKDIR}/Source/TPMFactoryUpd"
+
+   EXTRA_OEMAKE = " \
+      ARCH='${TARGET_ARCH}' \
+      CROSS_COMPILE='${TARGET_SYS}-' \
+      CC='${CC}' \
+      LIB='${AR}' \
+   "
+
+   do_install () {
+      #oe_runmake install DESTDIR=${D} INCLUDEDIR=${includedir}
+      install -d -m 755 ${D}${sbindir}
+      install ${B}/TPMFactoryUpd ${D}${sbindir}
+   }
+
+   RDEPENDS:${PN} += " \
+      openssl \
+      libcrypto \
+      libgcc \
+   "
+
+   INSANE_SKIP:${PN} += "already-stripped"
+   FILES:${PN} += "{sbindir}"
+
+After that you can include the infineon-tpm-updater in your image recipe, build
+your image, install and boot it.
+
+.. warning::
+
+   Infineon Attention from Users Manual
+   It is recommended to always restart the system directly after the TPM
+   Firmware Update, since certain system hardware and software components might
+   not be aware of a TPM Firmware Update without a restart (especially in case
+   the TPM family has been changed with the update.)
 
 
+The configuration of the TPM should not changed by the firmware update.
+The generated keys with keyctl and pkcs11 should be available after the update
+of the firmware.
+
+* Read the TPM information on the device:
+
+.. code-block:: console
+
+   target:~$ TPMFactoryUpd -info
+   **********************************************************************
+   *    Infineon Technologies AG   TPMFactoryUpd   Ver 02.03.4733.00    *
+   **********************************************************************
+      TPM information:
+      ----------------
+      TPM family                        :    2.0
+      TPM firmware version              :    7.85.4555.0
+      TPM firmware recovery support     :    No
+      TPM firmware valid                :    Yes
+      TPM operation mode                :    Operational
+      TPM platformAuth                  :    Empty Buffer
+      Remaining updates                 :    64
+
+* Update the TPM 2.0
+
+.. code-block:: console
+
+    target:~$ TPMFactoryUpd -update tpm20-emptyplatformauth -firmware TPM20_7.85.4555.0_to_TPM20_7.86.19393.2.BIN
+    **********************************************************************
+    *    Infineon Technologies AG   TPMFactoryUpd   Ver 02.03.4733.00    *
+    **********************************************************************
+
+      TPM update information:
+      -----------------------
+      TPM family                        :    2.0
+      TPM firmware version              :    7.85.4555.0
+      TPM firmware valid                :    Yes
+      TPM operation mode                :    Operational
+      TPM platformAuth                  :    Empty Buffer
+      Remaining updates                 :    64
+      New firmware valid for TPM        :    Yes
+      TPM family after update           :    2.0
+      TPM firmware version after update :    7.86.19393.2
+
+      Preparation steps:
+      TPM2.0 policy session created to authorize the update.
+
+      DO NOT TURN OFF OR SHUT DOWN THE SYSTEM DURING THE UPDATE PROCESS!
+
+      Updating the TPM firmware ...
+      Completion: 100 %
+      TPM Firmware Update completed successfully.
+
+      A system restart is required before the TPM can enter operational mode again.
