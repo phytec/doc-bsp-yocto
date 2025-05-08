@@ -185,9 +185,9 @@ integrity, or both methods together.
 * The parameter <filesystem> is the path to tar.gz archive of the filesystem,
   which should be installed on the flash device.
 * Please copy the filesystem image, <IMAGENAME>-<MACHINE>.tar.gz, to a USB or
-  MMC drive so that it can be installed on the target. If you have installed a
-  partup image at first, then partup image is mounted as squashfs and you can
-  found the rootfs there.
+  MMC drive so that it can be installed on the target. If partup packages are
+  used for initial flashing, then mount the partup package as type squashfs
+  first and find the root filesystem there.
 * The parameter <flashlayout> contains the rootfs partition.
 * The parameter RAUC initializes both RAUC rootfs partitions.
 * After the installation, power off the system:
