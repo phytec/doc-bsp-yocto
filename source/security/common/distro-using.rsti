@@ -22,7 +22,7 @@ can boot only from an eMMC!
 
 For devices based on the TI K3 controller (AM6 series) the ``MACHINE`` variable
 in the ``$BUILDDIR/conf/local.conf``
-should be set to secure-machine-name.
+should be set to HS-SE machine variant.
 
 Distro |distro-provisioning| and |distro-provisioning-vendor|
 -------------------------------------------------------------
@@ -40,12 +40,12 @@ Kernel with a minimal initramfs to
 For devices based on the TI K3 controller (AM6 series) use the distro ampliphy
 and build the phytec-headless-image to boot
 from sd-card. The ``MACHINE`` variable in the ``$BUILDDIR/conf/local.conf``
-should be set to secure-machine-name.
+should be set to the HS-SE machine variant.
 
-The secure-machine-name for TI K3 controller
---------------------------------------------
+The different machines for TI K3 controller
+-------------------------------------------
 
-The secure-machine-name is the machine with secure boot enabled, so it will be
+The HS-SE machine variant is the machine with secure boot enabled, so it will be
 built with signed bootloaders.
 For the TI K3 controller exist different machines for
 
