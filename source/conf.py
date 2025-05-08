@@ -374,6 +374,13 @@ latex_documents = [
 linkcheck_ignore = [
     "https://github.com/phytec/doc-bsp-yocto",
     "https://opencv.org/",
+    # Github rate limiting
+    "https://github.com/phytec/linux-phytec-imx",
+    "https://github.com/phytec/linux-phytec",
+    # Client Error 403: Forbidden
+    "https://unix.stackexchange.com/",
+    # Timeout with linkcheck
+    "https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc"
 ]
 
 linkcheck_timeout = 60
