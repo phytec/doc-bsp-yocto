@@ -2,6 +2,16 @@
 i.MX 93 Manuals
 ====================
 
+HEAD
+====
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   head
+
 BSP-Yocto-NXP-i.MX93-PD24.2.1
 =============================
 
