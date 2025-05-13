@@ -1,6 +1,6 @@
-==============================
-Coprocessor Application Manual
-==============================
+===========
+Coprocessor
+===========
 
 .. toctree::
    :caption: Table of Contents

@@ -5,13 +5,26 @@ Welcome to the Documentation for our Yocto BSPs.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents
+   :caption: BSP Manuals
 
-   yocto/manual-index
-   rauc/manual-index
-   coprocessor/index
    bsp/imx8/imx8
    bsp/imx9/imx9
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Yocto Manuals
+
+   yocto/manual-index
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Application Manuals
+
+   rauc/manual-index
+   coprocessor/index
+
 
 .. toctree::
    :maxdepth: 1

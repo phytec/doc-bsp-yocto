@@ -1,7 +1,4 @@
-=======================
-Yocto Reference Manuals
-=======================
-
+=========
 Kirkstone
 =========
 
@@ -12,6 +9,7 @@ Kirkstone
 
    kirkstone
 
+==========
 Mickledore
 ==========
 
@@ -22,6 +20,7 @@ Mickledore
 
    mickledore
 
+=========
 Scarthgap
 =========
 
