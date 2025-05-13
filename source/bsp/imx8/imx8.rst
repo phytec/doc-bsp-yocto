@@ -1,6 +1,6 @@
-==============
-i.MX 8 Manuals
-==============
+======
+i.MX 8
+======
 
 .. toctree::
    :caption: i.MX 8 Manuals

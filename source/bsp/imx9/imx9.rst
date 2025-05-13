@@ -1,6 +1,6 @@
-==============
-i.MX 9 Manuals
-==============
+======
+i.MX 9
+======
 
 .. toctree::
    :caption: i.MX 9 Manuals
