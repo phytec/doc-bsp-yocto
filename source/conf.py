@@ -272,6 +272,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx9/imx93/head',
+        'imx93-head.tex',
+        'i.MX 93 Mini BSP Manual DRAFT',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx9/imx93/pd24.1.0',
         'imx93-pd24.1.0.tex',
         'i.MX 93 BSP Manual PD24.1.0',
