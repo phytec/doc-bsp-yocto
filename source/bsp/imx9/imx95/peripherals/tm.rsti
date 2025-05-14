@@ -1,0 +1,76 @@
+Thermal Management
+------------------
+
+U-Boot
+......
+
+There is no Thermal Management support in the first ALPHA release for the
+i.MX95 in U-Boot.
+
+Kernel
+......
+
+The Linux kernel has integrated thermal management that is capable of monitoring
+SoC temperatures, reducing the CPU frequency, driving fans, advising other
+drivers to reduce the power consumption of devices, and – worst-case – shutting
+down the system gracefully
+(https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt).
+
+This section describes how the thermal management kernel API is used for the
+|soc| SoC platform.
+
+There are nine temperature sensors on the SoM that are readable from Linux.
+The |socfamily| has two internal temperature sensors for the SoC.
+Three internal sensors for the PMICs and four I²C temperature sensors located
+close to DRAM, eMMC, ethernet PHY and PMIC.
+
+*  The current temperatures of the system can be read in milli celsius over
+
+   .. code-block:: console
+
+      target:~$ cat /sys/class/hwmon/hwmon*/temp*_input
+
+*  You will get, for example:
+
+   .. code-block::
+
+      48590
+      48510
+      105000
+      105000
+      105000
+      43562
+      43812
+      43062
+      44875
+
+.. note::
+
+   The PMIC temperature sensors return only the last triggered threshold values and not the
+   actual temperature values. The thresholds are 110°C, 125°C, 140°C and 155°C.
+   All temperatures lower than 110°C are shown as 105°C as seen in the example.
+
+
+There are two trip points registered in the device tree. These may
+differ depending on the CPU variant. A distinction is made between Commercial,
+Industrial and Extended Industrial. For the ALPHA1 i.MX95 release there is only the
+Automotive/Extended Industrial temperature range available.
+
+=================== ===================
+trip point          Extended Industrial
+=================== ===================
+passive (warning)   105°C
+critical (shutdown) 125°C
+=================== ===================
+
+(see kernel sysfs folder ``/sys/class/thermal/thermal_zone0/``)
+
+The kernel thermal management uses these trip points to trigger events and
+change the cooling behavior. The following thermal policies (also named thermal
+governors) are available in the kernel: Step Wise and Power Allocator. The
+default policy used in the BSP is step_wise.
+
+.. tip::
+
+   If the value of the SoC temperature in the sysfs file temp reaches
+   *trip_point_1* (critical), the board immediately shuts down to avoid any heat damage.
