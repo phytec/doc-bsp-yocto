@@ -107,6 +107,7 @@
    :ref:`device tree overlay section <imx95-alpha1-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
 
+.. _imx95-alpha1-bsp-manual:
 
 .. only:: html
 
