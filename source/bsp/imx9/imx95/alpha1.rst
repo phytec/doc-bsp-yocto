@@ -417,8 +417,7 @@ The device tree of LVDS-1 on PEB-AV-10 can be found here:
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
-.. include:: /bsp/imx8/peripherals/tm.rsti
-   :end-before: .. tm-gpio-fan-marker
+.. include:: /bsp/imx9/imx95/peripherals/tm.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
