@@ -9,6 +9,7 @@ Welcome to the Documentation for our Yocto BSPs.
 
    bsp/imx8/imx8
    bsp/imx9/imx9
+   security/manual-index
 
 
 .. toctree::
