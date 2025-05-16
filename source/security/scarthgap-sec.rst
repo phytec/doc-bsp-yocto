@@ -12,6 +12,8 @@
 .. |distro-secure| replace:: securiphy
 .. |distro-provisioning| replace:: securiphy-provisioning
 .. |distro-provisioning-vendor| replace:: securiphy-vendor-provisioning
+.. |image-secure-name| replace:: phytec-securiphy-image
+
 
 .. only:: html
 

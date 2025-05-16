@@ -15,9 +15,9 @@ Distro |distro-secure| and |distro-secure-vendor|
 -------------------------------------------------
 
 The distro |distro-secure| or |distro-secure-vendor| with the
-phytec-security-image is an example of a production image with secure-update
+|image-secure-name| is an example of a production image with secure-update
 support.
-The phytec-security-image.rootfs.wic or phytec-security-image.rootfs.partup
+The |image-secure-name|.rootfs.wic or |image-secure-name|.rootfs.partup
 can boot only from an eMMC!
 
 For devices based on the TI K3 controller (AM6 series) the ``MACHINE`` variable
@@ -33,7 +33,7 @@ of your device based on a NXP controller in a secure area.
 The phytec-provisioning-image.rootfs can boot directly from an SD card to a
 Kernel with a minimal initramfs to
 
-   * install the phytec-security-image.rootfs as wic or partup to the eMMC
+   * install the |image-secure-name|.rootfs as wic or partup to the eMMC
    * initialize the secure key storage on the device
    * initialize the secure storage on the device
 
