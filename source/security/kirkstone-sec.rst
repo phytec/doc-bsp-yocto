@@ -12,6 +12,7 @@
 .. |distro-secure| replace:: ampliphy-secure
 .. |distro-provisioning| replace:: ampliphy-provisioning
 .. |distro-provisioning-vendor| replace:: ampliphy-vendor-provisioning
+.. |image-secure-name| replace:: phytec-security-image
 
 .. only:: html
 

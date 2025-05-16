@@ -126,7 +126,7 @@ Building a signed image
 
 To build a signed provisioning image for the configuration of the device,
 which can boot from sd-card or Serial Downloader, then the ``DISTRO`` needs to
-be set to ``securiphy-provisioning or securiphy-vendor-provisioning``.
+be set to |distro-secure-vendor| or |distro-secure|.
 The main parts for the provisioning-image are the bootloader and the fitImage,
 which includes an initramfs with all necessary tools.
 
@@ -138,13 +138,15 @@ which includes an initramfs with all necessary tools.
    # for TI K3 SOC
    host:~$ bitbake phytec-headless-image
 
-To build the securiphy image for the eMMC or ubifs with rauc update support,
-then the ``DISTRO`` needs to be set to ``securiphy or securiphy-vendor``.
+To build the |image-secure-name| for the eMMC or ubifs with rauc update support,
+then the ``DISTRO`` needs to be set to |distro-secure-vendor| or
+|distro-secure|.
 
 .. code-block:: console
+   :substitutions:
 
    # for all SOC
-   host:~$ bitbake phytec-securiphy-image
+   host:~$ bitbake |image-secure-name|
 
 .. note::
    If you have some boot warnings or errors like  /initrd.image: incomplete
