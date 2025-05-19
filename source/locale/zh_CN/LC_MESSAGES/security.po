@@ -1,0 +1,2663 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, PHYTEC Messtechnik GmbH
+# This file is distributed under the same license as the PHYTEC BSP Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHYTEC BSP Documentation imx8mm-pd25.1.0-75-g28e760b\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-19 13:53+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
+msgstr ""
+
+msgid "Security Manual"
+msgstr ""
+
+msgid "Document Title"
+msgstr ""
+
+msgid "Security Manual |yocto-codename|"
+msgstr ""
+
+msgid "Document Type"
+msgstr ""
+
+msgid "Release Date"
+msgstr ""
+
+msgid "XXXX/XX/XX"
+msgstr ""
+
+msgid "Is Branch of"
+msgstr ""
+
+msgid "Compatible BSPs"
+msgstr ""
+
+msgid "BSP Release"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+msgstr ""
+
+msgid "Major"
+msgstr ""
+
+msgid "14.12.2022"
+msgstr ""
+
+msgid "full"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.1"
+msgstr ""
+
+msgid "Minor"
+msgstr ""
+
+msgid "20.06.2023"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
+msgstr ""
+
+msgid "11.08.2022"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1"
+msgstr ""
+
+msgid "23.05.2023"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MM-PD23.1.0"
+msgstr ""
+
+msgid "12.12.2023"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62x-PD23.2.0"
+msgstr ""
+
+msgid "28.09.2023"
+msgstr ""
+
+msgid "partly"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+msgstr ""
+
+msgid "This manual applies to all |yocto-codename| based PHYTEC releases."
+msgstr ""
+
+msgid "Introduction"
+msgstr ""
+
+msgid "PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports different Security mechanism. The security features have impact to the bootloader, the Linux kernel, Device Tree, and root filesystem. This manual describes how Security featuresis used and implemented on various PHYTEC platforms. Note, that different modules use different bootloaders and flash storage devices, which affects the way things are handled. Make sure to read the correct sections fitting your platform."
+msgstr ""
+
+msgid "This manual contains machine-specific paths and variable contents. Make sure you are using the correct machine and device names for your application when executing any commands."
+msgstr ""
+
+msgid "SECURIphy Overview"
+msgstr ""
+
+msgid "SECURIphy is the PHYTEC secure linux distribution and a part of the security packages phyKNOX."
+msgstr ""
+
+msgid "With increasing digitization and networking, the protection of embedded systems against unauthorized access and targeted attacks is more important than ever. Guaranteeing this type of security, along with functional security, is a major challenge in electronics design. PHYTEC supports you in minimizing risks by considering security requirements during the development of our hardware and board support packages. On top of these deployment-ready solutions, we support you with individual project consulting on complex security principles."
+msgstr ""
+
+msgid "Security is a process encompassing all parts of a device and all development phases of its lifetime."
+msgstr ""
+
+msgid "Short Crypto Refresher"
+msgstr ""
+
+msgid "Function"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Symmetric cryptography"
+msgstr ""
+
+msgid "The same key for encryption or decryption"
+msgstr ""
+
+msgid "Public key cryptography"
+msgstr ""
+
+msgid "Two mathematically dependent keys for encryption or"
+msgstr ""
+
+msgid "decryption. The public key is used for encryption while"
+msgstr ""
+
+msgid "the private key is used for decryption."
+msgstr ""
+
+msgid "Hash"
+msgstr ""
+
+msgid "One-way function, fixed output size (SHA*)"
+msgstr ""
+
+msgid "HMAC"
+msgstr ""
+
+msgid "Data authentication using hash and shared secret"
+msgstr ""
+
+msgid "Signature"
+msgstr ""
+
+msgid "Data authentication using public-key cryptography"
+msgstr ""
+
+msgid "(keys & certificates, RSA & ECDSA)"
+msgstr ""
+
+msgid "Unauthenticated encryption"
+msgstr ""
+
+msgid "Attackers can‘t read private data but could modify it"
+msgstr ""
+
+msgid "(AES-CBC, AES-XTS, ...)"
+msgstr ""
+
+msgid "Authenticated encryption"
+msgstr ""
+
+msgid "Attacker can‘t read private data and modification is"
+msgstr ""
+
+msgid "detetcted (AEAD: AES GCM, AEGIS)"
+msgstr ""
+
+msgid "Trusted Keys"
+msgstr ""
+
+msgid "Symmetric key with variable length is a key type of the"
+msgstr ""
+
+msgid "existing kernel keyring service."
+msgstr ""
+
+msgid "Require the availability of a Trust Source for greater"
+msgstr ""
+
+msgid "security like a TPM, NXP CAAM or TEE"
+msgstr ""
+
+msgid "Encrypted Keys"
+msgstr ""
+
+msgid "Recommended Security Requirements"
+msgstr ""
+
+msgid "As of the writing of this manual, recommendations apply to key lengths, certificates, and hash values. These recommendations come from BSI (Bundesamt für Sicherheit in der Informationstechnik) and NIST (National Institute of Standards and Technology)."
+msgstr ""
+
+msgid "In the technical and connected world, it is important to build a \"security by design” approach that thwarts intrusion into your product, data, and intellectual property at multiple levels."
+msgstr ""
+
+msgid "Here are the Security features from the Standard BSP."
+msgstr ""
+
+msgid "**Basic Security**"
+msgstr ""
+
+msgid "Basic Security is the fundament of the security measures implementations and includes support for basic modules such as:"
+msgstr ""
+
+msgid "True Number Generator and Cryptographic support"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
+
+msgid "Secure Key Storage and Usage"
+msgstr ""
+
+msgid "Secure Storage"
+msgstr ""
+
+msgid "Secure Updates"
+msgstr ""
+
+msgid "**Parts from Access Control**"
+msgstr ""
+
+msgid "Access Control regulates the access of users and services to the device and components in the device according to the least privilege access principle."
+msgstr ""
+
+msgid "Secure Console"
+msgstr ""
+
+msgid "Secure Shell"
+msgstr ""
+
+msgid "User and Role Management"
+msgstr ""
+
+msgid "**Provisioning**"
+msgstr ""
+
+msgid "Provisioning includes the activation of hardware security features like Secure Boot and the generation of specific keys and X509 certificates on the device in secure manufacturing like the PHYTEC secure production area."
+msgstr ""
+
+msgid "More Additional Security Features (not part of this BSP)"
+msgstr ""
+
+msgid "**Network Security**"
+msgstr ""
+
+msgid "Network Security enables secure connections to connected devices or servers via Ethernet, WLAN, and LTE, but also secures access to the device from outside."
+msgstr ""
+
+msgid "Remote Access"
+msgstr ""
+
+msgid "Server, Cloud Integration Tools"
+msgstr ""
+
+msgid "Intrusion Protection"
+msgstr ""
+
+msgid "Firewall"
+msgstr ""
+
+msgid "Container"
+msgstr ""
+
+msgid "**Interface Security**"
+msgstr ""
+
+msgid "Interface Security secures the interfaces against third-party access and enables the secure connection of intended devices."
+msgstr ""
+
+msgid "USB"
+msgstr ""
+
+msgid "Field Bus"
+msgstr ""
+
+msgid "**Hardening**"
+msgstr ""
+
+msgid "Hardening refers to the reduction of software components and kernel configuration to a necessary minimum."
+msgstr ""
+
+msgid "**Physical Security**"
+msgstr ""
+
+msgid "Physical Security secures the device from direct physical access to protect the corresponding application and data from external access."
+msgstr ""
+
+msgid "Secure Debug"
+msgstr ""
+
+msgid "Tamper Protection"
+msgstr ""
+
+msgid "Housing"
+msgstr ""
+
+msgid "Encapsulation of the circuit board"
+msgstr ""
+
+msgid "Enable |branding-name|"
+msgstr ""
+
+msgid "Distro |distro-secure|, |distro-secure-vendor|, |distro-provisioning| and |distro-provisioning-vendor| are sample Yocto distros like ampliphy with additional security pre-configurations. Additional security measurements for production usage are necessary and depend on your threat model."
+msgstr ""
+
+msgid "PHYTEC services can support your implementation."
+msgstr ""
+
+msgid "Distro |distro-secure| and |distro-secure-vendor|"
+msgstr ""
+
+msgid "The distro |distro-secure| or |distro-secure-vendor| with the |image-secure-name| is an example of a production image with secure-update support. The |image-secure-name|.rootfs.wic or |image-secure-name|.rootfs.partup can boot only from an eMMC!"
+msgstr ""
+
+msgid "For devices based on the TI K3 controller (AM6 series) the ``MACHINE`` variable in the ``$BUILDDIR/conf/local.conf`` should be set to HS-SE machine variant."
+msgstr ""
+
+msgid "Distro |distro-provisioning| and |distro-provisioning-vendor|"
+msgstr ""
+
+msgid "The distro |distro-provisioning| or |distro-provisioning-vendor| with the phytec-provisioning-image is for the production or the first initialization of your device based on a NXP controller in a secure area. The phytec-provisioning-image.rootfs can boot directly from an SD card to a Kernel with a minimal initramfs to"
+msgstr ""
+
+msgid "install the |image-secure-name|.rootfs as wic or partup to the eMMC"
+msgstr ""
+
+msgid "initialize the secure key storage on the device"
+msgstr ""
+
+msgid "initialize the secure storage on the device"
+msgstr ""
+
+msgid "For devices based on the TI K3 controller (AM6 series) use the distro ampliphy and build the phytec-headless-image to boot from sd-card. The ``MACHINE`` variable in the ``$BUILDDIR/conf/local.conf`` should be set to the HS-SE machine variant."
+msgstr ""
+
+msgid "The different machines for TI K3 controller"
+msgstr ""
+
+msgid "The HS-SE machine variant is the machine with secure boot enabled, so it will be built with signed bootloaders. For the TI K3 controller exist different machines for"
+msgstr ""
+
+msgid "General Purpose (GP): The device is not capable of secure operation"
+msgstr ""
+
+msgid "High Secure - Field Securable (HS-FS): is the state of a K3 device before it has been eFused with customer security keys."
+msgstr ""
+
+msgid "High Secure - Security Enforced (HS-SE): devices enforce an authenticated boot flow for secure boot."
+msgstr ""
+
+msgid "Board"
+msgstr ""
+
+msgid "HS-FS device"
+msgstr ""
+
+msgid "HS-SE device"
+msgstr ""
+
+msgid "phyCORE-AM62Ax"
+msgstr ""
+
+msgid "phyboard-lyra-am62axx-2"
+msgstr ""
+
+msgid "phyCORE-AM62x"
+msgstr ""
+
+msgid "phyboard-lyra-am62xx-3"
+msgstr ""
+
+msgid "phyboard-lyra-am62xx-4"
+msgstr ""
+
+msgid "phyCORE-AM64x"
+msgstr ""
+
+msgid "phyboard-electra-am64xx-2"
+msgstr ""
+
+msgid "phyboard-electra-am64xx-3"
+msgstr ""
+
+msgid "phyCORE-AM68x"
+msgstr ""
+
+msgid "phyboard-izar-am68x-2"
+msgstr ""
+
+msgid "phyboard-izar-am68x-3"
+msgstr ""
+
+msgid "For NXP controller based boards do not exists different machines for devices with activated and not activated Secure boot, because signed images can be booted independence of the device state."
+msgstr ""
+
+msgid "Enable |branding-name| Features in your own Distro"
+msgstr ""
+
+msgid "Activate the following DISTRO_FEATURES in your distribution"
+msgstr ""
+
+msgid "DISTRO_FEATURES"
+msgstr ""
+
+msgid "secureboot"
+msgstr ""
+
+msgid "for building a signed bootloader and kernel FIT-Image"
+msgstr ""
+
+msgid "securestorage"
+msgstr ""
+
+msgid "All necessary tools and configurations for file encryption and"
+msgstr ""
+
+msgid "integrity initialization on the board"
+msgstr ""
+
+msgid "protectionshield"
+msgstr ""
+
+msgid "Three levels low, medium, and high"
+msgstr ""
+
+msgid "Four examples:  users root, phyadmin, phyuser, phyread"
+msgstr ""
+
+msgid "Password protection for bootloader and kernel serial and ssh"
+msgstr ""
+
+msgid "hardening"
+msgstr ""
+
+msgid "Example kernel reduction for machine features"
+msgstr ""
+
+msgid "kernelmodsign"
+msgstr ""
+
+msgid "Enabled Linux kernel module signing, so only modules signed"
+msgstr ""
+
+msgid "with a specific key can be loaded."
+msgstr ""
+
+msgid "update"
+msgstr ""
+
+msgid "Activate rauc A/B update system"
+msgstr ""
+
+msgid "Chain of Trust"
+msgstr ""
+
+msgid "Secure boot is used to ensure that only trustworthy, signed software can be executed on the controller. This is the first stage of the Chain-of-Trust. With the Chain-of-Trust, signed programs are always started by other previously verified programs. This ensures that even the end application is at the highest layer of trustworthiness."
+msgstr ""
+
+msgid "Boot Process"
+msgstr ""
+
+msgid "The boot process differs between the SOC and the vendor of the SOC's. The main boot process is the following"
+msgstr ""
+
+msgid "The Trusted ROM-bootloader, which is part of the SOC, verifies the boot container (U-boot spl, ATF, firmware, op-tee) with the internal unit (**Boot Step 1**)"
+msgstr ""
+
+msgid "SOC"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Boot mode"
+msgstr ""
+
+msgid "NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus"
+msgstr ""
+
+msgid "NXP HABV4"
+msgstr ""
+
+msgid "Single: Cortex-A"
+msgstr ""
+
+msgid "NXP i.MX93, i.MX91, i.MX95"
+msgstr ""
+
+msgid "NXP AHAB"
+msgstr ""
+
+msgid "+ EdgeLock secure"
+msgstr ""
+
+msgid "enclave"
+msgstr ""
+
+msgid "LPboot: M33"
+msgstr ""
+
+msgid "Single: A35 -> M33"
+msgstr ""
+
+msgid "DUAL: M33 + A35"
+msgstr ""
+
+msgid "TI AM62x, AM64x, AM68x"
+msgstr ""
+
+msgid "R5"
+msgstr ""
+
+msgid "u-boot SPL loads u-boot proper from the FIT image and ATF (ARM Trusted Firmware) and optionally OP-TEE."
+msgstr ""
+
+msgid "Then, u-boot loads and verifies the FIT image containing a Linux kernel, DTB, and ramdisk. (**Boot Step 2**)"
+msgstr ""
+
+msgid "If built with signed kernel modules (standard), Linux will only load kernel modules verifies with a kernel compiled in public key"
+msgstr ""
+
+msgid "If you use the DISTRO_FEATURE secureboot or a TI HS-SE machine variant, then the bootloader is configured additionally:"
+msgstr ""
+
+msgid "The bootloader is signed and is used in the images (wic, partup and bmap)."
+msgstr ""
+
+msgid "The bootloader boots only signed kernel fitImage after a verification."
+msgstr ""
+
+msgid "The bootloader use only the built-in environment and only loads some necessary variables for RAUC update mechanism."
+msgstr ""
+
+msgid "Image Signing"
+msgstr ""
+
+msgid "In the following flowchart you can see the signing process for different parts of an image."
+msgstr ""
+
+msgid "A Hash is created for the binary file like the boot container, Kernel FIT image, kernel modules, op-tee applications or the rauc update bundle."
+msgstr ""
+
+msgid "A signature is from the hash with a private key."
+msgstr ""
+
+msgid "The signature is added to the binary file."
+msgstr ""
+
+msgid "Flattened Image Tree (FIT)"
+msgstr ""
+
+msgid "FIT images are used with Secure Boot as standard format for packing kernel, device-tree and optional initramfs. The FIT image are signed in the yocto build with a Private Key. The public key is on the target, compiled in the bootloader or the NXP HAB keys are used. Documentation about FIT is available in the `Flattened Image Tree project <https://fitspec.osfw.foundation/>`_."
+msgstr ""
+
+msgid "There are two different yocto classes for creation of a signed FIT image."
+msgstr ""
+
+msgid "PHYTEC *sources/meta-phytec/classes/fitimage.bbclass*"
+msgstr ""
+
+msgid "With FIT image recipes you can define more separate FIT images."
+msgstr ""
+
+msgid "Example for FIT image recipes are in ``sources/meta-ampliphy/recipes-images/fitimage/``"
+msgstr ""
+
+msgid "To create a own FIT image, you need to specify some variables in the recipe:"
+msgstr ""
+
+msgid "FITIMAGE_SLOTS: Use this to list all slot classes for which the FIT image should contain images. A value of \"kernel fdt fdtapply\", for example, will create a manifest with images for two slot classes - kernel and devicetree."
+msgstr ""
+
+msgid "FITIMAGE_SLOT_<slotclass>: For each slot class, set this to the image (recipe) name which builds the artifact you intend to place in the slot class."
+msgstr ""
+
+msgid "FITIMAGE_SLOT_<slotclass>[type]: For each slot class, set this to the type of image you intend to place in this slot. Possible types are the kernel, fdt, fdto, fdtapply, or ramdisk."
+msgstr ""
+
+msgid "FITIMAGE_SLOT_<slotclass>[file]: For slot type kernel, fdt, fdt0 and fdtapply set this to the file of the image you intend to place in this slot."
+msgstr ""
+
+msgid "FITIMAGE_SLOT_<slotclass>[fstype]: For slot type ramdisk, set this to the filesystem type of image you intend to place in this slot."
+msgstr ""
+
+msgid "FITIMAGE_SLOT_<slotclass>[name]: For slot type fdtapply, set this to the final device tree and configuration name."
+msgstr ""
+
+msgid "poky *sources/poky/meta/classes-recipe/kernel-fitimage.bbclass*"
+msgstr ""
+
+msgid "This is the standard upstream FIT image class in yocto mainly for u-boot, which built one FIT image with initramfs and without initramfs."
+msgstr ""
+
+msgid "At first the PHYTEC FIT image class is used to create the FIT images, because it supports barebox and u-boot and you can define more separate FIT images. Since security has increasingly become an integral part of the SoC manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to gradually switch to this class, too."
+msgstr ""
+
+msgid "Configuration Class for Signing images"
+msgstr ""
+
+msgid "All variables to adjust the bootloader and kernel fitImage signing process can be found in the *source/meta-ampliphy/secureboot.bbclass*"
+msgstr ""
+
+msgid "At first the necessary variables for signing the bootloader for the different SOC types. The variable ``BOOTLOADER_SIGN`` is obsolete, because the DISTRO_FEATURES secureboot includes the Bootloader signing."
+msgstr ""
+
+msgid "In the following view you can see the necessary variables for signing with the PHYTEC FIT image class. The FITIMAGE_PUBKEY_SIGNATURE_PATH is only important, when using the ``FITIMAGE_SIGN_ENGINE=\"software\".`` This means, that the u-boot validates the kernel fitImage und use the compiled in public key. The alternative is that the NXP HAB unit validates the kernel fitImage, then the ``FITIMAGE_SIGN_ENGINE=\"nxphab\"`` must be set. This is only possible for NXP SOC's with HAB unit and u-boot as bootloader. The following configuration are in the *sources/meta-ampliphy/secureboot.bbclass*"
+msgstr ""
+
+msgid "The signing with the poky kernel-fitimage class needs the following configuration in"
+msgstr ""
+
+msgid "machine configuration in *sources/meta-phytec/conf/machine* for the kernel, initrd, device-tree and device-tree overlay ``LOADADDRESS`` and ``ENTRYPOINT`` addresses"
+msgstr ""
+
+msgid "*source/meta-ampliphy/secureboot.bbclass* for the signing key parameter"
+msgstr ""
+
+msgid "*sources/meta-ampliyphy/conf/distro* file for the ``INITRAMFS_IMAGE``."
+msgstr ""
+
+msgid "|distro-secure| and |distro-secure-vendor|: ``INITRAMFS_IMAGE = \"phytec-secureboot-initramfs\"``"
+msgstr ""
+
+msgid "|distro-provisioning| and |distro-provisioning-vendor|: ``INITRAMFS_IMAGE = \"phytec-provisioning-initramfs\"``"
+msgstr ""
+
+msgid "Building a signed image"
+msgstr ""
+
+msgid "To build a signed provisioning image for the configuration of the device, which can boot from sd-card or Serial Downloader, then the ``DISTRO`` needs to be set to |distro-secure-vendor| or |distro-secure|. The main parts for the provisioning-image are the bootloader and the fitImage, which includes an initramfs with all necessary tools."
+msgstr ""
+
+msgid "To build the |image-secure-name| for the eMMC or ubifs with rauc update support, then the ``DISTRO`` needs to be set to |distro-secure-vendor| or |distro-secure|."
+msgstr ""
+
+msgid "If you have some boot warnings or errors like  /initrd.image: incomplete write or the kernel boot fails, then please check the size for cma (kernel boot parameter, setting in bootloader). The allocate RAM for cma can be too much, which is import for systems with 256 MByte or 512 Mbyte RAM."
+msgstr ""
+
+msgid "Activate Secure Boot on the Device"
+msgstr ""
+
+msgid "The final step to activate secure boot on your device is to burn the secure eFuse configuration."
+msgstr ""
+
+msgid "The secure eFuse configuration can only be written once and is irreversible!"
+msgstr ""
+
+msgid "For Secure Boot are only public information are burned to SOC from NXP and TI. When building the yocto-secure distro for the first time, the bootloader image is signed with PHYTEC's development keys. Yocto stores these development keys to ``yocto/phytec-dev-ca``"
+msgstr ""
+
+msgid "Create and use your own keys and certificates for signing your images. Burn the right key into the Controller eFuse. Please refer to the chapter |secure-key-storage-link|"
+msgstr ""
+
+msgid "eMMC Boot Partition to Enable Boot"
+msgstr ""
+
+msgid "If you install your eMMC with the partup image, then the eMMC is configured with the right configuration. If you install the bootloader standalone on the eMMC, then please check the eMMC configuration for the right partition."
+msgstr ""
+
+msgid "barebox"
+msgstr ""
+
+msgid "u-boot"
+msgstr ""
+
+msgid "Set eMMC as an active device"
+msgstr ""
+
+msgid "``barebox$ detect mmc3``"
+msgstr ""
+
+msgid "``u-boot=> mmc dev 2``"
+msgstr ""
+
+msgid "Show active boot partition"
+msgstr ""
+
+msgid "``barebox$ devinfo mmc3``"
+msgstr ""
+
+msgid "``u-boot=> mmc partconf 2``"
+msgstr ""
+
+msgid "Set user area for boot"
+msgstr ""
+
+msgid "``barebox$ mmc3.boot=disabled``"
+msgstr ""
+
+msgid "``u-boot=> mmc partconf 2 0 7 0``"
+msgstr ""
+
+msgid "disabled: user partition"
+msgstr ""
+
+msgid "boot0: Boot partition 0"
+msgstr ""
+
+msgid "boot1: Boot partition 1"
+msgstr ""
+
+msgid "0x7: user partition"
+msgstr ""
+
+msgid "0x1: Boot partition 0"
+msgstr ""
+
+msgid "0x2: Boot partition 1"
+msgstr ""
+
+msgid "Active boot output for barebox:"
+msgstr ""
+
+msgid "Active boot output for u-boot"
+msgstr ""
+
+msgid "Activate Secure Boot for NXP SOC"
+msgstr ""
+
+msgid "For NXP SOC you can burn the Fuses with u-boot or with the tool crucible in the kernel userspace. The necessary SRK fuses contain the hash value of the SRK public keys. They are never used on open devices! In closed devices, they are used to validate the public key contained in signed firmware images. Before closing the device, you must store the hash of the public keys in the SRK OTP bits on the device. This will allow the ROM loader to validate the public key included in signed firmware images."
+msgstr ""
+
+msgid "NXP i.MX with HAB: example ``SRK_1_2_3_4_fuse.bin`` file in ``yocto/phytec-dev-ca/nxp_habv4_pki/crts/SRK_1_2_3_4_fuse.bin``"
+msgstr ""
+
+msgid "If you build the signed bootloader, then the following tools are available in the bootloader."
+msgstr ""
+
+msgid "Check the current state of your device"
+msgstr ""
+
+msgid "NXP i.MX6 with HAB and bootloader barebox"
+msgstr ""
+
+msgid "NXP i.MX8M Series with HAB and bootloader u-boot"
+msgstr ""
+
+msgid "Burn the SRK"
+msgstr ""
+
+msgid "NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin to the device with e.g. tftp and burn directly with"
+msgstr ""
+
+msgid "to check"
+msgstr ""
+
+msgid "SOC with u-boot you must write every word to the Fuses"
+msgstr ""
+
+msgid "NXP i.MX8M Series with HAB"
+msgstr ""
+
+msgid "``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin``"
+msgstr ""
+
+msgid "0000000 9a842534 b0491ab4 d5b6a07b fd92dce7"
+msgstr ""
+
+msgid "0000020 c10dc87c d8bd04a9 704e9fe4 9b025359"
+msgstr ""
+
+msgid "burn the fuses"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 6 0 0x9a842534``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 6 1 0xb0491ab4``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 6 2 0xd5b6a07b``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 6 3 0xfd92dce7``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 7 0 0xc10dc87c``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 7 1 0xd8bd04a9``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 7 0 0x704e9fe4``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 7 0 0x9b025359``"
+msgstr ""
+
+msgid "read and check"
+msgstr ""
+
+msgid "the fuses"
+msgstr ""
+
+msgid "``u-boot=> fuse read 6 0 4``"
+msgstr ""
+
+msgid "0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7"
+msgstr ""
+
+msgid "``u-boot=> fuse read 7 0 4``"
+msgstr ""
+
+msgid "0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359"
+msgstr ""
+
+msgid "reset the booard"
+msgstr ""
+
+msgid "``u-boot=> reset``"
+msgstr ""
+
+msgid "check the state"
+msgstr ""
+
+msgid "``u-boot=> hab_status``"
+msgstr ""
+
+msgid "No Events Found!"
+msgstr ""
+
+msgid "Lock the device"
+msgstr ""
+
+msgid "This step is irreversible and could brick your device. Before closing the device:"
+msgstr ""
+
+msgid "Verify you have built a signed bootloader image."
+msgstr ""
+
+msgid "Reset your board and verify there are no HAB."
+msgstr ""
+
+msgid "Verify the SRK eFuses have been burned correctly."
+msgstr ""
+
+msgid "NXP i.MX6 with HAB and bootloader barebox:"
+msgstr ""
+
+msgid "The device is directly locked and the SRK is write protected, too."
+msgstr ""
+
+msgid "SOC with u-boot:"
+msgstr ""
+
+msgid "Lock your device"
+msgstr ""
+
+msgid "Secure Boot active"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 1 3 0x2000000``"
+msgstr ""
+
+msgid "Set Read protection"
+msgstr ""
+
+msgid "not available"
+msgstr ""
+
+msgid "Set Over-ride protection"
+msgstr ""
+
+msgid "for shadow register"
+msgstr ""
+
+msgid "Set Write protection"
+msgstr ""
+
+msgid "for SRK"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 0 0 0x200``"
+msgstr ""
+
+msgid "Activate Secure Boot for TI K3 SOC"
+msgstr ""
+
+msgid "You can only burn the Fuses with the OTP-Keywriter, which you have create in the chapter |phytec-pki-link| To run the keywriter on your hardware we recommend starting with a regular SD card that has an unsigned image on it. Once you have your bootable SD card, copy the ``tiboot3.bin`` you generated into the boot partition of the SD card, replacing the previous version of the binary."
+msgstr ""
+
+msgid "AM62x"
+msgstr ""
+
+msgid "Now you must set JP8 on the development kit for AM62x in order to flash the keys."
+msgstr ""
+
+msgid "For some older AM62x boards you also need to verify that the resistor on J28 is set to position 2+3."
+msgstr ""
+
+msgid "AM64x"
+msgstr ""
+
+msgid "Now you must set JP5 to pins 1 and 2 on the development kit in order to flash the keys."
+msgstr ""
+
+msgid "Once this jumper is set, plug the SD card into the kit and boot as you normally would. You should see a message that keywriting was successful. The keywriter will only successfully write one time."
+msgstr ""
+
+msgid "If you are using the incremental approach to programming your keys, it is essential that you run your Key Revision binary after all the other binaries have been successfully run. Writing the key revision is what converts the device to a secure boot device, so you will not be able to run your other binaries after the key revision is set."
+msgstr ""
+
+msgid "Next Steps after Activation of Secure Boot"
+msgstr ""
+
+msgid "After you have closed the device, consider the following points with regard to how firmware authentication can potentially be skipped:"
+msgstr ""
+
+msgid "JTAG could be used to boot the processor and avoid the secure boot. See Secure JTAG"
+msgstr ""
+
+msgid "The bootloader will drop to a console after an unsuccessful firmware authentication for debugging purposes. That console can still be used to boot, so it should be disabled in the production firmware. See Protection Shield Level"
+msgstr ""
+
+msgid "please check the NXP and TI websides for more information"
+msgstr ""
+
+msgid "Key Revocation"
+msgstr ""
+
+msgid "NXP SOC: You have four keys from which you can revoke until 3 keys."
+msgstr ""
+
+msgid "TI K3 SOC: You have 2 keys, a SMPK and BMPK (Backup Key)"
+msgstr ""
+
+msgid "Revoke NXP SRK Key"
+msgstr ""
+
+msgid "Although securing the device involves programming the hash of four public keys into the eFuses, only one key (number 1 by default) is used in the secure boot process. If the key gets compromised, it can be revoked and a different key used."
+msgstr ""
+
+msgid "To use a different key for the signature of bootloader images, change the following variables in ``sources/meta-ampliphy/classes/secureboot.bbclass``:"
+msgstr ""
+
+msgid "The following keys are available:"
+msgstr ""
+
+msgid "key Slot"
+msgstr ""
+
+msgid "IMG Certificate"
+msgstr ""
+
+msgid "CSF Certificate"
+msgstr ""
+
+msgid "SRK_REVOLE[2:0]"
+msgstr ""
+
+msgid "0"
+msgstr ""
+
+msgid "IMG1_1_sha256_4096_*"
+msgstr ""
+
+msgid "CSF1_1_sha256_4096_*"
+msgstr ""
+
+msgid "001"
+msgstr ""
+
+msgid "1"
+msgstr ""
+
+msgid "IMG2_1_sha256_4096_*"
+msgstr ""
+
+msgid "CSF2_1_sha256_4096_*"
+msgstr ""
+
+msgid "010"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "IMG3_1_sha256_4096_*"
+msgstr ""
+
+msgid "CSF3_1_sha256_4096_*"
+msgstr ""
+
+msgid "100"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "IMG4_1_sha256_4096_*"
+msgstr ""
+
+msgid "CSF4_1_sha256_4096_*"
+msgstr ""
+
+msgid "not revocable"
+msgstr ""
+
+msgid "Example for Revoke Key Slot 0 on NXP SOC with HABV4"
+msgstr ""
+
+msgid "i.MX6, i.MX6UL"
+msgstr ""
+
+msgid "i.MX8M series"
+msgstr ""
+
+msgid "``barebox$ mw -l -d /dev/imx-ocotp 0xBC 0x0001``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 9 3 0x1``"
+msgstr ""
+
+msgid "The SRK Revocation does not modify the SRK hash values, only the SRK_REVOKE fuse has to be programmed."
+msgstr ""
+
+msgid "In a closed configuration, HAB, by default, sets the SRK_REVOKE_LOCK sticky bit in the OCOTP controller to write protect this eFuse field."
+msgstr ""
+
+msgid "To instruct HAB not to lock the SRK_REVOKE field, the CSF commands in the bootloader need to be reconfigured."
+msgstr ""
+
+msgid "Kernel Module Signing"
+msgstr ""
+
+msgid "When the `kernel module signing facility <https://www.kernel.org/doc/html/latest/admin-guide/module-signing.html>`_ is enabled, Linux can enforce that only modules that have been signed with a specific key can be loaded. Keys with invalid signatures won't be allowed to load. This makes it harder for attackers to load malicious or manipulated modules."
+msgstr ""
+
+msgid "This is enforced by the kernel and does not require userland support."
+msgstr ""
+
+msgid "Enable kernel module signing facility"
+msgstr ""
+
+msgid "To enable the kernel module signing facility, add the following DISTRO_FEATURE to your configuration file in *conf/distro/xyz.conf*"
+msgstr ""
+
+msgid "By default, the kernel modules will be signed with PHYTEC's public, for example, the development key. Unless you create your own key, this feature does not offer any protection."
+msgstr ""
+
+msgid "Device Tree Overlay and Secure Boot"
+msgstr ""
+
+msgid "Device Tree overlays are device tree fragments that can be merged into a device tree during boot time. These are for example hardware descriptions of an expansion board. They are instead of being added to the device tree as an extra include, now applied as an overlay. They also may only contain setting a node's status depending on whether it is mounted or not."
+msgstr ""
+
+msgid "Device Tree Overlay for i.MX6UL and i.MX6"
+msgstr ""
+
+msgid "The Device Tree Overlay support is generally deactivated and not supported for i.MX6UL and i.MX6 with Secure Boot in the security distro and image"
+msgstr ""
+
+msgid "The new ADIN1300 Ethernet PHY is supported in the standard BSP as devicetree overlay for the phyBOARD-Mira and phyBOARD-Nunki. In the security distro and image, a new device tree is created with the FIT-image recipes in the ``sources/meta-ampliphy/recipes-images/fitimages/`` and the fdtapply mechanism from the source/meta-phytec/classes/fitimage.bbclass. More information in the chapter Linux Kernel in the FIT-Image In the barebox is an Ethernet PHY detection, which boots the correct configuration from the FIT-image."
+msgstr ""
+
+msgid "Device Tree Overlay for the other NXP source"
+msgstr ""
+
+msgid "Build Time"
+msgstr ""
+
+msgid "The overlays set in the $KERNEL_DEVICETREE Yocto machine variable will be automatically added as a node to the signed FIT-Image."
+msgstr ""
+
+msgid "Only Device Tree Overlays in the FIT-Image can be used on the device."
+msgstr ""
+
+msgid "Run Time"
+msgstr ""
+
+#, python-brace-format
+msgid "The ${overlays} variable can be either set directly in the U-Boot environment. Or be a part of the external bootenv.txt  environment."
+msgstr ""
+
+msgid "Manipulation Risk! The external bootenv.txt is not signed and protected against manipulation, so overlays can be changed and deleted in the bootenv.txt."
+msgstr ""
+
+#, python-brace-format
+msgid "The ${overlays} variable loaded from the external environment will always overwrite the value from the environment saved directly in the flash. By default, the ${overlays} variable is not set directly in the U-Boot environment but comes from the external bootenv.txt environment file. It is also located in the boot partition of the SD card image."
+msgstr ""
+
+msgid "Please use Device Tree Overlay only in the development stage of your product. Create a final Device Tree for your device for the production phase."
+msgstr ""
+
+msgid "Deactivate Device Tree Overlay Support"
+msgstr ""
+
+msgid "To disable the Device Tree Overlay support set the following variable in ``sources/meta-ampliphy/classes/secureboot.bbclass`` to true"
+msgstr ""
+
+msgid "All the machine-defined Device Tree Overlays will be added to the FIT-Image. If you do not want Device Tree Overlays in the FIT-Image, please remove fdto in the ``sources/meta-ampliphy/recipes-image/fitimage/phytec-secureboot-ramdisk-fitimage.bb`` or in your own FIT-Image recipe."
+msgstr ""
+
+msgid "Secure Key Storage"
+msgstr ""
+
+msgid "A fundamental aspect of security is integrity and confidentiality. Many applications require an embedded device to keep sensitive data. The standard solution to this problem is to use encryption to protect the data and ensure that only authorized users have access to the encryption key. When a user interacts directly with a system, the encryption key can be protected with a password, pin code, or fingerprint that is provided by the user. However, many embedded devices work without user interaction, so this is not an option in those cases."
+msgstr ""
+
+msgid "In the BSP, three different variants of Secure Key Storage can be implemented, depending on hardware support. The available hardware support is activated with ``MACHINE_FEATURE``."
+msgstr ""
+
+msgid "Type of"
+msgstr ""
+
+msgid "Hardware Support"
+msgstr ""
+
+msgid "MACHINE_FEATURE"
+msgstr ""
+
+msgid "NXP CAAM"
+msgstr ""
+
+msgid "* all NXP i.MX6, i.MX6UL"
+msgstr ""
+
+msgid "* all i.MX8M series"
+msgstr ""
+
+msgid "caam"
+msgstr ""
+
+msgid "Trusted Execution"
+msgstr ""
+
+msgid "Environment TEE"
+msgstr ""
+
+msgid "* all NXP i.MX SOC"
+msgstr ""
+
+msgid "* all TI K3 SOC"
+msgstr ""
+
+msgid "optee"
+msgstr ""
+
+msgid "Trusted platform"
+msgstr ""
+
+msgid "Module TPM"
+msgstr ""
+
+msgid "* on base boards for i.MX8M series"
+msgstr ""
+
+msgid "* on phyGATE-Tauri-S / L"
+msgstr ""
+
+msgid "tpm"
+msgstr ""
+
+msgid "Machines built with the ``MACHINE_FEATURE`` have all necessary prerequisites enabled."
+msgstr ""
+
+msgid "NXP i.MX CAAM"
+msgstr ""
+
+msgid "The NXP i.MX6, i.MX6UL and i.MX8M series processors include hardware encryption through NXP's Cryptographic Accelerator and Assurance Module (CAAM, also known as SEC4). The CAAM combines functions to create a modular and scalable acceleration and assurance engine."
+msgstr ""
+
+msgid "More information about the CAAM module can be found in the corresponding NXP reference Manual: `i:MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_"
+msgstr ""
+
+msgid "Prerequisites and Caveats"
+msgstr ""
+
+msgid "Secureboot is required for trusted CAAM Key blob functionality. If Secure Boot Keys are burned, the keys are locked. After a reset, the CAAM unit creates internal keys for the signing and encryption CAAM blobs. These keys are internal in the CAAM and can not be read out and overwritten."
+msgstr ""
+
+msgid "Test and using"
+msgstr ""
+
+msgid "You can use the CAAM unit accelerator with the cryptodev driver."
+msgstr ""
+
+msgid "Trusted Execution Environment: OP-TEE"
+msgstr ""
+
+msgid "OP-TEE is a Trusted Execution Environment (TEE) designed as a companion to a non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone technology."
+msgstr ""
+
+msgid "OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SOC. This allows users who are interested in utilizing `OP-TEE <https://optee.readthedocs.io/en/latest/>`_ to use and test it on their devices."
+msgstr ""
+
+msgid "If you want to use OP-TEE in production, then you must configure the complete isolation between the normal and secure TrustZone world. `For more information <https://optee.readthedocs.io/en/latest/architecture/platforms/nxp.html>`_"
+msgstr ""
+
+msgid "OP-TEE is divided into the following components:"
+msgstr ""
+
+msgid "OP-TEE kernel: The kernel acts as a secure world OS. This kernel is signed by HABv4."
+msgstr ""
+
+msgid "tee-supplicant: Helper daemon allowing OP-TEE to read/write from/to secure storage. In practice, this means OP-TEE will save encrypted and authenticated data in the filesystem."
+msgstr ""
+
+msgid "xtest: Utilities to test OP-TEE."
+msgstr ""
+
+msgid "Secure Boot is required for OP-TEE to prevent a malicious OP-TEE kernel from loading."
+msgstr ""
+
+msgid "It is furthermore required to allow the generation of a hardware unique key that OP-TEE can use to derive a key for secure storage encryption and other use cases."
+msgstr ""
+
+msgid "Trusted Application Key-Pair: `OP-TEE signs trusted applications  <https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair>`_ in order to ensure their authenticity and integrity. By default, OP-TEE uses a pre-generated key, which you must replace with your own before using OP-TEE in production."
+msgstr ""
+
+msgid "Testing OP-TEE"
+msgstr ""
+
+msgid "**xtest**"
+msgstr ""
+
+msgid "When OP-TEE is enabled during the build, the \"xtest\" utility will be shipped."
+msgstr ""
+
+msgid "Executing \"xtest\" will run a couple of tests supplied by the OP-TEE project to ensure it is working as intended."
+msgstr ""
+
+msgid "**Memory Isolation: devmem2**"
+msgstr ""
+
+msgid "OP-TEE will load itself into a defined region in RAM. This region is reserved in Linux and does not attempt to allocate memory in this area."
+msgstr ""
+
+msgid "OP-TEE modifies the device tree of Linux during startup to ensure this."
+msgstr ""
+
+msgid "During runtime, the following nodes will be visible in the device tree:"
+msgstr ""
+
+msgid "optee_core denotes the secure world memory region. It is not accessible, even to the Linux kernel. optee_shm is the shared region between the normal and secure world, allowing normal-world client applications to exchange data with OP-TEE-trusted applications."
+msgstr ""
+
+msgid "Memory access policy enforcement can be tested using the \"devmem2\" utility."
+msgstr ""
+
+msgid "In this example the 0x5600000 address is the optee_core region. Access is currently being blocked by the TZASC policy set up by OP-TEE, which causes a \"Bus error\". The shared region, on the other hand, is accessible."
+msgstr ""
+
+msgid "Trusted Platform Module (TPM) 2.0"
+msgstr ""
+
+msgid "The Trusted Platform Module (TPM) is an international standard for a secure cryptoprocessor, a dedicated microcontroller designed to secure hardware through integrated cryptographic keys. The TPM 2.0 is:"
+msgstr ""
+
+msgid "specified from the `Trusted Computing Group (TCG) <https://trustedcomputinggroup.org/resource/pc-client-platform-tpm-profile-ptp-specification/>`_"
+msgstr ""
+
+msgid "TCG and Common Criteria (CC) certified EAL4+"
+msgstr ""
+
+msgid "updateable for the Firmware"
+msgstr ""
+
+msgid "available from different manufacturers"
+msgstr ""
+
+msgid "used to create and store keys and certificates that can be used for filesystem encryption, device identification, and authentication"
+msgstr ""
+
+msgid "a safe on the device, because the persistent keys are in the TPM and the key blobs can only be encrypted with the specific TPM"
+msgstr ""
+
+#, python-format
+msgid "The Linux kernel has driver support for the TPM. TPM is the standard trusted key in the kernel keyring service. The `middleware for the TPM <https://github.com/tpm2-software>`_ is Open Source and supports OpenSSL, PKCS#11, and more. `More information about the software stack for the TPM 2.0:  <https://tpm2-software.github.io/>`_ `A practical guide for using the TPM 2.0: <https://link.springer.com/content/pdf/10.1007%2F978-1-4302-6584-9.pdf>`_"
+msgstr ""
+
+msgid "The TPM is not on the SOM, it is located on the carrier board."
+msgstr ""
+
+msgid "Initialization of the TPM"
+msgstr ""
+
+msgid "The TPM 2.0 must be initialized at first with the command *tss2_provision*. This command is used in the tool *physecurekeystorage-install*, when you use the *trustedtpm* key type."
+msgstr ""
+
+msgid "Kernel Key Retention Service for filesystem Encryption"
+msgstr ""
+
+msgid "\"The Linux key-management facility is primarily a way for various kernel components to retain or cache security data, authentication keys, encryption keys, and other data in the kernel.\" Linux kernel is a kernels facility for “password caching”, which stores them in a computers memory (RAM) during an active users/system session. The Linux keyring accessing is via syscalls from the user space into the kernel space. Applications to access are keyctl, systemd-ask-password and others."
+msgstr ""
+
+msgid "The documentation about the Kernel Key Retention service can be found at `<https://www.kernel.org/doc/html/latest/security/keys/core.html>`_ The following description and implementation are based on the `<https://www.kernel.org/doc/html/latest/security/keys/trusted-encrypted.html>`_"
+msgstr ""
+
+msgid "The kernel standard trusted key types are trusted tpm, trusted tee and trusted caam. The encrypted blobs are stored in the file trusted_key.blob in the first boot partition and in the third partition with name config."
+msgstr ""
+
+msgid "The secure caam is only supported in the NXP vendor based BSP and used the black key blob mechanism and used the kernel key type logon. The encrypted blobs are stored in the file  tksecure_key."
+msgstr ""
+
+msgid "The following table list the supported key types for the different SOC`s."
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "depend on the"
+msgstr ""
+
+msgid "NXP"
+msgstr ""
+
+msgid "i.MX6 (UL)"
+msgstr ""
+
+msgid "i.MX8M MNP"
+msgstr ""
+
+msgid "TI"
+msgstr ""
+
+msgid "AM6 Series"
+msgstr ""
+
+msgid "trustedtpm"
+msgstr ""
+
+msgid "tpm2"
+msgstr ""
+
+msgid "x"
+msgstr ""
+
+msgid "trustedtee"
+msgstr ""
+
+msgid "trustedcaam"
+msgstr ""
+
+msgid "x (not ULL)"
+msgstr ""
+
+msgid "securecaam"
+msgstr ""
+
+msgid "Secure Key Storage Initialization with phySecureKeyStorage Tool"
+msgstr ""
+
+msgid "The tool `physecurekeystorage-install <https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage>`_ is part of the ramdisk userspace of phytec-provisioning-initramfs and included in the meta-ampliphy layer of the PHYTEC Standard BSP."
+msgstr ""
+
+msgid "The *physecurekeystorage-install* tool can initialize all supported secure key storages of your machine, but always only one can be active. For example, the phyBOARD-Polis-imx8mm supports Trusted TEE, Trusted TPM, Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM."
+msgstr ""
+
+msgid "Cryptographic Token Interface PKCS#11"
+msgstr ""
+
+msgid "Also known as \"Cryptoki\". PKCS#11 specifies a number of standard calls to relay cryptographic requests (such as a signing operation) to a third party module. Such a module may be a TPM or OP-TEE, it is a software PKCS#11 trusted application that appears to the userland as one."
+msgstr ""
+
+msgid "The library or pkcs11-module-path for PKCS#11 depend on the device: * TPM 2.0: /usr/lib/libtpm2_pkcs11.so.0 * OP-TEE: /usr/lib/libckteec.so.0 * SmartCards: /usr/lib/opensc-pkcs11.so"
+msgstr ""
+
+msgid "The following provider.conf is for the usage with openssl 3.0 and a TPM 2.0. Please set the pkcs11-module-path to your selected Secure key storage."
+msgstr ""
+
+msgid "If the TPM 2.0 is initialized e.g. with the tool physecurekeystorage, then you can create a device certificate."
+msgstr ""
+
+msgid "For device identification on a server or cloud provider, you need a Certificate Authority to sign the device certificate."
+msgstr ""
+
+msgid "You can find a more detailed example with Op-tee `<https://optee.readthedocs.io/en/latest/building/userland_integration.html>`_"
+msgstr ""
+
+msgid "Examples with openssl for the TPM 2.0: `<https://github.com/tpm2-software/tpm2-tss-engine>`_"
+msgstr ""
+
+msgid "`OpenSSL <https://www.openssl.org/>`_ is a robust, commercial-grade, full-featured software library for general-purpose cryptography and secure communication."
+msgstr ""
+
+msgid "Secure storage is a combination of the authenticated and encrypted filesystem that adds another layer of security to your product. It uses the kernel's cryptographic support to encrypt all the data you store in the root filesystem. Attempting to access this data without the correct encryption key returns random, meaningless bytes."
+msgstr ""
+
+msgid "The default implementation of secure storage in the PHYTEC BSP is the root filesystem encryption with integrity support:"
+msgstr ""
+
+msgid "This manual describes the integrity or/and encryption of the complete root filesystem. Note that on-the-fly encryption and decryption do introduce a small performance penalty in read and write speeds."
+msgstr ""
+
+msgid "Alternatives for the complete root filesystem with integrity and encryption are:"
+msgstr ""
+
+msgid "Partition encryption: To protect some sensitive files but not pay the cost of encrypting the complete rootfs, you can keep the rootfs partition authenticated unencrypted and set up a specific authenticated encrypted partition where the sensitive files will be stored."
+msgstr ""
+
+msgid "File-specific encryption: Only separate folders and files will be encrypted."
+msgstr ""
+
+msgid "|distro-secure| is an example of how integrity and encryption on embedded devices work. It uses encryption with integrity for a complete partition on eMMC."
+msgstr ""
+
+msgid "Encrypting the entire root partition should be considered. However, this can only be done on the device."
+msgstr ""
+
+msgid "An integrity check with dm-integrity is a highly recommended addition to the filesystem encryption."
+msgstr ""
+
+msgid "Filesystem with Integrity vs Authenticated filesystem"
+msgstr ""
+
+msgid "The actual standard BSP includes integrity support with hash sha-256, which has protection against data error. An authenticated file system should use HMAC with signed hashes, which have protection against device-turned-off data manipulation from attackers. For this variant, an additional symmetric key is necessary."
+msgstr ""
+
+msgid "Requirements for Filesystem Encryption"
+msgstr ""
+
+msgid "File integrity and encryption support for block devices (SD card, eMMC) or MTD device (NAND, NOR)"
+msgstr ""
+
+msgid "Secure Key Storage to securely store the authentication and encryption key"
+msgstr ""
+
+msgid "Secure Boot must be activated and the device must be locked for proper secure key storage."
+msgstr ""
+
+msgid "A user login should be activated for access control on runtime."
+msgstr ""
+
+msgid "Boot Process Flow"
+msgstr ""
+
+msgid "bootloader verifies FIT-Image with linux-kernel image, device tree, and ramdisk before they are executed"
+msgstr ""
+
+msgid "Linux kernel executes the ramdisk (read-only filesystem)"
+msgstr ""
+
+msgid "The bootscript loads the authenticated encrypted filesystem encryption key with the CAAM, TEE or TPM unit in the RAM and encrypts the filesystem. After the encryption, the root filesystem will be switched and the boot process continues."
+msgstr ""
+
+msgid "Starting the Build Process"
+msgstr ""
+
+msgid "Filesystem integrity and encryption are included in the *DISTRO_FEATURE* secureboot and securestorage."
+msgstr ""
+
+msgid "You can choose in the *sources/meta-ampliphy/conf/distro/common-secure.inc* between"
+msgstr ""
+
+msgid "fileauthorenc: use integrity or encrypted filesystem"
+msgstr ""
+
+msgid "fileauthandenc: use integrity and encrypted filesystem"
+msgstr ""
+
+msgid "This configuration is important for the RAUC update system because the use of integrity and encrypted filesystem are stacked and the number of device-mappers is doubled to use integrity or encrypted filesystem."
+msgstr ""
+
+msgid "This configuration changes the rauc system.conf configuration in the rootfs image for the target, too. The device change from the /dev/mtdblockX to the device mapper /dev/dm-x. With this changes the integrity and the encryption are retained during an update."
+msgstr ""
+
+msgid "Setup Secure Storage on your Device"
+msgstr ""
+
+msgid "The filesystem encryption ensures the target has a unique key or an equal key per device."
+msgstr ""
+
+msgid "The filesystem encryption process flow:"
+msgstr ""
+
+msgid "The filesystem encryption key is generated and stored encrypted with CAAM, TEE, or TPM."
+msgstr ""
+
+msgid "Encryption is initialized."
+msgstr ""
+
+msgid "The partition is formatted."
+msgstr ""
+
+msgid "Data is copied to the encrypted partition."
+msgstr ""
+
+msgid "First Boot"
+msgstr ""
+
+msgid "From a high-level point of view, an eMMC device is like an SD card. Therefore, it is possible to flash the image phytec-provisioning-image from the Yocto build system directly to the SD card. The image contains the signed bootloader and signed FIT-Image with an initramfs."
+msgstr ""
+
+msgid "If your filesystem is not initialized, is damaged, or the key blob is deleted, then you can reinstall the encrypted filesystem with the following instructions."
+msgstr ""
+
+msgid "Boot the phytec-provisioning-image from the SD card or load the provisioning fitImage with tftp to the memory in the bootloader"
+msgstr ""
+
+msgid "The device stops with the following message because there is no encrypted key stored in the folder /secrets:"
+msgstr ""
+
+msgid "The default user is root with the password root:"
+msgstr ""
+
+msgid "If there is no login in 60s, then the system goes to power off"
+msgstr ""
+
+msgid "If this is your first boot from the device and no image is on the eMMC, please flash an image to the eMMC."
+msgstr ""
+
+msgid "Key Generation for Secure Storage"
+msgstr ""
+
+msgid "Please follow the instructions in the chapter |secure-key-storage-init-link|"
+msgstr ""
+
+msgid "Secure Storage Initialization with phySecureStorage tool"
+msgstr ""
+
+msgid "The tool physecurestorage-install is part of the initramfs userspace."
+msgstr ""
+
+msgid "The physecurestorage-install tool can initialize the filesystem with encryption, integrity, or both methods together."
+msgstr ""
+
+msgid "The parameter <flashpath> is the eMMC device."
+msgstr ""
+
+msgid "The parameter <filesystem> is the path to tar.gz archive of the filesystem, which should be installed on the flash device."
+msgstr ""
+
+msgid "Please copy the filesystem image, <IMAGENAME>-<MACHINE>.tar.gz, to a USB or MMC drive so that it can be installed on the target. If partup packages are used for initial flashing, then mount the partup package as type squashfs first and find the root filesystem there."
+msgstr ""
+
+msgid "The parameter <flashlayout> contains the rootfs partition."
+msgstr ""
+
+msgid "The parameter RAUC initializes both RAUC rootfs partitions."
+msgstr ""
+
+msgid "After the installation, power off the system:"
+msgstr ""
+
+msgid "Restart the system. After a successful installation, the system will boot to"
+msgstr ""
+
+msgid "the kernel login console."
+msgstr ""
+
+msgid "Recover an Initialized Device"
+msgstr ""
+
+msgid "If your filesystem is damaged or the key blob is deleted, then you can reinstall the encrypted filesystem with the following options."
+msgstr ""
+
+msgid "Reinitialize your device with the phytec-provisioning-image from the SD card (Boot in ramdisk)"
+msgstr ""
+
+msgid "Boot in rescue mode of the existing flash image with minimal tools support"
+msgstr ""
+
+msgid "The following commands are for starting the rescue mode with a booted device from eMMC:"
+msgstr ""
+
+msgid "Stop booting in the bootloader. The Protection Shield Level low is in default with password: root"
+msgstr ""
+
+msgid "Add Linux bootargs in the bootloader and boot the fitImage from the eMMC:"
+msgstr ""
+
+msgid "for barebox (i.MX6 and i.MX6UL)"
+msgstr ""
+
+msgid "for u-boot:"
+msgstr ""
+
+msgid "Hardening of the System"
+msgstr ""
+
+msgid "The DISTRO_FEATURE hardening activates the kernel reduction with deselect fragments. The name of the deselection variable is KERNEL_FEATURES_DESELECT."
+msgstr ""
+
+msgid "The deselect fragment selection for bluetooth, can, optee, pci and wifi depend on MACHINE_FEATURES with the same name. If these features are not set in MACHINE_FEATURES, then the deselect fragment with the same name is active, but can be selected independently from the MACHINE_FEATURE too. The fragments debug, kvm, media and xen are selected by default and are independent from the machine feature."
+msgstr ""
+
+msgid "Overwriting the initial definition of the variable KERNEL_FEATURES_DESELECT is possible."
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Fragment"
+msgstr ""
+
+msgid "Selection with"
+msgstr ""
+
+msgid "KERNEL_FEATURES"
+msgstr ""
+
+msgid "_DESELECT"
+msgstr ""
+
+msgid "hardening.cfg"
+msgstr ""
+
+msgid "Activate some hardening features"
+msgstr ""
+
+msgid "in the kernel. This fragment is"
+msgstr ""
+
+msgid "the default active with the"
+msgstr ""
+
+msgid "distro feature hardening."
+msgstr ""
+
+msgid "NO"
+msgstr ""
+
+msgid "deselect-"
+msgstr ""
+
+msgid "bluetooth.cfg"
+msgstr ""
+
+msgid "Disable the Bluetooth support."
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "can.cfg"
+msgstr ""
+
+msgid "Disable the CAN support."
+msgstr ""
+
+msgid "debug.cfg"
+msgstr ""
+
+msgid "Disable kernel debug support."
+msgstr ""
+
+msgid "initial set"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "kvm.cfg"
+msgstr ""
+
+msgid "Disable kernel-based virtual"
+msgstr ""
+
+msgid "machine support."
+msgstr ""
+
+msgid "media.cfg"
+msgstr ""
+
+msgid "Disable the ANALOG / DIGITAL TV,"
+msgstr ""
+
+msgid "RADIO and SDR support"
+msgstr ""
+
+msgid "optee.cfg"
+msgstr ""
+
+msgid "Disable optee support."
+msgstr ""
+
+msgid "pci.cfg"
+msgstr ""
+
+msgid "Disable PCI interface support."
+msgstr ""
+
+msgid "wifi.cfg"
+msgstr ""
+
+msgid "Disable wireless and WLAN"
+msgstr ""
+
+msgid "support"
+msgstr ""
+
+msgid "xen.cfg"
+msgstr ""
+
+msgid "Disable xen paravirtualisation"
+msgstr ""
+
+msgid "Physical security"
+msgstr ""
+
+msgid "To further protect your device, it is important to reduce attack vectors. Start by securing development features like JTAG and serial downloader. For activation or deactivation of controller features, is necessary to write and read eFuses."
+msgstr ""
+
+msgid "The secure eFuse configuration can only be written once and is irreversible."
+msgstr ""
+
+msgid "Secure JTAG"
+msgstr ""
+
+msgid "Most embedded devices provide a JTAG interface for debugging purposes. However, if left unprotected, this interface can become an important attack vector on the systems in series production. The most controllers allows you to regulate JTAG access with three security modes using OTP (One Time Programmable) eFuses:"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "level"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "low"
+msgstr ""
+
+msgid "This is the default mode of operation"
+msgstr ""
+
+msgid "and you have full access to JTAG."
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "debugging"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "This mode disables debugging but"
+msgstr ""
+
+msgid "leaves the boundary scan"
+msgstr ""
+
+msgid "functionality enabled."
+msgstr ""
+
+msgid "Secure"
+msgstr ""
+
+msgid "high"
+msgstr ""
+
+msgid "This mode provides high security."
+msgstr ""
+
+msgid "JTAG use is regulated by a challenge"
+msgstr ""
+
+msgid "response authentication mechanism"
+msgstr ""
+
+msgid "Secret"
+msgstr ""
+
+msgid "response"
+msgstr ""
+
+msgid "key"
+msgstr ""
+
+msgid "X509"
+msgstr ""
+
+msgid "certifi-"
+msgstr ""
+
+msgid "cate"
+msgstr ""
+
+msgid "This mode provides maximum security."
+msgstr ""
+
+msgid "All security-sensitive JTAG features"
+msgstr ""
+
+msgid "are permanently blocked, preventing"
+msgstr ""
+
+msgid "any debugging."
+msgstr ""
+
+msgid "The NXP Soc support different authentication depend on the SoC or the state of the SoC"
+msgstr ""
+
+msgid "NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can be activate independent of the lifecycle"
+msgstr ""
+
+msgid "The Secure Debug Mechanism with authentication differs between NXP and TI."
+msgstr ""
+
+msgid "The i.MX9 family supports additionally the asymmetric signed message based debug enablement, which has better security compared to the password based mechanism (Secret response key). Secure debug can only be enabled when the device is in OEM_CLOSED lifecycle. In this life cycle, only authenticated debug is allowed."
+msgstr ""
+
+msgid "Additional information about JTAG Security can be found:"
+msgstr ""
+
+msgid "NXP: `Secure Debug in i.MX6/7/8M Family of Application Processors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_"
+msgstr ""
+
+msgid "TI: `Secure Debug User Guide <https://downloads.ti.com/tisci/esd/latest/6_topic_user_guides/secure_debug.html?highlight=jtag>`_ or in the restricted security resources for your SoC type."
+msgstr ""
+
+msgid "Disable Debugging Mode only for NXP SoC"
+msgstr ""
+
+msgid "Set JTAG to \"Disabled debugging\" mode:"
+msgstr ""
+
+msgid "i.MX6 and i.MX6UL/ULL with barebox:"
+msgstr ""
+
+msgid "i.MX8M MNP with u-boot:"
+msgstr ""
+
+msgid "Disable JTAG Mode"
+msgstr ""
+
+msgid "**only for NXP i.MX6 family and NXP i.MX8M MNP:**"
+msgstr ""
+
+msgid "The HAB can normally enable JTAG debugging with the HAB_JDE-bit in the OCOTP SCS register. The JTAG_HEO-bit can override this behavior. If this feature is not required, it is highly recommended this be disabled."
+msgstr ""
+
+msgid "NXP i.MX6 and i.MX6UL/ULL with barebox:"
+msgstr ""
+
+msgid "NXP i.MX8M MNP with u-boot:"
+msgstr ""
+
+msgid "Disable Serial Downloader"
+msgstr ""
+
+msgid "Disabling the serial download support is recommended for security-enabled configurations:"
+msgstr ""
+
+msgid "NXP i.MX6 with barebox:"
+msgstr ""
+
+msgid "NXP i.MX6UL/ULL with barebox:"
+msgstr ""
+
+msgid "Force Internal Boot"
+msgstr ""
+
+msgid "Ensure the device always boots in INTERNAL BOOT (FORCE_BT_FROM_FUSE) mode, ignoring BOOT_MODE pins. This setting is recommended for security-enabled configurations."
+msgstr ""
+
+msgid "At first you should burn the Boot Fuses."
+msgstr ""
+
+msgid "Disable Boot from External Memory"
+msgstr ""
+
+msgid "By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory."
+msgstr ""
+
+msgid "Keys and Certificates Management"
+msgstr ""
+
+msgid "Public Key Infrastructure Tree (PKI tree)"
+msgstr ""
+
+msgid "To use a secure boot with a signed bootloader and a signed kernel image, several keys and certificates are required to sign the images. The key and certificate creation is a manual process and the public key infrastructure (PKI) tree must be in place before you start your build. This BSP includes the PHYTECD development pki-tree as an example. You are obligated to create your own pki-tree with your own keys and certificates."
+msgstr ""
+
+msgid "It is highly recommended to use different keys for different parts of your system to avoid a single point of failure regarding your security concept."
+msgstr ""
+
+msgid "PHYTEC Development Keys (phytec-dev-ca)"
+msgstr ""
+
+msgid "The included phytec-dev-ca example consists of a self-signed main-ca and three derived sub-ca's for bootloader, Fit-Image, and RAUC updates."
+msgstr ""
+
+msgid "The recipes for Bootloader, FIT-Image, and RAUC depend on the recipe phytec-dev-ca. If you build the BSP for the first time, the PHYTEC development keys are downloaded from `<https://github.com/phytec/phytec-dev-ca>`_ to yocto/phytec-dev-ca. They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC bundles."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Key Type"
+msgstr ""
+
+msgid "main-ca"
+msgstr ""
+
+msgid "self-signed Certificate authority"
+msgstr ""
+
+msgid "RSA-4096"
+msgstr ""
+
+msgid "nxp_ahab_pki"
+msgstr ""
+
+msgid "NXP HABv4 Key Authority for i.MX93"
+msgstr ""
+
+msgid "NIST P-521"
+msgstr ""
+
+msgid "nxp_habv4_pki"
+msgstr ""
+
+msgid "NXP HABv4 Key Authority for i.MX6/UL/ULL and"
+msgstr ""
+
+msgid "i.MX8M Nano/Mini/Plus"
+msgstr ""
+
+msgid "ti_k3"
+msgstr ""
+
+msgid "TI K3 Key Authority for AM62 / AM64 / AM68"
+msgstr ""
+
+msgid "fit"
+msgstr ""
+
+msgid "Kernel FIT-Image signing key and certificate"
+msgstr ""
+
+msgid "kernel-modsign"
+msgstr ""
+
+msgid "Key for the Linux kernel module signing facility,"
+msgstr ""
+
+msgid "independent of CA"
+msgstr ""
+
+msgid "rauc-intermediate"
+msgstr ""
+
+msgid "RAUC ca (intermediate ca) and"
+msgstr ""
+
+msgid "RAUC ca sign development key for signing the bundles"
+msgstr ""
+
+msgid "RSA-2048"
+msgstr ""
+
+msgid "-crypt"
+msgstr ""
+
+msgid "RAUC ca for device certificates to encrypt"
+msgstr ""
+
+msgid "update bundles"
+msgstr ""
+
+msgid "The SOC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot container files, which are verified with the SOC internal unit and SOC rom loader or dedicated controllers in the SOC."
+msgstr ""
+
+msgid "All keys and certificates are stored in an XCA database phytec-dev-ca.xdb, which can be configured with the open-source application XCA from `<https://hohnstaedt.de/xca/>`_. The password for the phytec-dev-ca.xdb is: phytec-dev-ca"
+msgstr ""
+
+msgid "Only the necessary keys and certificates for the build process are exported to the directory."
+msgstr ""
+
+msgid "All keys and certificates are in an XCA database and are not copied to different paths from the packages in the build folder. The directory contains only the necessary certificates and keys for the building process."
+msgstr ""
+
+msgid "Use the PHYTEC development keys only for the first test."
+msgstr ""
+
+msgid "The PHYTEC development keys are not secure!"
+msgstr ""
+
+msgid "Create and use your own keys and certificates!"
+msgstr ""
+
+msgid "Create Your Own PKI Tree"
+msgstr ""
+
+msgid "Please create your PKI offline with a separate system. For example, boot a read-only system from USB which you only use to create the PKI. The phytec-dev-ca is created with XCA from `<https://hohnstaedt.de/xca/>`_ , but you can use any other tool, too."
+msgstr ""
+
+msgid "Change PKI-Tree from phytec-dev-ca to Your Own PKI"
+msgstr ""
+
+msgid "In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*, the path to your PKI tree is initially defined:"
+msgstr ""
+
+msgid "If you want to change the path, then reinit the CERT_PATH ?= in your layer or overwrite the CERT_PATH in the conf/local.conf"
+msgstr ""
+
+msgid "The name of your PKI tree must have a name other than phytec-dev-ca. The recipe for phytec-dev-ca uses the name \"phytec-dev-ca\" as a parameter for the clean command."
+msgstr ""
+
+msgid "After the CERT_PATH has been changed, you must clean and rebuild the bootloader, FIT-Image, RAUC bundles, and the rootfs!"
+msgstr ""
+
+msgid "Create NXP AHAB / HABV4 Keys"
+msgstr ""
+
+msgid "NXP provided scripts to create keys and certificates for NXP AHAB or NXP HABV4. The scripts are from the `imx-code-signing-tool repository <https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads>`_"
+msgstr ""
+
+msgid "You can use this script or a PKI application like the XCA to create the keys and certificates to sign the bootloader or boot container."
+msgstr ""
+
+msgid "For creation, the SRK table and SRK Fuses from the SRK certificates are scripts in the imx-code-signing-tool repository in the folder add-ons which used the srktool. You can install the srktool with"
+msgstr ""
+
+msgid "More information about cst and HAB4 API you can find in the doc folder of the imx-code-signing-tool repository."
+msgstr ""
+
+msgid "Create TI K3 keys"
+msgstr ""
+
+msgid "Installing the SDK"
+msgstr ""
+
+msgid "To create a copy of the OTP Keywriter that includes your own keys, you will need TI's MCU Plus SDK, CCS, SYSCONFIG, and the OTP keywriter source code."
+msgstr ""
+
+msgid "**For the TI AM62x**"
+msgstr ""
+
+msgid "MCU Plus SDK for AM62x (09.01.00.39): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM62X/09.01.00.39"
+msgstr ""
+
+msgid "CCS (12.2.0): https://www.ti.com/tool/download/CCSTUDIO/12.2.0"
+msgstr ""
+
+msgid "SYSCONFIG (1.15): https://www.ti.com/tool/download/SYSCONFIG/1.15.0.2826"
+msgstr ""
+
+msgid "Keywriter source code must be requested from the AM62X-RESTRICTED-SW section of the AM62x downloads page: https://www.ti.com/tool/PROCESSOR-SDK-AM62X"
+msgstr ""
+
+msgid "**For the TI AM64x**"
+msgstr ""
+
+msgid "MCU Plus SDK for AM64x (09.00.00.35): https://www.ti.com/tool/download/MCU-PLUS-SDK-AM64X/09.00.00.35"
+msgstr ""
+
+msgid "CCS (12.4.0): https://www.ti.com/tool/download/CCSTUDIO/12.4.0"
+msgstr ""
+
+msgid "SYSCONFIG (1.17): https://www.ti.com/tool/download/SYSCONFIG/1.17.0.3128"
+msgstr ""
+
+msgid "Keywriter source code must be requested from the Request more information section of the AM64x product page: https://www.ti.com/product/AM6442"
+msgstr ""
+
+msgid "Use keywriter v09x"
+msgstr ""
+
+msgid "Building the keywriter has only been tested with version 09.01.00.39 (AM62x) and  09.00.00.35 (AM64x) of the MCU Plus SDK and may not work with other versions."
+msgstr ""
+
+msgid "Once you have the MCU Plus SDK set up, install the keywriter source to ``<MCU_PLUS_SDK_DIRECTORY>/source/security``."
+msgstr ""
+
+msgid "Before we begin programming keys, we need to make one change to the source code."
+msgstr ""
+
+msgid "AM62x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/main.c`` remove line 57:"
+msgstr ""
+
+msgid "AM64x: In ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/main.c`` remove line 61:"
+msgstr ""
+
+msgid "This is because there is a pin on the SoC that needs to be set high to write keys, and TI does this using I2C on their boards which requires this function to run. We will set this pin using a jumper on our board."
+msgstr ""
+
+msgid "Generating keys"
+msgstr ""
+
+msgid "The keywriter source comes with a tool to help generate your own keys. To generate keys, go to"
+msgstr ""
+
+msgid "AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``"
+msgstr ""
+
+msgid "am64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``"
+msgstr ""
+
+msgid "and run"
+msgstr ""
+
+msgid "This will create a set of five keys in the ``keys/`` directory. You can use the keywriter to flash these keys to your hardware and you will need to keep them safe to use for signing your images as well."
+msgstr ""
+
+msgid "Building the Keywriter"
+msgstr ""
+
+msgid "There are two methods for creating the keywriter. You can create one keywriter that contains all of your keys, or you can make one keywriter per key. The all at once approach is more straightforward, but if your key certificates end up too large you may need to use the incremental approach."
+msgstr ""
+
+msgid "All at Once"
+msgstr ""
+
+msgid "Using the keys generated in the previous step, we can now generate a keywriter to sign our hardware and enable secure boot. Go to"
+msgstr ""
+
+msgid "AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``"
+msgstr ""
+
+msgid "and run the following:"
+msgstr ""
+
+msgid "If necessary you can write protect these fields using ``--msv-wp`` ``-s-wp`` ``--smek-wp`` ``--keycnt-wp`` and ``--keyrev-wp``, but this should only be done if necessary."
+msgstr ""
+
+msgid "This generates a certificate containing our keys (primary_cert.bin). We have left out the bmek and bmpk for now because with them included the certificate would exceed the 5400 byte limit. These are backup keys and are completely optional."
+msgstr ""
+
+msgid "To generate the binary itself, run the following commands, starting from the"
+msgstr ""
+
+msgid "AM62x ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``"
+msgstr ""
+
+msgid "directory where we left off:"
+msgstr ""
+
+msgid "The keywriter has now been built and is the ``tiboot3.bin`` file in"
+msgstr ""
+
+msgid "AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``"
+msgstr ""
+
+msgid "AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``"
+msgstr ""
+
+msgid "Incremental"
+msgstr ""
+
+msgid "If you end up with a certificate exceeding 5400 bytes while trying to build and program all the keys at once, you may need to flash the keys incrementally. To do this you will need separate certificates for each key. Starting in"
+msgstr ""
+
+msgid "AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``,"
+msgstr ""
+
+msgid "AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``,"
+msgstr ""
+
+msgid "generate the first keywriter for the Model Specific Value (MSV):"
+msgstr ""
+
+msgid "MSV"
+msgstr ""
+
+msgid "To write protect the MSV, use ``--msv-wp`` while generating the certificate in the first command. This is optional and should only be done if necessary."
+msgstr ""
+
+msgid "The keywriter for the MSV has now been built and is the"
+msgstr ""
+
+msgid "AM62x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang``."
+msgstr ""
+
+msgid "AM64x: ``tiboot3.bin`` file in ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang``."
+msgstr ""
+
+msgid "Save it elsewhere so that we can build the other keywriters without overwriting this one. Make sure that you keep track of the binaries so that you can flash them in the correct order later."
+msgstr ""
+
+msgid "To get back to the starting directory,"
+msgstr ""
+
+msgid "Next we will generate the keywriter for the key count:"
+msgstr ""
+
+msgid "Key Count"
+msgstr ""
+
+msgid "When writing keys incrementally it is important to not write protect the key count. This would prevent us from being able to write the key revision."
+msgstr ""
+
+msgid "The keywriter for the key count has now been built and is the"
+msgstr ""
+
+msgid "Finally we can generate the keywriter for the key revision:"
+msgstr ""
+
+msgid "Key Revision"
+msgstr ""
+
+msgid "To write protect the key revision, use ``--keyrev-wp`` while generating the certificate in the first command. This is optional and should only be done if necessary."
+msgstr ""
+
+msgid "Make sure that you keep track of the binaries so that you can flash them in the correct order later."
+msgstr ""
+
+msgid "Create Kernel FIT-Image key"
+msgstr ""
+
+msgid "You can create the Kernel FIT-Image Key with a PKI Tool or openssl."
+msgstr ""
+
+msgid "For the signing of the Kernel FIT-Image the private key is used. The public key is build into as device-tree node in the bootloader and used for the FIT-Image verification."
+msgstr ""
+
+msgid "The certificate is not necessary for the signing and verification of the FIT-Image."
+msgstr ""
+
+msgid "Create Kernel Module Signing key"
+msgstr ""
+
+msgid "You can create the Key and certificate for kernel module signing with a PKI tool or openssl. You must combine the private key and the certificate to one file."
+msgstr ""
+
+msgid "Create rauc update certificates"
+msgstr ""
+
+msgid "You can create the Key and certificate for rauc with a PKI tool or openssl. More details on the `rauc documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_"
+msgstr ""
+
+msgid "Table of Contents"
+msgstr ""
+
+msgid "Security Manuals"
+msgstr ""
+
+msgid "Kirkstone"
+msgstr ""
+
+msgid "Scarthgap"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
+msgstr ""
+
+msgid "2024-04-02"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1"
+msgstr ""
+
+msgid "2024-04-09"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2"
+msgstr ""
+
+msgid "2024-06-26"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MP-PD24.1.0"
+msgstr ""
+
+msgid "2024-11-07"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX93-PD24.2.0"
+msgstr ""
+
+msgid "2024-10-08"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX93-PD24.2.1"
+msgstr ""
+
+msgid "2025-03-21"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
+msgstr ""
+
+msgid "2024-07-19"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
+msgstr ""
+
+msgid "2024-06-27"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.2"
+msgstr ""
+
+msgid "2025-03-24"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.2"
+msgstr ""
+
+msgid "2025-03-19"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.1"
+msgstr ""
+
+msgid "2024-12-19"
+msgstr ""
+
+msgid "BSP-Yocto-Ampliphy-AM64x-PD25.1.0"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX8MM-PD25.1.0"
+msgstr ""
+
+msgid "2025-03-28"
+msgstr ""
+
+msgid "BSP-Yocto-NXP-i.MX91-PD24.2.1"
+msgstr ""
+
+msgid "PHYTEC's Yocto distribution Securiphy (former Ampliphy-secure) supports different Security mechanism. The security features have impact to the bootloader, the Linux kernel, Device Tree, and root filesystem. This manual describes how Security featuresis used and implemented on various PHYTEC platforms. Note, that different modules use different bootloaders and flash storage devices, which affects the way things are handled. Make sure to read the correct sections fitting your platform."
+msgstr ""
+
+msgid "For Secure Boot only public information is burned to SOCs from NXP and TI. When building the yocto-secure distro for the first time, the bootloader image is signed with PHYTEC's development keys. Yocto stores these development keys to ``yocto/phytec-dev-ca``"
+msgstr ""
+
+msgid "NXP i.MX with AHAB: example ``SRK_1_2_3_4_fuse.bin`` file in ``yocto/phytec-dev-ca/nxp_ahab_pki/crts/SRK_1_2_3_4_fuse.bin``"
+msgstr ""
+
+msgid "NXP i.MX9 with AHAB and bootloader u-boot"
+msgstr ""
+
+msgid "The reason for the ``ELE_BAD_KEY_HASH_FAILURE_IND`` is the zero hash in the fuses, which is wrong for the signature of the boot container."
+msgstr ""
+
+msgid "NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin"
+msgstr ""
+
+msgid "to the device with e.g. tftp and burn directly with"
+msgstr ""
+
+msgid "NXP i.MX9 series with AHAB"
+msgstr ""
+
+msgid "0000000 baaf5d2c e92e0323 23c0ba08 10e7973f"
+msgstr ""
+
+msgid "0000020 678de0d5 966d3584 a541dfbe 6ea06dba"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 0 0xbaaf5d2c``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 1 0xe92e0323``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 2 0x23c0ba08``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 3 0x10e7973f``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 4 0x678de0d5``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 5 0x966d3584``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 6 0xa541dfbe``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 16 7 0x6ea06dba``"
+msgstr ""
+
+msgid "``u-boot=> fuse read 16 0 8``"
+msgstr ""
+
+msgid "0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f"
+msgstr ""
+
+msgid "0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba"
+msgstr ""
+
+msgid "``u-boot=> ahab_status``"
+msgstr ""
+
+msgid "Lifecycle: 0x00000008, OEM Open"
+msgstr ""
+
+msgid "Reset your board and verify there are no HAB or AHAB events."
+msgstr ""
+
+msgid "``u-boot=> ahab_close``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 0 4 0x4000``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 0 4 0x2000``"
+msgstr ""
+
+msgid "``u-boot=> fuse prog 0 4 0x1000``"
+msgstr ""
+
+msgid "please check the NXP and TI websites for more information"
+msgstr ""
+
+msgid "* on i.MX9 phyBOARD-Nash"
+msgstr ""
+
+msgid "Trusted Application Key-Pair: `OP-TEE signs trusted applications <https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair>`_ in order to ensure their authenticity and integrity. By default, OP-TEE uses a pre-generated key, which you must replace with your own before using OP-TEE in production."
+msgstr ""
+
+msgid "The Trusted Platform Module (TPM) is an international standard for a secure cryptoprocessor, a dedicated microcontroller designed to secure hardware through integrated cryptographic keys."
+msgstr ""
+
+msgid "The TPM 2.0 is:"
+msgstr ""
+
+#, python-format
+msgid "The Linux kernel has driver support for the TPM. TPM is the standard trusted key in the kernel keyring service. The `middleware for the TPM <https://github.com/tpm2-software>`_ is Open Source and supports OpenSSL, PKCS#11, and more. `More information about the software stack for the TPM 2.0: <https://tpm2-software.github.io/>`_ `A practical guide for using the TPM 2.0: <https://link.springer.com/content/pdf/10.1007%2F978-1-4302-6584-9.pdf>`_"
+msgstr ""
+
+msgid "Error codes of the TPM"
+msgstr ""
+
+msgid "If you want decode some TPM error codes, then use the command tpm2_rc_decode on the device."
+msgstr ""
+
+msgid "ErrorCode (0x00060025) Verify EK certificate"
+msgstr ""
+
+msgid "Reason: For the check of the manufacture TPM certificate a internet connection is necessary."
+msgstr ""
+
+msgid "Please check:"
+msgstr ""
+
+msgid "your internet connection"
+msgstr ""
+
+msgid "or deactivate the certificate check with adding ``\"ek_cert_less\": \"yes\"`` to /etc/tpm2-tss/fapi-config.json"
+msgstr ""
+
+msgid "ErrorCode (0x98E) authorization HMAC check failed"
+msgstr ""
+
+msgid "Reason: The TPM initialisation of the TPM with FAPI use HMAC with a symmetric key. If the TPM configuration on the device is deleted or damaged, then symmtric key for authtentication is lost."
+msgstr ""
+
+msgid "To Reset the TPM completely:"
+msgstr ""
+
+msgid "The kernel standard trusted key types are trusted tpm, trusted tee and trusted caam. The encrypted blobs are stored in the file trusted_key.blob in the first boot partition and in the  third partition with name config."
+msgstr ""
+
+msgid "i.MX93/91"
+msgstr ""
+
+msgid "NXP i.MX93/i.MX91:"
+msgstr ""
+
+msgid "In the OEM_CLOSED lifecycle mode is the authentication debug mode enabled."
+msgstr ""
+
+msgid "In the OEM_LOCKED the ELE Debug and JTAG is disabled."
+msgstr ""
+
+msgid "NXP: `Secure Debug in i.MX6/7/8M Family of Application Processors AN4686 <https://www.nxp.com/webapp/Download?colCode=AN4686&location=null&isHTMLorPDF=HTML>`_ `Secure Debug on ELE-AP based i.MX SoCs AN14579 <https://www.nxp.com/webapp/Download?colCode=AN14579&isHTMLorPDF=HTML>`_"
+msgstr ""
+
+msgid "i.MX9 family do not support this mode"
+msgstr ""
+
+msgid "The HAB can normally enable JTAG debugging with the HAB_JDE-bit in the OCOTP SCS register.The JTAG_HEO-bit can override this behavior. If this feature is not required, it is highly recommended this be disabled."
+msgstr ""
+
+msgid "NXP i.MX93/i.MX91 with u-boot:"
+msgstr ""
+
+msgid "or with the NXP i.MX9 EdgeLock Enclave (ELE) nxpele tool"
+msgstr ""
+
+msgid "Ensure the device always boots in ``INTERNAL BOOT (FORCE_BT_FROM_FUSE)`` mode, ignoring ``BOOT_MODE`` pins. This setting is recommended for security-enabled configurations."
+msgstr ""
+
+msgid "Boot Device"
+msgstr ""
+
+msgid "BOOT_CFG0"
+msgstr ""
+
+msgid "eMMC"
+msgstr ""
+
+msgid "0x20020002"
+msgstr ""
+
+msgid "SD Card"
+msgstr ""
+
+msgid "0x20000103"
+msgstr ""
+
+msgid "Security Vulnerabilities"
+msgstr ""
+
+msgid "The used software can be affected by security vulnerabilities. A security vulnerability generally is a bug in software code that could allow an attacker to gain control of a system. It is essential to check the software regularly against published security flaws (Common Vulnerabilities and Exposures)."
+msgstr ""
+
+msgid "The OpenEmbedded Core layer has a cve-check class to check the recipes against public CVEs. With this CVE check you get a list of all CVEs for the version of the package. Only the CVEs with a Patch with the name of the CVE in the recipe or CVEs in a Whitelists can be marked as fixed. There is no code analysis and you must start for every check a new yocto build."
+msgstr ""
+
+msgid "CycloneDX SBOM"
+msgstr ""
+
+msgid "`CycloneDX <https://cyclonedx.org/>`_ is an international Standard (`ECMA-424 <https://ecma-international.org/publications-and-standards/standards/ecma-424/>`_) for Bill of Materials and makes it simple to detect, triage, and report security vulnerabilities. The CycloneDX is in `JSON Format <https://cyclonedx.org/docs/1.6/json/>`_ and the component identifiers CPE and PURL enables the detection of known vulnerabilities. In the PHYTEC BSP you can activate the creation of a CycloneDX SBOM in your *local.conf*:"
+msgstr ""
+
+msgid "This generated SBOM has information about the bootloader and kernel build for code based CVE Analysis, which you can order as a service from PHYTEC."
+msgstr ""
+
+msgid "SoC specific configuration tools"
+msgstr ""
+
+msgid "In this chapter are tools, which can use for a better configuration of features for your SoM. Mostly you can use the bootloader commands, but the parameters and addresses differs between the versions."
+msgstr ""
+
+msgid "NXP UUU (Universal Update Utility) -Tool"
+msgstr ""
+
+msgid "The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute on the host to load and run the bootloader on the board through SDP (Serial Download Protocol). For detailed information visit `<https://github.com/nxp-imx/mfgtools>`_ or download the `Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_."
+msgstr ""
+
+msgid "More information and examples you can found in the SoC specific manuals."
+msgstr ""
+
+msgid "Snagboot recover and reflashing tool"
+msgstr ""
+
+msgid "An alternative to the NXP UUU tool is `snagboot <https://github.com/bootlin/snagboot>`_, which supports TI k3, STM32 and NXP SoC's."
+msgstr ""
+
+msgid "partup - the system initialization program"
+msgstr ""
+
+msgid "The `partup <https://github.com/phytec/partup>`_ is the PHYTEC default program for partitioning and image installation on an embedded device. The partup image is created in the yocto build and is smaller as an wic image."
+msgstr ""
+
+msgid "NXP i.MX6 and i.MX8M MNP eFuse tool crucible"
+msgstr ""
+
+msgid "You can use the tool `crucible <https://github.com/usbarmory/crucible>`_ to burn eFuses from kernel userspace. The tool is go based and is integrated in our *phytec-provisioning-image*."
+msgstr ""
+
+msgid "e.g. to burn the SRK hash for the i.MX8MP:"
+msgstr ""
+
+msgid "To burn the SRK hash to an other SoC, then replace IMX8MP with an other supported SoC. The supported SoC you can found `<https://github.com/usbarmory/crucible/tree/master/cmd/crucible/fusemaps>`_."
+msgstr ""
+
+msgid "NXP i.MX9 EdgeLock Enclave (ELE) tools"
+msgstr ""
+
+msgid "NXP provided the `Secure Provisioning SDK (SPSDK) <https://github.com/nxp-mcuxpresso/spsdk/tree/master>`_. You can install as python package on you host:"
+msgstr ""
+
+msgid "The following presteps"
+msgstr ""
+
+msgid "use the bootloader with CONFIG_AHAB_BOOT=y and CONFIG_CMD_MEMORY=y support (provisioning variant)"
+msgstr ""
+
+msgid "open a terminal with the serial port of your board e.g. /dev/ttyUSB0"
+msgstr ""
+
+msgid "power up your board"
+msgstr ""
+
+msgid "stop and login to the bootloader"
+msgstr ""
+
+msgid "close your serial connection"
+msgstr ""
+
+msgid "Then you can use the nxpele tool in the uboot_serial mode to communicate and to configure the EdgeLock Enclave."
+msgstr ""
+
+msgid "The following preparatory steps are necessary:"
+msgstr ""
+
+msgid "TPM Infineon Firmware Update Tool"
+msgstr ""
+
+msgid "On PHYTEC Boards are TPMs from Infineon and this chapter describe an firmware update for this devices."
+msgstr ""
+
+#, python-format
+msgid "At first you need access to the myInfineon Collaboration Platform (ICP) for downloading the * `TPM SLB 96xx Update Tool <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SLB%2096xx%20Update%20Tool%20only>`_ * `Firmware for the TPM 2.0 from Infineon <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SPI%20SLB%209670%20Documents%20and%20Tools>`_"
+msgstr ""
+
+msgid "For the registration on the myInfineon please follow the `ICP Guide <https://www.infineon.com/dgdl/Infineon-MyICP_Guide_registration_for_customers-ATI-v01_00-EN.pdf?fileId=5546d462696dbf120169b4cb500c4b34>`_. If you have access to the ICP, then login on `<https://mycases.infineon.com/>`_ and \"Create new case\" to request access to the Update Tool and the Firmware for your device."
+msgstr ""
+
+msgid "If your case is accepted, then you can download the TPM_FU_v2.03.4733.00_ToolsOnly_Linux_SourceCode.tar.gz or newer on. For the installation of the TPM update tool in your image you need an recipe with name *recipes-devtools/infineon/infineon-tpm-updater_v2.03.4733.bb*"
+msgstr ""
+
+msgid "After that you can include the infineon-tpm-updater in your image recipe, build your image, install and boot it."
+msgstr ""
+
+msgid "Infineon Attention from Users Manual It is recommended to always restart the system directly after the TPM Firmware Update, since certain system hardware and software components might not be aware of a TPM Firmware Update without a restart (especially in case the TPM family has been changed with the update.)"
+msgstr ""
+
+msgid "The configuration of the TPM should not changed by the firmware update. The generated keys with keyctl and pkcs11 should be available after the update of the firmware."
+msgstr ""
+
+msgid "Read the TPM information on the device:"
+msgstr ""
+
+msgid "Update the TPM 2.0"
+msgstr ""
+

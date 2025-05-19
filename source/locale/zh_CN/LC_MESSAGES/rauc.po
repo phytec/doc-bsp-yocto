@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2024, PHYTEC Messtechnik GmbH
+# Copyright (C) 2025, PHYTEC Messtechnik GmbH
 # This file is distributed under the same license as the PHYTEC BSP Documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd24.1.0-nxp-19-ga3c4ac3\n"
+"Project-Id-Version: PHYTEC BSP Documentation imx8mm-pd25.1.0-75-g28e760b\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 09:55+0100\n"
+"POT-Creation-Date: 2025-05-16 14:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -19,586 +20,586 @@ msgstr ""
 "Generated-By: Babel 2.17.0\n"
 
 msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
-msgstr "下载pdf格式的文档: `Download <static-pdf-dl_>`_"
+msgstr ""
 
 msgid "|rauc-manual|"
-msgstr "|rauc-manual|"
+msgstr ""
 
 msgid "Document Title"
-msgstr "文档标题"
+msgstr ""
 
 msgid "|rauc-manual| |yocto-codename|"
-msgstr "|rauc-manual| |yocto-codename|"
+msgstr ""
 
 msgid "Document Type"
-msgstr "文档类型"
+msgstr ""
 
 msgid "RAUC Update & Device Management Manual"
-msgstr "RAUC 升级和设备管理手册"
+msgstr ""
 
 msgid "Release Date"
-msgstr "发布日期"
+msgstr ""
 
 msgid "XXXX/XX/XX"
-msgstr "XXXX/XX/XX"
+msgstr ""
 
 msgid "Is Branch of"
-msgstr "母文档"
+msgstr ""
 
 msgid "Compatible BSPs"
-msgstr "适用BSP"
+msgstr ""
 
 msgid "BSP Release Type"
-msgstr "BSP发布类型"
+msgstr ""
 
 msgid "BSP Release Date"
-msgstr "BSP发布日期"
+msgstr ""
 
 msgid "BSP Status"
-msgstr "BSP状态"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+msgstr ""
 
 msgid "Major"
-msgstr "大版本"
+msgstr ""
 
 msgid "14.12.2022"
-msgstr "14.12.2022"
+msgstr ""
 
 msgid "released"
-msgstr "已发布"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-i.MX6-PD22.1.1"
-msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.1"
+msgstr ""
 
 msgid "Minor"
-msgstr "小更新"
+msgstr ""
 
 msgid "20.06.2023"
-msgstr "20.06.2023"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
+msgstr ""
 
 msgid "11.08.2022"
-msgstr "11.08.2022"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1"
-msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1"
+msgstr ""
 
 msgid "23.05.2023"
-msgstr "23.05.2023"
+msgstr ""
 
 msgid "BSP-Yocto-NXP-i.MX8MM-PD23.1.0"
-msgstr "BSP-Yocto-NXP-i.MX8MM-PD23.1.0"
+msgstr ""
 
 msgid "12.12.2023"
-msgstr "12.12.2023"
+msgstr ""
 
 msgid "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
-msgstr "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-AM62x-PD23.2.0"
-msgstr "BSP-Yocto-Ampliphy-AM62x-PD23.2.0"
+msgstr ""
 
 msgid "28.09.2023"
-msgstr "28.09.2023"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
-msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+msgstr ""
 
 msgid "This manual was tested using the Yocto version |yocto-codename|."
-msgstr "本手册适用Yocto版本 |yocto-codename|"
+msgstr ""
 
 msgid "Introduction"
-msgstr "简介"
+msgstr ""
 
 msgid "PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports the `RAUC <https://rauc.readthedocs.io/en/latest/>`_ (Robust Auto-Update Controller) mechanism. RAUC controls the procedure of updating a device with new firmware. This includes updating the Linux kernel, Device Tree, and root filesystem. For eMMC devices only, it can also update the bootloader."
-msgstr "PHYTEC 的 Yocto 发行版 Ampliphy(前身是Yogurt)支持 `RAUC <https://rauc.readthedocs.io/en/latest/>`_ 机制。RAUC管理设备的固件升级过程，包括升级kernel，设备树和根文件系统。对emmc设备而言，它也包括升级bootloader。"
+msgstr ""
 
 msgid "This manual describes how RAUC is used and implemented on various PHYTEC platforms. Note, that different modules use different bootloaders and flash storage devices, which affects the way things are handled by RAUC. Make sure to read the correct sections fitting your platform."
-msgstr "本手册描述了如何在PHYTEC平台上实现以及使用RAUC机制。需要注意的是，不同核心板使用不同的bootloader和烧写存储设备，这导致了不同平台RAUC处理过程的差异性。请确保阅读对应硬件平台的本手册相关部分。"
+msgstr ""
 
 msgid "This manual contains machine-specific paths and variable contents. Make sure you are using the correct machine and device names for your application when executing any commands."
-msgstr "本手册使用了一些特定machine的路径和变量。请在执行任何命令之前确保您使用了正确的machine和设备名称"
+msgstr ""
 
 msgid "System Configuration"
-msgstr "系统配置"
+msgstr ""
 
 msgid "RAUC can be used with both eMMC and NAND flash storage. Using the distro ``ampliphy-rauc`` or ``ampliphy-vendor-rauc``, it is enabled by default and requires no additional setup to get started. RAUC can be used in different update scenarios. As an example, we configured the BSP to use an A/B setup to have a completely redundant system (including the bootloader on eMMC devices). Note, that there is an additional partition named ``config`` storing persistent configuration data not being changed when updating."
-msgstr "RAUC机制可以用在eMMC和NAND flash 存储的设备上，使用distro ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc``, 这两个distro上 RAUC机制默认被使能，无需额外配置。RAUC可以应用在不同的升级场景下。例如: 我们需要BSP去实现系统镜像的A/B备份（包括eMMC上的bootloader）。请注意：RAUC会产生一个config分区存储永久性的配置数据，这些数据不会被系统升级所覆盖"
+msgstr ""
 
 msgid "RAUC BSP Example Setup"
-msgstr "RAUC配置范例"
+msgstr ""
 
 msgid "The partition layout is defined in the ``/etc/rauc/system.conf`` file. As an example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:"
-msgstr "分区布局在 ``/etc/rauc/system.conf`` 文件中定义。例如：下面是配置eMMC烧写设备的i.MX 8M Mini的分区布局配置："
+msgstr ""
 
 msgid "/etc/rauc/system.conf"
-msgstr "/etc/rauc/system.conf"
+msgstr ""
 
 msgid "Note, that the devices specified in the slots are different depending on the selected machine."
-msgstr "请注意，slots中device随不同的machine配置而有所不同"
+msgstr ""
 
 msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <kirkstone_rauc-switch-keyrings>` for more information."
-msgstr "RAUC升级使用OPENSSL证书验证镜像的有效性。BSP中包含一个可以在开发过程中使用的临时证书。在生产系统中，强烈建议使用您重新创建的私钥和证书。如果您需要修改设备上存储的密钥，请参考 :ref:`切换 RAUC 密钥 <kirkstone_rauc-switch-keyrings>` 以获取更多信息"
+msgstr ""
 
 msgid "Design Considerations"
-msgstr "设计注意事项"
+msgstr ""
 
 msgid "In order to prevent the system from locking up, it may be a good idea to utilize a hardware watchdog. In case the Linux Kernel does not boot or another catastrophic event occurs that prevents the system from operating normally, the hardware watchdog then resets the system. By default, the hardware watchdog is disabled. To enable it, refer to the corresponding BSP manual that fits your SoM."
-msgstr "为了避免系统被锁住，建议您使用一个硬件看门狗。如果kernel 不启动或者是系统发生了其他灾难性的事件导致系统无法正常运行，硬件看门狗可以重启系统。默认情况下，看门狗是不使能的。如果需要使能硬件看门狗，请参考对应核心板适用的BSP参考手册。"
+msgstr ""
 
 msgid "Other important design considerations, as well as a checklist, can be found in the official RAUC documentation: https://rauc.readthedocs.io/en/latest/checklist.html"
-msgstr "其他重要的设计注意事项以及checklist，可以在官方RAUC文档: https://rauc.readthedocs.io/en/latest/checklist.html 中找到。"
+msgstr ""
 
 msgid "Initial Setup"
-msgstr "初始设置"
+msgstr ""
 
 msgid "To use RAUC, the flash device needs to be written with a complete Linux system and bootloader. The preferred method to do this is using the included tool `partup <https://partup.readthedocs.io/en/latest/>`_."
-msgstr "为了使用RAUC，烧写设备需要烧写入完整的Linux系统和bootloader。推荐使用烧写工具： `partup <https://partup.readthedocs.io/en/latest/>`_."
+msgstr ""
 
 msgid "Flash Storage"
-msgstr "烧写存储"
+msgstr ""
 
 msgid "To flash the device with the correct partitions/volumes, use a partup package built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution. Prebuilt partup packages can be found in the BSP release. It is also possible to build a package with this distribution yourself using Yocto. Change ``local.conf`` so separate build directories are created, storing the images and packages for the RAUC system:"
-msgstr "要给设备烧写正确的分区/卷，请使用 ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc`` 发行版编译出的partup包。您可以直接使用BSP release中预编译的partup包，也可以使用Yocto自主编译。修改 ``local.conf`` 文件去修改Distro，这样不同的distro，会产生不同的build文件夹，存储编译过程中生成的对应软件包和镜像。"
+msgstr ""
 
 msgid "build/conf/local.conf"
-msgstr "build/conf/local.conf"
+msgstr ""
 
 msgid "Then initialize the build directory with the OE init script:"
-msgstr "然后使用OE init脚本初始化build目录"
+msgstr ""
 
 msgid "Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x) or ``ampliphy-vendor-rauc`` (for i.MX8):"
-msgstr "把distro变量修改为 ``ampliphy-rauc`` (i.MX6, AM6x平台) 或者 ``ampliphy-vendor-rauc`` (i.MX8平台):"
+msgstr ""
 
 msgid "Any image built with this distro now includes a full A/B system. Build the image as usual:"
-msgstr "使用该distro编译出的任何镜像都包含一个完整的A/B系统，按如下方法编译镜像："
+msgstr ""
 
 msgid "The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc`` directory, e.g.:"
-msgstr "生成的partup包存储在 ``deploy-ampliphy-vendor-rauc`` 目录下，例如:"
+msgstr ""
 
 msgid "This partup package contains all the necessary data and configuration to flash an eMMC. `Partup <https://github.com/phytec/partup>`__ can be obtained from its `release page <https://github.com/phytec/partup/releases>`_. Also, see its README for detailed `installation instructions <https://github.com/phytec/partup#installation>`_. Partup is already installed in our Ampliphy images, ``phytec-headless-image`` and can be directly used e.g. from an SD card."
-msgstr "该partup包包含烧写eMMC所必须的所有数据和配置。 `Partup <https://github.com/phytec/partup>`__ 可以从它的 `发布页面 <https://github.com/phytec/partup/releases>`_ 获取。查看其中的README文件以获取详细的 `安装指导 <https://github.com/phytec/partup#installation>`_。 Partup工具已经安装在我们的Ampliphy镜像中，例如 ``phytec-headless-image`` ，我们可以直接使用它。"
+msgstr ""
 
 msgid "To flash the initial RAUC system, a booted non-RAUC system is needed first on a different flash device. E.g. you could boot a regular ``phytec-headless-image`` image with distro ``ampliphy`` from an SD card."
-msgstr "要烧写初始的RAUC系统，需要先在另外一个烧写设备上烧写并启动一个非RAUC系统。例如，你可以从SD卡启动一个常规的 ``ampliphy`` 发行版的 ``phytec-headless-image`` 镜像。"
+msgstr ""
 
 msgid "eMMC"
-msgstr "eMMC"
+msgstr ""
 
 msgid "While running a non-RAUC system from an SD card on the target, copy the ``.partup`` package built with distro ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` to the running target first:"
-msgstr "在目标设备上，从SD卡启动非RAUC系统后，拷贝使用distro ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc`` 编译出的 ``.partup`` 包到运行系统上："
+msgstr ""
 
 msgid "Then install the partup package to the eMMC:"
-msgstr "然后将partup包安装到eMMC中："
+msgstr ""
 
 msgid "Now the target can boot the flashed A/B system."
-msgstr "现在目标设备可以启动烧写好的A/B系统了"
+msgstr ""
 
 msgid "NAND"
-msgstr "NAND"
+msgstr ""
 
 msgid "There are scripts provided with the bootloader barebox that previously were used to initialize NAND flash with an A/B system: ``rauc_init_nand``, ``rauc_flash_nand_from_tftp`` and ``rauc_flash_nand_from_mmc``. These scripts are deprecated. It is advised to use the script ``rauc-flash-nand`` provided in the Linux environment with PHYTEC's distribution *Ampliphy*."
-msgstr "在之前的barebox中提供了一些脚本去初始化NAND flash上的A/B双系统： ``rauc_init_nand``, ``rauc_flash_nand_from_tftp`` 和 ``rauc_flash_nand_from_mmc``。这些脚本已经被弃用。当前建议使用 *Ampliphy* 发行系统中，Linux环境下的 ``rauc-flash-nand`` 脚本"
+msgstr ""
 
 msgid "With raw NAND flash the kernel, device tree, and root filesystem are written individually. Initialize the NAND flash with the correct volumes from a Linux on the target:"
-msgstr "在裸NAND flash上，kernel，设备树和根文件系统分别单独被烧写进flash上。在目标设备的Linux环境下初始化NAND flash以创建正确的卷："
+msgstr ""
 
 msgid "The initialization script will automatically utilize all available space of NAND flash. The NAND device is also determined automatically by finding the device root in ``/proc/mtd``."
-msgstr "初始化脚本自动使用NAND flash上所有可用空间。NAND 设备也会通过在/proc/mtd路径下查找root设备来确定。"
+msgstr ""
 
 msgid "On i.MX6 and i.MX6UL devices with barebox, use bbu (barebox update) to flash the bootloader:"
-msgstr "在i.MX6 和 i.MX6UL设备上，使用bbu (barebox update) 去烧写bootloader"
+msgstr ""
 
 msgid "The A/B system on NAND Flash is now ready to be booted."
-msgstr "A/B 备份系统现在可以从NAND Flash启动了"
+msgstr ""
 
 msgid "Bootloader"
-msgstr "Bootloader"
+msgstr ""
 
 msgid "Booting the A/B System by Default"
-msgstr "默认启动A/B 系统"
+msgstr ""
 
 msgid "Booting the A/B system is done mostly automatically by the bootloader since the Yocto release *hardknott*. For devices with eMMC flash storage, the corresponding setting is written into the bootloader environment during the building of the BSP. In particular, if the distribution ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` is used, as described previously, the bootloader should automatically start the A/B system and have the variables set for RAUC accordingly."
-msgstr "自Yocto版本 *hardknott* 后，启动A/B系统的工作大部分由bootloader自动完成。配备eMMC 烧写的设备，在BSP编译过程中，相关设置会被写入bootloader环境变量中。具体来说，如果使用了发行版 ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc`` 系统（如前所述），bootloader会自动启动A/B系统并且设置相应的环境变量。"
+msgstr ""
 
 msgid "This automatic setting can be manually changed by setting one variable in the bootloader. The procedure is described in more detail in the following chapters for U-Boot and barebox."
-msgstr "自动设定的过程也可以通过在bootloader中设置一个变量来实现手动设定。该过程在随后的U-boot、barebox章节中会被详细描述。 "
+msgstr ""
 
 msgid "U-Boot"
-msgstr "U-Boot"
+msgstr ""
 
 msgid "After a successful boot into a Linux environment, this command is used to view the available parameters:"
-msgstr "在成功启动进入Linux环境后，可以使用下面的命令来查看可用参数："
+msgstr ""
 
 msgid "You may see this parameter along with others in the output:"
-msgstr "我们将看到该参数和其他参数一起出现在控制台输出中："
+msgstr ""
 
 msgid "To manually disable or enable booting the A/B system with RAUC, set this variable to ``0`` or ``1``:"
-msgstr "为了手动使能/关闭带RAUC机制A/B系统的自启动，将该变量设置为 ``0`` 或者 ``1``:"
+msgstr ""
 
 msgid "This parameter can also be edited in U-Boot. Restart your board and hit any key to stop the automatic boot. The environment variables can now be viewed:"
-msgstr "该参数也可以在U-boot中被修改。重启设备，按任意键停止自动启动，进入bootloader环境。查看bootloader环境变量。"
+msgstr ""
 
 msgid "and set:"
-msgstr "并且设置它们："
+msgstr ""
 
 msgid "Barebox"
-msgstr "Barebox"
+msgstr ""
 
 msgid "In barebox, the system to be booted can be selected directly by its name. To boot the A/B system, including RAUC, ``bootchooser`` is used. To boot e.g. a regular SD card without RAUC use ``mmc`` instead, or ``nand`` for NAND devices:"
-msgstr "在barebox中，可以通过名称选定要启动的系统。要启动A/B系统，包括RAUC，需要使用 ``bootchooser`` 。例如：要从SD卡启动不带RAUC的系统，使用 ``mmc`` ，如果是NAND设备，使用 ``nand`` ："
+msgstr ""
 
 msgid "Creating RAUC Bundles"
-msgstr "创建RAUC升级包"
+msgstr ""
 
 msgid "To update your system with RAUC, a RAUC bundle (``.raucb``) needs to be created. It contains all required images and scripts for the update and a RAUC ``manifest.raucm`` that describes the content of the bundle for the RAUC update on the target. The BSP includes a Yocto target that lets you build a RAUC bundle from your Yocto build."
-msgstr "要升级带RAUC的系统，需要创建RAUC升级包 (``.raucb``) 。它包含所有升级必要的脚本和镜像，以及一个RAUC ``manifest.raucm`` 文件描述RAUC升级包的内容。BSP中包含了可以生成RAUC 升级包的recipe。"
+msgstr ""
 
 msgid "To create the bundle with Yocto, run the following in ``build/`` with the distribution ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` set up, as described previously:"
-msgstr "要使用Yocto创建RAUC 升级包，在distro ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` 初始化的build目录下执行下列命令："
+msgstr ""
 
 msgid "This results in the creation of a ``.raucb`` bundle file in ``deploy/images/<MACHINE>/`` which can be used for updating the system as described later. There is no need to create a ``manifest.raucm`` manually as it is created automatically during the build of the bundle. As a reference, the created manifest would look something like this:"
-msgstr "该命令在``deploy/images/<MACHINE>/`` 下生成 ``.raucb`` 升级包文件。无需手动创建 ``manifest.raucm`` ，在build过程中会自动生成。作为参考，生成的manifest文件会有以下类似内容："
+msgstr ""
 
 msgid "manifest.raucm"
-msgstr "manifest.raucm"
+msgstr ""
 
 msgid "For more information about the manifest format, see https://rauc.readthedocs.io/en/latest/reference.html#manifest."
-msgstr "关于manifest格式的更多信息，请参考 https://rauc.readthedocs.io/en/latest/reference.html#manifest。"
+msgstr ""
 
 msgid "Updating with RAUC"
-msgstr "RAUC升级"
+msgstr ""
 
 msgid "To update the target system with RAUC, the RAUC bundle file previously created first needs to be copied to the board or to a memory device that can be mounted in Linux. One way is to copy the bundle file with ``scp``, but this requires enough space left on the board's filesystem. To do this, boot the target board to Linux and connect it via Ethernet to your host PC."
-msgstr "要使用RAUC升级系统，上述过程中生成RAUC 升级包需要先被拷贝到核心板内存，或者在Linux中挂载的存储设备上。拷贝文件的一种方式是使用 ``scp`` ，它要求核心板文件系统中有足够的剩余空间。首先启动设备到Linux环境，然后通过以太网连接到host PC."
+msgstr ""
 
 msgid "On the host, run:"
-msgstr "在主机上运行："
+msgstr ""
 
 msgid "On the target, the bundle can be verified:"
-msgstr "在设备上，rauc升级包可以被读取："
+msgstr ""
 
 msgid "and the output should look similar to this:"
-msgstr "输出会类似于："
+msgstr ""
 
 msgid "To check the current state of the system, run:"
-msgstr "要检查系统的当前状态，运行:"
+msgstr ""
 
 msgid "and get output similar to this:"
-msgstr "得到类似如下输出："
+msgstr ""
 
 msgid "To update the currently inactive system with the downloaded bundle, run:"
-msgstr "要使用下载的升级包升级当前系统，运行："
+msgstr ""
 
 msgid "and reboot afterward:"
-msgstr "然后重启："
+msgstr ""
 
 msgid "With the success of the update, RAUC automatically switches the active system to the newly updated system. Now during reboot, RAUC counts the boot attempts of the kernel and if it fails more often than specified in the state framework of the system, RAUC switches back to the old system and marks the new system as bad. If the boot attempt to the kernel is successful, the new system is marked as good and the old system can now be updated with the same instructions. After two successful ``rauc install`` and ``reboot``, both systems are updated."
-msgstr "如果升级成功，RAUC会自动切换到新升级的系统。在重启过程中，RAUC统计kernel的尝试启动次数，如果在启动次数多于系统设定值，RAUC会切换到旧系统，并且将新系统标记为bad。如果成功启动到kernel，新系统标记为good，然后使用同样的指令进行升级另外一个旧系统。在两轮成功的 ``rauc install`` and ``reboot`` 之后，两个系统都被升级了"
+msgstr ""
 
 msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <kirkstone_rauc-automatic-updates-usb>` you can find below."
-msgstr "当你从USB存储设备升级，请确保在成功升级之后移除USB存储设备。如果USB存储设备没有被移除，每次重启后都将会从USB存储设备自动升级系统。其中缘由在下面章节 :ref:`Automatic Update from USB Flash Drive with RAUC <kirkstone_rauc-automatic-updates-usb>` 中作出解释。"
+msgstr ""
 
 msgid "Changing the Active Boot Slot"
-msgstr "修改优先的启动Slot"
+msgstr ""
 
 msgid "It is possible to switch the active system manually:"
-msgstr "我们可以手动切换优先系统："
+msgstr ""
 
 msgid "After a reboot, the target now starts from the other system."
-msgstr "重启后，设备会从另外一个系统启动。"
+msgstr ""
 
 msgid "Switching RAUC Keyrings"
-msgstr "切换RAUC密钥"
+msgstr ""
 
 msgid "PHYTEC's distribution comes with keys and certificates used for development and demonstration purposes only. To change to a different PKI when devices are already rolled out, RAUC's keyring must be changed. This chapter describes the full procedure from a development state to a production state. Keep in mind, that it is always a better idea to roll out your devices with a production keyring in the first place, instead of relying on a development one for too long. The following diagram shows the general process of switching keyrings for RAUC:"
-msgstr "PHYTEC的发行版包含只用于开发阶段和演示用途的密钥和证书。要在设备发布后更新到新的PKI，RAUC的密钥必须要修改。本章描述从开发到量产的完整处理流程。必须要记住，发布您的产品设备时使用新的量产密钥永远比过度依赖开发阶段的旧密钥要安全的多。下图展示了切换RAUC密钥的通用处理过程："
+msgstr ""
 
 msgid "Keyring Switching Process"
-msgstr "密钥切换"
+msgstr ""
 
 msgid "Create new certificates and keys for your own PKI. See our security manual for a detailed description on how to create a custom PKI. For this document, we refer to this newly created PKI as \"production\", as opposed to the existing \"development\" keys."
-msgstr "给您自己的PKI创建新的证书和密钥。请查阅我们的安全手册，里面详细描述了如何创建一个自定义PKI。在本手册中，我们把这个新创建的PKI定义为 \"量产\"，以和现存的 \"开发\"密钥区别开来。"
+msgstr ""
 
 msgid "Move the generated keys and certificates, to your main Yocto build directory root, alongside with ``build/`` and ``sources/``."
-msgstr "将生成的密钥和证书放到Yocto 工程根目录下，和 ``build/`` 以及 ``sources/`` 目录同一级。"
+msgstr ""
 
 msgid "Be careful where you store the private keys! These should in no way be made publicly available. E.g. do not store the private keys in a public Git repository. Otherwise, unauthorized entities could create RAUC bundles that can be installed on your target system!"
-msgstr "存储私钥的时候必须要十分小心！千万不要泄露。例如：不要将私钥存储在公共git仓库。否则，一些未授权的组织或者个人可能会用这写密钥创建出可以在您的设备上安装并启动的RAUC升级包！"
+msgstr ""
 
 msgid "Now, a RAUC bundle must be created that contains the new \"production\" CA keyring in its root filesystem but is still signed by the \"development\" CA. With this, the system is converted from a \"development\" system to a \"production\" system. To achieve this, exchange the file ``ca.cert.pem`` installed by the RAUC recipe in the Yocto sources. Create a file ``rauc_%.bbappend`` in your own Yocto layer:"
-msgstr "现在，我们可以创建出一个在根文件系统中含有新的\"量产\" 证书密钥的RAUC升级包，但是该升级包仍然以\"开发\"证书签名。这样升级后系统将会从一个\"开发\"系统升级成一个\"量产\"系统。首先，需要将Yocto sources 目录下面RAUC recipe中安装的 ``ca.cert.pem`` 文件替换。在您自己的Yocto layer中创建一个 ``rauc_%.bbappend`` 文件。"
+msgstr ""
 
 msgid "recipes-core/rauc/rauc_%.bbappend"
-msgstr "recipes-core/rauc/rauc_%.bbappend"
+msgstr ""
 
 msgid "Build the same RAUC bundle as before, now with the exchanged keyring:"
-msgstr "然后像之前一样编译出RAUC升级包，只是这一次我们使用了替换的密钥："
+msgstr ""
 
 msgid "Install the resulting RAUC bundle as usual. The target now has the image with the \"production\" keyring installed in its other slot (\"System B\" in the figure above). Reboot to start that system."
-msgstr "安装生成的RAUC升级包。目标设备现在已经将包含有\"量产\"密钥的镜像安装在与非当前运行系统的另外一个Slot中(即上图中的\"System B\" )。我们需要重启去启动新的系统。"
+msgstr ""
 
 msgid "All future RAUC bundles for the \"production\" system must now also be signed by the \"production\" CA. For this, change the key and certificate to your newly generated \"production\" ones in the bundle recipe:"
-msgstr "所有未来给\"量产\"系统的RAUC升级包必须用\"量产\"证书所签名。在bundle recipe中将密钥和证书修改为您新生成的\"量产\"密钥："
+msgstr ""
 
 msgid "recipes-images/bundles/customer-headless-bundle.bb"
-msgstr "recipes-images/bundles/customer-headless-bundle.bb"
+msgstr ""
 
 msgid "Rebuild the RAUC bundle:"
-msgstr "重编译RAUC 升级包:"
+msgstr ""
 
 msgid "These and any future bundles are now ready to be installed on your \"production\" target system and have been fully migrated away from the \"development\" system. This also means that now only bundles signed by the \"production\" CA can be installed on the target (and e.g. \"development\" bundles cannot)."
-msgstr "现在RAUC升级包已经准备好，可以安装到您的\"量产\"目标系统中，并且已经完全从\"开发\"系统迁移。这也意味着只有使用\"量产\"证书签名的升级包才能被安装在您的目标设备上 (例如像\"开发\" 升级包将无法安装到目标设备)"
+msgstr ""
 
 msgid "Use Case Examples"
-msgstr "使用举例"
+msgstr ""
 
 msgid "Automatic Updates from USB Flash Drive with RAUC"
-msgstr "使用RAUC从USB Flash自动升级"
+msgstr ""
 
 msgid "One of the most prominent use cases for RAUC might be an automatic update system from a USB flash drive. This use case is implemented in the BSP as a reference example. We combine only standard Linux mechanisms with RAUC to build the system. The kernel notifies *udev* when a device gets plugged into the USB port. We use a custom *udev* rule to trigger a systemd service when this event happens."
-msgstr "RAUC最为人熟知的一个用例是从USB flash自动升级系统。BSP中包含了一个此用例的参考实现。我们使用标准Linux机制去配合RAUC机制。当USB插入的时候kernel通知 *udev* ,使用一个自定义的 *udev* 规则，在USB事件发生时触发systemd服务。"
+msgstr ""
 
 msgid "10-update-usb.rules"
-msgstr "10-update-usb.rules"
+msgstr ""
 
 msgid "The service automatically mounts the USB flash drive and notifies the application."
-msgstr "该服务自动挂载USB flash设备然后通知上层应用"
+msgstr ""
 
 msgid "update-usb@.service"
-msgstr "update-usb@.service"
+msgstr ""
 
 msgid "In our reference implementation, we simply use a shell script for the application logic."
-msgstr "在参考实现中，我们使用了shell脚本来简单实现应用逻辑"
+msgstr ""
 
 msgid "update_usb.sh"
-msgstr "update_usb.sh"
+msgstr ""
 
 msgid "The update logic can be integrated into an application using the *systemd D-Bus API*. RAUC does not need to be called by its command-line interface but can be integrated with D-Bus."
-msgstr "升级逻辑可以用 *systemd D-Bus API* 集成到应用中，无需使用命令行接口调用RAUC。"
+msgstr ""
 
 msgid "RAUC features a D-Bus API interface (see https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api)."
-msgstr "RAUC 支持 D-Bus API 接口 (详见 https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api)."
+msgstr ""
 
 msgid "Security Measurement: Downgrade Barrier"
-msgstr "安全措施：降级屏障"
+msgstr ""
 
 msgid "As a second reference example, we will implement a security mechanism: a downgrade barrier. When you detect a security vulnerability on your system, you will fix it and update your system. The systems with the new software will now be secure again. If an attacker gets a hold of the old software update bundle, which still has a valid signature, the attacker might have the possibility to install the old software and still take advantage of the previously fixed security vulnerability. To prevent this from happening, you could revoke the updated certificate for every single update and create a new one. This might be difficult to handle, depending on the environment. A simpler solution would be to allow updates only in one direction using a version check."
-msgstr "在第二个参考示例中，我们将会实现一个安全机制：降级屏障。当你在系统中检测到安全漏洞时，您将会修复并升级系统。这样带有新软件的系统又重新变为安全系统。如果黑客拥有旧软件的升级包，并且它有有效签名，他们仍然可能会安装旧的软件包，然后利用之前已经被修复的安全漏洞。为了防止这样的事情发生，您可以在每次升级时吊销旧的升级证书，然后创建一个新的证书。依赖于具体的环境，这种方式可能有点不容易实现。更简单的方式是用版本检测的方式只允许单向升级。"
+msgstr ""
 
 msgid "rauc_downgrade_barrier.sh"
-msgstr "rauc_downgrade_barrier.sh"
+msgstr ""
 
 msgid "The script is installed on the target but it is not activated. You need to remove the developer mode line in the script to activate it."
-msgstr "该脚本被安装在目标设备上，但是功能并没有被激活。您需要将脚本中 developer mode 的代码行去掉来激活降级屏障"
+msgstr ""
 
 msgid "Streaming Bundles over HTTP"
-msgstr "通过HTTP流传输升级包"
+msgstr ""
 
 msgid "Instead of copying the bundle to the device, the bundle can be streamed over HTTP. Using bundle streaming has the advantage of not requiring local storage on the target. A simple approach to this is running NGINX inside a Docker container. The following example shows how to implement a minimal download server enabling HTTP range requests to support this feature."
-msgstr "将升级包放置到设备上，除了简单拷贝的方式，还可以利用HTTP的流传输，这种方法的优势在于不需要目标设备上的本地存储空间。一种简单的实现方式是在Docker 容器中运行NGINX服务。下面的例子展示了如何通过使能HTTP Range Request特性来实现一个最小下载服务器。"
+msgstr ""
 
 msgid "Create a Dockerfile with the following content:"
-msgstr "创建一个有下列内容的Dockerfile"
+msgstr ""
 
 msgid "Dockerfile"
-msgstr "Dockerfile"
+msgstr ""
 
 msgid "Configure NGINX to enable HTTP range requests and point it to the bundle file."
-msgstr "配置NGINX，使能HTTP range request，并且将它指向升级文件。"
+msgstr ""
 
 msgid "nginx.conf"
-msgstr "nginx.conf"
+msgstr ""
 
 msgid "Place a bundle in the ``bundles`` sub-directory. The folder structure looks like the following after creating all configuration files:"
-msgstr "将升级包放置在 ``bundles`` 子目录。在创建所有配置文件后，文件夹结构如下："
+msgstr ""
 
 msgid "Build and run the docker container on the host system:"
-msgstr "在主机系统上编译并且运行docker 容器："
+msgstr ""
 
 msgid "Install the bundle on the currently inactive target partitions:"
-msgstr "在当前非活跃分区上安装升级包："
+msgstr ""
 
 msgid "After the update finishes the target may display the following error which has no impact on the success of the update:"
-msgstr "升级完成后，设备可能会显示如下错误，但是对升级结果无影响："
+msgstr ""
 
 msgid "Reference"
-msgstr "参考"
+msgstr ""
 
 msgid "Boot Logic Implementation"
-msgstr "启动逻辑实现"
+msgstr ""
 
 msgid "The implementation details described in this chapter serve as a reference guide. PHYTEC BSPs that have RAUC support include these by default and the changes are already incorporated."
-msgstr "本章中描述的实现细节仅作参考。支持RAUC的PHYTEC BSP默认包含这些实现，并且稍作改动。"
+msgstr ""
 
 msgid "U-Boot Environment Variables"
-msgstr "U-Boot 环境变量"
+msgstr ""
 
 msgid "For U-Boot, the boot logic that selects the correct partitions to boot from is implemented in its environment. As a reference, these are the most important U-Boot variables that are used for the A/B system with RAUC:"
-msgstr "对U-Boot来说，选择正确启动分区的启动逻辑是在其环境中实现的。作为参考，下面这些是U-Boot环境变量中和RAUC A/B双备份系统相关性最强的变量："
+msgstr ""
 
 msgid "For BSP-Yocto-NXP-i.MX8M*-PD23.1.0:"
-msgstr "针对BSP-Yocto-NXP-i.MX8M*-PD23.1.0:"
+msgstr ""
 
 msgid "Name"
-msgstr "变量名称"
+msgstr ""
 
 msgid "Function"
-msgstr "功能"
+msgstr ""
 
 msgid "BOOT_ORDER"
-msgstr "BOOT_ORDER"
+msgstr ""
 
 msgid "Contains a space-separated list of boot targets in the order they should be tried. This parameter is automatically set by RAUC."
-msgstr "包含以空格分隔的按启动优先级排列的启动设备列表。该参数由RAUC自动设置。"
+msgstr ""
 
 msgid "BOOT_<slot>_LEFT"
-msgstr "BOOT_<slot>_LEFT"
+msgstr ""
 
 msgid "Contains the number of remaining boot attempts to perform for the respective slot. This parameter is automatically set by RAUC."
-msgstr "包含每个slot的剩余可尝试启动次数。该参数被RAUC自动设置"
+msgstr ""
 
 msgid "``raucboot``"
-msgstr "``raucboot``"
+msgstr ""
 
 msgid "Contains the boot logic that sets the partitions so the correct system is loaded."
-msgstr "包含设置分区的启动逻辑，以加载正确的系统"
+msgstr ""
 
 msgid "``doraucboot``"
-msgstr "``doraucboot``"
+msgstr ""
 
 msgid "Enables booting the A/B system if set to 1 and disables it if set to 0."
-msgstr "如果设置为1，则使能启动A/B 系统，如果设置为0则相反。"
+msgstr ""
 
 msgid "``raucslot``"
-msgstr "``raucslot``"
+msgstr ""
 
 msgid "Contains the current boot slot used in BOOT_<slot>_LEFT."
-msgstr "包含BOOT_<slot>_LEFT中使用的当前启动slot"
+msgstr ""
 
 msgid "``raucargs``"
-msgstr "``raucargs``"
+msgstr ""
 
 msgid "Sets the Kernel bootargs like console, root, and RAUC lot."
-msgstr "设置Kernel 启动参数，例如控制台，根文件系统，RAUC slot"
+msgstr ""
 
 msgid "``raucdev``"
-msgstr "``raucdev``"
+msgstr ""
 
 msgid "Sets the eMMC as the boot device."
-msgstr "设置eMMC作为启动设备"
+msgstr ""
 
 msgid "``raucrootpart``"
-msgstr "``raucrootpart``"
+msgstr ""
 
 msgid "Sets the root filesystem partitions of the device."
-msgstr "设置设备的根文件系统分区"
+msgstr ""
 
 msgid "``raucpart``"
-msgstr "``raucpart``"
+msgstr ""
 
 msgid "Sets the boot partitions of the device."
-msgstr "设置设备的启动分区"
+msgstr ""
 
 msgid "``loadraucimage``"
-msgstr "``loadraucimage``"
+msgstr ""
 
 msgid "Loads the Kernel image into RAM."
-msgstr "将Kernel image加载到RAM中"
+msgstr ""
 
 msgid "``loadraucfdt``"
-msgstr "``loadraucfdt``"
+msgstr ""
 
 msgid "Loads the device tree into RAM."
-msgstr "将设备树加载到RAM中"
+msgstr ""
 
 msgid "These environment variables are defined in ``include/configs/phycore_<SOC>.h`` in the u-boot source code."
-msgstr "这些环境变量在U-boot代码 ``include/configs/phycore_<SOC>.h`` 中定义"
+msgstr ""
 
 msgid "For BSP-Yocto-Ampliphy-AM6xx-PD23.2.0:"
-msgstr "针对BSP-Yocto-Ampliphy-AM6xx-PD23.2.0:"
+msgstr ""
 
 msgid "``init_rauc``"
-msgstr "``init_rauc``"
+msgstr ""
 
 msgid "``raucbootpart``"
-msgstr "``raucbootpart``"
+msgstr ""
 
 msgid "These environment variables are defined in ``include/environment/phytec/rauc.env`` in the u-boot source code."
-msgstr "这些环境变量在U-boot代码 ``include/environment/phytec/rauc.env`` 中定义"
+msgstr ""
 
 msgid "A change in the partition layout, e.g. when using an additional data partition, may require changing the variables ``raucrootpart`` and ``raucpart``. Make sure to rebuild your image with the new bootloader environment after you have made the appropriate changes."
-msgstr "分区布局的改变，例如：当需要使用一个额外的数据分区时，可能需要修改变量 ``raucrootpart`` and ``raucpart`` 。在您修改变量后，请确保使用新的bootloader环境重编译镜像。"
+msgstr ""
 
 msgid "Barebox Bootchooser Framework"
-msgstr "Barebox Bootchooser 框架"
+msgstr ""
 
 msgid "For the barebox, the boot logic that selects the correct partitions to boot from is implemented using the bootchooser and state framework. See the barebox documentation for detailed information about these: `Barebox Bootchooser Framework <https://www.barebox.org/doc/latest/user/bootchooser.html>`_, `Barebox State Framework <https://www.barebox.org/doc/latest/user/state.html>`_."
-msgstr "对barebox来说，它使用bootchooser和state框架来实现选择正确镜像的启动逻辑。查阅barebox文档以获取详细信息： `Barebox Bootchooser Framework <https://www.barebox.org/doc/latest/user/bootchooser.html>`_, `Barebox State Framework <https://www.barebox.org/doc/latest/user/state.html>`_."
+msgstr ""
 
 msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <kirkstone_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
-msgstr "首先，需要在设备树中配置state框架。查阅Yocto 参考手册中的 :ref:`自定义 BSP <kirkstone_bsp-customization>` 章节。针对支持的SoC，我们的BSP中已经包含state框架配置，可以直接添加到主barebox设备树中。例如 针对 i.MX6 系列核心板:"
+msgstr ""
 
 msgid "Afterward, rebuild the image and flash the new bootloader."
-msgstr "之后重编译镜像，并且烧写新的bootloader。"
+msgstr ""
 
 msgid "Be aware that by adding the state framework configuration, the first 160 bytes of the EEPROM are occupied and can no longer be used for user-specific purposes."
-msgstr "注意，添加state 框架之后，EEPROM起始的160字节被占用，不可以被用户用于其他用途"
+msgstr ""
 
 msgid "The following device tree snippet shows an example of the state framework configuration used with the BSP. As can be seen, the EEPROM is used as a backend for the state information:"
-msgstr "下面的设备树片段展示了BSP中使用的state 框架配置示例。可以看到，EEPROM用于存储state信息。"
+msgstr ""
 
 msgid "To be able to boot from two systems alternately, the bootchooser needs to be aware of the state framework configuration. For each system, a boot script is required. For a system with NAND flash, the boot script of the first system may look like the following:"
-msgstr "要从两个系统中选择一个来启动，bootchooser需要了解state框架配置。对于每个系统，我们都需要一个启动脚本。对于NAND flash系统，第一个系统的启动脚本会类似如下："
+msgstr ""
 
 msgid "/env/boot/system0"
-msgstr "/env/boot/system0"
+msgstr ""
 
 msgid "The second boot script has the same structure but uses the partitions containing the second system. Machines with eMMC flash use similar boot scripts, albeit the mounting and boot arguments look different."
-msgstr "第二个启动脚本和第一个结构相同，但是使用包含第二个系统的分区。配备eMMC flash的Machine使用相似的启动脚本，但是挂载和启动参数会有差异。"
+msgstr ""
 
 msgid "Run the following commands to create the required bootchooser non-volatile environment variables:"
-msgstr "运行下面的命令创建必需的bootchooser非易失性环境变量："
+msgstr ""
 
 msgid "eMMC Boot Partitions"
-msgstr "eMMC Boot 分区"
+msgstr ""
 
 msgid "With eMMC flash storage it is possible to use the dedicated boot partitions for redundantly storing the bootloader."
-msgstr "使用eMMC flash存储，我们可以使用Boot分区来实现备份bootloader"
+msgstr ""
 
 msgid "By default, bundles built with our BSP (e.g. ``phytec-headless-bundle``) contain the bootloader for updating eMMC boot partitions accordingly."
-msgstr "默认情况下，使用我们的BSP编译出的升级包（例如 ``phytec-headless-bundle``）包含用于升级eMMC boot 分区的bootloader"
+msgstr ""
 
 msgid "Note, that the U-Boot environment still resides in the user area before the first partition. The user area also still contains the bootloader which the image first shipped during its initialization process."
-msgstr "注意，U-boot环境变量仍然存放在第一个分区前的user 区域。user区域也包含镜像初始化过程中首次加载的bootloader。"
+msgstr ""
 
 msgid "To manually write the bootloader to the eMMC boot partitions, first disable the write protection:"
-msgstr "要手动将bootloader写入到eMMC boot分区，首先关闭写保护："
+msgstr ""
 
 msgid "Write the bootloader to the eMMC boot partitions:"
-msgstr "将bootloader写入到eMMC boot分区："
+msgstr ""
 
 msgid "This example is valid for the i.MX 8M Mini SoC. Note, that other SoCs may have different bootloader files and require different offsets where the bootloader is expected, specified by the seek parameter. See the following table for the different offsets being required by each SoC:"
-msgstr "该示例针对i.MX 8M Mini SoC。注意，其他SoC可能会有不同的bootloader文件以及不同的bootloader加载偏移值。该偏移值通过seek参数给定。查看下表获取不同SoC所要求的偏移值："
+msgstr ""
 
 msgid "SoC"
-msgstr "SoC"
+msgstr ""
 
 msgid "Offset User Area"
-msgstr "User 区域偏移值"
+msgstr ""
 
 msgid "Offset Boot Partition"
-msgstr "Boot 分区偏移值"
+msgstr ""
 
 msgid "eMMC Device"
-msgstr "eMMC 设备"
+msgstr ""
 
 msgid "i.MX 6"
 msgstr ""
@@ -661,31 +662,31 @@ msgid "tiboot3.bin tispl.bin u-boot.img"
 msgstr ""
 
 msgid "Bootloader Offsets"
-msgstr "Bootloader 偏移"
+msgstr ""
 
 msgid "Note that the offset is different, depending on whether the bootloader resides in the user area or the boot partitions of the eMMC."
-msgstr "注意，即使是同一SoC，偏移值也会随bootloader烧写位置在user区域还是boot分区而不同。"
+msgstr ""
 
 msgid "After a bootloader has been written to the eMMC boot partitions, booting from these can be enabled by using the following command:"
-msgstr "在bootloader写入eMMC boot分区后，从boot分区启动需要使用以下命令使能："
+msgstr ""
 
 msgid "This also means that only the bootloaders written in the eMMC boot partitions are used. The bootloader in the user area is not used anymore. These steps are also executed by RAUC internally when updating the target system with a bundle."
-msgstr "这也意味着只有写到eMMC boot分区的bootloader才会被使用。user 区域的bootloader不再被使用。在使用升级包升级目标系统时，这些步骤也会在RAUC内部逻辑中执行。"
+msgstr ""
 
 msgid "To disable booting from the eMMC boot partitions simply enter the following command:"
-msgstr "要关闭从eMMC boot分区启动，只要输入下面的命令："
+msgstr ""
 
 msgid "After this command, the eMMC user area is used to provide the bootloader."
-msgstr "此命令执行后，eMMC user分区提供系统的bootloader"
+msgstr ""
 
 msgid "When using U-Boot, a similar command is also available in the bootloader:"
-msgstr "使用U-Boot时，在bootloader中也可以使用相似的命令："
+msgstr ""
 
 msgid "Table of Contents"
-msgstr "目录"
+msgstr ""
 
-msgid "RAUC Update & Device Management Manuals"
-msgstr "RAUC 升级 和 设备管理手册"
+msgid "RAUC Update & Device Management"
+msgstr ""
 
 msgid "Kirkstone"
 msgstr ""
@@ -709,29 +710,28 @@ msgid "08.05.2024"
 msgstr ""
 
 msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <mickledore_rauc-switch-keyrings>` for more information."
-msgstr "RAUC升级使用OPENSSL证书验证镜像的有效性。BSP中包含一个可以在开发过程中使用的临时证书。在生产系统中，强烈建议使用您重新创建的私钥和证书。如果您需要修改设备上存储的密钥，请参考 :ref:`切换RAUC密钥 <mickledore_rauc-switch-keyrings>` 以获取更多信息"
+msgstr ""
 
 msgid "To flash the device with the correct partitions/volumes, use a partup package built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution. Prebuilt partup packages can be found in the BSP release. It is also possible to build an image with this distribution yourself using Yocto. Separate build directories are created, storing the images and packages for the RAUC system. Initialize the build directory with the OE init script:"
-msgstr "要给设备烧写正确的分区/卷，请使用 ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc`` 发行版编译出的partup包。您可以直接使用BSP release中预编译的partup包，也可以使用Yocto自主编译。修改 ``local.conf`` 文件去修改Distro，这样不同的distro，会产生不同的build文件夹，存储编译过程中生成的对应软件包和镜像。使用OE init脚本初始化build目录："
-
+msgstr ""
 
 msgid "Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8 mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):"
-msgstr "把distro 变量配置为 ``ampliphy-rauc`` (i.MX6, AM6x，i.MX8 mainline BSP) 或者 ``ampliphy-vendor-rauc`` (i.MX8,i.MX9 vendor BSP):"
+msgstr ""
 
 msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <mickledore_rauc-automatic-updates-usb>` you can find below."
-msgstr "当你从USB存储设备升级，请确保在成功升级之后移除USB存储设备。如果USB存储设备没有被移除，每次重启后都将会从USB存储设备自动升级系统。其中缘由在下面的章节 :ref:`Automatic Update from USB Flash Drive with RAUC <mickledore_rauc-automatic-updates-usb>` 中作出解释。"
+msgstr ""
 
 msgid "``raucinit``"
 msgstr ""
 
 msgid "Sets the Kernel bootargs like console, root, and RAUC slot."
-msgstr "设置Kernel 启动参数，例如控制台，根文件系统，RAUC slot"
+msgstr ""
 
 msgid "A change in the partition layout, e.g. when using an additional data partition, may require changing the variables ``raucrootpart`` and ``raucbootpart``. Make sure to rebuild your image with the new bootloader environment after you have made the appropriate changes."
-msgstr "分区布局的改变，例如：当需要使用一个额外的数据分区时，可能需要修改变量 ``raucrootpart`` and ``raucbootpart`` 。在您修改变量后，请确保使用新的bootloader环境重编译镜像。"
+msgstr ""
 
 msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <mickledore_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
-msgstr "首先，需要在设备树中配置state框架。查阅Yocto 参考手册中的 :ref:`Customizing the BSP <mickledore_bsp-customization>` 章节。针对支持的SoC，我们的BSP中已经包含state框架配置，可以直接添加到主barebox设备树中。例如 针对 i.MX6 系列核心板:"
+msgstr ""
 
 msgid "i.MX 93"
 msgstr ""
@@ -785,35 +785,35 @@ msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
 msgstr ""
 
 msgid "Updates with RAUC use an OpenSSL certificate to verify the validity of an image. The BSP includes a certificate that can be used for development. In a productive system, however, it is highly recommended to use a self-created key and certificate. If you need to change the keyring on an existing device, see :ref:`Switching RAUC Keyrings <scarthgap_rauc-switch-keyrings>` for more information."
-msgstr "RAUC升级使用OPENSSL证书验证镜像的有效性。BSP中包含一个可以在开发过程中使用的临时证书。在生产系统中，强烈建议使用您重新创建的私钥和证书。如果您需要修改设备上存储的密钥，请参考 :ref:`切换RAUC密钥 <scarthgap_rauc-switch-keyrings>` 以获取更多信息"
+msgstr ""
 
 msgid "Creating transition bundles"
-msgstr "创建版本迁移升级包"
+msgstr ""
 
 msgid "Updating to a new major release can require a special RAUC bundle."
-msgstr "升级到新的大版本需要特定的RAUC升级包"
+msgstr ""
 
 msgid "When updating to a Scarthgap based release, add the following to your ``local.conf`` and rebuild the RAUC bundle:"
-msgstr "当升级到Scarthgap版本的BSP时，将下列代码增加到本地 ``local.conf`` 中，并重新构建RAUC升级包"
+msgstr ""
 
 msgid "When you update from a USB stick, make sure to remove the stick after a successful update before rebooting. If not, an automatic update will be started after each boot. This is due to the :ref:`Automatic Update from USB Flash Drive with RAUC <scarthgap_rauc-automatic-updates-usb>` you can find below."
-msgstr "当你从USB存储设备升级，请确保在成功升级之后移除USB存储设备。如果USB存储设备没有被移除，每次重启后都将会从USB存储设备自动升级系统。其中缘由在下面的章节 :ref:`Automatic Update from USB Flash Drive with RAUC <scarthgap_rauc-automatic-updates-usb>` 中作出解释。"
+msgstr ""
 
 msgid "Adaptive Updates and HTTP Streaming"
-msgstr "自适应升级和HTTP流媒体传输"
+msgstr ""
 
 msgid "RAUC supports updating only the differences between installed versions. This is most commonly known as \"delta updates\" in other update clients. However, with RAUC, no intermediate updates are necessary for this process to work. The RAUC client automatically selects and install only the needed data from any newer update bundle. This distinguishes RAUC's \"adaptive updates\" from the traditional \"delta updates\". Read more about adaptive updates in the official RAUC documentation: https://rauc.readthedocs.io/en/latest/advanced.html#adaptive-updates"
-msgstr "RAUC支持只升级新旧版本之间的差异化部分。这在其他升级客户端中通常被称为\"增量更新\"。然而对于RAUC来说，这一过程无需依赖任何中间版本即可完成，RAUC会从新的升级包中自动选择所需数据并完成升级。这一特性可以看出，RAUC的\"自适应升级\" 与传统的\"增量更新\"是有明显区别的。更多\"自适应升级\"的信息请查阅RAUC官方文档：https://rauc.readthedocs.io/en/latest/advanced.html#adaptive-updates"
+msgstr ""
 
 msgid "By default, PHYTEC images and bundles built with the Yocto distro ``ampliphy-rauc`` and ``ampliphy-vendor-rauc`` support RAUC adaptive updates."
-msgstr "默认情况下，PHYTEC distro ``ampliphy-rauc`` 和 ``ampliphy-vendor-rauc`` 构建的镜像和升级包均支持RAUC自适应升级。"
+msgstr ""
 
 msgid "Together with :ref:`scarthgap_rauc-http-streaming`, adaptive updates allow for only downloading necessary data needed for an update. See the following link for the official RAUC documentation: https://rauc.readthedocs.io/en/latest/advanced.html#http-streaming"
-msgstr "参考 :ref:`scarthgap_rauc-http-streaming`, 自适应升级只允许下载升级所必要的数据。查看以下链接阅读RAUC官方文档以获取更多内容。"
+msgstr ""
 
 msgid "These environment variables are defined in ``include/env/phytec/rauc.env`` in the u-boot source code."
-msgstr "这些环境变量在U-boot代码 ``include/env/phytec/rauc.env`` 中定义"
+msgstr ""
 
 msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <scarthgap_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
-msgstr "首先，需要在设备树中配置state框架。查阅Yocto 参考手册中的 :ref:`Customizing the BSP <scarthgap_bsp-customization>` 章节。针对支持的SoC，我们的BSP中已经包含state框架配置，可以直接添加到主barebox设备树中。例如 针对 i.MX6 系列核心板:"
+msgstr ""
 
