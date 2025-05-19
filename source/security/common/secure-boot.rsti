@@ -39,7 +39,7 @@ The main boot process is the following
 
 2. u-boot SPL loads u-boot proper from the FIT image and ATF
    (ARM Trusted Firmware) and optionally OP-TEE.
-3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel,
+3. Then, u-boot loads and verifies the FIT image containing a Linux kernel,
    DTB, and ramdisk. (**Boot Step 2**)
 4. If built with signed kernel modules (standard), Linux will only load kernel
    modules verifies with a kernel compiled in public key
@@ -61,9 +61,56 @@ of an image.
 .. image:: images/image-signing.png
 
 1. A Hash is created for the binary file like the boot container, Kernel
-   FIT-Image, kernel modules, op-tee applications or the rauc update bundle.
+   FIT image, kernel modules, op-tee applications or the rauc update bundle.
 2. A signature is from the hash with a private key.
 3. The signature is added to the binary file.
+
+Flattened Image Tree (FIT)
+--------------------------
+
+FIT images are used with Secure Boot as standard format for packing kernel,
+device-tree and optional initramfs. The FIT image are signed in the yocto build
+with a Private Key. The public key is on the target, compiled in the bootloader
+or the NXP HAB keys are used. Documentation about FIT is available in
+the `Flattened Image Tree project <https://fitspec.osfw.foundation/>`_.
+
+There are two different yocto classes for creation of a signed FIT image.
+
+* PHYTEC *sources/meta-phytec/classes/fitimage.bbclass*
+
+   * With FIT image recipes you can define more separate FIT images.
+   * Example for FIT image recipes are in ``sources/meta-ampliphy/recipes-images/fitimage/``
+   * To create a own FIT image, you need to specify some variables in the
+     recipe:
+
+      * FITIMAGE_SLOTS: Use this to list all slot classes for which the
+        FIT image should contain images. A value of "kernel fdt fdtapply",
+        for example, will create a manifest with images for two slot classes -
+        kernel and devicetree.
+      * FITIMAGE_SLOT_<slotclass>: For each slot class, set this to the image
+        (recipe) name which builds the artifact you intend to place in the slot
+        class.
+      * FITIMAGE_SLOT_<slotclass>[type]: For each slot class, set this to the
+        type of image you intend to place in this slot. Possible types are the
+        kernel, fdt, fdto, fdtapply, or ramdisk.
+      * FITIMAGE_SLOT_<slotclass>[file]: For slot type kernel, fdt, fdt0 and
+        fdtapply set this to the file of the image you intend to place in this
+        slot.
+      * FITIMAGE_SLOT_<slotclass>[fstype]: For slot type ramdisk, set this to
+        the filesystem type of image you intend to place in this slot.
+      * FITIMAGE_SLOT_<slotclass>[name]: For slot type fdtapply, set this to
+        the final device tree and configuration name.
+
+* poky *sources/poky/meta/classes-recipe/kernel-fitimage.bbclass*
+
+   * This is the standard upstream FIT image class in yocto mainly for u-boot,
+     which built one FIT image with initramfs and without initramfs.
+
+At first the PHYTEC FIT image class is used to create the FIT images, because
+it supports barebox and u-boot and you can define more separate FIT images.
+Since security has increasingly become an integral part of the SoC
+manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to
+gradually switch to this class, too.
 
 Configuration Class for Signing images
 --------------------------------------
@@ -95,13 +142,14 @@ DISTRO_FEATURES secureboot includes the Bootloader signing.
    BOOTLOADER_TI_K3_MPK_KEY ??= "${CERT_PATH}/ti_k3/keys/phytecSMPK.pem"
    BOOTLOADER_TI_K3_DEGENERATE_KEY ??= "${CERT_PATH}/ti_k3/keys/ti-degenerate-key.pem"
 
-In the following view you can see the necessary variables for signing the
-kernel fitImage. The FITIMAGE_PUBKEY_SIGNATURE_PATH is only important, when
-using the ``FITIMAGE_SIGN_ENGINE="software".`` This means, that the u-boot
+In the following view you can see the necessary variables for signing with the
+PHYTEC FIT image class. The FITIMAGE_PUBKEY_SIGNATURE_PATH is only important,
+when using the ``FITIMAGE_SIGN_ENGINE="software".`` This means, that the u-boot
 validates the kernel fitImage und use the compiled in public key.
 The alternative is that the NXP HAB unit validates the kernel fitImage, then
 the ``FITIMAGE_SIGN_ENGINE="nxphab"`` must be set. This is only possible for
 NXP SOC's with HAB unit and u-boot as bootloader.
+The following configuration are in the *sources/meta-ampliphy/secureboot.bbclass*
 
 .. code-block:: bash
 
@@ -120,6 +168,29 @@ NXP SOC's with HAB unit and u-boot as bootloader.
    FITIMAGE_HASH ?= "sha256"
    FITIMAGE_SIGNATURE_ENCRYPTION ?= "rsa4096"
    FITIMAGE_SIGNER_VERSION ?= "vPD20.0.0"
+
+The signing with the poky kernel-fitimage class needs the following
+configuration in
+
+* machine configuration in *sources/meta-phytec/conf/machine* for the kernel,
+  initrd, device-tree and device-tree overlay ``LOADADDRESS`` and
+  ``ENTRYPOINT`` addresses
+* *source/meta-ampliphy/secureboot.bbclass* for the signing key parameter
+
+   .. code-block:: bash
+
+      UBOOT_SIGN_KEYDIR = "${CERT_PATH}/fit"
+      UBOOT_SIGN_KEYNAME = "FIT-4096"
+      FIT_SIGN_ALG = "rsa4096"
+      FIT_HASH_ALG = "sha256"
+
+* *sources/meta-ampliyphy/conf/distro* file for the ``INITRAMFS_IMAGE``.
+
+   * |distro-secure| and |distro-secure-vendor|:
+     ``INITRAMFS_IMAGE = "phytec-secureboot-initramfs"``
+   * |distro-provisioning| and |distro-provisioning-vendor|:
+     ``INITRAMFS_IMAGE = "phytec-provisioning-initramfs"``
+
 
 Building a signed image
 -----------------------
