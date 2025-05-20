@@ -2,16 +2,6 @@
 Security Manuals
 ================
 
-Kirkstone
-=========
-
-.. toctree::
-   :caption: Table of Contents
-   :numbered:
-   :maxdepth: 2
-
-   kirkstone-sec
-
 Scarthgap
 =========
 
@@ -21,3 +11,13 @@ Scarthgap
    :maxdepth: 2
 
    scarthgap-sec
+
+Kirkstone
+=========
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   kirkstone-sec
