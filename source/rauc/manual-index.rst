@@ -2,7 +2,7 @@
 RAUC Update & Device Management
 ===============================
 
-Kirkstone
+Scarthgap
 =========
 
 .. toctree::
@@ -10,7 +10,7 @@ Kirkstone
    :numbered:
    :maxdepth: 2
 
-   kirkstone
+   scarthgap
 
 Mickledore
 ==========
@@ -22,7 +22,7 @@ Mickledore
 
    mickledore
 
-Scarthgap
+Kirkstone
 =========
 
 .. toctree::
@@ -30,4 +30,4 @@ Scarthgap
    :numbered:
    :maxdepth: 2
 
-   scarthgap
+   kirkstone
