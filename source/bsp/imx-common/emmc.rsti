@@ -35,8 +35,8 @@ bootloader which the image first shipped during its initialization process.
 Below is an example, to flash the bootloader to one of the two boot partitions
 and switch the boot device via userspace commands.
 
-Via userspace Commands
-......................
+Change active Boot Partition via userspace Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On the host, run:
 
@@ -61,8 +61,15 @@ Write the bootloader to the eMMC boot partitions:
 .. code-block:: console
    :substitutions:
 
-   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot0
-   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot1
+   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot0 conv=fsync
+   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev|boot1 conv=fsync
+
+Write the bootloader to the e.MMC user area:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=/tmp/imx-boot of=/dev/|emmcdev| bs=1024 seek=|u-boot-offset| conv=fsync
 
 The following table is for the offset of the |soc| SoC:
 
@@ -98,6 +105,10 @@ command:
    :substitutions:
 
    target:~$ mmc bootpart enable 0 0 /dev/|emmcdev|
+
+.. note::
+
+  This setting is typically ignored by most CPUs, which default to using the user area
 
 To choose back to the user area u-boot environment:
 
