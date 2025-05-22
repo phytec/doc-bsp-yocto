@@ -237,7 +237,7 @@ Bootmode Switch (S3)
    Hardware revision baseboard: 1552.2
 
 The |sbc| features a boot switch with four individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mp-head-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -372,7 +372,7 @@ The device tree representation for UART1 pinmuxing:
 RS232/RS485
 -----------
 
-The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
+The |som| supports up to 4 UART units. On the |sbc|, TTL level signals
 of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
 UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
@@ -380,7 +380,7 @@ multi-protocol transceiver for RS-232 and RS-485, available at pin header
 connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
 configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
 |ref-jp4| on the baseboard. For more information about the correct setup please
-refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs.
+refer to the |som|/|sbc| Hardware Manual section UARTs.
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
@@ -485,7 +485,7 @@ Overwriting reserved spaces will result in boot issues.
 
 .. include:: ../peripherals/eeprom.rsti
 
-DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
+DT representation, e.g. in |som| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L201`
 

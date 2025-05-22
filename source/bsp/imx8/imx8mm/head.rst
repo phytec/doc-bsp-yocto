@@ -227,7 +227,7 @@ Bootmode Switch (S1)
 --------------------
 
 The |sbc| features a boot switch with six individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mm-head-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -466,7 +466,7 @@ Overwriting reserved spaces will result in boot issues.
 
 .. include:: ../peripherals/eeprom.rsti
 
-DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
+DT representation, e.g. in |som| file |dt-som|.dtsi can be
 found in our PHYTEC git:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L278`
 

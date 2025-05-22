@@ -1,7 +1,7 @@
 PCIe
 ----
 
-The phyCORE-|soc| has one Mini-PCIe slot. In general, PCIe autodetects new
+The |som| has one Mini-PCIe slot. In general, PCIe autodetects new
 devices on the bus. After connecting the device and booting up the system, you
 can use the command lspci to see all PCIe devices recognized.
 

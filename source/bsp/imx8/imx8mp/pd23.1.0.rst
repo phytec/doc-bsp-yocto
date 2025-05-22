@@ -411,7 +411,7 @@ Bootmode Switch (S3)
    Hardware revision baseboard: 1552.2
 
 The |sbc| features a boot switch with four individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mp-pd23.1.0-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -668,7 +668,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       |yocto-imagename|-|yocto-machinename|.wic
       |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
@@ -757,7 +757,7 @@ image saved on the SD card.
       |yocto-imagename|-|yocto-machinename|.wic
       |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+*  Write the image to the |som| eMMC (MMC device 2 **without**
    partition) using `partup`_:
 
    .. code-block:: console
@@ -808,7 +808,7 @@ Flash SPI NOR Flash from Network
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-|soc|.
+populated on the |som|.
 
 .. tip::
 
@@ -1090,7 +1090,7 @@ Execute and power up the board:
 .. _imx8mp-pd23.1.0-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
 
-Starting with PD23.1.0 release, the phyCORE-|soc| SoMs with revision 1549.3 and
+Starting with PD23.1.0 release, the |som| SoMs with revision 1549.3 and
 newer also support 2GHz RAM timings. These will be enabled for supported boards
 automatically, but they can also be enabled or disabled manually.
 
@@ -1240,7 +1240,7 @@ The device tree representation for UART1 pinmuxing:
 RS232/RS485
 -----------
 
-The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
+The |som| supports up to 4 UART units. On the |sbc|, TTL level signals
 of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
 UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
@@ -1248,7 +1248,7 @@ multi-protocol transceiver for RS-232 and RS-485, available at pin header
 connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
 configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
 |ref-jp4| on the baseboard. For more information about the correct setup please
-refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs.
+refer to the |som|/|sbc| Hardware Manual section UARTs.
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
@@ -1635,7 +1635,7 @@ hardware introspection from the ID area to the normal area.
 
    If you deleted both EEPROM spaces, please contact our support!
 
-DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
+DT representation, e.g. in |som| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n199`
 

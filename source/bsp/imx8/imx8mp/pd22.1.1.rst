@@ -313,7 +313,7 @@ Bootmode Switch (S3)
    Hardware revision baseboard: 1552.2
 
 The |sbc| features a boot switch with four individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mp-pd22.1.1-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -553,7 +553,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2boot0; mmcblk2boot1)
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
@@ -653,7 +653,7 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+*  Write the image to the |som| eMMC (MMC device 2 **without**
    partition):
 
    .. code-block:: console
@@ -690,7 +690,7 @@ Flash SPI NOR Flash from Network
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-|soc|.
+populated on the |som|.
 
 .. tip::
 
@@ -1141,7 +1141,7 @@ Device Tree Structure
 *  *Board.dts* - include the carrier board and module dtsi files. There may also
    be some hardware configuration nodes enabled on the carrier board or the
    module (i.e. the Board .dts shows the special characteristics of the board
-   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
+   configuration). For example, there are |som| SOMs which may or may not
    have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
    available) in the Board .dts and not in the Module .dtsi
 
@@ -1220,7 +1220,7 @@ disabled.
 RS232/RS485
 -----------
 
-The phyCORE-|soc| supports up to 4 UART units. On the |sbc|, TTL level signals
+The |som| supports up to 4 UART units. On the |sbc|, TTL level signals
 of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
 to USB converter expansion. This USB is brought out at Micro-USB connector X1.
 UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
@@ -1228,7 +1228,7 @@ multi-protocol transceiver for RS-232 and RS-485, available at pin header
 connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
 configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
 |ref-jp4| on the baseboard. For more information about the correct setup please
-refer to the phyCORE-|soc|/|sbc| Hardware Manual section UARTs.
+refer to the |som|/|sbc| Hardware Manual section UARTs.
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
@@ -1474,7 +1474,7 @@ DT configuration for the eMMC interface can be found here:
 eMMC Devices
 ------------
 
-PHYTEC modules like phyCORE-|soc| is populated with an eMMC memory chip as the
+PHYTEC modules like |som| is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
 controller that handles ECC and wear leveling. They are connected via an SD/MMC
 interface to the |soc| and are represented as block devices in the Linux kernel
@@ -1599,7 +1599,7 @@ There are two different Reliable Write options:
    partition table (see the previous section).
 
 The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-|soc| SoMs. To check this on the running target:
+on the |som| SoMs. To check this on the running target:
 
 .. code-block:: console
    :substitutions:
@@ -2047,7 +2047,7 @@ hardware introspection from the ID area to the normal area.
 
    If you deleted both EEPROM spaces, please contact our support!
 
-DT representation, e.g. in phyCORE-|soc| file imx8mp-phycore-som.dtsi can be
+DT representation, e.g. in |som| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n201`
 
@@ -2090,7 +2090,7 @@ Device Tree CAN configuration of imx8mp-phyboard-pollux.dtsi:
 PCIe
 ----
 
-The phyCORE-|soc| has one Mini-PCIe slot. In general, PCIe autodetects new
+The |som| has one Mini-PCIe slot. In general, PCIe autodetects new
 devices on the bus. After connecting the device and booting up the system, you
 can use the command lspci to see all PCIe devices recognized.
 
@@ -2479,8 +2479,8 @@ NPU
 ---
 
 The |soc| SoC contains a Neural Processing Unit up to 2.3 TOPS as an accelerator
-for artificial intelligence operations. Refer to our latest phyCORE-|soc| AI Kit
-Guide on the phyCORE-|soc| download section to get information about the
+for artificial intelligence operations. Refer to our latest |som| AI Kit
+Guide on the |som| download section to get information about the
 NPU: `L-1015e.A0 phyCORE-i.MX 8M Plus AI Kit Guide
 <https://www.phytec.de/cdocuments/?doc=ZQBhDw>`_
 

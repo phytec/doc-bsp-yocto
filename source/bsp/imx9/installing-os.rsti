@@ -62,7 +62,7 @@ saved on the SD card.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| **without**
+*  Write the image to the |som| eMMC (/dev/|emmcdev| **without**
    partition) using `partup`_:
 
    .. code-block:: console
@@ -244,7 +244,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| without partition):
+*  Write the image to the |som| eMMC (/dev/|emmcdev| without partition):
 
    .. code-block:: console
       :substitutions:

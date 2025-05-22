@@ -392,7 +392,7 @@ Bootmode Switch (S1)
 --------------------
 
 The |sbc| features a boot switch with six individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mn-pd23.1.0-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -649,7 +649,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       |yocto-imagename|-|yocto-machinename|.wic
       |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
@@ -738,7 +738,7 @@ image saved on the SD card.
       |yocto-imagename|-|yocto-machinename|.wic
       |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+*  Write the image to the |som| eMMC (MMC device 2 **without**
    partition) using `partup`_:
 
    .. code-block:: console
@@ -789,7 +789,7 @@ Flash SPI NOR Flash from Network
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-|soc|.
+populated on the |som|.
 
 .. tip::
 
@@ -1551,7 +1551,7 @@ hardware introspection from the ID area to the normal area.
 
    If you deleted both EEPROM spaces, please contact our support!
 
-DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
+DT representation, e.g. in |som| file |dt-som|.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n259`
 

@@ -298,7 +298,7 @@ Bootmode Switch (S1)
 --------------------
 
 The |sbc| features a boot switch with six individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx8mn-pd22.1.1-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -538,7 +538,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2boot0; mmcblk2boot1)
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
@@ -637,7 +637,7 @@ the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+*  Write the image to the |som| eMMC (MMC device 2 **without**
    partition):
 
    .. code-block:: console
@@ -674,7 +674,7 @@ Flash SPI NOR Flash from Network
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-|soc|.
+populated on the |som|.
 
 .. tip::
 
@@ -1120,7 +1120,7 @@ Device Tree Structure
 *  *Board.dts* - include the carrier board and module dtsi files. There may also
    be some hardware configuration nodes enabled on the carrier board or the
    module (i.e. the Board .dts shows the special characteristics of the board
-   configuration). For example, there are phyCORE-|soc| SOMs which may or may not
+   configuration). For example, there are |som| SOMs which may or may not
    have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
    available) in the Board .dts and not in the Module .dtsi
 
@@ -1395,7 +1395,7 @@ DT configuration for the eMMC interface can be found here:
 eMMC Devices
 ------------
 
-PHYTEC modules like phyCORE-|soc| is populated with an eMMC memory chip as the
+PHYTEC modules like |som| is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw MLC memory cells combined with a memory
 controller that handles ECC and wear leveling. They are connected via an SD/MMC
 interface to the |soc| and are represented as block devices in the Linux kernel
@@ -1520,7 +1520,7 @@ There are two different Reliable Write options:
    partition table (see the previous section).
 
 The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-|soc| SoMs. To check this on the running target:
+on the |som| SoMs. To check this on the running target:
 
 .. code-block:: console
    :substitutions:
@@ -1978,7 +1978,7 @@ hardware introspection from the ID area to the normal area.
 
    If you deleted both EEPROM spaces, please contact our support!
 
-DT representation, e.g. in phyCORE-|soc| file |dt-som|.dtsi can be
+DT representation, e.g. in |som| file |dt-som|.dtsi can be
 found in our PHYTEC git:
 :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248`
 

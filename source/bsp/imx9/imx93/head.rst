@@ -236,7 +236,7 @@ Bootmode Switch (S3)
    *  |sbc-nash|: 1616.0, 1616.1, 1616.2
 
 The |sbc| features a boot switch with four individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx93-head-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -521,7 +521,7 @@ detection.
 
 .. include:: ../peripherals/eeprom.rsti
 
-DT representation, e.g. in phyCORE-|soc| file can be found in our PHYTEC git:
+DT representation, e.g. in |som| file can be found in our PHYTEC git:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L172`
 
 .. include:: ../../peripherals/rtc.rsti

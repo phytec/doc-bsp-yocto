@@ -1,7 +1,7 @@
 Build U-Boot With a Fixed RAM Size and Frequency
 ................................................
 
-Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the phyCORE-|soc| SoMs
+Starting with PD23.1.0 NXP or PD24.1.2 mainline release, the |som| SoMs
 with revision 1549.3 and newer also support 2GHz RAM timings. These will be
 enabled for supported boards automatically, but they can also be enabled or
 disabled manually.
