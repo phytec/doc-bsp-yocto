@@ -1,7 +1,7 @@
 eMMC Devices
 ------------
 
-PHYTEC modules like phyCORE-|soc| is populated with an eMMC memory chip as the
+PHYTEC modules like |som| is populated with an eMMC memory chip as the
 main storage. eMMC devices contain raw Multi-Level Cells (MLC) or Triple-Level
 Cells (TLC) combined with a memory controller that handles ECC and wear
 leveling. They are connected via an SD/MMC interface to the |soc| and are
@@ -137,7 +137,7 @@ There are two different Reliable Write options:
    partition table (see the previous section).
 
 The first Reliable Write option is mostly already enabled on the eMMCs mounted
-on the phyCORE-|soc| SoMs. To check this on the running target:
+on the |som| SoMs. To check this on the running target:
 
 .. code-block:: console
    :substitutions:

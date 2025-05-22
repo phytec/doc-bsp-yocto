@@ -13,7 +13,7 @@ than one device on each channel is possible.
 SPI NOR Flash
 .............
 
-phyCORE-|soc| is equipped with a QSPI NOR Flash which connects to the |soc|'s
+|som| is equipped with a QSPI NOR Flash which connects to the |soc|'s
 FlexSPI interface. The QSPI NOR Flash is suitable for booting. Please see
 different sections for flashing and bootmode setup. Due to limited space on the
 SPI NOR Flash, only the bootloader is stored inside. By default, the kernel,

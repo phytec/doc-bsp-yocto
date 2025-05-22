@@ -220,7 +220,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 without partition):
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
 
    .. code-block:: console
       :substitutions:
@@ -299,7 +299,7 @@ image saved on the SD card.
       |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-*  Write the image to the phyCORE-|soc| eMMC (MMC device 2 **without**
+*  Write the image to the |som| eMMC (MMC device 2 **without**
    partition) using `partup`_:
 
    .. code-block:: console
@@ -398,7 +398,7 @@ Flash SPI NOR Flash from Network
 
 The SPI NOR can contain the bootloader and environment to boot from. The arm64
 kernel can not decompress itself, the image size extends the SPI NOR flash
-populated on the phyCORE-|soc|.
+populated on the |som|.
 
 .. tip::
 

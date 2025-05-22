@@ -233,7 +233,7 @@ Bootmode Switch (S3)
    *  phyBOARD-Nash-i.MX 93: 1616.0
 
 The |sbc| features a boot switch with four individually switchable ports to
-select the phyCORE-|soc| default bootsource.
+select the |som| default bootsource.
 
 .. _imx93-PD24.1.1-bootswitch:
 .. include:: bootmode-switch.rsti
@@ -302,7 +302,7 @@ saved on the SD card.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| **without**
+*  Write the image to the |som| eMMC (/dev/|emmcdev| **without**
    partition) using `partup`_:
 
    .. code-block:: console
@@ -484,7 +484,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 
 *  The eMMC device can be recognized by the fact that it contains two boot
    partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
-*  Write the image to the phyCORE-|soc| eMMC (/dev/|emmcdev| without partition):
+*  Write the image to the |som| eMMC (/dev/|emmcdev| without partition):
 
    .. code-block:: console
       :substitutions:
@@ -952,7 +952,7 @@ The hardware introspection data is pre-written on the EEPROM data spaces. If
 you have accidentally deleted or overwritten the HW data, you could contact our
 support!
 
-DT representation, e.g. in phyCORE-|soc| file can be found in our PHYTEC git:
+DT representation, e.g. in |som| file can be found in our PHYTEC git:
 :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n172`
 
 .. include:: ../../peripherals/rtc.rsti
