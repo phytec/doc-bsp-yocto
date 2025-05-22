@@ -1,0 +1,84 @@
+Resizing ext4 Root Filesystem
+.............................
+
+fdisk can be used to expand the root filesystem. The example works for any block
+device such as eMMC, SD Card, or hard disk.
+
+*  Get the current device size:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ fdisk -l /dev/|emmcdev|
+
+*  The output looks like:
+
+   .. code-block::
+      :substitutions:
+
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors 116224 cylinders, 4 heads, 32 sectors/track
+      Units: sectors of 1 * 512 = 512 bytes
+
+      Device       Boot StartCHS        EndCHS      StartLBA     EndLBA    Sectors   Size   Id Type
+      /dev/|emmcdev|p1 *    128,0,1       1023,3,32    16384       140779     124396   60.7M   c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2      1023,3,32     1023,3,32    141312      2192013    2050702  1001M  83 Linux
+
+*  Use fdisk to delete and create a partition with a max size of the device:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ fdisk /dev/|emmcdev|
+
+      The number of cylinders for this disk is set to 116224.
+      There is nothing wrong with that, but this is larger than 1024,
+      and could in certain setups cause problems with:
+      1) software that runs at boot time (e.g., old versions of LILO)
+      2) booting and partitioning software from other OSs
+         (e.g., DOS FDISK, OS/2 FDISK)
+
+      Command (m for help): p
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
+      116224 cylinders, 4 heads, 32 sectors/track
+      Units: sectors of 1 * 512 = 512 bytes
+
+      Device       Boot   StartCHS        EndCHS      StartLBA     EndLBA    Sectors   Size   Id Type
+      /dev/|emmcdev|p1 *     128,0,1     1023,3,32         16384     140779     124396  60,7M    c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2     1023,3,32     1023,3,32        141312    2192013    2050702  1001M   83 Linux
+
+      Command (m for help): d
+      Partition number (1-4): 2
+
+      Command (m for help): p
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
+      116224 cylinders, 4 heads, 32 sectors/track
+      Units: sectors of 1 * 512 = 512 bytes
+
+      Device       Boot StartCHS    EndCHS          StartLBA     EndLBA    Sectors  Size   Id Type
+      /dev/|emmcdev|p1 *  128,0,1     1023,3,32          16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
+
+      Command (m for help): n
+      Partition type
+         p   primary partition (1-4)
+         e   extended
+      p
+      Partition number (1-4): 2
+      First sector (32-14876671, default 32): 141456
+      Last sector or +size{,K,M,G,T} (141456-14876671, default 14876671):
+      Using default value 14876671
+
+      Command (m for help): p
+      Disk /dev/|emmcdev|: 7264 MB, 7616856064 bytes, 14876672 sectors
+      116224 cylinders, 4 heads, 32 sectors/track
+      Units: sectors of 1 * 512 = 512 bytes
+
+      Device       Boot StartCHS      EndCHS        StartLBA     EndLBA    Sectors  Size   Id Type
+      /dev/|emmcdev|p1 *   128,0,1      1023,3,32        16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
+      /dev/|emmcdev|p2   1023,3,32      1023,3,32       141456   14876671   14735216  7194M  83 Linux
+
+
+Increasing the file system size can be done while it is mounted. An online
+resizing operation is performed. But you can also boot the board from an SD card
+and then resize the file system on the eMMC partition while it is not
+mounted. Furthermore, the board has to be rebooted so that the new partition
+table will be read.

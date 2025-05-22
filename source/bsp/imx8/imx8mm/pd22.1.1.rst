@@ -1781,6 +1781,8 @@ be read back as zeros.
 
 .. include:: /bsp/imx-common/emmc.rsti
 
+.. include:: /bsp/imx-common/resize-rootfs.rsti
+
 .. include:: ../peripherals/spi-master.rsti
 
 The definition of the SPI master node in the device tree can be found here:
