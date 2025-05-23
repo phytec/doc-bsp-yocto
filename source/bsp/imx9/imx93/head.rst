@@ -19,7 +19,7 @@
 .. |sbc-nash| replace:: phyBOARD-Nash i.MX 93
 .. |soc| replace:: i.MX 93
 .. |socfamily| replace:: i.MX 9
-.. |som| replace:: phyCORE-i.MX93
+.. |som| replace:: phyCORE-|soc|
 .. |debug-uart| replace:: ttyLP0
 .. |serial-uart| replace:: ttyLP6
 .. |bluetooth-uart| replace:: UART5

@@ -19,7 +19,7 @@
 .. |sbc| replace:: Libra FPSC
 .. |soc| replace:: i.MX 95
 .. |socfamily| replace:: i.MX 9
-.. |som| replace:: phyCORE-i.MX95 FPSC
+.. |som| replace:: phyCORE-|soc|
 .. |debug-uart| replace:: ttyLP6
 .. |serial-uart| replace:: ttyLP7
 .. |bluetooth-uart| replace:: UART3
