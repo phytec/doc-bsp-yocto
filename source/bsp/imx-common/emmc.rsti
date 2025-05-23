@@ -1,42 +1,9 @@
-eMMC Boot Partitions
-....................
+..
+   This file assumes that e.MMC boot partitions are preceding its content.
 
-An eMMC device contains four different hardware partitions: user, boot1, boot2,
-and rpmb.
-
-The user partition is called the User Data Area in the JEDEC standard and is the
-main storage partition. The partitions boot1 and boot2 can be used to host the
-bootloader and are more reliable. Which partition the |soc| uses to load
-the bootloader is controlled by the boot configuration of the eMMC device. The
-partition rpmb is a small partition and can only be accessed via a trusted
-mechanism.
-
-Furthermore, the user partition can be divided into four user-defined General
-Purpose Area Partitions. An explanation of this feature exceeds the scope of
-this document. For further information, see the JEDEC Standard Chapter 7.2
-Partition Management.
-
-.. tip::
-
-   Do not confuse eMMC partitions with partitions of a DOS, MBR, or GPT
-   partition table.
-
-The current PHYTEC BSP does not use the extra partitioning feature of eMMC
-devices. The U-Boot is flashed at the beginning of the user partition.
-The U-Boot environment is placed at a fixed location after the U-Boot. An MBR
-partition table is used to create two partitions, a FAT32 boot, and ext4 rootfs
-partition. They are located right after the U-Boot and the U-Boot environment.
-The FAT32 boot partition contains the kernel and device tree.
-
-With eMMC flash storage it is possible to use the dedicated boot partitions for
-redundantly storing the bootloader. The U-Boot environment still resides in the
-user area before the first partition. The user area also still contains the
-bootloader which the image first shipped during its initialization process.
-Below is an example, to flash the bootloader to one of the two boot partitions
-and switch the boot device via userspace commands.
 
 Via userspace Commands
-......................
+~~~~~~~~~~~~~~~~~~~~~~
 
 On the host, run:
 
@@ -47,7 +14,7 @@ On the host, run:
 The partitions boot1 and boot2 are read-only by default. To write to them from
 user space, you have to disable force_ro in the sysfs.
 
-To manually write the bootloader to the eMMC boot partitions, first disable the
+To manually write the bootloader to the e.MMC boot partitions, first disable the
 write protection:
 
 .. code-block:: console
@@ -56,7 +23,7 @@ write protection:
    target:~$ echo 0 > /sys/block/|emmcdev|boot0/force_ro
    target:~$ echo 0 > /sys/block/|emmcdev|boot1/force_ro
 
-Write the bootloader to the eMMC boot partitions:
+Write the bootloader to the e.MMC boot partitions:
 
 .. code-block:: console
    :substitutions:
@@ -91,7 +58,7 @@ After that set the boot partition from user space using the mmc tool:
 
 .. _emmc-disable-boot-part:
 
-To disable booting from the eMMC boot partitions simply enter the following
+To disable booting from the e.MMC boot partitions simply enter the following
 command:
 
 .. code-block:: console
