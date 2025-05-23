@@ -1,8 +1,8 @@
-eMMC Devices
-------------
+e.MMC Devices
+-------------
 
-PHYTEC modules like |som| is populated with an eMMC memory chip as the
-main storage. eMMC devices contain raw Multi-Level Cells (MLC) or Triple-Level
+PHYTEC modules like |som| are populated with an e.MMC memory chip as the
+main storage. e.MMC devices contain raw Multi-Level Cells (MLC) or Triple-Level
 Cells (TLC) combined with a memory controller that handles ECC and wear
 leveling. They are connected via an SD/MMC interface to the |soc| and are
 represented as block devices in the Linux kernel like SD cards, flash drives, or
@@ -10,15 +10,15 @@ hard disks.
 
 The electric and protocol specifications are provided by JEDEC
 (https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc).
-The eMMC manufacturer's datasheet is relatively short and meant to be read
-together with the supported version of the JEDEC eMMC standard.
+The e.MMC manufacturer's datasheet is relatively short and meant to be read
+together with the supported version of the JEDEC e.MMC standard.
 
-PHYTEC currently utilizes the eMMC chips with JEDEC Version 5.0 and 5.1
+PHYTEC currently utilizes the e.MMC chips with JEDEC Version 5.0 and 5.1
 
 Extended CSD Register
 .....................
 
-eMMC devices have an extensive amount of extra information and settings that are
+e.MMC devices have an extensive amount of extra information and settings that are
 available via the Extended CSD registers. For a detailed list of the registers,
 see manufacturer datasheets and the JEDEC standard.
 
@@ -43,7 +43,7 @@ You will see:
 Enabling Background Operations (BKOPS)
 ......................................
 
-In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
+In contrast to raw NAND Flash, an e.MMC device contains a Flash Transfer Layer
 (FTL) that handles the wear leveling, block management, and ECC of the raw MLC
 or TLC. This requires some maintenance tasks (for example erasing unused blocks)
 that are performed regularly. These tasks are called **Background Operations
@@ -55,7 +55,7 @@ executed periodically, impacting the worst-case read and write latency.
 The JEDEC Standard has specified a method since version v4.41 that the host can
 issue BKOPS manually. See the JEDEC Standard chapter Background Operations and
 the description of registers BKOPS_EN (Reg: 163) and BKOPS_START (Reg: 164) in
-the eMMC datasheet for more details.
+the e.MMC datasheet for more details.
 
 Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):
 
@@ -65,8 +65,8 @@ Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):
    BKOPS from time to time when it does not need the device.
 
 The mechanism to issue background operations has been implemented in
-the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
-(see below for details).
+the Linux kernel since v3.7. You only have to enable BKOPS_EN on the e.MMC
+device (see below for details).
 
 The JEDEC standard v5.1 introduces a new automatic BKOPS feature. It frees the
 host to trigger the background operations regularly because the device starts
@@ -133,10 +133,10 @@ There are two different Reliable Write options:
 
 .. tip::
 
-   Do not confuse eMMC partitions with partitions of a DOS, MBR, or GPT
+   Do not confuse e.MMC partitions with partitions of a DOS, MBR, or GPT
    partition table (see the previous section).
 
-The first Reliable Write option is mostly already enabled on the eMMCs mounted
+The first Reliable Write option is mostly already enabled on the e.MMCs mounted
 on the |som| SoMs. To check this on the running target:
 
 .. code-block:: console
@@ -187,9 +187,9 @@ or fsync should be used in the application.
 Resizing ext4 Root Filesystem
 .............................
 
-When flashing the sdcard image to eMMC the ext4 root partition is not extended
-to the end of the eMMC. parted can be used to expand the root partition. The
-example works for any block device such as eMMC, SD card, or hard disk.
+When flashing the sdcard image to e.MMC the ext4 root partition is not extended
+to the end of the e.MMC. parted can be used to expand the root partition. The
+example works for any block device such as e.MMC, SD card, or hard disk.
 
 *  Get the current device size:
 
@@ -255,7 +255,7 @@ partition while it is not mounted.
 Enable pseudo-SLC Mode
 ......................
 
-eMMC devices use MLC or TLC
+e.MMC devices use MLC or TLC
 (https://en.wikipedia.org/wiki/Multi-level_cell) to store the data. Compared
 with SLC used in NAND Flash, MLC or TLC have lower reliability and a higher
 error rate at lower costs.
@@ -274,7 +274,7 @@ reliability but also halves the capacity.
 
 The following sequence shows how to enable the enhanced attribute.
 
-*  First obtain the current size of the eMMC device with:
+*  First obtain the current size of the e.MMC device with:
 
    .. code-block:: console
       :substitutions:
@@ -364,10 +364,10 @@ The following sequence shows how to enable the enhanced attribute.
 Erasing the Device
 ..................
 
-It is possible to erase the eMMC device directly rather than overwriting it with
-zeros. The eMMC block management algorithm will erase the underlying MLC or TLC
-or mark these blocks as discard. The data on the device is lost and
-will be read back as zeros.
+It is possible to erase the e.MMC device directly rather than overwriting it
+with zeros. The e.MMC block management algorithm will erase the underlying MLC
+or TLC or mark these blocks as discard. The data on the device is lost and will
+be read back as zeros.
 
 *  After booting from SD Card execute:
 
@@ -388,3 +388,113 @@ will be read back as zeros.
 
    also destroys all information on the device, but this command is bad for wear
    leveling and takes much longer!
+
+e.MMC Boot Partitions
+.....................
+
+An e.MMC device contains four different hardware partitions: user, boot1, boot2,
+and rpmb.
+
+The user partition is called the User Data Area in the JEDEC standard and is the
+main storage partition. The partitions boot1 and boot2 can be used to host the
+bootloader and are more reliable. Which partition the |soc| uses to load
+the bootloader is controlled by the boot configuration of the e.MMC device. The
+partition rpmb is a small partition and can only be accessed via a trusted
+mechanism.
+
+Furthermore, the user partition can be divided into four user-defined General
+Purpose Area Partitions. An explanation of this feature exceeds the scope of
+this document. For further information, see the JEDEC Standard Chapter 7.2
+Partition Management.
+
+.. tip::
+
+   Do not confuse e.MMC partitions with partitions of a DOS, MBR, or GPT
+   partition table.
+
+The current PHYTEC BSP does not use the extra partitioning feature of e.MMC
+devices. The U-Boot is flashed at the beginning of the user partition.
+The U-Boot environment is placed at a fixed location after the U-Boot. An MBR
+partition table is used to create two partitions, a FAT32 boot, and ext4 rootfs
+partition. They are located right after the U-Boot and the U-Boot environment.
+The FAT32 boot partition contains the kernel and device tree.
+
+With e.MMC flash storage it is possible to use the dedicated boot partitions for
+redundantly storing the bootloader. The Bootloader environment still resides in
+the user area before the first partition. The user area also still contains the
+bootloader which the image first shipped during its initialization process.
+Below is an example, to flash the bootloader to one of the two boot partitions
+and switch the boot device via userspace commands.
+
+Via userspace Commands
+~~~~~~~~~~~~~~~~~~~~~~
+
+On the host, run:
+
+.. code-block:: console
+
+   host:~$ scp <bootloader> root@192.168.3.11:/tmp/
+
+The partitions boot1 and boot2 are read-only by default. To write to them from
+user space, you have to disable ``force_ro`` in the sysfs.
+
+To manually write the bootloader to the e.MMC boot partitions, first disable the
+write protection:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ echo 0 > /sys/block/|emmcdev|boot0/force_ro
+   target:~$ echo 0 > /sys/block/|emmcdev|boot1/force_ro
+
+Write the bootloader to the e.MMC boot partitions:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot0
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot1
+
+The following table is for the offset of the |soc| SoC:
+
+===== ======================= =========== ==============
+SoC   Offset User Area        Offset Boot eMMC Device
+                              Partition
+===== ======================= =========== ==============
+|soc| |bootloader-offset| kiB 0 kiB       /dev/|emmcdev|
+===== ======================= =========== ==============
+
+After that set the boot partition from user space using the ``mmc`` tool:
+
+(for 'boot0') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 1 0 /dev/|emmcdev|
+
+(for 'boot1') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
+
+.. _emmc-disable-boot-part:
+
+To disable booting from the e.MMC boot partitions simply enter the following
+command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 0 0 /dev/|emmcdev|
+
+To explicitly enable booting from the e.MMC user area, run:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 7 0 /dev/|emmcdev|
+
+.. emmc_boot_partions_end_label

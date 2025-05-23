@@ -37,8 +37,8 @@
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
 .. |u-boot-emmc-devno| replace:: 2
@@ -1490,9 +1490,7 @@ DT configuration for the MMC (SD card slot) interface can be found here:
 DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.15.71_2.2.2-phy3#n223`
 
-.. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
+.. include:: emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
 

@@ -37,8 +37,8 @@
 .. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
 
 .. Bootloader
-.. |u-boot-offset| replace:: 33
-.. |u-boot-offset-boot-part| replace:: 33
+.. |bootloader-offset| replace:: 33
+.. |bootloader-offset-boot-part| replace:: 33
 .. |u-boot-mmc-flash-offset| replace:: 0x42
 .. |u-boot-defconfig| replace:: phycore-imx8mm_defconfig
 .. |u-boot-emmc-devno| replace:: 2
@@ -1064,18 +1064,18 @@ chip-specific offset is needed:
 
 .. _offset-table:
 
-===== =================== ============================= ============
-SoC   Offset User Area    Offset Boot Partition         eMMC Device
-===== =================== ============================= ============
-|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/mmcblk2
-===== =================== ============================= ============
+===== ======================= ================================= ============
+SoC   Offset User Area        Offset Boot Partition             eMMC Device
+===== ======================= ================================= ============
+|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/mmcblk2
+===== ======================= ================================= ============
 
 E.g. flash SD card:
 
 .. code-block:: console
    :substitutions:
 
-   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=fsync
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
@@ -1779,7 +1779,113 @@ be read back as zeros.
    also destroys all information on the device, but this command is bad for wear
    leveling and takes much longer!
 
-.. include:: /bsp/imx-common/emmc.rsti
+e.MMC Boot Partitions
+.....................
+
+An e.MMC device contains four different hardware partitions: user, boot1, boot2,
+and rpmb.
+
+The user partition is called the User Data Area in the JEDEC standard and is the
+main storage partition. The partitions boot1 and boot2 can be used to host the
+bootloader and are more reliable. Which partition the |soc| uses to load
+the bootloader is controlled by the boot configuration of the e.MMC device. The
+partition rpmb is a small partition and can only be accessed via a trusted
+mechanism.
+
+Furthermore, the user partition can be divided into four user-defined General
+Purpose Area Partitions. An explanation of this feature exceeds the scope of
+this document. For further information, see the JEDEC Standard Chapter 7.2
+Partition Management.
+
+.. tip::
+
+   Do not confuse e.MMC partitions with partitions of a DOS, MBR, or GPT
+   partition table.
+
+The current PHYTEC BSP does not use the extra partitioning feature of e.MMC
+devices. The U-Boot is flashed at the beginning of the user partition.
+The U-Boot environment is placed at a fixed location after the U-Boot. An MBR
+partition table is used to create two partitions, a FAT32 boot, and ext4 rootfs
+partition. They are located right after the U-Boot and the U-Boot environment.
+The FAT32 boot partition contains the kernel and device tree.
+
+With e.MMC flash storage it is possible to use the dedicated boot partitions for
+redundantly storing the bootloader. The Bootloader environment still resides in
+the user area before the first partition. The user area also still contains the
+bootloader which the image first shipped during its initialization process.
+Below is an example, to flash the bootloader to one of the two boot partitions
+and switch the boot device via userspace commands.
+
+Via userspace Commands
+~~~~~~~~~~~~~~~~~~~~~~
+
+On the host, run:
+
+.. code-block:: console
+
+   host:~$ scp <bootloader> root@192.168.3.11:/tmp/
+
+The partitions boot1 and boot2 are read-only by default. To write to them from
+user space, you have to disable force_ro in the sysfs.
+
+To manually write the bootloader to the e.MMC boot partitions, first disable the
+write protection:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ echo 0 > /sys/block/|emmcdev|boot0/force_ro
+   target:~$ echo 0 > /sys/block/|emmcdev|boot1/force_ro
+
+Write the bootloader to the e.MMC boot partitions:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot0
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot1
+
+The following table is for the offset of the |soc| SoC:
+
+===== ======================= =========== ==============
+SoC   Offset User Area        Offset Boot eMMC Device
+                              Partition
+===== ======================= =========== ==============
+|soc| |bootloader-offset| kiB 0 kiB       /dev/|emmcdev|
+===== ======================= =========== ==============
+
+After that set the boot partition from user space using the mmc tool:
+
+(for 'boot0') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 1 0 /dev/|emmcdev|
+
+(for 'boot1') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
+
+.. _emmc-disable-boot-part:
+
+To disable booting from the e.MMC boot partitions simply enter the following
+command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 0 0 /dev/|emmcdev|
+
+To choose back to the user area u-boot environment:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 7 0 /dev/|emmcdev|
 
 .. include:: /bsp/imx-common/resize-rootfs.rsti
 

@@ -32,8 +32,8 @@
 .. |emmcdev| replace:: mmcblk0
 
 .. Bootloader
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-defconfig| replace:: phycore-imx93_defconfig
@@ -690,8 +690,6 @@ DT configuration for the eMMC interface can be found here:
 :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n195`
 
 .. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
 
 GPIOs
 -----

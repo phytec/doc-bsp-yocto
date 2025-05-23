@@ -54,7 +54,13 @@
 .. |kernel-socname| replace::
 .. Tag name of the final commit used with this release in the Linux Kernel.
 .. |kernel-tag| replace::
+.. File name for the e.MMC device. Example: mmcblk0
+.. |emmcdev| replace::
 
+.. U-boot
+.. Offset (in kiB) on block device to write bootloader to. SoC ROM code loads
+   from this address.
+.. |bootloader-offset| replace::
 
 .. Devicetree
 

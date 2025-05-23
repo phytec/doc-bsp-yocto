@@ -35,8 +35,8 @@
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec_*.bb
@@ -985,9 +985,7 @@ DT configuration for the MMC (SD card slot) interface can be found here:
 DT configuration for the eMMC interface can be found here:
 :linux-phytec:`/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L181`
 
-.. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
+.. include:: emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
    :end-before: .. peripherals-spi-nor-flash-marker
