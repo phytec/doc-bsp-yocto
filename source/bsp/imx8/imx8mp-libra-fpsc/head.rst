@@ -445,6 +445,19 @@ DT configuration for the eMMC interface can be found here:
 .. include:: /bsp/peripherals/emmc.rsti
 
 .. include:: /bsp/imx-common/emmc.rsti
+   :end-before: .. emmc_boot_partions_end_label
+
+Automatic fail over
+~~~~~~~~~~~~~~~~~~~
+
+The ROM Loader implements an automatic fail over mechanism for eMMC boot partitions. If booting
+from the primary partition fails, the system automatically attempts to boot from the secondary
+partition. This fail over is indicated by a change in the boot message from
+``Boot Stage: Primary boot`` to ``Boot Stage: Secondary boot``.
+This functionality is limited to boot0 and boot1 partitions and does not apply to the user area.
+
+.. include:: /bsp/imx-common/emmc.rsti
+   :start-after: .. emmc_boot_partions_end_label
 
 .. include:: ../peripherals/spi-master.rsti
 
