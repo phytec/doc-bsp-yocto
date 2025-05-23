@@ -37,8 +37,8 @@
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx95-libra-fpsc_defconfig
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
@@ -322,8 +322,6 @@ DT configuration for the eMMC interface can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L611`
 
 .. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
