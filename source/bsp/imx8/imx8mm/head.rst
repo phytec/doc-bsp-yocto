@@ -22,7 +22,7 @@
 .. |sbc| replace:: phyBOARD-Polis
 .. |soc| replace:: i.MX 8M Mini
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MM
+.. |som| replace:: phyCORE-|soc|
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 .. |bluetooth-uart| replace:: UART2

@@ -18,7 +18,7 @@
 .. |sbc| replace:: phyBOARD-Pollux
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MP
+.. |som| replace:: phyCORE-|soc|
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
 .. |expansion-connector| replace:: X6

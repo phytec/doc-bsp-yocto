@@ -22,7 +22,7 @@
 .. |sbc| replace:: Libra
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
-.. |som| replace:: phyCORE-i.MX8MP-FPSC
+.. |som| replace:: phyCORE-|soc| FPSC
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
 .. |bluetooth-uart| replace:: UART3

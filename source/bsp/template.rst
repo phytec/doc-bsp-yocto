@@ -41,7 +41,7 @@
 .. |soc| replace::
 .. Name of the family of SoCs this SoC is part of; e.g. i.MX 8
 .. |socfamily| replace::
-.. Name of the PHYTEC System on Module
+.. Name of the PHYTEC System on Module; e.g. phyCORE-|soc|
 .. |som| replace::
 .. debug uart on the board; Example: ttymxc0
 .. |debug-uart| replace::
