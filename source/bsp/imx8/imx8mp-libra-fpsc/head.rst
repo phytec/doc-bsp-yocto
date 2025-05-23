@@ -439,7 +439,7 @@ is described in the WLAN section.
 DT configuration for the MMC (SD card slot) interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`
 
-DT configuration for the eMMC interface can be found here:
+DT configuration for the e.MMC interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`
 
 .. include:: /bsp/peripherals/emmc.rsti
