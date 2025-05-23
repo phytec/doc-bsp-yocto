@@ -40,8 +40,8 @@
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
@@ -439,25 +439,10 @@ is described in the WLAN section.
 DT configuration for the MMC (SD card slot) interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`
 
-DT configuration for the eMMC interface can be found here:
+DT configuration for the e.MMC interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`
 
-.. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
-   :end-before: .. emmc_boot_partions_end_label
-
-Automatic failover
-~~~~~~~~~~~~~~~~~~
-
-The ROM loader implements an automatic failover mechanism for e.MMC boot partitions. If booting
-from the primary partition fails, the system automatically attempts to boot from the secondary
-partition. This failover is indicated by a change in the boot message from
-``Boot Stage: Primary boot`` to ``Boot Stage: Secondary boot``.
-This functionality is limited to boot0 and boot1 partitions and does not apply to the user area.
-
-.. include:: /bsp/imx-common/emmc.rsti
-   :start-after: .. emmc_boot_partions_end_label
+.. include:: ../imx8mp/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
 

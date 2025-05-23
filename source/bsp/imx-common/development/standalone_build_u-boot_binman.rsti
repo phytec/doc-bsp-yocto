@@ -77,18 +77,18 @@ flashed. A chip-specific offset is needed:
 
 .. _offset-table:
 
-===== =================== ============================= ============
-SoC   Offset User Area    Offset Boot Partition         eMMC Device
-===== =================== ============================= ============
-|soc| |u-boot-offset| kiB |u-boot-offset-boot-part| kiB /dev/|emmcdev|
-===== =================== ============================= ============
+===== ======================= ================================= ==============
+SoC   Offset User Area        Offset Boot Partition             eMMC Device
+===== ======================= ================================= ==============
+|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/|emmcdev|
+===== ======================= ================================= ==============
 
 E.g. flash SD card:
 
 .. code-block:: console
    :substitutions:
 
-   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=fsync
+   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables
