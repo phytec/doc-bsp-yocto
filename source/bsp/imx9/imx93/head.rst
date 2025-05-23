@@ -12,6 +12,7 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
 
 .. General Substitutions
+.. |doc-id| replace:: L-1069e.Ax
 .. |kit| replace:: **phyBOARD-Segin i.MX 93 and phyBOARD-Nash i.MX 93 Kit**
 .. |kit-ram-size| replace:: 1GiB
 .. |sbc| replace:: phyBOARD-Segin/Nash i.MX 93
@@ -109,19 +110,24 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+-----------------------+
-| |soc| BSP Manual Head                         |
-+-----------------------+-----------------------+
-| Document Title        | |soc| BSP Manual Head |
-+-----------------------+-----------------------+
-| Document Type         | BSP Manual            |
-+-----------------------+-----------------------+
-| Yocto Manual          |                       |
-+-----------------------+-----------------------+
-| Release Date          | XXXX/XX/XX            |
-+-----------------------+-----------------------+
-| Is Branch of          | |soc| BSP Manual Head |
-+-----------------------+-----------------------+
++----------------------+----------------------+
+| |doc-id| |soc| BSP                          |
+| Manual Head                                 |
++----------------------+----------------------+
+| Document Title       | |doc-id| |soc| BSP   |
+|                      | Manual Head          |
++----------------------+----------------------+
+| Document Type        | BSP Manual           |
++----------------------+----------------------+
+| Article Number       | |doc-id|             |
++----------------------+----------------------+
+| Yocto Manual         |                      |
++----------------------+----------------------+
+| Release Date         | XXXX/XX/XX           |
++----------------------+----------------------+
+| Is Branch of         | |doc-id| |soc| BSP   |
+|                      | Manual Head          |
++----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
 
