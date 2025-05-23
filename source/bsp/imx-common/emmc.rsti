@@ -116,3 +116,5 @@ To choose back to the user area u-boot environment:
    :substitutions:
 
    target:~$ mmc bootpart enable 7 0 /dev/|emmcdev|
+
+.. emmc_boot_partions_end_label
