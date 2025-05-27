@@ -36,8 +36,8 @@
 .. |emmcdev| replace:: mmcblk0
 
 .. Bootloader
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-defconfig| replace:: imx93-phycore_defconfig
@@ -480,8 +480,6 @@ DT configuration for the eMMC interface can be found here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194` or here:
 
 .. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/gpios.rsti
 

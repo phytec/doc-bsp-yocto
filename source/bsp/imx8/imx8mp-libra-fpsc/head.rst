@@ -40,8 +40,8 @@
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
-.. |u-boot-offset| replace:: 32
-.. |u-boot-offset-boot-part| replace:: 0
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
@@ -439,12 +439,10 @@ is described in the WLAN section.
 DT configuration for the MMC (SD card slot) interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`
 
-DT configuration for the eMMC interface can be found here:
+DT configuration for the e.MMC interface can be found here:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`
 
 .. include:: /bsp/peripherals/emmc.rsti
-
-.. include:: /bsp/imx-common/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
 
