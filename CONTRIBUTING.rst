@@ -178,7 +178,7 @@ substitutions are used.
         .. code-block:: console
            :substitutions:
 
-           host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+           host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=fsync
 
 
 Internal vs. external Links

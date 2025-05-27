@@ -156,7 +156,7 @@ E.g. flash SD card:
 .. code-block:: console
    :substitutions:
 
-   host:~/imx-mkimage$ sudo dd if=./|u-boot-soc-name|/flash.bin of=<sd-card> bs=1024 seek=|u-boot-offset| conv=sync
+   host:~/imx-mkimage$ sudo dd if=./|u-boot-soc-name|/flash.bin of=<sd-card> bs=1024 seek=|u-boot-offset| conv=fsync
 
 .. note::
 
