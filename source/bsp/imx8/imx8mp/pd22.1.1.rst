@@ -1084,7 +1084,7 @@ E.g. flash SD card:
 .. code-block:: console
    :substitutions:
 
-   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=sync
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|u-boot-offset| conv=fsync
 
 .. hint::
    The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
