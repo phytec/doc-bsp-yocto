@@ -250,7 +250,7 @@ Development
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. _imx95-alpha1-development-build-uboot:
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-emmc-marker

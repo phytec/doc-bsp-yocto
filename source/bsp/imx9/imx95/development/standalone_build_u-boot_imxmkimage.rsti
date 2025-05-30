@@ -1,0 +1,115 @@
+U-Boot standalone build
+-----------------------
+
+.. build-uboot-marker
+
+Get the source code
+...................
+
+*  Get the U-Boot sources:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone |u-boot-repo-url|
+
+*  To get the correct *U-Boot* **tag** you need to take a look at our release
+   notes, which can be found here: `release notes <releasenotes_>`_
+*  The **tag** used in this release is called |u-boot-tag|
+*  Check out the needed *U-Boot* **tag**:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ cd ~/|u-boot-repo-name|/
+      host:~/|u-boot-repo-name|$ git fetch --all --tags
+      host:~/|u-boot-repo-name|$ git checkout tags/|u-boot-tag|
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|u-boot-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+Build the bootloader
+....................
+
+*  build flash.bin (imx-boot):
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|u-boot-repo-name|$ make |u-boot-defconfig|
+      host:~/|u-boot-repo-name|$ make flash.bin
+
+Build the imx-boot binary with imx-mkimage
+..........................................
+
+Clone the repository
+~~~~~~~~~~~~~~~~~~~~
+
+First clone the imx-mkimage git repository from NXP.
+
+.. code-block:: console
+
+   host:~$ git clone git@github.com:nxp-imx/imx-mkimage.git
+
+Get the needed binaries
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Then get the needed binaries and copy them to the imx-mkimage/iMX95 folder.
+
+*  **DDR firmware files** (*mkimage tool* compatible format
+   **lpddr5_[i,d]mem_\*.bin**):
+   lpddr5_dmem_qb_*.bin, lpddr5_dmem_*.bin, lpddr5_imem_qb_*.bin,
+   lpddr5_imem_*.bin
+*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
+   **bl31.bin**): bl31.bin
+*  **OPTEE image**: tee.bin
+*  **NXP Systemmanager**: m33_image.bin
+*  **OEI-DDR and OEI-TCM**: oei-m33-ddr.bin, oei-m33-tcm.bin
+*  **AHAB container image**: mx95a0-ahab-container.img
+
+If you already built our BSP with Yocto, you can get the binaries from the
+directory mentioned here: |ref-bsp-images|
+
+Also copy the **U-Boot** (u-boot.bin) and **U-Boot SPL** (u-boot-spl.bin)
+binaries from your U-Boot folder. The SPL binary is located in the spl
+subfolder.
+
+Build the flash.bin binary
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Go to the imx-mkimage folder and execute:
+
+.. code-block:: console
+
+   host:~/imx-mkimage$ make SOC=iMX95 OEI=YES flash_lpboot_sm_a55
+
+The flash.bin can be found in the iMX95 subfolder.
+
+Flash the bootloader to a block device
+......................................
+
+The flash.bin can be found at |u-boot-repo-name|/ directory and now can be
+flashed. A chip-specific offset is needed:
+
+.. _offset-table:
+
+===== ======================= ================================= ==============
+SoC   Offset User Area        Offset Boot Partition             eMMC Device
+===== ======================= ================================= ==============
+|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/|emmcdev|
+===== ======================= ================================= ==============
+
+E.g. flash SD card:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables
+   "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
