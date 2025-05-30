@@ -386,19 +386,6 @@ connected to a USB 3.0 PHY.
 DT representation for USB Host:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L358`
 
-Audio
------
-
-Playback devices supported for |sbc| are the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
-
-.. include:: /bsp/peripherals/audio.rsti
-
-Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
-
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
@@ -408,9 +395,6 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
-
-The device tree of LVDS-1 on PEB-AV-10 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
