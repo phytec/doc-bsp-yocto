@@ -60,7 +60,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-libra-rdk-fpsc
 .. |dt-som| replace:: imx95-phycore-fpsc
-.. |dtbo-peb-av-10| replace:: imx95-libra-rdk-fpsc-peb-av-10.dtbo
+.. |dtbo-peb-av-10| replace:: imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L1`
@@ -105,7 +105,6 @@
 .. |ref-S5| replace:: :ref:`S5 <imx95-alpha1-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx95-alpha1-ubootexternalenv>`
-.. |lvds-display-adapters| replace:: PEB-AV-10
 
 .. _imx95-alpha1-bsp-manual:
 
@@ -269,6 +268,7 @@ Development
    :substitutions:
 
    |dtbo-peb-av-10|
+   imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
 
 
 .. _imx95-alpha1-ubootexternalenv:
