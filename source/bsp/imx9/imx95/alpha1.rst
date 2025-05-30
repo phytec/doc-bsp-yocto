@@ -228,6 +228,14 @@ select the |som| default bootsource.
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx8/installing-os.rsti
+   :end-before: .. flash-emmc-from-usb-stick-marker
+
+.. include:: /bsp/imx8/installing-os.rsti
+   :start-after: .. flash-emmc-from-sdcard-marker
+   :end-before: .. flash-spi-nor-flash-marker
+
+.. include:: /bsp/imx8/installing-os.rsti
+   :start-after: .. rauc-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
