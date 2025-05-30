@@ -27,7 +27,7 @@
 
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: imx_v8_defconfig
+.. |kernel-defconfig| replace:: imx9_phytec_defconfig
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
