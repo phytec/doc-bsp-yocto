@@ -60,6 +60,8 @@ You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
    want to change the boot command permanently for UUU-boot, you need to change
    this in U-Boot code.
 
+.. uuu-flash-emmc-marker
+
 Flashing U-boot Image to eMMC via UUU-Tool
 ...........................................
 
