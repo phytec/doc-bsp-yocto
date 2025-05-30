@@ -9,7 +9,7 @@
 .. |hardware-manual| replace:: Hardware Manual - phyCORE-i.MX 95 FPSC/Libra Development Board (1620.1/1618.0) (L-1075e.A1)
 .. _hardware-manual: https://www.phytec.de/cdocuments/?doc=yYCEOQ
 .. |bsp-manual| replace:: :ref:`i.MX95 ALPHA1 BSP Manual <imx95-alpha1-bsp-manual>`
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/
 .. _`static-pdf-dl`: ../../../_static/imx95-quickstart-alpha1.pdf
 
 
