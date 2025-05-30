@@ -27,12 +27,12 @@
 
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: imx_v8_defconfig
+.. |kernel-defconfig| replace:: imx9_phytec_defconfig
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx95
-.. |kernel-tag| replace:: v6.6.52-2.2.0-phy10
+.. |kernel-tag| replace:: v6.6.52-2.2.0-phy13
 .. |emmcdev| replace:: mmcblk0
 
 .. Bootloader
@@ -41,15 +41,15 @@
 .. |u-boot-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
-.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-imx
-.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-phytec-imx
 .. |emmcdev-uboot| replace:: mmc 0
 .. |sdcarddev-uboot| replace:: mmc 1
 
 .. IMX95 specific
 .. |u-boot-socname-config| replace:: IMX95_LIBRA_FPSC
-.. |u-boot-tag| replace:: v2024.04_2.0.0-phy10
+.. |u-boot-tag| replace:: v2024.04_2.0.0-phy14
 
 
 .. RAUC
@@ -60,10 +60,10 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-libra-rdk-fpsc
 .. |dt-som| replace:: imx95-phycore-fpsc
-.. |dtbo-peb-av-10| replace:: imx95-libra-rdk-fpsc-peb-av-10.dtbo
+.. |dtbo-peb-av-10| replace:: imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 
 .. IMX95 specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L1`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L1`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -99,13 +99,12 @@
 .. |sbc-network| replace::
    The device tree set up for the ethernet where the PHY is populated on the |sbc|
    can be found here:
-   :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L1`.
+   :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L1`.
 
 .. |ref-serial| replace:: :ref:`X27 <imx95-alpha1-components>`
 .. |ref-S5| replace:: :ref:`S5 <imx95-alpha1-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx95-alpha1-ubootexternalenv>`
-.. |lvds-display-adapters| replace:: PEB-AV-10
 
 
 .. only:: html
@@ -229,6 +228,14 @@ select the |som| default bootsource.
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx8/installing-os.rsti
+   :end-before: .. flash-emmc-from-usb-stick-marker
+
+.. include:: /bsp/imx8/installing-os.rsti
+   :start-after: .. flash-emmc-from-sdcard-marker
+   :end-before: .. flash-spi-nor-flash-marker
+
+.. include:: /bsp/imx8/installing-os.rsti
+   :start-after: .. rauc-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
@@ -241,16 +248,15 @@ Development
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
 .. _imx95-alpha1-development-build-uboot:
-.. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
+   :end-before: .. uuu-flash-emmc-marker
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
-
-.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx95-alpha1-format-sd:
 
@@ -267,6 +273,7 @@ Development
    :substitutions:
 
    |dtbo-peb-av-10|
+   imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
 
 
 .. _imx95-alpha1-ubootexternalenv:
@@ -300,7 +307,7 @@ internal pull resistors are activated or not. In this case, the internal
 resistors are enabled.
 
 The device tree representation for UART1 pinmuxing:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L429`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L429`
 
 .. _imx95-alpha1-network:
 
@@ -316,10 +323,10 @@ Ethernet ports are supported (ETH0 and ETH1).
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L624`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L624`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L611`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L611`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -330,10 +337,10 @@ DT configuration for the eMMC interface can be found here:
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L125`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L125`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L190`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L190`
 
 EEPROM
 ------
@@ -353,7 +360,7 @@ On the |som| SoM:
     * Purpose: Available for user applications
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L133`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L133`
 
 And on the |sbc| carrier board:
 
@@ -363,15 +370,15 @@ And on the |sbc| carrier board:
     * Purpose: Reserved for carrier board identification
 
 Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L254`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L254`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L152`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L152`
 
 And the addions on the carrierboard:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L290`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L290`
 
 USB Host Controller
 -------------------
@@ -386,20 +393,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L358`
-
-Audio
------
-
-Playback devices supported for |sbc| are the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
-
-.. include:: /bsp/peripherals/audio.rsti
-
-Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L358`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -410,10 +404,7 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
-
-The device tree of LVDS-1 on PEB-AV-10 can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy10/arch/arm64/boot/dts/freescale/`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
