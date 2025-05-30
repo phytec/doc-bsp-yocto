@@ -251,8 +251,6 @@ Development
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx-common/development/master_manifest.rsti
-
 .. _imx95-alpha1-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
