@@ -245,6 +245,7 @@ Development
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
+   :end-before: .. uuu-flash-emmc-marker
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
