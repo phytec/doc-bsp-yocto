@@ -242,7 +242,7 @@ select the |som| default bootsource.
 .. _imx8mp-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: ../installing-os.rsti
+.. include:: /bsp/imx-common/installing-os.rsti
 
 .. include:: ../efi.rsti
 .. include:: /bsp/installing-distro-efi.rsti

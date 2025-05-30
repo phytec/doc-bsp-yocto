@@ -232,7 +232,7 @@ select the |som| default bootsource.
 .. _imx8mm-pd25.1.0-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: ../installing-os.rsti
+.. include:: /bsp/imx-common/installing-os.rsti
 
 .. include:: ../efi.rsti
 .. include:: /bsp/installing-distro-efi.rsti

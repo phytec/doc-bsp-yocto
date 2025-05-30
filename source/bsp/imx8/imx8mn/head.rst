@@ -218,7 +218,7 @@ select the |som| default bootsource.
 .. _imx8mn-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: ../installing-os.rsti
+.. include:: /bsp/imx-common/installing-os.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                                DEVELOPMENT
