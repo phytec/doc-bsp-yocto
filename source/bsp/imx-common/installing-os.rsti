@@ -234,6 +234,8 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       Before this will work, you need to configure the |ref-bootswitch| to
       **eMMC**.
 
+.. flash-emmc-from-usb-stick-in-uboot-marker
+
 Flash eMMC from USB stick in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -271,6 +273,8 @@ Write the image to the eMMC:
 
    MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
    u-boot=> boot
+
+.. flash-emmc-from-sdcard-marker
 
 Flash eMMC from SD Card
 .......................
@@ -375,6 +379,8 @@ Flash eMMC from SD card in U-Boot on Target
       MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 *  Power off the board and change the |ref-bootswitch| to eMMC.
+
+.. flash-spi-nor-flash-marker
 
 Flash SPI NOR Flash
 -------------------
@@ -545,6 +551,8 @@ Flash SPI NOR from SD Card in U-Boot on Target
    .. code-block::
 
       u-boot=> sf erase 0x400000 0x100000
+
+.. rauc-marker
 
 RAUC
 ----

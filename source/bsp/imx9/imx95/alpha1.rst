@@ -228,7 +228,16 @@ select the |som| default bootsource.
 .. _imx95-alpha1-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: /bsp/imx8/installing-os.rsti
+.. include:: /bsp/imx-common/installing-os.rsti
+   :end-before: .. flash-emmc-from-usb-stick-in-uboot-marker
+
+.. include:: /bsp/imx-common/installing-os.rsti
+   :start-after: .. flash-emmc-from-sdcard-marker
+   :end-before: .. flash-spi-nor-flash-marker
+
+.. include:: /bsp/imx-common/installing-os.rsti
+   :start-after: .. flash-emmc-from-sdcard-in-linux-marker
+   :end-before: .. flash-spi-nor-flash-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
