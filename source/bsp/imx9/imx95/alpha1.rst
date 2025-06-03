@@ -252,6 +252,24 @@ Development
 ===========
 
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+   :end-before: .. get-sdk-marker
+
+Build the SDK
+.............
+
+You can build the SDK yourself with Yocto:
+
+*  Move to the Yocto build directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source sources/poky/oe-init-build-env
+      host:~$ bitbake -c populate_sdk |yocto-imagename| # or another image
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+   :start-after: .. install-sdk-marker
+
 .. _imx95-alpha1-development-build-uboot:
 .. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
