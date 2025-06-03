@@ -125,7 +125,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          | Scarthgap            |
 +-----------------------+----------------------+
-| Release Date          | TBD                  |
+| Release Date          | 2025/06/02           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| BSP   |
 |                       | Manual               |
@@ -137,7 +137,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 
 ============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            TBD               In Development
+BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
 ============================== ================ ================= ==============
 
 
