@@ -312,6 +312,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx9/imx95/head',
+        'imx95-head.tex',
+        'i.MX 95 BSP Manual DRAFT',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx9/imx95/quickstart-alpha1',
         'imx95-quickstart-alpha1.tex',
         'i.MX 95 Quickstart Guide ALPHA1',
