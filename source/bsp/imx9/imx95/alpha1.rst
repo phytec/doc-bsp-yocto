@@ -164,7 +164,7 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx95-alpha1-getting-started:
-.. include:: /bsp/getting-started.rsti
+.. include:: getting-started.rsti
 
 First Start-up
 --------------
@@ -233,7 +233,10 @@ select the |som| default bootsource.
 
 .. include:: /bsp/imx-common/installing-os.rsti
    :start-after: .. flash-emmc-from-sdcard-marker
-   :end-before: .. flash-spi-nor-flash-marker
+   :end-before: .. flash-emmc-from-sdcard-in-linux-marker
+
+.. note::
+   There is no partup support in imx95 ALPHA1 release yet.
 
 .. include:: /bsp/imx-common/installing-os.rsti
    :start-after: .. flash-emmc-from-sdcard-in-linux-marker

@@ -287,6 +287,8 @@ To create a new partition or enlarge your SD card, see |ref-format-sd|.
 Alternatively, flash a partup package to the SD card, as described in
 |ref-getting-started|. This will ensure the full space of the SD card is used.
 
+.. flash-emmc-from-sdcard-in-linux-marker
+
 Flash eMMC from SD card in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
