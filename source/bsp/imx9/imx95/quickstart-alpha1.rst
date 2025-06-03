@@ -96,7 +96,15 @@ Included in the Kit
 Components
 ----------
 
+.. figure:: images/Libra-front-components.jpg
+   :align: center
+   :width: 90 %
+
    **Libra FPSC Components (top)**
+
+.. figure:: images/Libra-back-components.jpg
+   :align: center
+   :width: 90 %
 
    **Libra FPSC Components (bottom)**
 
