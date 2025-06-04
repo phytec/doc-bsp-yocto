@@ -1,3 +1,5 @@
+.. _ml-benchmark: https://github.com/nxp-imx-support/nxp-demo-experience-demos-list/tree/lf-6.6.52_2.2.0/scripts/machine_learning/ml_benchmark#ml-benchmark-tool.
+
 ML Benchmark
 ------------
 
@@ -5,7 +7,7 @@ ML Benchmark
    models running on CPU (Cortex-A) and NPU, without the need to type in any
    command.
 
-   -- NXP [ml_benchmark]_
+   -- `NXP ML benchmark tool <ml-benchmark_>`_
 
 Note that NXP supplies instructions to run the demo as well. For completeness,
 references will be supplied.
@@ -79,7 +81,4 @@ On the display, a TFLite Benchmarking box should appear.
 The bottom text within the box should say ``Models are ready for inference``.
 Click/press on ``RUN BENCHMARKS!``.
 Sometimes the box may disappear, rerun the ML Benchmark in the terminal.
-NXP explains this and other issues here [ml_benchmark]_.
-
-.. [ml_benchmark] https://github.com/nxp-imx-support/nxp-demo-experience-demos-list/tree/lf-6.6.52_2.2.0/scripts/machine_learning/ml_benchmark#ml-benchmark-tool.
-
+NXP explains this and other issues `here <ml-benchmark_>`_.
