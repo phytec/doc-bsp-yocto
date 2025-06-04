@@ -1,3 +1,5 @@
+.. _gpntug: https://www.nxp.com/design/design-center/software/i-mx-developer-resources/gopoint-for-i-mx-applications-processors:GOPOINT
+
 ..
    GoPoint is only available for NXP vendor releases as NXP has override Syntax
    in Yocto for nxp-bsp.
@@ -18,10 +20,8 @@ It is advertised as
    some knowledge when setting up equipment on Evaluation Kits (EVKs), such as
    changing Device Tree Blob (DTB) files."
 
-   -- GoPoint for i.MX Applications Processors User Guide [GPNTUG]_
+   -- `GoPoint for i.MX Applications Processors User Guide <gpntug_>`_
 
 Since most of the demos require different accessory hardware to be connected to
 the SBC to function properly, the list of required hardware will be presented
 within each demo section.
-
-.. [GPNTUG] https://www.nxp.com/design/design-center/software/i-mx-developer-resources/gopoint-for-i-mx-applications-processors:GOPOINT
