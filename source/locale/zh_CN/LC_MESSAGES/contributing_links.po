@@ -1,14 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2025, PHYTEC Messtechnik GmbH
-# This file is distributed under the same license as the PHYTEC BSP Documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# Copyright (C) 2024, PHYTEC Messtechnik GmbH
+# This file is distributed under the same license as the PHYTEC BSP
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PHYTEC BSP Documentation imx8mm-pd25.1.0-75-g28e760b\n"
+"Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 14:48+0200\n"
+"POT-Creation-Date: 2024-09-03 18:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -17,14 +18,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.16.0\n"
+
+"X-Generator: Poedit 3.5\n"
 
 msgid "Contribute"
-msgstr ""
+msgstr "贡献"
 
 msgid "Phytec's Yocto BSPs are released under open source licenses and we welcome contributions to our Yocto BSPs and this documentation. Please check the Git repositories for the individual projects and layers for contribution guidelines."
-msgstr ""
+msgstr "Phytec 的 Yocto BSP 以开源许可证发布，我们欢迎对我们的 Yocto BSP 和本文档的贡献。请查看各个项目和层的 Git 仓库以获取贡献指南。"
 
 msgid "If you have a **question related to our Yocto BSPs** or notice **issues with this documentation**, we encourage you to open an Issue or Pull-Request on the Github repository `doc-bsp-yocto <https://github.com/phytec/doc-bsp-yocto>`__. Have a look at the `Contributing guide <https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`__ for more information."
-msgstr ""
-
+msgstr "如果您对我们的 Yocto BSP 有 **疑问** 或注意到本文档的任何 **问题**，我们鼓励您在Github 仓库 `doc-bsp-yocto <https://github.com/phytec/doc-bsp-yocto>`__ 上打开一个 Issue 或 Pull Request。查阅 `贡献指南 <https://github.com/phytec/doc-bsp-yocto/blob/main/CONTRIBUTING.rst>`__ 以获取更多信息。"
