@@ -1,0 +1,12 @@
+
+GPU
+---
+
+i.MX95 FPSC has MALI GPU G310. As recommended by NXP in the
+`i.MX Graphics User's Guide <https://www.nxp.com/docs/en/user-guide/IMX_GRAPHICS_USERS_GUIDE.pdf#page=84>`_,
+when running benchmarks, set the /etc/environment on the target with the variable "WESTON_FORCE_RENDERER=1"
+and restart Weston with "systemctl".
+
+This variable disables the use of hardware planes for compositing except for cursors.
+This avoids tearing and framerate drops caused by the lack of atomic Kernel Mode Setting
+support, ensuring more stable and consistent benchmark results.
