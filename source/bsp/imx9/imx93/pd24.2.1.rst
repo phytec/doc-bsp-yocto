@@ -384,6 +384,23 @@ Execute and power up the board:
 
 .. include:: ../../imx-common/development/format_sd-card.rsti
 
+Enabling JTAG Debug Interface on phyBOARD Nash
+----------------------------------------------
+
+The |soc| has a JTAG debug interface which can be used to debug software running
+on the SoC. The JTAG interface is routed through the pinmux and is not enabled
+by default. To enable the JTAG interface, please add this overlay to your
+``bootenv.txt`` file:
+
+.. code-block::
+
+   imx93-phyboard-nash-jtag.dtbo
+
+.. note::
+   JTAG and the MIPI CSI interface cannot be used at the same time, since they
+   share the same pins. Jumper ``JP15`` switches signals between JTAG and
+   MIPI CSI. It needs to be set to use JTAG.
+
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
