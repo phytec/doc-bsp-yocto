@@ -431,6 +431,8 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/imx9/imx95/peripherals/tm.rsti
 
+.. include:: /bsp/imx9/imx95/peripherals/gpu.rsti
+
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. +---------------------------------------------------------------------------+
