@@ -405,34 +405,35 @@ module and board.
 
 .. warning::
 
-   The naming convention of the Ethernet interfaces in the hardware (ethernet0
-   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
+   The naming convention of the Ethernet interfaces in the hardware (ETH0
+   and ETH1) do not align with the network interfaces (eth0 and eth1) in
    Linux. So, be aware of these differences:
 
-   | ethernet1 = eth0
-   | ethernet0 = eth1
+   | ETH1 = eth0
+   | ETH0 = eth1
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
+   :end-before: .. kernel-network-environment-marker
 
-.. include:: wireless-network.rsti
+Secondary Ethernet Interface Configuration in U-Boot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../../peripherals/wireless-network.rsti
-   :end-before: .. bluetooth_chapter_start_label
+By default, U-Boot utilizes the Ethernet PHY located on the module. To use the network connection
+provided by the PHY on the carrier board, configuration changes are required.
 
-Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
-is described in the WLAN section.
+To enable the secondary Ethernet interface in U-Boot, the active Ethernet connection must be
+adjusted. The IP address configuration in U-Boot may also need modification.
 
-.. include:: ../../peripherals/wireless-network.rsti
-   :start-after: .. bluetooth_chapter_start_label
+Configure the development host with IP address 192.168.4.10 and netmask 255.255.255.0. The target
+device must then be configured as follows:
 
-.. note::
+.. code-block::
 
-   If the connection fails with the error message: "Failed to connect:
-   org.bluez.Error.Failed" try restarting PulseAudio with:
+    u-boot=> setenv ethact eth1
+    u-boot=> setenv ipaddr 192.168.4.11
 
-   .. code-block:: console
-
-      target:~$ pulseaudio --start
+.. include:: /bsp/imx-common/peripherals/network.rsti
+   :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
