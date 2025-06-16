@@ -256,22 +256,6 @@ select the |som| default bootsource.
 Development
 ===========
 
-Starting with this release, the boot behaviour in U-Boot changes. Before, kernel
-and device tree came as separate blobs. Now, both will be included in a single
-FIT image blob. Further, the logic for booting the PHYTEC ampliphy distributions
-is moved to a boot script which itself is part of a separate FIT image blob.
-To revert to the old style of booting, you may do
-
-.. code-block:: console
-
-   run legacyboot
-
-.. note::
-
-   This way of booting is deprecated and will be removed in the next release.
-   By default, booting via this command will return an error as kernel and
-   device tree are missing in the boot partition.
-
 .. include:: ../../imx-common/development/standalone_build_preface.rsti
 
 .. warning::
@@ -303,8 +287,6 @@ To revert to the old style of booting, you may do
 .. _imx8mp-libra-fpsc-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
-
-.. include:: /bsp/imx8/development/legacy_boot_deprecated.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
