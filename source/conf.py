@@ -336,6 +336,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/am6x/am62l/quickstart-alpha1',
+        'am62l-quickstart-alpha1.tex',
+        'AM62L Quickstart Guide ALPHA1',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'yocto/kirkstone',
         'kirkstone.tex',
         'Yocto Reference Manual Kirkstone',
