@@ -278,6 +278,19 @@ Development
 .. include:: ../../imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
+
+.. note::
+
+   DHCP server setup is only needed when using dynamic IP addresses. For our
+   vendor BSPs, static IP addresses are used by default.
+
+   .. code-block::
+
+      u-boot=> env print ip_dyn
+      ip_dyn=no
+
+   To use dynamic IP addresses for netboot, ip_dyn needs to be set to yes.
+
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
