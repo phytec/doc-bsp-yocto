@@ -34,6 +34,8 @@ of some usages of various tools:
       gpiochip3 [30230000.gpio] (32 lines)
       gpiochip4 [30240000.gpio] (32 lines)
 
+.. gpio-gpiochip-table
+
 *  Show detailed information about the gpiochips. Like their names, consumers,
    direction, active state, and additional flags:
 
