@@ -37,6 +37,8 @@
 .. |kernel-socname| replace:: imx8mm
 .. |kernel-tag| replace:: v6.6.52-2.2.0-phy9
 .. |emmcdev| replace:: mmcblk2
+.. |led-names| replace:: led-0, led-1 and led-2
+.. |led-example| replace:: led-1
 
 .. Bootloader
 .. |bootloader-offset| replace:: 33
@@ -105,7 +107,6 @@
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M4 Core

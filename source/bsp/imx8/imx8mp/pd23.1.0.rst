@@ -35,6 +35,8 @@
 .. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v5.15.71_2.2.2-phy3
 .. |emmcdev| replace:: mmcblk2
+.. |led-names| replace:: led-0, led-1 and led-2
+.. |led-example| replace:: led-1
 
 .. Bootloader
 .. |bootloader-offset| replace:: 32

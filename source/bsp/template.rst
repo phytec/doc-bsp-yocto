@@ -56,6 +56,10 @@
 .. |kernel-tag| replace::
 .. File name for the e.MMC device. Example: mmcblk0
 .. |emmcdev| replace::
+.. enumeration of led names in sysfs Example: led-0, led-1 and led-2
+.. |led-names| replace::
+.. led names in sysfs for the usage example Example: led-1
+.. |led-example| replace::
 
 .. U-boot
 .. Offset (in kiB) on block device to write bootloader to. SoC ROM code loads
