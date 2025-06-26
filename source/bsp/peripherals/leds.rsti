@@ -19,16 +19,18 @@ To get all available LEDs, type:
    target:~$ ls /sys/class/leds
    led-1@  led-2@  led-3@  mmc1::@  mmc2::@
 
-Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
+The |sbc| provides the following LED indicators: |led-names|.
 
 *  To toggle the LEDs ON:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ echo 255 > /sys/class/leds/led-1/brightness
+      target:~$ echo 255 > /sys/class/leds/|led-example|/brightness
 
 *  To toggle OFF:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ echo 0 > /sys/class/leds/led-1/brightness
+      target:~$ echo 0 > /sys/class/leds/|led-example|/brightness

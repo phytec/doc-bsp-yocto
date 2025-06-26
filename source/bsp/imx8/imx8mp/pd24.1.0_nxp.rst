@@ -37,6 +37,8 @@
 .. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v6.6.23-2.0.0-phy10
 .. |emmcdev| replace:: mmcblk2
+.. |led-names| replace:: red:user1, green:user2 and blue:user3
+.. |led-example| replace:: red\\:user1
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: phycore-imx8mp_defconfig
