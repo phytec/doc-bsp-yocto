@@ -37,6 +37,8 @@
 .. |kernel-socname| replace:: imx8mp-fpsc
 .. |kernel-tag| replace:: v6.6.23-2.0.0-phy10
 .. |emmcdev| replace:: mmcblk2
+.. |led-names| replace:: red:user1, green:user2 and blue:user3
+.. |led-example| replace:: red\\:user1
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
@@ -436,7 +438,7 @@ The definition of the SPI master node in the device tree can be found here:
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L255`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L165`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
