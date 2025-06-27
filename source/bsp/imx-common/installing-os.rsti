@@ -252,6 +252,7 @@ the USB slot.
 Load your image from the USB device to RAM:
 
 .. code-block::
+   :substitutions:
 
    u-boot=> usb start
    starting USB...
