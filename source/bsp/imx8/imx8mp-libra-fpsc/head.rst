@@ -245,9 +245,6 @@ select the |som| default bootsource.
 
 .. include:: /bsp/imx-common/installing-os.rsti
 
-.. include:: ../efi.rsti
-.. include:: /bsp/installing-distro-efi.rsti
-
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
