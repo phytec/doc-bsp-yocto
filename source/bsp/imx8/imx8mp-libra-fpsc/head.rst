@@ -426,10 +426,13 @@ DT configuration for the e.MMC interface can be found here:
 .. include:: ../imx8mp/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
+  :end-before: .. peripherals-spi-nor-flash-marker
+
+.. include:: ../peripherals/spi-nor-flash-no-boot.rsti
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L76`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
 
 .. include:: gpios.rsti
 
