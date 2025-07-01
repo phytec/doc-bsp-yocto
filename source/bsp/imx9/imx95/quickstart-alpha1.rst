@@ -189,13 +189,9 @@ kit. Connect the power supply to the Power-In connector (X8).
 
    .. figure:: /bsp/imx-common/images/power-connector.png
 
-It is possible to power the |sbc| with a USB-PD (USB power-delivery) supply
-instead of the power supply SV055. Connect a conform USB-PD supply to USB-C
-connector X2 right next to Power-In connector X8.
-
 .. warning::
-   Do not power the |sbc| via USB Power-In (X2) and Power-In (X8) at the same
-   time.
+   Do not power the |sbc| via USB Power-In, if populated, (X2) and Power-In (X8)
+   at the same time.
 
 .. tip::
    Be aware that as soon as the |sbc| is supplied with power, the SD Card boot
