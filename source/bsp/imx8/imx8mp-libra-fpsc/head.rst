@@ -23,8 +23,8 @@
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyCORE-|soc| FPSC
-.. |debug-uart| replace:: ttymxc0
-.. |serial-uart| replace:: ttymxc1
+.. |debug-uart| replace:: ttymxc3
+.. |serial-uart| replace:: ttymxc2
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
 
@@ -110,9 +110,8 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-libra-fpsc-head-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-libra-fpsc-head-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-libra-fpsc-head-components>`
+.. |ref-serial| replace:: :ref:`X27 <imx8mp-libra-fpsc-head-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx8mp-libra-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-libra-fpsc-head-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
@@ -326,54 +325,52 @@ Development
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
-The following is an example of the pin muxing of the UART1 device in
-|dt-carrierboard|.dts:
+The following is an example of the pin muxing of the UART3 device in
+|dt-som|.dtsi:
 
 .. code-block::
 
-   pinctrl_uart1: uart1grp {
+   pinctrl_uart4: uart4grp {
            fsl,pins = <
-                   MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX     0x140
-                   MX8MP_IOMUXC_UART1_TXD_UART1_DCE_TX     0x140
+                   MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX	0x140	/* UART3_RXD */
+                   MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX	0x140	/* UART3_TXD */
            >;
    };
 
-The first part of the string MX8MP_IOMUXC_UART1_RXD_UART1_DCE_RX names the pad
-(in this example UART1_RXD). The second part of the string (UART1_DCE_RX) is the
+The first part of the string MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX names the pad
+(in this example UART4_RX). The second part of the string (UART3_DCE_RX) is the
 desired muxing option for this pad. The pad setting value (hex value on the
 right) defines different modes of the pad, for example, if internal pull
 resistors are activated or not. In this case, the internal resistors are
 disabled.
 
-The device tree representation for UART1 pinmuxing:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L373`
+The device tree representation for UART3 pinmuxing:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L716`
 
 RS232/RS485
 -----------
 
-The |som| supports up to 4 UART units. On the |sbc|, TTL level signals
-of UART1 (the standard console) and UART4 are routed to Silicon Labs CP2105 UART
-to USB converter expansion. This USB is brought out at Micro-USB connector X1.
-UART3 is at X6 (Expansion Connector) at TTL level. UART2 is connected to a
-multi-protocol transceiver for RS-232 and RS-485, available at pin header
-connector |ref-serial| at the RS-232 level, or at the RS-485 level. The
-configuration of the multi-protocol transceiver is done by jumpers |ref-jp3| and
-|ref-jp4| on the baseboard. For more information about the correct setup please
-refer to the |som|/|sbc| Hardware Manual section UARTs.
+The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
+of UART3 (the standard console) and UART3 are routed to a FT4232H UART
+to USB converter expansion. This USB is brought out at USB-C connector X14.
+UART3 is connected to a multi-protocol transceiver for RS-232 and RS-485,
+available at pin header connector |ref-serial| at the RS-232 level,
+or at the RS-485 level. The muxing of the used transceivers is done by switch
+|ref-S5| on the baseboard.
+For more information about the correct setup please refer to the |som|/|sbc|
+Hardware Manual section UARTs.
 
 We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
-enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
-using ioctls. Have a look at our small example application rs485test, which is
-also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
-correctly.
+enabled with ioctl TIOCSRS485. Have a look at our small example application
+rs485test, which is also included in the BSP.
+The switch |ref-S5| need to be set correctly.
 
 .. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti
 .. include:: /bsp/peripherals/rs485-halfduplex.rsti
-.. include:: /bsp/peripherals/rs485-fullduplex.rsti
 
 The device tree representation for RS232 and RS485:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L274`
 
 .. _imx8mp-libra-fpsc-head-network:
 
