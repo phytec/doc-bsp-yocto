@@ -190,8 +190,8 @@ kit. Connect the power supply to the Power-In connector (X8).
    .. figure:: /bsp/imx-common/images/power-connector.png
 
 .. warning::
-   Do not power the |sbc| via USB Power-In, if populated, (X2) and Power-In (X8)
-   at the same time.
+   If USB-PD port (X2) is mounted, do not use it in parallel with the 24V
+   Power-In connector (X8). This may damage your device!
 
 .. tip::
    Be aware that as soon as the |sbc| is supplied with power, the SD Card boot
