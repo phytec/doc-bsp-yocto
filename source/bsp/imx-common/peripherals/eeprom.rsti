@@ -46,7 +46,7 @@ To read and print the EEPROM content as a hex number, execute:
 .. code-block:: console
    :substitutions:
 
-   target:~$ hexdump -c |linux-eeprom-sysfs-path|
+   target:~$ hexdump -C |linux-eeprom-sysfs-path|
 
 or:
 
