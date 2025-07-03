@@ -277,6 +277,12 @@ You can build the SDK yourself with Yocto:
    :end-before: .. uuu-flash-emmc-marker
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
+
+.. warning::
+
+   Using netboot with standardboot and static IPs does not work yet in this
+   release. Standardboot will always use dhcp.
+
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
