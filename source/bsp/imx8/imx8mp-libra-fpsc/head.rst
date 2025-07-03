@@ -451,22 +451,34 @@ General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 EEPROM
 ------
 
-On the |som| there is an i2c EEPROM flash populated. It has two addresses. The
-main EEPROM space (bus: I2C-0 address: 0x51) can be accessed via the sysfs
-interface in Linux. The first 256 bytes of the main EEPROM and the ID-page
-(bus: I2C-0 address: 0x59) are used for board detection and must not be
-overwritten. Therefore the ID-page can not be accessed via the sysfs interface.
-Overwriting reserved spaces will result in boot issues.
+The system features three I2C EEPROM devices distributed across the SoM and
+carrier board:
 
-.. note::
+On the |som| SoM:
 
-   If you deleted reserved EEPROM spaces, please contact our support!
+*  Board Detection EEPROM (write-protected)
+   *  Bus: I2C-0
+   *  Address: 0x51
+   *  Purpose: Factory configuration for board identification
+*  User EEPROM
+   *  Bus: I2C-0
+   *  Address: 0x50
+   *  Purpose: Available for user applications
 
-.. include:: ../peripherals/eeprom.rsti
+Device Tree Reference for SoM EEPROMs:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L278`
 
-DT representation, e.g. in |som| file imx8mp-phycore-som.dtsi can be
-found in our PHYTEC git:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L201`
+And on the |sbc| carrier board:
+
+*  Board Detection EEPROM
+   *  Bus: I2C-1
+   *  Address: 0x51
+   *  Purpose: Reserved for carrier board identification
+
+Device Tree Reference for Carrier Board:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
+
+.. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: ../../peripherals/rtc.rsti
 
