@@ -295,6 +295,12 @@ To revert to the old style of booting, you may do
 .. include:: ../../imx-common/development/uuu.rsti
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
+
+.. warning::
+
+   Using netboot with standardboot and static IPs does not work yet in this
+   release. Standardboot will always use dhcp.
+
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
