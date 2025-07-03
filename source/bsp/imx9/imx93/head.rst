@@ -58,7 +58,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
 .. |dt-som| replace:: imx93-phycore-som
-.. |dtbo-rpmsg| replace:: imx93-phycore-rpmsg.dtso
+.. |dtbo-rpmsg| replace:: ``imx93-phycore-rpmsg.dtbo``
 
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61`
