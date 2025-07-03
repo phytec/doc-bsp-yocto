@@ -3,12 +3,7 @@ USB Device
 
 In order to connect the board's USB device to a USB host port (for example a
 PC), you need to configure the appropriate USB gadget. With USB configfs you can
-define the parameters and functions of the USB gadget. The BSP includes
-USB configfs support as a kernel module.
-
-.. code-block:: console
-
-   target:~$ modprobe libcomposite
+define the parameters and functions of the USB gadget.
 
 **Example**:
 
@@ -69,10 +64,12 @@ USB configfs support as a kernel module.
 .. code-block:: console
 
    target:~$ cd /sys/kernel/config/usb_gadget/g1
-   target:~$ ls /sys/class/udc/
+   target:~$ /bin/ls /sys/class/udc/
    ci_hdrc.0
    target:~$ echo "ci_hdrc.0" >UDC
 
+``ci_hdrc.0`` is an example, replace it with the actual name.
+Any trailing ```@`` might be shown by ls to show it is a link, remove it.
 If your system has more than one USB Device or OTG port, you can pass the right
 one to the USB Device Controller (UDC).
 
