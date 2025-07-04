@@ -499,6 +499,13 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
+.. note::
+
+   The switches S6 and S7 are switching the 120 Ohm bus termination resistors.
+   For proper functionality of the CAN FD interface, the bus needs to be
+   terminated. If no external bus termination resistors are mounted, the
+   switches S6 (for CAN FD1) and S7 (for CAN FD2) need to be set to ON.
+
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
