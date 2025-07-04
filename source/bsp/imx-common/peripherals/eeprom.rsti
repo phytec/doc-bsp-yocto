@@ -1,0 +1,63 @@
+EEPROM reading and writing in U-Boot
+....................................
+
+In U-Boot the i2c command can be used for EEPROM read and write operations.
+
+First set the correct i2c bus, where the eeprom is connected:
+
+.. code-block:: console
+   :substitutions:
+
+   u-boot=> i2c dev |i2c-bus-eeprom|
+
+To read and print the first 32 bytes from EEPROM execute:
+
+.. code-block:: console
+   :substitutions:
+
+   u-boot=> i2c md |i2c-addr-eeprom| 0x00 0x20
+
+To read the first 32 bytes from EEPROM into memory (loadaddr) execute:
+
+.. code-block:: console
+   :substitutions:
+
+   u-boot=> i2c read |i2c-addr-eeprom| 0x00 0x20 $loadaddr
+
+To write 0xff to the first 32 bytes execute:
+
+.. code-block:: console
+   :substitutions:
+
+   u-boot=> i2c mw |i2c-addr-eeprom| 0x00 0xff 0x20
+
+To write 32 bytes to EEPROM from memory (loadaddr) execute:
+
+.. code-block:: console
+   :substitutions:
+
+   u-boot=> i2c write $loadaddr |i2c-addr-eeprom| 0x00 0x20
+
+EEPROM reading and writing in Linux
+...................................
+
+To read and print the EEPROM content as a hex number, execute:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ hexdump -C |linux-eeprom-sysfs-path|
+
+or:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=|linux-eeprom-sysfs-path| | od -x
+
+To fill the EEPROM with zeros use:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=/dev/zero of=|linux-eeprom-sysfs-path|
