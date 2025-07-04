@@ -2678,7 +2678,7 @@ CONFIG_GPIO_SYSFS=y
 <section id="eeprom-reading-and-writing-in-linux">
 <h3><span class="section-number">7.10.2. </span>EEPROM reading and writing in Linux<a class="headerlink" href="#eeprom-reading-and-writing-in-linux" title="Link to this heading"></a></h3>
 <p>To read and print the EEPROM content as a hex number, execute:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hexdump<span class="w"> </span>-c<span class="w"> </span>/sys/class/i2c-dev/i2c-0/device/0-0050/eeprom
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hexdump<span class="w"> </span>-C<span class="w"> </span>/sys/class/i2c-dev/i2c-0/device/0-0050/eeprom
 </pre></div>
 </div>
 <p>or:</p>
@@ -3731,7 +3731,7 @@ u-boot=&gt; bootaux 0x80000000
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-16-g9c7abfe</dd>
+      <dd>imx95-alpha1-17-g7dfe8a9</dd>
     </dl>
   </div>
 </div><script>
