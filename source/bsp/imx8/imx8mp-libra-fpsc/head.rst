@@ -488,6 +488,8 @@ connected to a USB 3.0 PHY.
 DT representation for USB Host:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L380`
 
+.. include:: /bsp/peripherals/usb-device.rsti
+
 CAN FD
 ------
 
