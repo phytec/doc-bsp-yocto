@@ -480,7 +480,7 @@ finished.</p>
 <li><p>To boot from an SD card, the <a class="reference internal" href="#imx93-pd24-2-1-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> needs to be set to the
 following position:</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <ul class="simple">
 <li><p>Insert the SD card</p></li>
 <li><p>Connect the targets debug console with your host. Use UART1 console on PEB-EVAL-01 for <strong>phyBOARD-Segin</strong> and X-37
@@ -658,14 +658,14 @@ select the phyCORE-i.MX 93 default bootsource.</p>
 <table class="docutils align-default" id="imx93-pd24-2-1-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id10">
-<img alt="../../../_images/eMMC2.png" src="../../../_images/eMMC2.png" />
+<img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id11">
-<img alt="../../../_images/Internal_Fuses2.png" src="../../../_images/Internal_Fuses2.png" />
+<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
 <figcaption>
 <p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
@@ -673,14 +673,14 @@ select the phyCORE-i.MX 93 default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id12">
-<img alt="../../../_images/USB_Serial_Download3.png" src="../../../_images/USB_Serial_Download3.png" />
+<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id13">
-<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <figcaption>
 <p><span class="caption-text">SD Card</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
@@ -1222,7 +1222,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a>
+<p>or check <a class="reference internal" href="../../imx8/imx8mp/pd24.1.1.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a>
 from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
@@ -1494,7 +1494,7 @@ chip-specific offset is needed:</p>
 <p class="admonition-title">Note</p>
 <p>In the command above, replace <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> with your sd-card device name.
 For more information on how to find the device name, see the section
-<a class="reference internal" href="../imx95/head.html#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in
+<a class="reference internal" href="../../imx8/imx8mp/pd24.1.0_nxp.html#getting-started-find-correct-device"><span class="std std-ref">Finding the Correct Device</span></a> in
 Getting Started.</p>
 </div>
 <div class="admonition hint">
@@ -4348,7 +4348,7 @@ Now it is possible to send messages from A55 Core to M33 Core by typing:</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-17-g7dfe8a9</dd>
+      <dd>imx95-alpha1-16-g1ae63d9</dd>
     </dl>
   </div>
 </div><script>

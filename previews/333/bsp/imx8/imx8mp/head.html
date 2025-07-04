@@ -475,7 +475,7 @@ finished.</p>
 <li><p>To boot from an SD card, the <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> needs to be set to the following
 position:</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
 <ul class="simple">
 <li><p>Insert the SD card</p></li>
 <li><p>Connect the target and the host with <strong>micro USB</strong> on <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">(X1)</span></a>
@@ -629,21 +629,21 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-head-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
+<img alt="../../../_images/eMMC.png" src="../../../_images/eMMC.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
+<img alt="../../../_images/Internal_Fuses.png" src="../../../_images/Internal_Fuses.png" />
 <figcaption>
 <p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
+<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -651,14 +651,14 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<img alt="../../../_images/USB_Serial_Download.png" src="../../../_images/USB_Serial_Download.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
 <figcaption>
 <p><span class="caption-text">SD Card</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -1654,7 +1654,7 @@ always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="pd24.1.1.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from eMMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to eMMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for eMMC flashing this is
@@ -2447,7 +2447,7 @@ kernel documentation:
 <section id="rs485-half-duplex">
 <h4><span class="section-number">7.2.2.1. </span>RS485 half-duplex<a class="headerlink" href="#rs485-half-duplex" title="Link to this heading"></a></h4>
 <p>For half-duplex mode your connection setup should look like this:</p>
-<img alt="../../../_images/RS485_halfduplex_connection1.png" src="../../../_images/RS485_halfduplex_connection1.png" />
+<img alt="../../../_images/RS485_halfduplex_connection.png" src="../../../_images/RS485_halfduplex_connection.png" />
 <p>Which function is on which pin is described in the hardware manual.</p>
 <p>For half-duplex mode you can set the ioctls manually like this:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rs485conf<span class="w"> </span>/dev/ttymxc1<span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>
@@ -4856,7 +4856,7 @@ on the top.</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-17-g7dfe8a9</dd>
+      <dd>imx95-alpha1-16-g1ae63d9</dd>
     </dl>
   </div>
 </div><script>
