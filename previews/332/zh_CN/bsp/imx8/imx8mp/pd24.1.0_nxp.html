@@ -376,7 +376,7 @@ board.</p></li>
 <ul class="simple">
 <li><p>要从SD卡启动， <a class="reference internal" href="#imx8mp-pd24-1-0-nxp-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> 需要设置为以下位置：</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
 <ul class="simple">
 <li><p>插入SD卡</p></li>
 <li><p>Connect the target and the host with <strong>micro USB</strong> on <a class="reference internal" href="#imx8mp-pd24-1-0-nxp-components"><span class="std std-ref">(X1)</span></a>
@@ -502,21 +502,21 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-pd24-1-0-nxp-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
+<img alt="../../../_images/eMMC.png" src="../../../_images/eMMC.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
+<img alt="../../../_images/Internal_Fuses.png" src="../../../_images/Internal_Fuses.png" />
 <figcaption>
 <p><span class="caption-text">内部fuse</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
+<img alt="../../../_images/SPI_NOR.png" src="../../../_images/SPI_NOR.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -524,14 +524,14 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<img alt="../../../_images/USB_Serial_Download.png" src="../../../_images/USB_Serial_Download.png" />
 <figcaption>
 <p><span class="caption-text">USB</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot1.png" src="../../../_images/SD_Card_Boot1.png" />
 <figcaption>
 <p><span class="caption-text">SD卡</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -1363,7 +1363,7 @@ CONFIG_PHYCORE_IMX8MP_RAM_FREQ_FIX=y
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>或者在linux中检查 <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
+<p>或者在linux中检查 <a class="reference internal" href="pd24.1.1.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
 <p>这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！</p>
 <p>在使用 <strong>partup</strong> 工具和 <code class="docutils literal notranslate"><span class="pre">.partup</span></code> 包进行eMMC烧写时，上述过程是默认进行的，这是partup的优势，简化烧写过程。</p>
 </div>
@@ -1995,7 +1995,7 @@ refer to the phyCORE-i.MX 8M Plus/phyBOARD-Pollux Hardware Manual section UARTs.
 <section id="rs485-half-duplex">
 <h4><span class="section-number">7.2.2.1. </span>RS485 半双工<a class="headerlink" href="#rs485-half-duplex" title="Link to this heading"></a></h4>
 <p>对于半双工模式，应按下图方式连接：</p>
-<img alt="../../../_images/RS485_halfduplex_connection1.png" src="../../../_images/RS485_halfduplex_connection1.png" />
+<img alt="../../../_images/RS485_halfduplex_connection.png" src="../../../_images/RS485_halfduplex_connection.png" />
 <p>硬件手册中有描述各个引脚的功能。</p>
 <p>对于半双工模式，您可以手动设置 ioctls，如下所示：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rs485conf<span class="w"> </span>/dev/ttymxc1<span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>
@@ -4005,7 +4005,7 @@ u-boot=&gt; bootaux 0x80000000
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-17-g8231fab</dd>
+      <dd>imx95-alpha1-17-ge5c9f61</dd>
     </dl>
   </div>
 </div><script>
