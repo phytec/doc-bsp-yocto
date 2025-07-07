@@ -116,7 +116,6 @@
 .. |ref-S5| replace:: :ref:`S5 <imx8mp-libra-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-libra-fpsc-head-ubootexternalenv>`
-.. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
 
 
@@ -516,56 +515,16 @@ Device Tree CAN configuration of |dt-carrierboard|.dts:
 Device Tree PCIe configuration of |dt-carrierboard|.dts:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345`
 
-Audio
------
-
-Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
-codec on the PEB-AV-10 connector. On the AV-Connector there is a 3.5mm headset
-jack with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
-speaker, headphones, and line in signals.
-
-.. note::
-
-   Using the PEB-AV-10 connector for display output along HDMI as audio output
-   is not supported. The audio output device must match the video output device.
-
-.. include:: /bsp/peripherals/audio.rsti
-
-Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L58`
-
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
-   :end-before: .. supported-display-interfaces-marker-start
-
-The |sbc| supports up to 3 different display outputs. Two can be used
-simultaneously. The following table shows the required extensions and devicetree
-overlays for the different interfaces.
-
-========= ======================== ======================================
-Interface Expansion                devicetree overlay
-========= ======================== ======================================
-HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10                |dtbo-peb-av-10|
-                                   (loaded by default)
-LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
-========= ======================== ======================================
-
-.. include:: display.rsti
-   :start-after: .. supported-display-interfaces-marker-end
-   :end-before: .. no-peb-av-12-marker
 
 .. include:: /bsp/qt6.rsti
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
-Device tree description of LVDS-1 and HDMI can be found here:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L294`
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L218`
-
-The device tree of LVDS-0 on PEB-AV-10 can be found here:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L133`
+Device tree description of LVDS-0 can be found here:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
 
 .. include:: ../peripherals/pm.rsti
 
