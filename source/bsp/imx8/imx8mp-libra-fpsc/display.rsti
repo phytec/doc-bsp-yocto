@@ -3,18 +3,20 @@ Display
 
 .. supported-display-interfaces-marker-start
 
-The |sbc| supports up to 4 different display outputs. Three can be used
-simultaneously. The following table shows the required extensions and devicetree
-overlays for the different interfaces.
+The |sbc| supports up to 3 different display outputs. The following table shows
+the required extensions and devicetree overlays for the different interfaces.
+For the alpha release, we have included overlays for two different LVDS displays.
+These displays are ``edt,etml1010g3dra`` or ``powertip,ph128800t006-zhc01``.
+The name can be found on the back of the display.
+
+.. note::
+   Currently only LVDS0 (onboard LVDS) is supported
 
 ========= ======================== ======================================
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
-HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10                |dtbo-peb-av-10|
-                                   (loaded by default)
-LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
-MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-libra-peb-av-012.dtbo
+LVDS0     |sbc|                    imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
+                                   imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 ========= ======================== ======================================
 
 .. supported-display-interfaces-marker-end
@@ -24,11 +26,7 @@ MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-libra-peb-av-012.dtbo
    *  When changing Weston output, make sure to match the audio output as well.
    *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
 
-HDMI is always enabled in the devicetree. The other interfaces can be enabled
-with Device Tree Overlay.
-
-The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10'' edt,etml1010g0dka display for the |lvds-display-adapters|.
+The default interface is LVDS0 (onboard LVDS).
 
 .. note::
 
@@ -45,90 +43,11 @@ be configured correctly. This will be done at /etc/xdg/weston/weston.ini.
 Single Display
 ~~~~~~~~~~~~~~
 
-In our BSP, the default Weston output is set to HDMI.
+In our BSP, the default Weston output is set to LVDS-1 (onboard LVDS).
 
 .. code-block::
    :substitutions:
 
    [output]
-   name=HDMI-A-1
-   mode=|weston-hdmi-mode|
-
-   [output]
    name=LVDS-1
-   mode=off
-
-When using the LVDS0 (PEB-AV-10) as output, set the output mode to off for
-HDMI-A-1 and for LVDS-1 to current.
-
-.. code-block::
-
-   [output]
-   name=HDMI-A-1
-   mode=off
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-If you want to use LVDS1 (onboard) then you need to load no overlay. Remove the
-imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
-
-Dual Display
-~~~~~~~~~~~~
-
-.. note::
-
-   For dual and triple display output you can not use LVDS1 (onboard) and HDMI
-   together.
-
-For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
-have to be set to the:
-
-.. code-block::
-   :substitutions:
-
-   [output]
-   name=HDMI-A-1
-   mode=|weston-hdmi-mode|
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-.. no-peb-av-12-marker
-
-For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
-be loaded at the bootenv.txt and the weston.ini should look like this:
-
-.. code-block::
-   :substitutions:
-
-   [output]
-   name=HDMI-A-1
-   mode=off
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-Triple Display
-~~~~~~~~~~~~~~
-
-Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
-load both dtbos for LVDS interfaces.
-
-.. code-block::
-   :substitutions:
-
-   [output]
-   name=HDMI-A-1
-   mode=|weston-hdmi-mode|
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-   [output]
-   name=LVDS-2
-   mode=current
+   mode=preferred
