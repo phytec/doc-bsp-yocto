@@ -60,14 +60,16 @@ and boot the Linux Board Support Package (BSP) for the |kit|.
 This kit is currently in Alpha Status. There are several topics to keep in mind
 while working with this kit and guide:
 
--  The |som| will go through several functional changes during the Alpha Stage of
-   development. Due to this, this Quickstart guide may change without any prior notice.
--  The |som| has some functionality that is not currently operational. Please be aware
-   of this when working with the Alpha Kit.
--  This Quickstart guide is only for booting and starting the basic functionality
-   of the |som|.
+-  The |som| will go through several functional changes during the Alpha Stage
+   of development. Due to this, this Quickstart guide may change without any
+   prior notice.
+-  The |som| has some functionality that is not currently operational. Please
+   be aware of this when working with the Alpha Kit.
+-  This Quickstart guide is only for booting and starting the basic
+   functionality of the |som|.
 -  Hardware manual for the |som| can be found here: |hardware-manual|_
--  Yocto Reference Manual for |yocto-codename| can be found here: |yocto-ref-manual|
+-  Yocto Reference Manual for |yocto-codename| can be found here:
+   |yocto-ref-manual|
 -  BSP Manual for |som| can be found here: |bsp-manual|
 
 The following manuals will be available in future releases of the |som|:
@@ -85,7 +87,8 @@ Requirements
 Included in the Kit
 -------------------
 
--  Alpha phyCORE-i.MX 95 FPSC SOM on Alpha Libra Development Board (PD-05032-ALPHA.A0)
+-  Alpha phyCORE-i.MX 95 FPSC SOM on Alpha Libra Development Board
+   (PD-05032-ALPHA.A0)
 -  Power adapter supplying 24 V / 3,75 A (SV071)
 -  Ethernet cable (WK114)
 -  USB-A to USB-C cable (WK560)
@@ -127,14 +130,16 @@ Linux Host PC
 Before you can work with the |som| Board Support Package (BSP), you will need
 a host PC with the following minimum requirements:
 
--  A modern Linux operating host system either natively or via a virtual machine.
+-  A modern Linux operating host system either natively or via a virtual
+   machine.
 -  Ubuntu 22.04 LTS 64-bit recommended. Other distributions will likely work but
    note that some setup information as well as OS-specific commands and paths
    may differ.
 -  VMWare Workstation, VMWare Player, and VirtualBox are possible solutions if
    you want to use a virtual machine.
 -  Root access to your Linux host PC. Some commands in this guide will not work
-   if you do not have sudo access (e.g. package installation, formatting an SD card).
+   if you do not have sudo access (e.g. package installation, formatting an SD
+   card).
 -  At least 40 GB to 50 GB of free space on the build partition of the host PC.
 -  An SD card reader, operational under Linux.
 -  An active internet connection.
@@ -142,7 +147,8 @@ a host PC with the following minimum requirements:
 Connecting the Board
 ====================
 
-There a few manual connections that you will need to make before using the |sbc|.
+There a few manual connections that you will need to make before using the
+|sbc|.
 
 Connecting the DEBUG USB interface
 ----------------------------------
