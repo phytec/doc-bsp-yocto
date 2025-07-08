@@ -773,7 +773,7 @@ phyBOARD Pollux. This will be upstreamed soon and maybe it is possible to make
 the Zephyr sample fully generic.
 
 You can see a branch with the required changes `here
-<https://github.com/PHYTEC-Messtechnik-GmbH/sdk-zephyr/tree/WIP/j.remmert%40phytec.de/openamp_rsc_pollux>`_.
+<https://github.com/phytec/zephyr-phytec/tree/WIP/j.remmert%40phytec.de/openamp_rsc_pollux>`_.
 
 Run the Sample
 ..............
