@@ -1,0 +1,166 @@
+ARM Ethos-U NPU
+---------------
+
+The NXP |soc| family of SoCs optionally integrates the ARM Ethos-U65 NPU (neural
+processing unit). The Ethos-U65 microNPU is designed for efficient machine learning
+acceleration. It helps developers build more capable, cost-effective, and
+energy-efficient AI/ML applications.
+
+On |soc| the Ethos-U65 NPU is tied to |mcore| and works with Cortex-|mcore|.
+ML workloads are offloaded from |mcore| to the NPU. The Cortex-A55 cores handle general-purpose
+and OS-level tasks (like running Linux), while the |mcore| manages real-time and low-power ML tasks
+using the NPU.
+
+The Cortex-A55 sends ML tasks to the Cortex-|mcore| via inter-processor communication.
+The |mcore| then controls the NPU, loads firmware, and runs inference.
+
+Our Yocto BSP (since PD24.2.2) includes pre-built NXP examples for NPU delegation.
+
+This section shows how to run NXP NPU examples on |sbc|.
+
+Running NPU examples
+....................
+
+From Linux, you can delegate NPU tasks using the remoteproc subsystem.
+First, load the device tree overlays for remoteproc and NPU. Edit ``bootenv.txt``
+in the ``/boot`` directory and add |dtbo-rpmsg| and |dtbo-npu| overlays:
+
+.. code-block::
+   :substitutions:
+
+   overlays=imx93-phyboard-segin-peb-av-02.dtbo |dtbo-rpmsg| |dtbo-npu|
+
+Reboot the target afterwards.
+
+After reboot, check if ``/dev/ethosu0`` exists in devfs. Then navigate to
+``/usr/bin/tensorflow-lite-*/examples``, the folder which contains NXP's NPU examples.
+
+Before running a TensorFlow Lite model on i.MX93, you must first convert it to a Vela model.
+The Vela model is a TensorFlow Lite model optimized for Ethos-U NPUs. It rewrites operators,
+tweaks quantization, and adjusts memory layout for efficient execution. Compared to a regular
+TensorFlow Lite model, it is smaller and tailored for the ARM Ethos-U NPU's architecture.
+
+To convert a TensorFlow Lite model to a Vela model, use the BSP-provided ``vela`` compiler:
+
+.. code-block:: console
+
+   target:~$ cd /usr/bin/tensorflow-lite-*/examples
+   target:examples$ vela mobilenet_v1_1.0_224_quant.tflite
+
+   Network summary for mobilenet_v1_1.0_224_quant
+   Accelerator configuration               Ethos_U65_256
+   System configuration                 internal-default
+   Memory mode                          internal-default
+   Accelerator clock                                1000 MHz
+   Design peak SRAM bandwidth                      14.90 GB/s
+   Design peak DRAM bandwidth                       3.49 GB/s
+
+   Total SRAM used                                370.91 KiB
+   Total DRAM used                               3719.84 KiB
+
+   CPU operators = 0 (0.0%)
+   NPU operators = 60 (100.0%)
+
+   Average SRAM bandwidth                           5.53 GB/s
+   Input   SRAM bandwidth                          11.40 MB/batch
+   Weight  SRAM bandwidth                           9.25 MB/batch
+   Output  SRAM bandwidth                           4.10 MB/batch
+   Total   SRAM bandwidth                          24.86 MB/batch
+   Total   SRAM bandwidth            per input     24.86 MB/inference (batch size 1)
+
+   Average DRAM bandwidth                           1.17 GB/s
+   Input   DRAM bandwidth                           1.45 MB/batch
+   Weight  DRAM bandwidth                           3.08 MB/batch
+   Output  DRAM bandwidth                           0.72 MB/batch
+   Total   DRAM bandwidth                           5.26 MB/batch
+   Total   DRAM bandwidth            per input      5.26 MB/inference (batch size 1)
+
+   Neural network macs                         572406226 MACs/batch
+   Network Tops/s                                   0.25 Tops/s
+
+   NPU cycles                                    3732560 cycles/batch
+   SRAM Access cycles                            1016537 cycles/batch
+   DRAM Access cycles                            1676662 cycles/batch
+   On-chip Flash Access cycles                         0 cycles/batch
+   Off-chip Flash Access cycles                        0 cycles/batch
+   Total cycles                                  4491867 cycles/batch
+
+   Batch Inference time                 4.49 ms,  222.62 inferences/s (batch size 1)
+
+This step creates the Vela model at
+``output/mobilenet_v1_1.0_224_quant_vela.tflite``.
+
+.. note::
+
+   Converting a TensorFlow Lite model to a Vela model is CPU intensive (~20 seconds).
+   You only need to do this once per model.
+
+Now you can run the NPU examples. This guide uses the NXP example ``label_image``.
+It performs image classification by loading a pre-trained network, processing the input image,
+and printing the top predicted labels with confidence scores.
+
+.. code-block:: console
+
+   target:examples$ ./label_image -m output/mobilenet_v1_1.0_224_quant_vela.tflite \
+                    -i grace_hopper.bmp -l labels.txt \
+                    --external_delegate_path=/usr/lib/libethosu_delegate.so
+   INFO: Loaded model output/mobilenet_v1_1.0_224_quant_vela.tflite
+   INFO: resolved reporter
+   INFO: Ethosu delegate: device_name set to /dev/ethosu0.
+   remoteproc remoteproc0: powering up imx-rproc
+   remoteproc remoteproc0: Booting fw image ethosu_firmware, size 242844
+   INFO: Ethosu delegate: cache_file_path set to .
+   INFO: Ethosu delegate: timeout set to 60000000000.
+   INFO: Ethosu delegate: enable_cycle_counter set to 0.
+   INFO: Ethosu delegate: enable_profiling set to 0.
+   INFO: Ethosu delegate: profiling_buffer_size set to 2048.
+   INFO: Ethosu delegate: pmu_event0 set to 0.
+   INFO: Ethosu delegate: pmu_event1 set to 0.
+   INFO: Ethosu delegate: pmu_event2 set to 0.
+   INFO: Ethosu delegate: pmu_event3 set to 0.
+   INFO: EXTERNAL delegate created.
+   rproc-virtio rproc-virtio.1.auto: assigned reserved memory node vdevbuffer@a4020000
+   virtio_rpmsg_bus virtio0: rpmsg host is online
+   rproc-virtio rproc-virtio.1.auto: registered virtio0 (type 7)
+   rproc-virtio rproc-virtio.2.auto: assigned reserved memory node vdevbuffer@a4020000
+   virtio_rpmsg_bus virtio1: rpmsg host is online
+   virtio_rpmsg_bus virtio1: creating channel rpmsg-ethosu-channel addr 0x1e
+   rproc-virtio rproc-virtio.2.auto: registered virtio1 (type 7)
+   remoteproc remoteproc0: remote processor imx-rproc is now up
+   INFO: EthosuDelegate: 1 nodes delegated out of 1 nodes with 1 partitions.
+   INFO: Applied EXTERNAL delegate.
+   INFO: invoked
+   INFO: average time: 3.778 ms
+   INFO: 0.780392: 653 military uniform
+   INFO: 0.105882: 907 Windsor tie
+   INFO: 0.0156863: 458 bow tie
+   INFO: 0.0117647: 466 bulletproof vest
+   INFO: 0.00784314: 835 suit
+
+Running on the NPU took 3.778 ms. You can now compare this to CPU-only execution.
+To run without delegating work to the NPU, omit ``--external_delegate_path`` and use
+the original TensorFlow Lite model:
+
+.. code-block:: console
+
+   target:examples$ ./label_image -m mobilenet_v1_1.0_224_quant.tflite \
+                    -i grace_hopper.bmp -l labels.txt
+   INFO: Loaded model mobilenet_v1_1.0_224_quant.tflite
+   INFO: resolved reporter
+   INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+   INFO: invoked
+   INFO: average time: 164.281 ms
+   INFO: 0.768627: 653 military uniform
+   INFO: 0.105882: 907 Windsor tie
+   INFO: 0.0196078: 458 bow tie
+   INFO: 0.0117647: 466 bulletproof vest
+   INFO: 0.00784314: 835 suit
+
+Running on the CPU took 164.281 ms. This makes inference about 40x slower
+compared to running on the NPU. This highlights why using the NPU is preferred
+over the CPU for AI/ML tasks.
+
+.. note::
+
+   For more details and resources, see NXP's application note:
+   `AN13854 - Hardware acceleration with Ethos-U on i.MX93 <https://docs.nxp.com/bundle/AN13854/page/topics/hardware_acceleration_with_ethos-u_on_imx_93_platf.html>`_
