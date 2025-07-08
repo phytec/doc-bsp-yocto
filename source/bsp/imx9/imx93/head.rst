@@ -58,6 +58,7 @@
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
 .. |dt-som| replace:: imx93-phycore-som
 .. |dtbo-rpmsg| replace:: ``imx93-phycore-rpmsg.dtbo``
+.. |dtbo-npu| replace:: ``imx93-phycore-npu.dtbo``
 
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61`
@@ -396,6 +397,7 @@ Execute and power up the board:
    imx93-phyboard-segin-peb-av-02.dtbo
    imx93-phyboard-segin-peb-eval-01.dtbo
    imx93-phyboard-segin-peb-wlbt-05.dtbo
+   imx93-phycore-npu.dtbo
    imx93-phycore-rpmsg.dtbo
    imx91-imx93-phycore-no-emmc.dtbo
    imx91-imx93-phycore-no-eth.dtbo
@@ -409,6 +411,7 @@ Available overlays for phyboard-nash-imx93-1.conf are:
    imx93-phyboard-nash-peb-wlbt-07.dtbo
    imx93-phyboard-nash-pwm-fan.dtbo
    imx93-phyboard-nash-vm016.dtbo
+   imx93-phycore-npu.dtbo
    imx93-phycore-rpmsg.dtbo
    imx91-imx93-phycore-no-emmc.dtbo
    imx91-imx93-phycore-no-eth.dtbo
@@ -690,3 +693,9 @@ Device tree TPM configuration can be found here:
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti
+
+.. +---------------------------------------------------------------------------+
+.. i.MX 93 NPU
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/imx9/imx93/peripherals/npu.rsti
