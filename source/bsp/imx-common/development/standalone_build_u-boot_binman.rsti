@@ -78,7 +78,7 @@ flashed. A chip-specific offset is needed:
 .. _offset-table:
 
 ===== ======================= ================================= ==============
-SoC   Offset User Area        Offset Boot Partition             eMMC Device
+SoC   Offset User Area        Offset Boot Partition             e.MMC Device
 ===== ======================= ================================= ==============
 |soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/|emmcdev|
 ===== ======================= ================================= ==============
