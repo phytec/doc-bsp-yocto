@@ -1,4 +1,4 @@
-Format SD-Card
+Format SD card
 --------------
 
 Most images are larger than the default root partition. To flash any storage
@@ -15,7 +15,7 @@ Gparted
 
       host:~$ sudo apt install gparted
 
-*  Insert the SD Card into your host and get the device name:
+*  Insert the SD card into your host and get the device name:
 
    .. code-block:: console
 
@@ -25,7 +25,7 @@ Gparted
       [30436.179846]  sdb: sdb1 sdb2
       ...
 
-*  Unmount all SD Card partitions.
+*  Unmount all SD card partitions.
 *  Launch GParted:
 
    .. code-block:: console
@@ -44,7 +44,7 @@ Expand rootfs
    This is due to a new default option in resize2fs which causes a incompatibility.
    See `release notes <https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.0>`_.
 
-*  Choose your SD Card device at the drop-down menu on the top right
+*  Choose your SD card device at the drop-down menu on the top right
 *  Choose the ext4 root partition and click on resize:
 
 .. image:: /bsp/imx-common/images/gparted5.png
@@ -71,7 +71,7 @@ Expand rootfs
 Create the Third Partition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Choose your SD Card device at the drop-down menu on the top right
+*  Choose your SD card device at the drop-down menu on the top right
 
 .. image:: /bsp/imx-common/images/gparted1.png
 
