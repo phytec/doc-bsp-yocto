@@ -517,6 +517,24 @@ ADC_IN0        47
 ADC_IN2        49
 ========= ========
 
+Additionally, there is a current sensing circuitry available on |sbc-nash|. It is
+capable of measuring input current consumption of the |som| SoM @ 3.3V. Circuity consists
+of MAX4372 current-sense amplifier (50V/V) with two 70 mOhm shunts resistors in parallel
+configuration (effective R = 35 mOhm) connected to the ADC input channel ADC_IN1
+(Vref = 1.8V) via voltage divider with ratio of 1/2. This results in a current scaling
+factor of 0.502232142 mA/LSB available as sysfs parameter
+``/sys/bus/iio/devices/iio:device1/in_current0_scale``.
+
+The |som| SoM consumption can thus be measured with this simple script:
+
+.. code-block:: console
+
+   #!/bin/sh
+   RAW=$(cat /sys/bus/iio/devices/iio:device1/in_current0_raw)
+   SCALE=$(cat /sys/bus/iio/devices/iio:device1/in_current0_scale)
+   CURRENT=$(echo "$RAW * $SCALE" | bc -l)
+   printf "Current: %.3f mA\n" "$CURRENT"
+
 .. include:: ../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
