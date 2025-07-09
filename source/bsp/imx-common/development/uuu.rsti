@@ -1,21 +1,21 @@
-Working with UUU-Tool
----------------------
+Working with UUU
+----------------
 
-The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
-on the host to load and run the bootloader on the board through SDP (Serial
-Download Protocol). For detailed information visit
-https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
-documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+The Universal Update Utility (UUU) by NXP is software to execute on the host for
+loading and running the bootloader on the board through SDP (Serial Download
+Protocol). For detailed information visit https://github.com/nxp-imx/mfgtools or
+download the `Official UUU-tool documentation
+<https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
 
-Host preparations for UUU-Tool Usage
-....................................
+Host preparations for UUU Usage
+...............................
 
 *  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds uuu only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -32,8 +32,9 @@ Get Images
 ..........
 
 Download imx-boot from our server or get it from your Yocto build directory at
-build/deploy-|yocto-distro|/images/|yocto-machinename|/. For flashing a wic image to eMMC,
-you will also need |yocto-imagename|-|yocto-machinename|.rootfs.wic.
+build/deploy-|yocto-distro|/images/|yocto-machinename|/. For flashing a wic
+image to e.MMC, you will also need
+|yocto-imagename|-|yocto-machinename|.rootfs.wic.
 
 Prepare Target
 ..............
@@ -53,25 +54,25 @@ Execute and power up the board:
 You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
 
 .. note::
-   The default boot command when booting with UUU-Tool is set to fastboot. If
-   you want to change this, please adjust the environment variable bootcmd_mfg
-   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
-   UUU-tool the default environment is loaded. Saveenv has no effect. If you
-   want to change the boot command permanently for UUU-boot, you need to change
-   this in U-Boot code.
+   The default boot command when booting with UUU is set to fastboot. If you
+   want to change this, please adjust the environment variable bootcmd_mfg in
+   U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
+   default environment is loaded. ``saveenv`` has no effect. If you want to
+   change the boot command permanently for uuu-boot, you need to change this in
+   U-Boot code.
 
 .. uuu-flash-emmc-marker
 
-Flashing U-boot Image to eMMC via UUU-Tool
-...........................................
+Flashing U-boot Image to e.MMC via UUU
+......................................
 
 .. warning::
 
-   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
-   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
-   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
-   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
-   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+   UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
+   bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
+   version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
+   device always using U-boot saved in BOOT partitions. To fix this in U-Boot:
 
    .. code-block:: console
       :substitutions:
@@ -83,14 +84,13 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from eMMC boot partitions
+   or check :ref:`Disable booting from e.MMC boot partitions
    <emmc-disable-boot-part>` from Linux.
 
-
-   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   This way the bootloader is still flashed to e.MMC BOOT partitions but it is
    not used!
 
-   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   When using **partup** tool and ``.partup`` package for e.MMC flashing this is
    done by default, which makes partup again superior flash option.
 
 Execute and power up the board:
@@ -99,8 +99,8 @@ Execute and power up the board:
 
    host:~$ sudo uuu -b emmc imx-boot
 
-Flashing wic Image to eMMC via UUU-Tool
-.......................................
+Flashing wic Image to e.MMC via UUU
+...................................
 
 Execute and power up the board:
 
@@ -109,8 +109,10 @@ Execute and power up the board:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
-Flashing SPI NOR Flash via UUU-Tool
-...................................
+.. uuu-flash-spinor-marker
+
+Flashing SPI NOR Flash via UUU
+..............................
 
 Execute and power up the board:
 
