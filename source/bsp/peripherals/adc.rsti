@@ -1,7 +1,7 @@
 ADC
 ---
 
-The PHYTEC |soc| include general purpose Analog-to-Digital Converters (ADC) which
+The PHYTEC |som| includes general purpose Analog-to-Digital Converters (ADC) which
 can be used for interfacing analog sensors.
 
 Reading the ADC values can be done through sysfs:
