@@ -7,73 +7,73 @@ define the parameters and functions of the USB gadget.
 
 **Example**:
 
-*  First, define the parameters such as the USB vendor and product IDs, and set
-   the information strings for the English (0x409) language:
+First, define the parameters such as the USB vendor and product IDs, and set
+the information strings in English (0x409) language:
 
 .. hint::
 
    To save time, copy these commands and execute them in a script
 
-.. code-block::
+.. code-block:: console
 
-   cd /sys/kernel/config/usb_gadget/
-   mkdir g1
-   cd g1/
-   echo "0x1d6b" > idVendor
-   echo "0x0104" > idProduct
-   mkdir strings/0x409
-   echo "0123456789" > strings/0x409/serialnumber
-   echo "Foo Inc." > strings/0x409/manufacturer
-   echo "Bar Gadget" > strings/0x409/product
+   target:~$ cd /sys/kernel/config/usb_gadget/
+   target:~$ mkdir g1
+   target:~$ cd g1/
+   target:~$ echo "0x1d6b" > idVendor
+   target:~$ echo "0x0104" > idProduct
+   target:~$ mkdir strings/0x409
+   target:~$ echo "0123456789" > strings/0x409/serialnumber
+   target:~$ echo "Foo Inc." > strings/0x409/manufacturer
+   target:~$ echo "Bar Gadget" > strings/0x409/product
 
-*  Next, create a file for the mass storage gadget:
+Next, create a file for the mass storage gadget:
 
 .. code-block:: console
 
    target:~$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
 
-*  Now you should create the functions you want to use:
+Now you should create the functions you want to use:
 
-.. code-block::
+.. code-block:: console
 
-   cd /sys/kernel/config/usb_gadget/g1
-   mkdir functions/acm.GS0
-   mkdir functions/ecm.usb0
-   mkdir functions/mass_storage.0
-   echo /tmp/file.img > functions/mass_storage.0/lun.0/file
+   target:~$ cd /sys/kernel/config/usb_gadget/g1
+   target:~$ mkdir functions/acm.GS0
+   target:~$ mkdir functions/ecm.usb0
+   target:~$ mkdir functions/mass_storage.0
+   target:~$ echo /tmp/file.img > functions/mass_storage.0/lun.0/file
 
 -  *acm*: Serial gadget, creates serial interface like ``/dev/ttyGS0``.
 -  *ecm*: Ethernet gadget, creates ethernet interface, e.g. usb0
 -  *mass_storage*: The host can partition, format, and mount the gadget mass
    storage the same way as any other USB mass storage.
 
-*  Bind the defined functions to a configuration:
-
-.. code-block::
-
-   cd /sys/kernel/config/usb_gadget/g1
-   mkdir configs/c.1
-   mkdir configs/c.1/strings/0x409
-   echo "CDC ACM+ECM+MS" > configs/c.1/strings/0x409/configuration
-   ln -s functions/acm.GS0 configs/c.1/
-   ln -s functions/ecm.usb0 configs/c.1/
-   ln -s functions/mass_storage.0 configs/c.1/
-
-*  Finally, start the USB gadget with the following commands:
+Bind the defined functions to a configuration:
 
 .. code-block:: console
 
    target:~$ cd /sys/kernel/config/usb_gadget/g1
-   target:~$ /bin/ls /sys/class/udc/
+   target:~$ mkdir configs/c.1
+   target:~$ mkdir configs/c.1/strings/0x409
+   target:~$ echo "CDC ACM+ECM+MS" > configs/c.1/strings/0x409/configuration
+   target:~$ ln -s functions/acm.GS0 configs/c.1/
+   target:~$ ln -s functions/ecm.usb0 configs/c.1/
+   target:~$ ln -s functions/mass_storage.0 configs/c.1/
+
+Finally, start the USB gadget with the following commands:
+
+.. code-block:: console
+
+   target:~$ cd /sys/kernel/config/usb_gadget/g1
+   target:~$ ls --indicator-style=none /sys/class/udc/
    ci_hdrc.0
-   target:~$ echo "ci_hdrc.0" >UDC
+   target:~$ echo "ci_hdrc.0" > UDC
 
 ``ci_hdrc.0`` is an example, replace it with the actual name.
-Any trailing ```@`` might be shown by ls to show it is a link, remove it.
+Any trailing ``@`` might be shown by ``ls`` to show it is a link, remove it.
 If your system has more than one USB Device or OTG port, you can pass the right
 one to the USB Device Controller (UDC).
 
-*  To stop the USB gadget and unbind the used functions, execute:
+To stop the USB gadget and unbind the used functions, execute:
 
 .. code-block:: console
 
