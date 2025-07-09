@@ -580,6 +580,40 @@ ADC_IN0        47
 ADC_IN2        49
 ========= ========
 
+Additionally, there is a current sensing circuitry available on |sbc-nash|. It is
+capable of measuring input current consumption of the |som| SoM @ 3.3V. The circuitry
+consists of a MAX4372 current-sensing amplifier (50 V/V) with two 70 mOhm shunts
+resistors in parallel configuration (effective R = 35 mOhm) connected to the ADC input
+channel ADC_IN1 (Vref = 1.8V) via voltage divider with ratio of 1/2. This results
+in a current scaling factor of 0.502232142 mA/LSB.
+
+Current scaling factor is available as a sysfs parameter
+``/sys/bus/iio/devices/iio:device1/in_current0_scale``.
+
+The |som| SoM consumption can thus be measured with this simple script:
+
+.. code-block:: bash
+
+   #!/bin/sh
+   RAW=$(cat /sys/bus/iio/devices/iio:device1/in_current0_raw)
+   SCALE=$(cat /sys/bus/iio/devices/iio:device1/in_current0_scale)
+   CURRENT=$(echo "$RAW * $SCALE" | bc -l)
+   printf "Current: %.3f mA\n" "$CURRENT"
+
+.. note::
+   Current scaling factor calculation depends on ``CONFIG_IIO_RESCALE=y`` kernel configuration.
+
+In our BSP we also enable config option ``CONFIG_SENSORS_IIO_HWMON=y`` which provides
+hwmon interface to conveniently measure |som| SoM consumption directly via the sysfs
+parameter:
+
+.. code-block:: bash
+
+   root@phyboard-nash-imx93-1:~# cat /sys/class/hwmon/hwmon1/curr1_input
+   415
+
+In the example output provided above, the current consumption measured was 415 mA @ 3.3V.
+
 .. include:: ../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
