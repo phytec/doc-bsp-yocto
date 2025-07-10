@@ -306,7 +306,8 @@ Writing to an SD card with partup is done in a single command:
 
    host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/<your_device>
 
-Make sure to replace <your_device> with your actual device name found previously.
+Make sure to replace <your_device> with your actual device name found
+previously.
 
 Further usage of partup is explained at its `official documentation website
 <https://partup.readthedocs.io/en/latest/>`__.
@@ -330,7 +331,8 @@ Further usage of partup is explained at its `official documentation website
 Using ``dd``
 ............
 
-After having unmounted all SD card's partitions, you can create your bootable SD card.
+After having unmounted all SD card's partitions, you can create your bootable
+SD card.
 
 Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
 and some others produce compressed images (with filename-extension \*.wic.xz).
@@ -361,8 +363,8 @@ finished.
 First Start-up
 --------------
 
-*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
-   position:
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the
+   following position:
 
 .. image:: images/SD_Card_Boot.png
 
@@ -873,8 +875,8 @@ Host preparations for UUU-Tool Usage
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -1052,7 +1054,8 @@ Expand rootfs
 
 *  To apply your changes, press the green tick.
 *  Now you can mount the root partition and copy e.g. the
-   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it. Then unmount it again:
+   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it.
+   Then unmount it again:
 
    .. code-block:: console
       :substitutions:
@@ -1080,7 +1083,8 @@ Create the Third Partition
 .. image:: /bsp/imx-common/images/gparted8.png
 
 *  Now you can mount the new partition and copy e.g.
-   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it. Then unmount it again:
+   |yocto-imagename|-|yocto-machinename|.\ |yocto-imageext| image to it.
+   Then unmount it again:
 
    .. code-block:: console
       :substitutions:
@@ -1156,8 +1160,8 @@ The device tree representation for RS232 and RS485:
 Network
 -------
 
-|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by
+our module and board.
 
 .. warning::
 
@@ -1174,7 +1178,8 @@ module and board.
 U-boot network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* We currently use dynamic IP addresses in U-Boot. This is enabled by this variable:
+* We currently use dynamic IP addresses in U-Boot. This is enabled by this
+  variable:
 
    .. code-block::
 
@@ -1247,8 +1252,8 @@ found in our PHYTEC git:
 RTC
 ---
 
-RTCs can be accessed via ``/dev/rtc*``. Because PHYTEC boards have often more than
-one RTC, there might be more than one RTC device file.
+RTCs can be accessed via ``/dev/rtc*``. Because PHYTEC boards have often more
+than one RTC, there might be more than one RTC device file.
 
 *  To find the name of the RTC device, you can read its sysfs entry with:
 
@@ -1338,8 +1343,8 @@ DT representation for USB Host:
 CAN FD
 ------
 
-The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by
+the Linux standard CAN framework which builds upon then the Linux network layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
@@ -1356,7 +1361,8 @@ Video
 Videos with Gstreamer
 .....................
 
-One example video is installed by default in the BSP at `/usr/share/qtphy/videos/`.
+One example video is installed by default in the BSP at
+`/usr/share/qtphy/videos/`.
 Start the video playback with one of these commands:
 
 .. code-block:: console
@@ -1544,10 +1550,11 @@ snvs Power Key
 
 The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
 Power OFF without SW intervention. With the *snvs_pwrkey* driver, the KEY_POWER
-event is also reported to userspace when the button is pressed. On default, systemd
-is configured to ignore such events. The function of Power OFF without SW
-intervention are not configured. Triggering a power off with systemd when pushing
-the ON/OFF button can be configured under ``/etc/systemd/logind.conf`` and set using:
+event is also reported to userspace when the button is pressed. On default,
+systemd is configured to ignore such events. The function of Power OFF without
+SW intervention are not configured. Triggering a power off with systemd when
+pushing the ON/OFF button can be configured under ``/etc/systemd/logind.conf``
+and set using:
 
 .. code-block::
 

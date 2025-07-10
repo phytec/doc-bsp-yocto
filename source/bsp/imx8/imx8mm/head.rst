@@ -347,10 +347,12 @@ The following is an example of the pin muxing of the UART1 device in
            >;
    };
 
-The first part of the string MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad (in this example
-SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the desired muxing option for this pad.
-The pad setting value (hex value on the right) defines different modes of the pad, for example, if
-internal pull resistors are activated or not. In this case, the internal resistors are disabled.
+The first part of the string MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad
+(in this example SAI2_RXFS). The second part of the string (UART1_DCE_RX) is
+the desired muxing option for this pad.
+The pad setting value (hex value on the right) defines different modes of the
+pad, for example, if internal pull resistors are activated or not.
+In this case, the internal resistors are disabled.
 
 RS232/RS485
 -----------

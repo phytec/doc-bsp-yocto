@@ -881,8 +881,8 @@ Host preparations for UUU-Tool Usage
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -1031,8 +1031,9 @@ Get the source code
 Get the needed binaries
 .......................
 
-To build the bootloader, you need to **copy** these **files** to your |u-boot-repo-name|
-**build directory** and rename them to fit with *mkimage* script:
+To build the bootloader, you need to **copy** these **files** to your
+|u-boot-repo-name| **build directory** and rename them to fit with *mkimage*
+script:
 
 *  **ARM Trusted firmware binary** (*mkimage tool* compatible format
    **bl31.bin**): bl31-|kernel-socname|.bin
@@ -1160,12 +1161,12 @@ Device Tree Structure
 
 *  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
    and RAM.
-*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just routed
-   down to the carrier board and used there are included in this dtsi.
-*  *Board.dts* - include the carrier board and module dtsi files. There may also
-   be some hardware configuration nodes enabled on the carrier board or the
-   module (i.e. the Board .dts shows the special characteristics of the board
-   configuration). For example, there are |som| SOMs which may or may not
+*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just
+   routed down to the carrier board and used there are included in this dtsi.
+*  *Board.dts* - include the carrier board and module dtsi files. There may
+   also be some hardware configuration nodes enabled on the carrier board or
+   the module (i.e. the Board .dts shows the special characteristics of the
+   board configuration). For example, there are |som| SOMs which may or may not
    have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
    available) in the Board .dts and not in the Module .dtsi
 
@@ -1271,8 +1272,8 @@ The device tree representation for RS232 and RS485:
 Network
 -------
 
-|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by
+our module and board.
 
 .. warning::
 
@@ -1356,7 +1357,8 @@ Now you can scan for available networks:
 
    target:~$ iw wlan0 scan | grep SSID
 
-You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.
+You can use a cross-platform supplicant with support for WEP, WPA, and WPA2
+called wpa_supplicant for an encrypted connection.
 
 To do so, add the network-credentials to the file ``/etc/wpa_supplicant.conf``:
 
@@ -1392,7 +1394,8 @@ First, create the directory:
 
    target:~$ mkdir -p /etc/systemd/network/
 
-Then add the following configuration snippet in ``/etc/systemd/network/10-wlan0.network``:
+Then add the following configuration snippet in
+``/etc/systemd/network/10-wlan0.network``:
 
 .. code-block::
 
@@ -1412,11 +1415,11 @@ Now, restart the network daemon so that the configuration takes effect:
 Bluetooth
 .........
 
-Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
-is described in the WLAN section.
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this
+can be activated is described in the WLAN section.
 
-Bluetooth is connected to |bluetooth-uart| interface. More information about the module can
-be found at
+Bluetooth is connected to |bluetooth-uart| interface. More information about
+the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
 The Bluetooth device needs to be set up manually:
 
@@ -1789,8 +1792,8 @@ The following sequence shows how to enable the enhanced attribute.
 
    Here the maximum size is 3719168 KiB = 3632 MiB.
 
-*  Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB, by
-   typing:
+*  Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB,
+   by typing:
 
    .. code-block:: console
       :substitutions:
@@ -2108,10 +2111,10 @@ If any LEDs are connected to GPIOs, you have the possibility to access them by a
 special LED driver interface instead of the general GPIO interface (section
 GPIOs). You will then access them using ``/sys/class/leds/`` instead
 of ``/sys/class/gpio/``. The maximum brightness of the LEDs can be read from
-the ``max_brightness`` file. The brightness file will set the brightness of the LED
-(taking a value from 0 up to max_brightness). Most LEDs do not have hardware
-brightness support and will just be turned on by all non-zero brightness
-settings.
+the ``max_brightness`` file. The brightness file will set the brightness of the
+LED (taking a value from 0 up to max_brightness). Most LEDs do not have
+hardware brightness support and will just be turned on by all non-zero
+brightness settings.
 
 Below is a simple example.
 
@@ -2202,8 +2205,9 @@ DT representation for USB Host:
 CAN FD
 ------
 
-The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by
+the Linux standard CAN framework which builds upon then the Linux network
+layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
@@ -2261,8 +2265,9 @@ In this example, the PCIe device is the *Intel Corporation WiFi Link 5100*.
 
 For PCIe devices, you have to enable the correct driver in the kernel
 configuration. This WLAN card, for example, is manufactured by Intel. The
-option for the driver, which must be enabled, is named ``CONFIG_IWLWIFI`` and can be
-found under *Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat* in
+option for the driver, which must be enabled, is named ``CONFIG_IWLWIFI`` and
+can be found under
+*Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat* in
 the kernel configuration.
 
 *  In order to activate the driver, follow the instructions from our
@@ -2349,8 +2354,8 @@ experiment with. It might be better to open alsamixer via ssh instead of the
 serial console, as the console graphical effects are better. You have either
 mono or stereo gain controls for all mix points. "MM" means the feature is muted
 (both output, left & right), which can be toggled by hitting **m**. You can also
-toggle by hitting '**<**' for left and '**>**' for right output. With the **tab**
-key, you can switch between controls for playback and recording.
+toggle by hitting '**<**' for left and '**>**' for right output. With the
+**tab** key, you can switch between controls for playback and recording.
 
 ALSA configuration
 ..................
@@ -2378,9 +2383,10 @@ To set PEB-AV-10 as output, set *playback.pcm* from "dummy" to "pebav10":
 
    [...]
 
-If the sound is not audible change playback devices to the software volume control
-playback devices, set *playback.pcm* to the respective softvol playback device either
-"softvol_hdmi" or "softvol_pebav10". Use alsamixer controls to vary the volume levels.
+If the sound is not audible change playback devices to the software volume
+control playback devices, set *playback.pcm* to the respective softvol playback
+device either "softvol_hdmi" or "softvol_pebav10". Use alsamixer controls to
+vary the volume levels.
 
 .. code-block::
 
@@ -2436,10 +2442,10 @@ To playback other formats like mp3 for example, you can use Gstreamer:
 Capture
 .......
 
-``arecord`` is a command-line tool for capturing audio streams which use Line In as
-the default input source. To select a different audio source you can
-use ``alsamixer``. For example, switch on *Right PGA Mixer Mic3R* and *Left PGA Mixer
-Mic3R* in order to capture the audio from the microphone input of the
+``arecord`` is a command-line tool for capturing audio streams which use
+Line In as the default input source. To select a different audio source you can
+use ``alsamixer``. For example, switch on *Right PGA Mixer Mic3R* and *Left PGA
+Mixer Mic3R* in order to capture the audio from the microphone input of the
 TLV320-Codec using the 3.5mm jack.
 
 .. code-block:: console
@@ -2647,9 +2653,9 @@ https://community.nxp.com/t5/NXP-Tech-Blog/PyeIQ-3-x-Release-User-Guide/ba-p/130
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-Reading the registers using ``/dev/mem`` will cause the system to hang unless the
-*ocotp_root_clk* is enabled. To enable this clock permanent, add to the device
-tree:
+Reading the registers using ``/dev/mem`` will cause the system to hang unless
+the *ocotp_root_clk* is enabled. To enable this clock permanent, add to the
+device tree:
 
 .. code-block::
 
