@@ -283,7 +283,8 @@ Writing to an SD card with partup is done in a single command:
 
    host:~$ sudo partup install |yocto-imagename|-|yocto-machinename|.partup /dev/<your_device>
 
-Make sure to replace <your_device> with your actual device name found previously.
+Make sure to replace <your_device> with your actual device name found
+previously.
 
 Further usage of partup is explained at its `official documentation website
 <https://partup.readthedocs.io/en/latest/>`__.
@@ -332,7 +333,8 @@ to skip.
 Using ``dd``
 ............
 
-After having unmounted all SD card's partitions, you can create your bootable SD card.
+After having unmounted all SD card's partitions, you can create your bootable
+SD card.
 
 Some PHYTEC BSPs produce uncompressed images (with filename-extension \*.wic),
 and some others produce compressed images (with filename-extension \*.wic.xz).
@@ -363,8 +365,8 @@ finished.
 First Start-up
 --------------
 
-*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
-   position:
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the
+   following position:
 
 .. image:: images/SD_Card_Boot.png
 
@@ -389,8 +391,8 @@ First Start-up
 *  **lpddr4_pmu_train_2d_dmem_202006.bin,
    lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-   Trusted Firmware and DDR firmware. This is the final bootloader image which is
-   bootable.
+   Trusted Firmware and DDR firmware. This is the final bootloader image which
+   is bootable.
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
 *  **imx8mp-phyboard-pollux-rdk*.dtb**: Kernel device tree file
@@ -566,8 +568,8 @@ Show your available image files on the host:
    |yocto-imagename|-|yocto-machinename|.wic
    |yocto-imagename|-|yocto-machinename|.wic.bmap
 
-Send the image with the ``bmaptool`` command combined with ssh through the network
-to the eMMC of your device:
+Send the image with the ``bmaptool`` command combined with ssh through the
+network to the eMMC of your device:
 
 .. code-block:: console
    :substitutions:
@@ -792,7 +794,8 @@ Flash SPI NOR Flash
 -------------------
 
 The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
-Flash, set |ref-bootswitch| to **SPI NOR**. The SPI Flash is usually quite small.
+Flash, set |ref-bootswitch| to **SPI NOR**. The SPI Flash is usually quite
+small.
 The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash populated. Only the
 bootloader and the environment can be stored. The kernel, device tree, and file
 system are taken from eMMC by default.
@@ -891,8 +894,8 @@ Flash SPI NOR from SD Card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
-   on the SD Card.
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first
+   partition on the SD Card.
 
 *  Before reading and writing are possible, the SPI-NOR flash
    needs to be probed:
@@ -924,8 +927,8 @@ Flash SPI NOR from SD Card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first partition
-   on the SD Card.
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first
+   partition on the SD Card.
 
 *  Mount the SD Card:
 
@@ -995,8 +998,8 @@ Host preparations for UUU-Tool Usage
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -1271,8 +1274,8 @@ The device tree representation for RS232 and RS485:
 Network
 -------
 
-|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by
+our module and board.
 
 .. warning::
 
@@ -1356,7 +1359,8 @@ Now you can scan for available networks:
 
    target:~$ iw wlan0 scan | grep SSID
 
-You can use a cross-platform supplicant with support for WEP, WPA, and WPA2 called wpa_supplicant for an encrypted connection.
+You can use a cross-platform supplicant with support for WEP, WPA, and WPA2
+called wpa_supplicant for an encrypted connection.
 
 To do so, add the network-credentials to the file ``/etc/wpa_supplicant.conf``:
 
@@ -1392,7 +1396,8 @@ First, create the directory:
 
    target:~$ mkdir -p /etc/systemd/network/
 
-Then add the following configuration snippet in ``/etc/systemd/network/10-wlan0.network``:
+Then add the following configuration snippet in
+``/etc/systemd/network/10-wlan0.network``:
 
 .. code-block::
 
@@ -1412,11 +1417,11 @@ Now, restart the network daemon so that the configuration takes effect:
 Bluetooth
 .........
 
-Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
-is described in the WLAN section.
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this
+can be activated is described in the WLAN section.
 
-Bluetooth is connected to |bluetooth-uart| interface. More information about the module can
-be found at
+Bluetooth is connected to |bluetooth-uart| interface. More information about
+the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
 The Bluetooth device needs to be set up manually:
 
@@ -1718,8 +1723,8 @@ DT representation for USB Host:
 CAN FD
 ------
 
-The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by
+the Linux standard CAN framework which builds upon then the Linux network layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel

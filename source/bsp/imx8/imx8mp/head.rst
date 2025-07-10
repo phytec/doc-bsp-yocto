@@ -187,8 +187,8 @@ should show you the necessary **Machine Name** for your specific hardware
 First Start-up
 --------------
 
-*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
-   position:
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the
+   following position:
 
 .. image:: images/SD_Card_Boot.png
 
@@ -213,8 +213,8 @@ First Start-up
 *  **lpddr4_pmu_train_2d_dmem_202006.bin,
    lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-   Trusted Firmware and DDR firmware. This is the final bootloader image which is
-   bootable.
+   Trusted Firmware and DDR firmware. This is the final bootloader image which
+   is bootable.
 *  **fitImage**: Linux kernel FIT image
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
@@ -403,8 +403,8 @@ The device tree representation for RS232 and RS485:
 Network
 -------
 
-|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
+|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by
+our module and board.
 
 .. warning::
 
@@ -422,8 +422,8 @@ module and board.
 .. include:: ../../peripherals/wireless-network.rsti
    :end-before: .. bluetooth_chapter_start_label
 
-Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this can be activated
-is described in the WLAN section.
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this
+can be activated is described in the WLAN section.
 
 .. include:: ../../peripherals/wireless-network.rsti
    :start-after: .. bluetooth_chapter_start_label
@@ -512,8 +512,9 @@ DT representation for USB Host:
 CAN FD
 ------
 
-The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by
+the Linux standard CAN framework which builds upon then the Linux network
+layer.
 Using this framework, the CAN interfaces behave like an ordinary Linux network
 device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
