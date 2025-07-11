@@ -54,7 +54,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
 .. |dt-som| replace:: imx93-phycore-som
-.. |dtbo-rpmsg| replace:: imx93-phycore-rpmsg.dtso
+.. |dtbo-rpmsg| replace:: ``imx93-phycore-rpmsg.dtbo``
 
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n61`
