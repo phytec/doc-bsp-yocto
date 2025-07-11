@@ -79,7 +79,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.1. Standalone Build preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.2. U-Boot standalone build</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.3. Kernel standalone build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with uuu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with UUU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. Host Network Preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.7. Accessing the Development states</a></li>
@@ -476,7 +476,7 @@ finished.</p>
 <li><p>To boot from an SD card, the <a class="reference internal" href="#imx8mp-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> needs to be set to the
 following position:</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <ul class="simple">
 <li><p>Insert the SD card</p></li>
 <li><p>Connect the target and the host with <strong>micro USB</strong> on <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">(X1)</span></a>
@@ -631,21 +631,21 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-head-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
+<img alt="../../../_images/eMMC.png" src="../../../_images/eMMC.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
+<img alt="../../../_images/Internal_Fuses.png" src="../../../_images/Internal_Fuses.png" />
 <figcaption>
 <p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR2.png" src="../../../_images/SPI_NOR2.png" />
+<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -653,14 +653,14 @@ select the phyCORE-i.MX 8M Plus default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download2.png" src="../../../_images/USB_Serial_Download2.png" />
+<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <figcaption>
 <p><span class="caption-text">SD Card</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -1593,16 +1593,16 @@ kernel modules may be copied directly to a mounted SD card.</p>
 </section>
 </section>
 <section id="working-with-uuu">
-<h2><span class="section-number">5.4. </span>Working with uuu<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility (uuu) by NXP is software to execute on the host for
+<h2><span class="section-number">5.4. </span>Working with UUU<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility (UUU) by NXP is software to execute on the host for
 loading and running the bootloader on the board through SDP (Serial Download
 Protocol). For detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or
 download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-usage">
-<h3><span class="section-number">5.4.1. </span>Host preparations for uuu Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Host preparations for UUU Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
-<li><p>If you built uuu from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
 <p>This BASH command adds uuu only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it
 permanently, add this line to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
@@ -1638,19 +1638,19 @@ phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.</p>
 <p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mp-head-components"><span class="std std-ref">(X1)</span></a>, as usual.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The default boot command when booting with uuu is set to fastboot. If you
+<p>The default boot command when booting with UUU is set to fastboot. If you
 want to change this, please adjust the environment variable bootcmd_mfg in
-U-boot prompt with setenv bootcmd_mfg. Please note, when booting with uuu the
+U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
 default environment is loaded. <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> has no effect. If you want to
 change the boot command permanently for uuu-boot, you need to change this in
 U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via uuu<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via UUU<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>uuu flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
+<p>UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
 the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
 bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
 version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
@@ -1663,7 +1663,7 @@ device always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to e.MMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for e.MMC flashing this is
@@ -1675,14 +1675,14 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via uuu<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via UUU<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic
 </pre></div>
 </div>
 </section>
 <section id="flashing-spi-nor-flash-via-uuu">
-<h3><span class="section-number">5.4.7. </span>Flashing SPI NOR Flash via uuu<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.7. </span>Flashing SPI NOR Flash via UUU<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-pollux-imx8mp-3-fspi.bin-flash_evk_flexspi
 </pre></div>
@@ -2456,7 +2456,7 @@ kernel documentation:
 <section id="rs485-half-duplex">
 <h4><span class="section-number">7.2.2.1. </span>RS485 half-duplex<a class="headerlink" href="#rs485-half-duplex" title="Link to this heading"></a></h4>
 <p>For half-duplex mode your connection setup should look like this:</p>
-<img alt="../../../_images/RS485_halfduplex_connection3.png" src="../../../_images/RS485_halfduplex_connection3.png" />
+<img alt="../../../_images/RS485_halfduplex_connection2.png" src="../../../_images/RS485_halfduplex_connection2.png" />
 <p>Which function is on which pin is described in the hardware manual.</p>
 <p>For half-duplex mode you can set the ioctls manually like this:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rs485conf<span class="w"> </span>/dev/ttymxc1<span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>
@@ -4866,7 +4866,7 @@ on the top.</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g3375b44</dd>
+      <dd>imx95-alpha1-39-g6b7cda7</dd>
     </dl>
   </div>
 </div><script>

@@ -90,14 +90,14 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-libra-fpsc-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-libra-fpsc-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-libra-fpsc-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-libra-fpsc-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-libra-fpsc-head-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-libra-fpsc-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-libra-fpsc-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-libra-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X16 <imx8mp-libra-fpsc-head-components>`
+.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-libra-fpsc-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-libra-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-libra-fpsc-head-format-sd>`
 
@@ -303,7 +303,6 @@ Development
    imx8mp-isi-csi2.dtbo
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
-   |dtbo-peb-av-10|
    imx8mp-vm016-csi1.dtbo
    imx8mp-vm016-csi1-fpdlink.dtbo
    imx8mp-vm016-csi2.dtbo
@@ -424,6 +423,8 @@ DT configuration for the e.MMC interface can be found here:
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
 
+.. include:: ../peripherals/spi-nor-flash-no-boot.rsti
+
 The definition of the SPI master node in the device tree can be found here:
 
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
@@ -519,6 +520,11 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`
+
+.. include:: /bsp/peripherals/pcie.rsti
+
+Device Tree PCIe configuration of |dt-carrierboard|.dts:
+:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345`
 
 .. include:: /bsp/peripherals/video.rsti
 

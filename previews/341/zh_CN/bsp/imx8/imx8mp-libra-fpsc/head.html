@@ -78,7 +78,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.1. 独立编译准备</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.2. 单独编译U-Boot</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.3. 单独编译内核</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with uuu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with UUU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. 主机网络准备</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. 从网络启动内核</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.7. 获取BSP开发中版本</a></li>
@@ -105,14 +105,15 @@
 <li class="toctree-l5"><a class="reference internal" href="#rtc">7.11. RTC</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.12. USB主控制器</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#can-fd">7.13. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#video">7.14. 视频</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">7.15. 显示</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#power-management">7.16. 电源管理</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.17. 热管理</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.18. 看门狗</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">7.19. snvs电源按键</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#isp">7.20. ISP</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.21. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pcie">7.14. PCIe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#video">7.15. 视频</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">7.16. 显示</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">7.17. 电源管理</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.18. 热管理</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.19. 看门狗</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">7.20. snvs电源按键</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#isp">7.21. ISP</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.22. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
 </ul>
 </li>
 </ul>
@@ -377,9 +378,9 @@ Debian-based systems install it by issuing:</p>
 <section id="first-start-up">
 <h2><span class="section-number">2.3. </span>首次启动<a class="headerlink" href="#first-start-up" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>要从SD卡启动， <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> 需要设置为以下位置：</p></li>
+<li><p>要从SD卡启动， <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> 需要设置为以下位置：</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <ul class="simple">
 <li><p>插入SD卡</p></li>
 <li><p>Connect the target and the host with <strong>micro USB</strong> on <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">(X14)</span></a>
@@ -509,21 +510,21 @@ select the phyCORE-i.MX 8M Plus FPSC default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-libra-fpsc-head-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/eMMC3.png" src="../../../_images/eMMC3.png" />
+<img alt="../../../_images/eMMC.png" src="../../../_images/eMMC.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses3.png" src="../../../_images/Internal_Fuses3.png" />
+<img alt="../../../_images/Internal_Fuses.png" src="../../../_images/Internal_Fuses.png" />
 <figcaption>
 <p><span class="caption-text">内部fuse</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR3.png" src="../../../_images/SPI_NOR3.png" />
+<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -531,14 +532,14 @@ select the phyCORE-i.MX 8M Plus FPSC default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download4.png" src="../../../_images/USB_Serial_Download4.png" />
+<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
 <figcaption>
 <p><span class="caption-text">USB</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
+<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
 <figcaption>
 <p><span class="caption-text">SD卡</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -559,7 +560,7 @@ select the phyCORE-i.MX 8M Plus FPSC default bootsource.</p>
 <h2><span class="section-number">4.2. </span>Flash e.MMC<a class="headerlink" href="#flash-e-mmc" title="Link to this heading"></a></h2>
 <p>为了保持文档的一致性和简洁性，假设已经配置好了TFTP服务器；所有生成的镜像（如上所列）都被复制到默认的/srv/tftp目录。如果您没有进行设置，您需要修改路径到包含镜像的目录。有关如何设置TFTP服务器和目录的说明，请参见 <a class="reference internal" href="#imx8mp-libra-fpsc-head-development"><span class="std std-ref">Setup Network Host</span></a> 。</p>
 <p>To boot from e.MMC, make sure that the BSP image is flashed correctly to the
-e.MMC and the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> is set to <strong>e.MMC</strong>.</p>
+e.MMC and the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> is set to <strong>e.MMC</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>When e.MMC and SD card are flashed with the same (identical) image, the UUIDs
@@ -714,7 +715,7 @@ u-boot=&gt; mmc write ${loadaddr} 0x40 ${nblk}
 <p>These steps will show how to flash the e.MMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
-<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card.</p>
+<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card.</p>
 <ul>
 <li><p>插入并挂载U盘：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected</span>
@@ -745,7 +746,7 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
 <li><p>After a complete write, your board can boot from e.MMC.</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>在此之前，您需要将 <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> 配置为 <strong>eMMC</strong>。</p>
+<p>在此之前，您需要将 <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> 配置为 <strong>eMMC</strong>。</p>
 </div>
 </li>
 </ul>
@@ -757,7 +758,7 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
 <p>此步骤仅在镜像文件小于1GB的情况下会被执行成功，因为在启用OPTEE后，Bootloader中可用的RAM大小有限，不足以加载超过1GB的镜像</p>
 </div>
 <p>These steps will show how to update the e.MMC via a USB device. Configure the
-<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card and insert an SD card. Power on the board and stop
+<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card and insert an SD card. Power on the board and stop
 in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
 the USB slot.</p>
 <p>将镜像从USB设备加载到RAM中：</p>
@@ -822,7 +823,7 @@ the e.MMC device, adjusting partitions accordingly.</p>
 <li><p>After a complete write, your board can boot from e.MMC.</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to
+<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to
 e.MMC.</p>
 </div>
 </li>
@@ -839,7 +840,7 @@ Linux on Target</cite> subsection.</p>
 </div>
 <ul>
 <li><p>将一个可用的镜像烧写到SD卡，并创建一个EXT4格式的第三分区。将WIC镜像（例如 phytec-qt6demo-image.rootfs.wic）复制到该分区。</p></li>
-<li><p>Configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card and insert the SD card.</p></li>
+<li><p>Configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card and insert the SD card.</p></li>
 <li><p>打开电源并进入U-Boot。</p></li>
 <li><p>加载镜像：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; ext4load mmc 1:3 ${loadaddr} phytec-headless-image-imx8mp-libra-fpsc-1.rootfs.wic
@@ -868,7 +869,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 </pre></div>
 </div>
 </li>
-<li><p>Power off the board and change the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to e.MMC.</p></li>
+<li><p>Power off the board and change the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to e.MMC.</p></li>
 </ul>
 </section>
 </section>
@@ -1130,16 +1131,16 @@ meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
 </section>
 </section>
 <section id="working-with-uuu">
-<h2><span class="section-number">5.4. </span>Working with uuu<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility (uuu) by NXP is software to execute on the host for
+<h2><span class="section-number">5.4. </span>Working with UUU<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility (UUU) by NXP is software to execute on the host for
 loading and running the bootloader on the board through SDP (Serial Download
 Protocol). For detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or
 download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-usage">
-<h3><span class="section-number">5.4.1. </span>Host preparations for uuu Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Host preparations for UUU Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>请按照 <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a> 上的说明进行操作。</p></li>
-<li><p>If you built uuu from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<li><p>如果您要从源代码编译UUU，请将其添加到 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 中：</p>
 <p>This BASH command adds uuu only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it
 permanently, add this line to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
@@ -1163,7 +1164,7 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.</p>
 </section>
 <section id="prepare-target">
 <h3><span class="section-number">5.4.3. </span>开发板准备<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
-<p>将 <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> 设置为 <strong>USB串行下载</strong>。同时，将 USB 端口 <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">X16</span></a> 连接到主机。</p>
+<p>将 <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> 设置为 <strong>USB串行下载</strong>。同时，将 USB 端口 <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">X18</span></a> 连接到主机。</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
 <h3><span class="section-number">5.4.4. </span>通过UUU工具启动bootloader<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
@@ -1174,19 +1175,19 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.</p>
 <p>您可以像往常一样通过 <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">(X14)</span></a> 在终端上查看启动日志。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>The default boot command when booting with uuu is set to fastboot. If you
+<p>The default boot command when booting with UUU is set to fastboot. If you
 want to change this, please adjust the environment variable bootcmd_mfg in
-U-boot prompt with setenv bootcmd_mfg. Please note, when booting with uuu the
+U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
 default environment is loaded. <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> has no effect. If you want to
 change the boot command permanently for uuu-boot, you need to change this in
 U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via uuu<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via UUU<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>uuu flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
+<p>UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
 the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
 bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
 version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
@@ -1199,7 +1200,7 @@ device always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../imx8mp/pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to e.MMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for e.MMC flashing this is
@@ -1211,7 +1212,7 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via uuu<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via UUU<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <p>执行并给开发板上电：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic
 </pre></div>
@@ -1563,7 +1564,6 @@ overlays=&lt;overlayconfignames&gt;
 imx8mp-isi-csi2.dtbo
 imx8mp-isp-csi1.dtbo
 imx8mp-isp-csi2.dtbo
-imx8mp-libra-peb-av-10.dtbo
 imx8mp-vm016-csi1.dtbo
 imx8mp-vm016-csi1-fpdlink.dtbo
 imx8mp-vm016-csi2.dtbo
@@ -1752,7 +1752,7 @@ The switch <a class="reference internal" href="#imx8mp-libra-fpsc-head-component
 <section id="rs485-half-duplex">
 <h4><span class="section-number">7.2.2.1. </span>RS485 半双工<a class="headerlink" href="#rs485-half-duplex" title="Link to this heading"></a></h4>
 <p>对于半双工模式，应按下图方式连接：</p>
-<img alt="../../../_images/RS485_halfduplex_connection3.png" src="../../../_images/RS485_halfduplex_connection3.png" />
+<img alt="../../../_images/RS485_halfduplex_connection2.png" src="../../../_images/RS485_halfduplex_connection2.png" />
 <p>硬件手册中有描述各个引脚的功能。</p>
 <p>对于半双工模式，您可以手动设置 ioctls，如下所示：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rs485conf<span class="w"> </span>/dev/ttymxc2<span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>
@@ -2330,8 +2330,35 @@ This functionality is limited to boot0 and boot1 partitions and does not apply t
 <section id="spi-master">
 <h2><span class="section-number">7.6. </span>SPI主设备<a class="headerlink" href="#spi-master" title="Link to this heading"></a></h2>
 <p>i.MX 8M Plus 控制器包含一个 FlexSPI 和一个 ECSPI IP 核。FlexSPI 主控制器支持两个 SPI 通道，最多可连接 4 个设备。每个通道支持单通道/双通道/四通道/八通道模式的数据传输（1/2/4/8 条数据线）。ECSPI 控制器支持 3 个 SPI 接口，每个接口都有一个专用的CS（chip select）引脚。由于CS也可通过 GPIO 实现，因此每个通道上可以连接多个设备。</p>
+<section id="spi-nor-flash">
+<h3><span class="section-number">7.6.1. </span>SPI NOR 烧写<a class="headerlink" href="#spi-nor-flash" title="Link to this heading"></a></h3>
+<p>Libra is equipped with a QSPI NOR Flash which connects to the i.MX 8M Plus's
+FlexSPI interface.</p>
+<p>From Linux userspace, the NOR Flash partitions are
+accessible via /dev/mtd&lt;N&gt; devices where &lt;N&gt; is the MTD device number associated
+with the NOR flash partition to access. To find the correct MTD device number
+for a partition, run on the target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-libra-fpsc-1:~$ </span>mtdinfo<span class="w"> </span>--all
+<span class="go">Count of MTD devices:           1</span>
+<span class="go">Present MTD devices:            mtd0</span>
+<span class="go">Sysfs interface supported:      yes</span>
+
+<span class="go">mtd0</span>
+<span class="go">Name:                           30bb0000.spi</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                131072 bytes, 128.0 KiB</span>
+<span class="go">Amount of eraseblocks:          512 (67108864 bytes, 64.0 MiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:0</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
+</pre></div>
+</div>
+<p>它列出了所有MTD设备及其对应的分区名称。闪存节点在模块DTS中的SPI主节点内定义。SPI节点包含连接到此SPI总线的所有设备，在这种情况下只有SPI NOR Flash。</p>
 <p>设备树中SPI主节点的定义可以在这里找到：</p>
 <p><a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128">https://github.com/phytec/linux-phytec-imx/tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128</a></p>
+</section>
 </section>
 <section id="gpios">
 <h2><span class="section-number">7.7. </span>GPIOs<a class="headerlink" href="#gpios" title="Link to this heading"></a></h2>
@@ -2848,10 +2875,90 @@ BitRate=500000
 </div>
 <p>imx8mp-libra-rdk-fpsc.dts 的设备树 CAN 配置： <a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203">https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203</a></p>
 </section>
+<section id="pcie">
+<h2><span class="section-number">7.14. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
+<p>The phyCORE-i.MX 8M Plus FPSC has one Mini-PCIe slot. In general, PCIe autodetects new
+devices on the bus. After connecting the device and booting up the system, you
+can use the command lspci to see all PCIe devices recognized.</p>
+<ul>
+<li><p>输入：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>lspci<span class="w"> </span>-v
+</pre></div>
+</div>
+</li>
+<li><p>你将收到：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>00:00.0 PCI bridge: Synopsys, Inc. Device abcd (rev 01) (prog-if 00 [Normal decode])
+        Flags: bus master, fast devsel, latency 0, IRQ 218
+        Memory at 18000000 (64-bit, non-prefetchable) [size=1M]
+        Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
+        I/O behind bridge: None
+        Memory behind bridge: 18100000-181fffff [size=1M]
+        Prefetchable memory behind bridge: None
+        [virtual] Expansion ROM at 18200000 [disabled] [size=64K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable+ Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] Express Root Port (Slot-), MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [148] L1 PM Substates
+        Kernel driver in use: dwc3-haps
+
+01:00.0 Network controller: Intel Corporation WiFi Link 5100
+        Subsystem: Intel Corporation WiFi Link 5100 AGN
+        Flags: fast devsel
+        Memory at 18100000 (64-bit, non-prefetchable) [disabled] [size=8K]
+        Capabilities: [c8] Power Management version 3
+        Capabilities: [d0] MSI: Enable- Count=1/1 Maskable- 64bit+
+        Capabilities: [e0] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number 00-24-d6-ff-ff-84-0d-1e
+        Kernel modules: iwlwifi
+</pre></div>
+</div>
+</li>
+</ul>
+<p>在这个例子中，PCIe设备是 <em>英特尔 WiFi Link 5100</em> 。</p>
+<p>对于PCIe设备，您必须在内核配置中启用正确的驱动程序。例如，这款WLAN卡是由英特尔制造的。必须启用的驱动程序选项名为 <code class="docutils literal notranslate"><span class="pre">CONFIG_IWLWIFI</span></code> ，可以在内核配置中的 <em>Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimate</em> 下找到。</p>
+<ul class="simple">
+<li><p>为了激活驱动程序，请按照我们的Yocto手册中的说明进行操作： <a class="reference internal" href="../../../yocto/scarthgap.html#yocto-man-scarthgap-kernel-and-bootloader-conf"><span class="std std-ref">Yocto Reference Manual</span></a></p>
+<ul>
+<li><p>linux-imx的表示为：<strong>virtual/kernel</strong></p></li>
+</ul>
+</li>
+</ul>
+<p>对于某些设备，如WLAN卡，需要额外的二进制固件文件。这些固件文件必须放置在 <code class="docutils literal notranslate"><span class="pre">/lib/firmware/</span></code> 目录中，才能使用该设备。</p>
+<ul>
+<li><p>输入：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>-r<span class="w"> </span>&lt;firmware&gt;<span class="w"> </span>root@192.168.3.11:/lib/firmware
+</pre></div>
+</div>
+</li>
+<li><p>例如，如果您尝试启动网络接口：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>wlp1s0
+</pre></div>
+</div>
+</li>
+<li><p>您将在串口控制台上获得以下输出：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   58.682104] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.690822] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.696577] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0</span>
+<span class="go">[   58.831022] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.839679] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.845435] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0</span>
+<span class="go">[   58.902797] IPv6: ADDRCONF(NETDEV_UP): wlp1s0: link is not ready</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>某些PCIe设备，例如以太网卡，即使没有从 <code class="docutils literal notranslate"><span class="pre">/lib/firmware/</span></code> 加载固件文件，也可能正常工作，而你收到了如上输出第一行所示的错误消息。这是因为一些制造商在板卡本身提供了固件作为后备。在这种情况下，设备的行为和输出在很大程度上依赖于制造商的固件。</p>
+</div>
+<p>imx8mp-libra-rdk-fpsc.dts 的设备树 PCIE 配置： <a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345">https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345</a></p>
+</section>
 <section id="video">
-<h2><span class="section-number">7.14. </span>视频<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.15. </span>视频<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <section id="videos-with-gstreamer">
-<h3><span class="section-number">7.14.1. </span>视频与Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.1. </span>视频与Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
 <p>默认情况下，BSP安装了一个示例视频，路径为 <cite>/usr/share/qtphy/videos/</cite> 。可以使用以下命令之一开始视频播放：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>playbin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>file:///usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
 </pre></div>
@@ -2871,7 +2978,7 @@ BitRate=500000
 </section>
 </section>
 <section id="display">
-<h2><span class="section-number">7.15. </span>显示<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.16. </span>显示<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
 <p>The Libra supports up to 3 different display outputs. The following table shows
 the required extensions and devicetree overlays for the different interfaces.
 For the alpha release, we have included overlays for two different LVDS displays.
@@ -2909,10 +3016,10 @@ imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo</p></td>
 <p>当前的显示驱动程序将连接到LVDS的LCD的像素时钟限制为74.25MHz（或其分频）。如果这满足不了您的需求，请联系支持团队以获得进一步的帮助。</p>
 </div>
 <section id="weston-configuration">
-<h3><span class="section-number">7.15.1. </span>Weston 配置<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.1. </span>Weston 配置<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
 <p>为了让Weston正确的显示，需要进行正确的配置。这将在/etc/xdg/weston/weston.ini中完成。</p>
 <section id="single-display">
-<h4><span class="section-number">7.15.1.1. </span>单一显示器<a class="headerlink" href="#single-display" title="Link to this heading"></a></h4>
+<h4><span class="section-number">7.16.1.1. </span>单一显示器<a class="headerlink" href="#single-display" title="Link to this heading"></a></h4>
 <p>In our BSP, the default Weston output is set to LVDS-1 (onboard LVDS).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
 name=LVDS-1
@@ -2922,7 +3029,7 @@ mode=preferred
 </section>
 </section>
 <section id="qt-demo">
-<h3><span class="section-number">7.15.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
 <p>使用 <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code> 时，Weston会在启动时启动。我们的Qt6 DEMO应用程序名为“qtphy”，可以通过以下方式停止：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>qtphy
 </pre></div>
@@ -2955,7 +3062,7 @@ mode=preferred
 </div>
 </section>
 <section id="backlight-control">
-<h3><span class="section-number">7.15.3. </span>背光控制<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.3. </span>背光控制<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
 <p>如果LCD连接到PHYTEC开发板，可以通过Linux内核的sysfs接口控制其背光。系统中所有可用的背光设备可以在文件夹/sys/class/backlight中找到。读取相应的文件并向其写入数据可以控制背光。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
@@ -2986,9 +3093,9 @@ mode=preferred
 </section>
 </section>
 <section id="power-management">
-<h2><span class="section-number">7.16. </span>电源管理<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.17. </span>电源管理<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
 <section id="cpu-core-frequency-scaling">
-<h3><span class="section-number">7.16.1. </span>CPU核心频率调节<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.1. </span>CPU核心频率调节<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
 <p>i.MX 8M Plus SoC中的CPU能够调整时钟频率和电压。这用于在不需要CPU的全部性能时节省电力。调整频率和电压被称为“动态电压和频率调整”（DVFS）。i.MX 8M Plus BSP支持DVFS功能。Linux内核提供了一个DVFS框架，允许每个CPU核心设置最小或最大频率和一个管理其运行的governor。根据使用的 i.MX 8 型号，支持几种不同的频率。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
@@ -3049,7 +3156,7 @@ mode=preferred
 <p>有关governor的更详细信息，请参阅Linux内核代码库中的Linux内核文档，路径为 <code class="docutils literal notranslate"><span class="pre">Documentation/admin-guide/pm/cpufreq.rst</span></code> 。</p>
 </section>
 <section id="cpu-core-management">
-<h3><span class="section-number">7.16.2. </span>CPU核心管理<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.2. </span>CPU核心管理<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
 <p>该 i.MX 8M Plus SoC 芯片上可以有多个处理器核心。例如，该 i.MX 8M Plus 具有 4 个 ARM 核心，可以在运行时单独开启和关闭。</p>
 <ul>
 <li><p>要查看系统中所有可用的核心，请执行：</p>
@@ -3087,7 +3194,7 @@ mode=preferred
 </ul>
 </section>
 <section id="suspend-to-ram">
-<h3><span class="section-number">7.16.3. </span>挂起到RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.3. </span>挂起到RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
 <p>phyCORE-i.MX 8M Plus FPSC 支持基本的挂起和恢复。可以使用不同的唤醒源。挂起/恢复可以通过以下方式实现：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>mem<span class="w"> </span>&gt;<span class="w"> </span>/sys/power/state
 <span class="gp">#</span>resume<span class="w"> </span>with<span class="w"> </span>pressing<span class="w"> </span>on/off<span class="w"> </span>button
@@ -3101,9 +3208,9 @@ mode=preferred
 </section>
 </section>
 <section id="thermal-management">
-<h2><span class="section-number">7.17. </span>热管理<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.18. </span>热管理<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
 <section id="u-boot">
-<h3><span class="section-number">7.17.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
 <p>之前U-Boot中的温度控制不够理想。现在，U-Boot增加了温度关机功能，以防止在启动过程中板子过热。关机发生的温度与内核中的温度一致。</p>
 <p>当前温度的各个温度范围在启动日志中显示：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CPU:   Industrial temperature grade (-40C to 105C) at 33C
@@ -3111,7 +3218,7 @@ mode=preferred
 </div>
 </section>
 <section id="kernel">
-<h3><span class="section-number">7.17.2. </span>内核<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.2. </span>内核<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
 <p>Linux内核集成了热管理功能，能够监测芯片（SoC）温度，降低CPU频率，控制风扇，通知其他驱动程序减少功耗，并在最坏的情况下关闭系统（<a class="reference external" href="https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt">https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt</a>）。</p>
 <p>本节描述了如何在 i.MX 8M Plus SoC 平台上使用热管理内核 API。 i.MX 8 具有用于 SoC 的内部温度传感器。</p>
 <ul>
@@ -3154,10 +3261,10 @@ mode=preferred
 </section>
 </section>
 <section id="watchdog">
-<h2><span class="section-number">7.18. </span>看门狗<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.19. </span>看门狗<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
 <p>PHYTEC i.MX 8M Plus 模块包含一个硬件看门狗，当系统挂起时能够重置开发板。看门狗在 U-Boot 中默认启动，超时时间为 60 秒。因此，即使在早期内核启动过程中，看门狗也已经开始运行。Linux 内核驱动程序控制看门狗，并确保它有被踢到。本节将解释如何使用 systemd 在 Linux 中配置看门狗，以避免系统挂起和重启期间的情况。</p>
 <section id="watchdog-support-in-systemd">
-<h3><span class="section-number">7.18.1. </span>Systemd中的看门狗支持<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.1. </span>Systemd中的看门狗支持<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
 <p>Systemd 从版本 183 开始支持硬件看门狗。</p>
 <ul>
 <li><p>要启用看门狗支持，需要通过启用选项来配置 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/</span></code> 中的文件system.conf文件：</p>
@@ -3174,18 +3281,18 @@ ShutdownWatchdogSec=10min
 </section>
 </section>
 <section id="snvs-power-key">
-<h2><span class="section-number">7.19. </span>snvs电源按键<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.20. </span>snvs电源按键<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
 <p>连接到开关按钮的 X_ONOFF 引脚可以长按以触发关机，而无需软件干预，或用于唤醒系统以退出挂起状态。使用 <em>snvs_pwrkey</em> 驱动程序时，当按下按钮时，KEY_POWER 事件也会报告给用户空间。默认情况下，systemd 被配置为忽略此类事件。关机而无需软件干预的功能以及从挂起状态唤醒的功能未被配置。可以在 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/logind.conf</span></code> 中配置按下开/关按钮时通过 systemd 触发关机，配置方法如下：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HandlePowerKey=poweroff
 </pre></div>
 </div>
 </section>
 <section id="isp">
-<h2><span class="section-number">7.20. </span>ISP<a class="headerlink" href="#isp" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.21. </span>ISP<a class="headerlink" href="#isp" title="Link to this heading"></a></h2>
 <p>i.MX 8M Plus SoC包含一个图像信号处理器（ISP）。有关更多信息，请参阅|sbc| i.MX 8M Plus 文档中的使用ISP部分。</p>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
-<h2><span class="section-number">7.21. </span>片上一次性可编程控制器 (OCOTP_CTRL) - eFuse<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.22. </span>片上一次性可编程控制器 (OCOTP_CTRL) - eFuse<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
 <p>该 i.MX 8M Plus 提供一次性可编程fuse，用于存储信息，例如 MAC 地址、启动配置和其他永久设置（在 i.MX 8M Plus reference manual中称为“片上 OTP 控制器 (OCOTP_CTRL)”）。以下列表摘自 i.MX 8M Plus reference manual，包括 OCOTP_CTRL 中的一些有用寄存器（基地址为0x30350000）：</p>
 <table class="docutils align-default">
 <thead>
@@ -3219,7 +3326,7 @@ ShutdownWatchdogSec=10min
 </table>
 <p>关于OCOTP_CTRL中的fuse与启动配置之间的完整列表和详细映射，请参阅 i.MX 8M Plus Security Reference Manual中的 &quot;Fuse Map&quot; 部分。</p>
 <section id="reading-fuse-values-in-uboot">
-<h3><span class="section-number">7.21.1. </span>在uBoot中读取fuse的值<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.1. </span>在uBoot中读取fuse的值<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
 <p>您可以使用内存映射的shadow寄存器读取fuse寄存器。要计算内存地址，请使用以下公式计算：</p>
 <p>OCOTP_MAC_ADDR:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fuse read 9 0
@@ -3227,7 +3334,7 @@ ShutdownWatchdogSec=10min
 </div>
 </section>
 <section id="reading-fuse-values-in-linux">
-<h3><span class="section-number">7.21.2. </span>在Linux中读取fuse值<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.2. </span>在Linux中读取fuse值<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
 <p>要访问Linux中的fuse内容，NXP提供了NVMEM_IMX_OCOTP模块。所有内存映射的shadow寄存器的fuse内容可以通过sysfs访问：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>hexdump<span class="w"> </span>/sys/devices/platform/soc@0/30000000.bus/30350000.efuse/imx-ocotp0/nvmem
 </pre></div>
@@ -3277,7 +3384,7 @@ ShutdownWatchdogSec=10min
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g3375b44</dd>
+      <dd>imx95-alpha1-39-g6b7cda7</dd>
     </dl>
   </div>
 </div><script>

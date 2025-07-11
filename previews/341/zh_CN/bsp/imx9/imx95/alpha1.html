@@ -81,7 +81,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.1. 独立编译准备</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.2. 单独编译U-Boot</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.3. 单独编译内核</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with uuu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with UUU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. 主机网络准备</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. 从网络启动内核</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.7. 获取BSP开发中版本</a></li>
@@ -474,21 +474,21 @@ select the phyCORE-i.MX 95 default bootsource.</p>
 <table class="docutils align-default" id="imx95-alpha1-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id5">
-<img alt="../../../_images/eMMC2.png" src="../../../_images/eMMC2.png" />
+<img alt="../../../_images/eMMC3.png" src="../../../_images/eMMC3.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/Internal_Fuses2.png" src="../../../_images/Internal_Fuses2.png" />
+<img alt="../../../_images/Internal_Fuses3.png" src="../../../_images/Internal_Fuses3.png" />
 <figcaption>
 <p><span class="caption-text">内部fuse</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR2.png" src="../../../_images/SPI_NOR2.png" />
+<img alt="../../../_images/SPI_NOR3.png" src="../../../_images/SPI_NOR3.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
@@ -496,7 +496,7 @@ select the phyCORE-i.MX 95 default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download3.png" src="../../../_images/USB_Serial_Download3.png" />
+<img alt="../../../_images/USB_Serial_Download4.png" src="../../../_images/USB_Serial_Download4.png" />
 <figcaption>
 <p><span class="caption-text">USB</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -1075,16 +1075,16 @@ subfolder.</p>
 </section>
 </section>
 <section id="working-with-uuu">
-<h2><span class="section-number">5.4. </span>Working with uuu<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility (uuu) by NXP is software to execute on the host for
+<h2><span class="section-number">5.4. </span>Working with UUU<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility (UUU) by NXP is software to execute on the host for
 loading and running the bootloader on the board through SDP (Serial Download
 Protocol). For detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or
 download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-usage">
-<h3><span class="section-number">5.4.1. </span>Host preparations for uuu Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Host preparations for UUU Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>请按照 <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a> 上的说明进行操作。</p></li>
-<li><p>If you built uuu from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<li><p>如果您要从源代码编译UUU，请将其添加到 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 中：</p>
 <p>This BASH command adds uuu only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it
 permanently, add this line to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
@@ -1119,9 +1119,9 @@ phytec-qt6demo-image-imx95-libra-fpsc-1.rootfs.wic.</p>
 <p>您可以像往常一样通过 <a class="reference internal" href="#imx95-alpha1-components"><span class="std std-ref">(X14)</span></a> 在终端上查看启动日志。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>The default boot command when booting with uuu is set to fastboot. If you
+<p>The default boot command when booting with UUU is set to fastboot. If you
 want to change this, please adjust the environment variable bootcmd_mfg in
-U-boot prompt with setenv bootcmd_mfg. Please note, when booting with uuu the
+U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
 default environment is loaded. <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> has no effect. If you want to
 change the boot command permanently for uuu-boot, you need to change this in
 U-Boot code.</p>
@@ -2855,7 +2855,7 @@ NXP explains this and other issues <a class="reference external" href="https://g
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g3375b44</dd>
+      <dd>imx95-alpha1-39-g6b7cda7</dd>
     </dl>
   </div>
 </div><script>

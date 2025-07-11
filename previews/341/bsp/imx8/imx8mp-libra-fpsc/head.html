@@ -77,7 +77,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.1. Standalone Build preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.2. U-Boot standalone build</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.3. Kernel standalone build</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with uuu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.4. Working with UUU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.5. Host Network Preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#accessing-the-development-states">5.7. Accessing the Development states</a></li>
@@ -104,14 +104,15 @@
 <li class="toctree-l5"><a class="reference internal" href="#rtc">7.11. RTC</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.12. USB Host Controller</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#can-fd">7.13. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#video">7.14. Video</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">7.15. Display</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#power-management">7.16. Power Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.17. Thermal Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.18. Watchdog</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">7.19. snvs Power Key</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#isp">7.20. ISP</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.21. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pcie">7.14. PCIe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#video">7.15. Video</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">7.16. Display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">7.17. Power Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.18. Thermal Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.19. Watchdog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#snvs-power-key">7.20. snvs Power Key</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#isp">7.21. ISP</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.22. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
 </ul>
 </li>
 </ul>
@@ -454,10 +455,10 @@ finished.</p>
 <section id="first-start-up">
 <h2><span class="section-number">2.3. </span>First Start-up<a class="headerlink" href="#first-start-up" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>To boot from an SD card, the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> needs to be set to the following
+<li><p>To boot from an SD card, the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> needs to be set to the following
 position:</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
 <ul class="simple">
 <li><p>Insert the SD card</p></li>
 <li><p>Connect the target and the host with <strong>micro USB</strong> on <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">(X14)</span></a>
@@ -612,21 +613,21 @@ select the phyCORE-i.MX 8M Plus FPSC default bootsource.</p>
 <table class="docutils align-default" id="imx8mp-libra-fpsc-head-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id4">
-<img alt="../../../_images/eMMC.png" src="../../../_images/eMMC.png" />
+<img alt="../../../_images/eMMC3.png" src="../../../_images/eMMC3.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id5">
-<img alt="../../../_images/Internal_Fuses.png" src="../../../_images/Internal_Fuses.png" />
+<img alt="../../../_images/Internal_Fuses3.png" src="../../../_images/Internal_Fuses3.png" />
 <figcaption>
 <p><span class="caption-text">Internal Fuses</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/SPI_NOR1.png" src="../../../_images/SPI_NOR1.png" />
+<img alt="../../../_images/SPI_NOR3.png" src="../../../_images/SPI_NOR3.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
@@ -634,14 +635,14 @@ select the phyCORE-i.MX 8M Plus FPSC default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id7">
-<img alt="../../../_images/USB_Serial_Download1.png" src="../../../_images/USB_Serial_Download1.png" />
+<img alt="../../../_images/USB_Serial_Download4.png" src="../../../_images/USB_Serial_Download4.png" />
 <figcaption>
 <p><span class="caption-text">USB Serial Download</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id8">
-<img alt="../../../_images/SD_Card_Boot2.png" src="../../../_images/SD_Card_Boot2.png" />
+<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
 <figcaption>
 <p><span class="caption-text">SD Card</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -666,7 +667,7 @@ importantly, all generated images, as listed above, are copied to the default
 paths that point to the images being used in the instructions. For instructions
 on how to set up the TFTP server and directory, see <a class="reference internal" href="#imx8mp-libra-fpsc-head-development"><span class="std std-ref">Setup Network Host</span></a>.</p>
 <p>To boot from e.MMC, make sure that the BSP image is flashed correctly to the
-e.MMC and the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> is set to <strong>e.MMC</strong>.</p>
+e.MMC and the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> is set to <strong>e.MMC</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When e.MMC and SD card are flashed with the same (identical) image, the UUIDs
@@ -825,7 +826,7 @@ of the corresponding SoC.</p>
 <p>These steps will show how to flash the e.MMC on Linux with a USB stick. You only
 need a complete image saved on the USB stick and a bootable WIC image. (e.g.
 phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
-<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card.</p>
+<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card.</p>
 <ul>
 <li><p>Insert and mount the USB stick:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected</span>
@@ -856,7 +857,7 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
 <li><p>After a complete write, your board can boot from e.MMC.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to
+<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to
 <strong>eMMC</strong>.</p>
 </div>
 </li>
@@ -870,7 +871,7 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.|yocto-imageext|). Set the
 limited usage of RAM size in the Bootloader after enabling OPTEE.</p>
 </div>
 <p>These steps will show how to update the e.MMC via a USB device. Configure the
-<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card and insert an SD card. Power on the board and stop
+<a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card and insert an SD card. Power on the board and stop
 in U-Boot prompt. Insert a USB device with the copied uncompressed WIC image to
 the USB slot.</p>
 <p>Load your image from the USB device to RAM:</p>
@@ -937,7 +938,7 @@ flashing with <code class="docutils literal notranslate"><span class="pre">bmapt
 <li><p>After a complete write, your board can boot from e.MMC.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to
+<p>Before this will work, you need to configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to
 e.MMC.</p>
 </div>
 </li>
@@ -956,7 +957,7 @@ Linux on Target</cite> subsection.</p>
 <li><p>Flash an SD card with a working image and create a third ext4 partition. Copy
 the WIC image (for example phytec-qt6demo-image.rootfs.wic) to this
 partition.</p></li>
-<li><p>Configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to SD card and insert the SD card.</p></li>
+<li><p>Configure the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to SD card and insert the SD card.</p></li>
 <li><p>Power on the board and stop in U-Boot.</p></li>
 <li><p>Load the image:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; ext4load mmc 1:3 ${loadaddr} phytec-headless-image-imx8mp-libra-fpsc-1.rootfs.wic
@@ -985,7 +986,7 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 </pre></div>
 </div>
 </li>
-<li><p>Power off the board and change the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to e.MMC.</p></li>
+<li><p>Power off the board and change the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to e.MMC.</p></li>
 </ul>
 </section>
 </section>
@@ -1276,16 +1277,16 @@ kernel modules may be copied directly to a mounted SD card.</p>
 </section>
 </section>
 <section id="working-with-uuu">
-<h2><span class="section-number">5.4. </span>Working with uuu<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility (uuu) by NXP is software to execute on the host for
+<h2><span class="section-number">5.4. </span>Working with UUU<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility (UUU) by NXP is software to execute on the host for
 loading and running the bootloader on the board through SDP (Serial Download
 Protocol). For detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or
 download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-usage">
-<h3><span class="section-number">5.4.1. </span>Host preparations for uuu Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Host preparations for UUU Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
-<li><p>If you built uuu from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
 <p>This BASH command adds uuu only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it
 permanently, add this line to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
@@ -1309,8 +1310,8 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.</p>
 </section>
 <section id="prepare-target">
 <h3><span class="section-number">5.4.3. </span>Prepare Target<a class="headerlink" href="#prepare-target" title="Link to this heading"></a></h3>
-<p>Set the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
-<a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">X16</span></a> to your host.</p>
+<p>Set the <a class="reference internal" href="#imx8mp-libra-fpsc-head-bootswitch"><span class="std std-ref">bootmode switch (S1)</span></a> to <strong>USB Serial Download</strong>. Also, connect USB port
+<a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">X18</span></a> to your host.</p>
 </section>
 <section id="starting-bootloader-via-uuu-tool">
 <h3><span class="section-number">5.4.4. </span>Starting bootloader via UUU-Tool<a class="headerlink" href="#starting-bootloader-via-uuu-tool" title="Link to this heading"></a></h3>
@@ -1321,19 +1322,19 @@ phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.</p>
 <p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mp-libra-fpsc-head-components"><span class="std std-ref">(X14)</span></a>, as usual.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The default boot command when booting with uuu is set to fastboot. If you
+<p>The default boot command when booting with UUU is set to fastboot. If you
 want to change this, please adjust the environment variable bootcmd_mfg in
-U-boot prompt with setenv bootcmd_mfg. Please note, when booting with uuu the
+U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
 default environment is loaded. <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> has no effect. If you want to
 change the boot command permanently for uuu-boot, you need to change this in
 U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via uuu<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.5. </span>Flashing U-boot Image to e.MMC via UUU<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>uuu flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
+<p>UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
 the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
 bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
 version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
@@ -1346,7 +1347,7 @@ device always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../imx8mp/pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to e.MMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for e.MMC flashing this is
@@ -1358,7 +1359,7 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via uuu<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.6. </span>Flashing wic Image to e.MMC via UUU<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic
 </pre></div>
@@ -1778,7 +1779,6 @@ the folder <code class="docutils literal notranslate"><span class="pre">arch/arm
 imx8mp-isi-csi2.dtbo
 imx8mp-isp-csi1.dtbo
 imx8mp-isp-csi2.dtbo
-imx8mp-libra-peb-av-10.dtbo
 imx8mp-vm016-csi1.dtbo
 imx8mp-vm016-csi1-fpdlink.dtbo
 imx8mp-vm016-csi2.dtbo
@@ -2039,7 +2039,7 @@ kernel documentation:
 <section id="rs485-half-duplex">
 <h4><span class="section-number">7.2.2.1. </span>RS485 half-duplex<a class="headerlink" href="#rs485-half-duplex" title="Link to this heading"></a></h4>
 <p>For half-duplex mode your connection setup should look like this:</p>
-<img alt="../../../_images/RS485_halfduplex_connection2.png" src="../../../_images/RS485_halfduplex_connection2.png" />
+<img alt="../../../_images/RS485_halfduplex_connection3.png" src="../../../_images/RS485_halfduplex_connection3.png" />
 <p>Which function is on which pin is described in the hardware manual.</p>
 <p>For half-duplex mode you can set the ioctls manually like this:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rs485conf<span class="w"> </span>/dev/ttymxc2<span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>
@@ -2683,8 +2683,38 @@ supports Single/Dual/Quad/Octal mode data transfer (1/2/4/8 bidirectional data
 lines). The ECSPI controller supports 3 SPI interfaces with one dedicated chip
 selected for each interface. As chip selects should be realized with GPIOs, more
 than one device on each channel is possible.</p>
+<section id="spi-nor-flash">
+<h3><span class="section-number">7.6.1. </span>SPI NOR Flash<a class="headerlink" href="#spi-nor-flash" title="Link to this heading"></a></h3>
+<p>Libra is equipped with a QSPI NOR Flash which connects to the i.MX 8M Plus’s
+FlexSPI interface.</p>
+<p>From Linux userspace, the NOR Flash partitions are
+accessible via /dev/mtd&lt;N&gt; devices where &lt;N&gt; is the MTD device number associated
+with the NOR flash partition to access. To find the correct MTD device number
+for a partition, run on the target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-libra-fpsc-1:~$ </span>mtdinfo<span class="w"> </span>--all
+<span class="go">Count of MTD devices:           1</span>
+<span class="go">Present MTD devices:            mtd0</span>
+<span class="go">Sysfs interface supported:      yes</span>
+
+<span class="go">mtd0</span>
+<span class="go">Name:                           30bb0000.spi</span>
+<span class="go">Type:                           nor</span>
+<span class="go">Eraseblock size:                131072 bytes, 128.0 KiB</span>
+<span class="go">Amount of eraseblocks:          512 (67108864 bytes, 64.0 MiB)</span>
+<span class="go">Minimum input/output unit size: 1 byte</span>
+<span class="go">Sub-page size:                  1 byte</span>
+<span class="go">Character device major/minor:   90:0</span>
+<span class="go">Bad blocks are allowed:         false</span>
+<span class="go">Device is writable:             true</span>
+</pre></div>
+</div>
+<p>It lists all MTD devices and the corresponding partition names. The flash node
+is defined inside of the SPI master node in the module DTS. The SPI node
+contains all devices connected to this SPI bus which is in this case only the
+SPI NOR Flash.</p>
 <p>The definition of the SPI master node in the device tree can be found here:</p>
 <p><a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128">https://github.com/phytec/linux-phytec-imx/tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128</a></p>
+</section>
 </section>
 <section id="gpios">
 <h2><span class="section-number">7.7. </span>GPIOs<a class="headerlink" href="#gpios" title="Link to this heading"></a></h2>
@@ -3277,10 +3307,102 @@ Slower rates can be selected but may not work correctly.</p>
 <p>Device Tree CAN configuration of imx8mp-libra-rdk-fpsc.dts:
 <a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203">https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203</a></p>
 </section>
+<section id="pcie">
+<h2><span class="section-number">7.14. </span>PCIe<a class="headerlink" href="#pcie" title="Link to this heading"></a></h2>
+<p>The phyCORE-i.MX 8M Plus FPSC has one Mini-PCIe slot. In general, PCIe autodetects new
+devices on the bus. After connecting the device and booting up the system, you
+can use the command lspci to see all PCIe devices recognized.</p>
+<ul>
+<li><p>Type:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>lspci<span class="w"> </span>-v
+</pre></div>
+</div>
+</li>
+<li><p>You will receive:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>00:00.0 PCI bridge: Synopsys, Inc. Device abcd (rev 01) (prog-if 00 [Normal decode])
+        Flags: bus master, fast devsel, latency 0, IRQ 218
+        Memory at 18000000 (64-bit, non-prefetchable) [size=1M]
+        Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
+        I/O behind bridge: None
+        Memory behind bridge: 18100000-181fffff [size=1M]
+        Prefetchable memory behind bridge: None
+        [virtual] Expansion ROM at 18200000 [disabled] [size=64K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable+ Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] Express Root Port (Slot-), MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [148] L1 PM Substates
+        Kernel driver in use: dwc3-haps
+
+01:00.0 Network controller: Intel Corporation WiFi Link 5100
+        Subsystem: Intel Corporation WiFi Link 5100 AGN
+        Flags: fast devsel
+        Memory at 18100000 (64-bit, non-prefetchable) [disabled] [size=8K]
+        Capabilities: [c8] Power Management version 3
+        Capabilities: [d0] MSI: Enable- Count=1/1 Maskable- 64bit+
+        Capabilities: [e0] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number 00-24-d6-ff-ff-84-0d-1e
+        Kernel modules: iwlwifi
+</pre></div>
+</div>
+</li>
+</ul>
+<p>In this example, the PCIe device is the <em>Intel Corporation WiFi Link 5100</em>.</p>
+<p>For PCIe devices, you have to enable the correct driver in the kernel
+configuration. This WLAN card, for example, is manufactured by Intel. The
+option for the driver, which must be enabled, is named <code class="docutils literal notranslate"><span class="pre">CONFIG_IWLWIFI</span></code> and can be
+found under <em>Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimat</em> in
+the kernel configuration.</p>
+<ul class="simple">
+<li><p>In order to activate the driver, follow the instructions from our
+<a class="reference internal" href="../../../yocto/scarthgap.html#yocto-man-scarthgap-kernel-and-bootloader-conf"><span class="std std-ref">Yocto Reference Manual</span></a>.</p>
+<ul>
+<li><p>The linux-imx is represented by: <strong>virtual/kernel</strong></p></li>
+</ul>
+</li>
+</ul>
+<p>For some devices like the WLAN card, additional binary firmware blobs are
+needed. These firmware blobs have to be placed in <code class="docutils literal notranslate"><span class="pre">/lib/firmware/</span></code> before the
+device can be used.</p>
+<ul>
+<li><p>Type:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>-r<span class="w"> </span>&lt;firmware&gt;<span class="w"> </span>root@192.168.3.11:/lib/firmware
+</pre></div>
+</div>
+</li>
+<li><p>For example, if you try to bring up the network interface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>wlp1s0
+</pre></div>
+</div>
+</li>
+<li><p>You will get the following output on the serial console:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[   58.682104] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.690822] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.696577] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0</span>
+<span class="go">[   58.831022] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.839679] iwlwifi 0000:01:00.0: L1 Disabled - LTR Disabled</span>
+<span class="go">[   58.845435] iwlwifi 0000:01:00.0: Radio type=0x1-0x2-0x0</span>
+<span class="go">[   58.902797] IPv6: ADDRCONF(NETDEV_UP): wlp1s0: link is not ready</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Some PCIe devices, e.g. the Ethernet card, may function properly even if no
+firmware blob is loaded from <code class="docutils literal notranslate"><span class="pre">/lib/firmware/</span></code> and you received an error message
+as shown in the first line of the output above. This is because some
+manufacturers provide the firmware as a fallback on the card itself. In this
+case, the behavior and output depend strongly on the manufacturer’s firmware.</p>
+</div>
+<p>Device Tree PCIe configuration of imx8mp-libra-rdk-fpsc.dts:
+<a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345">https://github.com/phytec/linux-phytec-imx/tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345</a></p>
+</section>
 <section id="video">
-<h2><span class="section-number">7.14. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.15. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <section id="videos-with-gstreamer">
-<h3><span class="section-number">7.14.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
 <p>One example video is installed by default in the BSP at <cite>/usr/share/qtphy/videos/</cite>.
 Start the video playback with one of these commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>playbin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>file:///usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
@@ -3301,7 +3423,7 @@ Start the video playback with one of these commands:</p>
 </section>
 </section>
 <section id="display">
-<h2><span class="section-number">7.15. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.16. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
 <p>The Libra supports up to 3 different display outputs. The following table shows
 the required extensions and devicetree overlays for the different interfaces.
 For the alpha release, we have included overlays for two different LVDS displays.
@@ -3341,11 +3463,11 @@ LVDS to 74.25Mhz (or a divider of it).  If this does not fit your display
 requirements, please contact Support for further help.</p>
 </div>
 <section id="weston-configuration">
-<h3><span class="section-number">7.15.1. </span>Weston Configuration<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.1. </span>Weston Configuration<a class="headerlink" href="#weston-configuration" title="Link to this heading"></a></h3>
 <p>In order to get an output from Weston on the correct display, it still needs to
 be configured correctly. This will be done at /etc/xdg/weston/weston.ini.</p>
 <section id="single-display">
-<h4><span class="section-number">7.15.1.1. </span>Single Display<a class="headerlink" href="#single-display" title="Link to this heading"></a></h4>
+<h4><span class="section-number">7.16.1.1. </span>Single Display<a class="headerlink" href="#single-display" title="Link to this heading"></a></h4>
 <p>In our BSP, the default Weston output is set to LVDS-1 (onboard LVDS).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[output]
 name=LVDS-1
@@ -3355,7 +3477,7 @@ mode=preferred
 </section>
 </section>
 <section id="qt-demo">
-<h3><span class="section-number">7.15.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.2. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
 <p>With the <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code>, Weston starts during boot. Our Qt6 demo application named
 “qtphy” can be stopped with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>qtphy
@@ -3389,7 +3511,7 @@ mode=preferred
 </div>
 </section>
 <section id="backlight-control">
-<h3><span class="section-number">7.15.3. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.3. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
 <p>If a display is connected to the PHYTEC board, you can control its backlight
 with the Linux kernel sysfs interface. All available backlight devices in the
 system can be found in the folder /sys/class/backlight. Reading the appropriate
@@ -3425,9 +3547,9 @@ controls in /sys/class/backlight. For example: backlight0 and backlight1</p>
 </section>
 </section>
 <section id="power-management">
-<h2><span class="section-number">7.16. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.17. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
 <section id="cpu-core-frequency-scaling">
-<h3><span class="section-number">7.16.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
 <p>The CPU in the i.MX 8M Plus SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
 Scaling the frequency and the voltage is referred to as ‘Dynamic Voltage and
@@ -3506,7 +3628,7 @@ documentation in the linux kernel repository at
 <code class="docutils literal notranslate"><span class="pre">Documentation/admin-guide/pm/cpufreq.rst</span></code>.</p>
 </section>
 <section id="cpu-core-management">
-<h3><span class="section-number">7.16.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
 <p>The i.MX 8M Plus SoC can have multiple processor cores on the die. The i.MX 8M Plus, for
 example, has 4 ARM Cores which can be turned on and off individually at runtime.</p>
 <ul>
@@ -3546,7 +3668,7 @@ system are enabled to get maximum performance.</p>
 </ul>
 </section>
 <section id="suspend-to-ram">
-<h3><span class="section-number">7.16.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
 <p>The phyCORE-i.MX 8M Plus FPSC supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>mem<span class="w"> </span>&gt;<span class="w"> </span>/sys/power/state
@@ -3561,9 +3683,9 @@ used. Suspend/resume is possible with:</p>
 </section>
 </section>
 <section id="thermal-management">
-<h2><span class="section-number">7.17. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.18. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
 <section id="u-boot">
-<h3><span class="section-number">7.17.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
 <p>The previous temperature control in the U-Boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -3575,7 +3697,7 @@ the boot log:</p>
 </div>
 </section>
 <section id="kernel">
-<h3><span class="section-number">7.17.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
@@ -3633,7 +3755,7 @@ with different temperature grades.</p>
 </section>
 </section>
 <section id="watchdog">
-<h2><span class="section-number">7.18. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.19. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
 <p>The PHYTEC i.MX 8M Plus modules include a hardware watchdog that is able to reset the
 board when the system hangs. The watchdog is started on default in U-Boot with a
 timeout of 60s. So even during early kernel start, the watchdog is already up
@@ -3641,7 +3763,7 @@ and running. The Linux kernel driver takes control over the watchdog and makes
 sure that it is fed. This section explains how to configure the watchdog in
 Linux using systemd to check for system hangs and during reboot.</p>
 <section id="watchdog-support-in-systemd">
-<h3><span class="section-number">7.18.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
 <p>Systemd has included hardware watchdog support since version 183.</p>
 <ul>
 <li><p>To activate watchdog support, the file system.conf in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/</span></code> has to be
@@ -3663,7 +3785,7 @@ after a reboot or run:</p>
 </section>
 </section>
 <section id="snvs-power-key">
-<h2><span class="section-number">7.19. </span>snvs Power Key<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.20. </span>snvs Power Key<a class="headerlink" href="#snvs-power-key" title="Link to this heading"></a></h2>
 <p>The X_ONOFF pin connected to the ON/OFF button can be pressed long to trigger
 Power OFF without SW intervention or used to wake up the system out of suspend.
 With the <em>snvs_pwrkey</em> driver, the KEY_POWER event is also reported to userspace
@@ -3676,13 +3798,13 @@ ON/OFF button can be configured under <code class="docutils literal notranslate"
 </div>
 </section>
 <section id="isp">
-<h2><span class="section-number">7.20. </span>ISP<a class="headerlink" href="#isp" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.21. </span>ISP<a class="headerlink" href="#isp" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus SoC contains an Image Signal Processor (ISP). For more information see
 Using the ISPs on the Libra i.MX 8M Plus documentation. This documentation is also
 available in German.</p>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
-<h2><span class="section-number">7.21. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.22. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
 <p>The i.MX 8M Plus provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings (“On-Chip OTP
 Controller (OCOTP_CTRL)” in the i.MX 8M Plus Reference Manual). The following list is
@@ -3728,7 +3850,7 @@ of ENET1 MAC address</p></td>
 the boot/mac/… configuration are available in the section “Fuse Map” of the
 i.MX 8M Plus Security Reference Manual.</p>
 <section id="reading-fuse-values-in-uboot">
-<h3><span class="section-number">7.21.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
 <p>You can read the content of a fuse using memory-mapped shadow registers. To
 calculate the memory address, use the fuse Bank and Word in the following
 formula:</p>
@@ -3738,7 +3860,7 @@ formula:</p>
 </div>
 </section>
 <section id="reading-fuse-values-in-linux">
-<h3><span class="section-number">7.21.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.22.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
 <p>To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:</p>
@@ -3790,7 +3912,7 @@ sysfs:</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g3375b44</dd>
+      <dd>imx95-alpha1-39-g6b7cda7</dd>
     </dl>
   </div>
 </div><script>

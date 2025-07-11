@@ -80,7 +80,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#development">5. Development</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#host-network-preparation">5.1. Host Network Preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#booting-the-kernel-from-a-network">5.2. Booting the Kernel from a Network</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.3. Working with uuu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-uuu">5.3. Working with UUU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#standalone-build-preparation">5.4. Standalone Build preparation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#u-boot-standalone-build">5.5. U-Boot standalone build</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#kernel-standalone-build">5.6. Kernel standalone build</a></li>
@@ -1442,16 +1442,16 @@ here: <a class="reference internal" href="#imx8mn-head-network"><span class="std
 </section>
 </section>
 <section id="working-with-uuu">
-<h2><span class="section-number">5.3. </span>Working with uuu<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
-<p>The Universal Update Utility (uuu) by NXP is software to execute on the host for
+<h2><span class="section-number">5.3. </span>Working with UUU<a class="headerlink" href="#working-with-uuu" title="Link to this heading"></a></h2>
+<p>The Universal Update Utility (UUU) by NXP is software to execute on the host for
 loading and running the bootloader on the board through SDP (Serial Download
 Protocol). For detailed information visit <a class="reference external" href="https://github.com/nxp-imx/mfgtools">https://github.com/nxp-imx/mfgtools</a> or
 download the <a class="reference external" href="https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf">Official UUU-tool documentation</a>.</p>
 <section id="host-preparations-for-uuu-usage">
-<h3><span class="section-number">5.3.1. </span>Host preparations for uuu Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.1. </span>Host preparations for UUU Usage<a class="headerlink" href="#host-preparations-for-uuu-usage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Follow the instructions from <a class="reference external" href="https://github.com/nxp-imx/mfgtools#linux">https://github.com/nxp-imx/mfgtools#linux</a>.</p></li>
-<li><p>If you built uuu from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<li><p>If you built UUU from source, add it to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
 <p>This BASH command adds uuu only temporarily to <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To add it
 permanently, add this line to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=~/mfgtools/uuu/:&quot;$PATH&quot;</span>
@@ -1487,19 +1487,19 @@ phytec-headless-image-phyboard-polis-imx8mn-2.rootfs.wic.</p>
 <p>You can see the bootlog on the console via <a class="reference internal" href="#imx8mn-head-components"><span class="std std-ref">(X30)</span></a>, as usual.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The default boot command when booting with uuu is set to fastboot. If you
+<p>The default boot command when booting with UUU is set to fastboot. If you
 want to change this, please adjust the environment variable bootcmd_mfg in
-U-boot prompt with setenv bootcmd_mfg. Please note, when booting with uuu the
+U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
 default environment is loaded. <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> has no effect. If you want to
 change the boot command permanently for uuu-boot, you need to change this in
 U-Boot code.</p>
 </div>
 </section>
 <section id="flashing-u-boot-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.3.5. </span>Flashing U-boot Image to e.MMC via uuu<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.5. </span>Flashing U-boot Image to e.MMC via UUU<a class="headerlink" href="#flashing-u-boot-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>uuu flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
+<p>UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
 the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
 bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
 version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
@@ -1512,7 +1512,7 @@ device always using U-boot saved in BOOT partitions. To fix this in U-Boot:</p>
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>or check <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
+<p>or check <a class="reference internal" href="../imx8mp/pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">Disable booting from e.MMC boot partitions</span></a> from Linux.</p>
 <p>This way the bootloader is still flashed to e.MMC BOOT partitions but it is
 not used!</p>
 <p>When using <strong>partup</strong> tool and <code class="docutils literal notranslate"><span class="pre">.partup</span></code> package for e.MMC flashing this is
@@ -1524,14 +1524,14 @@ done by default, which makes partup again superior flash option.</p>
 </div>
 </section>
 <section id="flashing-wic-image-to-e-mmc-via-uuu">
-<h3><span class="section-number">5.3.6. </span>Flashing wic Image to e.MMC via uuu<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.6. </span>Flashing wic Image to e.MMC via UUU<a class="headerlink" href="#flashing-wic-image-to-e-mmc-via-uuu" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>emmc_all<span class="w"> </span>imx-boot<span class="w"> </span>phytec-headless-image-phyboard-polis-imx8mn-2.rootfs.wic
 </pre></div>
 </div>
 </section>
 <section id="flashing-spi-nor-flash-via-uuu">
-<h3><span class="section-number">5.3.7. </span>Flashing SPI NOR Flash via uuu<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.7. </span>Flashing SPI NOR Flash via UUU<a class="headerlink" href="#flashing-spi-nor-flash-via-uuu" title="Link to this heading"></a></h3>
 <p>Execute and power up the board:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>uuu<span class="w"> </span>-b<span class="w"> </span>qspi<span class="w"> </span>imx-boot-phyboard-polis-imx8mn-2-fspi.bin-flash_evk_flexspi
 </pre></div>
@@ -4010,7 +4010,7 @@ sysfs:</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g3375b44</dd>
+      <dd>imx95-alpha1-39-g6b7cda7</dd>
     </dl>
   </div>
 </div><script>
