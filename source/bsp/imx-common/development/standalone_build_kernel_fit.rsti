@@ -63,6 +63,13 @@ Build the kernel
 
       host:~/|kernel-repo-name|$ make dtbs
 
+   or, to build a specific dtb (e.g. |dt-carrierboard|.dtb):
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make freescale/|dt-carrierboard|.dtb
+
 .. note::
 
    If you are facing the following build issue:
@@ -96,7 +103,7 @@ image and create the final fitImage with mkimage.
                      && uboot-mkimage -f fitImage-its*.its fitImage
 
 
-Copy FIT image and kernel modules to SD Card
+Copy FIT image and kernel modules to SD card
 ............................................
 
 When one-time boot via netboot is not sufficient, the FIT image along with the

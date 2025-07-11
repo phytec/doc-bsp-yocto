@@ -18,12 +18,12 @@ PHYTEC Documentation
 ====================
 
 PHYTEC provides a variety of hardware and software documentation for
-all of our products. This includes any or all of the following:
+all of its products. This includes any or all of the following:
 
--  **QS Guide**: A short guide on how to set up and boot a phyCORE
+-  **QS Guide**: A short guide on how to set up and boot a phyCORE based
    board.
--  **Hardware Manual**: A detailed description of the System on
-   Module and accompanying carrierboard.
+-  **Hardware Manual**: A detailed description of the System-on-Module and
+   accompanying carrierboard.
 -  **Yocto Guide**: A comprehensive guide for the Yocto version
    the phyCORE uses. This guide contains an overview of Yocto;
    introducing, installing, and customizing the PHYTEC BSP; how to

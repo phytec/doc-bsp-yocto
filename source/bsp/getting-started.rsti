@@ -2,12 +2,12 @@ Getting Started
 ===============
 
 The |kit| is shipped with a pre-flashed SD card. It contains the
-|yocto-imagename| and can be used directly as a boot source. The eMMC is
+|yocto-imagename| and can be used directly as a boot source. The e.MMC is
 programmed with only a U-Boot by default. You can get all sources from the
 `PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
 image to SD card and how to start the board.
 
-There are several ways to flash an image to SD card or even eMMC. Most notably
+There are several ways to flash an image to SD card or even e.MMC. Most notably
 using simple, sequential writing with the Linux command line tool ``dd``. An
 alternative way is to use PHYTEC's system initialization program called
 `partup <https://github.com/phytec/partup>`_, which makes it especially easy to
@@ -33,7 +33,7 @@ Get either the partup package or the WIC image from the download server:
    host:~$ wget |link-image|
 
 .. note::
-   For eMMC, more complex partitioning schemes or even just large images, we
+   For e.MMC, more complex partitioning schemes or even just large images, we
    recommend using the partup package, as it is faster in writing than ``dd``
    and allows for a more flexible configuration of the target flash device.
 
@@ -97,13 +97,13 @@ Unmount all those partitions, e.g.:
    host:~$ sudo umount /dev/sde2
 
 Now, the SD card is ready to be flashed with an image, using either ``partup``,
-``dd`` or ``bmap-tools``.
+``dd`` or ``bmaptool``.
 
-Using bmap-tools
-................
+Using bmaptool
+..............
 
 One way to prepare an SD card is using
-`bmap-tools <https://github.com/yoctoproject/bmaptool>`_. Yocto
+`bmaptool <https://github.com/yoctoproject/bmaptool>`_. Yocto
 automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
 the WIC image that describes the image content and includes checksums for data
 integrity. *bmaptool* is packaged by various Linux distributions. For

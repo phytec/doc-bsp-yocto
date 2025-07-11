@@ -4,12 +4,8 @@ Standalone Build preparation
 In this section, we describe how to build the U-Boot and the Linux kernel
 without using the `Yocto Project <https://www.yoctoproject.org/>`__. This
 procedure makes the most sense for development. The U-Boot source code,
-the Linux kernel, and all other git repositories are available on our
-`Git server <https://git.phytec.de/>`__ at git://git.phytec.de.
-
-.. note::
-   Should your company firewall/gateway inhibit the git protocol, you may use
-   HTTP or HTTPS instead (e.g. git clone |u-boot-repo-url|)
+the Linux kernel, and all other git repositories are available on `GitHub
+`Git server <https://github.com/phytec>`__ at https://github.com/phytec.
 
 Git Repositories
 ................

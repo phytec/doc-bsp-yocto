@@ -1,18 +1,18 @@
-SD/MMC Card
------------
+SD card
+-------
 
-The |soc| supports a slot for Secure Digital Cards and MultiMedia Cards to be
-used as general-purpose block devices. These devices can be used in the same way
-as any other block device.
+The |soc| supports a slot for Secure Digital cards to be used as general-purpose
+block devices. These devices can be used in the same way as any other block
+device.
 
 .. warning::
 
    These kinds of devices are hot-pluggable. Nevertheless, you must ensure not
    to unplug the device while it is still mounted. This may result in data loss!
 
-After inserting an SD/MMC card, the kernel will generate new device nodes
-in /dev. The full device can be reached via its /dev/mmcblk1 device node. SD/MMC
-card partitions will show up as:
+After inserting an SD card, the kernel will generate new device nodes in /dev.
+The full device can be reached via its /dev/mmcblk1 device node. SD card
+partitions will show up as:
 
 .. code-block::
 
