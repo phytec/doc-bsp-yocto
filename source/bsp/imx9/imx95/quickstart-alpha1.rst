@@ -60,17 +60,17 @@ and boot the Linux Board Support Package (BSP) for the |kit|.
 This kit is currently in Alpha Status. There are several topics to keep in mind
 while working with this kit and guide:
 
--  The |som| will go through several functional changes during the Alpha Stage
+-  The |kit| will go through several functional changes during the Alpha Stage
    of development. Due to this, this Quickstart guide may change without any
    prior notice.
--  The |som| has some functionality that is not currently operational. Please
+-  The |kit| has some functionality that is not currently operational. Please
    be aware of this when working with the Alpha Kit.
 -  This Quickstart guide is only for booting and starting the basic
-   functionality of the |som|.
--  Hardware manual for the |som| can be found here: |hardware-manual|_
+   functionality of the |kit|.
+-  Hardware manual for the |kit| can be found here: |hardware-manual|_
 -  Yocto Reference Manual for |yocto-codename| can be found here:
    |yocto-ref-manual|
--  BSP Manual for |som| can be found here: |bsp-manual|
+-  BSP Manual for |kit| can be found here: |bsp-manual|
 
 The following manuals will be available in future releases of the |som|:
 
@@ -176,11 +176,11 @@ the included USB Type-A to USB Type-C cable.
       not booting. This feature is not fully functional yet.
 
 -  Setup your Terminal with the following parameters:
-      - Speed: 115200 baud
-      - Data bits: 8
-      - Stop bits: 1
-      - Parity: None
-      - Flow control: None
+   - Speed: 115200 baud
+   - Data bits: 8
+   - Stop bits: 1
+   - Parity: None
+   - Flow control: None
 
 Powering the Board
 ------------------
