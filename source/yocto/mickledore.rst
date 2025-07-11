@@ -493,11 +493,12 @@ packages on your host
 
    host:~$ sudo apt install wget git
 
-Continue with the next step :ref:`mickledore_git-config` after that. The documentation for
-using build-container can be found in this manual after
+Continue with the next step :ref:`mickledore_git-config` after that.
+The documentation for using build-container can be found in this manual after
 :ref:`mickledore_phylinux-advanced-usage` of phyLinux.
 
-Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu* you need
+Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu*
+you need
 
 .. code-block:: console
 
