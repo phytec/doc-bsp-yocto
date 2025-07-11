@@ -678,10 +678,11 @@ A clean folder is important because phyLinux will clean its working directory.
 Calling phyLinux from a directory that isn't empty will result in the following
 **warning**::
 
-   This current directory is not empty. It could lead to errors in the BSP configuration
-   process if you continue from here. At the very least, you have to check your build directory
-   for settings in bblayers.conf and local.conf, which will not be handled correctly in
-   all cases. It is advisable to start from an empty directory of call:
+   This current directory is not empty. It could lead to errors in the BSP
+   configuration process if you continue from here. At the very least, you
+   have to check your build directory for settings in bblayers.conf and
+   local.conf, which will not be handled correctly in all cases. It is
+   advisable to start from an empty directory of call:
    $ ./phyLinux clean
    Do you really want to continue from here?
    [yes/no]:
@@ -867,7 +868,8 @@ https://hub.docker.com/u/phybuilder
 -  yocto-ubuntu-20.04
 -  yocto-ubuntu-22.04
 
-These containers can be run with podman or docker. With Yocto Project branch |yocto-codename| the container "yocto-ubuntu-20.04" is preferred.
+These containers can be run with podman or docker. With Yocto Project branch
+|yocto-codename| the container "yocto-ubuntu-20.04" is preferred.
 
 Download/Pull container
 -----------------------
@@ -880,7 +882,8 @@ Download/Pull container
 
    host:~$ docker pull docker.io/phybuilder/yocto-ubuntu-20.04
 
-By adding a tag at the end separated by a colon, you can also pull or run a special tagged container.
+By adding a tag at the end separated by a colon, you can also pull or run a
+special tagged container.
 
    podman pull docker.io/phybuilder/yocto-ubuntu-20.04:phy2
 
@@ -891,7 +894,8 @@ You can find all available tags in our duckerhub space:
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags
 -  https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags
 
-If you try to run a container, which is not pulled/downloaded, it will be pulled/downloaded automatically.
+If you try to run a container, which is not pulled/downloaded, it will be
+pulled/downloaded automatically.
 
 You can have a look at all downloaded/pulled container with:
 

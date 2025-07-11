@@ -198,7 +198,8 @@ as usual:
 
    host:~$ bitbake phytec-headless-image
 
-The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc`` directory, e.g.:
+The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc``
+directory, e.g.:
 
 .. code-block::
 

@@ -71,11 +71,11 @@ System Configuration
 ====================
 
 RAUC can be used with both eMMC and NAND flash storage. Using the distro
-``ampliphy-rauc`` or ``ampliphy-vendor-rauc``, it is enabled by default and requires
-no additional setup to get started. RAUC can be used in different update
-scenarios. As an example, we configured the BSP to use an A/B setup to have a
-completely redundant system (including the bootloader on eMMC devices). Note,
-that there is an additional partition named ``config`` storing persistent
+``ampliphy-rauc`` or ``ampliphy-vendor-rauc``, it is enabled by default and
+requires no additional setup to get started. RAUC can be used in different
+update scenarios. As an example, we configured the BSP to use an A/B setup to
+have a completely redundant system (including the bootloader on eMMC devices).
+Note, that there is an additional partition named ``config`` storing persistent
 configuration data not being changed when updating.
 
 .. image:: /rauc/images/rauc-ab-system.png
@@ -174,8 +174,8 @@ Initialize the build directory with the OE init script:
 
    host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source sources/poky/oe-init-build-env
 
-Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8 mainline BSP) or
-``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):
+Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8
+mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):
 
 .. code-block::
    :caption: build/conf/local.conf
@@ -189,7 +189,8 @@ as usual:
 
    host:~$ bitbake phytec-headless-image
 
-The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc`` directory, e.g.:
+The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc``
+directory, e.g.:
 
 .. code-block::
 
