@@ -1239,7 +1239,7 @@ overlays=&lt;overlayfilenames&gt;
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>或者在linux中检查 <a class="reference internal" href="../../imx9/imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
+<p>或者在linux中检查 <a class="reference internal" href="../imx8mp/pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
 <p>这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！</p>
 <p>在使用 <strong>partup</strong> 工具和 <code class="docutils literal notranslate"><span class="pre">.partup</span></code> 包进行eMMC烧写时，上述过程是默认进行的，这是partup的优势，简化烧写过程。</p>
 </div>
@@ -1258,13 +1258,11 @@ overlays=&lt;overlayfilenames&gt;
 </section>
 <section id="standalone-build-preparation">
 <h2><span class="section-number">5.4. </span>独立编译准备<a class="headerlink" href="#standalone-build-preparation" title="Link to this heading"></a></h2>
-<p>在本节中，我们将描述如何在不使用 <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a> 的情况下编译 U-Boot 和 Linux kernel。U-Boot、Linux kernel以及其他源码的 git 仓库都可以在我们的 <a class="reference external" href="https://git.phytec.de/">Git 服务器</a> 上找到，地址为 git://git.phytec.de。</p>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>Should your company firewall/gateway inhibit the git protocol, you may use
-GitHub with HTTPS instead (e.g. git clone
-<a class="reference external" href="https://github.com/phytec/u-boot-phytec-imx.git">https://github.com/phytec/u-boot-phytec-imx.git</a>)</p>
-</div>
+<p>In this section, we describe how to build the U-Boot and the Linux kernel
+without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on <a class="reference external" href="https://github.com/phytec">GitHub
+`Git server</a> at <a class="reference external" href="https://github.com/phytec">https://github.com/phytec</a>.</p>
 <section id="git-repositories">
 <h3><span class="section-number">5.4.1. </span>Git 仓库<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
 <ul>
@@ -3805,7 +3803,7 @@ u-boot=&gt; bootaux 0x80000000
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g6b7cda7</dd>
+      <dd>imx95-alpha1-39-g01a4b45</dd>
     </dl>
   </div>
 </div><script>

@@ -474,21 +474,21 @@ select the phyCORE-i.MX 95 default bootsource.</p>
 <table class="docutils align-default" id="imx95-alpha1-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id5">
-<img alt="../../../_images/eMMC3.png" src="../../../_images/eMMC3.png" />
+<img alt="../../../_images/eMMC2.png" src="../../../_images/eMMC2.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id6">
-<img alt="../../../_images/Internal_Fuses3.png" src="../../../_images/Internal_Fuses3.png" />
+<img alt="../../../_images/Internal_Fuses2.png" src="../../../_images/Internal_Fuses2.png" />
 <figcaption>
 <p><span class="caption-text">内部fuse</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id7">
-<img alt="../../../_images/SPI_NOR3.png" src="../../../_images/SPI_NOR3.png" />
+<img alt="../../../_images/SPI_NOR2.png" src="../../../_images/SPI_NOR2.png" />
 <figcaption>
 <p><span class="caption-text">SPI NOR</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
@@ -496,7 +496,7 @@ select the phyCORE-i.MX 95 default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id8">
-<img alt="../../../_images/USB_Serial_Download4.png" src="../../../_images/USB_Serial_Download4.png" />
+<img alt="../../../_images/USB_Serial_Download3.png" src="../../../_images/USB_Serial_Download3.png" />
 <figcaption>
 <p><span class="caption-text">USB</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
@@ -809,13 +809,11 @@ MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
 <span id="imx95-alpha1-development"></span><h1><span class="section-number">5. </span>开发<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
 <section id="standalone-build-preparation">
 <h2><span class="section-number">5.1. </span>独立编译准备<a class="headerlink" href="#standalone-build-preparation" title="Link to this heading"></a></h2>
-<p>在本节中，我们将描述如何在不使用 <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a> 的情况下编译 U-Boot 和 Linux kernel。U-Boot、Linux kernel以及其他源码的 git 仓库都可以在我们的 <a class="reference external" href="https://git.phytec.de/">Git 服务器</a> 上找到，地址为 git://git.phytec.de。</p>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>Should your company firewall/gateway inhibit the git protocol, you may use
-GitHub with HTTPS instead (e.g. git clone
-<a class="reference external" href="https://github.com/phytec/u-boot-phytec-imx.git">https://github.com/phytec/u-boot-phytec-imx.git</a>)</p>
-</div>
+<p>In this section, we describe how to build the U-Boot and the Linux kernel
+without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on <a class="reference external" href="https://github.com/phytec">GitHub
+`Git server</a> at <a class="reference external" href="https://github.com/phytec">https://github.com/phytec</a>.</p>
 <section id="git-repositories">
 <h3><span class="section-number">5.1.1. </span>Git 仓库<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
 <ul>
@@ -2855,7 +2853,7 @@ NXP explains this and other issues <a class="reference external" href="https://g
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g6b7cda7</dd>
+      <dd>imx95-alpha1-39-g01a4b45</dd>
     </dl>
   </div>
 </div><script>

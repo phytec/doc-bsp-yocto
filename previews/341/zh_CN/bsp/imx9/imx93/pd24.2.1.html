@@ -404,7 +404,7 @@ Debian-based systems install it by issuing:</p>
 <ul class="simple">
 <li><p>要从SD卡启动， <a class="reference internal" href="#imx93-pd24-2-1-bootswitch"><span class="std std-ref">bootmode switch (S3)</span></a> 需要设置为以下位置：</p></li>
 </ul>
-<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
+<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
 <ul class="simple">
 <li><p>插入SD卡</p></li>
 <li><p>将开发板的调试接口与您的主机连接。使用 UART1 console on PEB-EVAL-01 for <strong>phyBOARD-Segin</strong> and X-37
@@ -548,14 +548,14 @@ select the phyCORE-i.MX 93 default bootsource.</p>
 <table class="docutils align-default" id="imx93-pd24-2-1-bootswitch">
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id10">
-<img alt="../../../_images/eMMC2.png" src="../../../_images/eMMC2.png" />
+<img alt="../../../_images/eMMC1.png" src="../../../_images/eMMC1.png" />
 <figcaption>
 <p><span class="caption-text">eMMC</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id11">
-<img alt="../../../_images/Internal_Fuses2.png" src="../../../_images/Internal_Fuses2.png" />
+<img alt="../../../_images/Internal_Fuses1.png" src="../../../_images/Internal_Fuses1.png" />
 <figcaption>
 <p><span class="caption-text">内部fuse</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
@@ -563,14 +563,14 @@ select the phyCORE-i.MX 93 default bootsource.</p>
 </td>
 </tr>
 <tr class="row-even"><td><figure class="align-default" id="id12">
-<img alt="../../../_images/USB_Serial_Download3.png" src="../../../_images/USB_Serial_Download3.png" />
+<img alt="../../../_images/USB_Serial_Download2.png" src="../../../_images/USB_Serial_Download2.png" />
 <figcaption>
 <p><span class="caption-text">USB</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id13">
-<img alt="../../../_images/SD_Card_Boot4.png" src="../../../_images/SD_Card_Boot4.png" />
+<img alt="../../../_images/SD_Card_Boot3.png" src="../../../_images/SD_Card_Boot3.png" />
 <figcaption>
 <p><span class="caption-text">SD卡</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
@@ -1030,7 +1030,7 @@ USB-C debug for <strong>phyBOARD-Nash</strong> 在终端上查看启动日志。
 <span class="go">PARTITION_ACCESS: 0x0</span>
 </pre></div>
 </div>
-<p>或者在linux中检查 <a class="reference internal" href="../imx95/head.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
+<p>或者在linux中检查 <a class="reference internal" href="../../imx8/imx8mp/pd24.1.0_nxp.html#emmc-disable-boot-part"><span class="std std-ref">用从eMMC boot分区启动</span></a></p>
 <p>这样bootloader虽然会被烧写到 eMMC 的BOOT分区，但在启动中不会被使用！</p>
 <p>在使用 <strong>partup</strong> 工具和 <code class="docutils literal notranslate"><span class="pre">.partup</span></code> 包进行eMMC烧写时，上述过程是默认进行的，这是partup的优势，简化烧写过程。</p>
 </div>
@@ -1049,13 +1049,11 @@ USB-C debug for <strong>phyBOARD-Nash</strong> 在终端上查看启动日志。
 </section>
 <section id="standalone-build-preparation">
 <h2><span class="section-number">5.4. </span>独立编译准备<a class="headerlink" href="#standalone-build-preparation" title="Link to this heading"></a></h2>
-<p>在本节中，我们将描述如何在不使用 <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a> 的情况下编译 U-Boot 和 Linux kernel。U-Boot、Linux kernel以及其他源码的 git 仓库都可以在我们的 <a class="reference external" href="https://git.phytec.de/">Git 服务器</a> 上找到，地址为 git://git.phytec.de。</p>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>Should your company firewall/gateway inhibit the git protocol, you may use
-GitHub with HTTPS instead (e.g. git clone
-<a class="reference external" href="https://github.com/phytec/u-boot-phytec-imx.git">https://github.com/phytec/u-boot-phytec-imx.git</a>)</p>
-</div>
+<p>In this section, we describe how to build the U-Boot and the Linux kernel
+without using the <a class="reference external" href="https://www.yoctoproject.org/">Yocto Project</a>. This
+procedure makes the most sense for development. The U-Boot source code,
+the Linux kernel, and all other git repositories are available on <a class="reference external" href="https://github.com/phytec">GitHub
+`Git server</a> at <a class="reference external" href="https://github.com/phytec">https://github.com/phytec</a>.</p>
 <section id="git-repositories">
 <h3><span class="section-number">5.4.1. </span>Git 仓库<a class="headerlink" href="#git-repositories" title="Link to this heading"></a></h3>
 <ul>
@@ -1278,7 +1276,7 @@ meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>在上述命令中，将 <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> 替换为您的SD卡设备名称。有关如何找到设备名称的更多信息，请参阅入门部分中的 <a class="reference internal" href="../imx95/head.html#getting-started-find-correct-device"><span class="std std-ref">找到正确的设备名</span></a> 。</p>
+<p>在上述命令中，将 <code class="docutils literal notranslate"><span class="pre">&lt;sd-card&gt;</span></code> 替换为您的SD卡设备名称。有关如何找到设备名称的更多信息，请参阅入门部分中的 <a class="reference internal" href="../../imx8/imx8mp/pd24.1.0_nxp.html#getting-started-find-correct-device"><span class="std std-ref">找到正确的设备名</span></a> 。</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
@@ -3738,7 +3736,7 @@ u-boot=&gt; fuse prog 39 5 0xBbCcDdEe
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-39-g6b7cda7</dd>
+      <dd>imx95-alpha1-39-g01a4b45</dd>
     </dl>
   </div>
 </div><script>
