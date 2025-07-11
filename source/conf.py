@@ -216,6 +216,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mp-libra-fpsc/quickstart-alpha1',
+        'imx8mp-libra-quickstart-alpha1.tex',
+        'i.MX 8M Plus FPSC Quickstart Guide ALPHA1',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mm/head',
         'imx8mm-head.tex',
         'i.MX 8M Mini BSP Manual DRAFT',

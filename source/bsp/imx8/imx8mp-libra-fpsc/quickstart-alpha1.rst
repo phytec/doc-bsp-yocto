@@ -1,22 +1,22 @@
 .. General Substitutions
 .. |doc-id| replace:: ALPHA1
-.. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
-.. |soc| replace:: i.MX 95
+.. |kit| replace:: **phyCORE-i.MX 8M Plus FPSC Kit**
+.. |soc| replace:: i.MX 8M Plus
 .. |som| replace:: phyCORE-|soc| FPSC
 .. |sbc| replace:: Libra FPSC
 
 .. Links
-.. |hardware-manual| replace:: Hardware Manual - phyCORE-i.MX 95 FPSC/Libra Development Board (1620.1/1618.0) (L-1075e.A1)
-.. _hardware-manual: https://www.phytec.de/cdocuments/?doc=yYCEOQ
-.. |bsp-manual| replace:: :ref:`i.MX95 ALPHA1 BSP Manual <imx95-alpha1-bsp-manual>`
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/
-.. _`static-pdf-dl`: ../../../_static/imx95-quickstart-alpha1.pdf
+.. |hardware-manual| replace:: TBD
+.. _hardware-manual: TBD
+.. |bsp-manual| replace:: TBD
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
+.. _`static-pdf-dl`: ../../../_static/imx8mp-libra-fpsc-quickstart-alpha1.pdf
 
 
 .. Yocto
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX95-ALPHA1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 
 .. only:: html
@@ -36,7 +36,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          | Scarthgap            |
 +-----------------------+----------------------+
-| Release Date          | 2025/06/02           |
+| Release Date          | TBD                  |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc|       |
 |                       | Quickstart Guide     |
@@ -44,12 +44,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ================= ==============
-Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
+================================= ================ ================= ==============
+Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
 
-============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
-============================== ================ ================= ==============
+================================= ================ ================= ==============
+BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1 Alpha            TBD               Unreleased
+================================= ================ ================= ==============
 
 Introduction
 ============
@@ -87,8 +87,8 @@ Requirements
 Included in the Kit
 -------------------
 
--  Alpha phyCORE-i.MX 95 FPSC SOM on Alpha Libra Development Board
-   (PD-05032-ALPHA.A0)
+-  Alpha phyCORE-i.MX 8M Plus FPSC SOM on Alpha Libra Development Board
+   (PD-05023-ALPHA.A0)
 -  Power adapter supplying 24 V / 3,75 A (SV071)
 -  Ethernet cable (WK114)
 -  USB-A to USB-C cable (WK560)
@@ -121,7 +121,7 @@ Components
 Additional (optional) equipment (not included in Alpha Kit)
 -----------------------------------------------------------
 
--  Display (KLCD-AC209-IMX95)
+-  Display (KLCD-AC209-FPSCG)
 -  Embedded Imaging Kit (KPB-xxxx-Video-L01, KPB-xxxx-Video-L02)
 
 Linux Host PC

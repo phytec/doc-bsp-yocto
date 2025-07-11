@@ -14,12 +14,12 @@
 
 .. General Substitutions
 .. |doc-id| replace:: Head
-.. |kit| replace:: **phyCORE-i.MX95 FPSC Kit**
+.. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
 .. |kit-ram-size| replace:: 8GiB
 .. |sbc| replace:: Libra FPSC
 .. |soc| replace:: i.MX 95
 .. |socfamily| replace:: i.MX 9
-.. |som| replace:: phyCORE-|soc|
+.. |som| replace:: phyCORE-|soc| FPSC
 .. |debug-uart| replace:: ttyLP6
 .. |serial-uart| replace:: ttyLP7
 .. |bluetooth-uart| replace:: UART3
