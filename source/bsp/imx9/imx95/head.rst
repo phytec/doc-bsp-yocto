@@ -169,8 +169,8 @@ should show you the necessary **Machine Name** for your specific hardware
 First Start-up
 --------------
 
-*  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
-   position:
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the
+   following position:
 
 .. image:: images/SD_Card_Boot.png
 
@@ -200,8 +200,8 @@ First Start-up
    oei-m33-tcm.bin**: OEI images
 *  **m33_image-mx95libra.bin**: System Manager image
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-   Trusted Firmware and DDR firmware. This is the final bootloader image which is
-   bootable.
+   Trusted Firmware and DDR firmware. This is the final bootloader image which
+   is bootable.
 *  **fitImage**: Linux kernel FIT image
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
@@ -337,9 +337,9 @@ The device tree representation for UART1 pinmuxing:
 Network
 -------
 
-|sbc|-|soc| provides three ethernet interfaces. A gigabit Ethernet is provided by our
-module and board. Additionally there is a 10Gbit Ethernet. Currently only the one Gigabit
-Ethernet ports are supported (ETH0 and ETH1).
+|sbc|-|soc| provides three ethernet interfaces. A gigabit Ethernet is provided
+by our module and board. Additionally there is a 10Gbit Ethernet. Currently
+only the one Gigabit Ethernet ports are supported (ETH0 and ETH1).
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 

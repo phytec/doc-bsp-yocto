@@ -169,7 +169,8 @@ First Start-up
 .. image:: images/SD_Card_Boot.png
 
 *  Insert the SD card
-*  Connect the targets debug console with your host. Use |ref-debugusbconnector|.
+*  Connect the targets debug console with your host.
+   Use |ref-debugusbconnector|.
 *  Power up the board
 *  Open serial/usb port with 115200 baud and 8N1 (you should see u-boot/linux
    start on the console
@@ -275,7 +276,8 @@ Flash eMMC from SD card in Linux on Target
 You can flash the eMMC on Linux. You only need a partup package or WIC image
 saved on the SD card.
 
-*  Show your saved partup package or WIC image or WIC.XZ image files on the SD card:
+*  Show your saved partup package or WIC image or WIC.XZ image files on the
+   SD card:
 
    .. code-block:: console
       :substitutions:
@@ -536,8 +538,8 @@ Host preparations for UUU-Tool Usage
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -1089,8 +1091,8 @@ To generate random CAN traffic for testing purposes, use cangen:
 
    target:~$ cangen
 
-``cansend --help`` and ``candump --help`` provide help messages for further information
-on options and usage.
+``cansend --help`` and ``candump --help`` provide help messages for further
+information on options and usage.
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n147` or
@@ -1108,7 +1110,7 @@ are:
 * Output where D-Class 1W speaker can be connected
 
 .. include:: /bsp/peripherals/audio.rsti
-	:end-before: .. audio_alsa_configuration_start_label
+   :end-before: .. audio_alsa_configuration_start_label
 
 .. include:: /bsp/peripherals/audio.rsti
    :start-after: .. audio_playback_start_label
