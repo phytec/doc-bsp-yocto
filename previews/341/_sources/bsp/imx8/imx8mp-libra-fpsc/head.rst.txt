@@ -48,7 +48,7 @@
 .. |u-boot-emmc-devno| replace:: 2
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-imx
-.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-phytec-imx
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
 .. |emmcdev-uboot| replace:: mmc 2
 .. |sdcarddev-uboot| replace:: mmc 1
 
