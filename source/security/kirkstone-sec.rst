@@ -148,7 +148,8 @@ Before closing the device, you must store the hash of the public keys in the
 SRK OTP bits on the device. This will allow the ROM loader to validate the
 public key included in signed firmware images.
 
-   * NXP i.MX with HAB: example ``SRK_1_2_3_4_fuse.bin`` file in ``yocto/phytec-dev-ca/nxp_habv4_pki/crts/SRK_1_2_3_4_fuse.bin``
+   * NXP i.MX with HAB: example ``SRK_1_2_3_4_fuse.bin`` file in
+     ``yocto/phytec-dev-ca/nxp_habv4_pki/crts/SRK_1_2_3_4_fuse.bin``
 
 If you build the signed bootloader, then the following tools are available in
 the bootloader.
@@ -273,7 +274,8 @@ replacing the previous version of the binary.
 
    * AM62x
 
-   Now you must set JP8 on the development kit for AM62x in order to flash the keys.
+   Now you must set JP8 on the development kit for AM62x in order to flash the
+   keys.
 
    .. image:: images/phycore-am62x/pb-07124_secureboot_JP8_J28.png
       :width: 700px
