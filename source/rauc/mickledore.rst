@@ -806,8 +806,8 @@ U-Boot variables that are used for the A/B system with RAUC:
 | ``raucbootpart``  | Sets the boot partitions of the device.                |
 +-------------------+--------------------------------------------------------+
 
-These environment variables are defined in ``include/environment/phytec/rauc.env`` in
-the u-boot source code.
+These environment variables are defined in
+``include/environment/phytec/rauc.env`` in the u-boot source code.
 
 .. note::
 

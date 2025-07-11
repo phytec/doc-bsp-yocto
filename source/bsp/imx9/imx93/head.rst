@@ -178,7 +178,8 @@ First Start-up
 .. image:: images/SD_Card_Boot.png
 
 *  Insert the SD card
-*  Connect the targets debug console with your host. Use |ref-debugusbconnector|.
+*  Connect the targets debug console with your host.
+   Use |ref-debugusbconnector|.
 *  Power up the board
 *  Open serial/usb port with 115200 baud and 8N1 (you should see u-boot/linux
    start on the console
@@ -217,10 +218,10 @@ First Start-up
    card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
    and Root file system.
 
-   * **phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build
-     was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**: when bitbake-build
-     was processed for ``phytec-headless-image``
+   * **phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**: when
+     bitbake-build was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**: when
+     bitbake-build was processed for ``phytec-headless-image``
 *  **imx93-11x11-evk_m33_\*.bin**, binaries of demo applications for the
    Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux
 
@@ -277,8 +278,8 @@ Host preparations for UUU-Tool Usage
 
 *  If you built UUU from source, add it to ``PATH``:
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it permanently, add this line to
-   ``~/.bashrc``.
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
 
    .. code-block:: console
 
@@ -496,11 +497,13 @@ Network
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L217` or here:
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L217`
+or here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L206`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194` or here:
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194`
+or here:
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -528,7 +531,8 @@ General I²C3 bus configuration (e.g. |dt-som|.dtsi):
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L88`
 
 General I²C2 bus configuration for |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L159` or for
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L159`
+or for
 imx93-phyboard-nash.dts:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L117`
 
@@ -548,7 +552,8 @@ DT representation, e.g. in |som| file can be found in our PHYTEC git:
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L177` or
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L177`
+or
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L126`
 
 USB Host Controller
@@ -572,7 +577,8 @@ the Kernel documentation under
 Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
 
 DT representation for USB Host:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L196` or
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L196`
+or
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L185`
 
 RS232/RS485
@@ -603,7 +609,8 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L151` or
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L151`
+or
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L109`
 
 Audio on |sbc-segin|
