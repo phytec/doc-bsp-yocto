@@ -128,7 +128,7 @@ Reliable Write
 
 There are two different Reliable Write options:
 
-1. Reliable Write option for a whole eMMC device/partition.
+1. Reliable Write option for a whole e.MMC device/partition.
 2. Reliable Write for single write transactions.
 
 .. tip::
@@ -187,7 +187,7 @@ or fsync should be used in the application.
 Resizing ext4 Root Filesystem
 .............................
 
-When flashing the sdcard image to e.MMC the ext4 root partition is not extended
+When flashing the SD card image to e.MMC the ext4 root partition is not extended
 to the end of the e.MMC. parted can be used to expand the root partition. The
 example works for any block device such as e.MMC, SD card, or hard disk.
 
@@ -249,7 +249,7 @@ example works for any block device such as e.MMC, SD card, or hard disk.
       The filesystem on /dev/|emmcdev|p2 is now 7367680 (1k) blocks long
 
 Increasing the filesystem size can be done while it is mounted.  But you can
-also boot the board from an SD card and then resize the file system on the eMMC
+also boot the board from an SD card and then resize the file system on the e.MMC
 partition while it is not mounted.
 
 Enable pseudo-SLC Mode
@@ -369,7 +369,7 @@ with zeros. The e.MMC block management algorithm will erase the underlying MLC
 or TLC or mark these blocks as discard. The data on the device is lost and will
 be read back as zeros.
 
-*  After booting from SD Card execute:
+*  After booting from SD card execute:
 
    .. code-block:: console
       :substitutions:
@@ -458,7 +458,7 @@ Write the bootloader to the e.MMC boot partitions:
 The following table is for the offset of the |soc| SoC:
 
 ===== ======================= =========== ==============
-SoC   Offset User Area        Offset Boot eMMC Device
+SoC   Offset User Area        Offset Boot e.MMC Device
                               Partition
 ===== ======================= =========== ==============
 |soc| |bootloader-offset| kiB 0 kiB       /dev/|emmcdev|

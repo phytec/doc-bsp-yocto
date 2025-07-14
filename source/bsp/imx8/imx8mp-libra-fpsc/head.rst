@@ -46,9 +46,9 @@
 .. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 2
-.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
-.. |u-boot-repo-name| replace:: u-boot-imx
-.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-phytec-imx
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
 .. |emmcdev-uboot| replace:: mmc 2
 .. |sdcarddev-uboot| replace:: mmc 1
 
@@ -90,14 +90,14 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-libra-fpsc-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-libra-fpsc-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-libra-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-libra-fpsc-head-components>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-libra-fpsc-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-libra-fpsc-head-device-tree>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-libra-fpsc-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-libra-fpsc-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-libra-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-libra-fpsc-head-components>`
+.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-libra-fpsc-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-libra-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-libra-fpsc-head-format-sd>`
 
@@ -235,7 +235,7 @@ Bootmode Switch (S3)
 
 .. tip::
 
-   Hardware revision baseboard: 1552.2
+   Hardware revision baseboard: 1618.1
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
@@ -244,6 +244,7 @@ select the |som| default bootsource.
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
+   :end-before: .. flash-spi-nor-flash-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
@@ -272,8 +273,10 @@ Development
 
 .. _imx8mp-libra-fpsc-head-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
+   :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: ../../imx-common/development/uuu.rsti
+   :end-before: .. uuu-flash-spinor-marker
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
@@ -300,12 +303,6 @@ Development
    imx8mp-isi-csi2.dtbo
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
-   |dtbo-peb-av-10|
-   imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
-   imx8mp-phycore-no-eth.dtbo
-   imx8mp-phycore-no-rtc.dtbo
-   imx8mp-phycore-no-spiflash.dtbo
-   imx8mp-phycore-rpmsg.dtbo
    imx8mp-vm016-csi1.dtbo
    imx8mp-vm016-csi1-fpdlink.dtbo
    imx8mp-vm016-csi2.dtbo
@@ -352,9 +349,9 @@ RS232/RS485
 -----------
 
 The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
-of UART3 (the standard console) and UART3 are routed to a FT4232H UART
+of UART3 (the standard console) and UART2 are routed to a FT4232H UART
 to USB converter expansion. This USB is brought out at USB-C connector X14.
-UART3 is connected to a multi-protocol transceiver for RS-232 and RS-485,
+UART1 is connected to a multi-protocol transceiver for RS-232 and RS-485,
 available at pin header connector |ref-serial| at the RS-232 level,
 or at the RS-485 level. The muxing of the used transceivers is done by switch
 |ref-S5| on the baseboard.
@@ -543,15 +540,11 @@ Device tree description of LVDS-0 can be found here:
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
-
-The device tree description of GPIO Fan can be found here:
-:linux-phytec-imx:`tree/v6.6.23-2.0.0-phy10/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L35`
+   :end-before: .. tm-gpio-fan-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: ../peripherals/snvs-power-key.rsti
-
-.. include:: ../peripherals/npu.rsti
 
 .. include:: ../peripherals/isp.rsti
 
@@ -560,5 +553,3 @@ The device tree description of GPIO Fan can be found here:
 .. +---------------------------------------------------------------------------+
 .. i.MX 8M Plus M7 Core
 .. +---------------------------------------------------------------------------+
-
-.. include:: ../mcu.rsti

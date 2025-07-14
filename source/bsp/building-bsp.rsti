@@ -21,7 +21,8 @@ yourself with Yocto. This is particularly useful if you want to make
 customizations.
 
 The phyLinux script is a basic management tool for PHYTEC Yocto BSP releases
-written in Python. It is mainly a helper to get started with the BSP structure.
+written in Python. It is mainly a helper to get started with the BSP sources
+structure.
 
 *  Create a fresh project folder, get phyLinux, and make the script executable:
 
@@ -68,7 +69,7 @@ written in Python. It is mainly a helper to get started with the BSP structure.
       host:~/yocto$ DISTRO=|yocto-distro| MACHINE=|yocto-machinename| ./phyLinux init -p |kernel-socname| -r |yocto-manifestname|
 
 After the execution of the init command, phyLinux will print a few important
-notes. For example, it will print your git identify, SOC and BSP release which
+notes. For example, it will print your git identity, SOC and BSP release which
 was selected as well as information for the next steps in the build process.
 
 Starting the Build Process
