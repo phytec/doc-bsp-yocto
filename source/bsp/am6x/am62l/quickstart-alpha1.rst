@@ -16,6 +16,7 @@
 .. Yocto
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 
@@ -225,9 +226,7 @@ System Booting
 The |kit| is shipped with a pre-flashed SD card. It contains the
 |yocto-imagename| and can be used directly as a boot source.
 
-The Quickstart guide will only describe how to boot from the pre-flashed
-SD card. How to build the BSP yourself, flash your own SD card or boot from
-other bootsources like eMMC will be described in the upcoming BSP manual.
+How to build the BSP yourself will be described in the upcoming BSP manual.
 
 Boot with SD-Card
 -----------------
@@ -241,3 +240,57 @@ Boot with SD-Card
 *  Connect the target and the host with **USB-C** on (X14) debug USB
 *  Power up the board
 
+Boot from eMMC
+--------------
+
+Due to a known issue in early versions of the AM62L ROM Code, booting from eMMC
+is only supported in filesystem mode using the User Data Area (UDA). To enable
+this mode, we need to modify one of the "rescue" eFuse boot modes to support
+eMMC booting in filesystem mode.
+
+.. warning::
+   Fuses are One-Time Programmable (OTP), writing incorrect values can
+   permanently brick your board. Double-check all commands before proceeding.
+
+*  Burn the required eFuse:
+
+   *  Enable the VPP_1V8 regulator in U-Boot to provide power to the eFuse
+      circuitry:
+
+      .. code-block:: console
+
+         u-boot=> regulator dev VPP_1V8
+         u-boot=> regulator enable
+
+   *  Program the fuse with the correct value:
+
+      .. code-block:: console
+
+         u-boot=> fuse prog 0xFF 1 0x0385850
+
+*  Configure and Flash eMMC:
+
+   *  Enable eMMC UDA boot mode in U-Boot:
+
+      .. code-block:: console
+
+         u-boot=> mmc partconf 0 1 7 1
+         u-boot=> mmc bootbus 0 2 0 0
+
+   *  Boot into Linux:
+
+      .. code-block:: console
+
+         u-boot=> boot
+
+   *  Flash the eMMC with the correct Yocto image:
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/mmcblk0
+
+*  Set the S1 DIP switch to the correct configuration for eMMC boot and then
+   power up the board:
+
+   .. image:: images/eMMC.png
