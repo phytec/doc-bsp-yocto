@@ -344,9 +344,9 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/am6x/am62l/quickstart-alpha1',
-        'am62l-quickstart-alpha1.tex',
-        'phyCORE-AM62L Quickstart Guide ALPHA1',
+        'bsp/am6x/am62l/quickstart-alpha',
+        'am62l-quickstart-alpha.tex',
+        'phyCORE-AM62L Quickstart Guide ALPHA',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
