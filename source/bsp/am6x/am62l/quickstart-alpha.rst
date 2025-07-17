@@ -1,5 +1,5 @@
 .. General Substitutions
-.. |doc-id| replace:: ALPHA1
+.. |doc-id| replace:: ALPHA
 .. |kit| replace:: **phyCORE-AM62L FPSC Kit**
 .. |soc| replace:: AM62L
 .. |som| replace:: phyCORE-AM62L FPSC
@@ -8,15 +8,16 @@
 .. Links
 .. |hardware-manual| replace:: Hardware Manual - phyCORE-AM62L FPSC/Libra Development Board (1627.0/1618.1) (L-1078e.A0)
 .. _hardware-manual: https://www.phytec.de/cdocuments/?doc=H4N4Ow
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux
-.. _`static-pdf-dl`: ../../../_static/am62l-quickstart-alpha1.pdf
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/
+.. _`static-pdf-dl`: ../../../_static/am62l-quickstart-alpha.pdf
 .. |pin-muxing-table| replace:: phyCORE-AM62Lx FPSC Pin Muxing Table
 .. _pin-muxing-table: https://download.phytec.de/Products/phyCORE-AM62Lx%20FPSC/Tech%20Data/phyCORE-AM62Lx_FPSC_PL1627.0_Pinout_Table.A0.xlsx
 
 .. Yocto
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image
-.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
+.. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
+.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 
 .. only:: html
@@ -36,7 +37,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          | Scarthgap            |
 +-----------------------+----------------------+
-| Release Date          | 2025/06/XX           |
+| Release Date          | 2025/07/17           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc|       |
 |                       | Quickstart Guide     |
@@ -48,7 +49,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                  BSP Release Type BSP Release Date BSP Status
 
 ================================ ================ ================ =============
-BSP-Yocto-Ampliphy-AM62Lx-ALPHA1   Alpha            2025/06/XX      Unreleased
+BSP-Yocto-Ampliphy-AM62Lx-ALPHA2   Alpha            2025/07/17      Released
 ================================ ================ ================ =============
 
 Introduction
@@ -202,13 +203,9 @@ kit. Connect the power supply to the Power-In connector (X8).
       :align: center
       :width: 50 %
 
-It is possible to power the |sbc| with a USB-PD (USB power-delivery) supply
-instead of the power supply SV068. Connect a conform USB-PD supply to USB-C
-connector X2 right next to Power-In connector X8.
-
 .. warning::
-   Do not power the |sbc| via USB Power-In (X2) and Power-In (X8) at the same
-   time.
+   If USB-PD port (X2) is mounted, do not use it in parallel with the 24V
+   Power-In connector (X8). This may damage your device!
 
 .. tip::
    Be aware that as soon as the |sbc| is supplied with power, the SD Card boot
@@ -229,9 +226,7 @@ System Booting
 The |kit| is shipped with a pre-flashed SD card. It contains the
 |yocto-imagename| and can be used directly as a boot source.
 
-The Quickstart guide will only describe how to boot from the pre-flashed
-SD card. How to build the BSP yourself, flash your own SD card or boot from
-other bootsources like eMMC will be described in the upcoming BSP manual.
+How to build the BSP yourself will be described in the upcoming BSP manual.
 
 Boot with SD-Card
 -----------------
@@ -245,3 +240,57 @@ Boot with SD-Card
 *  Connect the target and the host with **USB-C** on (X14) debug USB
 *  Power up the board
 
+Boot from eMMC
+--------------
+
+Due to a known issue in early versions of the AM62L ROM Code, booting from eMMC
+is only supported in filesystem mode using the User Data Area (UDA). To enable
+this mode, we need to modify one of the "rescue" eFuse boot modes to support
+eMMC booting in filesystem mode.
+
+.. warning::
+   Fuses are One-Time Programmable (OTP), writing incorrect values can
+   permanently brick your board. Double-check all commands before proceeding.
+
+*  Burn the required eFuse:
+
+   *  Enable the VPP_1V8 regulator in U-Boot to provide power to the eFuse
+      circuitry:
+
+      .. code-block:: console
+
+         u-boot=> regulator dev VPP_1V8
+         u-boot=> regulator enable
+
+   *  Program the fuse with the correct value:
+
+      .. code-block:: console
+
+         u-boot=> fuse prog 0xFF 1 0x0385850
+
+*  Configure and Flash eMMC:
+
+   *  Enable eMMC UDA boot mode in U-Boot:
+
+      .. code-block:: console
+
+         u-boot=> mmc partconf 0 1 7 1
+         u-boot=> mmc bootbus 0 2 0 0
+
+   *  Boot into Linux:
+
+      .. code-block:: console
+
+         u-boot=> boot
+
+   *  Flash the eMMC with the correct Yocto image:
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/mmcblk0
+
+*  Set the S1 DIP switch to the correct configuration for eMMC boot and then
+   power up the board:
+
+   .. image:: images/eMMC.png
