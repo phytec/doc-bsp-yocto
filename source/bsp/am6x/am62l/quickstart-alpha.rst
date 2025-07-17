@@ -1,5 +1,5 @@
 .. General Substitutions
-.. |doc-id| replace:: ALPHA1
+.. |doc-id| replace:: ALPHA
 .. |kit| replace:: **phyCORE-AM62L FPSC Kit**
 .. |soc| replace:: AM62L
 .. |som| replace:: phyCORE-AM62L FPSC
@@ -9,7 +9,7 @@
 .. |hardware-manual| replace:: Hardware Manual - phyCORE-AM62L FPSC/Libra Development Board (1627.0/1618.1) (L-1078e.A0)
 .. _hardware-manual: https://www.phytec.de/cdocuments/?doc=H4N4Ow
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/
-.. _`static-pdf-dl`: ../../../_static/am62l-quickstart-alpha1.pdf
+.. _`static-pdf-dl`: ../../../_static/am62l-quickstart-alpha.pdf
 .. |pin-muxing-table| replace:: phyCORE-AM62Lx FPSC Pin Muxing Table
 .. _pin-muxing-table: https://download.phytec.de/Products/phyCORE-AM62Lx%20FPSC/Tech%20Data/phyCORE-AM62Lx_FPSC_PL1627.0_Pinout_Table.A0.xlsx
 
