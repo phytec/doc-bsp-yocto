@@ -376,7 +376,12 @@ can create a device certificate.
    target:~$  pkcs11-tool --module /usr/lib/pkcs11/libtpm2_pkcs11.so -w ecc.crt -y cert -a iotdm-cert --pin ${TPM_PIN} -d 2
 
 .. note::
-   For device identification on a server or cloud provider, you need a Certificate Authority to sign the device certificate.
+   For device identification on a server or cloud provider, you need a
+   Certificate Authority to sign the device certificate.
+
+   The ``pkcs11-tool`` parameter ``--private`` can protect the public key and
+   other public objects like certificates for access to delete and read out,
+   because a PIN (password) is necessary for every access.
 
 * You can find a more detailed example with Op-tee `<https://optee.readthedocs.io/en/latest/building/userland_integration.html>`_
 * Examples with openssl for the TPM 2.0: `<https://github.com/tpm2-software/tpm2-tss-engine>`_
@@ -384,4 +389,3 @@ can create a device certificate.
 `OpenSSL <https://www.openssl.org/>`_ is a robust, commercial-grade,
 full-featured software library for general-purpose cryptography and secure
 communication.
-
