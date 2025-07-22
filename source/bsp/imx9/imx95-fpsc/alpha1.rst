@@ -9,7 +9,7 @@
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/imx-boot-tools/
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx95
-.. _`static-pdf-dl`: ../../../_static/imx95-alpha1.pdf
+.. _`static-pdf-dl`: ../../../_static/imx95-fpsc-alpha1.pdf
 
 
 .. General Substitutions
@@ -83,16 +83,16 @@
 .. |yocto-sdk-a-core| replace:: cortexa55-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx95-alpha1-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx95-alpha1-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx95-alpha1-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx95-alpha1-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx95-alpha1-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx95-alpha1-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx95-alpha1-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-alpha1-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-alpha1-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-alpha1-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx95-fpsc-alpha1-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx95-fpsc-alpha1-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx95-fpsc-alpha1-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx95-fpsc-alpha1-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx95-fpsc-alpha1-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx95-fpsc-alpha1-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx95-fpsc-alpha1-development>`
+.. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-fpsc-alpha1-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-fpsc-alpha1-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-fpsc-alpha1-format-sd>`
 
 
 .. IMX95 specific
@@ -101,12 +101,12 @@
    can be found here:
    :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L109`.
 
-.. |ref-serial| replace:: :ref:`X27 <imx95-alpha1-components>`
-.. |ref-S5| replace:: :ref:`S5 <imx95-alpha1-components>`
+.. |ref-serial| replace:: :ref:`X27 <imx95-fpsc-alpha1-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx95-fpsc-alpha1-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx95-alpha1-ubootexternalenv>`
+   :ref:`device tree overlay section <imx95-fpsc-alpha1-ubootexternalenv>`
 
-.. _imx95-alpha1-bsp-manual:
+.. _imx95-fpsc-alpha1-bsp-manual:
 
 .. only:: html
 
@@ -156,14 +156,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx95-alpha1-components:
+.. _imx95-fpsc-alpha1-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-alpha1-getting-started:
+.. _imx95-fpsc-alpha1-getting-started:
 .. include:: getting-started.rsti
 
 First Start-up
@@ -185,7 +185,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx95-alpha1-images:
+.. _imx95-fpsc-alpha1-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -225,7 +225,7 @@ Bootmode Switch (S1)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx95-alpha1-bootswitch:
+.. _imx95-fpsc-alpha1-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
@@ -246,7 +246,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-alpha1-development:
+.. _imx95-fpsc-alpha1-development:
 
 Development
 ===========
@@ -270,7 +270,7 @@ You can build the SDK yourself with Yocto:
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
    :start-after: .. install-sdk-marker
 
-.. _imx95-alpha1-development-build-uboot:
+.. _imx95-fpsc-alpha1-development-build-uboot:
 .. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
@@ -287,7 +287,7 @@ You can build the SDK yourself with Yocto:
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. _imx95-alpha1-format-sd:
+.. _imx95-fpsc-alpha1-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -295,7 +295,7 @@ You can build the SDK yourself with Yocto:
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-alpha1-device-tree:
+.. _imx95-fpsc-alpha1-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -305,7 +305,7 @@ You can build the SDK yourself with Yocto:
    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
 
 
-.. _imx95-alpha1-ubootexternalenv:
+.. _imx95-fpsc-alpha1-ubootexternalenv:
 .. include:: /bsp/dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -338,7 +338,7 @@ resistors are enabled.
 The device tree representation for UART1 pinmuxing:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L438`
 
-.. _imx95-alpha1-network:
+.. _imx95-fpsc-alpha1-network:
 
 Network
 -------
@@ -436,9 +436,9 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
-.. include:: /bsp/imx9/imx95/peripherals/tm.rsti
+.. include:: peripherals/tm.rsti
 
-.. include:: /bsp/imx9/imx95/peripherals/gpu.rsti
+.. include:: peripherals/gpu.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
