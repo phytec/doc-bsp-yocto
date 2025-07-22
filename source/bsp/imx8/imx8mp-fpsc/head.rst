@@ -9,7 +9,7 @@
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD24.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD24.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _`static-pdf-dl`: ../../../_static/imx8mp-libra-fpsc-head.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-head.pdf
 
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2024.04-2.0.0-phy7#n177
@@ -90,16 +90,16 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-libra-fpsc-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-libra-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-libra-fpsc-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-libra-fpsc-head-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-libra-fpsc-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-libra-fpsc-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-libra-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-libra-fpsc-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-libra-fpsc-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-libra-fpsc-head-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-fpsc-head-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-fpsc-head-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-fpsc-head-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-fpsc-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-fpsc-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-fpsc-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-fpsc-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-fpsc-head-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-fpsc-head-format-sd>`
 
 
 .. IMX8(MP) specific
@@ -112,10 +112,10 @@
    to GPIO fan due to availability. The PWM fan will not be supported
    anymore and will not function with the new release.
 
-.. |ref-serial| replace:: :ref:`X27 <imx8mp-libra-fpsc-head-components>`
-.. |ref-S5| replace:: :ref:`S5 <imx8mp-libra-fpsc-head-components>`
+.. |ref-serial| replace:: :ref:`X27 <imx8mp-fpsc-head-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx8mp-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-libra-fpsc-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
 
@@ -173,14 +173,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-libra-fpsc-head-components:
+.. _imx8mp-fpsc-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-libra-fpsc-head-getting-started:
+.. _imx8mp-fpsc-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -202,7 +202,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-libra-fpsc-head-images:
+.. _imx8mp-fpsc-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -240,7 +240,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx8mp-libra-fpsc-head-bootswitch:
+.. _imx8mp-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
@@ -250,7 +250,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-libra-fpsc-head-development:
+.. _imx8mp-fpsc-head-development:
 
 Development
 ===========
@@ -271,7 +271,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. _imx8mp-libra-fpsc-head-development-build-uboot:
+.. _imx8mp-fpsc-head-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
@@ -285,7 +285,7 @@ Development
 
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 
-.. _imx8mp-libra-fpsc-head-format-sd:
+.. _imx8mp-fpsc-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -293,7 +293,7 @@ Development
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-libra-fpsc-head-device-tree:
+.. _imx8mp-fpsc-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -312,7 +312,7 @@ Development
    imx8mp-vm017-csi2.dtbo
    imx8mp-vm017-csi2-fpdlink.dtbo
 
-.. _imx8mp-libra-fpsc-head-ubootexternalenv:
+.. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -370,7 +370,7 @@ The switch |ref-S5| need to be set correctly.
 The device tree representation for RS232 and RS485:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy16/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L274`
 
-.. _imx8mp-libra-fpsc-head-network:
+.. _imx8mp-fpsc-head-network:
 
 Network
 -------
