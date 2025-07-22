@@ -146,7 +146,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/head',
         'imx8mp-head.tex',
-        'i.MX 8M Plus BSP Manual DRAFT',
+        'phyCORE-i.MX 8M Plus BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -154,7 +154,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/mainline-head',
         'imx8mp-mainline-head.tex',
-        'i.MX 8M Plus BSP Manual DRAFT',
+        'phyCORE-i.MX 8M Plus BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -162,7 +162,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd24.1.0_nxp',
         'imx8mp-pd24.1.0_nxp.tex',
-        'i.MX 8M Plus BSP Manual PD24.1.0 NXP',
+        'phyCORE-i.MX 8M Plus BSP Manual PD24.1.0 NXP',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -170,7 +170,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd24.1.2',
         'imx8mp-pd24.1.2.tex',
-        'i.MX 8M Plus BSP Manual PD24.1.2',
+        'phyCORE-i.MX 8M Plus BSP Manual PD24.1.2',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -178,7 +178,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd24.1.1',
         'imx8mp-pd24.1.1.tex',
-        'i.MX 8M Plus BSP Manual PD24.1.1',
+        'phyCORE-i.MX 8M Plus BSP Manual PD24.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -186,7 +186,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd23.1.0',
         'imx8mp-pd23.1.0.tex',
-        'i.MX 8M Plus BSP Manual PD23.1.0',
+        'phyCORE-i.MX 8M Plus BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -194,7 +194,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd22.1.2',
         'imx8mp-pd22.1.2.tex',
-        'i.MX 8M Plus BSP Manual PD22.1.2',
+        'phyCORE-i.MX 8M Plus BSP Manual PD22.1.2',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -202,23 +202,23 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp/pd22.1.1',
         'imx8mp-pd22.1.1.tex',
-        'i.MX 8M Plus BSP Manual PD22.1.1',
+        'phyCORE-i.MX 8M Plus BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
     ),
     (
-        'bsp/imx8/imx8mp-libra-fpsc/head',
-        'imx8mp-libra-fpsc-head.tex',
-        'Libra i.MX 8M Plus FPSC BSP Manual DRAFT',
+        'bsp/imx8/imx8mp-fpsc/head',
+        'imx8mp-fpsc-head.tex',
+        'phyCORE-i.MX 8M Plus FPSC BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
     ),
     (
-        'bsp/imx8/imx8mp-libra-fpsc/quickstart-alpha1',
-        'imx8mp-libra-quickstart-alpha1.tex',
-        'i.MX 8M Plus FPSC Quickstart Guide ALPHA1',
+        'bsp/imx8/imx8mp-fpsc/quickstart-alpha1',
+        'imx8mp-fpsc-quickstart-alpha1.tex',
+        'phyCORE-i.MX 8M Plus FPSC Quickstart Guide ALPHA1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -226,7 +226,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/head',
         'imx8mm-head.tex',
-        'i.MX 8M Mini BSP Manual DRAFT',
+        'phyCORE-i.MX 8M Mini BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -234,7 +234,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/pd25.1.0',
         'imx8mm-pd25.1.0.tex',
-        'i.MX 8M Mini BSP Manual PD25.1.0',
+        'phyCORE-i.MX 8M Mini BSP Manual PD25.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -242,7 +242,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/pd23.1.0',
         'imx8mm-pd23.1.0.tex',
-        'i.MX 8M Mini BSP Manual PD23.1.0',
+        'phyCORE-i.MX 8M Mini BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -250,7 +250,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mm/pd22.1.1',
         'imx8mm-pd22.1.1.tex',
-        'i.MX 8M Mini BSP Manual PD22.1.1',
+        'phyCORE-i.MX 8M Mini BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -258,7 +258,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/head',
         'imx8mn-head.tex',
-        'i.MX 8M Mini BSP Manual DRAFT',
+        'phyCORE-i.MX 8M Mini BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -266,7 +266,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/pd23.1.0',
         'imx8mn-pd23.1.0.tex',
-        'i.MX 8M Nano BSP Manual PD23.1.0',
+        'phyCORE-i.MX 8M Nano BSP Manual PD23.1.0',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
@@ -274,7 +274,7 @@ latex_documents = [
     (
         'bsp/imx8/imx8mn/pd22.1.1',
         'imx8mn-pd22.1.1.tex',
-        'i.MX 8M Nano BSP Manual PD22.1.1',
+        'phyCORE-i.MX 8M Nano BSP Manual PD22.1.1',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,

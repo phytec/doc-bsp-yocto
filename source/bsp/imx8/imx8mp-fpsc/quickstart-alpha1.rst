@@ -10,7 +10,7 @@
 .. _hardware-manual: TBD
 .. |bsp-manual| replace:: TBD
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
-.. _`static-pdf-dl`: ../../../_static/imx8mp-libra-fpsc-quickstart-alpha1.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-quickstart-alpha1.pdf
 
 
 .. Yocto
