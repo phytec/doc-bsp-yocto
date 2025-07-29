@@ -1,0 +1,108 @@
+PHYTEC |soc| FPSC Device Tree Differences
+.........................................
+
+Due to the standardization of signals and interfaces that PHYTEC FPSC SoMs must
+supply, there is potential for confusion of the names as defined by the SoC
+manufacturer, in Software by the device tree and in the FPSC specification.
+
+Example of i.MX 8M Plus SoC with a Libra i.MX 8M Plus FPSC board:
+
+========== =========== ==========
+SoC vendor device tree FPSC Spec.
+========== =========== ==========
+uSDHC1     usdhc1      SDIO
+uSDHC2     usdhc2      SD-Card
+uSDHC3     usdhc3
+========== =========== ==========
+
+To reduce confusion, interfaces in the device tree are annotated with the
+FPSC specification name.
+
+Example (taken from imx8mp-phycore-fpsc.dtsi)
+
+.. code-block:: devicetree
+
+   &usdhc2 { /* FPSC SDCARD */
+           pinctrl-0 = <&pinctrl_usdhc2>;
+           pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
+           pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
+           pinctrl-names = "default", "state_100mhz", "state_200mhz";
+           sd-uhs-sdr104;
+           vmmc-supply = <&reg_usdhc2_vmmc>;
+           vqmmc-supply = <&ldo5>;
+   };
+
+
+   pinctrl_usdhc2: usdhc2grp {
+           fsl,pins = <
+                   MX8MP_IOMUXC_SD2_CD_B__USDHC2_CD_B	0x40	/* SDCARD_CD */
+                   MX8MP_IOMUXC_SD2_WP__USDHC2_WP       0x40	/* SDCARD_WP */
+                   MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x190	/* SDCARD_CLK */
+                   MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d0	/* SDCARD_CMD */
+                   MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d0	/* SDCARD_DATA0 */
+                   MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d0	/* SDCARD_DATA1 */
+                   MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d0	/* SDCARD_DATA2 */
+                   MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d0	/* SDCARD_DATA3 */
+                   MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0
+           >;
+   };
+
+In the first node, the interface as defined per FPSC is annotated: ``FPSC SDCARD``
+In the second node, the signal names for this (SDCARD) interface are annotated:
+``SDCARD_WP``, etc. .
+
+FPSC Device Tree Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the usual PHYTEC device tree structure, all FPSC defined signals
+are also predefined in the SoM device tree as can be seen in the example above.
+There is nothing connected to the SDCARD controller (on the SoM), yet the FPSC
+SoM must preconfigure SDCARD signals per the FPSC specification.
+The result is that on the baseboard, no care needs to be taken in regards to
+signal line configuration (muxing); this is done already.
+
+Example cont. (imx8mp-libra-rdk-fpsc.dts)
+
+.. code-block:: devicetree
+
+   /* SD-Card */
+   &usdhc2 {
+           assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
+           assigned-clock-rates = <200000000>;
+           bus-width = <4>;
+           disable-wp;
+           status = "okay";
+   };
+
+Using the |som| for non-FPSC-conformant carrier boards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Even though signals for pins are predefined within the FPSC world, the |som| may
+also be used in custom, non-conforming (with regards to FPSC), i.e. "phyCORE",
+design context.
+
+Example:
+
+SDCARD interface is not needed on custom board, but an additional i2c interface
+is required.
+
+The following could be done
+
+.. code-block:: devicetree
+
+   &i2c4 {
+	pinctrl-0 = <&pinctrl_i2c4>;
+	pinctrl-names = "default";
+        status = "okay";
+   };
+
+   pinctrl_i2c4: i2c4grp {
+          fsl,pins = <
+                  MX8MP_IOMUXC_SD2_DATA0__I2C4_SDA 0x400001c2
+                  MX8MP_IOMUXC_SD2_DATA1__I2C4_SCL 0x400001c2
+          >;
+   };
+
+Note that SD2_DATA0 pad, even though muxed in the |som| dtsi file, is not used
+since the interface controller line it is muxed to is not activated with a
+``status = "okay";`` property.

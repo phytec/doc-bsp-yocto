@@ -315,6 +315,8 @@ Development
 .. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: ../../dt-overlays.rsti
 
+.. include:: ../../fpsc-device-tree.rsti
+
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
