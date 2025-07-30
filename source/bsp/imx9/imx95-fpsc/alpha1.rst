@@ -1,5 +1,4 @@
 .. Download links
-.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX95-ALPHA1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-95-fpsc/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/
@@ -106,6 +105,8 @@
    :ref:`device tree overlay section <imx95-fpsc-alpha1-ubootexternalenv>`
 
 .. _imx95-fpsc-alpha1-bsp-manual:
+
+.. include:: /bsp/global-defaults.rsti
 
 .. only:: html
 

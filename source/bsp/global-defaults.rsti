@@ -1,0 +1,23 @@
+.. Global definitions for all platforms
+.. 
+.. This file allows to define global substitutions for all platforms, whereby
+.. a platform can overwrite it individually if the global definition does
+.. not fit.
+
+.. http-links, based on platform/release specific URLs
+   where:
+     <...>_link is the substitution used in common documents, and
+           is a combination of readable text and a URL
+     <...> is the URL used by _link above, and is usually defined
+           in the platforms main rst file.
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-server| replace:: BSP downloads
+
+.. |dl-sdk-link| replace:: |dl-sdk|_
+.. |dl-sdk| replace:: SDK downloads
+
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
+.. |dlpage-bsp| replace:: our BSP
+
+.. |dt-somnetwork-link| replace:: |dt-somnetwork|
+

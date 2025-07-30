@@ -22,7 +22,7 @@ To configure eth0 to dynamic IP over DHCP, go to
 The DT Ethernet setup might be split into two files depending on your hardware
 configuration: the module DT and the board-specific DT. The device tree set up
 for the ethernet where the PHY is populated on the SoM can be found here:
-|dt-somnetwork|.
+|dt-somnetwork-link|.
 
 |sbc-network|
 
