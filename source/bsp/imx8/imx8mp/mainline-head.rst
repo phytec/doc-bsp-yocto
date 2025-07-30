@@ -1,5 +1,4 @@
 .. Download links
-.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
@@ -107,6 +106,8 @@
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
+
+.. include:: /bsp/imx-common/global-defaults.rsti
 
 .. only:: html
 

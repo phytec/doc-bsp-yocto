@@ -16,7 +16,7 @@ Get the BSP
 -----------
 
 There are two ways to get the BSP sources. You can download the complete BSP
-sources from our download page: |yocto-bsp-name|_; or you can fetch and build it
+sources from our |dl-server-link| page; or you can fetch and build it
 yourself with Yocto. This is particularly useful if you want to make
 customizations.
 
@@ -57,8 +57,8 @@ structure.
    .. note::
 
       If you cannot identify your board with the information given in the selector,
-      have a look at the invoice for the product. And have a look at
-      |dlpage-bsp|_.
+      have a look at the invoice for the product. And have a look at the webpage
+      of |dlpage-bsp-link|.
 
 *  It is also possible to pass this information directly using command line
    parameters:

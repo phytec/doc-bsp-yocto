@@ -1,0 +1,21 @@
+
+
+.. globals links, based on platform/release specific URLs
+   where:
+     <...>_link is the one used in common documentation, and
+           is a readable text with URL behind
+     <...> is the URL used by _link above, and is usually defined
+           in the platforms main rst file.
+   Each platform can individually overwrite those global links
+   in purpose.
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-server| replace:: BSP downloads
+
+.. |dl-sdk-link| replace:: |dl-sdk|_
+.. |dl-sdk| replace:: SDK downloads
+
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
+.. |dlpage-bsp| replace:: our BSP
+
+.. |dt-somnetwork-link| replace:: |dt-somnetwork|
+
