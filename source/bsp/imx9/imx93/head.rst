@@ -1,5 +1,4 @@
 .. Download links
-.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
@@ -107,6 +106,7 @@
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. include:: /bsp/global-defaults.rsti
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

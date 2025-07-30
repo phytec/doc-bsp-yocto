@@ -123,6 +123,7 @@
 .. Name of the USB OTG connector on the board with an internal link
 .. |ref-usb-otg| replace:: :ref:`name-of-connector <sbc-release-components>`
 
+.. include:: /bsp/global-defaults.rsti
 
 .. The rest of this file is used to assemble the content needed for the BSP
    documentation. This can be a mix of include directives and text. Some content

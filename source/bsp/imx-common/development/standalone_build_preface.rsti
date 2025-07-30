@@ -41,7 +41,7 @@ look at your BSP source folder:
 Get the SDK
 ...........
 
-You can download the SDK `here <dl-sdk_>`_, or build it yourself with Yocto:
+You can download the SDK from the |dl-sdk-link| page, or build it yourself with Yocto:
 
 *  Move to the Yocto build directory:
 
