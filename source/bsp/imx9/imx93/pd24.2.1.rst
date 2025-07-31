@@ -1,8 +1,5 @@
 .. Download links
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.1
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
-.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/sdk/ampliphy-vendor/
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.wic.xz
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/imx-boot-tools/
@@ -58,19 +55,18 @@
 .. |dt-som| replace:: imx93-phycore-som
 .. |dtbo-rpmsg| replace:: imx93-phycore-rpmsg.dtso
 
-.. IMX93 specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61`
-
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
-.. |yocto-bsp-name| replace:: BSP-Yocto-i.MX93
-.. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic.xz
 .. |yocto-machinename| replace:: phyboard-segin-imx93-2
+.. use imx93 manifest as default manifestname
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.1
+.. and define explicitly imx91 and imx93 manifestname for more specific cases
+.. |yocto-manifestname-91| replace:: BSP-Yocto-NXP-i.MX91-PD24.2.1
+.. |yocto-manifestname-93| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.1
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-sdk-rev| replace:: 5.0.8
 .. |yocto-sdk-a-core| replace:: cortexa55
@@ -86,17 +82,8 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-PD24.2.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-PD24.2.1-components>`
 
-
-.. IMX93 specific
-.. |sbc-network| replace::
-   The device tree set up for EQOS Ethernet IP core where the PHY is populated
-   on the |sbc| can be found here:
-   :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L118` or here:
-   :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L87`.
-
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-PD24.2.1-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
@@ -104,7 +91,42 @@
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
-.. include:: /bsp/imx-common/global-defaults.rsti
+.. Dont include /bsp/imx-common/global-defaults.rsti, but define
+   contents specifically here below, to be able to embed 
+   individual links/URLs for imx91 and imx93.
+.. |dl-server-link| replace:: |dl-server-link-91|_ or |dl-server-link-93|_ BSP downloads
+.. |dl-server-link-91| replace:: i.MX 91
+.. _dl-server-link-91: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX91/
+.. |dl-server-link-93| replace:: i.MX 93
+.. _dl-server-link-93: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
+
+.. |dl-sdk-link| replace:: |dl-sdk-91|_ or |dl-sdk-93|_ downloads
+.. |dl-sdk-91| replace:: i.MX 91 SDK
+.. _dl-sdk-91: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX91/BSP-Yocto-NXP-i.MX91-PD24.2.1/sdk/ampliphy-vendor/
+.. |dl-sdk-93| replace:: i.MX 93 SDK
+.. _dl-sdk-93: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/sdk/ampliphy-vendor/
+
+.. |dlpage-bsp-link| replace:: our |dlpage-bsp-91|_ or |dlpage-bsp-93|_
+.. |dlpage-bsp-91| replace:: i.MX 91 BSP
+.. _dlpage-bsp-91: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX91-PD24.2.1
+.. |dlpage-bsp-93| replace:: i.MX 93 BSP
+.. _dlpage-bsp-93: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.1
+
+.. |dt-somnetwork-link| replace:: for |dt-somnet-91|_ or |dt-somnet-93|_
+.. |dt-somnet-91| replace:: phyCORE i.MX 91
+.. _dt-somnet-91: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L56
+.. |dt-somnet-93| replace:: phyCORE i.MX 93
+.. _dt-somnet-93: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61
+
+.. |sbc-network| replace::
+   The device tree set up for EQOS Ethernet IP core where the PHY is populated
+   can be found here: for |dt-sbcnet-91-segin|_ or |dt-sbcnet-93-segin|_ or |dt-sbcnet-93-nash|_
+.. |dt-sbcnet-91-segin| replace:: phyBOARD-Segin i.MX 91
+.. _dt-sbcnet-91-segin: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L119
+.. |dt-sbcnet-93-segin| replace:: phyBOARD-Segin i.MX 93
+.. _dt-sbcnet-93-segin: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L118
+.. |dt-sbcnet-93-nash| replace:: phyBOARD-Nash i.MX 93
+.. _dt-sbcnet-93-nash: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L87
 
 .. only:: html
 
@@ -126,12 +148,13 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ================ ==========
-Compatible BSPs      BSP Release Type BSP Release Date BSP Status
+======================= ================ ================ ==========
+Compatible BSPs         BSP Release Type BSP Release Date BSP Status
 
-==================== ================ ================ ==========
-|yocto-manifestname| Minor            2025/03/21       Released
-==================== ================ ================ ==========
+======================= ================ ================ ==========
+|yocto-manifestname-91| Minor            2025/03/21       Released
+|yocto-manifestname-93| Minor            2025/03/21       Released
+======================= ================ ================ ==========
 
 
 .. include:: ../../intro.rsti
@@ -140,7 +163,10 @@ Supported Hardware
 ------------------
 
 On our web page, you can see all supported Machines with the available Article
-Numbers for this release: |yocto-manifestname|, see `download <dlpage-bsp_>`_.
+Numbers for this BSP manual:
+
+* For BSP release |yocto-manifestname-91|, see |dlpage-bsp-91|_
+* For BSP release |yocto-manifestname-93|, see |dlpage-bsp-93|_
 
 If you choose a specific **Machine Name** in the section **Supported Machines**,
 you can see which **Article Numbers** are available under this machine and also
