@@ -74,8 +74,7 @@ html_show_sphinx = False
 html_baseurl = 'https://phytec.github.io/doc-bsp-yocto/'
 
 # Add robots.txt so search engines can index the site
-html_extra_path = ['sphinx/static/robots.txt',
-                   'sphinx/static/googledd12f2e41658d61e.html']
+html_extra_path = ['sphinx/static/robots.txt']
 
 # Link scheme
 sitemap_url_scheme = "{link}"
