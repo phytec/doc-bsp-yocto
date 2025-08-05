@@ -26,11 +26,17 @@ the information strings in English (0x409) language:
    target:~$ echo "Foo Inc." > strings/0x409/manufacturer
    target:~$ echo "Bar Gadget" > strings/0x409/product
 
-Next, create a file for the mass storage gadget:
+Next, create a file with a filesystem for the mass storage gadget:
 
 .. code-block:: console
 
    target:~$ dd if=/dev/zero of=/tmp/file.img bs=1M count=64
+   target:~$ mkfs.ext4 /tmp/file.img
+
+.. note::
+
+   If you create the file in the tmp folder it will be gone after the next
+   reboot. If you want to have it persistent, use an other directory.
 
 Now you should create the functions you want to use:
 
@@ -40,12 +46,24 @@ Now you should create the functions you want to use:
    target:~$ mkdir functions/acm.GS0
    target:~$ mkdir functions/ecm.usb0
    target:~$ mkdir functions/mass_storage.0
-   target:~$ echo /tmp/file.img > functions/mass_storage.0/lun.0/file
 
 -  *acm*: Serial gadget, creates serial interface like ``/dev/ttyGS0``.
 -  *ecm*: Ethernet gadget, creates ethernet interface, e.g. usb0
 -  *mass_storage*: The host can partition, format, and mount the gadget mass
    storage the same way as any other USB mass storage.
+
+Now set the file you want to share with the host:
+
+.. code-block:: console
+
+   target:~$ echo /tmp/file.img > functions/mass_storage.0/lun.0/file
+
+.. hint::
+
+   You can also insert partitions or a whole device to be shared with the host
+   here, but the partition to be shared or the partitions on the device to be
+   shared should not be mounted on the target while sharing with the host
+   otherwise writing to them will not work from host.
 
 Bind the defined functions to a configuration:
 
@@ -78,3 +96,14 @@ To stop the USB gadget and unbind the used functions, execute:
 .. code-block:: console
 
    target:~$ echo "" > /sys/kernel/config/usb_gadget/g1/UDC
+
+After stopping the sharing with the host, you can also mount the file on the
+target. This way files can be transferred between host and target.
+
+.. code-block:: console
+
+   target:~$ mount /tmp/file.img /mnt
+
+.. warning::
+
+   Do not mount the file while it is shared with the host.
