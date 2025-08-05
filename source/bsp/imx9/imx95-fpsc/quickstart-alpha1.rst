@@ -121,7 +121,7 @@ Components
 Additional (optional) equipment (not included in Alpha Kit)
 -----------------------------------------------------------
 
--  Display (KLCD-AC209-IMX95)
+-  Display (KLCD-AC209-FPSCG)
 -  Embedded Imaging Kit (KPB-xxxx-Video-L01, KPB-xxxx-Video-L02)
 
 Linux Host PC
