@@ -6,8 +6,8 @@
 .. |sbc| replace:: Libra FPSC
 
 .. Links
-.. |hardware-manual| replace:: TBD
-.. _hardware-manual: TBD
+.. |hardware-manual| replace:: Hardware Manual - phyCORE-i.MX 8M Plus FPSC (1617.2/1618.1) (L-1076e.A1)
+.. _hardware-manual: https://www.phytec.de/cdocuments/?doc=3IGEOQ
 .. |bsp-manual| replace:: TBD
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
 .. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-quickstart-alpha1.pdf
@@ -36,7 +36,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          | Scarthgap            |
 +-----------------------+----------------------+
-| Release Date          | TBD                  |
+| Release Date          | 2025/08/11           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc|       |
 |                       | Quickstart Guide     |
@@ -48,7 +48,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
 
 ================================= ================ ================= ==============
-BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1 Alpha            TBD               Unreleased
+BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1 Alpha            2025/08/11        Released
 ================================= ================ ================= ==============
 
 Introduction
