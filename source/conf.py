@@ -435,7 +435,9 @@ linkcheck_ignore = [
     # Client Error 403: Forbidden
     "https://unix.stackexchange.com/",
     # Timeout with linkcheck
-    "https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc"
+    "https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc",
+    # Often 403 Client Error: Forbidden
+    "https://e2fsprogs.sourceforge.net/e2fsprogs-release.html",
 ]
 
 linkcheck_timeout = 60
