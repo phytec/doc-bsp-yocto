@@ -42,8 +42,8 @@
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
-.. |u-boot-repo-name| replace:: u-boot-imx
-.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-phytec-imx
+.. |u-boot-repo-name| replace:: u-boot-phytec-imx
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
 .. |emmcdev-uboot| replace:: mmc 0
 .. |sdcarddev-uboot| replace:: mmc 1
 
@@ -60,7 +60,6 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-libra-rdk-fpsc
 .. |dt-som| replace:: imx95-phycore-fpsc
-.. |dtbo-peb-av-10| replace:: imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L229`
@@ -301,9 +300,26 @@ You can build the SDK yourself with Yocto:
 .. code-block::
    :substitutions:
 
-   |dtbo-peb-av-10|
-   imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
-
+   imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
+   imx95-libra-rdk-fpsc-neoisp.dtbo
+   imx95-libra-rdk-fpsc-vm016-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm016-fpdlink-port0-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm016-fpdlink-port1-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm016-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm016-fpdlink-port0-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm016-fpdlink-port1-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm017-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm017-fpdlink-port0-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm017-fpdlink-port1-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm017-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm017-fpdlink-port0-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm017-fpdlink-port1-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm020-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm020-fpdlink-port0-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm020-fpdlink-port1-csi1.dtbo
+   imx95-libra-rdk-fpsc-vm020-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm020-fpdlink-port0-csi2.dtbo
+   imx95-libra-rdk-fpsc-vm020-fpdlink-port1-csi2.dtbo
 
 .. _imx95-fpsc-alpha1-ubootexternalenv:
 .. include:: /bsp/dt-overlays.rsti
