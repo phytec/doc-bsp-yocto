@@ -53,45 +53,15 @@ This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-scarthgap:
 
-The Yocto Project
-=================
-
-PHYTEC Documentation
---------------------
-
-PHYTEC will provide a variety of hardware and software documentation for all of
-our products. This includes any or all of the following:
-
--  **QS Guide**: A short guide on how to set up and boot a phyCORE board along
-   with brief information on building a BSP, the device tree, and accessing
-   peripherals.
--  **Hardware Manual**: A detailed description of the System on Module and
-   accompanying carrier board.
--  **Yocto Guide**: A comprehensive guide for the Yocto version the phyCORE
-   uses. This guide contains an overview of Yocto; introducing, installing, and
-   customizing the PHYTEC BSP; how to work with programs like Poky and Bitbake;
-   and much more.
--  **BSP Manual**: A manual specific to the BSP version of the phyCORE.
-   Information such as how to build the BSP, booting, updating software, device
-   tree, and accessing peripherals can be found here.
--  **Development Environment Guide**: This guide shows how to work with the
-   Virtual Machine (VM) Host PHYTEC has developed and prepared to run various
-   Development Environments. There are detailed step-by-step instructions for
-   Eclipse and Qt Creator, which are included in the VM. There are instructions
-   for running demo projects for these programs on a phyCORE product as well.
-   Information on how to build a Linux host PC yourself is also a part of this
-   guide.
--  **Pin Muxing Table**: phyCORE SOMs have an accompanying pin table (in Excel
-   format). This table will show the complete default signal path, from
-   processor to carrier board. The default device tree muxing option will also
-   be included. This gives a developer all the information needed in one
-   location to make muxing changes and design options when developing a
-   specialized carrier board or adapting a PHYTEC phyCORE SOM to an application.
+.. include:: ../phytec-documentation.rsti
 
 On top of these standard manuals and guides, PHYTEC will also provide Product
 Change Notifications, Application Notes, and Technical Notes. These will be done
 on a case-by-case basis. Most of the documentation can be found in the
 applicable download page of our products.
+
+The Yocto Project
+=================
 
 Yocto Introduction
 ------------------
