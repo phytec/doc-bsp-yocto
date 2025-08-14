@@ -2,9 +2,26 @@
 .. _`static-pdf-dl`: ../_static/mickledore.pdf
 
 .. Yocto
+.. |yocto-branch| replace:: mickledore
 .. |yocto-codename| replace:: Mickledore
 .. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy-vendor-xwayland
+.. _layerindex: https://layers.openembedded.org/layerindex/branch/mickledore/layers/
+.. _Bitbake: https://docs.yoctoproject.org/bitbake/2.4/index.html
+.. _Toaster: https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html
+.. _megamanual: https://docs.yoctoproject.org/4.2.4/singleindex.html
+.. _manual: https://docs.yoctoproject.org/4.2.4/dev-manual/index.html
+.. _Supported Distributions: https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions
+.. _Yocto Board Support Package: https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html
+.. _Quick Build: https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html
+.. _meta-security: https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/
+.. _Yocto Documentation - Customizing Yocto builds: https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration
+.. _Creating Layers: https://docs.yoctoproject.org/4.2.4/dev-manual/layers.html#understanding-and-creating-layers
+.. _Yocto - Devtool: https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow
+.. _Devtool Quick Reference: https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html
+.. _Autotools-Based Projects: https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects
+.. _Yocto - Kernel Development Manual: https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html
+.. _Yocto - Development Manual: https://docs.yoctoproject.org/4.2.4/dev-manual/index.html
 
 .. only:: html
 
@@ -134,7 +151,7 @@ You can add one or many layers of each category in your build.
 
 A collection of OpenEmbedded layers can be found here. The search function is
 very helpful to see if a software package can be retrieved and integrated
-easily: https://layers.openembedded.org/layerindex/branch/mickledore/layers/
+easily: `layerindex`_
 
 Machine
 .......
@@ -165,8 +182,7 @@ Bitbake
 
 *Bitbake* is the task scheduler. It is written in *Python* and interprets
 recipes that contain code in *Bitbake's* own programming language, *Python*, and
-bash code. The official documentation can be found here:
-https://docs.yoctoproject.org/bitbake/2.4/index.html
+bash code. The official documentation can be found here: `Bitbake`_
 
 Toaster
 .......
@@ -176,21 +192,20 @@ provides information about the build history and statistics on created images.
 There are several use cases where the installation and maintenance of
 a *Toaster* instance are beneficial. PHYTEC did not add or remove any features
 to the upstream *Toaster*, provided by *Poky*. The best source for more
-information is the official documentation:
-https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html
+information is the official documentation: `Toaster`_
 
 Official Documentation
 ----------------------
 
 For more general questions about *Bitbake* and *Poky* consult the mega-manual:
-https://docs.yoctoproject.org/4.2.4/singleindex.html
+`megamanual`_
 
 Compatible Linux Distributions
 ==============================
 
 To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
-https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions
+`Supported Distributions`_
 
 PHYTEC BSP Introduction
 =======================
@@ -298,11 +313,10 @@ meta-phytec
 ~~~~~~~~~~~
 
 This layer contains all machines and common features for all our BSPs. It is
-PHYTEC's `Yocto Board Support Package
-<https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ for all supported
-hardware (since *fido*) and is designed to be standalone with *Poky*. Only these
-two parts are required if you want to integrate the PHYTEC's hardware into your
-existing *Yocto* workflow. The features are:
+PHYTEC's `Yocto Board Support Package`_ for all supported hardware (since
+*fido*) and is designed to be standalone with *Poky*. Only these two parts are
+required if you want to integrate the PHYTEC's hardware into your existing
+*Yocto* workflow. The features are:
 
 -  Bootloaders in ``recipes-bsp/barebox/`` and ``recipes-bsp/u-boot/``
 -  Kernels in ``recipes-kernel/linux/`` and
@@ -480,7 +494,7 @@ you need
 
 
 For other distributions you can find information in the *Yocto* Quick Build:
-https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html
+`Quick Build`_
 
 .. _mickledore_git-config:
 
@@ -1054,8 +1068,7 @@ Maybe you need to install some requirements, first
 
 You can then point your browser to *http://0.0.0.0:8000/* and continue working
 with *Bitbake*. All build activity can be monitored and analyzed from this web
-server. If you want to learn more about *Toaster*, look at
-https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html.
+server. If you want to learn more about *Toaster*, look at `Toaster`_.
 To shut down the *Toaster* web GUI again, execute
 
 .. code-block:: console
@@ -1295,7 +1308,7 @@ Add Additional Software for the BSP Image
 .........................................
 
 To add additional software to the image, look at the OpenEmbedded layer index:
-https://layers.openembedded.org/layerindex/branch/mickledore/layers/
+`layerindex`_
 
 First, select the *Yocto* version of the BSP you have from the drop-down list in
 the top left corner and click **Recipes**. Now you can search for a software
@@ -1353,8 +1366,7 @@ If you can not find your software in the layers provided in the folder
 *sources*, see the next section to include another layer into the *Yocto*
 build.
 
-References: `Yocto 4.2.4 Documentation - Customizing Yocto builds
-<https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_
+References: `Yocto Documentation - Customizing Yocto builds`_
 
 Add an Additional Layer
 .......................
@@ -1362,11 +1374,9 @@ Add an Additional Layer
 This is a step-by-step guide on how to add another layer to your *Yocto* build
 and install additional software from it. As an example, we include the network
 security scanner *nmap* in the layer *meta-security*. First, you must locate the
-layer on which the software is hosted. Check out the `OpenEmbedded MetaData
-Index <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_
+layer on which the software is hosted. Check out the `layerindex`_
 and guess a little bit. The network scanner *nmap* is in the *meta-security*
-layer. See `meta-security on layers.openembedded.org
-<https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_.
+layer. See `meta-security`_.
 To integrate it into the *Yocto* build, you have to check out the repository and
 then switch to the correct stable branch. Since the BSP is based on the *Yocto*
 'sumo' build, you should try to use the 'sumo' branch in the layer, too.
@@ -1382,8 +1392,9 @@ All available remote branches will show up. Usually there should be 'fido',
 'jethro', 'krogoth', 'master', ...
 
 .. code-block:: console
+   :substitutions:
 
-   host:~$ git checkout mickledore
+   host:~$ git checkout |yocto-branch|
 
 Now we add the directory of the layer to the file *build/conf/bblayers.conf* by
 appending the line
@@ -1785,10 +1796,7 @@ directory and create a patch using *Git*. How to create a patch is described in
 
 If you want to learn more about *devtool*, visit:
 
-`Yocto 4.2.4 - Devtool
-<https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_
-or `Devtool Quick Reference
-<https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_
+`Yocto - Devtool`_ or `Devtool Quick Reference`_.
 
 .. _mickledore_temporary-method:
 
@@ -1924,10 +1932,8 @@ kernel. Please note that not all of the information from the *Yocto* manual can
 be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto*
 and most of the documentation assumes the *Yocto* kernel approach.
 
--  `Yocto - Kernel Development Manual
-   <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_
--  `Yocto - Development Manual
-   <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_
+-  `Yocto - Kernel Development Manual`_
+-  `Yocto - Development Manual`_
 
 Working with the Kernel and Bootloader using SRC_URI in *local.conf*
 ....................................................................
@@ -2920,7 +2926,7 @@ directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)
    host:~$ make install DESTDIR=$PWD/build/
 
 Refer to the official *Yocto* documentation for more information:
-https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects
+`Autotools-Based Projects`_
 
 Working with Kernel Modules
 ...........................
@@ -3047,12 +3053,9 @@ Yocto Documentation
 ===================
 
 The most important piece of documentation for a BSP user is probably the
-developer manual.
-https://docs.yoctoproject.org/4.2.4/dev-manual/index.html
+developer `manual`_.
 
-The chapter about common tasks is a good starting point.
-https://docs.yoctoproject.org/4.2.4/dev-manual/layers.html#understanding-and-creating-layers
+The chapter about common tasks is a good starting point. `Creating Layers`_
 
-The complete documentation is available on one single HTML page, which is good
-for searching for a feature or a variable name.
-https://docs.yoctoproject.org/4.2.4/singleindex.html
+The complete documentation is available on one single `megamanual`_ HTML page,
+which is good for searching for a feature or a variable name.
