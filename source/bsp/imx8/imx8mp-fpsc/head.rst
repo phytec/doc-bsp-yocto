@@ -348,8 +348,8 @@ disabled.
 The device tree representation for UART3 pinmuxing:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
 
-RS232/RS485
------------
+RS232
+-----
 
 The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
 of UART3 (the standard console) and UART2 are routed to a FT4232H UART
@@ -357,21 +357,40 @@ to USB converter expansion. This USB is brought out at USB-C connector X14.
 UART1 is connected to a multi-protocol transceiver for RS-232 and RS-485,
 available at pin header connector |ref-serial| at the RS-232 level,
 or at the RS-485 level. The muxing of the used transceivers is done by switch
-|ref-S5| on the baseboard.
+|ref-S5| on the baseboard. Presently, RS485 is not working and will be fixed
+in 1618.4 SoM revision.
 For more information about the correct setup please refer to the |som|/|sbc|
-Hardware Manual section UARTs.
+Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
-We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
-enabled with ioctl TIOCSRS485. Have a look at our small example application
-rs485test, which is also included in the BSP.
-The switch |ref-S5| need to be set correctly.
+*  Display the current settings of a terminal in a human-readable format:
 
-.. include:: /bsp/peripherals/rs232.rsti
-.. include:: /bsp/peripherals/rs485.rsti
-.. include:: /bsp/peripherals/rs485-halfduplex.rsti
+   .. code-block:: console
 
-The device tree representation for RS232 and RS485:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L252`
+      target:~$ stty -a
+
+*  By default crtscts is enabled, as hardware flow control is not
+   functioning, need to configure UART interface with stty. This will be
+   fixed in 1618.4 SoM revision. For example:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ stty -F /dev/|serial-uart| 115200 -crtscts raw -echo
+
+*  With a simple echo and cat, basic communication can be tested. Example:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ echo 123 > /dev/|serial-uart|
+
+   .. code-block:: console
+
+      host:~$ cat /dev/ttyUSB2
+
+
+The device tree representation for RS232:
+:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
 
 .. _imx8mp-fpsc-head-network:
 
