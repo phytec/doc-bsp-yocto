@@ -1,0 +1,122 @@
+BSP Workspace Installation
+==========================
+
+Setting Up the Host
+-------------------
+
+You can set up the host or use one of our build-container to run a Yocto build.
+You need to have a running *Linux* distribution. It should be running on a
+powerful machine since a lot of compiling will need to be done.
+
+If you want to use a build-container, you only need to install following
+packages on your host
+
+.. code-block:: console
+
+   host:~$ sudo apt install wget git
+
+Continue with the next step :ref:`master_git-config` after that. The
+documentation for using build-container can be found in this manual after
+:ref:`master_phylinux-advanced-usage` of phyLinux.
+
+Else *Yocto* needs a handful of additional packages on your host.
+For *Ubuntu* you need
+
+.. code-block:: console
+
+   host:~$ sudo apt install gawk wget git diffstat unzip texinfo \
+         gcc build-essential chrpath socat cpio python3 python3-pip \
+         python3-pexpect xz-utils debianutils iputils-ping python3-git \
+         python3-jinja2 libegl1-mesa libsdl1.2-dev \
+         python3-subunit mesa-common-dev zstd liblz4-tool file locales
+
+
+For other distributions you can find information in the *Yocto* Quick Build:
+https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html
+
+.. _master_git-config:
+
+Git Configuration
+-----------------
+
+The BSP heavily utilizes *Git*. *Git* needs some information from
+you as a user to identify who made changes. Create a ``~/.gitconfig`` with the
+following content, if you do not have one
+
+.. code-block:: kconfig
+
+   [user]
+       name = <Your Name>
+       email = <Your Mail>
+   [core]
+       editor = vim
+   [merge]
+       tool = vimdiff
+   [alias]
+       co = checkout
+       br = branch
+       ci = commit
+       st = status
+       unstage = reset HEAD --
+       last = log -1 HEAD
+   [push]
+       default = current
+   [color]
+       ui = auto
+
+You should set ``name`` and ``email`` in your *Git* configuration, otherwise,
+*Bitbake* will complain during the first build. You can use the two commands to
+set them directly without editing ``~/.gitconfig`` manually
+
+.. code-block:: console
+
+   host:~$ git config --global user.email "your_email@example.com"
+   host:~$ git config --global user.name "name surname"
+
+site.conf Setup
+---------------
+
+Before starting the *Yocto* build, it is advisable to configure the development
+setup. Two things are most important: the download directory and the cache
+directory. PHYTEC strongly recommends configuring the setup as it will reduce
+the compile time of consequent builds.
+
+A download directory is a place where *Yocto* stores all sources fetched from
+the internet. It can contain tar.gz, *Git* mirror, etc. It is very useful to set
+this to a common shared location on the machine. Create this directory with 777
+access rights. To share this directory with different users, all files need to
+have group write access. This will most probably be in conflict with default
+*umask* settings. One possible solution would be to use ACLs for this
+directory
+
+.. code-block:: console
+
+   host:~$ sudo apt-get install acl
+   host:~$ sudo setfacl -R -d -m g::rwx <dl_dir>
+
+If you have already created a download directory and want to fix the permissions
+afterward, you can do so with
+
+.. code-block:: console
+
+   host:~$ sudo find /home/share/ -perm /u=r ! -perm /g=r -exec chmod g+r \{\} \;
+   host:~$ sudo find /home/share/ -perm /u=w ! -perm /g=w -exec chmod g+w \{\} \;
+   host:~$ sudo find /home/share/ -perm /u=x ! -perm /g=x -exec chmod g+x \{\} \;
+
+The cache directory stores all stages of the build process. *Poky* has quite an
+involved caching infrastructure. It is advisable to create a shared directory,
+as all builds can access this cache directory, called the shared state cache.
+
+Create the two directories on a drive where you have approximately 50 GB of
+space and assign the two variables in your ``build/conf/local.conf``::
+
+   DL_DIR ?= "<your_directory>/yocto_downloads"
+   SSTATE_DIR ?= "<your_directory>/yocto_sstate"
+
+If you want to know more about configuring your build, see the documented
+example settings
+
+.. code-block::
+
+   sources/poky/meta-yocto/conf/local.conf.sample
+   sources/poky/meta-yocto/conf/local.conf.sample.extended
