@@ -2,10 +2,26 @@
 .. _`static-pdf-dl`: ../_static/master.pdf
 
 .. Yocto
+.. |yocto-branch| replace:: master
 .. |yocto-codename| replace:: Unstable
 .. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy
 .. _layerindex: https://layers.openembedded.org/layerindex/branch/master/layers/
+.. _Bitbake: https://docs.yoctoproject.org/bitbake/dev/index.html
+.. _Toaster: https://docs.yoctoproject.org/dev/toaster-manual/index.html
+.. _megamanual: https://docs.yoctoproject.org/dev/singleindex.html
+.. _manual: https://docs.yoctoproject.org/dev/dev-manual/index.html
+.. _Supported Distributions: https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions
+.. _Yocto Board Support Package: https://docs.yoctoproject.org/dev/bsp-guide/index.html
+.. _Quick Build: https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html
+.. _meta-security: https://layers.openembedded.org/layerindex/branch/master/layer/meta-security/
+.. _Yocto Documentation - Customizing Yocto builds: https://docs.yoctoproject.org/dev/singleindex.html#user-configuration
+.. _Creating Layers: https://docs.yoctoproject.org/dev/dev-manual/layers.html#understanding-and-creating-layers
+.. _Yocto - Devtool: https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow
+.. _Devtool Quick Reference: https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html
+.. _Autotools-Based Projects: https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects
+.. _Yocto - Kernel Development Manual: https://docs.yoctoproject.org/dev/kernel-dev/index.html
+.. _Yocto - Development Manual: https://docs.yoctoproject.org/dev/dev-manual/index.html
 
 .. only:: html
 
