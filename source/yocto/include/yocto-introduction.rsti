@@ -121,8 +121,7 @@ Bitbake
 
 *Bitbake* is the task scheduler. It is written in *Python* and interprets
 recipes that contain code in *Bitbake's* own programming language, *Python*, and
-bash code. The official documentation can be found here:
-https://docs.yoctoproject.org/bitbake/2.8/index.html
+bash code. The official documentation can be found here: `Bitbake`_
 
 Toaster
 .......
@@ -132,12 +131,10 @@ provides information about the build history and statistics on created images.
 There are several use cases where the installation and maintenance of
 a *Toaster* instance are beneficial. PHYTEC did not add or remove any features
 to the upstream *Toaster*, provided by *Poky*. The best source for more
-information is the official documentation:
-https://docs.yoctoproject.org/dev/toaster-manual/index.html
+information is the official documentation: `Toaster`_
 
 Official Documentation
 ----------------------
 
 For more general questions about *Bitbake* and *Poky* consult the mega-manual:
-https://docs.yoctoproject.org/dev/singleindex.html
-
+`megamanual`_
