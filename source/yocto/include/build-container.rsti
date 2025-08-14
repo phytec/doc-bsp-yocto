@@ -1,0 +1,109 @@
+Using build-container
+=====================
+
+.. warning::
+   Currently, it is not possible to run the phyLinux script inside of a container.
+   After a complete init with the phyLinux script on your host machine, you can use a container for the build.
+   If you do not have phyLinux script running on your machine, please see phyLinux Documentation.
+
+There are various possibilities to run a build-container. Commonly used is
+docker and podman, though we prefer podman as it does not need root privileges
+to run.
+
+Installation
+------------
+
+How to install podman: https://podman.io
+How to install docker: https://docs.docker.com/engine/install/
+
+Available container
+-------------------
+
+Right now we provide 4 different container based on Ubuntu LTS versions:
+https://hub.docker.com/u/phybuilder
+
+-  yocto-ubuntu-16.04
+-  yocto-ubuntu-18.04
+-  yocto-ubuntu-20.04
+-  yocto-ubuntu-22.04
+
+These containers can be run with podman or docker. With Yocto Project branch
+|yocto-codename| the container "yocto-ubuntu-20.04" is preferred.
+
+Download/Pull container
+-----------------------
+
+.. code-block:: console
+
+   host:~$ podman pull docker.io/phybuilder/yocto-ubuntu-20.04
+
+   OR
+
+   host:~$ docker pull docker.io/phybuilder/yocto-ubuntu-20.04
+
+By adding a tag at the end separated by a colon, you can also pull or run a
+special tagged container.
+
+   podman pull docker.io/phybuilder/yocto-ubuntu-20.04:phy2
+
+You can find all available tags in our duckerhub space:
+
+-  https://hub.docker.com/r/phybuilder/yocto-ubuntu-16.04/tags
+-  https://hub.docker.com/r/phybuilder/yocto-ubuntu-18.04/tags
+-  https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags
+-  https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags
+
+If you try to run a container, which is not pulled/downloaded, it will be
+pulled/downloaded automatically.
+
+You can have a look at all downloaded/pulled container with:
+
+.. code-block:: console
+
+   $USERNAME@$HOSTNAME:~$ podman images
+   REPOSITORY                               TAG         IMAGE ID      CREATED       SIZE
+   docker.io/phybuilder/yocto-ubuntu-22.04  latest      d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy2        d626178e448d  4 months ago  935 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy2        e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  latest      e29a88b7172a  4 months ago  900 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  phy1        14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-18.04  latest      14c9c3e477d4  7 months ago  567 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  phy1        28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-16.04  latest      28c73e13ab4f  7 months ago  599 MB
+   docker.io/phybuilder/yocto-ubuntu-22.04  phy1        5a0ef4b41935  8 months ago  627 MB
+   docker.io/phybuilder/yocto-ubuntu-20.04  phy1        b5a26a86c39f  8 months ago  680 MB
+
+Run container
+-------------
+
+To run and use container for a Yocto build, first enter to your folder, where
+you run phyLinux init before. Then start the container
+
+.. code-block:: console
+
+   host:~$ podman run --rm=true -v /home:/home --userns=keep-id --workdir=$PWD -it docker.io/phybuilder/yocto-ubuntu-20.04 bash
+
+.. note::
+   To run and use a container with docker, it is not that simple like with podman.
+   Therefore the container-user has to be defined and configured.
+   Furthermore forwarding of credentials is not given per default and has to be configured as well.
+
+Now your commandline should look something like that (where $USERNAME is the
+user, who called "podman run" and the char/number code diffs every time a
+container is started)
+
+.. code-block:: console
+
+   $USERNAME@6593e2c7b8f6:~$
+
+.. warning::
+   If the given username is "root" you will not be able to run bitbake at all.
+   Please be sure, you run the container with your own user.
+
+Now you are ready to go on and starting the build.
+To stop/close the container, just call
+
+.. code-block:: console
+
+   $USERNAME@6593e2c7b8f6:~$ exit
+
