@@ -104,11 +104,10 @@ meta-phytec
 ~~~~~~~~~~~
 
 This layer contains all machines and common features for all our BSPs. It is
-PHYTEC's `Yocto Board Support Package
-<https://docs.yoctoproject.org/dev/bsp-guide/index.html>`_ for all supported
-hardware (since *fido*) and is designed to be standalone with *Poky*. Only these
-two parts are required if you want to integrate the PHYTEC's hardware into your
-existing *Yocto* workflow. The features are:
+PHYTEC's `Yocto Board Support Package`_ for all supported hardware (since
+*fido*) and is designed to be standalone with *Poky*. Only these two parts are
+required if you want to integrate the PHYTEC's hardware into your existing
+*Yocto* workflow. The features are:
 
 -  Bootloaders in ``recipes-bsp/barebox/`` and ``recipes-bsp/u-boot/``
 -  Kernels in ``recipes-kernel/linux/`` and
@@ -216,7 +215,7 @@ The BSP content gets pulled from different online sources when you first start
 using *Bitbake*. All files will be downloaded and cloned in a local directory
 configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete
 content, those sources have to be backed up, too. How you can do this will be
-explained in the chapter :ref:`master_gen-source-mirrors`.
+explained in the chapter |ref-gen-source-mirrors|.
 
 Build Configuration
 -------------------
