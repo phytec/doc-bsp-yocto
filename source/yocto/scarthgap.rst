@@ -2607,25 +2607,7 @@ especially if the rule executes external scripts. Execute
    See
    https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.
 
-Troubleshooting
-===============
-
-Setscene Task Warning
----------------------
-
-This warning occurs when the Yocto cache is in a dirty state.
-
-.. code-block::
-
-   WARNING: Setscene task X ([...]) failed with exit code '1' - real task
-
-You should avoid canceling the build process or if you have to, press Ctrl-C
-once and wait until the build process has stopped. To remove all these warnings
-just clean the sstate cache and remove the build folders.
-
-.. code-block:: console
-
-   host:~$ bitbake phytec-headless-image -c cleansstate && rm -rf tmp deploy/ipk
+.. include:: include/troubleshooting.rsti
 
 Yocto Documentation
 ===================
