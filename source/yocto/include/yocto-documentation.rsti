@@ -2,12 +2,9 @@ Yocto Documentation
 ===================
 
 The most important piece of documentation for a BSP user is probably the
-developer manual.
-https://docs.yoctoproject.org/dev/dev-manual/index.html
+developer `manual`_.
 
-The chapter about common tasks is a good starting point.
-https://docs.yoctoproject.org/dev/dev-manual/layers.html#understanding-and-creating-layers
+The chapter about common tasks is a good starting point. `Creating Layers`_
 
-The complete documentation is available on one single HTML page, which is good
-for searching for a feature or a variable name.
-https://docs.yoctoproject.org/dev/singleindex.html
+The complete documentation is available on one single `megamanual`_ HTML page,
+which is good for searching for a feature or a variable name.

@@ -2550,13 +2550,4 @@ especially if the rule executes external scripts. Execute
 
 .. include:: include/troubleshooting.rsti
 
-Yocto Documentation
-===================
-
-The most important piece of documentation for a BSP user is probably the
-developer `manual`_.
-
-The chapter about common tasks is a good starting point. `Creating Layers`_
-
-The complete documentation is available on one single `megamanual`_ HTML page,
-which is good for searching for a feature or a variable name.
+.. include:: include/yocto-documentation.rsti
