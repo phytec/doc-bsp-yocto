@@ -1,0 +1,87 @@
+Working with the Kernel and Bootloader using SRC_URI in *local.conf*
+....................................................................
+
+*Here we present a third option to make kernel and bootloader changes. You have
+external checkouts of the linux-mainline, linux-ti, or barebox  Git
+repositories. You will overwrite the URL of the source code fetcher, the
+variable SRC_URI, to point to your local checkout instead of the remote
+repositories.*
+
++----------------------------------+----------------------------------+
+| PRO                              | CON                              |
++----------------------------------+----------------------------------+
+| All changes are saved with       | Many working directories in      |
+| *Git*                            | *build/tmp-\                     |
+|                                  | glibc/work/<machine>/<package>/* |
++----------------------------------+----------------------------------+
+|                                  | You have to commit every change  |
+|                                  | before recompiling               |
++----------------------------------+----------------------------------+
+|                                  | For each change, the toolchain   |
+|                                  | compiles everything from scratch |
+|                                  | (avoidable with *ccache*)        |
++----------------------------------+----------------------------------+
+
+First, you need a local clone of the *Git* repository *barebox* or
+kernel. If you do not have one, use the commands
+
+.. code-block:: console
+
+   host:~$ mkdir ~/git
+   host:~$ cd ~/git
+   host:~$ git clone git://git.phytec.de/barebox
+   host:~$ cd barebox
+   host:~$ git switch -c v2022.02.0-phy remotes/origin/v2022.02.0-phy
+
+Add the following snippet to the file build/conf/local.conf
+
+.. code-block:: kconfig
+
+   # Use your own path to the git repository
+   # NOTE: Branch name in variable "BRANCH_pn-barebox" should be the same as the
+   # branch which is used in the repository folder. Otherwise your commits won't be recognized later.
+   BRANCH:pn-barebox = "v2022.02.0-phy"
+   SRC_URI:pn-barebox = "git:///${HOME}/git/barebox;branch=${BRANCH}"
+   SRCREV:pn-barebox = "${AUTOREV}"
+
+You also have to set the correct BRANCH name in the file. Either you create your
+own branch in the *Git* repository, or you use the default (here
+"v2015.02.0-phy"). Now you should recompile *barebox* from your own source
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c clean
+   host:~$ bitbake barebox -c compile
+
+The build should be successful because the source was not changed yet.
+
+You can alter the source in *~/git/barebox* or the default *defconfig* (e.g.
+*~/git/barebox/arch/arm/configs/imx_v7_defconfig*). After you are satisfied with
+your changes, you have to make a dummy commit for *Yocto*. If you do not,
+*Yocto* will not notice that the source code was modified in your repository
+folder (e.g. ~/git/barebox/)
+
+.. code-block:: console
+
+   host:~$ git status  # show modified files
+   host:~$ git diff    # show changed lines
+   host:~$ git commit -a -m "dummy commit for yocto"   # This command is important!
+
+Try to compile your new changes. *Yocto* will automatically notice that the
+source code was changed and fetches and configures everything from scratch.
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c compile
+
+If the build fails, go back to the source directory, fix the problem, and
+recommit your changes. If the build was successful, you can deploy *barebox* and
+even create a new SD card image.
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin
+   host:~$ bitbake phytec-headless-image # new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
+
+If you want to make additional changes, just make another commit in the
+repository and rebuild *barebox* again.

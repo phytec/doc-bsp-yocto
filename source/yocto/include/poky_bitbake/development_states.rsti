@@ -1,0 +1,52 @@
+Accessing the Development States between Releases
+-------------------------------------------------
+
+Special release manifests exist to give you access to the current development
+states of the *Yocto* BSP. They will be displayed in the phyLinux selection
+menu with the ending *PDXX.X.y*
+
+.. code-block:: console
+
+   host:~$ ./phyLinux init -p imx8mp -r BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+
+This will initialize a BSP that will track the latest development state.
+
+Inspect your Build Configuration
+--------------------------------
+
+*Poky* includes several tools to inspect your build layout. You can inspect the
+commands of the layer tool
+
+.. code-block:: console
+
+   host:~$ bitbake-layers
+
+It can, for example, be used to view in which layer a specific recipe gets
+modified
+
+.. code-block:: console
+
+   host:~$ bitbake-layers show-appends
+
+Before running a build you can also launch *Toaster* to be able to inspect the
+build details with the Toaster web GUI
+
+.. code-block:: console
+
+   host:~$ source toaster start
+
+Maybe you need to install some requirements, first
+
+.. code-block:: console
+
+   host:~$ pip3 install -r
+   ../sources/poky/bitbake/toaster-requirements.txt
+
+You can then point your browser to *http://0.0.0.0:8000/* and continue working
+with *Bitbake*. All build activity can be monitored and analyzed from this web
+server. If you want to learn more about *Toaster*, look at `Toaster`_.
+To shut down the *Toaster* web GUI again, execute
+
+.. code-block:: console
+
+   host:~$ source toaster stop

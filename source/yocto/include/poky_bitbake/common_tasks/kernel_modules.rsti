@@ -1,0 +1,36 @@
+Working with Kernel Modules
+...........................
+
+You will come to the point where you either need to set some options for a
+kernel module or you want to blacklist a module. Those things are handled by
+*udev* and go into *\*.conf* files in
+
+.. code-block::
+
+   /etc/modprobe.d/\*.conf.
+
+If you want to specify an option at build time, there are three relevant
+variables. If you just want to autoload a module that has no autoload
+capabilities, add it to
+
+.. code-block:: kconfig
+
+   KERNEL_MODULE_AUTOLOAD += "your-module"
+
+either in the kernel recipe or in the global variable scope. If you need to
+specify options for a module, you can do so with
+
+.. code-block:: kconfig
+
+   KERNEL_MODULE_AUTOLOAD += "your-module"
+   KERNEL_MODULE_PROBECONF += "your-module"
+   module_conf_your-module = "options your-module parametername=parametervalue"
+
+if you want to blacklist a module from autoloading, you can do it intuitively
+with
+
+.. code-block:: kconfig
+
+   KERNEL_MODULE_AUTOLOAD += "your-module"
+   KERNEL_MODULE_PROBECONF += "your-module"
+   module_conf_your-module = "blacklist your-module"

@@ -1,0 +1,30 @@
+Images
+------
+
+If everything worked, the images can be found under
+
+.. code-block:: console
+
+   host:~$ cd deploy/images/<MACHINE>
+
+The easiest way to test your image is to configure your board for SD card boot
+and to flash the build image to the SD card
+
+.. code-block:: console
+
+   host:~$ sudo dd if=phytec-headless-image-<MACHINE>.wic of=/dev/<your_device> bs=1M conv=fsync
+
+Here <your_device> could be "sde", for example, depending on your system. Be
+very careful when selecting the right drive! Selecting the wrong drive can
+erase your hard drive! The parameter conv=fsync forces a data buffer to write
+to the device before dd returns.
+
+After booting you can log in using a serial cable or over *ssh*. There is no
+root password. That is because of the debug settings in *conf/local.conf*. If
+you uncomment the line
+
+.. code-block:: kconfig
+
+   #EXTRA_IMAGE_FEATURES = "debug-tweaks"
+
+the debug settings, like setting an empty root password, will not be applied.
