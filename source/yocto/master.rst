@@ -6,6 +6,10 @@
 .. |yocto-codename| replace:: Unstable
 .. |yocto-ref-manual| replace:: Yocto Reference Manual
 .. |distro| replace:: ampliphy
+
+.. References
+.. |ref-gen-source-mirrors| replace:: :ref:`master_gen-source-mirrors`
+
 .. _layerindex: https://layers.openembedded.org/layerindex/branch/master/layers/
 .. _Bitbake: https://docs.yoctoproject.org/bitbake/dev/index.html
 .. _Toaster: https://docs.yoctoproject.org/dev/toaster-manual/index.html
