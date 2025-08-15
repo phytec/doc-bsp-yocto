@@ -17,4 +17,3 @@ just clean the sstate cache and remove the build folders.
 .. code-block:: console
 
    host:~$ bitbake phytec-headless-image -c cleansstate && rm -rf tmp deploy/ipk
-
