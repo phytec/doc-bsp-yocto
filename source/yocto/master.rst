@@ -27,6 +27,7 @@
 .. _Autotools-Based Projects: https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects
 .. _Yocto - Kernel Development Manual: https://docs.yoctoproject.org/dev/kernel-dev/index.html
 .. _Yocto - Development Manual: https://docs.yoctoproject.org/dev/dev-manual/index.html
+.. _FEATURES: https://docs.yoctoproject.org/dev/ref-manual/features.html#features
 
 .. only:: html
 
@@ -39,28 +40,10 @@
 +-----------------------+-------------------------------------+
 | Document Type         | Yocto Manual                        |
 +-----------------------+-------------------------------------+
-| Release Date          | XXXX/XX/XX                          |
-+-----------------------+-------------------------------------+
 | Is Branch of          | |yocto-ref-manual|                  |
 +-----------------------+-------------------------------------+
 
-+-----------------+------------------+------------------+------------+
-| Compatible BSPs | BSP Release Type | BSP Release Date | BSP Status |
-+=================+==================+==================+============+
-|                 |                  |                  |            |
-+-----------------+------------------+------------------+------------+
-
-
-This manual applies to all |yocto-codename| based PHYTEC releases.
-
 .. _yocto-man-master:
-
-.. include:: ../phytec_documentation.rsti
-
-On top of these standard manuals and guides, PHYTEC will also provide Product
-Change Notifications, Application Notes, and Technical Notes. These will be done
-on a case-by-case basis. Most of the documentation can be found in the
-applicable download page of our products.
 
 .. include:: include/yocto_introduction.rsti
 
@@ -110,6 +93,7 @@ There are 2 ways to make major changes:
 
 Creating your own layer is described in the section Create your own Layer.
 
+.. include:: include/poky_bitbake/bsp_customization/features.rsti
 .. include:: include/poky_bitbake/bsp_customization/disable_qtdemo.rsti
 .. include:: include/poky_bitbake/bsp_customization/framebuffer_console.rsti
 .. include:: include/poky_bitbake/bsp_customization/provided_tools.rsti
