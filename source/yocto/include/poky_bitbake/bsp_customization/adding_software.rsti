@@ -1,0 +1,63 @@
+Add Additional Software for the BSP Image
+.........................................
+
+To add additional software to the image, look at the OpenEmbedded layer index:
+`layerindex`_
+
+First, select the *Yocto* version of the BSP you have from the drop-down list in
+the top left corner and click **Recipes**. Now you can search for a software
+project name and find which layer it is in. In some cases, the program is in
+*meta-openembedded*, *openembedded-core*, or *Poky* which means that the recipe
+is already in your build tree. This section describes how to add additional
+software when this is the case. If the package is in another layer, see the next
+section.
+
+You can also search the list of available recipes
+
+.. code-block:: console
+
+   host:~$ bitbake -s | grep <program name> # fill in program name, like in
+   host:~$ bitbake -s | grep lsof
+
+When the recipe for the program is already in the *Yocto* build, you can simply
+add it by appending a configuration option to your file *build/conf/local.conf*.
+The general syntax to add additional software to an image is
+
+.. code-block:: kconfig
+
+   # file build/conf/local.conf
+   IMAGE_INSTALL:append = " <package1> <package2>"
+
+For example, the line
+
+.. code-block:: kconfig
+
+   # file build/conf/local.conf
+   IMAGE_INSTALL:append = " ldd strace file lsof"
+
+installs some helper programs on the target image.
+
+.. warning::
+
+   The leading whitespace is essential for the append command.
+
+All configuration options in local.conf apply to all images. Consequently, the
+tools are now included in both images phytec-headless-image and
+phytec-qt6demo-image.
+
+Notes about Packages and Recipes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You are adding packages to the IMAGE_INSTALL variable. Those are not necessarily
+equivalent to the recipes in your meta-layers. A recipe defines per default a
+package with the same name. But a recipe can set the PACKAGES variable to
+something different and is able to generate packages with arbitrary names.
+Whenever you look for software, you have to search for the package name and,
+strictly speaking, not for the recipe. In the worst case, you have to look at
+all PACKAGES variables. A tool such as *Toaster* can be helpful in some cases.
+
+If you can not find your software in the layers provided in the folder
+*sources*, see the next section to include another layer into the *Yocto*
+build.
+
+References: `Yocto Documentation - Customizing Yocto builds`_

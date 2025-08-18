@@ -1,0 +1,183 @@
+Kernel and Bootloader Configuration
+...................................
+
+The bootloader used by PHYTEC, *barebox*, uses the same build system as the
+*Linux* kernel. Therefore, all commands in this section can be used to configure
+the kernel and bootloader. To configure the kernel or bootloader, execute one of
+the following commands
+
+.. code-block:: console
+
+   host:~$ bitbake -c menuconfig virtual/kernel  # Using the virtual provider name
+   host:~$ bitbake -c menuconfig linux-ti        # Or use the recipe name directly
+   host:~$ bitbake -c menuconfig linux-mainline  # Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)
+   host:~$ bitbake -c menuconfig linux-imx       # Or use the recipe name directly (If you use an i.MX 8M*)
+   host:~$ bitbake -c menuconfig barebox         # Or change the configuration of the bootloader
+   host:~$ bitbake -c menuconfig u-boot-imx      # Or change the configuration of the bootloader (If you use an i.MX 8M*)
+
+After that, you can recompile and redeploy the kernel or bootloader
+
+.. code-block:: console
+
+   host:~$ bitbake virtual/kernel -c compile  # Or 'barebox' for the bootloader
+   host:~$ bitbake virtual/kernel -c deploy   # Or 'barebox' for the bootloader
+
+Instead, you can also just rebuild the complete build output with
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image  # To update the kernel/bootloader, modules and the images
+
+In the last command, you can replace the image name with the name of an image of
+your choice. The new images and binaries are in
+*build/deploy/images/<machine>/*.
+
+.. warning::
+
+   The build configuration is not permanent yet. Executing *bitbake
+   virtual/kernel -c clean* will remove everything.
+
+To make your changes permanent in the build system, you have to integrate your
+configuration modifications into a layer. For the configuration you have two
+options:
+
+-  Include only a configuration fragment (a minimal *diff* between the
+   old and new configuration)
+-  Complete default configuration (*defconfig*) after your
+   modifications.
+
+Having a set of configuration fragments makes what was changed at which stage
+more transparent. You can turn on and off the changes, you can manage
+configurations for different situations and it helps when porting changes to new
+kernel versions. You can also group changes together to reflect specific use
+cases. A fully assembled kernel configuration will be deployed in the directory
+*build/deploy/images/<machine>*. If you do not have any of those requirements,
+it might be simpler to just manage a separate *defconfig* file.
+
+Add a Configuration Fragment to a Recipe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following steps can be used for both kernel and bootloader. Just replace the
+recipe name *linux-mainline* in the commands with *linux-ti*, or *barebox* for
+the bootloader. If you did not already take care of this, start with a clean
+build. Otherwise, the diff of the configuration may be wrong
+
+.. code-block:: console
+
+   host:~$ bitbake linux-mainline -c clean
+   host:~$ bitbake linux-mainline -c menuconfig
+
+Make your configuration changes in the menu and generate a config
+fragment
+
+.. code-block:: console
+
+   host:~$ bitbake linux-mainline -c diffconfig
+
+which prints the path of the written file
+
+.. code-block::
+
+   Config fragment has been dumped into:
+   /home/<path>/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg
+
+All config changes are in the file *fragment.cfg* which should consist of only
+some lines. The following example shows how to create a *bbappend* file and how
+to add the necessary lines for the config fragment. You just have to adjust the
+directories and names for the specific recipe: *linux-mainline*, *linux-ti*,
+linux-imx, u-boot-imx, or *barebox*.
+
+.. code-block::
+
+   sources/<layer>/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+   sources/<layer>/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+   sources/<layer>/recipes-kernel/linux/linux-imx_%.bbappend          # For the recipe linux-imx
+   sources/<layer>/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+   sources/<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend           # For the recipe u-boot-imx
+
+Replace the string *layer* with your own layer created as shown above (e.g.
+*meta-racer*), or just use *meta-ampliphy*. To use *meta-ampliphy*, first,
+create the directory for the config fragment and give it a new name (here
+*enable-r8169.cfg*) and move the fragment to the layer.
+
+.. code-block:: console
+
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features
+   # copy the path from the output of *diffconfig*
+   host:~$ cp /home/<path>/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg \
+       sources/meta-ampliphy/recipes-kernel/linux/features/enable-r8169.cfg
+
+Then open the *bbappend* file (in this case
+*sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend* ) with
+your favorite editor and add the following lines
+
+.. code-block:: kconfig
+
+   # contents of the file linux-mainline_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
+   SRC_URI:append = " \
+       file://enable-r8169.cfg \
+   "
+
+.. warning::
+
+   Do not forget to use the correct *bbappend* filenames: *linux-ti_%.bbappend*
+   for the linux-ti recipe and *barebox_%.bbappend* for the bootloader in the
+   folder *recipes-bsp/barebox/* !
+
+After saving the *bbappend* file, you have to rebuild the image. *Yocto* should
+pick up the recipe changes automatically and generate a new image
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name
+
+Add a Complete Default Configuration (*defconfig*) to a Recipe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This approach is similar to the one above, but instead of adding a fragment, a
+*defconfig* is used. First, create the necessary folders in the layer you want
+to use, either your own layer or *meta-ampliphy*
+
+.. code-block:: console
+
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-kernel/linux/features/ # For both linux-mainline and linux-ti
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features/ # Or for the bootloader
+
+Then you have to create a suitable *defconfig* file. Make your configuration
+changes using *menuconfig* and then save the *defconfig* file to the layer
+
+.. code-block:: console
+
+   host:~$ bitbake linux-mainline -c menuconfig # Or use recipe name linux-ti or barebox
+   host:~$ bitbake linux-mainline -c savedefconfig # Create file 'defconfig.temp' in the work directory
+
+This will print the path to the generated file
+
+.. code-block::
+
+   Saving defconfig to ..../defconfig.temp
+
+Then, as above, copy the generated file to your layer, rename it to *defconfig*,
+and add the following lines to the *bbappend* file (here
+*sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend*)
+
+.. code-block:: kconfig
+
+   # contents of the file linux-mainline_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
+   SRC_URI:append = " \
+       file://defconfig \
+   "
+
+.. tip::
+
+   Do not forget to use the correct bbappend filenames: *linux-ti_%.bbappend*
+   for the linux-ti recipe and *barebox_%.bbappend* for the bootloader in the
+   folder *recipes-bsp/barebox/* !
+
+After that, rebuild your image as the changes are picked up automatically
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name

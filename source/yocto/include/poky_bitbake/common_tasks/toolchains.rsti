@@ -1,0 +1,176 @@
+Different Toolchains
+....................
+
+There are several ways to create a toolchain installer in *Poky*. One option is
+to run
+
+.. code-block:: console
+
+   host:~$ bitbake meta-toolchain
+
+This will generate a toolchain installer in *build/deploy/sdk* which can be used
+for cross-compiling of target applications. However, the installer does not
+include libraries added to your image, so it is a bare *GCC* compiler only. This
+is suited for bootloader and kernel development.
+
+Another you can run is
+
+.. code-block:: console
+
+   host:~$ bitbake -c populate_sdk <your_image>
+
+This will generate a toolchain installer containing all necessary development
+packages of the software installed on the root filesystem of the target. This
+installer can be handed over to the user space application development team and
+includes all necessary parts to develop an application. If the image contains
+the *QT* libraries, all of those will be available in the installer too.
+
+The third option is to create the ADT (Application Development Toolkit)
+installer. It will contain the cross-toolchain and some tools to aid the
+software developers, for example, an *Eclipse* plugin and a *QEMU* target
+simulator.
+
+.. code-block:: console
+
+   host:~$ bitbake adt-installer
+
+The ADT is untested for our BSP at the moment.
+
+Using the SDK
+~~~~~~~~~~~~~
+
+After generating the SDK with
+
+.. code-block:: console
+
+   host:~$ source sources/poky/oe-init-build-env
+   host:~$ bitbake -c populate_sdk phytec-qt6demo-image # or another image
+
+run the generated binary with
+
+.. code-block:: console
+
+   host:~$ deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+   Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):
+   You are about to install the SDK to "/opt/ampliphy/i.MX6-PD15.3-rc". Proceed[Y/n]?
+   Extracting SDK...done
+   Setting it up...done
+   SDK has been successfully set up and is ready to be used.
+
+You can activate the toolchain for your shell by sourcing the file
+*environment-setup* in the toolchain directory
+
+.. code-block:: console
+
+   host:~$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+
+.. note::
+
+   To be able to build a Qt6 application with the SDK and the Meson Build system, the following has to be done, *after* the SDK has been sourced:
+
+   .. code-block:: console
+
+      host:~$ export PATH=$OECORE_NATIVE_SYSROOT/usr/libexec:$PATH
+
+
+Then the necessary tools like the cross compiler and linker are in your PATH. To
+compile a simple *C* program, use
+
+.. code-block:: console
+
+   host:~$ $CC main.c -o main
+
+The environment variable $CC contains the path to the ARM cross compiler and
+other compiler arguments needed like *-march* , *-sysroot* and *--mfloat-abi*.
+
+.. tip::
+
+   You cannot compile programs only with the compiler name like
+
+   .. code-block:: console
+
+      host:~$ arm-phytec-linux-gnueabi-gcc main.c -o main
+
+   It will fail in many cases. Always use *CC*, CFLAGS, LDFLAGS, and so on.
+
+For convenience, the *environment-setup* exports other environment variables
+like CXX, LD, SDKTARGETSYSROOT.
+
+A simple makefile compiling a *C* and *C++* program may look like this
+
+.. code-block:: kconfig
+
+   # Makefile
+   TARGETS=c-program cpp-program
+
+   all: $(TARGETS)
+
+   c-program: c-program.c
+       $(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+
+   cpp-program: cpp-program.cpp
+       $(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
+
+   .PHONY: clean
+   clean:
+       rm -f $(TARGETS)
+
+To compile for the target, just source the toolchain in your shell before
+executing make
+
+.. code-block:: console
+
+   host:~$ make     # Compiling with host CC, CXX for host architecture
+   host:~$ source /opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+   host:~$ make     # Compiling with target CC, CXX for target architecture
+
+If you need to specify additionally included directories in the sysroot of the
+toolchain, you can use an '=' sign in the *-I* argument like
+
+.. code-block:: kconfig
+
+   -I=/usr/include/SDL
+
+*GCC* replaces it by the sysroot path (here
+*/opt/ampliphy/i.MX6-PD15.3-rc/sysroots/cortexa9hf-vfp-neon-phytec-linux-gnueabi/*).
+See the main page of *GCC* for more information.
+
+.. tip::
+
+   The variables $CFLAGS and $CXXFLAGS contain the compiler debug flag '-g' by
+   default. This includes debugging information in the binary and making it
+   bigger. Those should be removed from the production image. If you create a
+   *Bitbake* recipe, the default behavior is to turn on '-g' too. The debugging
+   symbols are used in the SDK rootfs to be able to get debugging information
+   when invoking *GDB* from the host. Before installing the package to the
+   target rootfs, *Bitbake* will invoke *strip* on the program which removes the
+   debugging symbols. By default, they are not found nor required on the target
+   root filesystem
+
+Using the SDK with GNU Autotools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Yocto* SDK is a straightforward tool for a project that uses the *GNU
+Autotools*. The traditional compile steps for the host are usually
+
+.. code-block:: console
+
+   host:~$ ./autogen.sh # maybe not needed
+   host:~$ ./configure
+   host:~$ make
+   host:~$ make install DESTDIR=$PWD/build/
+
+The commands to compile for the target machine with the *Yocto* SDK are quite
+similar. The following commands assume that the SDK was unpacked to the
+directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)
+
+.. code-block:: console
+
+   host:~$ source /opt/phytec-ampliphy/i.MX6-PD15.3.0/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+   host:~$ ./autogen.sh  # maybe not needed
+   host:~$ ./configure ${CONFIGURE_FLAGS}
+   host:~$ make
+   host:~$ make install DESTDIR=$PWD/build/
+
+Refer to the official *Yocto* documentation for more information:
+`Autotools-Based Projects`_

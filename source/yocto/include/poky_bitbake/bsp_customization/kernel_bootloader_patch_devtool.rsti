@@ -1,0 +1,56 @@
+Patch the Kernel or Bootloader with *devtool*
+.............................................
+
+*Apart from using the standard versions of kernel and bootloader which are
+provided in the recipes, you can modify the source code or use our own
+repositories to build your customized kernel.*
+
++----------------------------------+----------------------------------+
+| PRO                              | CON                              |
++----------------------------------+----------------------------------+
+| Standard workflow of the         | Uses additional hard drive space |
+| official *Yocto* documentation   | as the sources get duplicated    |
++----------------------------------+----------------------------------+
+| Toolchain does not have to       | No optimal cache usage, build    |
+| recompile everything             | overhead                         |
++----------------------------------+----------------------------------+
+
+*Devtool* is a set of helper scripts to enhance the user workflow of *Yocto*. It
+was integrated with version 1.8. It is available as soon as you set up your
+shell environment. *Devtool* can be used to:
+
+-  modify existing sources
+-  integrate software projects into your build setup
+-  build software and deploy software modifications to your target
+
+Here we will use *devtool* to patch the kernel. We use *linux-mainline* as an
+example for the AM335x Kernel. The first command we use is *devtool modify - x
+<recipe> <directory>*
+
+.. code-block:: console
+
+   host:~$ devtool modify -x linux-mainline linux-mainline
+
+*Devtool* will create a layer in *build/workspace* where you can see all
+modifications done by *devtool* . It will extract the sources corresponding to
+the recipe to the specified directory. A *bbappend* will be created in the
+workspace directing the SRC_URI to this directory. Building an image with
+*Bitbake* will now use the sources in this directory. Now you can modify lines
+in the kernel
+
+.. code-block:: console
+
+   host:~$ vim linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
+         -> make a change
+   host:~$ bitbake phytec-qt6demo-image
+
+Your changes will now be recompiled and added to the image. If you want to store
+your changes permanently, it is advisable to create a patch from the changes,
+then store and backup only the patch. You can go into the *linux-mainline*
+directory and create a patch using *Git*. How to create a patch is described in
+|ref-temporary-method|
+and is the same for all methods.
+
+If you want to learn more about *devtool*, visit:
+
+`Yocto - Devtool`_ or `Devtool Quick Reference`_.
