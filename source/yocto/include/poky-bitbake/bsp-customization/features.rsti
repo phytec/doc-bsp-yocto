@@ -1,0 +1,34 @@
+Enabling software FEATURES
+..........................
+
+To include or exclude additional, optional, packages in your BSP, The Yocto
+Project provides the `FEATURES`_ variables.
+
+To keep it short, in the following section, only additional FEATURES will be
+discussed as well as *Ampliphy* quirks.
+
+.. |optee| replace:: OP-TEE
+.. |atf| replace:: Trusted Firmware-A
+
+OP-TEE (optee)
+~~~~~~~~~~~~~~
+
+If ``optee`` is found in ``MACHINE_FEATURES``, the `OP-TEE
+<https://optee.readthedocs.io/en/latest/general/about.html>`_ trusted OS will be
+packaged into the image. |optee| has a high impact on functional safety as it is
+an essential part in the boot chain.
+
+.. warning::
+
+   If there is an error in how |optee| is packaged, the board may not boot.
+
+The |optee| is loaded by the |atf| (`ref
+<https://trustedfirmware-a.readthedocs.io/en/latest/>`_) before the Bootloader
+is started. For conceptual details, please refer to the provided documentation.
+
+The practical impact for the BSP is that multiple pieces of software need to
+work together to make OP-TEE integration work. This is |optee|, |atf| and the
+Bootloader. The bootloader has the task of loading the TEE into RAM from
+non-volatile storage at the same address |atf| later passes control to. |optee|
+itself needs these (load) addresses set as well to correctly protect its RAM
+region.
