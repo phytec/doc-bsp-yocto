@@ -1,0 +1,64 @@
+Generating Source Mirrors, working Offline
+..........................................
+
+Modify your *site.conf* (or *local.conf* if you do not use a *site.conf* ) as
+follows
+
+.. code-block:: kconfig
+
+   #DL_DIR ?= "" don't set it! It will default to a directory inside /build
+   SOURCE_MIRROR_URL = "file:///home/share/yocto_downloads/"
+   INHERIT += "own-mirrors"
+   BB_GENERATE_MIRROR_TARBALLS = "1"
+
+Now run
+
+.. code-block:: console
+
+   host:~$ bitbake --runall=fetch <image>
+
+for all images and for all machines you want to provide sources for. This will
+create all the necessary *tar* archives. We can remove all SCM subfolders, as
+they are duplicated with the tarballs
+
+.. code-block:: console
+
+   host:~$ rm -rf build/download/git2/
+   etc...
+
+Please consider that we used a local source mirror for generating the dl_dir.
+Because of that, some archives will be linked locally.
+
+First, we need to copy all files, resolving symbolic links into the new mirror
+directory
+
+.. code-block:: console
+
+   host:~$ rsync -vaL <dl_dir> ${TOPDIR}/../src_mirror/
+
+Now we clean the */build* directory by deleting everything except */build/conf/*
+but including */build/conf/sanity*. We change *site.conf* as follows
+
+.. code-block:: kconfig
+
+   SOURCE_MIRROR_URL = "file://${TOPDIR}/../src_mirror"
+   INHERIT += "own-mirrors"
+   BB_NO_NETWORK = "1"
+   SCONF_VERSION = "1"
+
+The BSP directory can now be compressed with
+
+.. code-block:: console
+
+   host:~$ tar cfJ <filename>.tar.xz <folder>
+
+where filename and folder should be the full BSP Name.
+
+Compiling on the Target
+.......................
+
+To your *local.conf* add
+
+.. code-block:: kconfig
+
+   IMAGE_FEATURES:append = " tools-sdk dev-pkgs"

@@ -1,0 +1,26 @@
+Change the *u-boot* Environment via *bbappend* Files
+....................................................
+
+All i.MX8M\* products use the u-boot bootloader. The u-boot environment can be
+modified using the Temporary Method. In the *u-boot-imx* sources modify the
+header file corresponding to the processor located in
+*include/configs/phycore_imx8m\**. New environment variables should be added at
+the end of *CONFIG_EXTRA_ENV_SETTINGS*
+
+.. code-block:: kconfig
+
+   #define CONFIG_EXTRA_ENV_SETTINGS \
+   [...]
+   PHYCORE_FITIMAGE_ENV_BOOTLOGIC \
+   "newvariable=1\0"
+
+Commit the changes and and create the file *u-boot-imx_%.bbappend* in your layer
+at *<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend*
+
+.. code-block:: kconfig
+
+   # contents of the file u-boot-imx_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
+   SRC_URI:append = " \
+       file://0001-environment-addition.patch \
+   "

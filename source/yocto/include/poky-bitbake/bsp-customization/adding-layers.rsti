@@ -1,0 +1,82 @@
+Add an Additional Layer
+.......................
+
+This is a step-by-step guide on how to add another layer to your *Yocto* build
+and install additional software from it. As an example, we include the network
+security scanner *nmap* in the layer *meta-security*. First, you must locate the
+layer on which the software is hosted. Check out the `layerindex`_
+and guess a little bit. The network scanner *nmap* is in the *meta-security*
+layer. See `meta-security`_.
+To integrate it into the *Yocto* build, you have to check out the repository and
+then switch to the correct stable branch. Since the BSP is based on the *Yocto*
+|yocto-codename| build, you should try to use the |yocto-codename| branch in the
+layer, too.
+
+.. code-block:: console
+
+   host:~$ cd sources
+   host:~$ git clone git://git.yoctoproject.org/meta-security
+   host:~$ cd meta-security
+   host:~$ git branch -r
+
+All available remote branches will show up. Usually there should be 'sumo',
+'warrior', 'zeus', 'dunfell', 'hardnkott', 'kirkstone', 'mickledore', 'master'...
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ git checkout |yocto-branch|
+
+Now we add the directory of the layer to the file *build/conf/bblayers.conf* by
+appending the line
+
+.. code-block:: kconfig
+
+   # file build/conf/bblayers.conf
+   BBLAYERS += "${BSPDIR}/sources/meta-security"
+
+to the end of the file. After that, you can check if the layer is available in
+the build configuration by executing
+
+.. code-block:: console
+
+   host:~$ bitbake-layers show-layers
+
+If there is an error like
+
+.. code-block::
+
+   ERROR: Layer 'security' depends on layer 'perl-layer', but this layer is not enabled in your configuration
+
+the layer that you want to add (here *meta-security*), depends on another layer,
+which you need to enable first. E.g. the dependency required here is a layer in
+*meta-openembedded* (in the PHYTEC BSP it is in the path
+*sources/meta-openembedded/meta-perl/*). To enable it, add the following line to
+*build/conf/bblayers.conf*
+
+.. code-block:: kconfig
+
+   # file build/conf/bblayers.conf
+   BBLAYERS += "${BSPDIR}/sources/meta-openembedded/meta-perl"
+
+Now the command *bitbake-layers show-layers* should print a list of all layers
+enabled including *meta-security* and *meta-perl*. After the layer is included,
+you can install additional software from it as already described above. The
+easiest way is to add the following line (here is the package *nmap*)
+
+.. code-block:: kconfig
+
+   # file build/conf/local.conf
+   IMAGE_INSTALL:append = " nmap"
+
+to your *build/conf/local.conf*. Do not forget to rebuild the image
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image
+
+.. tip::
+
+   After adding further external or own layers, it makes sense to reflect
+   those additions by deriving a custom manifest file, cmp
+   :ref:`scarthgap_phylinux-advanced-usage`

@@ -9,6 +9,7 @@
 
 .. References
 .. |ref-gen-source-mirrors| replace:: :ref:`master_gen-source-mirrors`
+.. |ref-temporary-method| replace:: :ref:`master_temporary-method`
 
 .. _layerindex: https://layers.openembedded.org/layerindex/branch/master/layers/
 .. _Bitbake: https://docs.yoctoproject.org/bitbake/dev/index.html
@@ -80,7 +81,66 @@ https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-
 
 .. include:: include/build-container.rsti
 
-.. include:: include/working_with_poky_and_bitbake.rsti
+Working with Poky and Bitbake
+=============================
+
+.. include:: include/poky-bitbake/start-the-build.rsti
+.. include:: include/poky-bitbake/images.rsti
+.. include:: include/poky-bitbake/development-states.rsti
+.. include:: include/poky-bitbake/bsp-features.rsti
+
+.. _master_bsp-customization:
+
+BSP Customization
+-----------------
+
+To get you started with the BSP, we have summarized some basic tasks from the
+*Yocto* official documentation. It describes how to add additional software to
+the image, change the kernel and bootloader configuration, and integrate
+patches for the kernel and bootloader.
+
+Minor modifications, such as adding software, are done in the file
+*build/conf/local.conf*. There you can overwrite global configuration variables
+and make small modifications to recipes.
+
+There are 2 ways to make major changes:
+
+1. Either create your own layer and use *bbappend* files.
+2. Add everything to PHYTEC's Distro layer *meta-ampliphy*.
+
+Creating your own layer is described in the section Create your own Layer.
+
+.. include:: include/poky-bitbake/bsp-customization/disable-qtdemo.rsti
+.. include:: include/poky-bitbake/bsp-customization/framebuffer-console.rsti
+.. include:: include/poky-bitbake/bsp-customization/provided-tools.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-software.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-layers.rsti
+.. include:: include/poky-bitbake/bsp-customization/create-layer.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-recipe.rsti
+.. _yocto-man-master-kernel-and-bootloader-conf:
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-config.rsti
+.. _master_temporary-method:
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-patch-devtool.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-patch-tmp.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-localconf.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-software-sustainable.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-firmware-rootfs.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-ubootenv-bbappend.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-bareboxenv-bbappend.rsti
+.. _master_changing-net-config:
+.. include:: include/poky-bitbake/bsp-customization/change-network-conf.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-wireless-network-conf.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-opencv.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-php-webruntime.rsti
+
+Common Tasks
+------------
+
+.. include:: include/poky-bitbake/common-tasks/debugging-apps.rsti
+.. _master_gen-source-mirrors:
+.. include:: include/poky-bitbake/common-tasks/gen-source-mirrors.rsti
+.. include:: include/poky-bitbake/common-tasks/toolchains.rsti
+.. include:: include/poky-bitbake/common-tasks/kernel-modules.rsti
 
 .. include:: include/troubleshooting.rsti
 

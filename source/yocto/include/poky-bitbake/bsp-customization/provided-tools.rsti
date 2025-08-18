@@ -1,0 +1,41 @@
+Tools Provided in the Prebuild Image
+....................................
+
+RAM Benchmark
+~~~~~~~~~~~~~
+
+Performing RAM and cache performance tests can best be done by using *pmbw*
+(Parallel Memory Bandwidth Benchmark/Measurement Tool). *Pmbw* runs several
+assembly routines which all use different access patterns to the caches and RAM
+of the SoC. Before running the test, make sure that you have about 2 MiB of
+space left on the device for the log files. We also lower the level of the
+benchmark to ask the kernel more aggressively for resources. The benchmark test
+will take several hours.
+
+To start the test type
+
+.. code-block:: console
+
+   target:~$ nice -n -2 pmbw
+
+Upon completion of the test run, the log file can be converted to a *gnuplot*
+script with
+
+.. code-block:: console
+
+   target:~$ stats2gnuplot stats.txt > run1.gnuplot
+
+Now you can transfer the file to the host machine and install any version of
+*gnuplot*
+
+.. code-block:: console
+
+   host:~$ sudo apt-get install gnuplot host:~$ gnuplot run1.gnuplot
+
+The generated *plots-<machine>.pdf* file contains all plots. To render single
+plots as *png* files for any web output you can use *Ghostscript*
+
+.. code-block:: console
+
+   host:~$ sudo apt-get install ghostscript
+   host:~$ gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r150 -sOutputFile='page-%00d.png' plots-phyboard-wega-am335x-1.pdf

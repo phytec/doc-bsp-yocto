@@ -1,0 +1,62 @@
+Debugging a User Space Application
+..................................
+
+The phytec-qt6demo-image can be cross-debugged without any change. For
+cross-debugging, you just have to match the host sysroot with the image in use.
+So you need to create a toolchain for your image
+
+.. code-block:: console
+
+   host:~$ bitbake -c populate_sdk phytec-qt6demo-image
+
+Additionally, if you want to have full debug and backtrace capabilities for all
+programs and libraries in the image, you could add
+
+.. code-block:: kconfig
+
+   DEBUG_BUILD = "1"
+
+to the ``conf/local.conf``. This is not necessary in all cases. The compiler
+options will then be switched from FULL_OPTIMIZATION to DEBUG_OPTIMIZATION. Look
+at the *Poky* source code for the default assignment of DEBUG_OPTIMIZATION.
+
+To start a cross debug session, install the SDK as mentioned previously, source
+the SDK environment, and run *Qt Creator* in the same shell. If you do not use
+*Qt Creator*, you can directly call the arm-<..>-gdb debugger instead which
+should be in your path after sourcing the environment script.
+
+If you work with *Qt Creator*, have a look at the appropriate documentation
+delivered with your product (either QuickStart or Application Guide) for
+information on how to set up the toolchain.
+
+When starting the debugger with your userspace application you will get a
+SIGILL, an illegal instruction from the *libcrypto*. *Openssl* probes for the
+system capabilities by trapping illegal instructions, which will trigger *GDB*.
+You can ignore this and hit **Continue** (c command). You can permanently ignore
+this stop by adding
+
+.. code-block:: kconfig
+
+   handle SIGILL nostop
+
+to your *GDB* startup script or in the *Qt Creator GDB* configuration panel.
+Secondly, you might need to disable a security feature by adding
+
+.. code-block:: kconfig
+
+   set auto-load safe-path /
+
+to the same startup script, which will enable the automatic loading of libraries
+from any location.
+
+If you need to have native debugging, you might want to install the debug
+symbols on the target. You can do this by adding the following line to your
+*conf/local.conf*
+
+.. code-block:: kconfig
+
+   EXTRA_IMAGE_FEATURES += "dbg-pkgs"
+
+For cross-debugging, this is not required as the debug symbols will be loaded
+from the host side and the dbg-pkgs are included in the SDK of your image
+anyway.

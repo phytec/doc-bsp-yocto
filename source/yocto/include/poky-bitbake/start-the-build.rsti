@@ -1,0 +1,46 @@
+Start the Build
+---------------
+
+After you download all the metadata with phyLinux init, you have to set up the
+shell environment variables. This needs to be done every time you open a new
+shell for starting builds. We use the shell script provided by *Poky* in its
+default configuration. From the root of your project directory type
+
+.. code-block:: console
+
+   host:~$ source sources/poky/oe-init-build-env
+
+The abbreviation for the source command is a single dot
+
+.. code-block:: console
+
+   host:~$ . sources/poky/oe-init-build-env
+
+The current working directory of the shell should change to *build/*. Before
+building for the first time, you should take a look at the main configuration
+file
+
+.. code-block:: console
+
+   host:~$ vim conf/local.conf
+
+Your local modifications for the current build are stored here. Depending on
+the SoC, you might need to accept license agreements. For example, to build the
+image for Freescale/NXP processors you need to accept the GPU and VPU binary
+license agreements. You have to uncomment the corresponding line
+
+.. code-block:: kconfig
+
+   # Uncomment to accept NXP EULA # EULA can be found under
+   ../sources/meta-freescale/EULA ACCEPT_FSL_EULA = "1"
+
+Now you are ready to build your first image. We suggest starting with our
+smaller non-graphical image *phytec-headless-image* to see if everything is
+working correctly
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image
+
+The first compile process takes about 40 minutes on a modern Intel Core i7. All
+subsequent builds will use the filled caches and should take about 3 minutes.
