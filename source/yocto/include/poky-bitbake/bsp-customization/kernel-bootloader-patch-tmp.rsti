@@ -1,0 +1,134 @@
+Patch the Kernel or Bootloader using the "Temporary Method"
+...........................................................
+
++----------------------------------+----------------------------------+
+| PRO                              | CON                              |
++----------------------------------+----------------------------------+
+| No overhead, no extra            | Changes are easily overwritten   |
+| configuration                    | by *Yocto* (Everything is        |
+|                                  | lost!!).                         |
++----------------------------------+----------------------------------+
+| Toolchain does not have to       |                                  |
+| recompile everything             |                                  |
++----------------------------------+----------------------------------+
+
+It is possible to alter the source code before *Bitbake* configures and compiles
+the recipe. Use *Bitbake'* s *devshell* command to jump into the source
+directory of the recipe. Here is the *barebox* recipe
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c devshell # or linux-mainline, linux-ti, linux-imx, u-boot-imx
+
+After executing the command, a shell window opens. The current working directory
+of the shell will be changed to the source directory of the recipe inside the
+*tmp* folder. Here you can use your favorite editor, e.g. *vim*, *emacs*, or any
+other graphical editor, to alter the source code. When you are finished, exit
+the *devshell* by typing *exit* or hitting **CTRL-D**.
+
+After leaving the *devshell* you can recompile the package
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c compile --force # or linux-mainline, linux-ti, linux-imx, u-boot-imx
+
+The extra argument '--force' is important because *Yocto* does not recognize
+that the source code was changed.
+
+.. tip::
+
+   You cannot execute the *bitbake* command in the *devshell* . You have
+   to leave it first.
+
+If the build fails, execute the devshell command again and fix it. If the build
+is successful, you can deploy the package and create a new SD card image
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c deploy # new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin
+   host:~$ bitbake phytec-headless-image # new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic
+
+.. warning::
+
+   If you execute a clean e.g *bitbake barebox -c clean* , or if *Yocto* fetches
+   the source code again, all your changes are lost!!!
+
+   To avoid this, you can create a patch and add it to a *bbappend* file. It is
+   the same workflow as described in the section about changing the
+   configuration.
+
+   You have to create the patch in the *devshell* if you use the temporary
+   method and in the subdirectory created by *devtool* if you used *devtool*.
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c devshell            # Or linux-mainline, linux-ti
+   host(devshell):~$ git status                   # Show changes files
+   host(devshell):~$ git add <file>               # Add a special file to the staging area
+   host(devshell):~$ git commit -m "important modification"   # Creates a commit with a not so useful commit message
+   host(devshell):~$ git format-patch -1 -o ~/    # Creates a patch of the last commit and saves it in your home folder
+   /home/<user>/0001-important-modification.patch  # Git prints the path of the written patch file
+   host(devshell):~$ exit
+
+After you have created the patch, you must create a *bbappend* file for it. The
+locations for the three different recipes - *linux-mainline* , *linux-ti* , and
+*barebox* - are
+
+.. code-block::
+
+   sources/<layer>/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+   sources/<layer>/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+   sources/<layer>/recipes-kernel/linux/linux-imx_%.bbappend        # For the recipe linux-imx
+   sources/<layer>/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+   sources/<layer>/recipes-bsp/u-boot/u-boot-imx_%.bbappend           # For the recipe u-boot-imx
+
+The following example is for the recipe *barebox*. You have to adjust the paths.
+First, create the folders and move the patch into them. Then create the
+*bbappend* file
+
+.. code-block:: console
+
+   host:~$ mkdir -p sources/meta-ampliphy/recipes-bsp/barebox/features   # Or use your own layer instead of *meta-ampliphy*
+   host:~$ cp ~/0001-important-modification.patch sources/meta-ampliphy/recipes-bsp/barebox/features  # copy patch
+   host:~$ touch sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend
+
+.. tip::
+
+   Pay attention to your current work directory. You have to execute the
+   commands in the BSP top-level directory. Not in the *build* directory!
+
+After that use your favorite editor to add the following snipped into the
+*bbappend* file (here
+*sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend*)
+
+.. code-block:: kconfig
+
+   # contents of the file barebox_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/features:"
+   SRC_URI:append = " \
+       file://0001-important-modification.patch \
+   "
+
+Save the file and rebuild the *barebox* recipe with
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c clean # Or linux-ti, linux-mainline, linux-imx, u-boot-imx
+   host:~$ bitbake barebox
+
+If the build is successful, you can rebuild the final image with
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image # Or another image name
+
+**Further Resources:**
+
+The *Yocto* Project has some documentation for software developers. Check the
+'Kernel Development Manual' for more information about how to configure the
+kernel. Please note that not all of the information from the *Yocto* manual can
+be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto*
+and most of the documentation assumes the *Yocto* kernel approach.
+
+-  `Yocto - Kernel Development Manual`_
+-  `Yocto - Development Manual`_

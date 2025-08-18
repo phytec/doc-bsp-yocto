@@ -1,0 +1,47 @@
+Disable Qt Demo
+...............
+
+By default, the BSP image *phytec-qt6demo-image* starts a Qt6 Demo application
+on the attached display or monitor. If you want to stop the demo and use the
+*Linux* framebuffer console behind it, connect to the target via serial cable
+or *ssh* and execute the shell command
+
+.. code-block:: console
+
+   target:~$ systemctl stop phytec-qtdemo.service
+
+This command stops the demo temporarily. To start it again, reboot the
+board or execute
+
+.. code-block:: console
+
+   target:~$ systemctl start phytec-qtdemo.service
+
+You can disable the service permanently, so it does not start on boot
+
+.. code-block:: console
+
+   target:~$ systemctl disable phytec-qtdemo.service
+
+.. tip::
+
+   The last command only disables the service. It does not *stop* immediately.
+   To see the current status execute
+
+   .. code-block:: console
+
+      target:~$ systemctl status phytec-qtdemo.service
+
+If you want to disable the service by default, edit the file
+*build/conf/local.conf* and add the following line
+
+.. code-block:: kconfig
+
+   # file build/conf/local.conf
+   SYSTEMD_AUTO_ENABLE:pn-phytec-qtdemo = "disable"
+
+After that, rebuild the image
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image

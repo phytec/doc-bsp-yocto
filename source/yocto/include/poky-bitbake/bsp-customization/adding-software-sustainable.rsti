@@ -1,0 +1,26 @@
+Add Existing Software with "Sustainable Method"
+...............................................
+
+Now that you have created your own layer, you have a second option to add
+existing software to existing image definitions. Our standard image is defined
+in meta-ampliphy
+
+.. code-block::
+
+   meta-ampliphy/recipes-images/images/phytec-headless-image.bb
+
+In your layer, you can now modify the recipe with a *bbappend* without modifying
+any BSP code
+
+.. code-block::
+
+   meta-racer/recipes-images/images/phytec-headless-image.bbappend
+
+The append will be parsed together with the base recipe. As a result, you can
+easily overwrite all variables set in the base recipe, which is not always what
+you want. If we want to include additional software, we need to append it to the
+IMAGE_INSTALL variable
+
+.. code-block:: kconfig
+
+   IMAGE_INSTALL:append = " rsync"

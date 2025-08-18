@@ -1,0 +1,189 @@
+Changing the Wireless Network Configuration
+...........................................
+
+Connecting to a WLAN Network
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  First set the correct regulatory domain for your country
+
+.. code-block:: console
+
+   target:~$ iw reg set DE
+   target:~$ iw reg get
+
+You will see
+
+.. code-block::
+
+   country DE: DFS-ETSI
+      (2400 - 2483 @ 40), (N/A, 20), (N/A)
+      (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+      (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+      (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+      (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+
+-  Set up the wireless interface
+
+.. code-block:: console
+
+   target:~$ ip link    # list all interfaces. Search for wlan*
+   target:~$ ip link set up dev wlan0
+
+-  Now you can scan for available networks
+
+.. code-block:: console
+
+   target:~$ iw wlan0 scan | grep SSID
+
+You can use a cross-platform supplicant with support for *WEP*, *WPA*, and
+*WPA2* called *wpa_supplicant* for an encrypted connection.
+
+-  To do so, add the network credentials to the file
+   */etc/wpa_supplicant.conf*
+
+.. code-block:: kconfig
+
+   Confluence country=DE network={ ssid="<SSID>" proto=WPA2 psk="<KEY>" }
+
+-  Now a connection can be established
+
+.. code-block:: console
+
+   target:~$ wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant.conf -iwlan0 -B
+
+This should result in the following output
+
+.. code-block:: kconfig
+
+   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+
+To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see the section :ref:`scarthgap_changing-net-config`.
+
+-  First, create the directory
+
+.. code-block:: console
+
+   target:~$ mkdir -p /etc/systemd/network/
+
+-  Then add the following configuration snippet in
+   */etc/systemd/network/10-wlan0.network*
+
+.. code-block:: kconfig
+
+   # file /etc/systemd/network/10-wlan0.network
+   [Match]
+   Name=wlan0
+
+   [Network]
+   DHCP=yes
+
+-  Now, restart the network daemon so that the configuration takes effect
+
+.. code-block:: console
+
+   target:~$ systemctl restart systemd-networkd
+
+Creating a WLAN Access Point
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section provides a basic access point (AP) configuration for a
+secured *WPA2* network.
+
+Find the name of the WLAN interface with
+
+.. code-block:: console
+
+   target:~$ ip link
+
+Edit the configuration in */etc/hostapd.conf*. It is strongly dependent on
+the use case. The following shows an example
+
+.. code-block:: kconfig
+
+   # file /etc/hostapd.conf
+   interface=wlan0
+   driver=nl80211
+   ieee80211d=1
+   country_code=DE
+   hw_mode=g
+   ieee80211n=1
+   ssid=Test-Wifi
+   channel=2
+   wpa=2
+   wpa_passphrase=12345678
+   wpa_key_mgmt=WPA-PSK
+   wpa_pairwise=CCMP
+
+Set up and start the DHCP server for the network interface *wlan0* via
+*systemd-networkd*
+
+.. code-block:: console
+
+   target:~$ mkdir -p /etc/systemd/network/
+   target:~$ vi /etc/systemd/network/10-wlan0.network
+
+Insert the following text into the file
+
+.. code-block:: kconfig
+
+   [Match]
+   Name=wlan0
+
+   [Network]
+   Address=192.168.0.1/24
+   DHCPServer=yes
+
+   [DHCPServer]
+   EmitDNS=yes
+   target:~$ systemctl restart systemd-networkd
+   target:~$ systemctl status  systemd-networkd -l   # check status and see errors
+
+Start the userspace daemon *hostapd*
+
+.. code-block:: console
+
+   target:~$ systemctl start hostapd
+   target:~$ systemctl status hostapd -l # check for errors
+
+Now, you should see the WLAN network *Test-Wifi* on your terminal device
+(laptop, smartphone, etc.).
+
+If there are problems with the access point, you can either check the log
+messages with
+
+.. code-block:: console
+
+   target:~$ journalctl --unit=hostapd
+
+or start the daemon in debugging mode from the command line
+
+.. code-block:: console
+
+   target:~$ systemctl stop hostapd
+   target:~$ hostapd -d /etc/hostapd.conf -P /var/run/hostapd.pid
+
+You should see
+
+.. code-block::
+
+   ...
+   wlan0: interface state UNINITIALIZED->ENABLED
+   wlan0: AP-ENABLED
+
+Further information about AP settings and the userspace daemon
+*hostapd* can be found at
+
+.. code-block::
+
+   https://wireless.wiki.kernel.org/en/users/documentation/hostapd
+   https://w1.fi/hostapd/
+
+phyCORE-i.MX 6UL/ULL Bluetooth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Special consideration must be paid when working with any Bluetooth on a
+phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX
+6UL/ULL BSP Manual - Bluetooth
+<https://www.phytec.de/cdocuments/?doc=xoJEEQ#L844e-A5i-MX6ULULLBSPManual-Bluetooth>`_.

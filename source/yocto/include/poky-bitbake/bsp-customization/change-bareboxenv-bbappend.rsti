@@ -1,0 +1,160 @@
+Change the *barebox* Environment via *bbappend* Files
+.....................................................
+
+Since *BSP-Yocto-AM335x-16.2.0* and *BSP-Yocto-i.MX6-PD16.1.0*, the *barebox*
+environment handling in *meta-phytec* has changed. Now it is possible to add,
+change, and remove files in the *barebox* environment via the *Python* bitbake
+task *do_env*. There are two *Python* functions to change the environment. Their
+signatures are:
+
+-  *env_add(d, *\ **filename as string**\ *, *\ **file content as string**\ *)*:
+   to add a new file or overwrite an existing file
+-  *env_rm(d, *\ **filename as string**\ *)*: to remove a file
+
+The first example of a *bbappend* file in the custom layer *meta-racer* shows
+how to add a new non-volatile variable *linux.bootargs.fb* in the *barebox*
+environment folder */env/nv/*
+
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
+   python do_env:append() {
+       env_add(d, "nv/linux.bootargs.fb", "imxdrm.legacyfb_depth=32\n")
+   }
+
+The next example shows how to replace the network configuration file
+*/env/network/eth0*
+
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
+   python do_env:append() {
+       env_add(d, "network/eth0",
+   """#!/bin/sh
+
+   # ip setting (static/dhcp)
+   ip=static
+   global.dhcp.vendor_id=barebox-${global.hostname}
+
+   # static setup used if ip=static
+   ipaddr=192.168.178.5
+   netmask=255.255.255.0
+   gateway=192.168.178.1
+   serverip=192.168.178.1
+   """)
+   }
+
+In the above example, the *Python* multiline string syntax **""" text """** is
+used to avoid adding multiple newline characters *\\n* into the recipe *Python*
+code. The *Python* function *env_add* can add and overwrite environment files.
+
+The next example shows how to remove an already added environment file, for
+example *,* */env/boot/mmc*
+
+.. code-block:: kconfig
+
+   # file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
+   python do_env:append() {
+       env_rm(d, "boot/mmc")
+   }
+
+Debugging the Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to see all environment files that are added in the build process,
+you can enable a debug flag in the *local.conf*
+
+.. code-block:: kconfig
+
+   # file local.conf
+   ENV_VERBOSE = "1"
+
+After that, you have to rebuild the *barebox* recipe to see the debugging
+output
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c clean
+   host:~$ bitbake barebox -c configure
+
+The output of the last command looks like this
+
+.. code-block::
+
+   [...]
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/allow_color' content "false"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.base' content "consoleblank=0"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.fb' content "imxdrm.legacyfb_depth=32"
+   WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File 'nv/linux.bootargs.rootfs' content "rootwait ro fsck.repair=yes"
+
+Changing the Environment (depending on Machines)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you need to apply some *barebox* environment modifications only to a single
+or only a few machines, you can use *Bitbake'* s machine overwrite syntax. For
+the machine overwrite syntax, you append a machine name or SoC name (such as
+*mx6* , *ti33x,* or *rk3288* ) with an underscore to a variable or task
+
+.. code-block:: kconfig
+
+   DEPENDS:remove:mx6 = "virtual/libgl" or
+   python do_env_append_phyboard-mira-imx6-4().
+
+The next example adds the environment variables only if the MACHINE is set to
+*phyboard-mira-imx6-4*
+
+.. code-block:: kconfig
+
+   # file meta-phytec/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend
+   python do_env:append:phyboard-mira-imx6-4() {
+       env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
+   }
+
+*Bitbake's* override syntax for variables is explained in more detail at:
+https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata
+
+Upgrading the *barebox* Environment from Previous BSP Releases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prior to BSP version *BSP-Yocto-AM335x-16.2.0* and *BSP-Yocto-i.MX6-PD16.1.0* ,
+*barebox* environment changes via *bbappend* file were done differently. For
+example, the directory structure in your meta layer (here *meta-skeleton* ) may
+have looked like this
+
+.. code-block:: console
+
+   host:~$ tree -a sources/meta-skeleton/recipes-bsp/barebox/
+   sources/meta-skeleton/recipes-bsp/barebox
+   ├── barebox
+   │   └── phyboard-wega-am335x-3
+   │       ├── boardenv
+   │       │   └── .gitignore
+   │       └── machineenv
+   │           └── nv
+   │               └── linux.bootargs.cma
+   └── barebox_%.bbappend
+
+and the file *barebox_%.bbappend* contained
+
+.. code-block:: kconfig
+
+   # file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/barebox:"
+
+In this example, all environment changes from the directory *boardenv* in the
+layer *meta-phytec* are ignored and the file *nv/linux.bootargs.cma* is added.
+For the new handling of the *barebox* environment, you use the *Python*
+functions *env_add* and *env_rm* in the *Python* task *do_env*. Now the above
+example translates to a single *Python* function in the file
+*barebox_%.bbappend* that looks like
+
+.. code-block:: kconfig
+
+   # file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend
+   FILESEXTRAPATHS:prepend := "${THISDIR}/barebox:"
+   python do_env:append() {
+       # Removing files (previously boardenv)
+       env_rm(d, "config-expansions")
+       # Adding new files (previously machineenv)
+       env_add(d, "nv/linux.bootargs.cma", "cma=64M\n")
+   }

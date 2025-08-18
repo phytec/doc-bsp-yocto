@@ -1,0 +1,26 @@
+Framebuffer Console
+...................
+
+On boards with a display interface, the framebuffer console is enabled per
+default. You can attach a USB keyboard and log in. To change the keyboard
+layout from the English default to German, type
+
+.. code-block:: console
+
+   target:~$ loadkeys /usr/share/keymaps/i386/qwertz/de-latin1.map.gz
+
+To detach the framebuffer console, run
+
+.. code-block:: console
+
+   target:~$ echo 0 > sys/class/vtconsole/vtcon1/bind
+
+To completely deactivate the framebuffer console, disable the following kernel
+configuration option
+
+.. code-block::
+
+    Device Drivers->Graphics Support->Support for framebuffer devices->Framebuffer Console Support
+
+More information can be found at:
+https://www.kernel.org/doc/Documentation/fb/fbcon.txt

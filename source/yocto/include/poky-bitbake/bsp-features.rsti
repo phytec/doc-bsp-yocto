@@ -1,0 +1,90 @@
+BSP Features of meta-phytec and meta-ampliphy
+---------------------------------------------
+
+*Buildinfo*
+...........
+
+The *buildinfo* task is a feature in our recipes that prints instructions to
+fetch the source code from the public repositories. So you do not have to look
+into the recipes yourself. To see the instructions, e.g. for the *barebox*
+package, execute
+
+.. code-block:: console
+
+   host:~$ bitbake barebox -c buildinfo
+
+in your shell. This will print something like
+
+.. code-block::
+
+   (mini) HOWTO: Use a local git repository to build barebox:
+
+   To get source code for this package and version (barebox-2022.02.0-phy1), execute
+
+   $ mkdir -p ~/git
+   $ cd ~/git
+   $ git clone git://git.phytec.de/barebox barebox
+   $ cd ~/git/barebox
+   $ git switch -c v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
+
+   You now have two possible workflows for your changes:
+
+   1. Work inside the git repository:
+   Copy and paste the following snippet to your "local.conf":
+
+   SRC_URI:pn-barebox = "git://${HOME}/git/barebox;branch=${BRANCH}"
+   SRCREV:pn-barebox = "${AUTOREV}"
+   BRANCH:pn-barebox = "v2022.02.0-phy1-local-development"
+
+   After that you can recompile and deploy the package with
+
+   $ bitbake barebox -c compile
+   $ bitbake barebox -c deploy
+
+   Note: You have to commit all your changes. Otherwise yocto doesn't pick them up!
+
+   2. Work and compile from the local working directory
+   To work and compile in an external source directory we provide the
+   externalsrc.bbclass. To use it, copy and paste the following snippet to your
+   "local.conf":
+
+   INHERIT += "externalsrc"
+   EXTERNALSRC:pn-barebox = "${HOME}/git/barebox"
+   EXTERNALSRC_BUILD:pn-barebox = "${HOME}/git/barebox"
+
+   Note: All the compiling is done in the EXTERNALSRC directory. Every time
+   you build an Image, the package will be recompiled and build.
+
+   NOTE: Tasks Summary: Attempted 1 tasks of which 0 didn't need to be rerun and all succeeded.
+   NOTE: Writing buildhistory
+
+As you can see, everything is explained in the output.
+
+.. warning::
+
+   Using *externalsrc* breaks a lot of *Yocto's* internal dependency
+   mechanisms. It is not guaranteed that any changes to the source
+   directory are automatically picked up by the build process and
+   incorporated into the root filesystem or SD card image. You have to
+   always use *--force*. E.g. to compile *barebox* and redeploy it to
+   *deploy/images/<machine>* execute
+
+   .. code-block:: console
+
+      host:~$ bitbake barebox -c compile --force
+      host:~$ bitbake barebox -c deploy
+
+To update the SD card image with a new kernel or image first force the
+compilation of it and then force a rebuild of the root filesystem. Use
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image -c rootfs --force
+
+Note that the build system is not modifying the external source directory. If
+you want to apply all patches the *Yocto* recipe is carrying to the external
+source directory, run the line
+
+.. code-block:: kconfig
+
+   SRCTREECOVEREDTASKS="" BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_PASSTHROUGH_ADDITIONS SRCTREECOVEREDTASKS" bitbake <recipe> -c patch
