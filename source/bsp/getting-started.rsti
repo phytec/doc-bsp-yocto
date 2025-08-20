@@ -25,11 +25,15 @@ be flashed using ``dd``, can be downloaded from our |dl-server-link| page.
 
 Get either the partup package or the WIC image from the download server:
 
+.. getting_started_get_image_cmd_start_label
+
 .. code-block:: console
    :substitutions:
 
    host:~$ wget |link-partup-package|
    host:~$ wget |link-image|
+
+.. getting_started_get_image_cmd_end_label
 
 .. note::
    For e.MMC, more complex partitioning schemes or even just large images, we

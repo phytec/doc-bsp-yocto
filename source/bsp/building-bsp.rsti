@@ -63,10 +63,14 @@ structure.
 *  It is also possible to pass this information directly using command line
    parameters:
 
+   .. building_bsp_phylinux_cmd_start_label
+
    .. code-block:: console
       :substitutions:
 
       host:~/yocto$ DISTRO=|yocto-distro| MACHINE=|yocto-machinename| ./phyLinux init -p |kernel-socname| -r |yocto-manifestname|
+
+   .. building_bsp_phylinux_cmd_end_label
 
 After the execution of the init command, phyLinux will print a few important
 notes. For example, it will print your git identity, SOC and BSP release which

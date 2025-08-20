@@ -21,3 +21,13 @@
 
 .. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
+.. Substitutions for optional platform-specific notes
+   These substitutions are used in common documents as placeholders to allow
+   platforms optionally to add more specific details (if needed).
+   As a default, all notes are defined below with empty value (i.E. no note
+   will appear in the documents if platform does not define any note content).
+.. |standalone_build_kernel_dtb_location_note| replace:: \ 
+.. |standalone_build_kernel_cp_sdcard_note| replace:: \ 
+.. |installing_os_image_wic_note| replace:: \ 
+.. |installing_os_image_partup_note| replace:: \ 
+.. |installing_os_image_yocto_imageext_note| replace:: \ 

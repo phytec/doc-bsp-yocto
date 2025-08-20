@@ -44,6 +44,10 @@ saved on the SD card.
       |yocto-imagename|-|yocto-machinename|.rootfs.partup
       |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext|
 
+   |installing_os_image_partup_note|
+
+   |installing_os_image_yocto_imageext_note|
+
 *  Show list of available MMC devices:
 
    .. code-block:: console
@@ -70,6 +74,8 @@ saved on the SD card.
 
       target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/|emmcdev|
 
+   |installing_os_image_partup_note|
+
    .. tip::
 
       **Using partup is highly recommended since it is easier to use and has the
@@ -93,6 +99,8 @@ saved on the SD card.
          :substitutions:
 
          target:~$ zstdcat |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext| | sudo dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+      |installing_os_image_wic_note|
 
       Keep in mind that the root partition does not make use of the full space
       when flashing with ``dd``.
@@ -124,6 +132,8 @@ bootloader, kernel, device tree, device tree overlays, and root file system.
 
       host:~$ unxz |yocto-imagename|-|yocto-machinename|.rootfs.|yocto-imageext|
 
+   |installing_os_image_yocto_imageext_note|
+
 Flash eMMC via Network in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -140,6 +150,9 @@ the network to the eMMC of the target with a one-line command:
    :substitutions:
 
    target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.rootfs.wic" | dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+|installing_os_image_wic_note|
+
 
 Flash eMMC via Network in Linux on Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,6 +171,8 @@ Show your available image files on the host:
 
    host:~$ ls
    |yocto-imagename|-|yocto-machinename|.rootfs.wic
+
+|installing_os_image_wic_note|
 
 Send the image with the ``dd`` command combined with ssh through the network
 to the eMMC of your device:
@@ -217,7 +232,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
       target:~$ mount /dev/sda1 /mnt
 
-*  Now show your saved image files on the USB Stick:
+*  Now show your saved image files on the USB Stick, e.g. like:
 
    .. code-block:: console
       :substitutions:
@@ -250,6 +265,8 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       :substitutions:
 
       target:~$ dd if=|yocto-imagename|-|yocto-machinename|.rootfs.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+   |installing_os_image_wic_note|
 
 *  After a complete write, your board can boot from eMMC.
 
