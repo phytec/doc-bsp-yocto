@@ -223,7 +223,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
       [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
       target:~$ mount /dev/sda1 /mnt
 
-*  Now show your saved image files on the USB Stick:
+*  Now show your saved image files on the USB Stick, e.g. like:
 
    .. code-block:: console
       :substitutions:
