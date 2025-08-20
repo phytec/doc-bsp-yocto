@@ -12,6 +12,16 @@ HEAD
 
    head
 
+BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
+=================================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   imx8mp-fpsc-alpha1
+
 Quickstart Guide ALPHA1
 =======================
 
