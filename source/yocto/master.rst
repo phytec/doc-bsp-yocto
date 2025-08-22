@@ -45,7 +45,7 @@
 
 .. _yocto-man-master:
 
-.. include:: include/yocto_introduction.rsti
+.. include:: include/yocto-introduction.rsti
 
 Compatible Linux Distributions
 ==============================
@@ -54,15 +54,15 @@ To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
 https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions
 
-.. include:: include/bsp_introduction.rsti
+.. include:: include/bsp-introduction.rsti
 
-.. include:: include/prebuilt_images.rsti
+.. include:: include/prebuilt-images.rsti
 
-.. include:: include/bsp_workspace_installation.rsti
+.. include:: include/bsp-workspace-installation.rsti
 
-.. include:: include/phylinux_documentation.rsti
+.. include:: include/phylinux-documentation.rsti
 
-.. include:: include/build_container.rsti
+.. include:: include/build-container.rsti
 
 Working with Poky and Bitbake
 =============================
@@ -128,4 +128,4 @@ Common Tasks
 
 .. include:: include/troubleshooting.rsti
 
-.. include:: include/yocto_documentation.rsti
+.. include:: include/yocto-documentation.rsti
