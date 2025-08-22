@@ -82,7 +82,7 @@ Change Notifications, Application Notes, and Technical Notes. These will be done
 on a case-by-case basis. Most of the documentation can be found in the
 applicable download page of our products.
 
-.. include:: include/yocto_introduction.rsti
+.. include:: include/yocto-introduction.rsti
 
 Compatible Linux Distributions
 ==============================
@@ -91,7 +91,7 @@ To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
 https://docs.yoctoproject.org/4.0.6/ref-manual/system-requirements.html#supported-linux-distributions
 
-.. include:: include/bsp_introduction.rsti
+.. include:: include/bsp-introduction.rsti
 
 Pre-built Images
 ================
@@ -501,15 +501,15 @@ master branch for different usage. Use phyLinux to check out the states
 
    host:~$ ./phyLinux -u <url-of-your-git-repo>
 
-.. include:: include/build_container.rsti
+.. include:: include/build-container.rsti
 
 Working with Poky and Bitbake
 =============================
 
-.. include:: include/poky_bitbake/start_the_build.rsti
-.. include:: include/poky_bitbake/images.rsti
-.. include:: include/poky_bitbake/development_states.rsti
-.. include:: include/poky_bitbake/bsp_features.rsti
+.. include:: include/poky-bitbake/start-the-build.rsti
+.. include:: include/poky-bitbake/images.rsti
+.. include:: include/poky-bitbake/development-states.rsti
+.. include:: include/poky-bitbake/bsp-features.rsti
 
 .. _kirkstone_bsp-customization:
 
@@ -532,37 +532,37 @@ There are 2 ways to make major changes:
 
 Creating your own layer is described in the section Create your own Layer.
 
-.. include:: include/poky_bitbake/bsp_customization/disable_qtdemo.rsti
-.. include:: include/poky_bitbake/bsp_customization/framebuffer_console.rsti
-.. include:: include/poky_bitbake/bsp_customization/provided_tools.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_software.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_layers.rsti
-.. include:: include/poky_bitbake/bsp_customization/create_layer.rsti
-.. include:: include/poky_bitbake/bsp_customization/kernel_bootloader_recipe.rsti
+.. include:: include/poky-bitbake/bsp-customization/disable-qtdemo.rsti
+.. include:: include/poky-bitbake/bsp-customization/framebuffer-console.rsti
+.. include:: include/poky-bitbake/bsp-customization/provided-tools.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-software.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-layers.rsti
+.. include:: include/poky-bitbake/bsp-customization/create-layer.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-recipe.rsti
 .. _yocto-man-kirkstone-kernel-and-bootloader-conf:
-.. include:: include/poky_bitbake/bsp_customization/kernel_bootloader_config.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-config.rsti
 .. _kirkstone_temporary-method:
-.. include:: include/poky_bitbake/bsp_customization/kernel_bootloader_patch_devtool.rsti
-.. include:: include/poky_bitbake/bsp_customization/kernel_bootloader_patch_tmp.rsti
-.. include:: include/poky_bitbake/bsp_customization/kernel_bootloader_localconf.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_software_sustainable.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_firmware_rootfs.rsti
-.. include:: include/poky_bitbake/bsp_customization/change_ubootenv_bbappend.rsti
-.. include:: include/poky_bitbake/bsp_customization/change_bareboxenv_bbappend.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-patch-devtool.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-patch-tmp.rsti
+.. include:: include/poky-bitbake/bsp-customization/kernel-bootloader-localconf.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-software-sustainable.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-firmware-rootfs.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-ubootenv-bbappend.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-bareboxenv-bbappend.rsti
 .. _kirkstone_changing-net-config:
-.. include:: include/poky_bitbake/bsp_customization/change_network_conf.rsti
-.. include:: include/poky_bitbake/bsp_customization/change_wireless_network_conf.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_opencv.rsti
-.. include:: include/poky_bitbake/bsp_customization/adding_php_webruntime.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-network-conf.rsti
+.. include:: include/poky-bitbake/bsp-customization/change-wireless-network-conf.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-opencv.rsti
+.. include:: include/poky-bitbake/bsp-customization/adding-php-webruntime.rsti
 
 Common Tasks
 ------------
 
-.. include:: include/poky_bitbake/common_tasks/debugging_apps.rsti
+.. include:: include/poky-bitbake/common-tasks/debugging-apps.rsti
 .. _kirkstone_gen-source-mirrors:
-.. include:: include/poky_bitbake/common_tasks/gen_source_mirrors.rsti
-.. include:: include/poky_bitbake/common_tasks/toolchains.rsti
-.. include:: include/poky_bitbake/common_tasks/kernel_modules.rsti
+.. include:: include/poky-bitbake/common-tasks/gen-source-mirrors.rsti
+.. include:: include/poky-bitbake/common-tasks/toolchains.rsti
+.. include:: include/poky-bitbake/common-tasks/kernel-modules.rsti
 
 .. include:: include/troubleshooting.rsti
-.. include:: include/yocto_documentation.rsti
+.. include:: include/yocto-documentation.rsti
