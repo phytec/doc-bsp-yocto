@@ -572,4 +572,4 @@ Common Tasks
 .. include:: include/poky_bitbake/common_tasks/kernel_modules.rsti
 
 .. include:: include/troubleshooting.rsti
-.. include:: include/yocto_documentation.rsti
+.. include:: include/yocto-documentation.rsti

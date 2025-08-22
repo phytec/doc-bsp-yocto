@@ -516,4 +516,4 @@ Common Tasks
 
 .. include:: include/troubleshooting.rsti
 
-.. include:: include/yocto_documentation.rsti
+.. include:: include/yocto-documentation.rsti
