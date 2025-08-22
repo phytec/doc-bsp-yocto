@@ -75,7 +75,7 @@ This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-kirkstone:
 
-.. include:: ../phytec_documentation.rsti
+.. include:: ../phytec-documentation.rsti
 
 On top of these standard manuals and guides, PHYTEC will also provide Product
 Change Notifications, Application Notes, and Technical Notes. These will be done
