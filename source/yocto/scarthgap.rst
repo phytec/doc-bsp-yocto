@@ -91,7 +91,7 @@ To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
 `Supported Distributions`_
 
-.. include:: include/bsp_introduction.rsti
+.. include:: include/bsp-introduction.rsti
 
 Pre-built Images
 ================
