@@ -82,7 +82,7 @@ Change Notifications, Application Notes, and Technical Notes. These will be done
 on a case-by-case basis. Most of the documentation can be found in the
 applicable download page of our products.
 
-.. include:: include/yocto_introduction.rsti
+.. include:: include/yocto-introduction.rsti
 
 Compatible Linux Distributions
 ==============================
