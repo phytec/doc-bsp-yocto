@@ -508,7 +508,7 @@ master branch for different usage. Use phyLinux to check out the states
 
    host:~$ ./phyLinux -u <url-of-your-git-repo>
 
-.. include:: include/build_container.rsti
+.. include:: include/build-container.rsti
 
 Working with Poky and Bitbake
 =============================
