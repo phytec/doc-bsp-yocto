@@ -96,6 +96,11 @@ Included in the Kit
 -  2.54 10P to DB9P Female (WF072)
 -  2 x 2.54 10P to DB9P Male (WF228)
 
+.. warning::
+   The PD-05032-ALPHA.A0 Alpha1 Kit includes the i.MX95 CPU revision A1.
+   This CPU revision will not be software compatible with future NXP BSP
+   releases, as new releases will only support i.MX95 CPU revision B0.
+
 Components
 ----------
 
