@@ -118,6 +118,8 @@
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. _imx8mp-fpsc-alpha1-bsp-manual:
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

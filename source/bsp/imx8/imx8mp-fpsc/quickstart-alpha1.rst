@@ -7,8 +7,8 @@
 
 .. Links
 .. |hardware-manual| replace:: Hardware Manual - phyCORE-i.MX 8M Plus FPSC (1617.2/1618.1) (L-1076e.A1)
-.. _hardware-manual: https://www.phytec.de/cdocuments/?doc=3IGEOQ
-.. |bsp-manual| replace:: TBD
+.. _hardware-manual: https://www.phytec.de/cdocuments/?doc=pRgRPw
+.. |bsp-manual| replace:: :ref:`phyCORE-i.MX 8MP FPSC ALPHA1 BSP Manual <imx8mp-fpsc-alpha1-bsp-manual>`
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
 .. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-quickstart-alpha1.pdf
 
