@@ -64,7 +64,7 @@ For the TI K3 controller exist different machines for
 +----------------+---------------------------+---------------------------+
 | phyCORE-AM64x  | phyboard-electra-am64xx-2 | phyboard-electra-am64xx-3 |
 +----------------+---------------------------+---------------------------+
-| phyCORE-AM68x  | phyboard-izar-am68x-2     | phyboard-izar-am68x-3     |
+| phyCORE-AM68x  | phyboard-izar-am68x-3     | phyboard-izar-am68x-4     |
 +----------------+---------------------------+---------------------------+
 
 For NXP controller based boards do not exists different machines for devices

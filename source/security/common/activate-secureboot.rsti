@@ -212,13 +212,87 @@ Activate Secure Boot for TI K3 SOC
 
 You can only burn the Fuses with the OTP-Keywriter, which you have create in
 the chapter |phytec-pki-link|
+You burn the public key in the SOC. You can override the keys, if you use the
+incremental approach. If the KEYREV value is set to either 1 or 2, then the
+device is a HS-SE device with active Secure boot. After that you can not write
+any certificates with the keywriter tool.
+
+Check the state of your device
+..............................
+
+When UART boot mode is selected, boot ROM reports the SoC ID via UART, for
+both GP and HS devices. Additionally, this can determine the device
+configuration, which can be used to check if device was converted from HS-FS to
+HS-SE after key programming.
+
+1. Set the boot mode switches into UART boot mode.
+
+   *  AM62x
+
+      .. image:: images/phycore-am62x/am62x_uartboot.png
+         :width: 100px
+
+   *  AM64x
+
+       .. image:: images/phycore-am64x/am64_uartboot.png
+         :width: 100px
+
+   *  AM68x
+
+       .. image:: images/phycore-am68x/am68x_uartboot.png
+         :width: 200px
+
+2. Open your serial terminal on ``/dev/ttyUSB0``
+3. Power up your board
+4. Copy the entire string up until "CCC" (ping characters) and Paste the string
+   in ``<MCU_PLUS_SDK_INSTALL_DIR>/source/security/sbl_keywriter/tools/socid.txt``
+   (For AM68x please download the otp_keywriter from AM62 to use this Python
+   script.)
+5. Run in ``<MCU_PLUS_SDK_INSTALL_DIR>/source/security/sbl_keywriter/tools/``
+
+   .. code-block:: console
+
+      host:~$  python parse_uart_boot_socid.py socid.txt
+      -----------------------
+      SoC ID Public ROM Info:
+      -----------------------
+      SubBlockId           :
+      SubBlockSize         :
+      DeviceName           : am62x
+      DeviceType           : HSFS
+
+6. After successful activation of Secure Boot the DeviceType is ``HSSE``
+7. Additionally you can see the SHA512 hash of the used keys in the output with
+   build profile DEBUG. This feature depends on the keywriter version.
+   Then you can compare it with the hash of your signing key:
+
+   .. code-block:: console
+
+      host:~$  python parse_uart_boot_socid.py socid.txt
+      ...
+      -----------------------
+      SoC ID Secure ROM Info:
+      -----------------------
+      Sec SubBlockId       : 2
+      Sec SubBlockSize     : 166
+      Sec Prime            : 0
+      Sec Key Revision     : 1
+      Sec Key Count        : 1
+      Sec TI MPK Hash      : d68ecb2c055dff11ade95bd927e837d2a53bc23b0a2800cebce4f106bcf309df2213912d77a157a8b7c2df40672a06a918034aa4c7d603e462481475225d49b8
+      Sec Cust MPK Hash    : 99adc5d401188641b1187d28b8e3f7bf94defcf48b503f6b45d6fe677da161a98a27956ecbc1c2f4af43867f56398bd147f54ce24b95f0725120d2b32ff2591f
+      Sec Unique ID        : 2b8638ba724a82d7c6c0d1d19b56a13bd52da90bfcfa2efb6d6f8d26ed8830f5
+
+Write the certificate and Lock the device
+.........................................
+
 To run the keywriter on your hardware we recommend starting with a regular
 SD card that has an unsigned image on it.
 Once you have your bootable SD card, copy the ``tiboot3.bin`` you generated
 into the boot partition of the SD card, replacing the previous version of the
 binary.
+Alternatively you can use UART Boot or USBDFU, too.
 
-   * AM62x
+**For the TI AM62x**
 
    Now you must set JP8 on the development kit for AM62x in order to flash
    the keys.
@@ -230,7 +304,7 @@ binary.
       For some older AM62x boards you also need to verify that the resistor
       on J28 is set to position 2+3.
 
-   * AM64x
+**For the TI AM64x**
 
    Now you must set JP5 to pins 1 and 2 on the development kit in order to
    flash the keys.
@@ -238,15 +312,24 @@ binary.
    .. figure:: images/phycore-am64x/pb-07225_secureboot_JP5.png
       :width: 700px
 
-Once this jumper is set, plug the SD card into the kit and boot as you normally
-would. You should see a message that keywriting was successful.
-The keywriter will only successfully write one time.
+**For the TI AM68x/TDA4x**
+
+   You must not set any external jumper to flash the keys, because a GPIO on
+   phyCORE-AM68x is used to switch the additional voltage.
+
+Once this configuration is set, plug the SD card into the kit and boot as you
+normally would. You should see the output messages from the keywriting:
+
+*  AM62x and AM64x on Standard Debug Port:
+*  AM68x on MCU UART Port (Header X33) with Serial Converter
 
 If you are using the incremental approach to programming your keys, it is
 essential that you run your Key Revision binary after all the other binaries
 have been successfully run. Writing the key revision is what converts the
 device to a secure boot device, so you will not be able to run your other
 binaries after the key revision is set.
+
+`The OTP key writer error codes <https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/security/keywriter.html?highlight=keywriter%20debug%20response#otp-key-writer-error-codes>`_
 
 Next Steps after Activation of Secure Boot
 ------------------------------------------
