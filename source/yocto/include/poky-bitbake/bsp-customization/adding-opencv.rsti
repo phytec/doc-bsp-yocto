@@ -1,0 +1,47 @@
+Add OpenCV Libraries and Examples
+.................................
+
+*OpenCV* (Opensource Computer Vision https://opencv.org/) is an open-source
+library for computer vision applications.
+
+To install the libraries and examples edit the file *conf/local.conf* in the
+*Yocto* build system and add
+
+.. code-block:: kconfig
+
+   # file conf/local.conf
+   # Installing OpenCV libraries and examples
+   LICENSE_FLAGS_ACCEPTED += "commercial_libav"
+   LICENSE_FLAGS_ACCEPTED += "commercial_x264"
+   IMAGE_INSTALL:append = " \
+       opencv \
+       opencv-samples \
+       libopencv-calib3d2.4 \
+       libopencv-contrib2.4 \
+       libopencv-core2.4 \
+       libopencv-flann2.4 \
+       libopencv-gpu2.4 \
+       libopencv-highgui2.4 \
+       libopencv-imgproc2.4 \
+       libopencv-legacy2.4 \
+       libopencv-ml2.4 \
+       libopencv-nonfree2.4 \
+       libopencv-objdetect2.4 \
+       libopencv-ocl2.4 \
+       libopencv-photo2.4 \
+       libopencv-stitching2.4 \
+       libopencv-superres2.4 \
+       libopencv-video2.4 \
+       libopencv-videostab2.4 \
+   "
+
+Then rebuild your image
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-qt6demo-image
+
+.. tip::
+
+   Most examples do not work out of the box, because they depend on the *GTK*
+   graphics library. The BSP only supports *Qt6* .

@@ -1,0 +1,279 @@
+phyLinux Documentation
+======================
+
+The phyLinux script is a basic management tool for PHYTEC *Yocto* BSP releases
+written in *Python*. It is mainly a helper to get started with the BSP
+structure. You can get all the BSP sources without the need of interacting with
+*Repo* or *Git*.
+
+The phyLinux script has only one real dependency. It requires the *wget* tool
+installed on your host. It will also install the `Repo tool
+<https://source.android.com/docs/setup/download>`_ in a global path
+(/usr/local/bin) on your host PC. You can install it in a different location
+manually. *Repo* will be automatically detected by phyLinux if it is found in
+the PATH. The *Repo* tool will be used to manage the different *Git*
+repositories of the *Yocto* BSP.
+
+Get phyLinux
+------------
+
+The phyLinux script can be found on the PHYTEC download server:
+https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
+
+Basic Usage
+-----------
+
+For the basic usage of phyLinux, type
+
+.. code-block:: console
+
+   host:~$ ./phyLinux --help
+
+which will result in
+
+.. code-block::
+
+   usage: phyLinux [-h] [-v] [--verbose] {init,info,clean} ...
+
+   This Programs sets up an environment to work with The Yocto Project on Phytecs
+   Development Kits. Use phyLinx <command> -h to display the help text for the
+   available commands.
+
+   positional arguments:
+     {init,info,clean}  commands
+       init             init the phytec bsp in the current directory
+       info             print info about the phytec bsp in the current directory
+       clean            Clean up the current working directory
+
+   optional arguments:
+     -h, --help         show this help message and exit
+     -v, --version      show program's version number and exit
+     --verbose
+
+Initialization
+--------------
+
+Create a fresh project folder
+
+.. code-block:: console
+
+   host:~$ mkdir ~/yocto
+
+Calling phyLinux will use the default Python version. Starting with Ubuntu 20.04
+it will be Python3. If you want to initiate a BSP, which is not compatible with
+Python3, you need to set Python2 as default (temporarily) before running
+phyLinux
+
+.. code-block:: console
+
+   host:~$ ln -s \`which python2\` python && export PATH=`pwd`:$PATH
+
+Now run phyLinux from the new folder
+
+.. code-block:: console
+
+   host:~$ ./phyLinux init
+
+A clean folder is important because phyLinux will clean its working directory.
+Calling phyLinux from a directory that isn't empty will result in the following
+**warning**::
+
+   This current directory is not empty. It could lead to errors in the BSP
+   configuration process if you continue from here. At the very least, you
+   have to check your build directory for settings in bblayers.conf and
+   local.conf, which will not be handled correctly in all cases. It is
+   advisable to start from an empty directory of call:
+   $ ./phyLinux clean
+   Do you really want to continue from here?
+   [yes/no]:
+
+On the first initialization, the phyLinux script will ask you to install the
+*Repo* tool in your */usr/local/bin* directory. During the execution of the
+*init* command, you need to choose your processor platform (SoC), PHYTEC's BSP
+release number, and the hardware you are working on
+
+.. code-block::
+
+   ***************************************************
+   * Please choose one of the available SoC Platforms:
+   *
+   *   1: am335x
+   *   2: am57x
+   *   3: am62ax
+   *   4: am62x
+   *   5: am64x
+   *   6: am68x
+   *   7: imx6
+   *   8: imx6ul
+   *   9: imx7
+   *   10: imx8
+   *   11: imx8m
+   *   12: imx8mm
+   *   13: imx8mp
+   *   14: imx8x
+   *   15: imx93
+   *   16: nightly
+   *   17: rk3288
+   *   18: stm32mp13x
+   *   19: stm32mp15x
+   *   20: topic
+
+   # Exemplary output for chosen imx8mp
+   ***************************************************
+   * Please choose one of the available Releases:
+   *
+   *   1: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc1
+   *   2: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc2
+   *   3: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+   *   4: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+   *   5: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2-rc1
+   *   6: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
+   *   7: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+   *   8: BSP-Yocto-Ampliphy-i.MX8MP-master
+   *   9: BSP-Yocto-FSL-i.MX8MP-ALPHA1
+   *   10: BSP-Yocto-FSL-i.MX8MP-ALPHA2
+   *   11: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc1
+   *   12: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc2
+   *   13: BSP-Yocto-FSL-i.MX8MP-PD21.1.0
+   *   14: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc1
+   *   15: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc2
+   *   16: BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+   *   17: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc1
+   *   18: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc2
+   *   19: BSP-Yocto-FSL-i.MX8MP-PD21.1.2
+   *   20: BSP-Yocto-FSL-i.MX8MP-PD21.1.3-rc1
+   *   21: BSP-Yocto-FSL-i.MX8MP-PD21.1.3
+   *   22: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc1
+   *   23: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc2
+   *   24: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc3
+   *   25: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc4
+   *   26: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+   *   27: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc1
+   *   28: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc2
+   *   29: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc3
+   *   30: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc4
+   *   31: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+   *   32: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc1
+   *   33: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc2
+   *   34: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
+   *   35: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
+   *   36: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc1
+   *   37: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc2
+   *   38: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc3
+   *   39: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc4
+   *   40: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc5
+   *   41: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc6
+   *   42: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+   *   43: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
+   *   44: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc1
+   *   45: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc2
+   *   46: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc3
+   *   47: BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+   *   48: BSP-Yocto-NXP-i.MX8MP-PD24.1.y
+
+   # Exemplary output for chosen BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+   *********************************************************************
+   * Please choose one of the available builds:
+   *
+   no:                 machine: description and article number
+                                distro: supported yocto distribution
+                                target: supported build target
+
+   1: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: ampliphy-vendor
+                                target: phytec-headless-image
+   2: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: ampliphy-vendor-rauc
+                                target: phytec-headless-bundle
+                                target: phytec-headless-image
+   3: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: ampliphy-vendor-xwayland
+                                target: -c populate_sdk phytec-qt6demo-image
+                                target: phytec-qt6demo-image
+                                target: phytec-vision-image
+   4: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: securiphy-vendor
+                                target: phytec-securiphy-bundle
+                                target: phytec-securiphy-image
+   5: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                                Pollux PL1552.2
+                                PB-03123-001.A3
+                                distro: securiphy-vendor-provisioning
+                                target: phytec-provisioning-image
+
+
+If you cannot identify your board with the information given in the selector,
+have a look at the invoice for the product. After the configuration is done,
+you can always run
+
+.. code-block:: console
+
+   host:~$ ./phyLinux info
+
+   # Exemplary output
+   **********************************************
+   * The current BSP configuration is:
+   *
+   * SoC:  refs/heads/imx8mp
+   * Release:  BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+   *
+   **********************************************
+
+to see which SoC and Release are selected in the current workspace. If
+you do not want to use the selector, phyLinux also supports command-line
+arguments for several settings
+
+.. code-block:: console
+
+   host:~$ MACHINE=phyboard-pollux-imx8mp-3 ./phyLinux init -p imx8mp -r BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+
+or view the help command for more information
+
+.. code-block:: console
+
+   host:~$ ./phyLinux  init --help
+
+   usage: phyLinux init [-h] [--verbose] [--no-init] [-o REPOREPO] [-b REPOREPO_BRANCH] [-x XML] [-u URL] [-p PLATFORM] [-r RELEASE]
+
+   options:
+     -h, --help          show this help message and exit
+     --verbose
+     --no-init           dont execute init after fetch
+     -o REPOREPO         Use repo tool from another url
+     -b REPOREPO_BRANCH  Checkout different branch of repo tool
+     -x XML              Use a local XML manifest
+     -u URL              Manifest git url
+     -p PLATFORM         Processor platform
+     -r RELEASE          Release version
+
+After the execution of the *init* command, phyLinux will print a few important
+notes as well as information for the next steps in the build process.
+
+.. _master_phylinux-advanced-usage:
+
+Advanced Usage
+--------------
+
+phyLinux can be used to transport software states over any medium. The state of
+the software is uniquely identified by *manifest.xml*. You can create a
+manifest, send it to another place and recover the software state with
+
+.. code-block:: console
+
+   host:~$ ./phyLinux init -x manifest.xml
+
+You can also create a *Git* repository containing your software states. The
+*Git* repository needs to have branches other than master, as we reserved the
+master branch for different usage. Use phyLinux to check out the states
+
+.. code-block:: console
+
+   host:~$ ./phyLinux -u <url-of-your-git-repo>

@@ -1,0 +1,53 @@
+Kernel and Bootloader Recipe and Version
+........................................
+
+First, you need to know which kernel and version are used for your target
+machine. PHYTEC provides multiple kernel recipes *linux-mainline*, *linux-ti*
+and *linux-imx*. The first one provides support for PHYTEC's i.MX 6 and AM335x
+modules and is based on the *Linux* kernel stable releases from `kernel.org
+<https://kernel.org/>`_.
+The *Git* repositories URLs are:
+
+-  *linux-mainline*: git://git.phytec.de/linux-mainline
+-  *linux-ti*: git://git.phytec.de/linux-ti
+-  *linux-imx:* git://git.phytec.de/linux-imx
+-  *barebox*: git://git.phytec.de/barebox
+-  *u-boot-imx*: git://git.phytec.de/u-boot-imx
+
+To find your kernel provider, execute the following command
+
+.. code-block:: console
+
+   host:~$ bitbake virtual/kernel -e | grep "PREFERRED_PROVIDER_virtual/kernel"
+
+The command prints the value of the variable
+*PREFERRED_PROVIDER_virtual/kernel*. The variable is used in the internal
+*Yocto* build process to select the kernel recipe to use. The following lines
+are different outputs you might see
+
+.. code-block:: kconfig
+
+   PREFERRED_PROVIDER_virtual/kernel="linux-mainline"
+   PREFERRED_PROVIDER_virtual/kernel="linux-ti"
+   PREFERRED_PROVIDER_virtual/kernel="linux-imx"
+
+To see which version is used, execute *bitbake -s*. For example
+
+.. code-block:: console
+
+   host:~$ bitbake -s | egrep -e "linux-mainline|linux-ti|linux-imx|barebox|u-boot-imx"
+
+The parameter *-s* prints the version of all recipes. The output contains the
+recipe name on the left and the version on the right
+
+.. code-block::
+
+   barebox                      :2022.02.0-phy1-r7.0
+   barebox-hosttools-native     :2022.02.0-phy1-r7.0
+   barebox-targettools          :2022.02.0-phy1-r7.0
+   linux-mainline               :5.15.102-phy1-r0.0
+
+As you can see, the recipe *linux-mainline* has version *5.15.102-phy1*. In
+the PHYTEC's *linux-mainline*  *Git* repository, you will find a corresponding
+tag *v5.15.102-phy1*. The version of the *barebox* recipe is 2022.02.0-phy1.
+On i.MX8M\* modules the output will contain *linux-imx* and *u-boot-imx*.

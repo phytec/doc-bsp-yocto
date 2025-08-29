@@ -1,0 +1,54 @@
+Add Linux Firmware Files to the Root Filesystem
+...............................................
+
+It is a common task to add an extra firmware file to your root filesystem into
+*/lib/firmware/*. For example, WiFi adapters or PCIe Ethernet cards might need
+proprietary firmware. As a solution, we use a *bbappend* in our layer. To create
+the necessary folders, *bbappend* and copy the firmware file type
+
+.. code-block:: console
+
+   host:~$ cd meta-racer   # go into your layer
+   host:~$ mkdir -p recipes-kernel/linux-firmware/linux-firmware/
+   host:~$ touch recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+   host:~$ cp ~/example-firmware.bin recipes-kernel/linux-firmware/linux-firmware/    # adapt filename
+
+Then add the following content to the *bbappend* file and replace every
+occurrence of *example-firmware.bin* with your firmware file name.
+
+.. code-block:: kconfig
+
+   # file recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+
+   FILESEXTRAPATHS:prepend := "${THISDIR}/linux-firmware:"
+   SRC_URI += "file://example-firmware.bin"
+
+   do_install:append () {
+           install -m 0644 ${WORKDIR}/example-firmware.bin ${D}/lib/firmware/example-firmware.bin
+   }
+
+   # NOTE: Use "=+" instead of "+=". Otherwise file is placed into the linux-firmware package.
+   PACKAGES =+ "${PN}-example"
+   FILES:${PN}-example = "/lib/firmware/example-firmware.bin"
+
+Now try to build the linux-firmware recipe
+
+.. code-block:: console
+
+   host:~$ . sources/poky/oe-init-build-env
+   host:~$ bitbake linux-firmware
+
+This should generate a new package *deploy/ipk/all/linux-firmware-example*.
+
+As the final step, you have to install the firmware package to your image. You
+can do that in your *local.conf* or image recipe via
+
+.. code-block:: kconfig
+
+   # file local.conf or image recipe
+   IMAGE_INSTALL += "linux-firmware-example"
+
+.. warning::
+
+   Ensure that you have adapted the package name *linux-firmware-example* with
+   the name you assigned in *linux-firmware_%.bbappend*.

@@ -1,0 +1,33 @@
+Add Minimal PHP web runtime with *lightpd*
+..........................................
+
+This is one example of how to add a small runtime for PHP applications and a web
+server on your target. Lighttpd can be used together with the PHP command line
+tool over cgi. This solution weights only 5.5 MiB of disk storage. It is already
+preconfigured in meta-ampliphy. Just modify the build configuration to install
+it on the image
+
+.. code-block:: kconfig
+
+   # file conf/local.conf
+   # install lighttpd with php cgi module
+   IMAGE_INSTALL:append = " lighttpd"
+
+After booting the image, you should find the example web content in */www/pages*
+. For testing php, you can delete the *index.html* and replace it with a
+*index.php* file
+
+.. code-block:: html
+
+   <html>
+     <head>
+       <title>PHP-Test</title>
+     </head>
+     <body>
+       <?php phpinfo(); ?>
+     </body>
+   </html>
+
+On your host, you can point your browser to the board's IP, (e.g. 192.168.3.11)
+and the phpinfo should show up.
+

@@ -1,0 +1,51 @@
+Create your own layer
+.....................
+
+Creating your layer should be one of the first tasks when customizing the BSP.
+You have two basic options. You can either copy and rename our *meta-ampliphy*,
+or you can create a new layer that will contain your changes. The better option
+depends on your use case. *meta-ampliphy* is our example of how to create a
+custom *Linux* distribution that will be updated in the future. If you want to
+benefit from those changes and are, in general, satisfied with the userspace
+configuration, it could be the best solution to create your own layer on top of
+*Ampliphy*. If you need to rework a lot of information and only need the basic
+hardware support from PHYTEC, it would be better to copy *meta-ampliphy*, rename
+it, and adapt it to your needs. You can also have a look at the OpenEmbedded
+layer index to find different distribution layers. If you just need to add your
+own application to the image, create your own layer.
+
+In the following chapter, we have an embedded project called "racer" which we
+will implement using our *Ampliphy Linux* distribution. First, we need to create
+a new layer.
+
+*Yocto* provides a script for that. If you set up the BSP and the shell is
+ready, type
+
+.. code-block:: console
+
+   host:~$ bitbake-layers create-layer meta-racer
+
+Default options are fine for now. Move the layer to the source directory
+
+.. code-block:: console
+
+   host:~$ mv meta-racer ../sources/
+
+Create a *Git* repository in this layer to track your changes
+
+.. code-block:: console
+
+   host:~$ cd ../sources/meta-racer
+   host:~$ git init && git add . && git commit -s
+
+Now you can add the layer directly to your build/conf/bblayers.conf
+
+.. code-block:: kconfig
+
+   BBLAYERS += "${BSPDIR}/sources/meta-racer"
+
+or with a script provided by *Yocto*
+
+.. code-block:: console
+
+   host:~$ bitbake-layers add-layer meta-racer

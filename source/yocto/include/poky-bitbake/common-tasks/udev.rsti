@@ -1,0 +1,63 @@
+Working with *udev*
+...................
+
+Udev (Linux dynamic device management) is a system daemon that handles dynamic
+device management in /dev. It is controlled by *udev* \ rules that are located
+in */etc/udev/rules.d* (sysadmin configuration space) and\  */lib/udev/rules.d/*
+(vendor-provided). Here is an example of an *udev* \ rule file
+
+.. code-block:: kconfig
+
+   # file /etc/udev/rules.d/touchscreen.rules
+   # Create a symlink to any touchscreen input device
+   SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="input:*-e0*,3,*a0,1,*18,*", SYMLINK+="input/touchscreen0"
+   SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{modalias}=="ads7846", SYMLINK+="input/touchscreen0"
+
+See https://www.freedesktop.org/software/systemd/man/latest/udev.html for more details
+about the syntax and usage. To get the list of attributes for a specific device
+that can be used in an *udev* rule you can use the *udevadm info* tool. It
+prints all existing attributes of the device node and its parents. The key-value
+pairs from the output can be copied and pasted into a rule file. Some examples
+
+.. code-block:: console
+
+   target:~$ udevadm info -a /dev/mmcblk0
+   target:~$ udevadm info -a /dev/v4l-subdev25
+   target:~$ udevadm info -a -p /sys/class/net/eth0
+
+After changing an *udev* rule, you have to notify the daemon. Otherwise, your
+changes are not reflected. Use the following command
+
+.. code-block:: console
+
+   target:~$ udevadm control --reload-rules
+
+While developing *udev* rules you should monitor the events in order to see when
+devices are attached or unattached to the system. Use
+
+.. code-block:: console
+
+   target:~$ udevadm monitor
+
+Furthermore, it is very useful to monitor the system log in another shell,
+especially if the rule executes external scripts. Execute
+
+.. code-block:: console
+
+   target:~$ journalctl -f
+
+.. tip::
+
+   You cannot start daemons or heavy scripts in a *RUN* attribute. See
+   https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D .
+
+   This can only be used for very short-running foreground tasks. Running an
+   event process for a long period of time may block all further events for this
+   or a dependent device. Starting daemons or other long-running processes is
+   not appropriate for *udev*; the forked processes, detached or not, will be
+   unconditionally killed after the event handling has finished. You can use the
+   special attribute *ENV{SYSTEMD_WANTS}="service-name.service"* and a
+   *systemd*\ service instead.
+
+   See
+   https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd.

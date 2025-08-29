@@ -1,0 +1,60 @@
+Changing the Network Configuration
+..................................
+
+To tweak IP addresses, routes, and gateways at runtime you can use the
+*iproute2* tools. Some examples
+
+.. code-block:: console
+
+   target:~$ ip addr                                         # Show all network interfaces
+   target:~$ ip route                                        # Show all routes
+   target:~$ ip addr add 192.168.178.11/24 dev eth0          # Add static ip and route to interface eth0
+   target:~$ ip route add default via 192.168.178.1 dev eth0 # Add default gateway 192.168.178.1
+   target:~$ ip addr del 192.168.178.11/24 dev eth0          # Remove static ip address from interface eth0
+
+The network configuration is managed by *systemd-networkd* . To query the
+current status use
+
+.. code-block:: console
+
+   target:~$ networkctl status
+   target:~$ networkctl list
+
+The network daemon reads its configuration from the directories
+*/etc/systemd/network/* , */run/systemd/network/* , and */lib/systemd/network/*
+(from higher to lower priority). A sample configuration in
+*/lib/systemd/network/10-eth0.network* looks like this
+
+.. code-block:: kconfig
+
+   # file /lib/systemd/network/10-eth0.network
+   [Match]
+   Name=eth0
+
+   [Network]
+   Address=192.168.3.11/24
+   Gateway=192.168.3.10
+
+These files *\*.network* replace */etc/network/interfaces* from other
+distributions. You can either edit the file *10-eth0.network* in-place or copy
+it to */etc/systemd/network/* and make your changes there. After changing a file
+you must restart the daemon to apply your changes
+
+.. code-block:: console
+
+   target:~$ systemctl restart systemd-networkd
+
+To see the syslog message of the network daemon, use
+
+.. code-block:: console
+
+   target:~$ journalctl --unit=systemd-networkd.service
+
+To modify the network configuration at build time, look at the recipe
+*sources/meta-ampliphy/recipes-core/systemd/systemd-machine-units.bb*
+and the interface files in the folder
+*meta-ampliphy/recipes-core/systemd/systemd-machine-units/* where the static IP
+address configuration for *eth0* (and optionally *eth1*) is done.
+
+For more information, see https://wiki.archlinux.org/title/Systemd-networkd
+and https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html.
