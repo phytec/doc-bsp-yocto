@@ -30,7 +30,7 @@ CycloneDX SBOM in your *local.conf*:
    # include the sbom-cyclonedx class for SBOM creation
    INHERIT += "sbom-cyclonedx"
    # add information as property in the component
-   CYCLONEDX_EXPORT_PROPERTIES ?= "SRC_URI SRCREV"
+   # CYCLONEDX_EXPORT_PROPERTIES ?= "SRC_URI SRCREV BB_CURRENT_MC"
    # add config and built file names for kernel and bootloader
    CYCLONEDX_WITH_BUILDINFOS ?= "1"
 
