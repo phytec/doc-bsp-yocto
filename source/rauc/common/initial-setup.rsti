@@ -1,0 +1,172 @@
+Initial Setup
+=============
+
+To use RAUC, the flash device needs to be written with a complete Linux system
+and bootloader. The preferred method to do this is using the included tool
+`partup <https://partup.readthedocs.io/en/latest/>`_.
+
+Flash Storage
+-------------
+
+To flash the device with the correct partitions/volumes, use a partup package
+built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution.
+Prebuilt partup packages can be found in the BSP release. It is also possible to
+build an image with this distribution yourself using Yocto. Separate build
+directories are created, storing the images and packages for the RAUC system.
+Initialize the build directory with the OE init script:
+
+.. code-block:: console
+
+   host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source sources/poky/oe-init-build-env
+
+Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8
+mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):
+
+.. code-block::
+   :caption: build/conf/local.conf
+
+   DISTRO ?= "ampliphy-rauc"
+
+Any image built with this distro now includes a full A/B system. Build the image
+as usual:
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-image
+
+The resulting partup package is stored in the ``deploy-ampliphy-vendor-rauc``
+directory, e.g.:
+
+.. code-block::
+
+   deploy-ampliphy-vendor-rauc/images/phyboard-segin-imx93-2/phytec-headless-image-phyboard-segin-imx93-2.partup
+
+This partup package contains all the necessary data and configuration to flash
+an eMMC. `Partup <https://github.com/phytec/partup>`__ can be obtained from its
+`release page <https://github.com/phytec/partup/releases>`_. Also, see its
+README for detailed `installation instructions
+<https://github.com/phytec/partup#installation>`_. Partup is already installed
+in our Ampliphy images, ``phytec-headless-image`` and can be directly used e.g.
+from an SD card.
+
+.. note::
+   To flash the initial RAUC system, a booted non-RAUC system is needed first on
+   a different flash device. E.g. you could boot a regular
+   ``phytec-headless-image`` image with distro ``ampliphy`` from an SD card.
+
+eMMC
+....
+
+While running a non-RAUC system from an SD card on the target, copy the
+``.partup`` package built with distro ``ampliphy-rauc`` or
+``ampliphy-vendor-rauc`` to the running target first:
+
+.. code-block:: console
+
+   host:~$ scp phytec-headless-image-phyboard-segin-imx93-2.partup 192.168.3.11:/root
+
+Then install the partup package to the eMMC:
+
+.. code-block:: console
+
+   target:~$ partup install phytec-headless-image-phyboard-segin-imx93-2.partup /dev/mmcblk0
+
+Now the target can boot the flashed A/B system.
+
+NAND
+....
+
+.. note::
+
+   There are scripts provided with the bootloader barebox that previously were
+   used to initialize NAND flash with an A/B system: ``rauc_init_nand``,
+   ``rauc_flash_nand_from_tftp`` and ``rauc_flash_nand_from_mmc``. These scripts
+   are deprecated. It is advised to use the script ``rauc-flash-nand`` provided
+   in the Linux environment with PHYTEC's distribution *Ampliphy*.
+
+With raw NAND flash the kernel, device tree, and root filesystem are written
+individually. Initialize the NAND flash with the correct volumes from a Linux on
+the target:
+
+.. code-block:: console
+
+   target:~$ rauc-flash-nand -k /path/to/zImage -d /path/to/oftree -r /path/to/root.ubifs
+
+The initialization script will automatically utilize all available space of NAND
+flash. The NAND device is also determined automatically by finding the device
+root in ``/proc/mtd``.
+
+On i.MX6 and i.MX6UL devices with barebox, use bbu (barebox update) to flash the
+bootloader:
+
+.. code-block:: console
+
+   target:~$ bbu.sh -f /path/to/barebox.bin
+
+The A/B system on NAND Flash is now ready to be booted.
+
+Bootloader
+----------
+
+Booting the A/B System by Default
+.................................
+
+Booting the A/B system is done mostly automatically by the bootloader since the
+Yocto release *hardknott*. For devices with eMMC flash storage, the
+corresponding setting is written into the bootloader environment during the
+building of the BSP. In particular, if the distribution ``ampliphy-rauc`` or
+``ampliphy-vendor-rauc`` is used, as described previously, the bootloader should
+automatically start the A/B system and have the variables set for RAUC
+accordingly.
+
+This automatic setting can be manually changed by setting one variable in the
+bootloader. The procedure is described in more detail in the following chapters
+for U-Boot and barebox.
+
+U-Boot
+......
+
+After a successful boot into a Linux environment, this command is used to view
+the available parameters:
+
+.. code-block:: console
+
+   target:~$ fw_printenv
+
+You may see this parameter along with others in the output:
+
+.. code-block::
+
+   doraucboot=1
+
+To manually disable or enable booting the A/B system with RAUC, set this
+variable to ``0`` or ``1``:
+
+.. code-block:: console
+
+   target:~$ fw_setenv doraucboot 1
+
+This parameter can also be edited in U-Boot. Restart your board and hit any key
+to stop the automatic boot. The environment variables can now be viewed:
+
+.. code-block::
+
+   u-boot=> printenv
+
+and set:
+
+.. code-block::
+
+   u-boot=> setenv doraucboot 1
+   u-boot=> saveenv
+
+Barebox
+.......
+
+In barebox, the system to be booted can be selected directly by its name. To
+boot the A/B system, including RAUC, ``bootchooser`` is used. To boot e.g. a
+regular SD card without RAUC use ``mmc`` instead, or ``nand`` for NAND devices:
+
+.. code-block::
+
+   barebox$ nv boot.default=bootchooser

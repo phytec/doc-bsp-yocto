@@ -1,0 +1,69 @@
+Streaming Bundles over HTTP
+---------------------------
+
+Instead of copying the bundle to the device, the bundle can be streamed over
+HTTP. Using bundle streaming has the advantage of not requiring local storage on
+the target. A simple approach to this is running NGINX inside a Docker
+container. The following example shows how to implement a minimal download
+server enabling HTTP range requests to support this feature.
+
+Create a Dockerfile with the following content:
+
+.. code-block:: dockerfile
+   :caption: Dockerfile
+
+   FROM nginx
+
+   COPY bundles /bundles
+   COPY nginx.conf /etc/nginx/nginx.conf
+
+Configure NGINX to enable HTTP range requests and point it to the bundle file.
+
+.. code-block:: nginx
+   :caption: nginx.conf
+
+   events {}
+   http {
+       server {
+           proxy_force_ranges on;
+
+           location / {
+               root /bundles;
+           }
+       }
+   }
+
+Place a bundle in the ``bundles`` sub-directory. The folder structure looks like
+the following after creating all configuration files:
+
+.. code-block:: console
+
+   user@host:rauc-bundle-streaming$ find
+   .
+   ./bundles
+   ./bundles/phytec-headless-bundle-phyboard-polis-imx8mn-1.raucb
+   ./nginx.conf
+   ./Dockerfile
+
+Build and run the docker container on the host system:
+
+.. code-block:: console
+
+   host:~$ sudo docker build -t rauc-bundle-streaming .
+   host:~$ sudo docker run --name bundles -p 80:80 -d rauc-bundle-streaming
+
+Install the bundle on the currently inactive target partitions:
+
+.. code-block:: console
+
+   target:~$ rauc install http://192.168.3.10/phytec-headless-bundle-phyboard-polis-imx8mn-1.raucb
+
+.. note::
+
+   After the update finishes the target may display the following error which
+   has no impact on the success of the update:
+
+   .. code-block::
+
+      [ 7416.336609] block nbd0: NBD_DISCONNECT
+      [ 7416.340413] block nbd0: Send disconnect failed -32

@@ -1,0 +1,19 @@
+Adaptive Updates and HTTP Streaming
+-----------------------------------
+
+RAUC supports updating only the differences between installed versions. This is
+most commonly known as "delta updates" in other update clients. However, with
+RAUC, no intermediate updates are necessary for this process to work. The RAUC
+client automatically selects and install only the needed data from any newer
+update bundle. This distinguishes RAUC's "adaptive updates" from the traditional
+"delta updates". Read more about adaptive updates in the official RAUC
+documentation:
+https://rauc.readthedocs.io/en/latest/advanced.html#adaptive-updates
+
+By default, PHYTEC images and bundles built with the Yocto distro
+``ampliphy-rauc`` and ``ampliphy-vendor-rauc`` support RAUC adaptive updates.
+
+Together with |ref-rauc-use-case-http-streaming|, adaptive updates allow for
+only downloading necessary data needed for an update. See the following link for
+the official RAUC documentation:
+https://rauc.readthedocs.io/en/latest/advanced.html#http-streaming

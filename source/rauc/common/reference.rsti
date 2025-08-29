@@ -1,0 +1,282 @@
+Reference
+=========
+
+Boot Logic Implementation
+-------------------------
+
+.. tip::
+
+   The implementation details described in this chapter serve as a reference
+   guide. PHYTEC BSPs that have RAUC support include these by default and the
+   changes are already incorporated.
+
+U-Boot Environment Variables
+............................
+
+For U-Boot, the boot logic that selects the correct partitions to boot from is
+implemented in its environment. As a reference, these are the most important
+U-Boot variables that are used for the A/B system with RAUC:
+
++-------------------+--------------------------------------------------------+
+| Name              | Function                                               |
++===================+========================================================+
+| BOOT_ORDER        | Contains a space-separated list of boot targets in the |
+|                   | order they should be tried. This parameter is          |
+|                   | automatically set by RAUC.                             |
++-------------------+--------------------------------------------------------+
+| BOOT_<slot>_LEFT  | Contains the number of remaining boot attempts to      |
+|                   | perform for the respective slot. This parameter is     |
+|                   | automatically set by RAUC.                             |
++-------------------+--------------------------------------------------------+
+| ``raucinit``      | Contains the boot logic that sets the partitions so    |
+|                   | the correct system is loaded.                          |
++-------------------+--------------------------------------------------------+
+| ``doraucboot``    | Enables booting the A/B system if set to 1 and         |
+|                   | disables it if set to 0.                               |
++-------------------+--------------------------------------------------------+
+| ``raucargs``      | Sets the Kernel bootargs like console, root, and RAUC  |
+|                   | slot.                                                  |
++-------------------+--------------------------------------------------------+
+| ``raucrootpart``  | Sets the root filesystem partitions of the device.     |
++-------------------+--------------------------------------------------------+
+| ``raucbootpart``  | Sets the boot partitions of the device.                |
++-------------------+--------------------------------------------------------+
+
+These environment variables are defined in ``include/env/phytec/rauc.env`` in
+the u-boot source code.
+
+.. note::
+
+   A change in the partition layout, e.g. when using an additional data
+   partition, may require changing the variables ``raucrootpart`` and
+   ``raucbootpart``. Make sure to rebuild your image with the new bootloader
+   environment after you have made the appropriate changes.
+
+Barebox Bootchooser Framework
+.............................
+
+For the barebox, the boot logic that selects the correct partitions to boot from
+is implemented using the bootchooser and state framework. See the barebox
+documentation for detailed information about these: `Barebox Bootchooser
+Framework <https://www.barebox.org/doc/latest/user/bootchooser.html>`_, `Barebox
+State Framework <https://www.barebox.org/doc/latest/user/state.html>`_.
+
+First, the state framework configuration needs to be added to the barebox device
+tree. Check out the |ref-yocto-bsp-customization|
+chapter in the Yocto reference manual. The state framework configuration is
+already included with our BSP for the supported SoC and can be directly included
+in the main barebox device tree. E.g. for i.MX6 based module:
+
+.. code-block:: devicetree
+
+   #include "imx6qdl-phytec-state.dtsi"
+
+Afterward, rebuild the image and flash the new bootloader.
+
+.. warning::
+
+   Be aware that by adding the state framework configuration, the first 160
+   bytes of the EEPROM are occupied and can no longer be used for user-specific
+   purposes.
+
+The following device tree snippet shows an example of the state framework
+configuration used with the BSP. As can be seen, the EEPROM is used as a backend
+for the state information:
+
+.. code-block:: devicetree
+
+   / {
+       aliases {
+           state = &state;
+       };
+
+       state: imx6qdl_phytec_boot_state {
+           magic = <0x883b86a6>;
+           compatible = "barebox,state";
+           backend-type = "raw";
+           backend = <&backend_update_eeprom>;
+           backend-stridesize = <54>;
+
+           #address-cells = <1>;
+           #size-cells = <1>;
+           bootstate {
+               #address-cells = <1>;
+               #size-cells = <1>;
+               last_chosen {
+                   reg = <0x0 0x4>;
+                   type = "uint32";
+               };
+               system0 {
+                   #address-cells = <1>;
+                   #size-cells = <1>;
+                   remaining_attempts {
+                       reg = <0x4 0x4>;
+                       type = "uint32";
+                       default = <3>;
+                   };
+                   priority {
+                       reg = <0x8 0x4>;
+                       type = "uint32";
+                       default = <21>;
+                   };
+                   ok {
+                       reg = <0xc 0x4>;
+                       type = "uint32";
+                       default = <0>;
+                   };
+               };
+               system1 {
+                   #address-cells = <1>;
+                   #size-cells = <1>;
+                   remaining_attempts {
+                       reg = <0x10 0x4>;
+                       type = "uint32";
+                       default = <3>;
+                   };
+                   priority {
+                       reg = <0x14 0x4>;
+                       type = "uint32";
+                       default = <20>;
+                   };
+                   ok {
+                       reg = <0x18 0x4>;
+                       type = "uint32";
+                       default = <0>;
+                   };
+               };
+           };
+       };
+   };
+
+   &eeprom {
+       status = "okay";
+       partitions {
+           compatible = "fixed-partitions";
+           #size-cells = <1>;
+           #address-cells = <1>;
+           backend_update_eeprom: state@0 {
+               reg = <0x0 0x100>;
+               label = "update-eeprom";
+           };
+       };
+   };
+
+To be able to boot from two systems alternately, the bootchooser needs to be
+aware of the state framework configuration. For each system, a boot script is
+required. For a system with NAND flash, the boot script of the first system may
+look like the following:
+
+.. code-block:: sh
+   :caption: /env/boot/system0
+
+   #!/bin/sh
+
+   [ -e /env/config-expansions ] && /env/config-expansions
+
+   [ ! -e /dev/nand0.root.ubi ] && ubiattach /dev/nand0.root
+
+   global.bootm.image="/dev/nand0.root.ubi.kernel0"
+   global.bootm.oftree="/dev/nand0.root.ubi.oftree0"
+   global.linux.bootargs.dyn.root="root=ubi0:root0 ubi.mtd=root rootfstype=ubifs"
+
+The second boot script has the same structure but uses the partitions containing
+the second system. Machines with eMMC flash use similar boot scripts, albeit the
+mounting and boot arguments look different.
+
+Run the following commands to create the required bootchooser non-volatile
+environment variables:
+
+.. code-block::
+
+   barebox$ nv bootchooser.state_prefix=state.bootstate
+   barebox$ nv bootchooser.system0.boot=system0
+   barebox$ nv bootchooser.system1.boot=system1
+   barebox$ nv bootchooser.targets="system0 system1"
+
+eMMC Boot Partitions
+--------------------
+
+With eMMC flash storage it is possible to use the dedicated boot partitions for
+redundantly storing the bootloader.
+
+By default, bundles built with our BSP (e.g. ``phytec-headless-bundle``) contain
+the bootloader for updating eMMC boot partitions accordingly.
+
+Note, that the U-Boot environment still resides in the user area before the
+first partition. The user area also still contains the bootloader which the
+image first shipped during its initialization process.
+
+To manually write the bootloader to the eMMC boot partitions, first disable the
+write protection:
+
+.. code-block:: console
+
+   target:~$ echo 0 > /sys/block/mmcblk2boot0/force_ro
+   target:~$ echo 0 > /sys/block/mmcblk2boot1/force_ro
+
+Write the bootloader to the eMMC boot partitions:
+
+.. code-block:: console
+
+   target:~$ dd if=imx-boot of=/dev/mmcblk2boot0 bs=1k seek=33
+   target:~$ dd if=imx-boot of=/dev/mmcblk2boot1 bs=1k seek=33
+
+This example is valid for the i.MX 8M Mini SoC. Note, that other SoCs may have
+different bootloader files and require different offsets where the bootloader is
+expected, specified by the seek parameter. See the following table for the
+different offsets being required by each SoC:
+
++--------------+------------------+-----------------------+--------------+-------------+
+| SoC          | Offset User Area | Offset Boot Partition | eMMC Device  | Bootloader  |
++==============+==================+=======================+==============+=============+
+| i.MX 6       | 1 kiB            | 0 kiB                 | /dev/mmcblk3 | barebox.bin |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 6UL     | 1 kiB            | 0 kiB                 | /dev/mmcblk1 | barebox.bin |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 8M      | 33 kiB           | 33 kiB                | /dev/mmcblk0 | imx-boot    |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 8M Mini | 33 kiB           | 33 kiB                | /dev/mmcblk2 | imx-boot    |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 8M Nano | 32 kiB           | 0 kiB                 | /dev/mmcblk2 | imx-boot    |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 8M Plus | 32 kiB           | 0 kiB                 | /dev/mmcblk2 | imx-boot    |
++--------------+------------------+-----------------------+--------------+-------------+
+| i.MX 93      | 32 kiB           | 0 kiB                 | /dev/mmcblk0 | imx-boot    |
++--------------+------------------+-----------------------+--------------+-------------+
+| AM62x        | N/A              | 0 kiB                 | /dev/mmcblk0 | tiboot3.bin |
+| AM62Ax       |                  | 512 kiB               |              | tispl.bin   |
+| AM64x        |                  | 2560 kiB              |              | u-boot.img  |
++--------------+------------------+-----------------------+--------------+-------------+
+
+Bootloader Offsets
+..................
+
+Note that the offset is different, depending on whether the bootloader resides
+in the user area or the boot partitions of the eMMC.
+
+After a bootloader has been written to the eMMC boot partitions, booting from
+these can be enabled by using the following command:
+
+.. code-block:: console
+
+   target:~$ mmc bootpart enable 1 0 /dev/mmcblk2
+
+This also means that only the bootloaders written in the eMMC boot partitions
+are used. The bootloader in the user area is not used anymore. These steps are
+also executed by RAUC internally when updating the target system with a bundle.
+
+To disable booting from the eMMC boot partitions simply enter the following
+command:
+
+.. code-block:: console
+
+   target:~$ mmc bootpart enable 0 0 /dev/mmcblk2
+
+After this command, the eMMC user area is used to provide the bootloader.
+
+When using U-Boot, a similar command is also available in the bootloader:
+
+.. code-block::
+
+   u-boot=> mmc partconf 2 0 0 0  # disable
+   u-boot=> mmc partconf 2 0 1 0  # enable

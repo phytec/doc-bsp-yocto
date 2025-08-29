@@ -1,0 +1,72 @@
+Automatic Updates from USB Flash Drive with RAUC
+------------------------------------------------
+
+One of the most prominent use cases for RAUC might be an automatic update system
+from a USB flash drive. This use case is implemented in the BSP as a reference
+example. We combine only standard Linux mechanisms with RAUC to build the
+system. The kernel notifies *udev* when a device gets plugged into the USB port.
+We use a custom *udev* rule to trigger a systemd service when this event
+happens.
+
+.. code-block::
+   :caption: 10-update-usb.rules
+
+   KERNEL!="sd[a-z][0-9]", GOTO="media_by_label_auto_mount_end"
+
+   # Trigger systemd service
+   ACTION=="add", TAG+="systemd", ENV{SYSTEMD_WANTS}="update-usb@%k.service"
+
+   # Exit
+   LABEL="media_by_label_auto_mount_end"
+
+The service automatically mounts the USB flash drive and notifies the
+application.
+
+.. code-block:: systemd
+   :caption: update-usb@.service
+
+   [Unit]
+   Description=usb media RAUC service
+   After=multi-user.target
+   Requires=rauc.service
+
+   [Service]
+   Type=oneshot
+   Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+   ExecStartPre=/bin/mkdir -p /media/%I
+   ExecStartPre=/bin/mount -t auto /dev/%I /media/%I
+   ExecStart=/usr/bin/update_usb.sh %I
+   ExecStop=/bin/umount -l /media/%i
+   ExecStopPost=-/bin/rmdir /media/%I
+
+In our reference implementation, we simply use a shell script for the
+application logic.
+
+.. code-block:: sh
+   :caption: update_usb.sh
+
+   #!/bin/sh
+
+   MOUNT=/media/$1
+
+   NUMRAUCM=$(find ${MOUNT}/*.raucb -maxdepth 0 | wc -l)
+
+   [ "$NUMRAUCM" -eq 0 ] && echo "${MOUNT}*.raucb not found" && exit
+   [ "$NUMRAUCM" -ne 1 ] && echo "more than one ${MOUNT}/*.raucb" && exit
+
+   rauc install $MOUNT/*.raucb
+   if [ "$?" -ne 0 ]; then
+       echo "Failed to install RAUC bundle."
+   else
+       echo "Update successful."
+   fi
+   exit $?
+
+The update logic can be integrated into an application using the *systemd D-Bus
+API*. RAUC does not need to be called by its command-line interface but can be
+integrated with D-Bus.
+
+.. tip::
+
+   RAUC features a D-Bus API interface (see
+   https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api).

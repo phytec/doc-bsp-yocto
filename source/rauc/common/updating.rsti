@@ -1,0 +1,125 @@
+Updating with RAUC
+==================
+
+To update the target system with RAUC, the RAUC bundle file previously created
+first needs to be copied to the board or to a memory device that can be mounted
+in Linux. One way is to copy the bundle file with ``scp``, but this requires
+enough space left on the board's filesystem. To do this, boot the target board
+to Linux and connect it via Ethernet to your host PC.
+
+On the host, run:
+
+.. code-block:: console
+
+   host:~$ scp phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb root@192.168.3.11:/tmp/
+
+On the target, the bundle can be verified:
+
+.. code-block:: console
+
+   target:~$ rauc info /tmp/phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+
+and the output should look similar to this:
+
+.. code-block::
+
+   rauc-Message: 12:52:49.821: Reading bundle: /phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+   rauc-Message: 12:52:49.830: Verifying bundle...
+   Compatible:     'phyboard-polis-imx8mm-3'
+   Version:        'r0'
+   Description:    'PHYTEC rauc bundle based on BSP-Yocto-FSL-i.MX8MM-PD20.1.0'
+   Build:          '20200624073212'
+   Hooks:          ''
+   2 Images:
+   (1)     phytec-headless-image-phyboard-polis-imx8mm-3.tar.gz
+           Slotclass: rootfs
+           Checksum:  342f67f7678d7af3f77710e1b68979f638c7f4d20393f6ffd0c36beff2789070
+           Size:      180407809
+           Hooks:
+   (2)     boot.tar.gz.img
+           Slotclass: boot
+           Checksum:  8c84465b4715cc142eca2785fea09804bd970755142c9ff57e08c791e2b71f28
+           Size:      12411786
+           Hooks:
+   0 Files
+
+   Certificate Chain:
+    0 Subject: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH Development-1
+      Issuer: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+      SPKI sha256: E2:47:5F:32:05:37:04:D4:8C:48:8D:A6:74:A8:21:2E:97:41:EE:88:74:B5:F4:65:75:97:76:1D:FF:1D:7B:EE
+      Not Before: Jan  1 00:00:00 1970 GMT
+      Not After:  Dec 31 23:59:59 9999 GMT
+    1 Subject: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+      Issuer: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+      SPKI sha256: AB:5C:DB:C6:0A:ED:A4:48:B9:40:AC:B1:48:06:AA:BA:92:09:83:8C:DC:6F:E1:5F:B6:FB:0C:39:3C:3B:E6:A2
+      Not Before: Jan  1 00:00:00 1970 GMT
+      Not After:  Dec 31 23:59:59 9999 GMT
+
+To check the current state of the system, run:
+
+.. code-block:: console
+
+   target:~$ rauc status
+
+and get output similar to this:
+
+.. code-block::
+
+   === System Info ===
+   Compatible:  phyboard-segin-imx6ul-6
+   Variant:
+   Booted from: rootfs.0 (system0)
+
+   === Bootloader ===
+   Activated: rootfs.0 (system0)
+
+   === Slot States ===
+   o [rootfs.1] (/dev/ubi0_6, ubifs, inactive)
+           bootname: system1
+           boot status: good
+       [dtb.1] (/dev/ubi0_3, ubivol, inactive)
+       [kernel.1] (/dev/ubi0_2, ubivol, inactive)
+
+   x [rootfs.0] (/dev/ubi0_5, ubifs, booted)
+           bootname: system0
+           boot status: good
+       [kernel.0] (/dev/ubi0_0, ubivol, active)
+       [dtb.0] (/dev/ubi0_1, ubivol, active)
+
+To update the currently inactive system with the downloaded bundle, run:
+
+.. code-block:: console
+
+   target:~$ rauc install /tmp/phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+
+and reboot afterward:
+
+.. code-block:: console
+
+   target:~$ reboot
+
+With the success of the update, RAUC automatically switches the active system to
+the newly updated system. Now during reboot, RAUC counts the boot attempts of
+the kernel and if it fails more often than specified in the state framework of
+the system, RAUC switches back to the old system and marks the new system as
+bad. If the boot attempt to the kernel is successful, the new system is marked
+as good and the old system can now be updated with the same instructions. After
+two successful ``rauc install`` and ``reboot``, both systems are updated.
+
+.. tip::
+
+   When you update from a USB stick, make sure to remove the stick after a
+   successful update before rebooting. If not, an automatic update will be
+   started after each boot. This is due to the |ref-rauc-use-case-usb-update|
+   you can find below.
+
+Changing the Active Boot Slot
+-----------------------------
+
+It is possible to switch the active system manually:
+
+.. code-block:: console
+
+   target:~$ rauc status mark-active other
+
+After a reboot, the target now starts from the other system.

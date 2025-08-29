@@ -1,0 +1,19 @@
+Introduction
+============
+
+PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports the `RAUC
+<https://rauc.readthedocs.io/en/latest/>`_ (Robust Auto-Update Controller)
+mechanism. RAUC controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem. For
+eMMC devices only, it can also update the bootloader.
+
+This manual describes how RAUC is used and implemented on various PHYTEC
+platforms. Note, that different modules use different bootloaders and flash
+storage devices, which affects the way things are handled by RAUC. Make sure to
+read the correct sections fitting your platform.
+
+.. note::
+
+   This manual contains machine-specific paths and variable contents. Make sure
+   you are using the correct machine and device names for your application when
+   executing any commands.
