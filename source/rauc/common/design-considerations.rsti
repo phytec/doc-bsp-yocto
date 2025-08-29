@@ -1,0 +1,13 @@
+Design Considerations
+=====================
+
+In order to prevent the system from locking up, it may be a good idea to utilize
+a hardware watchdog. In case the Linux Kernel does not boot or another
+catastrophic event occurs that prevents the system from operating normally, the
+hardware watchdog then resets the system. By default, the hardware watchdog is
+disabled. To enable it, refer to the corresponding BSP manual that fits your
+SoM.
+
+Other important design considerations, as well as a checklist, can be found in
+the official RAUC documentation:
+https://rauc.readthedocs.io/en/latest/checklist.html

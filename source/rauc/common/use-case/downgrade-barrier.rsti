@@ -1,0 +1,45 @@
+Security Measurement: Downgrade Barrier
+---------------------------------------
+
+As a second reference example, we will implement a security mechanism: a
+downgrade barrier. When you detect a security vulnerability on your system, you
+will fix it and update your system. The systems with the new software will now
+be secure again. If an attacker gets a hold of the old software update bundle,
+which still has a valid signature, the attacker might have the possibility to
+install the old software and still take advantage of the previously fixed
+security vulnerability. To prevent this from happening, you could revoke the
+updated certificate for every single update and create a new one. This might be
+difficult to handle, depending on the environment. A simpler solution would be
+to allow updates only in one direction using a version check.
+
+.. code-block:: sh
+   :caption: rauc_downgrade_barrier.sh
+
+   #!/bin/sh
+
+   VERSION_FILE=/etc/rauc/downgrade_barrier_version
+   MANIFEST_FILE=${RAUC_UPDATE_SOURCE}/manifest.raucm
+
+   [ ! -f ${VERSION_FILE} ] && exit 1
+   [ ! -f ${MANIFEST_FILE} ] && exit 2
+
+   VERSION=`cat ${VERSION_FILE} | cut -d 'r' -f 2`
+   BUNDLE_VERSION=`grep "version" -rI ${MANIFEST_FILE} | cut -d 'r' -f 3`
+
+   # check from empty or unset variables
+   [ -z "${VERSION}" ] && exit 3
+   [ -z "${BUNDLE_VERSION}" ] && exit 4
+
+   # developer mode, allow all updates if version is r0
+   #[ ${VERSION} -eq 0 ] && exit 0
+
+   # downgrade barrier
+   if [ ${VERSION} -gt ${BUNDLE_VERSION} ]; then
+           echo "Downgrade barrier blocked rauc update! CODE5\n"
+   else
+           exit 0
+   fi
+   exit 5
+
+The script is installed on the target but it is not activated. You need to
+remove the developer mode line in the script to activate it.

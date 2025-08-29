@@ -1,0 +1,82 @@
+Switching RAUC Keyrings
+=======================
+
+PHYTEC's distribution comes with keys and certificates used for development and
+demonstration purposes only. To change to a different PKI when devices are
+already rolled out, RAUC's keyring must be changed. This chapter describes the
+full procedure from a development state to a production state. Keep in mind,
+that it is always a better idea to roll out your devices with a production
+keyring in the first place, instead of relying on a development one for too
+long. The following diagram shows the general process of switching keyrings for
+RAUC:
+
+.. image:: /rauc/images/rauc-switching-keyrings.png
+
+Keyring Switching Process
+-------------------------
+
+Create new certificates and keys for your own PKI. See our security manual for a
+detailed description on how to create a custom PKI. For this document, we refer
+to this newly created PKI as "production", as opposed to the existing
+"development" keys.
+
+Move the generated keys and certificates, to your main Yocto build directory
+root, alongside with ``build/`` and ``sources/``.
+
+.. warning::
+
+   Be careful where you store the private keys! These should in no way be made
+   publicly available. E.g. do not store the private keys in a public Git
+   repository. Otherwise, unauthorized entities could create RAUC bundles that
+   can be installed on your target system!
+
+Now, a RAUC bundle must be created that contains the new "production" CA keyring
+in its root filesystem but is still signed by the "development" CA. With this,
+the system is converted from a "development" system to a "production" system. To
+achieve this, exchange the file ``ca.cert.pem`` installed by the RAUC recipe in
+the Yocto sources. Create a file ``rauc_%.bbappend`` in your own Yocto layer:
+
+.. code-block::
+   :caption: recipes-core/rauc/rauc_%.bbappend
+
+   FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
+   RAUC_KEYRING_FILE = "${CERT_PATH}/rauc-customer/ca.cert.pem"
+
+Build the same RAUC bundle as before, now with the exchanged keyring:
+
+.. code-block:: console
+
+   host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source source/poky/oe-init-build-env
+   host:~$ bitbake phytec-headless-bundle  # Build the desired RAUC bundle
+
+Install the resulting RAUC bundle as usual. The target now has the image with
+the "production" keyring installed in its other slot ("System B" in the figure
+above). Reboot to start that system.
+
+All future RAUC bundles for the "production" system must now also be signed by
+the "production" CA. For this, change the key and certificate to your newly
+generated "production" ones in the bundle recipe:
+
+.. code-block::
+   :caption: recipes-images/bundles/customer-headless-bundle.bb
+
+   require phytec-base-bundle.inc
+
+   RAUC_SLOT_rootfs ?= "phytec-headless-image"
+
+   RAUC_KEY_FILE = "${CERT_PATH}/rauc-customer/private/production-1.key.pem"
+   RAUC_CERT_FILE = "${CERT_PATH/rauc-customer/production-1.cert.pem"
+
+   RAUC_INTERMEDIATE_CERT_FILE = ""
+
+Rebuild the RAUC bundle:
+
+.. code-block:: console
+
+   host:~$ bitbake customer-headless-bundle
+
+These and any future bundles are now ready to be installed on your "production"
+target system and have been fully migrated away from the "development" system.
+This also means that now only bundles signed by the "production" CA can be
+installed on the target (and e.g. "development" bundles cannot).

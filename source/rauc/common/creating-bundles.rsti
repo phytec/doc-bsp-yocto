@@ -1,0 +1,58 @@
+Creating RAUC Bundles
+=====================
+
+To update your system with RAUC, a RAUC bundle (``.raucb``) needs to be created.
+It contains all required images and scripts for the update and a RAUC
+``manifest.raucm`` that describes the content of the bundle for the RAUC update
+on the target. The BSP includes a Yocto target that lets you build a RAUC bundle
+from your Yocto build.
+
+To create the bundle with Yocto, run the following in ``build/`` with the
+distribution ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` set up, as described
+previously:
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-headless-bundle
+
+This results in the creation of a ``.raucb`` bundle file in
+``deploy/images/<MACHINE>/`` which can be used for updating the system as
+described later. There is no need to create a ``manifest.raucm`` manually as it
+is created automatically during the build of the bundle. As a reference, the
+created manifest would look something like this:
+
+.. code-block:: cfg
+   :caption: manifest.raucm
+
+   [update]
+   compatible=phyboard-polis-imx8mm-3
+   version=r0
+   description=PHYTEC rauc bundle based on BSP-Yocto-FSL-i.MX8MM-PD20.1.0
+   build=20200624074335
+
+   [image.rootfs]
+   sha256=cc3f65cd1c1993951d7a39bdb7b7d723617ac46460f8b640cd8d1622ad6e4c17
+   size=99942000
+   filename=phytec-headless-image-phyboard-polis-imx8mm-3.tar.gz
+
+   [image.boot]
+   sha256=bafe46679af8c6292dba22b9d402e3119ef78c6f8b458bcb6993326060de3aa4
+   size=12410534
+   filename=boot.tar.gz.img
+
+For more information about the manifest format, see
+https://rauc.readthedocs.io/en/latest/reference.html#manifest.
+
+Creating transition bundles
+---------------------------
+
+Updating to a new major release can require a special RAUC bundle.
+
+When updating to a Scarthgap based release, add the following to your
+``local.conf`` and rebuild the RAUC bundle:
+
+.. code-block::
+   :caption: build/conf/local.conf
+
+   RAUC_IMAGE_FSTYPE = "tar.gz"
+   RAUC_SLOT_rootfs[adaptive] = ""
