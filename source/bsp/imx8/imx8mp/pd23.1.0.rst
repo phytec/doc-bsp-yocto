@@ -1288,8 +1288,8 @@ our module and board.
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
-WLAN
-....
+WLAN/Bluetooth
+--------------
 
 WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
 The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install the
@@ -1326,7 +1326,7 @@ information about the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
 
 Connecting to a WLAN Network
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+............................
 
 First set the correct regulatory domain for your country:
 
@@ -1415,7 +1415,7 @@ Now, restart the network daemon so that the configuration takes effect:
    target:~$ systemctl restart systemd-networkd
 
 Bluetooth
-.........
+---------
 
 Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this
 can be activated is described in the WLAN section.
@@ -1448,7 +1448,7 @@ not visible during a default startup.
           XX:XX:XX:XX:XX:XX       <SSID>
 
 Visibility
-~~~~~~~~~~
+..........
 
 To activate visibility:
 
@@ -1463,7 +1463,7 @@ To disable visibility:
    target:~$ hciconfig hci0 noscan
 
 Connect
-~~~~~~~
+.......
 
 .. code-block:: console
 

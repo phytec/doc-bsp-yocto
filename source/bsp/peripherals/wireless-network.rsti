@@ -1,5 +1,5 @@
 Connecting to a WLAN Network
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+............................
 
 First set the correct regulatory domain for your country:
 
@@ -93,7 +93,7 @@ not visible during a default startup.
           XX:XX:XX:XX:XX:XX       <SSID>
 
 Visibility
-~~~~~~~~~~
+..........
 
 To activate visibility:
 
@@ -108,7 +108,7 @@ To disable visibility:
    target:~$ hciconfig hci0 noscan
 
 Connect
-~~~~~~~
+.......
 
 .. code-block:: console
 

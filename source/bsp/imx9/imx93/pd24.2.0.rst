@@ -482,8 +482,8 @@ Network
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
-WLAN
-....
+WLAN/Bluetooth
+--------------
 
 .. note::
    For now, only |sbc-segin| supports WLAN/Bluetooth features. WLAN/Bluetooth is

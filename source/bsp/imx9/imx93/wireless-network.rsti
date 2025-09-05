@@ -1,5 +1,5 @@
 WLAN/Bluetooth
-..............
+--------------
 
 WLAN and Bluetooth connectivity are enabled on the |sbc-segin| using the PEB-WLBT-05
 expansion card, and on the |sbc-nash| with the PEB-WLBT-07 expansion card.
@@ -8,7 +8,7 @@ the "The PEB-WLBT-05 for |sbc-segin| Quickstart Guide" and the "The PEB-WLBT-07 
 |sbc-nash| Quickstart Guide", respectively."
 
 PEB-WLBT-05 on |sbc-segin|
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+..........................
 
 .. tip::
 
@@ -44,7 +44,7 @@ the module can be found at https://connectivity-staging.s3.us-east-2.amazonaws.c
    Quickstart Guide" to correctly set jumper J9 & J10 configurations.
 
 PEB-WLBT-07 on |sbc-nash|
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.........................
 
 .. tip::
 
