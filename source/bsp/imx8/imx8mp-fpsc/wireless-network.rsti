@@ -1,5 +1,5 @@
-WLAN
-....
+WLAN/Bluetooth
+--------------
 
 WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
 The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install the

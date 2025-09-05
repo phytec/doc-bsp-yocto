@@ -387,8 +387,8 @@ Network
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
-WLAN
-....
+WLAN/Bluetooth
+--------------
 
 For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
 module supports 2,4 GHz bandwidth and can be run in several modes, like client

@@ -1245,8 +1245,8 @@ Network
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
-WLAN
-....
+WLAN/Bluetooth
+--------------
 
 For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
 module supports 2,4 GHz bandwidth and can be run in several modes, like client
@@ -1255,7 +1255,7 @@ information about the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
 
 Connecting to a WLAN Network
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+............................
 
 First set the correct regulatory domain for your country:
 
@@ -1344,7 +1344,7 @@ Now, restart the network daemon so that the configuration takes effect:
    target:~$ systemctl restart systemd-networkd
 
 Bluetooth
-.........
+---------
 
 Bluetooth is connected to |bluetooth-uart| interface. More information about
 the module can be found at
@@ -1374,7 +1374,7 @@ not visible during a default startup.
           XX:XX:XX:XX:XX:XX       <SSID>
 
 Visibility
-~~~~~~~~~~
+..........
 
 To activate visibility:
 
@@ -1389,7 +1389,7 @@ To disable visibility:
    target:~$ hciconfig hci0 noscan
 
 Connect
-~~~~~~~
+.......
 
 .. code-block:: console
 
