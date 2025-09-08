@@ -985,6 +985,8 @@ DT representation for USB Host:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190` or
 :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n180`
 
+.. include:: /bsp/peripherals/usb-otg.rsti
+
 RS232/RS485
 -----------
 
