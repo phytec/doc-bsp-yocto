@@ -104,19 +104,20 @@
 <li class="toctree-l5"><a class="reference internal" href="#eeprom">7.9. EEPROM</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#rtc">7.10. RTC</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#usb-host-controller">7.11. USB Host Controller</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">7.12. RS232/RS485</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#can-fd">7.13. CAN FD</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-segin">7.14. Audio on phyBOARD-Segin i.MX 93</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-nash">7.15. Audio on phyBOARD-Nash i.MX 93</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#video">7.16. Video</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">7.17. Display</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#power-management">7.18. Power Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.19. Thermal Management</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.20. Watchdog</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#bbnsm-power-key">7.21. bbnsm Power Key</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#pxp">7.22. PXP</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.23. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#tpm">7.24. TPM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usb-otg">7.12. USB OTG</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rs232-rs485">7.13. RS232/RS485</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#can-fd">7.14. CAN FD</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-segin">7.15. Audio on phyBOARD-Segin i.MX 93</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#audio-on-sbc-nash">7.16. Audio on phyBOARD-Nash i.MX 93</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#video">7.17. Video</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">7.18. Display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#power-management">7.19. Power Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#thermal-management">7.20. Thermal Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#watchdog">7.21. Watchdog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bbnsm-power-key">7.22. bbnsm Power Key</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pxp">7.23. PXP</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#on-chip-otp-controller-ocotp-ctrl-efuses">7.24. On-Chip OTP Controller (OCOTP_CTRL) - eFuses</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#tpm">7.25. TPM</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#soc-mcore">8. i.MX 93 M33 Core</a><ul>
@@ -3041,8 +3042,107 @@ Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.</p>
 or
 <a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181">https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181</a></p>
 </section>
+<section id="usb-otg">
+<h2><span class="section-number">7.12. </span>USB OTG<a class="headerlink" href="#usb-otg" title="Link to this heading"></a></h2>
+<p>Most PHYTEC boards provide a USB OTG interface. USB OTG ports automatically act
+as a USB device or USB host. The mode depends on the USB hardware attached to
+the USB OTG port. If, for example, a USB mass storage device is attached to the
+USB OTG port, the device will show up as <code class="docutils literal notranslate"><span class="pre">/dev/sda</span></code>.</p>
+<section id="usb-device">
+<h3><span class="section-number">7.12.1. </span>USB Device<a class="headerlink" href="#usb-device" title="Link to this heading"></a></h3>
+<p>In order to connect the board’s USB device to a USB host port (for example a
+PC), you need to configure the appropriate USB gadget. With USB configfs you can
+define the parameters and functions of the USB gadget.</p>
+<p><strong>Example</strong>:</p>
+<p>First, define the parameters such as the USB vendor and product IDs, and set
+the information strings in English (0x409) language:</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>To save time, copy these commands and execute them in a script</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/sys/kernel/config/usb_gadget/
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>g1
+<span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>g1/
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0x1d6b&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>idVendor
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0x0104&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>idProduct
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>strings/0x409
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0123456789&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>strings/0x409/serialnumber
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Foo Inc.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>strings/0x409/manufacturer
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Bar Gadget&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>strings/0x409/product
+</pre></div>
+</div>
+<p>Next, create a file with a filesystem for the mass storage gadget:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/tmp/file.img<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">64</span>
+<span class="gp">target:~$ </span>mkfs.ext4<span class="w"> </span>/tmp/file.img
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you create the file in the tmp folder it will be gone after the next
+reboot. If you want to have it persistent, use an other directory.</p>
+</div>
+<p>Now you should create the functions you want to use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/sys/kernel/config/usb_gadget/g1
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>functions/acm.GS0
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>functions/ecm.usb0
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>functions/mass_storage.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>acm</em>: Serial gadget, creates serial interface like <code class="docutils literal notranslate"><span class="pre">/dev/ttyGS0</span></code>.</p></li>
+<li><p><em>ecm</em>: Ethernet gadget, creates ethernet interface, e.g. usb0</p></li>
+<li><p><em>mass_storage</em>: The host can partition, format, and mount the gadget mass
+storage the same way as any other USB mass storage.</p></li>
+</ul>
+<p>Now set the file you want to share with the host:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>/tmp/file.img<span class="w"> </span>&gt;<span class="w"> </span>functions/mass_storage.0/lun.0/file
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can also insert partitions or a whole device to be shared with the host
+here, but the partition to be shared or the partitions on the device to be
+shared should not be mounted on the target while sharing with the host
+otherwise writing to them will not work from host.</p>
+</div>
+<p>Bind the defined functions to a configuration:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/sys/kernel/config/usb_gadget/g1
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>configs/c.1
+<span class="gp">target:~$ </span>mkdir<span class="w"> </span>configs/c.1/strings/0x409
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;CDC ACM+ECM+MS&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>configs/c.1/strings/0x409/configuration
+<span class="gp">target:~$ </span>ln<span class="w"> </span>-s<span class="w"> </span>functions/acm.GS0<span class="w"> </span>configs/c.1/
+<span class="gp">target:~$ </span>ln<span class="w"> </span>-s<span class="w"> </span>functions/ecm.usb0<span class="w"> </span>configs/c.1/
+<span class="gp">target:~$ </span>ln<span class="w"> </span>-s<span class="w"> </span>functions/mass_storage.0<span class="w"> </span>configs/c.1/
+</pre></div>
+</div>
+<p>Finally, start the USB gadget with the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">cd</span><span class="w"> </span>/sys/kernel/config/usb_gadget/g1
+<span class="gp">target:~$ </span>ls<span class="w"> </span>--indicator-style<span class="o">=</span>none<span class="w"> </span>/sys/class/udc/
+<span class="go">ci_hdrc.0</span>
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ci_hdrc.0&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>UDC
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ci_hdrc.0</span></code> is an example, replace it with the actual name.
+Any trailing <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> might be shown by <code class="docutils literal notranslate"><span class="pre">ls</span></code> to show it is a link, remove it.
+If your system has more than one USB Device or OTG port, you can pass the right
+one to the USB Device Controller (UDC).</p>
+<p>To stop the USB gadget and unbind the used functions, execute:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/kernel/config/usb_gadget/g1/UDC
+</pre></div>
+</div>
+<p>After stopping the sharing with the host, you can also mount the file on the
+target. This way files can be transferred between host and target.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mount<span class="w"> </span>/tmp/file.img<span class="w"> </span>/mnt
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not mount the file while it is shared with the host.</p>
+</div>
+</section>
+</section>
 <section id="rs232-rs485">
-<h2><span class="section-number">7.12. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.13. </span>RS232/RS485<a class="headerlink" href="#rs232-rs485" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Nash i.MX 93 i.MX 93 SoC provides one RS232/RS485 serial port.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3050,7 +3150,7 @@ or
 phyBOARD-Nash i.MX 93 PCB revision 1616.0</p>
 </div>
 <section id="rs232">
-<h3><span class="section-number">7.12.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.13.1. </span>RS232<a class="headerlink" href="#rs232" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Display the current settings of a terminal in a human-readable format:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stty<span class="w"> </span>-a
@@ -3074,7 +3174,7 @@ phyBOARD-Nash i.MX 93 PCB revision 1616.0</p>
 <p>The host should print out “123”.</p>
 </section>
 <section id="rs485">
-<h3><span class="section-number">7.12.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.13.2. </span>RS485<a class="headerlink" href="#rs485" title="Link to this heading"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Remember to use bus termination resistors of 120 Ohm at each end of the bus,
@@ -3105,7 +3205,7 @@ kernel documentation:
 </section>
 </section>
 <section id="can-fd">
-<h2><span class="section-number">7.13. </span>CAN FD<a class="headerlink" href="#can-fd" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.14. </span>CAN FD<a class="headerlink" href="#can-fd" title="Link to this heading"></a></h2>
 <p>The phyBOARD-Segin/Nash i.MX 93 has one flexCAN interface supporting CAN FD. They are supported by the
 Linux standard CAN framework which builds upon the Linux network layer. Using
 this framework, the CAN interfaces behave like an ordinary Linux network device,
@@ -3208,7 +3308,7 @@ or
 <a class="extlink-linux-phytec-imx reference external" href="https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105">https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105</a></p>
 </section>
 <section id="audio-on-sbc-segin">
-<h2><span class="section-number">7.14. </span>Audio on phyBOARD-Segin i.MX 93<a class="headerlink" href="#audio-on-sbc-segin" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.15. </span>Audio on phyBOARD-Segin i.MX 93<a class="headerlink" href="#audio-on-sbc-segin" title="Link to this heading"></a></h2>
 <p>On phyBOARD-Segin i.MX 93 the TI TLV320AIC3007 audio codec is used. It uses I2S
 for data transmission and I2C for codec control. The audio signals available
 are:</p>
@@ -3227,7 +3327,7 @@ called, type for playback devices:</p>
 </pre></div>
 </div>
 <section id="alsamixer">
-<h3><span class="section-number">7.14.1. </span>Alsamixer<a class="headerlink" href="#alsamixer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.1. </span>Alsamixer<a class="headerlink" href="#alsamixer" title="Link to this heading"></a></h3>
 <p>To inspect the capabilities of your soundcard, call:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsamixer
 </pre></div>
@@ -3241,7 +3341,7 @@ toggle by hitting ‘<strong>&lt;</strong>’ for left and ‘<strong>&gt;</stro
 key, you can switch between controls for playback and recording.</p>
 </section>
 <section id="restore-default-volumes">
-<h3><span class="section-number">7.14.2. </span>Restore default volumes<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.2. </span>Restore default volumes<a class="headerlink" href="#restore-default-volumes" title="Link to this heading"></a></h3>
 <p>There are some default settings stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/alsa/asound.state</span></code>.
 You can save your current alsa settings with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsactl<span class="w"> </span>--file<span class="w"> </span>&lt;/path/to/filename&gt;<span class="w"> </span>store
@@ -3253,7 +3353,7 @@ You can save your current alsa settings with:</p>
 </div>
 </section>
 <section id="playback">
-<h3><span class="section-number">7.14.3. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.3. </span>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
 <p>Run speaker-test to check playback availability:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>speaker-test<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span>wav
 </pre></div>
@@ -3278,7 +3378,7 @@ will be played by speaker.</p>
 </div>
 </section>
 <section id="capture">
-<h3><span class="section-number">7.14.4. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.15.4. </span>Capture<a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">arecord</span></code> is a command-line tool for capturing audio streams which use Line In
 as the default input source.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>arecord<span class="w"> </span>-t<span class="w"> </span>wav<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-r<span class="w"> </span><span class="m">44100</span><span class="w"> </span>-f<span class="w"> </span>S16_LE<span class="w"> </span>test.wav
@@ -3295,7 +3395,7 @@ capture operations.</p>
 </section>
 </section>
 <section id="audio-on-sbc-nash">
-<h2><span class="section-number">7.15. </span>Audio on phyBOARD-Nash i.MX 93<a class="headerlink" href="#audio-on-sbc-nash" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.16. </span>Audio on phyBOARD-Nash i.MX 93<a class="headerlink" href="#audio-on-sbc-nash" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Due to HW bug Audio is broken on phyBOARD-Nash i.MX 93 PCB revision: 1616.0</p>
@@ -3317,7 +3417,7 @@ called, type for playback devices:</p>
 </pre></div>
 </div>
 <section id="id2">
-<h3><span class="section-number">7.15.1. </span>Alsamixer<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.1. </span>Alsamixer<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>To inspect the capabilities of your soundcard, call:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsamixer
 </pre></div>
@@ -3331,7 +3431,7 @@ toggle by hitting ‘<strong>&lt;</strong>’ for left and ‘<strong>&gt;</stro
 key, you can switch between controls for playback and recording.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">7.15.2. </span>Restore default volumes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.2. </span>Restore default volumes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>There are some default settings stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/alsa/asound.state</span></code>.
 You can save your current alsa settings with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>alsactl<span class="w"> </span>--file<span class="w"> </span>&lt;/path/to/filename&gt;<span class="w"> </span>store
@@ -3343,7 +3443,7 @@ You can save your current alsa settings with:</p>
 </div>
 </section>
 <section id="alsa-configuration">
-<h3><span class="section-number">7.15.3. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.3. </span>ALSA configuration<a class="headerlink" href="#alsa-configuration" title="Link to this heading"></a></h3>
 <p>Our BSP comes with a ALSA configuration file <code class="docutils literal notranslate"><span class="pre">/etc/asound.conf</span></code>.</p>
 <p>The ALSA configuration file can be edited as desired or deleted since it is not
 required for ALSA to work properly.</p>
@@ -3378,7 +3478,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="pulseaudio-configuration">
-<h3><span class="section-number">7.15.4. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.4. </span>Pulseaudio Configuration<a class="headerlink" href="#pulseaudio-configuration" title="Link to this heading"></a></h3>
 <p>For applications using <em>Pulseaudio</em>, check for available sinks:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>pactl<span class="w"> </span>list<span class="w"> </span>short<span class="w"> </span>sinks
 </pre></div>
@@ -3389,7 +3489,7 @@ pcm.asymed {
 </div>
 </section>
 <section id="id4">
-<h3><span class="section-number">7.15.5. </span>Playback<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.5. </span>Playback<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>Run speaker-test to check playback availability:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>speaker-test<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span>wav
 </pre></div>
@@ -3405,7 +3505,7 @@ ALSA test sounds:</p>
 </div>
 </section>
 <section id="id5">
-<h3><span class="section-number">7.15.6. </span>Capture<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.16.6. </span>Capture<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">arecord</span></code> is a command-line tool for capturing audio streams which use Line In as
 the default input source. To select a different audio source you can
 use <code class="docutils literal notranslate"><span class="pre">alsamixer</span></code>. For example, switch on <em>Right PGA Mixer Mic3R</em> and <em>Left PGA Mixer
@@ -3429,9 +3529,9 @@ capture operations.</p>
 </section>
 </section>
 <section id="video">
-<h2><span class="section-number">7.16. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.17. </span>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <section id="videos-with-gstreamer">
-<h3><span class="section-number">7.16.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.17.1. </span>Videos with Gstreamer<a class="headerlink" href="#videos-with-gstreamer" title="Link to this heading"></a></h3>
 <p>One example video is installed by default in the BSP at <cite>/usr/share/qtphy/videos/</cite>.
 Start the video playback with one of these commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>gst-launch-1.0<span class="w"> </span>playbin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>file:///usr/share/qtphy/videos/caminandes_3_llamigos_720p_vp9.webm
@@ -3452,7 +3552,7 @@ Start the video playback with one of these commands:</p>
 </section>
 </section>
 <section id="display">
-<h2><span class="section-number">7.17. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.18. </span>Display<a class="headerlink" href="#display" title="Link to this heading"></a></h2>
 <p>The <strong>phyBOARD-Segin</strong> i.MX 93 supports PEB-AV-02 with 7’’ <code class="docutils literal notranslate"><span class="pre">edt,etm0700g0edh6</span></code>
 parallel display with capacitive touchscreen. Device-tree overlay for the
 aforementioned display is enabled in <code class="docutils literal notranslate"><span class="pre">/boot/bootenv.txt</span></code> by default!</p>
@@ -3461,7 +3561,7 @@ aforementioned display is enabled in <code class="docutils literal notranslate">
 (1531.1 revision) can be bought separately to the Kit. Device-tree overlay for
 the aforementioned adapter is enabled in <code class="docutils literal notranslate"><span class="pre">/boot/bootenv.txt</span></code> by default!</p>
 <section id="qt-demo">
-<h3><span class="section-number">7.17.1. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.1. </span>Qt Demo<a class="headerlink" href="#qt-demo" title="Link to this heading"></a></h3>
 <p>With the <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code>, Weston starts during boot. Our Qt6 demo application named
 “qtphy” can be stopped with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>qtphy
@@ -3495,7 +3595,7 @@ the aforementioned adapter is enabled in <code class="docutils literal notransla
 </div>
 </section>
 <section id="backlight-control">
-<h3><span class="section-number">7.17.2. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.18.2. </span>Backlight Control<a class="headerlink" href="#backlight-control" title="Link to this heading"></a></h3>
 <p>If a display is connected to the PHYTEC board, you can control its backlight
 with the Linux kernel sysfs interface. All available backlight devices in the
 system can be found in the folder /sys/class/backlight. Reading the appropriate
@@ -3533,9 +3633,9 @@ controls in /sys/class/backlight. For example: backlight0 and backlight1</p>
 </section>
 </section>
 <section id="power-management">
-<h2><span class="section-number">7.18. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.19. </span>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h2>
 <section id="cpu-core-frequency-scaling">
-<h3><span class="section-number">7.18.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.1. </span>CPU Core Frequency Scaling<a class="headerlink" href="#cpu-core-frequency-scaling" title="Link to this heading"></a></h3>
 <p>The CPU in the i.MX 93 SoC is able to scale the clock frequency and the voltage.
 This is used to save power when the full performance of the CPU is not needed.
 Unlike i.MX8 M family the i.MX 93 doesn’t support <em>Dynamic</em> Voltage and
@@ -3643,7 +3743,7 @@ documentation:
 <a class="reference external" href="https://docs.nxp.com/bundle/AN13917/page/topics/low_power_mode_use_cases.html">https://docs.nxp.com/bundle/AN13917/page/topics/low_power_mode_use_cases.html</a></p>
 </section>
 <section id="cpu-core-management">
-<h3><span class="section-number">7.18.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.2. </span>CPU Core Management<a class="headerlink" href="#cpu-core-management" title="Link to this heading"></a></h3>
 <p>The i.MX 93 SoC can have multiple processor cores on the die. The i.MX 93, for
 example, has 2 ARM Cores which can be turned on and off individually at runtime.</p>
 <ul>
@@ -3685,7 +3785,7 @@ system are enabled to get maximum performance.</p>
 </ul>
 </section>
 <section id="suspend-to-ram">
-<h3><span class="section-number">7.18.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.19.3. </span>Suspend to RAM<a class="headerlink" href="#suspend-to-ram" title="Link to this heading"></a></h3>
 <p>The phyCORE-i.MX 93 supports basic suspend and resume. Different wake-up sources can be
 used. Suspend/resume is possible with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>mem<span class="w"> </span>&gt;<span class="w"> </span>/sys/power/state
@@ -3702,9 +3802,9 @@ used. Suspend/resume is possible with:</p>
 </section>
 </section>
 <section id="thermal-management">
-<h2><span class="section-number">7.19. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.20. </span>Thermal Management<a class="headerlink" href="#thermal-management" title="Link to this heading"></a></h2>
 <section id="u-boot">
-<h3><span class="section-number">7.19.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.20.1. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
 <p>The previous temperature control in the U-Boot was not satisfactory. Now the
 u-boot has a temperature shutdown to prevent the board from getting too hot
 during booting. The temperatures at which the shutdown occurs are identical to
@@ -3716,7 +3816,7 @@ the boot log:</p>
 </div>
 </section>
 <section id="kernel">
-<h3><span class="section-number">7.19.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.20.2. </span>Kernel<a class="headerlink" href="#kernel" title="Link to this heading"></a></h3>
 <p>The Linux kernel has integrated thermal management that is capable of monitoring
 SoC temperatures, reducing the CPU frequency, driving fans, advising other
 drivers to reduce the power consumption of devices, and – worst-case – shutting
@@ -3781,7 +3881,7 @@ with different temperature grades.</p>
 </div>
 </section>
 <section id="pwm-fan">
-<h3><span class="section-number">7.19.3. </span>PWM Fan<a class="headerlink" href="#pwm-fan" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.20.3. </span>PWM Fan<a class="headerlink" href="#pwm-fan" title="Link to this heading"></a></h3>
 <p>A PWM fan can be connected to the phyBOARD-Nash i.MX 93 connector X48 (label FAN).</p>
 <p>Afterwards, a PWM fan overlay needs to be activated, otherwise PWM fan won’t
 be recognized.</p>
@@ -3817,7 +3917,7 @@ with:</p>
 </section>
 </section>
 <section id="watchdog">
-<h2><span class="section-number">7.20. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.21. </span>Watchdog<a class="headerlink" href="#watchdog" title="Link to this heading"></a></h2>
 <p>The PHYTEC i.MX 93 modules include a hardware watchdog that is able to reset the
 board when the system hangs. The watchdog is started on default in U-Boot with a
 timeout of 60s. So even during early kernel start, the watchdog is already up
@@ -3825,7 +3925,7 @@ and running. The Linux kernel driver takes control over the watchdog and makes
 sure that it is fed. This section explains how to configure the watchdog in
 Linux using systemd to check for system hangs and during reboot.</p>
 <section id="watchdog-support-in-systemd">
-<h3><span class="section-number">7.20.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.21.1. </span>Watchdog Support in systemd<a class="headerlink" href="#watchdog-support-in-systemd" title="Link to this heading"></a></h3>
 <p>Systemd has included hardware watchdog support since version 183.</p>
 <ul>
 <li><p>To activate watchdog support, the file system.conf in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/</span></code> has to be
@@ -3847,7 +3947,7 @@ after a reboot or run:</p>
 </section>
 </section>
 <section id="bbnsm-power-key">
-<h2><span class="section-number">7.21. </span>bbnsm Power Key<a class="headerlink" href="#bbnsm-power-key" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.22. </span>bbnsm Power Key<a class="headerlink" href="#bbnsm-power-key" title="Link to this heading"></a></h2>
 <p>The X_ONOFF pin connected to the ON/OFF button can be pressed long (for 5
 seconds) to trigger Power OFF without SW intervention or used to wake up the
 system out of suspend. With the <em>bbnsm_pwrkey</em> driver, the KEY_POWER event is
@@ -3861,7 +3961,7 @@ and set using:</p>
 </div>
 </section>
 <section id="pxp">
-<h2><span class="section-number">7.22. </span>PXP<a class="headerlink" href="#pxp" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.23. </span>PXP<a class="headerlink" href="#pxp" title="Link to this heading"></a></h2>
 <p>The i.MX 93 SoC contains an PiXel Pipeline (PXP). The PXP combines the following
 into a single processing engine:</p>
 <ul class="simple">
@@ -3875,7 +3975,7 @@ How to use the PXP with Gstreamer and Wayland check the <cite>How to Use PXP in
 GStreamer and Wayland</cite> (AN13829) Application note from NXP.</p>
 </section>
 <section id="on-chip-otp-controller-ocotp-ctrl-efuses">
-<h2><span class="section-number">7.23. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.24. </span>On-Chip OTP Controller (OCOTP_CTRL) - eFuses<a class="headerlink" href="#on-chip-otp-controller-ocotp-ctrl-efuses" title="Link to this heading"></a></h2>
 <p>The i.MX 93 provides one-time programmable fuses to store information such as the
 MAC address, boot configuration, and other permanent settings (“On-Chip OTP
 Controller (OCOTP_CTRL)” in the i.MX 93 Reference Manual). The following list is
@@ -3945,14 +4045,14 @@ of ENET1 MAC address</p></td>
 the boot/mac/… configuration are available in the section “Fuse Map” of the
 i.MX 93 Security Reference Manual.</p>
 <section id="reading-fuse-values-in-uboot">
-<h3><span class="section-number">7.23.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.24.1. </span>Reading Fuse Values in uBoot<a class="headerlink" href="#reading-fuse-values-in-uboot" title="Link to this heading"></a></h3>
 <p>MAC1_ADDR:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fuse read 39 3
 </pre></div>
 </div>
 </section>
 <section id="reading-fuse-values-in-linux">
-<h3><span class="section-number">7.23.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.24.2. </span>Reading Fuse Values in Linux<a class="headerlink" href="#reading-fuse-values-in-linux" title="Link to this heading"></a></h3>
 <p>To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:</p>
@@ -3961,7 +4061,7 @@ sysfs:</p>
 </div>
 </section>
 <section id="burning-mac-addresses">
-<h3><span class="section-number">7.23.3. </span>Burning MAC addresses<a class="headerlink" href="#burning-mac-addresses" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.24.3. </span>Burning MAC addresses<a class="headerlink" href="#burning-mac-addresses" title="Link to this heading"></a></h3>
 <p>Let’s say we want to burn the following MAC addresses:</p>
 <table class="docutils align-default">
 <tbody>
@@ -3981,7 +4081,7 @@ u-boot=&gt; fuse prog 39 5 0xBbCcDdEe
 </div>
 </section>
 <section id="burning-boot-fuses">
-<h3><span class="section-number">7.23.4. </span>Burning Boot Fuses<a class="headerlink" href="#burning-boot-fuses" title="Link to this heading"></a></h3>
+<h3><span class="section-number">7.24.4. </span>Burning Boot Fuses<a class="headerlink" href="#burning-boot-fuses" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Fuses can only be written once! You can brick your board easily by burning
@@ -4022,7 +4122,7 @@ fuses on Bank 3, Word 0.</p>
 </section>
 </section>
 <section id="tpm">
-<h2><span class="section-number">7.24. </span>TPM<a class="headerlink" href="#tpm" title="Link to this heading"></a></h2>
+<h2><span class="section-number">7.25. </span>TPM<a class="headerlink" href="#tpm" title="Link to this heading"></a></h2>
 <p>The <strong>phyBOARD-Nash</strong> i.MX 93 is equipped with a Trusted Platform Module (TPM)
 that provides hardware-based security functions.</p>
 <p>Here are some useful examples to work with the TPM</p>
@@ -4254,7 +4354,7 @@ Now it is possible to send messages from A55 Core to M33 Core by typing:</p>
     <div style="margin: 10px 0;"></div>
     <dl>
       <dt>Version</dt>
-      <dd>imx95-alpha1-86-gfe7a4e9</dd>
+      <dd>imx95-alpha1-86-g1e42771</dd>
     </dl>
   </div>
 </div><script>

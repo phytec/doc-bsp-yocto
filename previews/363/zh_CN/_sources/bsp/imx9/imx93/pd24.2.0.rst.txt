@@ -619,6 +619,8 @@ DT representation for USB Host:
 or
 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181`
 
+.. include:: /bsp/peripherals/usb-otg.rsti
+
 RS232/RS485
 -----------
 
