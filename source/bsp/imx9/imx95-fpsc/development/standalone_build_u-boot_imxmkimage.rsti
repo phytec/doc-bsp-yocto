@@ -46,6 +46,12 @@ Build the bootloader
 Build the imx-boot binary with imx-mkimage
 ..........................................
 
+``xxd`` is required for compiling the boot container.
+
+.. code-block:: console
+
+   host:~$ sudo apt install xxd
+
 Clone the repository
 ~~~~~~~~~~~~~~~~~~~~
 
