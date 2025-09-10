@@ -80,7 +80,7 @@
 .. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-AM62Lx-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-AM62Lx-FPSC-PD25.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  5.0.x
