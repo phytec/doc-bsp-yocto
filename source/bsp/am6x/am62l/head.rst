@@ -65,9 +65,9 @@
 .. |dt-som| replace:: am62l-phycore-fpsc
 
 .. AM62L specific
-.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/am62l-phycore-fpsc.dtsi#L82`
+.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L82`
    `
-.. |dt-gpio-expander| replace:: :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/am62l3-libra-rdk-fpsc.dts#L192`
+.. |dt-gpio-expander| replace:: :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L192`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -87,28 +87,28 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <am62lx-fpsc-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <am62lx-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <am62lx-fpsc-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <am62lx-fpsc-head-device-tree>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <am62lx-fpsc-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <am62lx-fpsc-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <am62lx-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 <am62lx-fpsc-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <am62lx-fpsc-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <am62lx-fpsc-head-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <am62l-fpsc-head-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <am62l-fpsc-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <am62l-fpsc-head-components>`
+.. |ref-dt| replace:: :ref:`device tree <am62l-fpsc-head-device-tree>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <am62l-fpsc-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <am62l-fpsc-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <am62l-fpsc-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X18 <am62l-fpsc-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <am62l-fpsc-head-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <am62l-fpsc-head-format-sd>`
 
 
 .. AM62L specific ??
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/am62l3-libra-rdk-fpsc.dts#97`.
+   :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#97`.
 
-.. |ref-serial| replace:: :ref:`X27 <am62lx-fpsc-head-components>`
-.. |ref-S5| replace:: :ref:`S5 <am62lx-fpsc-head-components>`
+.. |ref-serial| replace:: :ref:`X27 <am62l-fpsc-head-components>`
+.. |ref-S5| replace:: :ref:`S5 <am62l-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <am62lx-fpsc-head-ubootexternalenv>`
+   :ref:`device tree overlay section <am62l-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
 
@@ -166,14 +166,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-fpsc-head-components:
+.. _am62l-fpsc-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-getting-started:
+.. _am62l-fpsc-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -195,24 +195,21 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-fpsc-head-images:
+.. _am62l-fpsc-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
-*  **bl31-imx8mp.bin**: ARM Trusted Firmware binary
+*  **bl31-am62l.bin**: ARM Trusted Firmware binary
 *  **lpddr4_pmu_train_2d_dmem_202006.bin,
    lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
-*  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-   Trusted Firmware and DDR firmware. This is the final bootloader image which is
-   bootable.
 *  **fitImage**: Linux kernel FIT image
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx8mp-libra-rdk-fpsc*.dtb**: Kernel device tree file
-*  **imx8mp-libra*.dtbo**: Kernel device tree overlay files
+*  **am62l3-libra-rdk-fpsc*.dtb**: Kernel device tree file
+*  **am62l-libra*.dtbo**: Kernel device tree overlay files
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
 
@@ -233,7 +230,7 @@ Bootmode Switch (S1)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx8mp-fpsc-head-bootswitch:
+.. _am62l-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
@@ -243,7 +240,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-development:
+.. _am62l-fpsc-head-development:
 
 Development
 ===========
@@ -264,7 +261,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. _imx8mp-fpsc-head-development-build-uboot:
+.. _am62l-fpsc-head-development-build-uboot:
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
@@ -278,7 +275,7 @@ Development
 
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 
-.. _imx8mp-fpsc-head-format-sd:
+.. _am62l-fpsc-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -286,7 +283,7 @@ Development
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-device-tree:
+.. _am62l-fpsc-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -313,7 +310,7 @@ Development
    imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port0.dtbo
    imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port1.dtbo
 
-.. _imx8mp-fpsc-head-ubootexternalenv:
+.. _am62l-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays.rsti
 
 .. include:: /bsp/fpsc-device-tree.rsti
@@ -392,7 +389,7 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 The device tree representation for RS232:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
 
-.. _imx8mp-fpsc-head-network:
+.. _am62l-fpsc-head-network:
 
 Network
 -------
@@ -579,7 +576,3 @@ Device tree description of LVDS-0 can be found here:
 .. include:: /bsp/imx8/peripherals/isp.rsti
 
 .. include:: /bsp/imx8/peripherals/ocotp-ctrl.rsti
-
-.. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
-.. +---------------------------------------------------------------------------+
