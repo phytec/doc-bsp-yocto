@@ -233,7 +233,7 @@ select the |som| default bootsource.
 .. _am62l-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: /bsp/imx-common/installing-os.rsti
+.. include:: /bsp/ti-common/installing-os.rsti
    :end-before: .. flash-spi-nor-flash-marker
 
 .. +---------------------------------------------------------------------------+
@@ -245,7 +245,7 @@ select the |som| default bootsource.
 Development
 ===========
 
-.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/ti-common/development/standalone_build_preface.rsti
 
 .. warning::
    Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Scarthgap NXP-based BSPs
@@ -262,22 +262,22 @@ Development
    without requiring any modifications.
 
 .. _am62l-fpsc-head-development-build-uboot:
-.. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
+.. include:: /bsp//ti-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
-.. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
-.. include:: /bsp//imx-common/development/uuu.rsti
+.. include:: /bsp/ti-common/development/standalone_build_kernel_fit.rsti
+.. include:: /bsp//ti-common/development/uuu.rsti
    :end-before: .. uuu-flash-spinor-marker
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
-.. include:: /bsp/imx-common/development/netboot_fit.rsti
+.. include:: /bsp/ti-common/development/host_network_setup.rsti
+.. include:: /bsp/ti-common/development/netboot_fit.rsti
 
-.. include:: /bsp/imx-common/development/development_manifests.rsti
+.. include:: /bsp/ti-common/development/development_manifests.rsti
 
-.. include:: /bsp/imx-common/development/master_manifest.rsti
+.. include:: /bsp/ti-common/development/master_manifest.rsti
 
 .. _am62l-fpsc-head-format-sd:
 
-.. include:: /bsp/imx-common/development/format_sd-card.rsti
+.. include:: /bsp/ti-common/development/format_sd-card.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
@@ -321,7 +321,7 @@ Development
 
 .. include:: /bsp/peripherals/introduction.rsti
 
-.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
+.. include:: /bsp/ti-common/peripherals/pin-muxing.rsti
 
 The following is an example of the pin muxing of the UART3 device in
 |dt-som|.dtsi:
@@ -406,7 +406,7 @@ module and board.
    | ETH1 = eth0
    | ETH0 = eth1
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/ti-common/peripherals/network.rsti
    :end-before: .. kernel-network-environment-marker
 
 Secondary Ethernet Interface Configuration in U-Boot
@@ -426,10 +426,10 @@ device must then be configured as follows:
     u-boot=> setenv ethact eth1
     u-boot=> setenv ipaddr 192.168.4.11
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/ti-common/peripherals/network.rsti
    :start-after: .. kernel-network-environment-marker
 
-.. include:: /bsp/imx-common/peripherals/sd-card.rsti
+.. include:: /bsp/ti-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L401`
@@ -457,7 +457,7 @@ The definition of the SPI master node in the device tree can be found here:
 Device tree configuration for the User I/O configuration can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L165`
 
-.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
+.. include:: /bsp/ti-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L188`
@@ -495,7 +495,7 @@ And on the |sbc| carrier board:
 Device Tree Reference for Carrier Board:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
 
-.. include:: /bsp/imx-common/peripherals/eeprom.rsti
+.. include:: /bsp/ti-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
 
@@ -562,7 +562,7 @@ and of |dt-carrierboard|.dts:
 
 .. include:: /bsp/qt6.rsti
 
-.. include:: /bsp/imx-common/peripherals/display.rsti
+.. include:: /bsp/ti-common/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
