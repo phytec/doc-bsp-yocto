@@ -573,6 +573,4 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
 
-.. include:: /bsp/imx8/peripherals/isp.rsti
-
 .. include:: /bsp/imx8/peripherals/ocotp-ctrl.rsti
