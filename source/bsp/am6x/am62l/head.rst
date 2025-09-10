@@ -439,7 +439,7 @@ and
 DT configuration for the e.MMC interface can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L412`
 
-.. include:: ../imx8mp/emmc.rsti
+.. include:: emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
