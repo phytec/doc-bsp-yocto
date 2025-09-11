@@ -197,19 +197,17 @@ First Start-up
 
 .. _am62l-fpsc-head-images:
 
-*  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
-   Bootloader image!
+*  **u-boot.img**: U-Boot bootloader image
 *  **oftree**: Default kernel device tree
-*  **u-boot-spl.bin**: Secondary program loader (SPL)
-*  **bl31-am62l.bin**: ARM Trusted Firmware binary
-*  **lpddr4_pmu_train_2d_dmem_202006.bin,
-   lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+*  **ti-boot3.bin**: First stage bootloader (R5 SPL)
+*  **tispl.bin**: Secondary program loader (SPL)
+*  **bl1.bin**: ARM Trusted Firmware binary
+*  **bl31.bin**: ARM Trusted Firmware binary
 *  **fitImage**: Linux kernel FIT image
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **am62l3-libra-rdk-fpsc*.dtb**: Kernel device tree file
-*  **am62l-libra*.dtbo**: Kernel device tree overlay files
+*  **k3-am62l32-libra-fpsc*.dtb**: Kernel device tree file
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
 
