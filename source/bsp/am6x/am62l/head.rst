@@ -52,7 +52,7 @@
 
 .. AM62L specific
 .. |u-boot-socname-config| replace:: AM62L_LIBRA
-.. |u-boot-tag| replace:: v2024.04_2.0.0-phy21
+.. |u-boot-tag| replace:: 11.01.02
 
 
 .. RAUC
