@@ -472,13 +472,9 @@ carrier board:
 On the |som| SoM:
 
 *  Board Detection EEPROM (write-protected)
-   *  Bus: I2C-0
-   *  Address: 0x51
-   *  Purpose: Factory configuration for board identification
-*  User EEPROM
-   *  Bus: I2C-0
+   *  Bus: I2C-1
    *  Address: 0x50
-   *  Purpose: Available for user applications
+   *  Purpose: Factory configuration for board identification
 
 Device Tree Reference for SoM EEPROMs:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L249`
@@ -486,7 +482,7 @@ Device Tree Reference for SoM EEPROMs:
 And on the |sbc| carrier board:
 
 *  Board Detection EEPROM
-   *  Bus: I2C-1
+   *  Bus: I2C-2
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
 
