@@ -74,7 +74,7 @@
 .. |yocto-bsp-name| replace:: BSP-Yocto-AM62Lx-FPSC
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: scarthgap
-.. |yocto-distro| replace:: ampliphy-vendor-xwayland
+.. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
@@ -83,8 +83,8 @@
 .. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
-.. |yocto-sdk-rev| replace::  5.0.x
-.. |yocto-sdk-a-core| replace:: cortexa53-crypto
+.. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
+.. |yocto-sdk-a-core| replace:: aarch64
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <am62l-fpsc-head-bootswitch>`
