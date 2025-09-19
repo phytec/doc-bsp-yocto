@@ -5,15 +5,15 @@ the target in ``/lib/systemd/network/`` as well as the BSP in
 ``meta-ampliphy/recipes-core/systemd/systemd-conf``.
 
 IP addresses can be configured within \*.network files. The interfaces are
-configured to static IP as default. The default IP address and netmask for eth0
+configured to static IP as default. The default IP address and netmask for end0
 is:
 
 .. code-block::
 
-   eth0: 192.168.3.11/24
+   end0: 192.168.3.11/24
 
-To configure eth0 to dynamic IP over DHCP, go to
-``/lib/systemd/network/\*-eth0.network`` and delete the line:
+To configure end0 to dynamic IP over DHCP, go to
+``/lib/systemd/network/\*-end0.network`` and delete the line:
 
 .. code-block::
 
@@ -101,20 +101,20 @@ Please note that these modifications will only affect the bootloader settings.
 Kernel network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Find the ethernet settings for eth0 in the target kernel:
+*  Find the ethernet settings for end0 in the target kernel:
 
    .. code-block:: console
 
-      target:~$ ip -statistics address show eth0
-      2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state UP group default qlen 1000
+      target:~$ ip -statistics address show end0
+      2: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state UP group default qlen 1000
           link/ether 50:2d:f4:19:d6:33 brd ff:ff:ff:ff:ff:ff
           RX:  bytes packets errors dropped  missed   mcast
                    0       0      0       0       0       0
           TX:  bytes packets errors dropped carrier collsns
                    0       0      0       0       0       0
 
-*  Temporary adaption of the eth0 configuration:
+*  Temporary adaption of the end0 configuration:
 
    .. code-block:: console
 
-      target:~$ ip address add 192.168.3.11/24 dev eth0
+      target:~$ ip address add 192.168.3.11/24 dev end0

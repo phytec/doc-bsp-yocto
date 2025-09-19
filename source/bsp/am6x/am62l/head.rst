@@ -368,11 +368,11 @@ module and board.
 .. warning::
 
    The naming convention of the Ethernet interfaces in the hardware (ETH0
-   and ETH1) do not align with the network interfaces (eth0 and eth1) in
+   and ETH1) do not align with the network interfaces (end0 and end1) in
    Linux. So, be aware of these differences:
 
-   | ETH1 = eth0
-   | ETH0 = eth1
+   | ETH1 = end0
+   | ETH0 = end1
 
 .. include:: /bsp/ti-common/peripherals/network.rsti
    :end-before: .. kernel-network-environment-marker
