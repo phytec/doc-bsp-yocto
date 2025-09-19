@@ -20,7 +20,7 @@ for a partition, run on the target:
    Sysfs interface supported:      yes
 
    mtd0
-   Name:                           30bb0000.spi
+   Name:                           fc40000.spi.0
    Type:                           nor
    Eraseblock size:                131072 bytes, 128.0 KiB
    Amount of eraseblocks:          512 (67108864 bytes, 64.0 MiB)
