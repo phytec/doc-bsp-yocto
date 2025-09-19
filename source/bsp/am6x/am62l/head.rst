@@ -28,7 +28,7 @@
 
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: am62l_phytec_defconfig
+.. |kernel-defconfig| replace:: phytec_ti_defconfig
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-ti_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-ti
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-ti
@@ -61,11 +61,11 @@
 
 
 .. Devicetree
-.. |dt-carrierboard| replace:: am62l3-libra-rdk-fpsc
-.. |dt-som| replace:: am62l-phycore-fpsc
+.. |dt-carrierboard| replace:: k3-am62l3-libra-rdk-fpsc
+.. |dt-som| replace:: k3-am62l-phycore-fpsc
 
 .. AM62L specific
-.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L82`
+.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L148`
    `
 .. |dt-gpio-expander| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L274`
 
@@ -103,7 +103,7 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-ti:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#97`.
+   :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L213`.
 
 .. |ref-serial| replace:: :ref:`X27 <am62l-fpsc-head-components>`
 .. |ref-S5| replace:: :ref:`S5 <am62l-fpsc-head-components>`
@@ -260,7 +260,7 @@ Development
    without requiring any modifications.
 
 .. _am62l-fpsc-head-development-build-uboot:
-.. include:: /bsp//ti-common/development/standalone_build_u-boot_binman.rsti
+.. include:: /bsp/ti-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/ti-common/development/standalone_build_kernel.rsti
 
@@ -285,26 +285,7 @@ Development
 .. code-block::
    :substitutions:
 
-   imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
-   imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port1.dtbo
+   k3-am62l3x-libra-fpsc-lvds-powertip,ph128800t006-zhc01.dtbo
 
 .. _am62l-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays.rsti
@@ -319,27 +300,28 @@ Development
 
 .. include:: /bsp/ti-common/peripherals/pin-muxing.rsti
 
-The following is an example of the pin muxing of the UART3 device in
-|dt-som|.dtsi:
+The following is an example of the pin muxing of the UART0 device in
+|dt-carrierboard|.dtsi:
 
 .. code-block::
 
-   pinctrl_uart4: uart4grp {
-           fsl,pins = <
-                   MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX	0x140	/* UART3_RXD */
-                   MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX	0x140	/* UART3_TXD */
-           >;
+   main_uart0_pins_default: main-uart0-default-pins {
+      pinctrl-single,pins = <
+         AM62LX_IOPAD(0x01b4, PIN_INPUT, 0)      /* (D13) UART0_RXD */
+         AM62LX_IOPAD(0x01b8, PIN_OUTPUT, 0)     /* (C13) UART0_TXD */
+      >;
+      bootph-all;
    };
 
-The first part of the string MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX names the pad
-(in this example UART4_RX). The second part of the string (UART3_DCE_RX) is the
-desired muxing option for this pad. The pad setting value (hex value on the
-right) defines different modes of the pad, for example, if internal pull
-resistors are activated or not. In this case, the internal resistors are
-disabled.
+The first argument of the macro AM62LX_IOPAD(pa, val, muxmode) is the pad offset
+address within the I/O controller (in this example 0x1b4, corresponding UART0_RXD).
+The second argument (val) specifies the pad configuration, such as input/output
+and pull-up/pull-down. Third argument (muxmode) selects the functional mux mode
+for the pad, i.e. which peripheral signal is connected to it. In this case, 0
+corresponds to the default mux option for UART0.
 
-The device tree representation for UART3 pinmuxing:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
+The device tree representation for UART0 pinmuxing:
+:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L150`
 
 RS232
 -----
@@ -350,8 +332,7 @@ to USB converter expansion. This USB is brought out at USB-C connector X14.
 UART1 is connected to a multi-protocol transceiver for RS-232 and RS-485,
 available at pin header connector |ref-serial| at the RS-232 level,
 or at the RS-485 level. The muxing of the used transceivers is done by switch
-|ref-S5| on the baseboard. Presently, RS485 is not working and will be fixed
-in 1618.4 SoM revision.
+|ref-S5| on the baseboard.
 For more information about the correct setup please refer to the |som|/|sbc|
 Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
@@ -360,15 +341,6 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
    .. code-block:: console
 
       target:~$ stty -a
-
-*  By default crtscts is enabled, as hardware flow control is not
-   functioning, need to configure UART interface with stty. This will be
-   fixed in 1618.4 SoM revision. For example:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ stty -F /dev/|serial-uart| 115200 -crtscts raw -echo
 
 *  With a simple echo and cat, basic communication can be tested. Example:
 
@@ -534,10 +506,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 .. include:: ../peripherals/canfd.rsti
 
-Device Tree CAN configuration of |dt-som|.dtsi:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L109`
-
-and of |dt-carrierboard|.dts:
+Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L306`
 
 .. include:: /bsp/peripherals/video.rsti
