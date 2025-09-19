@@ -21,8 +21,8 @@
 .. |soc| replace:: AM62L
 .. |socfamily| replace:: AM62
 .. |som| replace:: phyCORE-|soc| FPSC
-.. |debug-uart| replace:: ttymxc3
-.. |serial-uart| replace:: ttymxc2
+.. |debug-uart| replace:: ttyS3
+.. |serial-uart| replace:: ttyS1
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
 
@@ -383,7 +383,7 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
 
 The device tree representation for RS232:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
+:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L327`
 
 .. _am62l-fpsc-head-network:
 
@@ -551,10 +551,10 @@ and of |dt-carrierboard|.dts:
 Device tree description of LVDS-0 can be found here:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-fpsc-lvds-ac209.dtso#L16`
 
-.. include:: /bsp/imx8/peripherals/pm.rsti
+.. include:: /bsp/am6x/peripherals/pm.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
+.. include:: /bsp/am6x/peripherals/snvs-power-key.rsti
 
-.. include:: /bsp/imx8/peripherals/ocotp-ctrl.rsti
+.. include:: /bsp/am6x/peripherals/ocotp-ctrl.rsti

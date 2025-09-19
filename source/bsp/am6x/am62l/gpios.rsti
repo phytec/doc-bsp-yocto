@@ -1,4 +1,4 @@
-.. include:: /bsp/imx-common/peripherals/gpios.rsti
+.. include:: /bsp/ti-common/peripherals/gpios.rsti
    :end-before: .. gpio-gpiochip-table
 
 *  GPIO expander
@@ -8,12 +8,12 @@
 
    .. code-block:: console
 
-      gpiochip5 [4-0020] (16 lines)
+      gpiochip2 [4-0020] (16 lines)
 
    DT configuration for the GPIO expander can be found here:
 
    |dt-gpio-expander|
 
-.. include:: /bsp/imx-common/peripherals/gpios.rsti
+.. include:: /bsp/ti-common/peripherals/gpios.rsti
    :start-after: .. gpio-gpiochip-table
 

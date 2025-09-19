@@ -9,7 +9,7 @@ certain number of sets, called IO sets, are valid due to timing limitations.
 These valid IO sets were carefully chosen to provide many possible application
 scenarios for the user.
 
-Please refer to our Hardware Manual or the NXP |soc| Reference Manual for more
+Please refer to our Hardware Manual or the TI |soc| Reference Manual for more
 information about the specific pins and the muxing capabilities.
 
 The IO set configuration, also called muxing, is done in the Device Tree. The

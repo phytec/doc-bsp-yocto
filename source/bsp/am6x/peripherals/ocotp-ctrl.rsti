@@ -41,7 +41,7 @@ OCOTP_MAC_ADDR:
 Reading Fuse Values in Linux
 ............................
 
-To access the content of the fuses in Linux NXP provides the NVMEM_IMX_OCOTP
+To access the content of the fuses in Linux TI provides the NVMEM_IMX_OCOTP
 module. All fuse content of the memory-mapped shadow registers is accessible via
 sysfs:
 

@@ -2,7 +2,7 @@ Accessing the Latest Upstream Support
 -------------------------------------
 
 We have a vanilla manifest that makes use of the Yocto master branches (not an
-NXP release), Linux, and U-Boot. This can be used to test the latest upstream
+TI release), Linux, and U-Boot. This can be used to test the latest upstream
 kernel/U-Boot.
 
 .. note::
