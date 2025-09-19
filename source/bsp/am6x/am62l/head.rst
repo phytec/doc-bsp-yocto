@@ -1,13 +1,13 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-am62lx-fpsc/#downloads/
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA1/sdk/ampliphy-vendor/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA1/images/ampliphy-vendor/am62lxx-libra-fpsc-1/phytec-qt6demo-image-am62lxx-libra-fpsc-1.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA1/images/ampliphy-vendor/am62lxx-libra-fpsc-1/phytec-qt6demo-image-am62lxx-libra-fpsc-1.rootfs.partup
-.. .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA1/images/ampliphy-vendor/am62lxx-libra-fpsc-1/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA1/images/ampliphy-vendor/am62lxx-libra-fpsc-1/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/sdk/ampliphy-vendor/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/phytec-qt6demo-image-am62lxx-libra-fpsc-1.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/phytec-qt6demo-image-am62lxx-libra-fpsc-1.rootfs.partup
+.. .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=am62lx
 .. _`static-pdf-dl`: ../../../_static/am62l-fpsc-head.pdf
 
@@ -78,12 +78,12 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
-.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
+.. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-AM62Lx-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
-.. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM62Lx-ALPHA1
+.. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-sdk-a-core| replace:: aarch64
 
 .. Ref Substitutions
@@ -147,7 +147,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
 
 ================================= ================ ================= ==============
-BSP-Yocto-Ampliphy-AM62Lx-ALPHA1  Alpha            2025/07/10        Released
+BSP-Yocto-Ampliphy-AM62Lx-ALPHA2  Alpha            2025/07/10        Released
 ================================= ================ ================= ==============
 
 
