@@ -153,13 +153,13 @@ Write the image to the e.MMC:
 
 .. code-block::
 
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev 0
    switch to partitions #0, OK
-   mmc2(part 0) is current device
+   mmc0(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+   MMC write: dev # 0, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash e.MMC U-Boot image via Network from running U-Boot
 ........................................................
@@ -178,7 +178,7 @@ Load image over tftp into RAM and then write it to e.MMC:
 
    u-boot=> tftp ${loadaddr} imx-boot
    u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev 0
    u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
 
 .. hint::
@@ -267,13 +267,13 @@ Write the image to the e.MMC:
 
 .. code-block::
 
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev 0
    switch to partitions #0, OK
-   mmc2(part 0) is current device
+   mmc0(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write 0x58000000 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
+   MMC write: dev # 0, block # 0, count 1024000 ... 1024000 blocks written: OK
    u-boot=> boot
 
 .. flash-emmc-from-sdcard-marker
@@ -307,13 +307,13 @@ image saved on the SD card.
       |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
       |yocto-imagename|-|yocto-machinename|.rootfs.wic.bmap
 
-*  Write the image to the |som| e.MMC (MMC device 2 **without**
+*  Write the image to the |som| e.MMC (MMC device 0 **without**
    partition) using `partup`_:
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk2
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk0
 
    Flashing the partup package has the advantage of using the full capacity of
    the e.MMC device, adjusting partitions accordingly.
@@ -325,7 +325,7 @@ image saved on the SD card.
       .. code-block:: console
          :substitutions:
 
-         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk0
 
       Keep in mind that the root partition does not make use of the full space when
       flashing with ``bmaptool``.
@@ -367,10 +367,10 @@ Flash e.MMC from SD card in U-Boot on Target
 
       u-boot=> mmc list
       FSL_SDHC: 1 (SD)
-      FSL_SDHC: 2 (eMMC)
-      u-boot=> mmc dev 2
+      FSL_SDHC: 0 (eMMC)
+      u-boot=> mmc dev 0
       switch to partitions #0, OK
-      mmc2(part 0) is current device
+      mmc0(part 0) is current device
 
 *  Flash your WIC image (for example |yocto-imagename|.rootfs.wic)
    from the SD card to e.MMC. This will partition the card and copy imx-boot,
@@ -381,7 +381,7 @@ Flash e.MMC from SD card in U-Boot on Target
       u-boot=> setexpr nblk ${filesize} / 0x200
       u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+      MMC write: dev # 0, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 *  Power off the board and change the |ref-bootswitch| to e.MMC.
 
