@@ -89,7 +89,7 @@ The following preparatory steps are necessary:
 
 .. code-block:: console
 
-   host:~$ nxpele -h
+   host:~$ nxpele --help
    Commands:
    nxpele                        Utility for communication with the EdgeLock Enclave on target over BLHOST.
    ├── batch                     Invoke nxpele commands defined in command file.
@@ -125,7 +125,7 @@ The following preparatory steps are necessary:
    ├── write-fuse                Write one fuse by specifying index and data to be written.
    └── write-shadow-fuse         Write one shadow fuse by specifying index and data to be written.
 
-   host:~$ nxpele -p /dev/ttyUSB0 -f mx93 get-info
+   host:~$ nxpele -p /dev/ttyUSB0 -d uboot_serial -f mx93 get-info
    ELE get info ends successfully:
    Command:          0xda
    Version:          2
