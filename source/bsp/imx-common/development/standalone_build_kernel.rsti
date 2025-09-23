@@ -51,7 +51,7 @@ Build the kernel
 
 *  The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image
 *  The dtb can be found at
-   ~/|kernel-repo-name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb
+   ~/|kernel-repo-name|/arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb |standalone_build_kernel_dtb_location_note|
 *  For (re-)building only Devicetrees and -overlays, it is sufficient to run
 
    .. code-block:: console
@@ -86,3 +86,5 @@ mounted SD card.
    host:~/|kernel-repo-name|$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
    host:~/|kernel-repo-name|$ cp arch/arm64/boot/dts/freescale/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
    host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
+
+|standalone_build_kernel_cp_sdcard_note|

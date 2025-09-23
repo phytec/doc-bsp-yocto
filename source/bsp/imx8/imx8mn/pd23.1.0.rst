@@ -1,5 +1,4 @@
 .. Download links
-.. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD23.1.0
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
@@ -100,6 +99,8 @@
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mn-pd23.1.0-ubootexternalenv>`
+
+.. include:: /bsp/global-defaults.rsti
 
 .. only:: html
 

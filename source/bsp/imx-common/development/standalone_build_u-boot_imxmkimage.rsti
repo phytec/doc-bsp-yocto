@@ -50,6 +50,8 @@ Get the needed binaries
 To build the imx-boot, you need to **gather** these **files** for
 later use with **imx-mkimage tool**:
 
+.. standalone_u_boot_imxmkimage_boot_file_start_label
+
 *  **ARM Trusted firmware binary** (*mkimage tool* compatible format
    **bl31.bin**): bl31-|kernel-socname|.bin
 *  **OPTEE image** (optional): tee.bin
@@ -59,11 +61,15 @@ later use with **imx-mkimage tool**:
    lpddr4_imem_2d_*.bin
 *  **Container image**: mx93a1-ahab-container.img
 
+.. standalone_u_boot_imxmkimage_boot_file_end_label
+
 If you already built our BSP with Yocto, you can get
 these files from the directory mentioned here: |ref-bsp-images|
 
 Or you can download the files from the PHYTEC download server (|link-boot-tools|).
 You can use the commands below to download all the files from that server:
+
+.. standalone_u_boot_imxmkimage_boot_file_download_cmds_start_label
 
 .. code-block:: console
    :substitutions:
@@ -78,6 +84,8 @@ You can use the commands below to download all the files from that server:
                        |link-boot-tools|/lpddr4_imem_2d_v202201.bin \
                        |link-boot-tools|/mx93a1-ahab-container.img
    host:~/artefacts$ cd ..
+
+.. standalone_u_boot_imxmkimage_boot_file_download_cmds_end_label
 
 Build the bootloader
 ....................
