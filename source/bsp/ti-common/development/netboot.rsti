@@ -1,0 +1,84 @@
+Booting the Kernel from a Network
+---------------------------------
+
+Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.
+
+Place Images on Host for Netboot
+................................
+
+*  Copy the kernel image to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp Image /srv/tftp
+
+*  Copy the devicetree to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp oftree /srv/tftp
+
+*  Copy all the overlays you want to use into your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp *.dtbo /srv/tftp
+
+*  Make sure other users have read access to all the files in the tftp directory,
+   otherwise they are not accessible from the target:
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  Extract the rootfs to your nfs directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
+
+.. note::
+   Make sure you extract with sudo to preserve the correct ownership.
+
+Set the bootenv.txt for Netboot
+...............................
+
+Create a bootenv.txt file in your tftp directory and write the following variables into it.
+
+.. code-block::
+
+   bootfile=Image
+   fdt_file=oftree
+   nfsroot=/srv/nfs
+   overlays=<overlayfilenames>
+
+<overlayfilenames> has to be replaced with the devicetree overlay filenames that you want to use.
+Separate the filenames by spaces. For example:
+
+.. code-block::
+
+   overlays=example-overlay1.dtbo example-overlay2.dtbo
+
+.. Tip::
+
+   All supported devicetree overlays are in the |ref-dt| chapter.
+
+Network Settings on Target
+..........................
+
+To customize the targets ethernet configuration, please follow the description
+here: |ref-network|
+
+Booting from an Embedded Board
+..............................
+
+Boot the board into the U-boot prompt and press any key to hold.
+
+*  To boot from a network, call:
+
+   .. code-block:: console
+
+      u-boot=> run netboot

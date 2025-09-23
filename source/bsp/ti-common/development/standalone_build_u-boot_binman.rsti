@@ -1,0 +1,108 @@
+U-Boot standalone build
+-----------------------
+
+.. build-uboot-marker
+
+Get the source code
+...................
+
+*  Get the U-Boot sources:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone |u-boot-repo-url|
+
+*  To get the correct *U-Boot* **tag** you need to take a look at our release
+   notes, which can be found here: `release notes <releasenotes_>`_
+*  The **tag** used in this release is called |u-boot-tag|
+*  Check out the needed *U-Boot* **tag**:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ cd ~/|u-boot-repo-name|/
+      host:~/|u-boot-repo-name|$ git fetch --all --tags
+      host:~/|u-boot-repo-name|$ git checkout tags/|u-boot-tag|
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|u-boot-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+.. get-binaries-marker
+
+Create bootloader binaries for flashing
+.......................................
+
+The flash.bin can be found at |u-boot-repo-name|/ directory and now can be
+flashed. A chip-specific offset is needed:
+
+.. _offset-table:
+
+===== ======================= ================================= ==============
+SoC   Offset User Area        Offset Boot Partition             e.MMC Device
+===== ======================= ================================= ==============
+|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/|emmcdev|
+===== ======================= ================================= ==============
+
+E.g. flash SD card:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables
+   "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
+
+Use with block device
+~~~~~~~~~~~~~~~~~~~~~
+
+The three binaries can be used with block devices. E.g. eMMC and SPI NOR. Create
+a combined image of all three:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|u-boot-repo-name|$ dd if=tiboot3.bin of=ti-boot-container.img conv=fsync
+   host:~/|u-boot-repo-name|$ dd if=tispl.bin of=ti-boot-container.img seek=1024 conv=fsync
+   host:~/|u-boot-repo-name|$ dd if=tispl.bin of=ti-boot-container.img seek=5120 conv=fsync
+
+* flash to a block device e.g. eMMC:
+
+.. code-block:: console
+
+   target:~$ echo 0 > /sys/class/block/mmcblk0boot0/force_ro
+   target:~$ dd if=ti-boot-container.img of=/dev/mmcblk0boot0 conv=fsync
+
+.. build-uboot-fixed-ram-size-marker
+
+Build U-Boot With a Fixed RAM Size
+..................................
+
+If you cannot boot your system anymore because the hardware introspection in the
+EEPROM is damaged or deleted, you can create a flash.bin with a fixed ram size.
+You should still contact support and flash the correct EEPROM data, as this
+could lead to unexpected behavior.
+
+Follow the steps to get the U-boot sources and check the correct branch in the
+**Build U-Boot** section.
+
+Edit the file configs/|u-boot-defconfig|:
+
+.. code-block:: kconfig
+   :substitutions:
+
+   CONFIG_TARGET_|u-boot-socname-config|=y
+   CONFIG_|u-boot-socname-config|_RAM_SIZE_FIX=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_1GB=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_2GB=y
+   # CONFIG_|u-boot-socname-config|_RAM_SIZE_4GB=y
+
+Choose the correct RAM size as populated on the board and uncomment the line for
+this ram size.
+After saving the changes, follow the remaining steps from |ref-build-uboot|.

@@ -1,0 +1,88 @@
+Kernel standalone build
+-----------------------
+
+Setup sources
+.............
+
+*  The used |kernel-repo-name| branch can be found in the `release notes
+   <releasenotes_>`_
+*  The tag needed for this release is called |kernel-tag|
+*  Check out the needed |kernel-repo-name| tag:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ git clone |kernel-repo-url|
+      host:~$ cd ~/|kernel-repo-name|/
+      host:~/|kernel-repo-name|$ git fetch --all --tags
+      host:~/|kernel-repo-name|$ git checkout tags/|kernel-tag|
+
+*  For committing changes, it is highly recommended to switch to a new branch:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ git switch --create <new-branch>
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ source /opt/|yocto-distro|/|yocto-sdk-rev|/environment-setup-|yocto-sdk-a-core|-phytec-linux
+
+Build the kernel
+................
+
+*  Build the linux kernel:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make |kernel-defconfig|
+      host:~/|kernel-repo-name|$ make -j$(nproc)
+
+*  Install kernel modules to e.g. NFS directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/home/<user>/<rootfspath> modules_install
+
+*  The Image can be found at ~/|kernel-repo-name|/arch/arm64/boot/Image
+*  The dtb can be found at
+   ~/|kernel-repo-name|/arch/arm64/boot/dts/ti/|dt-carrierboard|.dtb
+*  For (re-)building only Devicetrees and -overlays, it is sufficient to run
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~/|kernel-repo-name|$ make dtbs
+
+.. note::
+
+   If you are facing the following build issue:
+
+   .. code-block::
+
+      scripts/dtc/yamltree.c:9:10: fatal error: yaml.h: No such file or directory
+
+   Make sure you installed the package *"libyaml-dev"* on your host system:
+
+   .. code-block:: console
+
+      host:~$ sudo apt install libyaml-dev
+
+Copy Kernel to SD Card
+......................
+
+When one-time boot via netboot is not sufficient, the kernel along with its
+modules and the corresponding device tree blob may be copied directly to a
+mounted SD card.
+
+.. code-block:: console
+   :substitutions:
+
+   host:~/|kernel-repo-name|$ cp arch/arm64/boot/Image /path/to/sdcard/boot/
+   host:~/|kernel-repo-name|$ cp arch/arm64/boot/dts/ti/|dt-carrierboard|.dtb /path/to/sdcard/boot/oftree
+   host:~/|kernel-repo-name|$ make INSTALL_MOD_PATH=/path/to/sdcard/root/ modules_install
