@@ -1,9 +1,8 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/scarthgap-sec.pdf
 
-.. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init`
-.. |secure-key-storage-link| replace:: :ref:`secure-key-storage`
-.. |phytec-pki-link| replace:: :ref:`phytec-pki`
+.. |secure-key-storage-link| replace:: :ref:`secure-key-storage-scarthgap`
+.. |phytec-pki-link| replace:: :ref:`phytec-pki-scarthgap`
 
 .. Yocto
 .. |branding-name| replace:: SECURIphy
@@ -101,11 +100,12 @@ read the correct sections fitting your platform.
 .. include:: common/activate-secureboot.rsti
 .. include:: common/kernel-module-signing.rsti
 .. include:: common/devicetree-overlay.rsti
+.. _secure-key-storage-scarthgap:
 .. include:: common/secure-key-storage.rsti
 .. include:: common/secure-storage.rsti
 .. include:: common/hardening.rsti
 .. include:: common/physical-security.rsti
-.. _phytec-pki:
+.. _phytec-pki-scarthgap:
 .. include:: common/phytec-pki.rsti
 .. include:: common/vulnerabilities.rsti
 .. include:: common/soc-configuration-tools.rsti
