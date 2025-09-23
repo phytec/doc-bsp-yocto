@@ -1,0 +1,70 @@
+Thermal Management
+------------------
+
+U-Boot
+......
+
+The previous temperature control in the U-Boot was not satisfactory. Now the
+u-boot has a temperature shutdown to prevent the board from getting too hot
+during booting. The temperatures at which the shutdown occurs are identical to
+those in the kernel.
+
+The individual temperature ranges with the current temperature are displayed in
+the boot log:
+
+.. code-block::
+
+   CPU:   Industrial temperature grade (-40C to 105C) at 33C
+
+Kernel
+......
+
+The Linux kernel has integrated thermal management that is capable of monitoring
+SoC temperatures, reducing the CPU frequency, driving fans, advising other
+drivers to reduce the power consumption of devices, and – worst-case – shutting
+down the system gracefully
+(https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt).
+
+This section describes how the thermal management kernel API is used for the
+|soc| SoC platform. The |socfamily| has internal temperature sensors for the
+SoC.
+
+*  The current temperature can be read in millicelsius with:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/class/thermal/thermal_zone0/temp
+
+*  You will get, for example:
+
+   .. code-block::
+
+      49000
+
+There are two trip points registered by the imx_thermal kernel driver. These
+differ depending on the CPU variant. A distinction is made between Industrial
+and Commercial.
+
+=================== ========== ==========
+..                  Commercial Industrial
+=================== ========== ==========
+passive (warning)   85°C       95°C
+critical (shutdown) 90°C       100°C
+=================== ========== ==========
+
+(see kernel sysfs folder ``/sys/class/thermal/thermal_zone0/``)
+
+The kernel thermal management uses these trip points to trigger events and
+change the cooling behavior. The following thermal policies (also named thermal
+governors) are available in the kernel: Step Wise, Fair Share, Bang Bang, and
+Userspace. The default policy used in the BSP is step_wise. If the value of the
+SoC temperature in the sysfs file temp is above *trip_point_0*, the CPU frequency
+is set to the lowest CPU frequency. When the SoC temperature drops below
+*trip_point_0* again, the throttling is released.
+
+.. note::
+
+   The actual values of the thermal trip points may differ since we mount CPUs
+   with different temperature grades.
+
+.. tm-gpio-fan-marker

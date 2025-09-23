@@ -1,0 +1,39 @@
+GPIOs
+-----
+
+The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
+connected directly to |soc| pins and are muxed as GPIOs. They are directly
+usable in Linux userspace. The processor has organized its GPIOs into nine banks
+of 16 GPIOs each (up to 144 GPIOs). However, not all GPIOs are pinned out on the
+Libra FPSC board.
+
+In Linux, the internal GPIO module is exposed as a single GPIO controller,
+represented by gpiochip0. This controller provides access to all available GPIOs
+on the device. On the Libra FPSC, this corresponds to 126 GPIO lines in total.
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+   .. code-block:: console
+
+      target:~$ gpiodetect
+      gpiochip0 [600000.gpio] (126 lines)
+
+*  GPIO expander
+
+   Beside the GPIOs of the |soc| SoC, the |sbc| has a GPIO expander, which adds
+   more GPIOs to the system.
+
+   .. code-block:: console
+
+      gpiochip2 [4-0020] (16 lines)
+
+   DT configuration for the GPIO expander can be found here:
+
+   |dt-gpio-expander|
+
+.. include:: /bsp/peripherals/gpios.rsti
+

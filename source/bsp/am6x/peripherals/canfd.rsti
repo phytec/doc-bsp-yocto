@@ -1,0 +1,97 @@
+*  Use:
+
+   .. code-block:: console
+
+      target:~$ ip link
+
+   to see the state of the interfaces. The two CAN interfaces should show up as
+   main_mcan0 and main_mcan1.
+
+*  To get information on main_mcan0, such as bit rate and error counters, type:
+
+   .. code-block:: console
+
+      target:~$ ip -d -s link show main_mcan0
+
+   The information for main_mcan0 will look like:
+
+   .. code-block::
+
+      4: main_mcan0: <NOARP,UP,LOWER_UP,ECHO> mtu 72 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+          link/can  promiscuity 0 allmulti 0 minmtu 0 maxmtu 0
+          can <FD> state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+                bitrate 800000 sample-point 0.800
+                tq 12 prop-seg 39 phase-seg1 40 phase-seg2 20 sjw 10 brp 1
+                m_can: tseg1 2..256 tseg2 2..128 sjw 1..128 brp 1..512 brp_inc 1
+                dbitrate 800000 dsample-point 0.800
+                dtq 50 dprop-seg 9 dphase-seg1 10 dphase-seg2 5 dsjw 2 dbrp 4
+                m_can: dtseg1 1..32 dtseg2 1..16 dsjw 1..16 dbrp 1..32 dbrp_inc 1
+                clock 80000000
+                re-started bus-errors arbit-lost error-warn error-pass bus-off
+                0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 655
+          RX:  bytes packets errors dropped  missed   mcast
+          0       0      0       0       0       0
+          TX:  bytes packets errors dropped carrier collsns
+          0       0      0       0       0       0
+
+The output contains a standard set of parameters also shown for Ethernet
+interfaces, so not all of these are necessarily relevant for CAN (for example
+the MAC address). The following output parameters contain useful information:
+
+========== =============================
+can0       Interface Name
+========== =============================
+NOARP	     CAN cannot use ARP protocol
+MTU	     Maximum Transfer Unit
+RX packets Number of Received Packets
+TX packets Number of Transmitted Packets
+RX bytes   Number of Received Bytes
+TX bytes   Number of Transmitted Bytes
+errors...  Bus Error Statistics
+========== =============================
+
+
+The CAN configuration is done in the systemd configuration
+file ``/lib/systemd/network/11-main_mcan.network``. For a persistent change of (as an
+example, the default bitrates), change the configuration in the BSP
+under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/11-main_mcan.network`` in
+the root filesystem and rebuild the root filesystem.
+
+.. code-block::
+
+   [Match]
+   Name=main_mcan*
+
+   [CAN]
+   BitRate=800000
+   DataBitRate=800000
+   FDMode=yes
+
+The bitrate can also be changed manually, for example, to make use of the
+flexible bitrate:
+
+.. code-block:: console
+
+   target:~$ ip link set main_mcan0 down
+   target:~$ ip link set main_mcan0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+
+You can send messages with cansend or receive messages with candump:
+
+.. code-block:: console
+
+   target:~$ cansend main_mcan0 123#45.67
+   target:~$ candump main_mcan0
+
+To generate random CAN traffic for testing purposes, use cangen:
+
+.. code-block:: console
+
+   target:~$ cangen
+
+``cansend --help`` and ``candump --help`` provide help messages for further information
+on options and usage.
+
+.. warning::
+
+   The mcp2518fd SPI to CANfd supports only baudrates starting from 125kB/s.
+   Slower rates can be selected but may not work correctly.
