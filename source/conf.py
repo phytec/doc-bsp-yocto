@@ -46,6 +46,7 @@ extlinks = {
     'imx-dt': ('https://git.phytec.de/linux-imx/tree/arch/arm64/boot/dts/freescale/%s', None),
     'linux-phytec': ('https://github.com/phytec/linux-phytec/%s', None),
     'linux-phytec-imx': ('https://github.com/phytec/linux-phytec-imx/%s', None),
+    'linux-phytec-ti': ('https://github.com/phytec/linux-phytec-ti/%s', None),
     'yocto-bootenv': ('https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=%s', None)
 }
 
@@ -346,6 +347,14 @@ latex_documents = [
         'bsp/imx9/imx95-fpsc/alpha1',
         'imx95-fpsc-alpha1.tex',
         'phyCORE-i.MX 95 FPSC BSP Manual ALPHA1',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
+        'bsp/am6x/am62l/head',
+        'am62l-head.tex',
+        'phyCORE-AM62L BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
