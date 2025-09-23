@@ -1,0 +1,23 @@
+Display
+-------
+
+.. supported-display-interfaces-marker-start
+
+The |sbc| supports up to 3 different display outputs. The following table shows
+the required extensions and devicetree overlays for the different interfaces.
+For the alpha release, we have included overlay for ``powertip,ac209``
+LVDS display.
+The name can be found on the back of the display.
+
+.. note::
+   Currently only LVDS1 (onboard LVDS) is supported
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+LVDS1     |sbc|                    k3-am62l3-libra-fpsc-lvds-ac209.dtbo
+========= ======================== ======================================
+
+.. supported-display-interfaces-marker-end
+
+The default interface is LVDS1 (onboard LVDS).
