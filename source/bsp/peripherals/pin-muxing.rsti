@@ -1,0 +1,17 @@
+|soc| Pin Muxing
+----------------
+
+The |soc| SoC contains many peripheral interfaces. In order to reduce package
+size and lower overall system cost while maintaining maximum functionality, many
+of the |soc| terminals can multiplex up to eight signal functions. Although
+there are many combinations of pin multiplexing that are possible, only a
+certain number of sets, called IO sets, are valid due to timing limitations.
+These valid IO sets were carefully chosen to provide many possible application
+scenarios for the user.
+
+Please refer to our Hardware Manual or the |vendor| |soc| Reference Manual for more
+information about the specific pins and the muxing capabilities.
+
+The IO set configuration, also called muxing, is done in the Device Tree. The
+driver pinctrl-single reads the DT's node fsl,pins, and does the appropriate pin
+muxing.
