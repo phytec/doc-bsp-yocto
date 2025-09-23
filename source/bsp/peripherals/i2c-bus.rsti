@@ -1,0 +1,11 @@
+I²C Bus
+-------
+
+The |soc| contains several Multimaster fast-mode I²C modules. PHYTEC boards
+provide plenty of different I²C devices connected to the I²C modules of the
+|soc|. This section describes the basic device usage and its DT representation
+of some I²C devices integrated into our |sbc|.
+
+The device tree node for i2c contains settings such as clock-frequency to set
+the bus frequency and the pin control settings including scl-gpios and sda-gpios
+which are alternate pin configurations used for bus recovery.

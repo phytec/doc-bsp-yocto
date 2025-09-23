@@ -1,0 +1,32 @@
+SD card
+-------
+
+The |soc| supports a slot for Secure Digital cards to be used as general-purpose
+block devices. These devices can be used in the same way as any other block
+device.
+
+.. warning::
+
+   These kinds of devices are hot-pluggable. Nevertheless, you must ensure not
+   to unplug the device while it is still mounted. This may result in data loss!
+
+After inserting an SD card, the kernel will generate new device nodes in /dev.
+The full device can be reached via its /dev/mmcblk1 device node. SD card
+partitions will show up as:
+
+.. code-block::
+
+   /dev/mmcblk1p<Y>
+
+<Y> counts as the partition number starting from 1 to the max count of
+partitions on this device. The partitions can be formatted with any kind of file
+system and also handled in a standard manner, e.g. the mount and umount command
+work as expected.
+
+.. tip::
+
+   These partition device nodes will only be available if the card contains a
+   valid partition table (”hard disk” like handling). If no partition table is
+   present, the whole device can be used as a file system (”floppy” like
+   handling). In this case, /dev/mmcblk1 must be used for formatting and
+   mounting. The cards are always mounted as being writable.
