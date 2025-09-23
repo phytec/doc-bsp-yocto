@@ -142,7 +142,7 @@ The default user is root with the password root:
 Key Generation for Secure Storage
 .................................
 
-Please follow the instructions in the chapter |secure-key-storage-init-link|
+Please follow the instructions in the chapter |secure-key-storage-link|
 
 Secure Storage Initialization with phySecureStorage tool
 ........................................................
