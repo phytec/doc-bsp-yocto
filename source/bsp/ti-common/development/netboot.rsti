@@ -1,0 +1,74 @@
+Booting the Kernel from a Network
+---------------------------------
+
+Booting from a network means loading the kernel and device tree over TFTP and
+the root file system over NFS. The bootloader itself must already be loaded from
+another available boot device.
+
+Place Images on Host for Netboot
+................................
+
+*  Copy the kernel fitImage, which already contains device-tree and all
+   device-tree overlays to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp fitImage /srv/tftp
+
+*  Copy the booting script to your tftp directory:
+
+   .. code-block:: console
+
+      host:~$ cp net_boot_fit.scr.uimg /srv/tftp
+
+*  Make sure other users have read access to all the files in the tftp directory,
+   otherwise they are not accessible from the target:
+
+   .. code-block:: console
+
+      host:~$ sudo chmod -R o+r /srv/tftp
+
+*  Extract the rootfs to your nfs directory:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.xz -C /srv/nfs
+
+.. note::
+   Make sure you extract with sudo to preserve the correct ownership.
+
+Set appropriate U-boot variables
+................................
+
+Since the nfsroot directory could be different in other networks, we do not set
+any default values. Enter the following commands to modify the bootloader
+environment.
+
+.. code-block::
+
+   u-boot=> setenv nfsroot /srv/nfs
+
+Set any overlay configurations needed:
+
+.. code-block::
+
+   u-boot=> setenv overlays overlay.dtbo
+
+Booting from an Embedded Board
+..............................
+
+Set the correct boot target, if not already set by u-boot board code and boot
+into network boot:
+
+.. code-block:: console
+
+   u-boot=> setenv boot_targets dhcp
+   u-boot=> boot
+
+Network Settings on Target
+..........................
+
+To customize the targets ethernet configuration, please follow the description
+here: |ref-network|
+

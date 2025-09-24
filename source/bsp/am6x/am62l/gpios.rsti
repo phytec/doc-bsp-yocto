@@ -1,0 +1,19 @@
+.. include:: /bsp/ti-common/gpios.rsti
+   :end-before: .. gpio-gpiochip-table
+
+*  GPIO expander
+
+   Beside the GPIOs of the |soc| SoC, the |sbc| has a GPIO expander, which adds
+   more GPIOs to the system.
+
+   .. code-block:: console
+
+      gpiochip2 [4-0020] (16 lines)
+
+   DT configuration for the GPIO expander can be found here:
+
+   |dt-gpio-expander|
+
+.. include:: /bsp/ti-common/gpios.rsti
+   :start-after: .. gpio-gpiochip-table
+
