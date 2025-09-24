@@ -8,23 +8,18 @@ another available boot device.
 Place Images on Host for Netboot
 ................................
 
-*  Copy the kernel image to your tftp directory:
+*  Copy the kernel fitImage, which already contains device-tree and all
+   device-tree overlays to your tftp directory:
 
    .. code-block:: console
 
-      host:~$ cp Image /srv/tftp
+      host:~$ cp fitImage /srv/tftp
 
-*  Copy the devicetree to your tftp directory:
-
-   .. code-block:: console
-
-      host:~$ cp oftree /srv/tftp
-
-*  Copy all the overlays you want to use into your tftp directory:
+*  Copy the booting script to your tftp directory:
 
    .. code-block:: console
 
-      host:~$ cp *.dtbo /srv/tftp
+      host:~$ cp net_boot_fit.scr.uimg /srv/tftp
 
 *  Make sure other users have read access to all the files in the tftp directory,
    otherwise they are not accessible from the target:
@@ -38,33 +33,38 @@ Place Images on Host for Netboot
    .. code-block:: console
       :substitutions:
 
-      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.gz -C /srv/nfs
+      host:~$ sudo tar -xvzf |yocto-imagename|-|yocto-machinename|.tar.xz -C /srv/nfs
 
 .. note::
    Make sure you extract with sudo to preserve the correct ownership.
 
-Set the bootenv.txt for Netboot
-...............................
+Set appropriate U-boot variables
+................................
 
-Create a bootenv.txt file in your tftp directory and write the following variables into it.
-
-.. code-block::
-
-   bootfile=Image
-   fdt_file=oftree
-   nfsroot=/srv/nfs
-   overlays=<overlayfilenames>
-
-<overlayfilenames> has to be replaced with the devicetree overlay filenames that you want to use.
-Separate the filenames by spaces. For example:
+Since the nfsroot directory could be different in other networks, we do not set
+any default values. Enter the following commands to modify the bootloader
+environment.
 
 .. code-block::
 
-   overlays=example-overlay1.dtbo example-overlay2.dtbo
+   u-boot=> setenv nfsroot /srv/nfs
 
-.. Tip::
+Set any overlay configurations needed:
 
-   All supported devicetree overlays are in the |ref-dt| chapter.
+.. code-block::
+
+   u-boot=> setenv overlays overlay.dtbo
+
+Booting from an Embedded Board
+..............................
+
+Set the correct boot target, if not already set by u-boot board code and boot
+into network boot:
+
+.. code-block:: console
+
+   u-boot=> setenv boot_targets dhcp
+   u-boot=> boot
 
 Network Settings on Target
 ..........................
@@ -72,13 +72,3 @@ Network Settings on Target
 To customize the targets ethernet configuration, please follow the description
 here: |ref-network|
 
-Booting from an Embedded Board
-..............................
-
-Boot the board into the U-boot prompt and press any key to hold.
-
-*  To boot from a network, call:
-
-   .. code-block:: console
-
-      u-boot=> run netboot
