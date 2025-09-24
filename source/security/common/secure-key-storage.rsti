@@ -150,7 +150,7 @@ Testing OP-TEE
 
    .. code-block:: console
 
-      target:~$ devmem2 0x5600000
+      target:~$ devmem2 0x56000000
 
       Memory mapped at address 0xffff88e2c000.
       Bus error
