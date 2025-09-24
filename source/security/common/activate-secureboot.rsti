@@ -154,8 +154,8 @@ Burn the SRK
 ||                                           ||                                                 ||                                                 |
 ||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           || ``u-boot=> fuse prog 16 4 0x678de0d5``          |
 ||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           || ``u-boot=> fuse prog 16 5 0x966d3584``          |
-||                                           || ``u-boot=> fuse prog 7 0 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
-||                                           || ``u-boot=> fuse prog 7 0 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
+||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
+||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
 +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
 || read and check                            || ``u-boot=> fuse read 6 0 4``                    || ``u-boot=> fuse read 16 0 8``                   |
 || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
