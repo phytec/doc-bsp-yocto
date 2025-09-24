@@ -86,6 +86,7 @@ Starting the Build Process
       This needs to be done every time you open a new shell for starting builds.
 
 *  The current working directory of the shell should change to build/.
+.. nxp-eula-marker
 *  Open the main configuration file and accept the GPU and VPU binary license
    agreements. Do this by uncommenting the corresponding line, as below.
 
@@ -96,6 +97,7 @@ Starting the Build Process
       # EULA can be found under ../sources/meta-freescale/EULA
       ACCEPT_FSL_EULA = "1"
 
+.. build-your-image-marker
 *  Build your image:
 
    .. code-block:: console
