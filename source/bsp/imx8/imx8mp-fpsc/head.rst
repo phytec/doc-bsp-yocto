@@ -1,13 +1,13 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.0
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus-fpsc/#downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/sdk/ampliphy-vendor/
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 .. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-head.pdf
 
@@ -33,7 +33,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mp-fpsc
-.. |kernel-tag| replace:: v6.6.52-2.2.0-phy20
+.. |kernel-tag| replace:: v6.12.20-2.0.0-phyX
 .. |emmcdev| replace:: mmcblk2
 .. |led-names| replace:: red:user1, green:user2 and blue:user3
 .. |led-example| replace:: red\\:user1
@@ -52,7 +52,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP_LIBRA
-.. |u-boot-tag| replace:: v2024.04_2.0.0-phy21
+.. |u-boot-tag| replace:: v2025.04-2.0.0-phyX
 
 
 .. RAUC
@@ -65,25 +65,25 @@
 .. |dt-som| replace:: imx8mp-phycore-fpsc
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L82`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L82`
    `
-.. |dt-gpio-expander| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L192`
+.. |dt-gpio-expander| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L192`
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP-FPSC
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: walnascar
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: imx8mp-libra-fpsc-1
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-FPSC-PD25.1.y
-.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
-.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
-.. |yocto-sdk-rev| replace::  5.0.x
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.y
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-master>`
+.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-master-kernel-and-bootloader-conf>`
+.. |yocto-sdk-rev| replace::  5.2.x
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
@@ -103,7 +103,7 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#97`.
+   :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#97`.
 
 .. |ref-serial| replace:: :ref:`X27 <imx8mp-fpsc-head-components>`
 .. |ref-S5| replace:: :ref:`S5 <imx8mp-fpsc-head-components>`
@@ -143,12 +143,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-================================= ================ ================= ==============
-Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
+============================== ================ ================= ==============
+Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 
-================================= ================ ================= ==============
-BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1 Alpha            2025/08/11        Released
-================================= ================ ================= ==============
+============================== ================ ================= ==============
+BSP-Yocto-NXP-i.MX8MP-PD26.1.0 Major            q1 2026           in development
+============================== ================ ================= ==============
 
 
 .. include:: /bsp/intro.rsti
@@ -346,7 +346,7 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART3 pinmuxing:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
 
 RS232
 -----
@@ -390,7 +390,7 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
 
 The device tree representation for RS232:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
 
 .. _imx8mp-fpsc-head-network:
 
@@ -435,12 +435,12 @@ device must then be configured as follows:
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L401`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L401`
 and
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L318`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L318`
 
 DT configuration for the e.MMC interface can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L412`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L412`
 
 .. include:: ../imx8mp/emmc.rsti
 
@@ -451,22 +451,22 @@ DT configuration for the e.MMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
 
 .. include:: gpios.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L165`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L165`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L188`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L188`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L149`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L149`
 
 EEPROM
 ------
@@ -486,7 +486,7 @@ On the |som| SoM:
    *  Purpose: Available for user applications
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L276`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L276`
 
 And on the |sbc| carrier board:
 
@@ -496,18 +496,18 @@ And on the |sbc| carrier board:
    *  Purpose: Reserved for carrier board identification
 
 Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
 
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L293`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L293`
 
 
 And the addions on the carrierboard:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L252`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L252`
 
 USB Host Controller
 -------------------
@@ -522,7 +522,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L295`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L295`
 
 .. include:: /bsp/peripherals/usb-device.rsti
 
@@ -546,18 +546,18 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L109`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L109`
 
 and of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L117`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L117`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L339`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L339`
 
 and of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L245`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L245`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -568,7 +568,7 @@ and of |dt-carrierboard|.dts:
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
-:linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
+:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
