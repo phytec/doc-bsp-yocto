@@ -1,17 +1,27 @@
+I2C EEPROM access
+.................
+
+.. warning::
+
+   The first |eeprom-som-detect-area| (|eeprom-som-detect-area-hex|) bytes of
+   the EEPROM area (bus: I2C-|eeprom-detect-bus| addr: |eeprom-detect-addr|)
+   should not be erased or overwritten. As this will influence the behavior of
+   the bootloader. The board might not boot correctly anymore.
+
 EEPROM reading and writing in U-Boot
-....................................
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In U-Boot the ``i2c`` command can be used for EEPROM read and write operations.
 
-First set the correct i2c bus, where the eeprom is connected.
-`<bus-no>` is the i2c bus number of the EEPROM.
+First set the correct I2C bus, where the EEPROM is connected.
+`<bus-no>` is the I2C bus number of the EEPROM.
 
 .. code-block:: console
 
    u-boot=> i2c dev <bus-no>
 
 To read and print the first 32 bytes from EEPROM execute.
-`<addr>` is the i2c address of the EEPROM.
+`<addr>` is the I2C address of the EEPROM.
 
 .. code-block:: console
 
@@ -23,22 +33,22 @@ To read the first 32 bytes from EEPROM into memory (loadaddr) execute:
 
    u-boot=> i2c read <addr> 0x00 0x20 $loadaddr
 
-To write 0xff to the first 32 bytes execute:
+To write 0xff to the 32 bytes at offset 0x100 execute:
 
 .. code-block:: console
 
-   u-boot=> i2c mw <addr> 0x00 0xff 0x20
+   u-boot=> i2c mw <addr> 0x100 0xff 0x20
 
-To write 32 bytes to EEPROM from memory (loadaddr) execute:
+To write 32 bytes to offset 0x100 to EEPROM from memory (loadaddr) execute:
 
 .. code-block:: console
 
-   u-boot=> i2c write $loadaddr <addr> 0x00 0x20
+   u-boot=> i2c write $loadaddr <addr> 0x100 0x20
 
 EEPROM reading and writing in Linux
-...................................
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Reading and writing can also be done via the sysfs in Linux. For this, find the
+Reading and writing can also be done via sysfs in Linux. For this, find the
 correct path in sysfs first. It follows this logic:
 /sys/class/i2c-dev/i2c-<bus-no>/device/<bus-no>-<addr>/eeprom
 `<bus-no>` is the bus number of the EEPROM
@@ -56,8 +66,38 @@ or:
 
    target:~$ dd if=<eeprom-sysfs-path> | od -x
 
-To fill the EEPROM with zeros use:
+To fill the EEPROM with zeros leaving out the EEPROM data use:
 
 .. code-block:: console
 
-   target:~$ dd if=/dev/zero of=<eeprom-sysfs-path>
+   target:~$ dd if=/dev/zero of=<eeprom-sysfs-path> seek=1 bs=256
+
+
+EEPROM SoM Detection
+....................
+
+The I2C EEPROM, populated on the |som|, is addressable over I2C address
+|eeprom-detect-addr| on bus |eeprom-detect-bus|. PHYTEC uses this 32 byte data
+area to store information about the SoM. This includes PCB revision and mounting
+options.
+
+The EEPROM data is read at a very early stage during startup. It is used to
+select the correct RAM configuration. This makes it possible to use the same
+bootloader image for different RAM sizes and choose the correct DTS overlays
+automatically.
+
+.. warning::
+
+   The first |eeprom-som-detect-area| (|eeprom-som-detect-area-hex|) bytes of
+   the EEPROM area (bus: I2C-|eeprom-detect-bus| addr: |eeprom-detect-addr|)
+   should not be erased or overwritten. As this will influence the behavior of
+   the bootloader. The board might not boot correctly anymore.
+
+SoMs that are flashed with data format API revision 2 will print out information
+about the module in the early stage.
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-programmed on the EEPROM data spaces. If
+you accidentally delete or overwrite this data, please contact our support team.
