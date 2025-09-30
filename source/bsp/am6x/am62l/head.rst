@@ -116,6 +116,11 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <am62l-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
+.. |eeprom-detect-bus| replace:: 1
+.. |eeprom-detect-addr| replace:: 0x50
+.. |eeprom-som-detect-area| replace:: 1024
+.. |eeprom-som-detect-area-hex| replace:: 0x400
+
 
 .. only:: html
 
@@ -540,12 +545,13 @@ General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
 EEPROM
 ------
 
-The system features three I2C EEPROM devices distributed across the SoM and
+The system features two I2C EEPROM devices distributed across the SoM and
 carrier board:
 
 On the |som| SoM:
 
-*  Board Detection EEPROM (write-protected)
+*  Board Detection EEPROM
+
    *  Bus: I2C-1
    *  Address: 0x50
    *  Purpose: Factory configuration for board identification
@@ -556,6 +562,7 @@ Device Tree Reference for SoM EEPROMs:
 And on the |sbc| carrier board:
 
 *  Board Detection EEPROM
+
    *  Bus: I2C-2
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
