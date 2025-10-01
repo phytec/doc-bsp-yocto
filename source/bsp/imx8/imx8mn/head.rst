@@ -327,8 +327,8 @@ The device tree representation for RS232 and RS485:
 
 .. _imx8mn-head-network:
 
-Network
--------
+Ethernet
+--------
 
 |sbc|-|soc| provides one Gigabit Ethernet interface.
 

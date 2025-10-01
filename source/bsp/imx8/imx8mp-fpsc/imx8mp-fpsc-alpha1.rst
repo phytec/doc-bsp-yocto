@@ -396,8 +396,8 @@ The device tree representation for RS232:
 
 .. _imx8mp-fpsc-alpha1-network:
 
-Network
--------
+Ethernet
+--------
 
 |sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
 module and board.

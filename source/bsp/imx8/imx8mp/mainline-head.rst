@@ -943,8 +943,8 @@ The device tree representation for RS232 and RS485:
 
 .. _imx8mp-mainline-head-network:
 
-Network
--------
+Ethernet
+--------
 
 |sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by
 our module and board.
