@@ -1,0 +1,20 @@
+.. include:: /bsp/peripherals/tm.rsti
+   :end-before: .. tm-u-boot-marker
+
+U-Boot
+......
+
+The previous temperature control in the U-Boot was not satisfactory. Now the
+u-boot has a temperature shutdown to prevent the board from getting too hot
+during booting. The temperatures at which the shutdown occurs are identical to
+those in the kernel.
+
+The individual temperature ranges with the current temperature are displayed in
+the boot log:
+
+.. code-block::
+
+   CPU:   Industrial temperature grade (-40C to 105C) at 33C
+
+.. include:: /bsp/peripherals/tm.rsti
+   :start-after: .. tm-u-boot-marker
