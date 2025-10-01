@@ -6,4 +6,4 @@ AM6X
    :caption: AM6X Manuals
    :maxdepth: 2
 
-   phyCORE-AM62L Manuals <am62l/am62l.rst>
+   phyFLEX-AM62L Manuals <am62l/am62l.rst>
