@@ -354,7 +354,7 @@ latex_documents = [
     (
         'bsp/am6x/am62l/head',
         'am62l-head.tex',
-        'phyCORE-AM62L BSP Manual DRAFT',
+        'phyFLEX-AM62L BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
