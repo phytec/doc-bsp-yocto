@@ -51,8 +51,8 @@ structure.
       the Repo tool in your ``/usr/local/bin`` directory.
 
 *  During the execution of the init command, you need to choose your processor
-   platform (SoC), PHYTEC's BSP release number, and the hardware you are working
-   on.
+   platform (SoC), PHYTEC's BSP release number, and the hardware (MACHINE) you
+   are working on.
 
    .. note::
 

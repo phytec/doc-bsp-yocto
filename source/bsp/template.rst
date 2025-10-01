@@ -118,6 +118,8 @@
 .. |ref-debugusbconnector| replace:: :ref:`name <sbc-release-components>`
 .. Reference device tree section
 .. |ref-dt| replace:: :ref:`device tree <sbc-release-device-tree>`
+.. Reference supported hardware section
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <sbc-supported-hardware>`
 .. Reference to network section
 .. |ref-network| replace:: :ref:`network <sbc-release-network>`
 .. Name of the USB OTG connector on the board with an internal link

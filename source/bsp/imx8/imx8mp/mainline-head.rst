@@ -80,6 +80,7 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-mainline-head-development-build-uboot>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-mainline-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-mainline-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-mainline-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-mainline-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-mainline-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-mainline-head-development>`
@@ -142,6 +143,8 @@ Compatible BSPs  BSP Release Type BSP Release  Date BSP Status
 
 
 .. include:: ../../intro.rsti
+
+.. _imx8mp-mainline-head-supported-hardware:
 
 Supported Hardware
 ------------------
