@@ -15,12 +15,12 @@
 
 .. General Substitutions
 .. |doc-id| replace:: Head
-.. |kit| replace:: **phyCORE-AM62L FPSC Kit**
+.. |kit| replace:: **phyFLEX-AM62L FPSC Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: Libra FPSC
 .. |soc| replace:: AM62L
 .. |socfamily| replace:: AM62
-.. |som| replace:: phyCORE-|soc| FPSC
+.. |som| replace:: phyFLEX-|soc| FPSC
 .. |debug-uart| replace:: ttyS3
 .. |serial-uart| replace:: ttyS1
 .. |bluetooth-uart| replace:: UART3
@@ -63,7 +63,7 @@
 
 .. Devicetree
 .. |dt-carrierboard| replace:: k3-am62l3-libra-rdk-fpsc
-.. |dt-som| replace:: k3-am62l-phycore-fpsc
+.. |dt-som| replace:: k3-am62l-phyflex-fpsc
 
 .. AM62L specific
 .. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L148`
