@@ -675,8 +675,8 @@ The device tree representation for UART1 pinmuxing:
 
 .. _imx93-pd24.1.0-network:
 
-Network
--------
+Ethernet
+--------
 
 |sbc|-|soc| provides two ethernet interfaces. A 100 megabit Ethernet is
 provided by our module and board.

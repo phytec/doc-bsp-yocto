@@ -350,8 +350,8 @@ The device tree representation for UART1 pinmuxing:
 
 .. _imx95-fpsc-head-network:
 
-Network
--------
+Ethernet
+--------
 
 |sbc|-|soc| provides three ethernet interfaces. A gigabit Ethernet is provided
 by our module and board. Additionally there is a 10Gbit Ethernet. Currently
