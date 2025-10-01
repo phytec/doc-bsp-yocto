@@ -17,6 +17,12 @@ and the |ref-bootswitch| is set to **eMMC**.
    can be run to inspect whether the current setup is affected. If |emmcdev|\p1
    and mmcblk1p1 have an identical UUID, the setup is affected.
 
+.. note::
+   **Filenames WIC and partup:** Command lines listed in this chapter
+   contain exemplary file names for WIC images and partup packages. The actual
+   file name is always a combination of the machine and the image you want to
+   use. The supported machines are listed on the webpage of |dlpage-bsp-link|.
+
 Flash eMMC from SD Card
 .......................
 

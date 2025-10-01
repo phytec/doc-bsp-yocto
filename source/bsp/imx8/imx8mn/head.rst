@@ -89,6 +89,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mn-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mn-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mn-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
@@ -135,6 +136,8 @@ Compatible BSPs  BSP Release Type BSP Release  Date BSP Status
 ================ ================ ================= ==========
 
 .. include:: ../../intro.rsti
+
+.. _imx8mn-head-supported-hardware:
 
 Supported Hardware
 ------------------

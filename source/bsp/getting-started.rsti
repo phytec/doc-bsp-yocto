@@ -24,7 +24,11 @@ data are correctly written. Both the partup package and the WIC image, which can
 be flashed using ``dd``, can be downloaded from the `PHYTEC download server
 <dl-server_>`_.
 
-Get either the partup package or the WIC image from the download server:
+Note that you can find different image versions and variants on our download
+server. The images are located on the server by folders per "BSP-Version",
+"Distro-Name" and "Machine-Name".
+
+Example to download a partup package and a WIC image from the download server:
 
 .. code-block:: console
    :substitutions:

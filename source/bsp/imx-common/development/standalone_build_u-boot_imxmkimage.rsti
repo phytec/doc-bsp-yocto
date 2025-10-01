@@ -51,33 +51,23 @@ To build the imx-boot, you need to **gather** these **files** for
 later use with **imx-mkimage tool**:
 
 *  **ARM Trusted firmware binary** (*mkimage tool* compatible format
-   **bl31.bin**): bl31-|kernel-socname|.bin
+   **bl31.bin**): bl31-imx*.bin
 *  **OPTEE image** (optional): tee.bin
 *  **DDR firmware files** (*mkimage tool* compatible format
    **lpddr4_[i,d]mem_\*d_\*.bin**):
    lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
    lpddr4_imem_2d_*.bin
-*  **Container image**: mx93a1-ahab-container.img
+*  **Container image**: mx*-ahab-container.img
 
 If you already built our BSP with Yocto, you can get
 these files from the directory mentioned here: |ref-bsp-images|
 
-Or you can download the files from the PHYTEC download server (|link-boot-tools|).
-You can use the commands below to download all the files from that server:
+Or you can download the files here: |link-boot-tools|
 
-.. code-block:: console
-   :substitutions:
+.. warning::
 
-   host:~$ mkdir ./artefacts && cd ./artefacts
-   host:~/artefacts$ wget \
-                       |link-boot-tools|/bl31-imx93.bin \
-                       |link-boot-tools|/tee.bin \
-                       |link-boot-tools|/lpddr4_dmem_1d_v202201.bin \
-                       |link-boot-tools|/lpddr4_dmem_2d_v202201.bin \
-                       |link-boot-tools|/lpddr4_imem_1d_v202201.bin \
-                       |link-boot-tools|/lpddr4_imem_2d_v202201.bin \
-                       |link-boot-tools|/mx93a1-ahab-container.img
-   host:~/artefacts$ cd ..
+   Make sure you rename the files you need so that they are compatible with the
+   *mkimage tool*.
 
 Build the bootloader
 ....................
@@ -112,10 +102,10 @@ Build final flash.bin with imx-mkimage
    .. code-block:: console
       :substitutions:
 
-      host:~/imx-mkimage$ cp ../artefacts/bl31-imx93.bin ./|u-boot-soc-name|/bl31.bin
+      host:~/imx-mkimage$ cp ../artefacts/bl31-imx*.bin ./|u-boot-soc-name|/bl31.bin
       host:~/imx-mkimage$ cp \
                            ../artefacts/lpddr4_* \
-                           ../artefacts/mx93a1-ahab-container.img \
+                           ../artefacts/mx*-ahab-container.img \
                            ../artefacts/tee.bin \
                            ./|u-boot-soc-name|/
 

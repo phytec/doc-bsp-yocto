@@ -1,6 +1,12 @@
 Kernel standalone build
 -----------------------
 
+.. note::
+   **DTB Filenames:** Command lines listed in this chapter use the device tree
+   file name |dt-carrierboard|.dtb as an example. The actual file name always
+   corresponds to the SOM/carrier board combination you want to use. For
+   supported SOM/carrier board combinations, see |ref-supported-hardware|.
+
 Setup sources
 .............
 

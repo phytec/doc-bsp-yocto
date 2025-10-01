@@ -82,6 +82,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mm-pd22.1.1-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mm-pd22.1.1-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mm-pd22.1.1-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mm-pd22.1.1-supported-hardware>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mm-pd22.1.1-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-pd22.1.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-pd22.1.1-components>`
@@ -130,6 +131,8 @@ Compatible BSPs      BSP Release Type BSP Release  Date BSP Status
 ==================== ================ ================= ==========
 
 .. include:: ../../intro.rsti
+
+.. _imx8mm-pd22.1.1-supported-hardware:
 
 Supported Hardware
 ------------------

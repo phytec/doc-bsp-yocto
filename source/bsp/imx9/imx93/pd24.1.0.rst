@@ -78,6 +78,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-pd24.1.0-images>`
 .. |ref-debugusbconnector| replace:: serial connector on PEB-EVAL-01
 .. |ref-dt| replace:: :ref:`device tree <imx93-pd24.1.0-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx93-pd24.1.0-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx93-pd24.1.0-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx93-pd24.1.0-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
@@ -129,6 +130,8 @@ Compatible BSPs      BSP Release Type BSP Release Date BSP Status
 
 
 .. include:: ../../intro.rsti
+
+.. _imx93-pd24.1.0-supported-hardware:
 
 Supported Hardware
 ------------------

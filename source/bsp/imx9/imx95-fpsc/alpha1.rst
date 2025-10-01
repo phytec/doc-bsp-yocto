@@ -86,6 +86,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx95-fpsc-alpha1-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X14) <imx95-fpsc-alpha1-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx95-fpsc-alpha1-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx95-fpsc-alpha1-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx95-fpsc-alpha1-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx95-fpsc-alpha1-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx95-fpsc-alpha1-development>`
@@ -141,6 +142,8 @@ BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
 
 
 .. include:: /bsp/intro.rsti
+
+.. _imx95-fpsc-alpha1-supported-hardware:
 
 Supported Hardware
 ------------------

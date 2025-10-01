@@ -91,6 +91,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-fpsc-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-fpsc-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-fpsc-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-fpsc-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-fpsc-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-fpsc-head-development>`
@@ -152,6 +153,8 @@ BSP-Yocto-NXP-i.MX8MP-PD26.1.0 Major            q1 2026           in development
 
 
 .. include:: /bsp/intro.rsti
+
+.. _imx8mp-fpsc-head-supported-hardware:
 
 Supported Hardware
 ------------------

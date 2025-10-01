@@ -93,6 +93,7 @@
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd24.1.0_nxp-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd24.1.0_nxp-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-pd24.1.0_nxp-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-pd24.1.0_nxp-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-pd24.1.0_nxp-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd24.1.0_nxp-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd24.1.0_nxp-development>`
@@ -160,6 +161,8 @@ BSP-Yocto-NXP-i.MX8MP-PD24.1.0 Major            2024/11/06        Released
 
 
 .. include:: ../../intro.rsti
+
+.. _imx8mp-pd24.1.0_nxp-supported-hardware:
 
 Supported Hardware
 ------------------

@@ -84,6 +84,7 @@
 .. |ref-debugusbconnector| replace:: UART1 console on PEB-EVAL-01 for **phyBOARD-Segin** and X-37
    USB-C debug for **phyBOARD-Nash**
 .. |ref-dt| replace:: :ref:`device tree <imx93-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx93-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx93-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx93-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-head-development>`
@@ -141,6 +142,8 @@ Compatible BSPs      BSP Release Type BSP Release Date BSP Status
 
 
 .. include:: ../../intro.rsti
+
+.. _imx93-head-supported-hardware:
 
 Supported Hardware
 ------------------
@@ -388,6 +391,7 @@ Execute and power up the board:
    without requiring any modifications.
 
 .. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
+
 .. include:: ../../imx-common/development/standalone_build_kernel.rsti
 
 .. include:: ../../imx-common/development/format_sd-card.rsti
