@@ -293,4 +293,4 @@ eMMC booting in filesystem mode.
 *  Set the S1 DIP switch to the correct configuration for eMMC boot and then
    power up the board:
 
-   .. image:: images/eMMC.png
+   .. image:: images/DEVBOOT.png
