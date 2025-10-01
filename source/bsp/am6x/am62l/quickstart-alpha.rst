@@ -1,8 +1,8 @@
 .. General Substitutions
 .. |doc-id| replace:: ALPHA
-.. |kit| replace:: **phyCORE-AM62L FPSC Kit**
+.. |kit| replace:: **phyFLEX-AM62L FPSC Kit**
 .. |soc| replace:: AM62L
-.. |som| replace:: phyCORE-AM62L FPSC
+.. |som| replace:: phyFLEX-AM62L FPSC
 .. |sbc| replace:: Libra FPSC
 
 .. Links
@@ -10,7 +10,7 @@
 .. _hardware-manual: https://www.phytec.de/cdocuments/?doc=H4N4Ow
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-AM62Lx/BSP-Yocto-Ampliphy-AM62Lx-ALPHA2/images/ampliphy-vendor/am62lxx-libra-fpsc-1/
 .. _`static-pdf-dl`: ../../../_static/am62l-quickstart-alpha.pdf
-.. |pin-muxing-table| replace:: phyCORE-AM62Lx FPSC Pin Muxing Table
+.. |pin-muxing-table| replace:: phyFLEX-AM62Lx FPSC Pin Muxing Table
 .. _pin-muxing-table: https://download.phytec.de/Products/phyCORE-AM62Lx%20FPSC/Tech%20Data/phyCORE-AM62Lx_FPSC_PL1627.0_Pinout_Table.A0.xlsx
 
 .. Yocto
@@ -93,7 +93,7 @@ Requirements
 Included in the Kit
 -------------------
 
--  Alpha phyCORE-AM62L FPSC SOM on Alpha Libra Development Board
+-  Alpha phyFLEX-AM62L FPSC SOM on Alpha Libra Development Board
    (PD-05035-ALPHA.A0)
 -  Power adapter supplying 24 V / 1,5 A (SV068)
 -  Ethernet cable (WK114)
