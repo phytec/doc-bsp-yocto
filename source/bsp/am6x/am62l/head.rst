@@ -619,4 +619,6 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/am6x/peripherals/pm.rsti
 
+.. include:: /bsp/peripherals/tm.rsti
+
 .. include:: /bsp/peripherals/watchdog.rsti
