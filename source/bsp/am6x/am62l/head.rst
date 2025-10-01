@@ -190,7 +190,7 @@ First Start-up
 .. include:: /bsp/building-bsp.rsti
    :end-before: .. nxp-eula-marker
 .. include:: /bsp/building-bsp.rsti
-   :start-after: .. build-your-image-marker
+   :start-after: .. nxp-eula-marker
 
 .. _am62l-fpsc-head-images:
 
