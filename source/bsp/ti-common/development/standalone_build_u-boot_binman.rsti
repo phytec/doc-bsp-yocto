@@ -37,23 +37,16 @@ Get the source code
 Create bootloader binaries for flashing
 .......................................
 
-The flash.bin can be found at |u-boot-repo-name|/ directory and now can be
-flashed. A chip-specific offset is needed:
+Use with UDA filesystem mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _offset-table:
-
-===== ======================= ================================= ==============
-SoC   Offset User Area        Offset Boot Partition             e.MMC Device
-===== ======================= ================================= ==============
-|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/|emmcdev|
-===== ======================= ================================= ==============
-
-E.g. flash SD card:
+To use the newly generated files with UDA filesystem boot. They can be coped to
+the medium as is. E.g. to test this standalone build with SD-Card boot copy the
+binaries to the SD-Card boot partition:
 
 .. code-block:: console
-   :substitutions:
 
-   host:~/|u-boot-repo-name|$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
+   host:~/|u-boot-repo-name|$ cp tiboot3.bin tispl.bin u-boot.img /path/to/SD-Card/boot
 
 .. hint::
    The specific offset values are also declared in the Yocto variables
