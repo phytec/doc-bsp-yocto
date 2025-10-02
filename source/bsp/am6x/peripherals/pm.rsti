@@ -1,0 +1,52 @@
+Power Management
+----------------
+
+CPU Core Management
+...................
+
+The |soc| SoC can have multiple processor cores on the die. The |soc|, for
+example, has 2 ARM Cores which can be turned on and off individually at runtime.
+
+*  To see all available cores in the system, execute:
+
+   .. code-block:: console
+
+      target:~$ ls /sys/devices/system/cpu  -1
+
+*  This will show, for example:
+
+   .. code-block::
+
+      cpu0    cpu1   cpufreq
+      [...]
+
+   Here the system has four processor cores. By default, all available cores in the
+   system are enabled to get maximum performance.
+
+*  To switch off a single-core, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/devices/system/cpu/cpu1/online
+
+   As confirmation, you will see:
+
+   .. code-block::
+
+      [  110.505012] psci: CPU1 killed
+
+   Now the core is powered down and no more processes are scheduled on this core.
+
+*  You can use top to see a graphical overview of the cores and processes:
+
+   .. code-block:: console
+
+      target:~$ htop
+
+*  To power up the core again, execute:
+
+   .. code-block:: console
+
+      target:~$ echo 1 > /sys/devices/system/cpu/cpu1/online
+
+.. suspend_to_ram_start_label

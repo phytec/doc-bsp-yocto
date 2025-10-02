@@ -1,0 +1,90 @@
+Thermal Management
+------------------
+
+.. tm-u-boot-marker
+
+Kernel
+......
+
+The Linux kernel has integrated thermal management that is capable of monitoring
+SoC temperatures, reducing the CPU frequency, driving fans, advising other
+drivers to reduce the power consumption of devices, and – worst-case – shutting
+down the system gracefully
+(https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt).
+
+This section describes how the thermal management kernel API is used for the
+|soc| SoC platform. The |socfamily| has internal temperature sensors for the
+SoC.
+
+*  The current temperature can be read in millicelsius with:
+
+   .. code-block:: console
+
+      target:~$ cat /sys/class/thermal/thermal_zone0/temp
+
+*  You will get, for example:
+
+   .. code-block::
+
+      49530
+
+This translates to 49.53°C
+
+There can be a number of trip points registered by the thermal kernel driver:
+
+.. list-table:: Type of trip points
+   :header-rows: 1
+
+   * - Type
+     - Description
+   * - passive
+     - Mitigate heat by scaling down performance without active cooling.
+   * - active
+     - Implement more aggressive cooling methods to prevent the system from
+       reaching critical temperatures.
+   * - hot
+     - Signals a state where the system is getting warm but hasn't reached
+       critical levels yet.
+   * - critical
+     - Protect the hardware from potential damage due to extreme temperatures by
+       forcing shutdown.
+
+Number of trip points, their type an values differ depending on the CPU variant
+and CPU grade. For example:
+
+.. code-block:: console
+
+   target:~$ cat /sys/class/thermal/thermal_zone0/trip_point*
+   2000
+   125000
+   critical
+
+This is a critical trip point which will cause the system to shutdown when the
+temperature reaches 125°C.
+
+The kernel thermal management uses these trip points to trigger events and
+change the cooling behavior. The following thermal policies (also named thermal
+governors) are available in the kernel:
+
+.. list-table:: Type of thermal governors
+   :header-rows: 1
+
+   * - Governor
+     - Description
+   * - step_wise
+     - Default on most SoCs. Increases/decreases cooling device state step by
+       step as temperature crosses trip points.
+   * - bang_bang
+     - Simple on/off control: turns cooling device fully on above threshold,
+       fully off below.
+   * - user_space
+     - Userspace daemon controls cooling states via sysfs. Kernel only reports
+       temperatures.
+   * - fair_share
+     - Distributes cooling demand proportionally among available cooling
+       devices.
+   * - power_allocator
+     - More advanced: allocates cooling power budget dynamically (uses power
+       models).
+
+.. tm-gpio-fan-marker
