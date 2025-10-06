@@ -370,17 +370,41 @@ Flash SPI NOR Flash
 
 The |som|\ s are optionally equipped with SPI NOR Flash. To boot from SPI
 Flash, set |ref-bootswitch| to **SPI NOR**. The SPI Flash is usually quite small.
-The |kit| only has 32MB SPI NOR flash populated. Only the
-bootloader and the environment can be stored. The kernel, device tree, and file
-system are taken from e.MMC by default.
+The |kit| only has 64MiB SPI NOR flash populated. Only the bootloader and the
+environment can be stored. The kernel, device tree, and file system are taken
+from other boot sources.
 
-The SPI NOR flash partition table is defined in the U-Boot environment. It can
+The SPI NOR flash partition table is defined in the U-Boot device tree. It can
 be printed with:
 
 .. code-block::
 
-   u-boot=> printenv mtdparts
-   mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env:redund),-(none)
+   u-boot=> => mtd list
+   SF: Detected mt35xu512aba with page size 256 Bytes, erase size 4 KiB, total 64 MiB
+   List of MTD devices:
+   * nor0
+     - device: flash@0
+     - parent: spi@fc40000
+     - driver: jedec_spi_nor
+     - path: /bus@f0000/bus@fc00000/spi@fc40000/flash@0
+     - type: NOR flash
+     - block size: 0x1000 bytes
+     - min I/O: 0x1 bytes
+     - 0x000000000000-0x000004000000 : "nor0"
+             - 0x000000000000-0x000000080000 : "ospi.tiboot3"
+             - 0x000000080000-0x000000280000 : "ospi.tispl"
+             - 0x000000280000-0x000000680000 : "ospi.u-boot"
+             - 0x000000680000-0x0000006c0000 : "ospi.env"
+             - 0x0000006c0000-0x000000700000 : "ospi.env.backup"
+
+We have two possibilities for flashing:
+
+*  Flash SPI NOR with a combined binary, which contains all the necessary files
+   (tiboot3.bin, tispl.bin and u-boot.img) on the correct offsets. A whole
+   SPI NOR device in Linux is always marked as first MTD device (e.g.
+   /dev/mtd0) in U-Boot the device is called nor0.
+*  Flash SPI NOR with separate binaries to the corresponding partition. This can
+   be used when only certain bootloader part needs to be updated.
 
 Flash SPI NOR Flash from Network
 ................................
@@ -399,9 +423,8 @@ Flash SPI NOR from Network in kernel on Target
 *  Copy the image from the host to the target:
 
    .. code-block:: console
-      :substitutions:
 
-      host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
+      host:~$ scp ti-boot-container.img root@192.168.3.11:/root
 
 *  Find the number of blocks to erase of the U-boot partition:
 
@@ -409,67 +432,59 @@ Flash SPI NOR from Network in kernel on Target
 
       target:~$ mtdinfo /dev/mtd0
       mtd0
-      Name:                           u-boot
+      Name:                           fc40000.spi.0
       Type:                           nor
-      Eraseblock size:                65536 bytes, 64.0 KiB
-      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Eraseblock size:                131072 bytes, 128.0 KiB
+      Amount of eraseblocks:          512 (67108864 bytes, 64.0 MiB)
       Minimum input/output unit size: 1 byte
       Sub-page size:                  1 byte
       Character device major/minor:   90:0
       Bad blocks are allowed:         false
       Device is writable:             true
 
-*  Erase the U-Boot partition and flash it:
+*  Erase the necessary SPI NOR device/partition and flash it:
 
    .. code-block:: console
-      :substitutions:
 
-      target:~$ flash_erase /dev/mtd0 0x0 60
-      target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+      target:~$ flash_erase /dev/mtd0 0x0 0
+      target:~$ flashcp ti-boot-container.img /dev/mtd0
 
 Flash SPI NOR from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to updating the e.MMC over a network, be sure to set up the development
 host correctly. The IP needs to be set to 192.168.3.10, the netmask to
-255.255.255.0, and a TFTP server needs to be available. Before reading and
-writing is possible, the SPI NOR flash needs to be probed:
-
-.. code-block::
-
-   u-boot=> sf probe
-   SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
+255.255.255.0, and a TFTP server needs to be available.
 
 *  A specially formatted U-Boot image for the SPI NOR flash is used. Ensure you
    use the correct image file. Load the image over tftp, erase and write the
    bootloader to the flash:
 
    .. code-block::
-      :substitutions:
 
-      u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-      u-boot=> sf update ${loadaddr} 0 ${filesize}
-      device 0 offset 0x0, size 0x1c0b20
-      1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
+      u-boot=> tftp ${loadaddr} ti-boot-container.img
+      u-boot=> mtd write nor0 ${loadaddr} 0 ${filesize}
+      SF: Detected mt35xu512aba with page size 256 Bytes, erase size 4 KiB, total 64 MiB
+      Writing 3752323 byte(s) at offset 0x00000000
 
-*  Erase the environment partition as well. This way, the environment can be
+*  Optinaly erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
    .. code-block::
 
-      u-boot=> sf erase 0x400000 0x100000
+      u-boot=> mtd erase ospi.env
+      u-boot=> mtd erase ospi.env.backup
 
 Flash SPI NOR Flash from SD card
 ................................
 
-The bootloader on SPI NOR flash can be also flashed with SD card.
+The bootloader on SPI NOR flash can be also flashed from SD card.
 
 Flash SPI NOR from SD card in kernel on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first
-   partition on the SD card.
+*  Copy the SPI NOR flash U-boot container to the first partition on the SD
+   card.
 
 *  Mount the SD card:
 
@@ -478,44 +493,35 @@ Flash SPI NOR from SD card in kernel on Target
 
       target:~$ mount /dev/mmcblk1p1 /mnt
 
-*  Find the number of blocks to erase of the U-Boot partition:
+*  Find the number of blocks to erase of the SPI NOR:
 
    .. code-block:: console
 
       target:~$ mtdinfo /dev/mtd0
       mtd0
-      Name:                           u-boot
+      Name:                           fc40000.spi.0
       Type:                           nor
-      Eraseblock size:                65536 bytes, 64.0 KiB
-      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Eraseblock size:                131072 bytes, 128.0 KiB
+      Amount of eraseblocks:          512 (67108864 bytes, 64.0 MiB)
       Minimum input/output unit size: 1 byte
       Sub-page size:                  1 byte
       Character device major/minor:   90:0
       Bad blocks are allowed:         false
       Device is writable:             true
 
-*  Erase the u-boot partition and flash it:
+*  Erase the SPI NOR and flash it:
 
    .. code-block:: console
       :substitutions:
 
-      target:~$ flash_erase /dev/mtd0 0x0 60
-      target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+      target:~$ flash_erase /dev/mtd0 0x0 0
+      target:~$ flashcp /mnt/ti-boot-container.img /dev/mtd0
 
 Flash SPI NOR from SD card in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Copy the SPI NOR flash U-boot image
-   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the first
-   partition on the SD card.
-
-*  Before reading and writing are possible, the SPI-NOR flash
-   needs to be probed:
-
-   .. code-block::
-
-      u-boot=> sf probe
-      SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+*  Copy the SPI NOR flash U-boot container to the first partition on the SD
+   card.
 
 *  A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
    use the correct image file. Load the image from the SD card, erase and write
@@ -525,15 +531,16 @@ Flash SPI NOR from SD card in U-Boot on Target
       :substitutions:
 
       u-boot=> mmc dev 1
-      u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
-      u-boot=> sf update ${loadaddr} 0 ${filesize}
+      u-boot=> fatload mmc 1:1 ${loadaddr} ti-boot-container.img
+      u-boot=> mtd write nor0 ${loadaddr} 0 ${filesize}
 
-*  Erase the environment partition as well. This way, the environment can be
+*  Optinaly erase the environment partition as well. This way, the environment can be
    written after booting from SPI NOR flash:
 
    .. code-block::
 
-      u-boot=> sf erase 0x400000 0x100000
+      u-boot=> mtd erase ospi.env
+      u-boot=> mtd erase ospi.env.backup
 
 .. rauc-marker
 
