@@ -234,7 +234,7 @@ select the |som| default bootsource.
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/ti-common/installing-os.rsti
-   :end-before: .. flash-spi-nor-flash-marker
+   :end-before: .. rauc-marker
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
