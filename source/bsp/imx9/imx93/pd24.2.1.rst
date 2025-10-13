@@ -1,9 +1,14 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.1
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
+.. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-sdk| replace:: SDK downloads
 .. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/sdk/ampliphy-vendor/
+.. |dl-sdk-link| replace:: |dl-sdk|_
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.wic.xz
 .. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.partup
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/imx-boot-tools/
@@ -61,6 +66,7 @@
 
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61`
+.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`

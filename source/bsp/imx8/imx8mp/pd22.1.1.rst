@@ -1,9 +1,14 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
+.. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-sdk| replace:: SDK downloads
 .. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/sdk/ampliphy-vendor-xwayland/
+.. |dl-sdk-link| replace:: |dl-sdk|_
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt5demo-image-phyboard-pollux-imx8mp-3.wic
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD22.1.1/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
@@ -59,6 +64,7 @@
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mp-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n41`
+.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`

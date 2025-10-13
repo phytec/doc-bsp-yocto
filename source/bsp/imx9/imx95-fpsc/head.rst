@@ -1,9 +1,14 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX95-ALPHA1
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-95-fpsc/#downloads
+.. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-sdk| replace:: SDK downloads
 .. _dl-sdk: none
+.. |dl-sdk-link| replace:: |dl-sdk|_
 .. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/phytec-qt6demo-image-imx95-libra-fpsc-1.rootfs.wic.xz
 .. |link-partup-package| replace:: none
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/imx-boot-tools/
@@ -63,6 +68,7 @@
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L229`
+.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
