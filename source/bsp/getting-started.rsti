@@ -4,8 +4,8 @@ Getting Started
 The |kit| is shipped with a pre-flashed SD card. It contains the
 |yocto-imagename| and can be used directly as a boot source. The e.MMC is
 programmed with only a U-Boot by default. You can get all sources from the
-`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
-image to SD card and how to start the board.
+|dl-server-link| page. This chapter explains how to flash a BSP image
+to SD card and how to start the board.
 
 There are several ways to flash an image to SD card or even e.MMC. Most notably
 using simple, sequential writing with the Linux command line tool ``dd``. An
@@ -21,8 +21,7 @@ Get the Image
 
 The image contains all necessary files and makes sure partitions and any raw
 data are correctly written. Both the partup package and the WIC image, which can
-be flashed using ``dd``, can be downloaded from the `PHYTEC download server
-<dl-server_>`_.
+be flashed using ``dd``, can be downloaded from our |dl-server-link| page.
 
 Note that you can find different image versions and variants on our download
 server. The images are located on the server by folders per "BSP-Version",

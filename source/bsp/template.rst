@@ -14,10 +14,15 @@
 .. Link to Support->BSP-Download Section for this release on PHYTEC Website
 .. |dlpage-bsp| replace::
 .. _dlpage-bsp:
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. Link to PHYTEC Website Downloads Section for this product
 .. |dlpage-product| replace::
+.. |dl-sdk| replace:: SDK downloads
 .. _dl-sdk:
+.. |dl-sdk-link| replace:: |dl-sdk|_
+.. |dl-server| replace:: BSP downloads
 .. _dl-server:
+.. |dl-server-link| replace:: |dl-server|_
 .. Link to the downloadable image used in this documentation
 .. |link-image| replace::
 .. |link-partup-package| replace::
@@ -73,6 +78,8 @@
 .. |dt-carrierboard| replace::
 .. name of the devicetree file represnting the som without the file ending
 .. |dt-som| replace::
+.. link to the devicetree file and line containing the SOM's ethernet node
+.. |dt-somnetwork-link| replace::
 
 
 .. Yocto
