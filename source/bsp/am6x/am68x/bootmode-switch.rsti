@@ -1,0 +1,13 @@
+.. list-table::
+
+   *  -  .. figure:: images/eMMC_User.png
+
+            eMMC User Partition
+
+   *  -  .. figure:: images/eMMC_Boot.png
+
+            eMMC Boot Partition
+
+   *  -  .. figure:: images/SD_Card_Boot.png
+
+            SD Card

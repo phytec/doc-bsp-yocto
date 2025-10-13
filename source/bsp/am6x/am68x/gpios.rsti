@@ -1,0 +1,42 @@
+GPIOs
+-----
+
+The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
+connected directly to |soc| pins and are muxed as GPIOs. They are directly
+usable in Linux userspace. The processor has organized its GPIOs into two banks,
+one WKUP_GPIO with a maximum of 88 and one MAIN_GPIO with a maximum of 65 pins.
+But due to mixing, not all can be used.
+
+In Linux, the internal GPIO modules are exposed as GPIO controllers, represented
+by gpiochip0 and gpiochip1. These controllers provide access to all available
+GPIOs on the device. On the |sbc|, this corresponds to 155 GPIO lines in total.
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+   .. code-block:: console
+
+      target:~$ gpiodetect
+      gpiochip0 [42110000.gpio] (89 lines)
+      gpiochip1 [600000.gpio] (66 lines)
+
+*  GPIO expander
+
+   Beside the GPIOs of the |soc| SoC, the |sbc| has a GPIO expanders, which add
+   more GPIOs to the system.
+
+   .. code-block:: console
+
+      gpiochip2 [tps6594-gpio] (11 lines)
+      gpiochip3 [pca9672] (8 lines)
+      gpiochip4 [4-0022] (24 lines)
+
+   DT configuration for the GPIO expander can be found here:
+
+   |dt-gpio-expander|
+
+.. include:: /bsp/peripherals/gpios.rsti
+
