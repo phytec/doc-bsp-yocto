@@ -1,0 +1,16 @@
+.. list-table::
+
+   *  -  .. figure:: /bsp/images/dipswitch-8x2-00000000-10001011.svg
+            :scale: 400%
+
+            eMMC User Partition
+
+   *  -  .. figure:: /bsp/images/dipswitch-8x2-00000010-10001011.svg
+            :scale: 400%
+
+            eMMC Boot Partition
+
+   *  -  .. figure:: /bsp/images/dipswitch-8x2-00000000-01000001.svg
+            :scale: 400%
+
+            SD Card
