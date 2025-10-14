@@ -1,32 +1,46 @@
 .. Download links
-.. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.0
-.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
+.. |dlpage-bsp-91| replace:: i.MX 91 BSP
+.. _dlpage-bsp-91: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX91-PD24.2.1
+.. |dlpage-bsp-93| replace:: i.MX 93 BSP
+.. _dlpage-bsp-93: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.2.1
+.. |dlpage-bsp-link| replace:: our |dlpage-bsp-91|_ or |dlpage-bsp-93|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
-.. |dl-server| replace:: BSP downloads
-.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
-.. |dl-server-link| replace:: |dl-server|_
-.. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.0/sdk/ampliphy-vendor-wayland/
-.. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.0/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/
-.. _`static-pdf-dl`: ../../../_static/imx93-pd24.2.0.pdf
+.. |dl-server-91| replace:: i.MX 91
+.. _dl-server-91: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX91/
+.. |dl-server-93| replace:: i.MX 93
+.. _dl-server-93: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
+.. |dl-server-link| replace:: |dl-server-91|_ or |dl-server-93|_ BSP downloads
+.. |dl-sdk-91| replace:: i.MX 91 SDK
+.. _dl-sdk-91: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX91/BSP-Yocto-NXP-i.MX91-PD24.2.1/sdk/ampliphy-vendor/
+.. |dl-sdk-93| replace:: i.MX 93 SDK
+.. _dl-sdk-93: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/sdk/ampliphy-vendor/
+.. |dl-sdk-link| replace:: |dl-sdk-91|_ or |dl-sdk-93|_ downloads
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.rootfs.partup
+.. |link-boot-tools| replace:: for |link-boot-tools-91|_ or for |link-boot-tools-93|_
+.. |link-boot-tools-91| replace:: i.MX 91
+.. _link-boot-tools-91: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX91/BSP-Yocto-NXP-i.MX91-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx91-1/imx-boot-tools/
+.. |link-boot-tools-93| replace:: i.MX 93
+.. _link-boot-tools-93: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.2.1/images/ampliphy-vendor/phyboard-segin-imx93-2/imx-boot-tools/
+.. _`static-pdf-dl`: ../../../_static/imx93-head.pdf
 
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
 
 .. General Substitutions
+.. |doc-id| replace:: L-1069e.Ax
 .. |kit| replace:: **phyBOARD-Segin i.MX 93 and phyBOARD-Nash i.MX 93 Kit**
 .. |kit-ram-size| replace:: 1GiB
-.. |sbc| replace:: phyBOARD-Segin/Nash i.MX 93
-.. |sbc-segin| replace:: phyBOARD-Segin i.MX 93
+.. |sbc| replace:: phyBOARD-Segin/Nash i.MX 91/93
+.. |sbc-segin| replace:: phyBOARD-Segin i.MX 91/93
+.. |sbc-segin-91| replace:: phyBOARD-Segin i.MX 91
+.. |sbc-segin-93| replace:: phyBOARD-Segin i.MX 93
 .. |sbc-nash| replace:: phyBOARD-Nash i.MX 93
 .. |soc| replace:: i.MX 93
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyCORE-|soc|
 .. |debug-uart| replace:: ttyLP0
 .. |serial-uart| replace:: ttyLP6
+.. |bluetooth-uart| replace:: UART5
 .. |expansion-connector| replace:: X16
 
 
@@ -36,7 +50,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: git://github.com/phytec/linux-phytec-imx.git
 .. |kernel-socname| replace:: imx93
-.. |kernel-tag| replace:: v6.6.23-2.0.0-phy8
+.. |kernel-tag| replace:: v6.6.52-2.2.0-phy9
 .. |emmcdev| replace:: mmcblk0
 
 .. Bootloader
@@ -45,9 +59,9 @@
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-defconfig| replace:: imx93-phycore_defconfig
-.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phycore_defconfig``
+.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phycore_defconfig`` or ``imx91-phycore_defconfig``
 .. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb``
-.. |u-boot-imx-mkimage-tag| replace:: lf-6.6.23-2.0.0
+.. |u-boot-imx-mkimage-tag| replace:: lf-6.6.52-2.2.0
 .. |u-boot-soc-name| replace:: iMX9
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-imx
@@ -55,59 +69,75 @@
 
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
-.. |u-boot-tag| replace:: v2024.04-2.0.0-phy6
+.. |u-boot-tag| replace:: v2024.04-2.2.0-phy9
 
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
 .. |dt-som| replace:: imx93-phycore-som
 .. |dtbo-rpmsg| replace:: ``imx93-phycore-rpmsg.dtbo``
+.. |dtbo-npu| replace:: ``imx93-phycore-npu.dtbo``
 
 .. IMX93 specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61`
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
+.. |dt-somnet-91| replace:: phyCORE i.MX 91
+.. _dt-somnet-91: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L56
+.. |dt-somnet-93| replace:: phyCORE i.MX 93
+.. _dt-somnet-93: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61
+.. |dt-somnetwork-link| replace:: for |dt-somnet-91|_ or |dt-somnet-93|_
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
+.. use imx93 as default BSP name
 .. |yocto-bsp-name| replace:: BSP-Yocto-i.MX93
-.. _yocto-bsp-name: `dl-server`_
+.. _yocto-bsp-name: `dl-server-93`_
 .. |yocto-codename| replace:: scarthgap
-.. |yocto-distro| replace:: ampliphy-vendor-wayland
+.. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic.xz
+.. use imx93 as default machinename
 .. |yocto-machinename| replace:: phyboard-segin-imx93-2
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.0
+.. use imx93 manifest as default manifestname
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.y
+.. and define explicitly imx91 and imx93 manifestname for more specific cases
+.. |yocto-manifestname-91| replace:: BSP-Yocto-NXP-i.MX91-PD24.2.y
+.. |yocto-manifestname-93| replace:: BSP-Yocto-NXP-i.MX93-PD24.2.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
-.. |yocto-sdk-rev| replace:: 5.0
+.. |yocto-sdk-rev| replace:: 5.0.x
 .. |yocto-sdk-a-core| replace:: cortexa55
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-PD24.2.0-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-PD24.2.0-images>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-head-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-head-images>`
 .. |ref-debugusbconnector| replace:: UART1 console on PEB-EVAL-01 for **phyBOARD-Segin** and X-37
    USB-C debug for **phyBOARD-Nash**
-.. |ref-dt| replace:: :ref:`device tree <imx93-PD24.2.0-device-tree>`
-.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx93-PD24.2.0-supported-hardware>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx93-PD24.2.0-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx93-PD24.2.0-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-PD24.2.0-development>`
-.. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-PD24.2.0-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx93-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx93-head-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx93-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx93-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-head-components>`
 
 
 .. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
-   on the |sbc| can be found here:
-   :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L114` or here:
-   :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L83`.
+   can be found here: for |dt-sbcnet-91-segin|_ or |dt-sbcnet-93-segin|_ or |dt-sbcnet-93-nash|_
+.. |dt-sbcnet-91-segin| replace:: phyBOARD-Segin i.MX 91
+.. _dt-sbcnet-91-segin: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L119
+.. |dt-sbcnet-93-segin| replace:: phyBOARD-Segin i.MX 93
+.. _dt-sbcnet-93-segin: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L118
+.. |dt-sbcnet-93-nash| replace:: phyBOARD-Nash i.MX 93
+.. _dt-sbcnet-93-nash: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L87
+
+
 
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx93-PD24.2.0-ubootexternalenv>`
+   :ref:`device tree overlay section <imx93-head-ubootexternalenv>`
 
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
-.. |ref-m-core-connections| replace:: :ref:`X16 <imx93-PD24.2.0-components>`
+.. |ref-m-core-connections| replace:: :ref:`X16 <imx93-head-components>`
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
@@ -115,39 +145,46 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |soc| BSP Manual                             |
-+-----------------------+----------------------+
-| Document Title        | |soc| BSP Manual     |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Yocto Manual          | Scarthgap            |
-+-----------------------+----------------------+
-| Release Date          | 2024/10/08           |
-+-----------------------+----------------------+
-| Is Branch of          | |soc| BSP Manual     |
-+-----------------------+----------------------+
++----------------------+----------------------+
+| |doc-id| |soc| BSP                          |
+| Manual Head                                 |
++----------------------+----------------------+
+| Document Title       | |doc-id| |soc| BSP   |
+|                      | Manual Head          |
++----------------------+----------------------+
+| Document Type        | BSP Manual           |
++----------------------+----------------------+
+| Article Number       | |doc-id|             |
++----------------------+----------------------+
+| Yocto Manual         |                      |
++----------------------+----------------------+
+| Release Date         | XXXX/XX/XX           |
++----------------------+----------------------+
+| Is Branch of         | |doc-id| |soc| BSP   |
+|                      | Manual Head          |
++----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ================ ==========
-Compatible BSPs      BSP Release Type BSP Release Date BSP Status
+======================= ================ ================ ==========
+Compatible BSPs         BSP Release Type BSP Release Date BSP Status
 
-==================== ================ ================ ==========
-|yocto-manifestname| Major            2024/10/08       Released
-==================== ================ ================ ==========
+======================= ================ ================ ==========
+|yocto-manifestname-91| Head             ----/--/--       Development
+|yocto-manifestname-93| Head             ----/--/--       Development
+======================= ================ ================ ==========
 
 
 .. include:: ../../intro.rsti
 
-.. _imx93-PD24.2.0-supported-hardware:
+.. _imx93-head-supported-hardware:
 
 Supported Hardware
 ------------------
 
 On our web page, you can see all supported Machines with the available Article
-Numbers for this release: |yocto-manifestname|, see `download <dlpage-bsp_>`_.
+Numbers for this release: |yocto-manifestname-91| see `download <dlpage-bsp-91_>`_,
+or |yocto-manifestname-93| see `download <dlpage-bsp-93_>`_.
 
 If you choose a specific **Machine Name** in the section **Supported Machines**,
 you can see which **Article Numbers** are available under this machine and also
@@ -161,14 +198,14 @@ should show you the necessary **Machine Name** for your specific hardware.
    **Console examples in this BSP manual only focus on phyBOARD-Segin i.MX 93.
    Similar commands can also be executed for/on phyBOARD-Nash i.MX 93**
 
-.. _imx93-PD24.2.0-components:
+.. _imx93-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx93-PD24.2.0-getting-started:
+.. _imx93-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -192,13 +229,13 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx93-PD24.2.0-images:
+.. _imx93-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
-*  **bl31-imx93.bin**: ARM Trusted Firmware binary
+*  **bl31-imx93.bin** or **bl31-imx91.bin**: ARM Trusted Firmware binary
 *  **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin,
    lpddr4_imem_1d_v202201.bin,
    lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
@@ -207,25 +244,26 @@ First Start-up
    is bootable.
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx93-phyboard-*.dtb**: Kernel device tree file
-*  **imx93-phy\*.dtbo**: Kernel device tree overlay files
+*  **imx93-phyboard-*.dtb** or **imx91-phyboard-*.dtb**: Kernel device tree file
+*  **imx93-phy\*.dtbo** or **imx91-phy\*.dtbo**: Kernel device tree overlay files
 *  **phytec-\*.tar.gz**: Root file system,
    of bitbake-image that was built.
 
-   * **phytec-qt6demo-image-phyboard-*-imx93-*.tar.gz**: when bitbake-build
+   * **phytec-qt6demo-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
      was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx93-*.tar.gz**: when bitbake-build
+   * **phytec-headless-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
      was processed for ``phytec-headless-image``
 *  **phytec-\*.rootfs.wic.xz**: Compressed bootable SD
    card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
    and Root file system.
 
-   * **phytec-qt6demo-image-phyboard-*-imx93-*.rootfs.wic.xz**: when
+   * **phytec-qt6demo-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
      bitbake-build was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx93-*.rootfs.wic.xz**: when
+   * **phytec-headless-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
      bitbake-build was processed for ``phytec-headless-image``
 *  **imx93-11x11-evk_m33_\*.bin**, binaries of demo applications for the
-   Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux
+   Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux;
+   are not part of builds for i.MX 91;
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
@@ -242,12 +280,12 @@ Bootmode Switch (S3)
    Hardware revision baseboard:
 
    *  |sbc-segin|: 1472.5
-   *  |sbc-nash|: 1616.0, 1616.1
+   *  |sbc-nash|: 1616.0, 1616.1, 1616.2
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx93-PD24.2.0-bootswitch:
+.. _imx93-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: ../installing-os.rsti
@@ -256,7 +294,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx93-PD24.2.0-development:
+.. _imx93-head-development:
 
 Development
 ===========
@@ -389,6 +427,7 @@ Execute and power up the board:
    without requiring any modifications.
 
 .. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
+
 .. include:: ../../imx-common/development/standalone_build_kernel.rsti
 
 .. include:: ../../imx-common/development/format_sd-card.rsti
@@ -414,7 +453,7 @@ by default. To enable the JTAG interface, please add this overlay to your
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx93-PD24.2.0-device-tree:
+.. _imx93-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 ::
@@ -422,9 +461,20 @@ by default. To enable the JTAG interface, please add this overlay to your
    imx93-phyboard-segin-peb-av-02.dtbo
    imx93-phyboard-segin-peb-eval-01.dtbo
    imx93-phyboard-segin-peb-wlbt-05.dtbo
+   imx93-phycore-npu.dtbo
    imx93-phycore-rpmsg.dtbo
-   imx93-phycore-no-emmc.dtbo
-   imx93-phycore-no-eth.dtbo
+   imx91-imx93-phycore-no-emmc.dtbo
+   imx91-imx93-phycore-no-eth.dtbo
+
+Available overlays for phyboard-segin-imx91-1.conf are:
+
+::
+
+   imx91-phyboard-segin-peb-av-02.dtbo
+   imx91-phyboard-segin-peb-eval-01.dtbo
+   imx91-phyboard-segin-peb-wlbt-05.dtbo
+   imx91-imx93-phycore-no-emmc.dtbo
+   imx91-imx93-phycore-no-eth.dtbo
 
 Available overlays for phyboard-nash-imx93-1.conf are:
 
@@ -432,13 +482,15 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 
    imx93-phyboard-nash-jtag.dtbo
    imx93-phyboard-nash-peb-av-10.dtbo
+   imx93-phyboard-nash-peb-wlbt-07.dtbo
    imx93-phyboard-nash-pwm-fan.dtbo
    imx93-phyboard-nash-vm016.dtbo
+   imx93-phycore-npu.dtbo
    imx93-phycore-rpmsg.dtbo
-   imx93-phycore-no-emmc.dtbo
-   imx93-phycore-no-eth.dtbo
+   imx91-imx93-phycore-no-emmc.dtbo
+   imx91-imx93-phycore-no-eth.dtbo
 
-.. _imx93-PD24.2.0-ubootexternalenv:
+.. _imx93-head-ubootexternalenv:
 .. include:: ../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -470,9 +522,9 @@ resistors are activated or not. In this case, the internal pull up is
 activated.
 
 The device tree representation for UART1 pinmuxing:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L259`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L263`
 
-.. _imx93-PD24.2.0-network:
+.. _imx93-head-network:
 
 Ethernet
 --------
@@ -491,67 +543,27 @@ Ethernet
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
-WLAN/Bluetooth
---------------
-
-.. note::
-   For now, only |sbc-segin| supports WLAN/Bluetooth features. WLAN/Bluetooth is
-   thus not supported on |sbc-nash| yet.
-
-WLAN and Bluetooth on the |sbc-segin| are provided by the PEB-WLBT-05 expansion
-card.
-The PEB-WLBT-05 for |sbc-segin| Quickstart Guide shows you how to install the
-PEB-WLBT-05.
-
-.. tip::
-
-   With the BSP Version PD24.2.0 and newer, the PEB-WLBT-05 overlay needs to be activated first,
-   otherwise the PEB-WLBT-05 won't be recognized.
-
-   .. code-block:: console
-
-      target:~$ vi /boot/bootenv.txt
-
-   Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
-   overlays!):
-
-   .. code-block::
-
-      overlays=imx93-phyboard-segin-peb-wlbt-05.dtbo
-
-   The changes will be applied after a reboot:
-
-   .. code-block:: console
-
-      target:~$ reboot
-
-   For further information about devicetree overlays, read the |ref-dt| chapter.
-
-For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
-module supports 2,4 GHz bandwidth and can be run in several modes, like client
-mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
-information about the module can be found at
-https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
-
-.. note::
-   By default, bluetooth is not supported on |sbc-segin| with PEB-WLBT-05
-   expansion card due to hard-wired connections. However, it is possible to
-   re-work PEB-WLBT-05 card by adjusting solder pads and enabling bluetooth in
-   the software. Please contact your PHYTEC representative for more information.
+.. include:: wireless-network.rsti
 
 .. include:: ../../peripherals/wireless-network.rsti
-   :end-before: .. no-bluetooth-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L213`
-or here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L202`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L209`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L217`
+* for |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L206`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194`
-or here:
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L192`
+* for |sbc-segin-93| or |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L194`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -571,17 +583,23 @@ ADC_IN2        49
 .. include:: ../peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso#L33`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso#L33`
+or :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-eval-01.dtso#L33`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C3 bus configuration (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L88`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L88`
+or :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L82`
 
 General I²C2 bus configuration for |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L155`
-or for imx93-phyboard-nash.dts:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L113`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L151`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L159`
+* for |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L117`
 
 
 EEPROM
@@ -594,14 +612,19 @@ detection.
 .. include:: ../peripherals/eeprom.rsti
 
 DT representation, e.g. in |som| file can be found in our PHYTEC git:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L172`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L172`
+or :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L170`
 
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L173`
-or
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L122`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L169`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L177`
+* for |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L126`
 
 USB Host Controller
 -------------------
@@ -624,9 +647,13 @@ the Kernel documentation under
 Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
 
 DT representation for USB Host:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L193`
-or
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L181`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L188`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L196`
+* for |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L185`
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
@@ -643,7 +670,7 @@ The |sbc-nash| i.MX 93 SoC provides one RS232/RS485 serial port.
 .. include:: /bsp/peripherals/rs485.rsti
 
 The device tree representation for RS232 and RS485:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L174`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L178`
 
 CAN FD
 ------
@@ -655,94 +682,16 @@ with some additional features special to CAN. More information can be found in
 the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-*  Use:
-
-   .. code-block:: console
-
-      target:~$ ip link
-
-   to see the state of the interfaces. The CAN interface should show up as
-   can0.
-
-*  To get information on can0, such as bit rate and error counters, type:
-
-   .. code-block:: console
-
-      target:~$ ip -d -s link show can0
-      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
-         link/can  promiscuity 0  allmulti 0 minmtu 0 maxmtu 0
-         can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
-               bitrate 500000 sample-point 0.875
-               tq 25 prop-seg 37 phase-seg1 32 phase-seg2 10 sjw 1 brp 1
-               flexcan: tseg1 2..96 tseg2 2..32 sjw 1..16 brp 1..1024 brp_inc 1
-               flexcan: dtseg1 2..39 dtseg2 2..8 dsjw 1..4 dbrp 1..1024 dbrp_inc 1
-               clock 40000000
-               re-started bus-errors arbit-lost error-warn error-pass bus-off
-               0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus platform parentdev 443a0000.can
-         RX:  bytes packets errors dropped  missed   mcast
-                  0       0      0       0       0       0
-         TX:  bytes packets errors dropped carrier collsns
-                  0       0      0       0       0       0
-
-The output contains a standard set of parameters also shown for Ethernet
-interfaces, so not all of these are necessarily relevant for CAN (for example
-the MAC address). The following output parameters contain useful information:
-
-========== =============================
-can0       Interface Name
-========== =============================
-NOARP	     CAN cannot use ARP protocol
-MTU	     Maximum Transfer Unit
-RX packets Number of Received Packets
-TX packets Number of Transmitted Packets
-RX bytes   Number of Received Bytes
-TX bytes   Number of Transmitted Bytes
-errors...  Bus Error Statistics
-========== =============================
-
-
-The CAN configuration is done in the systemd configuration
-file ``/lib/systemd/network/can0.network``. For a persistent change of (as an
-example, the default bitrates), change the configuration in the BSP
-under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network`` in
-the root filesystem and rebuild the root filesystem.
-
-.. code-block::
-
-   [Match]
-   Name=can0
-
-   [Can]
-   BitRate=500000
-
-The bitrate can also be changed manually, for example, to make use of the
-flexible bitrate:
-
-.. code-block:: console
-
-   target:~$ ip link set can0 down
-   target:~$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
-
-You can send messages with cansend or receive messages with candump:
-
-.. code-block:: console
-
-   target:~$ cansend can0 123#45.67
-   target:~$ candump can0
-
-To generate random CAN traffic for testing purposes, use cangen:
-
-.. code-block:: console
-
-   target:~$ cangen
-
-``cansend --help`` and ``candump --help`` provide help messages for further
-information on options and usage.
+.. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L147`
-or
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L105`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L143`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L151`
+* for |sbc-nash|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L109`
 
 Audio on |sbc-segin|
 --------------------
@@ -790,7 +739,11 @@ as the default input source.
    capture operations.
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62`
+
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts#L62`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L62`
 
 Audio on |sbc-nash|
 -------------------
@@ -811,7 +764,7 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso#L56`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso#L56`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -822,10 +775,14 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 The device tree of PEB-AV-02 can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso`
 
-The device tree of PEB-AV-10 can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso`
+* for |sbc-segin-91|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-02.dtso`
+* for |sbc-segin-93|:
+  :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso`
+
+The device tree of PEB-AV-10 for |sbc-nash| can be found here:
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-av-10.dtso`
 
 .. include:: peripherals/pm.rsti
 
@@ -839,13 +796,19 @@ The device tree of PEB-AV-10 can be found here:
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-.. include:: /bsp/imx9/imx93/peripherals/tpm.rsti
+.. include:: /bsp/imx9/imx91_imx93/peripherals/tpm.rsti
 
 Device tree TPM configuration can be found here:
-:linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L151`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L161`
 
 .. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
+.. i.MX 93 M33 Core
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti
+
+.. +---------------------------------------------------------------------------+
+.. i.MX 93 NPU
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/imx9/imx91_imx93/peripherals/npu.rsti
