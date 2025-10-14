@@ -287,7 +287,7 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx9/imx93/head',
+        'bsp/imx9/imx91_imx93/head',
         'imx93-head.tex',
         'phyCORE-i.MX 93 BSP Manual DRAFT',
         'PHYTEC Messtechnik GmbH',
@@ -295,7 +295,7 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx9/imx93/pd24.1.0',
+        'bsp/imx9/imx91_imx93/pd24.1.0',
         'imx93-pd24.1.0.tex',
         'phyCORE-i.MX 93 BSP Manual PD24.1.0',
         'PHYTEC Messtechnik GmbH',
@@ -303,7 +303,7 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx9/imx93/pd24.1.1',
+        'bsp/imx9/imx91_imx93/pd24.1.1',
         'imx93-pd24.1.1.tex',
         'phyCORE-i.MX 93 BSP Manual PD24.1.1',
         'PHYTEC Messtechnik GmbH',
@@ -311,7 +311,7 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx9/imx93/pd24.2.0',
+        'bsp/imx9/imx91_imx93/pd24.2.0',
         'imx93-pd24.2.0.tex',
         'phyCORE-i.MX 93 BSP Manual PD24.2.0',
         'PHYTEC Messtechnik GmbH',
@@ -319,7 +319,7 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx9/imx93/pd24.2.1',
+        'bsp/imx9/imx91_imx93/pd24.2.1',
         'imx93-pd24.2.1.tex',
         'phyCORE-i.MX 93 BSP Manual PD24.2.1',
         'PHYTEC Messtechnik GmbH',
