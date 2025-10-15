@@ -34,13 +34,22 @@
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-    color: var(--teal4);
+    color: var(--teal3);
 
     /* Improves the appearance of uppercase text */
     letter-spacing: 0.75px;
 }
 
+.wy-menu a:hover {
+    color: var(--white);
+}
+
 .wy-side-nav-search,
 .wy-nav-top {
     background-color: var(--teal4);
+}
+
+.rst-versions .rst-current-version {
+    color: var(--teal3);
+    font-weight: bold;
 }
