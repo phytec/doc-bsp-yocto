@@ -32,6 +32,18 @@
     --yellow: #f1bf00;
 }
 
+a {
+    color: var(--teal3);
+}
+
+a:hover {
+    color: var(--teal2);
+}
+
+a:visited {
+    color: var(--purple);
+}
+
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
     color: var(--teal3);
