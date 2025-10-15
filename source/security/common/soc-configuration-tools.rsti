@@ -1,43 +1,44 @@
-SoC specific configuration tools
+SoC Specific Configuration Tools
 ================================
 
-In this chapter are tools, which can use for a better configuration of features
-for your SoM. Mostly you can use the bootloader commands, but the parameters
-and addresses differs between the versions.
+This chapter gives an overview of tools, which can be used for a better
+configuration of features of your SoM. Mostly, you can use the bootloader
+commands, but the parameters and addresses differ between versions.
 
-NXP UUU (Universal Update Utility) -Tool
+NXP Universal Update Utility (UUU)
 ----------------------------------------
 
-The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
-on the host to load and run the bootloader on the board through SDP
-(Serial Download Protocol). For detailed information visit
-`<https://github.com/nxp-imx/mfgtools>`_ or download the
-`Official UUU-tool documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+The Universal Update Utility (UUU) from NXP is a program to be executed on
+the host to load and run the bootloader onto the board through SDP (Serial
+Download Protocol). For detailed information visit
+`<https://github.com/nxp-imx/mfgtools>`_ or download the `Official UUU-tool
+documentation
+<https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
 
-More information and examples you can found in the SoC specific manuals.
+More information and examples can be found in the SoC specific manuals.
 
-Snagboot recover and reflashing tool
+Snagboot Recover and Reflashing Tool
 ------------------------------------
 
 An alternative to the NXP UUU tool is
 `snagboot <https://github.com/bootlin/snagboot>`_, which supports TI k3, STM32
 and NXP SoC's.
 
-partup - the system initialization program
+partup - the System Initialization Program
 ------------------------------------------
 
-The `partup <https://github.com/phytec/partup>`_ is the PHYTEC default program
-for partitioning and image installation on an embedded device.
-The partup image is created in the yocto build and is smaller as an wic image.
+`partup <https://github.com/phytec/partup>`_ is the PHYTEC default program for
+partitioning and image installation on an embedded device. The partup package is
+created in the Yocto build and is smaller than a wic image.
 
-NXP i.MX6 and i.MX8M MNP eFuse tool crucible
+NXP i.MX6 and i.MX8M MNP eFuse Tool Crucible
 --------------------------------------------
 
-You can use the tool `crucible <https://github.com/usbarmory/crucible>`_ to
-burn eFuses from kernel userspace. The tool is go based and is integrated in
-our *phytec-provisioning-image*.
+You can use the tool `crucible <https://github.com/usbarmory/crucible>`_ to burn
+eFuses from kernel userspace. The tool is Go based and is integrated in our
+*phytec-provisioning-image*.
 
-e.g. to burn the SRK hash for the i.MX8MP:
+It can be used to e.g. burn the SRK hash for the i.MX8MP:
 
 .. code-block:: bash
 
@@ -54,16 +55,16 @@ e.g. to burn the SRK hash for the i.MX8MP:
       fi
    done
 
-To burn the SRK hash to an other SoC, then replace IMX8MP with an other
-supported SoC. The supported SoC you can found
+To burn the SRK hash to an other SoC, just replace ``IMX8MP`` with another
+supported SoC identifier. The supported SoCs can be found on
 `<https://github.com/usbarmory/crucible/tree/master/cmd/crucible/fusemaps>`_.
 
-NXP i.MX9 EdgeLock Enclave (ELE) tools
+NXP i.MX9 EdgeLock Enclave (ELE) Tools
 --------------------------------------
 
-NXP provided the `Secure Provisioning SDK (SPSDK)
+NXP provides the `Secure Provisioning SDK (SPSDK)
 <https://github.com/nxp-mcuxpresso/spsdk/tree/master>`_.
-You can install as python package on you host:
+You can install it as a Python package on your host:
 
 .. code-block:: console
 
@@ -73,7 +74,8 @@ You can install as python package on you host:
    host:~$ pip install spsdk
    host:~$ spsdk --help
 
-The following presteps
+The following preparatory steps are necessary for the ``nxpele`` tool to work in
+the uboot_serial mode:
 
 * use the bootloader with CONFIG_AHAB_BOOT=y and CONFIG_CMD_MEMORY=y support
   (provisioning variant)
@@ -82,10 +84,8 @@ The following presteps
 * stop and login to the bootloader
 * close your serial connection
 
-Then you can use the nxpele tool in the uboot_serial mode to communicate and to
-configure the EdgeLock Enclave.
-
-The following preparatory steps are necessary:
+Then you can use the ``nxpele`` tool to communicate with and to configure the
+EdgeLock Enclave:
 
 .. code-block:: console
 
@@ -146,24 +146,25 @@ The following preparatory steps are necessary:
 TPM Infineon Firmware Update Tool
 ---------------------------------
 
-On PHYTEC Boards are TPMs from Infineon and this chapter describe an firmware
-update for this devices.
+On PHYTEC Boards there are usually TPMs from Infineon embedded and this chapter
+describes the firmware update process for these devices.
 
-At first you need access to the myInfineon Collaboration Platform (ICP) for
+At first, you need access to the myInfineon Collaboration Platform (ICP) for
 downloading the
+
 * `TPM SLB 96xx Update Tool <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SLB%2096xx%20Update%20Tool%20only>`_
 * `Firmware for the TPM 2.0 from Infineon <https://myicp.infineon.com/sites/trusted_computing-downloads/SitePages/default.aspx?RootFolder=%2Fsites%2Ftrusted%5Fcomputing%2Ddownloads%2FLists%2Fdefaultdoclib%2FTPM%20SPI%20SLB%209670%20Documents%20and%20Tools>`_
 
 For the registration on the myInfineon please follow the
 `ICP Guide <https://www.infineon.com/dgdl/Infineon-MyICP_Guide_registration_for_customers-ATI-v01_00-EN.pdf?fileId=5546d462696dbf120169b4cb500c4b34>`_.
 If you have access to the ICP, then login on `<https://mycases.infineon.com/>`_
-and "Create new case" to request access to the Update Tool and the Firmware for
+and "Create new case" to request access to the update tool and the firmware for
 your device.
 
 If your case is accepted, then you can download the
-TPM_FU_v2.03.4733.00_ToolsOnly_Linux_SourceCode.tar.gz or newer on.
-For the installation of the TPM update tool in your image you need an
-recipe with name *recipes-devtools/infineon/infineon-tpm-updater_v2.03.4733.bb*
+``TPM_FU_v2.03.4733.00_ToolsOnly_Linux_SourceCode.tar.gz`` or newer.
+For the installation of the TPM update tool in your image, you need a
+recipe with the name *recipes-devtools/infineon/infineon-tpm-updater_v2.03.4733.bb*
 
 .. code-block:: bash
 
@@ -203,7 +204,7 @@ recipe with name *recipes-devtools/infineon/infineon-tpm-updater_v2.03.4733.bb*
    INSANE_SKIP:${PN} += "already-stripped"
    FILES:${PN} += "{sbindir}"
 
-After that you can include the infineon-tpm-updater in your image recipe, build
+After that, you can include the ``infineon-tpm-updater`` in your image recipe, build
 your image, install and boot it.
 
 .. warning::
@@ -215,8 +216,8 @@ your image, install and boot it.
    the TPM family has been changed with the update.)
 
 
-The configuration of the TPM should not changed by the firmware update.
-The generated keys with keyctl and pkcs11 should be available after the update
+The configuration of the TPM should not be changed by the firmware update.
+The generated keys with ``keyctl`` and ``pkcs11`` should be available after the update
 of the firmware.
 
 * Read the TPM information on the device:
