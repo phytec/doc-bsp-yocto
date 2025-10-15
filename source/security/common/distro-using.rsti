@@ -21,8 +21,7 @@ The |image-secure-name|.rootfs.wic or |image-secure-name|.rootfs.partup
 can boot only from an eMMC!
 
 For devices based on the TI K3 controller (AM6 series) the ``MACHINE`` variable
-in the ``$BUILDDIR/conf/local.conf``
-should be set to HS-SE machine variant.
+in the ``$BUILDDIR/conf/local.conf`` needs be set to HS-SE machine variant.
 
 Distro |distro-provisioning| and |distro-provisioning-vendor|
 -------------------------------------------------------------
@@ -37,17 +36,16 @@ Kernel with a minimal initramfs to
    * initialize the secure key storage on the device
    * initialize the secure storage on the device
 
-For devices based on the TI K3 controller (AM6 series) use the distro ampliphy
-and build the phytec-headless-image to boot
-from sd-card. The ``MACHINE`` variable in the ``$BUILDDIR/conf/local.conf``
-should be set to the HS-SE machine variant.
+For devices based on the TI K3 controller (AM6 series) it is sufficient to build
+the phytec-headless-image to boot from SD card. The ``MACHINE`` variable in the
+``$BUILDDIR/conf/local.conf`` needs to be set to the HS-SE machine variant.
 
-The different machines for TI K3 controller
+The Different Machines for TI K3 Controller
 -------------------------------------------
 
 The HS-SE machine variant is the machine with secure boot enabled, so it will be
 built with signed bootloaders.
-For the TI K3 controller exist different machines for
+For the TI K3 controller, different machines exist for
 
    * General Purpose (GP): The device is not capable of secure operation
    * High Secure - Field Securable (HS-FS): is the state of a K3 device before
@@ -67,20 +65,19 @@ For the TI K3 controller exist different machines for
 | phyCORE-AM68x  | phyboard-izar-am68x-3     | phyboard-izar-am68x-4     |
 +----------------+---------------------------+---------------------------+
 
-For NXP controller based boards do not exists different machines for devices
-with activated and not activated
-Secure boot, because signed images can be booted independence of the device
-state.
+For NXP-controller-based boards, no different machines exist for devices with
+activated and not activated secure boot, because signed images can be booted
+independent of the device state.
 
-Enable |branding-name| Features in your own Distro
+Enable |branding-name| Features in Custom Distro
 --------------------------------------------------
 
-Activate the following DISTRO_FEATURES in your distribution
+Activate the following ``DISTRO_FEATURES`` in your distribution
 
 +-----------------+----------------------------------------------------------------+
 | DISTRO_FEATURES | Description                                                    |
 +=================+================================================================+
-| secureboot      | for building a signed bootloader and kernel FIT-Image          |
+| secureboot      | for building a signed bootloader and kernel FIT-image          |
 +-----------------+----------------------------------------------------------------+
 | securestorage   || All necessary tools and configurations for file encryption and|
 |                 || integrity initialization on the board                         |
