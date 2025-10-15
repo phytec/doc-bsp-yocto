@@ -49,6 +49,11 @@
     background-color: var(--teal4);
 }
 
+.wy-side-nav-search input[type="text"] {
+    border-color: transparent;
+    background-clip: padding-box;
+}
+
 .rst-versions .rst-current-version {
     color: var(--teal3);
     font-weight: bold;
