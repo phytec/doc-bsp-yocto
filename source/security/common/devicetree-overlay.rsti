@@ -1,8 +1,8 @@
 Device Tree Overlay and Secure Boot
 ===================================
 
-Device Tree overlays are device tree fragments that can be merged into a
-device tree during boot time. These are for example hardware descriptions of
+Device Tree Overlays are device tree fragments that can be merged into a
+Device Tree during boot time. These are for example hardware descriptions of
 an expansion board. They are instead of being added to the device tree as an
 extra include, now applied as an overlay. They also may only contain setting a
 node's status depending on whether it is mounted or not.
@@ -14,45 +14,45 @@ Device Tree Overlay for i.MX6UL and i.MX6
    The Device Tree Overlay support is generally deactivated and not supported
    for i.MX6UL and i.MX6 with Secure Boot in the security distro and image
 
-   The new ADIN1300 Ethernet PHY is supported in the standard BSP as
-   devicetree overlay for the phyBOARD-Mira and phyBOARD-Nunki.
-   In the security distro and image, a new device tree is created with the
-   FIT-image recipes in the ``sources/meta-ampliphy/recipes-images/fitimages/``
-   and the fdtapply mechanism from
-   the source/meta-phytec/classes/fitimage.bbclass.
-   More information in the chapter Linux Kernel in the FIT-Image
-   In the barebox is an Ethernet PHY detection, which boots the correct
+   The new ADIN1300 Ethernet PHY is supported in the standard BSP as devicetree
+   overlay for the phyBOARD-Mira and phyBOARD-Nunki. In the security distro and
+   image, a new device tree is created with the FIT-image recipes in the
+   ``sources/meta-ampliphy/recipes-images/fitimages/`` and the fdtapply
+   mechanism from the ``source/meta-phytec/classes/fitimage.bbclass``. More
+   information can be found in FIT-image section in |secure-boot-link|.
+
+   The barebox contains an Ethernet PHY detection, which boots the correct
    configuration from the FIT-image.
 
-Device Tree Overlay for the other NXP source
+Device Tree Overlay for the other NXP SoCs
 --------------------------------------------
 
 Build Time
 ..........
 
-The overlays set in the $KERNEL_DEVICETREE Yocto machine variable will be
-automatically added as a node to the signed FIT-Image.
+The overlays set in the ``KERNEL_DEVICETREE`` Yocto machine variable will be
+automatically added as a node to the signed FIT-image.
 
 .. note::
 
-   Only Device Tree Overlays in the FIT-Image can be used on the device.
+   Only Device Tree Overlays in the FIT-image can be used on the device.
 
 Run Time
 ........
 
-The ${overlays} variable can be either set directly in the U-Boot environment.
-Or be a part of the external bootenv.txt  environment.
+The ``overlays`` variable can be either set directly in the U-Boot environment or
+be a part of the external ``bootenv.txt`` environment.
 
 .. warning::
 
-   Manipulation Risk! The external bootenv.txt is not signed and protected
+   Manipulation Risk! The external ``bootenv.txt`` is not signed and protected
    against manipulation, so overlays can be changed and deleted in the
-   bootenv.txt.
+   ``bootenv.txt``.
 
-The ${overlays} variable loaded from the external environment will always
+The ``overlays`` variable loaded from the external environment will always
 overwrite the value from the environment saved directly in the flash.
-By default, the ${overlays} variable is not set directly in the U-Boot
-environment but comes from the external bootenv.txt environment file.
+By default, the ``overlays`` variable is not set directly in the U-Boot
+environment but comes from the external ``bootenv.txt`` environment file.
 It is also located in the boot partition of the SD card image.
 
 .. note::
@@ -70,10 +70,10 @@ To disable the Device Tree Overlay support set the following variable in
 
    FITIMAGE_NO_DTB_OVERLAYS ?= "true"
 
-All the machine-defined Device Tree Overlays will be added to the FIT-Image.
-If you do not want Device Tree Overlays in the FIT-Image,
+All the machine-defined Device Tree Overlays will be added to the FIT-image.
+If you do not want Device Tree Overlays in the FIT-image,
 please remove fdto in the ``sources/meta-ampliphy/recipes-image/fitimage/phytec-secureboot-ramdisk-fitimage.bb``
-or in your own FIT-Image recipe.
+or in your custom FIT-image recipe.
 
 .. code-block:: bash
 

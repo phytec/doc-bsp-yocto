@@ -1,6 +1,7 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/scarthgap-sec.pdf
 
+.. |secure-boot-link| replace:: :ref:`secure-boot-scarthgap`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-scarthgap`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-scarthgap`
 
@@ -96,6 +97,7 @@ read the correct sections fitting your platform.
 .. include:: common/security-overview.rsti
 
 .. include:: common/distro-using.rsti
+.. _secure-boot-scarthgap:
 .. include:: common/secure-boot.rsti
 .. include:: common/activate-secureboot.rsti
 .. include:: common/kernel-module-signing.rsti
