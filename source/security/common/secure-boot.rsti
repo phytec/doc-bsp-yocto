@@ -15,17 +15,17 @@ highest layer of trustworthiness.
 Boot Process
 ------------
 
-The boot process differs between the SOC and the vendor of the SOC's.
-The main boot process is the following
+The boot process differs between the different vendors of SoCs and even between
+SoCs of the same vendor. The main boot process is the following
 
 .. image:: images/image-verification.png
 
-1. The Trusted ROM-bootloader, which is part of the SOC, verifies the boot
+1. The Trusted ROM-bootloader, which is part of the SoC, verifies the boot
    container (U-boot spl, ATF, firmware, op-tee) with the internal unit
    (**Boot Step 1**)
 
 +-------------------------------------------+--------------------+---------------------+
-| SOC                                       | Unit               | Boot mode           |
+| SoC                                       | Unit               | Boot mode           |
 +===========================================+====================+=====================+
 || NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus || NXP HABV4         || Single: Cortex-A   |
 ||                                          ||                   ||                    |
@@ -37,19 +37,19 @@ The main boot process is the following
 | TI AM62x, AM64x, AM68x                    | R5                 |                     |
 +-------------------------------------------+--------------------+---------------------+
 
-2. u-boot SPL loads u-boot proper from the FIT image and ATF
+2. u-boot SPL loads u-boot proper from the FIT-image and ATF
    (ARM Trusted Firmware) and optionally OP-TEE.
-3. Then, u-boot loads and verifies the FIT image containing a Linux kernel,
+3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel,
    DTB, and ramdisk. (**Boot Step 2**)
 4. If built with signed kernel modules (standard), Linux will only load kernel
-   modules verifies with a kernel compiled in public key
+   modules verified with a kernel compiled-in public key
 
 If you use the DISTRO_FEATURE secureboot or a TI HS-SE machine variant, then
 the bootloader is configured additionally:
 
 1. The bootloader is signed and is used in the images (wic, partup and bmap).
 2. The bootloader boots only signed kernel fitImage after a verification.
-3. The bootloader use only the built-in environment and only loads some
+3. The bootloader uses only the built-in environment and only loads some
    necessary variables for RAUC update mechanism.
 
 Image Signing
@@ -61,30 +61,30 @@ of an image.
 .. image:: images/image-signing.png
 
 1. A Hash is created for the binary file like the boot container, Kernel
-   FIT image, kernel modules, op-tee applications or the rauc update bundle.
-2. A signature is from the hash with a private key.
+   fitImage, kernel modules, op-tee applications or the RAUC update bundle.
+2. A signature is derived from the hash with a private key.
 3. The signature is added to the binary file.
 
 Flattened Image Tree (FIT)
 --------------------------
 
-FIT images are used with Secure Boot as standard format for packing kernel,
-device-tree and optional initramfs. The FIT image are signed in the yocto build
+FIT-images are used with Secure Boot as standard format for packing kernel,
+device-tree and optional initramfs. The FIT-image are signed in the Yocto build
 with a Private Key. The public key is on the target, compiled in the bootloader
 or the NXP HAB keys are used. Documentation about FIT is available in
 the `Flattened Image Tree project <https://fitspec.osfw.foundation/>`_.
 
-There are two different yocto classes for creation of a signed FIT image.
+There are two different Yocto classes for creation of a signed FIT-image.
 
-* PHYTEC *sources/meta-phytec/classes/fitimage.bbclass*
+* PHYTEC ``sources/meta-phytec/classes/fitimage.bbclass``
 
-   * With FIT image recipes you can define more separate FIT images.
-   * Example for FIT image recipes are in ``sources/meta-ampliphy/recipes-images/fitimage/``
-   * To create a own FIT image, you need to specify some variables in the
+   * With FIT-image recipes you can define custom, more refined FIT-images.
+   * Example for FIT-image recipes are in ``sources/meta-ampliphy/recipes-images/fitimage/``
+   * To create custom FIT-image, you need to specify some variables in the
      recipe:
 
       * FITIMAGE_SLOTS: Use this to list all slot classes for which the
-        FIT image should contain images. A value of "kernel fdt fdtapply",
+        FIT-image should contain images. A value of "kernel fdt fdtapply",
         for example, will create a manifest with images for two slot classes -
         kernel and devicetree.
       * FITIMAGE_SLOT_<slotclass>: For each slot class, set this to the image
@@ -101,25 +101,26 @@ There are two different yocto classes for creation of a signed FIT image.
       * FITIMAGE_SLOT_<slotclass>[name]: For slot type fdtapply, set this to
         the final device tree and configuration name.
 
-* poky *sources/poky/meta/classes-recipe/kernel-fitimage.bbclass*
+* Poky ``sources/poky/meta/classes-recipe/kernel-fitimage.bbclass``
 
-   * This is the standard upstream FIT image class in yocto mainly for u-boot,
-     which built one FIT image with initramfs and without initramfs.
+   * This is the standard upstream FIT-image class in Yocto mainly for u-boot,
+     which builts one FIT-image with initramfs and without initramfs.
 
-At first the PHYTEC FIT image class is used to create the FIT images, because
-it supports barebox and u-boot and you can define more separate FIT images.
+Initially, the PHYTEC FIT-image class was used to create the FIT-images, because
+it supports barebox and u-boot and you can define more refined FIT-images.
 Since security has increasingly become an integral part of the SoC
 manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to
 gradually switch to this class, too.
 
-Configuration Class for Signing images
+Configuration Class for Signing Images
 --------------------------------------
 All variables to adjust the bootloader and kernel fitImage signing process can
-be found in the *source/meta-ampliphy/secureboot.bbclass*
+be found in the ``source/meta-ampliphy/secureboot.bbclass``
 
-At first the necessary variables for signing the bootloader for the different
-SOC types. The variable ``BOOTLOADER_SIGN`` is obsolete, because the
-DISTRO_FEATURES secureboot includes the Bootloader signing.
+First of all, the necessary variables for signing the bootloader for the
+different SoC types need to be defined. The variable ``BOOTLOADER_SIGN`` is
+obsolete, because the ``DISTRO_FEATURES="secureboot"`` includes the bootloader
+signing.
 
 .. code-block:: bash
 
@@ -143,13 +144,13 @@ DISTRO_FEATURES secureboot includes the Bootloader signing.
    BOOTLOADER_TI_K3_DEGENERATE_KEY ??= "${CERT_PATH}/ti_k3/keys/ti-degenerate-key.pem"
 
 In the following view you can see the necessary variables for signing with the
-PHYTEC FIT image class. The FITIMAGE_PUBKEY_SIGNATURE_PATH is only important,
-when using the ``FITIMAGE_SIGN_ENGINE="software".`` This means, that the u-boot
-validates the kernel fitImage und use the compiled in public key.
+PHYTEC FIT-image class. The ``FITIMAGE_PUBKEY_SIGNATURE_PATH`` is only important,
+when using the ``FITIMAGE_SIGN_ENGINE="software"``. This means, that the u-boot
+validates the kernel fitImage und uses the compiled-in public key.
 The alternative is that the NXP HAB unit validates the kernel fitImage, then
 the ``FITIMAGE_SIGN_ENGINE="nxphab"`` must be set. This is only possible for
-NXP SOC's with HAB unit and u-boot as bootloader.
-The following configuration are in the *sources/meta-ampliphy/secureboot.bbclass*
+NXP SoCs with HAB unit and u-boot as bootloader.
+The following configuration is part of in the ``sources/meta-ampliphy/secureboot.bbclass``
 
 .. code-block:: bash
 
@@ -172,10 +173,10 @@ The following configuration are in the *sources/meta-ampliphy/secureboot.bbclass
 The signing with the poky kernel-fitimage class needs the following
 configuration in
 
-* machine configuration in *sources/meta-phytec/conf/machine* for the kernel,
+* machine configuration in ``sources/meta-phytec/conf/machine`` for the kernel,
   initrd, device-tree and device-tree overlay ``LOADADDRESS`` and
   ``ENTRYPOINT`` addresses
-* *source/meta-ampliphy/secureboot.bbclass* for the signing key parameter
+* ``source/meta-ampliphy/secureboot.bbclass`` for the signing key parameter
 
    .. code-block:: bash
 
@@ -184,7 +185,7 @@ configuration in
       FIT_SIGN_ALG = "rsa4096"
       FIT_HASH_ALG = "sha256"
 
-* *sources/meta-ampliyphy/conf/distro* file for the ``INITRAMFS_IMAGE``.
+* ``sources/meta-ampliyphy/conf/distro`` file for the ``INITRAMFS_IMAGE``.
 
    * |distro-secure| and |distro-secure-vendor|:
      ``INITRAMFS_IMAGE = "phytec-secureboot-initramfs"``
@@ -192,35 +193,36 @@ configuration in
      ``INITRAMFS_IMAGE = "phytec-provisioning-initramfs"``
 
 
-Building a signed image
+Building a Signed Image
 -----------------------
 
-To build a signed provisioning image for the configuration of the device,
-which can boot from sd-card or Serial Downloader, then the ``DISTRO`` needs to
+To build a signed provisioning image for the configuration of the device
+which can boot from SD card or Serial Downloader, the ``DISTRO`` needs to
 be set to |distro-secure-vendor| or |distro-secure|.
-The main parts for the provisioning-image are the bootloader and the fitImage,
+The main parts for the provisioning-image are the bootloader and the FIT-image,
 which includes an initramfs with all necessary tools.
 
 .. code-block:: console
 
-   # for NXP SOC
+   # for NXP SoC
    host:~$ bitbake phytec-provisioning-image
 
-   # for TI K3 SOC
+   # for TI K3 SoC
    host:~$ bitbake phytec-headless-image
 
-To build the |image-secure-name| for the eMMC or ubifs with rauc update support,
+To build the |image-secure-name| for the eMMC or ubifs with RAUC update support,
 then the ``DISTRO`` needs to be set to |distro-secure-vendor| or
 |distro-secure|.
 
 .. code-block:: console
    :substitutions:
 
-   # for all SOC
+   # for all SoC
    host:~$ bitbake |image-secure-name|
 
 .. note::
-   If you have some boot warnings or errors like  /initrd.image: incomplete
-   write or the kernel boot fails, then please check the size for cma
-   (kernel boot parameter, setting in bootloader). The allocate RAM for cma can
-   be too much, which is import for systems with 256 MByte or 512 Mbyte RAM.
+   If you have some boot warnings or errors like "/initrd.image: incomplete
+   write" or the kernel boot fails, then please check the size for Contiguous
+   Memory Allocation (CMA; kernel boot parameter, setting in bootloader). The
+   allocated RAM for CMA can be too much, which is important for systems with
+   256 MiB or 512 MiB RAM.
