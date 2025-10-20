@@ -9,17 +9,17 @@ for attackers to load malicious or manipulated modules.
 
 This is enforced by the kernel and does not require userland support.
 
-Enable kernel module signing facility
+Enable Kernel Module Signing Facility
 -------------------------------------
 
-To enable the kernel module signing facility, add the following DISTRO_FEATURE
-to your configuration file in *conf/distro/xyz.conf*
+To enable the kernel module signing facility, add the following ``DISTRO_FEATURES``
+to your configuration file in ``conf/distro/xyz.conf``
 
 .. code-block:: bash
 
    DISTRO_FEATURES += "kernelmodsign"
 
 .. warning::
-   By default, the kernel modules will be signed with PHYTEC's public,
-   for example, the development key.
-   Unless you create your own key, this feature does not offer any protection.
+   By default, the kernel modules will be signed with PHYTEC's public
+   development key. Unless you create your custom key, this feature does not
+   offer any protection.
