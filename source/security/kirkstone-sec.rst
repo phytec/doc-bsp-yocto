@@ -1,6 +1,7 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/kirkstone-sec.pdf
 
+.. |secure-boot-link| replace:: :ref:`secure-boot-kirkstone`
 .. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init-kirkstone`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-kirkstone`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-kirkstone`
@@ -79,6 +80,7 @@ read the correct sections fitting your platform.
 .. _kirkstone-security-overview:
 .. include:: common/security-overview.rsti
 .. include:: common/distro-using.rsti
+.. _secure-boot-kirkstone:
 .. include:: common/secure-boot.rsti
 
 Activate Secure Boot on the Device

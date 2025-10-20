@@ -1,6 +1,7 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/head-sec.pdf
 
+.. |secure-boot-link| replace:: :ref:`secure-boot-head`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-head`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-head`
 
@@ -61,6 +62,7 @@ read the correct sections fitting your platform.
 .. include:: common/security-overview.rsti
 
 .. include:: common/distro-using.rsti
+.. _secure-boot-head:
 .. include:: common/secure-boot.rsti
 .. include:: common/activate-secureboot.rsti
 .. include:: common/kernel-module-signing.rsti
