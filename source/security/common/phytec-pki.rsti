@@ -8,8 +8,8 @@ To use a secure boot with a signed bootloader and a signed kernel image,
 several keys and certificates are required to sign the images.
 The key and certificate creation is a manual process and the public key
 infrastructure (PKI) tree must be in place before you start your build.
-This BSP includes the PHYTECD development pki-tree as an example. You are
-obligated to create your own pki-tree with your own keys and certificates.
+This BSP includes the PHYTEC development PKI tree as an example. You are
+obligated to create a custom PKI tree with your own keys and certificates.
 
 .. note::
    It is highly recommended to use different keys for different parts of your
@@ -18,22 +18,22 @@ obligated to create your own pki-tree with your own keys and certificates.
 PHYTEC Development Keys (phytec-dev-ca)
 ---------------------------------------
 
-The included phytec-dev-ca example consists of a self-signed main-ca and three
-derived sub-ca's for bootloader, Fit-Image, and RAUC updates.
+The included phytec-dev-ca example consists of a self-signed main-CA and three
+derived sub-CA's for bootloader, Fit-image, and RAUC updates.
 
 .. image:: images/phytec-pki.png
 
-The recipes for Bootloader, FIT-Image, and RAUC depend on the
+The recipes for bootloader, FIT-image, and RAUC depend on the
 recipe phytec-dev-ca. If you build the BSP for the first time,
 the PHYTEC development keys are downloaded from
 `<https://github.com/phytec/phytec-dev-ca>`_ to yocto/phytec-dev-ca.
-They are used to sign the Bootloader, FIT-Image, Kernel modules, and the RAUC
+They are used to sign the bootloader, FIT-image, Kernel modules, and the RAUC
 bundles.
 
 +--------------------+-------------------------------------------------------+------------+
 | Name               | Description                                           | Key Type   |
 +====================+=======================================================+============+
-| main-ca            | self-signed Certificate authority                     | RSA-4096   |
+| main-ca            | self-signed Certificate Authority                     | RSA-4096   |
 +--------------------+-------------------------------------------------------+------------+
 | nxp_ahab_pki       | NXP HABv4 Key Authority for i.MX93                    | NIST P-521 |
 +--------------------+-------------------------------------------------------+------------+
@@ -42,22 +42,22 @@ bundles.
 +--------------------+-------------------------------------------------------+------------+
 | ti_k3              | TI K3 Key Authority for AM62 / AM64 / AM68            | RSA-4096   |
 +--------------------+-------------------------------------------------------+------------+
-| fit                | Kernel FIT-Image signing key and certificate          | RSA-4096   |
+| fit                | Kernel FIT-image signing key and certificate          | RSA-4096   |
 +--------------------+-------------------------------------------------------+------------+
 || kernel-modsign    || Key for the Linux kernel module signing facility,    || RSA-4096  |
 ||                   || independent of CA                                    ||           |
 +--------------------+-------------------------------------------------------+------------+
-|| rauc-intermediate || RAUC ca (intermediate ca) and                        || RSA-2048  |
-||                   || RAUC ca sign development key for signing the bundles ||           |
+|| rauc-intermediate || RAUC CA (intermediate CA) and                        || RSA-2048  |
+||                   || RAUC CA sign development key for signing the bundles ||           |
 +--------------------+-------------------------------------------------------+------------+
-|| rauc-intermediate || RAUC ca for device certificates to encrypt           || RSA-4096  |
+|| rauc-intermediate || RAUC CA for device certificates to encrypt           || RSA-4096  |
 || -crypt            || update bundles                                       ||           |
 +--------------------+-------------------------------------------------------+------------+
 
-The SOC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot
+The SoC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot
 container files,
-which are verified with the SOC internal unit and SOC rom loader or dedicated
-controllers in the SOC.
+which are verified with the SoC internal unit and SoC rom loader or dedicated
+controllers in the SoC.
 
 All keys and certificates are stored in an XCA database phytec-dev-ca.xdb,
 which can be configured with the open-source application XCA from
@@ -85,7 +85,7 @@ building process.
    * The PHYTEC development keys are not secure!
    * Create and use your own keys and certificates!
 
-Create Your Own PKI Tree
+Create Custom PKI Tree
 ------------------------
 
 Please create your PKI offline with a separate system.
@@ -93,7 +93,7 @@ For example, boot a read-only system from USB which you only use to create
 the PKI. The phytec-dev-ca is created with XCA from
 `<https://hohnstaedt.de/xca/>`_ , but you can use any other tool, too.
 
-Change PKI-Tree from phytec-dev-ca to Your Own PKI
+Change PKI Tree from phytec-dev-ca to Custom PKI
 ..................................................
 
 In the configuration class *sources/meta-ampliphy/classes/secureboot.bbclass*,
@@ -103,15 +103,15 @@ the path to your PKI tree is initially defined:
 
    CERT_PATH ??= "${OEROOT}/../../phytec-dev-ca"
 
-If you want to change the path, then reinit the CERT_PATH ?= in your layer or
-overwrite the CERT_PATH in the conf/local.conf
+If you want to change the path, then reinit the ``CERT_PATH ?=`` in your layer or
+overwrite the ``CERT_PATH`` in the ``conf/local.conf``.
 
 The name of your PKI tree must have a name other than phytec-dev-ca. The recipe
 for phytec-dev-ca uses the name "phytec-dev-ca" as a parameter for the clean
 command.
 
-After the CERT_PATH has been changed, you must clean and rebuild the
-bootloader, FIT-Image, RAUC bundles, and the rootfs!
+After the ``CERT_PATH`` has been changed, you must clean and rebuild the
+bootloader, FIT-image, RAUC bundles, and the rootfs!
 
 Create NXP AHAB / HABV4 Keys
 ----------------------------
@@ -137,7 +137,7 @@ You can install the srktool with
 More information about cst and HAB4 API you can find in the doc folder of
 the imx-code-signing-tool repository.
 
-Create TI K3 keys
+Create TI K3 Keys
 -----------------
 
 Key Types Involved in Secure Boot
@@ -302,7 +302,7 @@ Before we begin programming keys, we need to make changes to the source code.
    This is because there is a pin on the SoC that needs to be set high to write
    keys and a GPIO is on use of the phyCORE-AM68x.
 
-Generating keys
+Generating Keys
 ...............
 
 The keywriter source comes with a tool to help generate your own keys.
@@ -320,7 +320,7 @@ and run
 
 This will create a set of five keys in the ``keys/`` directory.
 
-Alternatively you can copy the PHYTEC dummy keys to this folder,
+Alternatively, you can copy the PHYTEC dummy keys to this folder,
 which you can get from https://github.com/phytec/phytec-dev-ca/tree/main/ti_k3
 
 You can use the keywriter to flash these keys to your hardware
@@ -418,7 +418,7 @@ Starting in
    secure boot
 
    *  keycnt = 1 for only SMPK, keycnt = 2 for using SMPK and BMPK
-   *  keyrev = 1for active SMPK, keyrev = 2 for active BMPK
+   *  keyrev = 1 for active SMPK, keyrev = 2 for active BMPK
 
    .. code-block:: console
       :caption: Activate Secure Boot
@@ -455,7 +455,7 @@ This generates a certificate containing our keys (primary_cert.bin).
 Please note the maximum certificate length limit, which requires incremental
 certificates writing.
 
-Build the keywriter
+Build the Keywriter
 ~~~~~~~~~~~~~~~~~~~
 
 **For the TI AM62x**
@@ -494,22 +494,22 @@ Save it elsewhere so that we can build the other keywriters without overwriting
 this one. Make sure that you keep track of the binaries so that you can flash
 them in the correct order later.
 
-Create Kernel FIT-Image key
+Create Kernel FIT-Image Key
 ---------------------------
 
-You can create the Kernel FIT-Image Key with a PKI Tool or openssl.
+You can create the Kernel FIT-image Key with a PKI tool or openssl.
 
-For the signing of the Kernel FIT-Image the private key is used. The public key
-is build into as device-tree node in the bootloader and used for the FIT-Image
+For the signing of the Kernel FIT-image the private key is used. The public key
+is build into as device-tree node in the bootloader and used for the FIT-image
 verification.
 
 The certificate is not necessary for the signing and verification of the
-FIT-Image.
+FIT-image.
 
-Create Kernel Module Signing key
+Create Kernel Module Signing Key
 --------------------------------
 
-You can create the Key and certificate for kernel module signing with a PKI
+You can create the key and certificate for kernel module signing with a PKI
 tool or openssl. You must combine the private key and the certificate to one
 file.
 
@@ -517,9 +517,9 @@ file.
 
    host:~$ cat private.key certificate.pem > kernel_modsign.pem
 
-Create rauc update certificates
+Create RAUC Update Certificates
 -------------------------------
 
-You can create the Key and certificate for rauc with a PKI tool or openssl.
+You can create the key and certificate for RAUC with a PKI tool or openssl.
 More details on the
-`rauc documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_
+`RAUC documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_
