@@ -64,10 +64,10 @@ Introduction
 ============
 
 PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports different
-Security mechanism. The security features have impact to the bootloader,
+security mechanism. The security features have impact on the bootloader,
 the Linux kernel, Device Tree, and root filesystem.
-This manual describes how Security featuresis used and implemented on various
-PHYTEC platforms. Note, that different modules use different bootloaders and
+This manual describes how security features are used and implemented on various
+PHYTEC platforms. Note that different modules use different bootloaders and
 flash storage devices, which affects the way things are handled. Make sure to
 read the correct sections fitting your platform.
 
@@ -425,7 +425,7 @@ acceleration and assurance engine.
 
 More information about the CAAM module can be found in the corresponding NXP
 reference Manual:
-`i:MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_
+`i.MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_
 
 Prerequisites and Caveats
 .........................
