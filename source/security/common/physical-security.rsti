@@ -1,10 +1,10 @@
-Physical security
+Physical Security
 =================
 
 To further protect your device, it is important to reduce attack vectors.
 Start by securing development features
 like JTAG and serial downloader. For activation or deactivation of controller
-features, is necessary to write and read eFuses.
+features, it is necessary to write and read eFuses.
 
 .. warning::
 
@@ -172,24 +172,12 @@ Disable JTAG Mode
       SoC version:      A100
       Life Cycle:       OEM_LCKD - 0x0200
 
-*  TI k3 with keywriter:
+*  TI K3 with keywriter:
 
-   JTAG can be disabled with the otp-keywriter tool as part of the eFuse field.
-
-   *  AM62x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am62x``,
-   *  AM64x: ``<MCU_PLUS_SDK_DIRECTORY>/source/security/sbl_keywriter/scripts/cert_gen/am64x``,
-   *  AM68x: ``<MCU_PLUS_SDK_DIRECTORY>/<PDK_j721s2_DIRECTORY>/packages/ti/boot/keywriter/scripts``,
-
-   here the parameter to create a separate certificate or you add the parameter
-   to the One Shot call
-
-   .. code-block:: console
-      :caption: Disable JTAG
-
-      host:~$  ./gen_keywr_cert.sh -t tifek/ti_fek_public.pem --jtag-disable
-
-   The following steps for creating the certificate and binary are described
-   in the chapter |phytec-pki-link|.
+   JTAG can be disabled with the OTP keywriter tool by using the parameter
+   ``--jtag-disable`` for certificate creation and setting the respective part
+   of the eFuse field. See chapter |phytec-pki-link| for details and further
+   steps.
 
 Disable Serial Downloader
 -------------------------
