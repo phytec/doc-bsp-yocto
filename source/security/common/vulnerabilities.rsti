@@ -9,9 +9,9 @@ Exposures).
 
 The OpenEmbedded Core layer has a cve-check class to check the recipes against
 public CVEs. With this CVE check you get a list of all CVEs for the version of
-the package. Only the CVEs with a Patch with the name of the CVE in the recipe
-or CVEs in a Whitelists can be marked as fixed. There is no code analysis and
-you must start for every check a new yocto build.
+the package. Only the CVEs with a patch with the name of the CVE in the recipe
+or CVEs in a whitelists can be marked as fixed. There is no code analysis and
+you must start a new Yocto build for every check.
 
 CycloneDX SBOM
 --------------
