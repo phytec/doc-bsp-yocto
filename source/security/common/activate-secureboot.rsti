@@ -1,17 +1,17 @@
 Activate Secure Boot on the Device
 ==================================
 
-The final step to activate secure boot on your device is to burn the secure
+The final step to activate Secure Boot on your device is to burn the secure
 eFuse configuration.
 
 .. warning::
 
    The secure eFuse configuration can only be written once and is irreversible!
 
-For Secure Boot only public information is burned to SOCs from NXP and TI.
-When building the yocto-secure distro for the first time, the bootloader image
-is signed with PHYTEC's development keys.
-Yocto stores these development keys to ``yocto/phytec-dev-ca``
+For Secure Boot only public information is burned to SoCs from NXP and TI. When
+building the |distro-secure| or |distro-secure-vendor| distro for the first
+time, the bootloader image is signed with PHYTEC's development keys. Yocto
+stores these development keys to ``yocto/phytec-dev-ca``
 
 .. note::
    Create and use your own keys and certificates for signing your images.
@@ -58,10 +58,10 @@ Active boot output for u-boot
       BOOT_PARTITION_ENABLE: 0x1
       PARTITION_ACCESS: 0x7
 
-Activate Secure Boot for NXP SOC
+Activate Secure Boot for NXP SoC
 --------------------------------
 
-For NXP SOC you can burn the Fuses with u-boot or with the tool crucible in
+For NXP SoCs you can burn the fuses with u-boot or with the tool crucible in
 the kernel userspace.
 The necessary SRK fuses contain the hash value of the SRK public keys.
 They are never used on open devices!
@@ -123,14 +123,14 @@ Check the current state of your device
 Burn the SRK
 ............
 
-   * NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin
+   * on NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin
       to the device with e.g. tftp and burn directly with
 
    .. code-block::
 
       barebox$ hab -p -s SRK_1_2_3_4_fuse.bin
 
-   to check
+   * for checking the result use again
 
    .. code-block::
 
@@ -139,37 +139,37 @@ Burn the SRK
       3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
       devel mode
 
-   * SOC with u-boot you must write every word to the Fuses
+   * on a SoC with u-boot you must write every word to the fuses
 
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-|                                            | NXP i.MX8M Series with HAB                       | NXP i.MX9 series with AHAB                       |
-+============================================+==================================================+==================================================+
-|| ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     || 0000000 baaf5d2c e92e0323 23c0ba08 10e7973f     |
-||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     || 0000020 678de0d5 966d3584 a541dfbe 6ea06dba     |
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-|| burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           || ``u-boot=> fuse prog 16 0 0xbaaf5d2c``          |
-||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           || ``u-boot=> fuse prog 16 1 0xe92e0323``          |
-||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           || ``u-boot=> fuse prog 16 2 0x23c0ba08``          |
-||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           || ``u-boot=> fuse prog 16 3 0x10e7973f``          |
-||                                           ||                                                 ||                                                 |
-||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           || ``u-boot=> fuse prog 16 4 0x678de0d5``          |
-||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           || ``u-boot=> fuse prog 16 5 0x966d3584``          |
-||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
-||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-|| read and check                            || ``u-boot=> fuse read 6 0 4``                    || ``u-boot=> fuse read 16 0 8``                   |
-|| the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
-||                                           || ``u-boot=> fuse read 7 0 4``                    || 0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba |
-||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 ||                                                 |
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-| reset the booard                           | ``u-boot=> reset``                               | ``u-boot=> reset``                               |
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-|| check the state                           || ``u-boot=> hab_status``                         || ``u-boot=> ahab_status``                        |
-||                                           ||                                                 || Lifecycle: 0x00000008, OEM Open                 |
-||                                           || No Events Found!                                || No Events Found!                                |
-+--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   |                                            | NXP i.MX8M Series with HAB                       | NXP i.MX9 series with AHAB                       |
+   +============================================+==================================================+==================================================+
+   || ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     || 0000000 baaf5d2c e92e0323 23c0ba08 10e7973f     |
+   ||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     || 0000020 678de0d5 966d3584 a541dfbe 6ea06dba     |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   || burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           || ``u-boot=> fuse prog 16 0 0xbaaf5d2c``          |
+   ||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           || ``u-boot=> fuse prog 16 1 0xe92e0323``          |
+   ||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           || ``u-boot=> fuse prog 16 2 0x23c0ba08``          |
+   ||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           || ``u-boot=> fuse prog 16 3 0x10e7973f``          |
+   ||                                           ||                                                 ||                                                 |
+   ||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           || ``u-boot=> fuse prog 16 4 0x678de0d5``          |
+   ||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           || ``u-boot=> fuse prog 16 5 0x966d3584``          |
+   ||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
+   ||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   || read and check                            || ``u-boot=> fuse read 6 0 4``                    || ``u-boot=> fuse read 16 0 8``                   |
+   || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
+   ||                                           || ``u-boot=> fuse read 7 0 4``                    || 0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba |
+   ||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 ||                                                 |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   | reset the booard                           | ``u-boot=> reset``                               | ``u-boot=> reset``                               |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   || check the state                           || ``u-boot=> hab_status``                         || ``u-boot=> ahab_status``                        |
+   ||                                           ||                                                 || Lifecycle: 0x00000008, OEM Open                 |
+   ||                                           || No Events Found!                                || No Events Found!                                |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
 
-Lock the device
+Lock the Device
 ...............
 
 .. warning::
@@ -189,7 +189,7 @@ Lock the device
 
 The device is directly locked and the SRK is write protected, too.
 
-* SOC with u-boot:
+* SoC with u-boot:
 
 +---------------------------+---------------------------------------+------------------------------------+
 |                           | NXP i.MX8M Series with HAB            | NXP i.MX9 series with AHAB         |
@@ -207,17 +207,17 @@ The device is directly locked and the SRK is write protected, too.
 +---------------------------+---------------------------------------+------------------------------------+
 
 
-Activate Secure Boot for TI K3 SOC
+Activate Secure Boot for TI K3 SoC
 ----------------------------------
 
-You can only burn the Fuses with the OTP-Keywriter, which you have create in
+You can only burn the fuses with the OTP-Keywriter, which you have create in
 the chapter |phytec-pki-link|
-You burn the public key in the SOC. You can override the keys, if you use the
+You burn the public key in the SoC. You can override the keys, if you use the
 incremental approach. If the KEYREV value is set to either 1 or 2, then the
 device is a HS-SE device with active Secure boot. After that you can not write
 any certificates with the keywriter tool.
 
-Check the state of your device
+Check the State of your Device
 ..............................
 
 When UART boot mode is selected, boot ROM reports the SoC ID via UART, for
@@ -244,7 +244,7 @@ HS-SE after key programming.
 
 2. Open your serial terminal on ``/dev/ttyUSB0``
 3. Power up your board
-4. Copy the entire string up until "CCC" (ping characters) and Paste the string
+4. Copy the entire string up until "CCC" (ping characters) and paste the string
    in ``<MCU_PLUS_SDK_INSTALL_DIR>/source/security/sbl_keywriter/tools/socid.txt``
    (For AM68x please download the otp_keywriter from AM62 to use this Python
    script.)
@@ -262,7 +262,7 @@ HS-SE after key programming.
       DeviceType           : HSFS
 
 6. After successful activation of Secure Boot the DeviceType is ``HSSE``
-7. Additionally you can see the SHA512 hash of the used keys in the output with
+7. Additionally, you can see the SHA512 hash of the used keys in the output with
    build profile DEBUG. This feature depends on the keywriter version.
    Then you can compare it with the hash of your signing key:
 
@@ -282,7 +282,7 @@ HS-SE after key programming.
       Sec Cust MPK Hash    : 99adc5d401188641b1187d28b8e3f7bf94defcf48b503f6b45d6fe677da161a98a27956ecbc1c2f4af43867f56398bd147f54ce24b95f0725120d2b32ff2591f
       Sec Unique ID        : 2b8638ba724a82d7c6c0d1d19b56a13bd52da90bfcfa2efb6d6f8d26ed8830f5
 
-Write the certificate and Lock the device
+Write the Certificate and Lock the Device
 .........................................
 
 To run the keywriter on your hardware we recommend starting with a regular
@@ -314,7 +314,7 @@ Alternatively you can use UART Boot or USBDFU, too.
 
 **For the TI AM68x/TDA4x**
 
-   You must not set any external jumper to flash the keys, because a GPIO on
+   You do not need to set any external jumper to flash the keys because a GPIO on
    phyCORE-AM68x is used to switch the additional voltage.
 
 Once this configuration is set, plug the SD card into the kit and boot as you
@@ -329,7 +329,8 @@ have been successfully run. Writing the key revision is what converts the
 device to a secure boot device, so you will not be able to run your other
 binaries after the key revision is set.
 
-`The OTP key writer error codes <https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/security/keywriter.html?highlight=keywriter%20debug%20response#otp-key-writer-error-codes>`_
+In case something does not went as intended, check the `OTP key writer error
+codes <https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/security/keywriter.html#otp-key-writer-error-codes>`_
 
 Next Steps after Activation of Secure Boot
 ------------------------------------------
@@ -339,18 +340,17 @@ Next Steps after Activation of Secure Boot
    regard to how firmware authentication can potentially be skipped:
 
    * JTAG could be used to boot the processor and avoid the secure boot.
-     See Secure JTAG
+     See Secure JTAG at |physical-security-link|
    * The bootloader will drop to a console after an unsuccessful firmware
      authentication for debugging purposes. That console can still be used to
      boot, so it should be disabled in the production firmware.
-     See Protection Shield Level
    * please check the NXP and TI websites for more information
 
 Key Revocation
 --------------
 
-* NXP SOC: You have four keys from which you can revoke until 3 keys.
-* TI K3 SOC: You have 2 keys, a SMPK and BMPK (Backup Key)
+* NXP SoC: You have four keys from which you can revoke until 3 keys.
+* TI K3 SoC: You have 2 keys, a SMPK and BMPK (Backup Key)
 
 Revoke NXP SRK Key
 ..................
@@ -389,7 +389,7 @@ The following keys are available:
 | 3        | IMG4_1_sha256_4096_* | CSF4_1_sha256_4096_* | not revocable   |
 +----------+----------------------+----------------------+-----------------+
 
-Example for Revoke Key Slot 0 on NXP SOC with HABV4
+Example for Revoke Key Slot 0 on NXP SoC with HABV4
 
 +--------------------------------------------------+--------------------------------+
 || barebox                                         || u-boot                        |

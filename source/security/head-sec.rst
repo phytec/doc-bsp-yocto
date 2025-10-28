@@ -3,6 +3,7 @@
 
 .. |secure-boot-link| replace:: :ref:`secure-boot-head`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-head`
+.. |physical-security-link| replace:: :ref:`physical-security-head`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-head`
 
 .. Yocto
@@ -71,6 +72,7 @@ read the correct sections fitting your platform.
 .. include:: common/secure-key-storage.rsti
 .. include:: common/secure-storage.rsti
 .. include:: common/hardening.rsti
+.. _physical-security-head:
 .. include:: common/physical-security.rsti
 .. _phytec-pki-head:
 .. include:: common/phytec-pki.rsti
