@@ -1,18 +1,18 @@
 Hardening of the System
 =======================
 
-The DISTRO_FEATURE hardening activates the kernel reduction with deselect
-fragments. The name of the deselection variable is KERNEL_FEATURES_DESELECT.
+The ``DISTRO_FEATURES="hardening"`` activates the kernel reduction with deselect
+fragments. The name of the deselection variable is ``KERNEL_FEATURES_DESELECT``.
 
 The deselect fragment selection for bluetooth, can, optee, pci and wifi depend
-on MACHINE_FEATURES with the same name.
-If these features are not set in MACHINE_FEATURES, then the deselect fragment
-with the same name is active, but can be selected independently from the
-MACHINE_FEATURE too. The fragments debug, kvm, media and xen are selected by
-default and are independent from the machine feature.
+on ``MACHINE_FEATURES`` with the same name. If these features are not set in
+``MACHINE_FEATURES``, then the deselect fragment with the same name is active,
+but can be selected independently from the ``MACHINE_FEATURES`` too. The
+fragments debug, kvm, media and xen are selected by default and are independent
+from the machine feature.
 
-Overwriting the initial definition of the variable KERNEL_FEATURES_DESELECT is
-possible.
+Overwriting the initial definition of the variable ``KERNEL_FEATURES_DESELECT``
+is possible.
 
 +----------------+-----------------------------------+------------------+------------------+
 || Kernel        || Description                      || Selection with  || Selection with  |
