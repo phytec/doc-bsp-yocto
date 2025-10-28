@@ -72,7 +72,6 @@
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
 .. |dt-som| replace:: imx8mm-phycore-som
 .. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
-.. |dtbo-peb-av-10| replace:: imx8mm-phyboard-polis-peb-av-10.dtbo
 
 .. IMX8(MM) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L50`
@@ -113,7 +112,7 @@
 .. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mm-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mm-dt-overlays>`
 
 .. M-Core specific
 .. |mcore| replace:: M4 Core
@@ -316,22 +315,24 @@ To revert to the old style of booting, you may do
 .. code-block::
    :substitutions:
 
-   |dtbo-peb-av-10|
+   imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtbo
+   imx8mm-phyboard-polis-peb-av-10-ph128800t006.dtbo
+   imx8mm-phyboard-polis-peb-av-10.dtbo
    imx8mm-phyboard-polis-peb-eval-01.dtbo
-   imx8mm-phyboard-polis-vm016.dtbo
    imx8mm-phyboard-polis-vm016-fpdlink-port0.dtbo
    imx8mm-phyboard-polis-vm016-fpdlink-port1.dtbo
-   imx8mm-phyboard-polis-vm017.dtbo
+   imx8mm-phyboard-polis-vm016.dtbo
    imx8mm-phyboard-polis-vm017-fpdlink-port0.dtbo
    imx8mm-phyboard-polis-vm017-fpdlink-port1.dtbo
-   imx8mm-phyboard-polis-vm020.dtbo
+   imx8mm-phyboard-polis-vm017.dtbo
    imx8mm-phyboard-polis-vm020-fpdlink-port0.dtbo
    imx8mm-phyboard-polis-vm020-fpdlink-port1.dtbo
+   imx8mm-phyboard-polis-vm020.dtbo
    imx8mm-phycore-no-eth.dtbo
    imx8mm-phycore-no-spiflash.dtbo
    imx8mm-phycore-rpmsg.dtbo
 
-.. _imx8mm-head-ubootexternalenv:
+.. _imx8mm-dt-overlays:
 .. include:: ../../dt-overlays.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -552,9 +553,8 @@ Device Tree PCIe configuration of |dt-carrierboard|.dts:
 Audio
 -----
 
-The PEB-AV-10-Connector exists in two versions and the 1531.1 version is
-populated with a TI TLV320AIC3007 audio codec. Audio support is done via the I2S
-interface and controlled via I2C.
+The PEB-AV-10-Connector is populated with a TI TLV320AIC3007 audio codec.
+Audio support is done via the I2S interface and controlled via I2C.
 
 There is a 3.5mm headset jack with OMTP standard and an 8-pin header to connect
 audio devices with the AV-Connector.  The 8-pin header contains a mono speaker,
@@ -563,15 +563,31 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso#L52`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtsi#L52`
 
 .. include:: /bsp/peripherals/video.rsti
 
 Display
 -------
 
-The 10" Display is always active. If the PEB-AV-Connector is not connected, an
-error message may occur at boot.
+Two different displays are supported on the PEB-AV-10 audio/video adapter.
+By default, the ETML1010G3DRA is active. Other options may be selected with
+the :ref:`device tree overlays.<imx8mm-dt-overlays>`.
+
+.. list-table:: PEB-AV-10 Display Options and Device Tree Overlays
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Display
+     - Device Tree Overlay
+   * - AC200 EDT ETML1010G3DRA (default)
+     - imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtbo
+   * - AC209 POWERTIP PH128800T006
+     - imx8mm-phyboard-polis-peb-av-10-ph128800t006.dtbo
+   * - Audio only (no display)
+     - imx8mm-phyboard-polis-peb-av-10.dtbo
+
+If the PEB-AV-Adapter is not connected, an error message may occur at boot.
 
 .. include:: /bsp/qt6.rsti
 
@@ -579,7 +595,6 @@ error message may occur at boot.
 
 The device tree of PEB-AV-10 can be found here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso`
-
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
