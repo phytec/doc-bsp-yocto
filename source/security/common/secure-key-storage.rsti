@@ -22,8 +22,8 @@ with ``MACHINE_FEATURE``.
 ||                    || * all i.MX8M series                ||                 |
 ||                    ||                                    ||                 |
 +---------------------+-------------------------------------+------------------+
-|| Trusted Execution  || * all NXP i.MX SOC                 || optee           |
-|| Environment TEE    || * all TI K3 SOC                    ||                 |
+|| Trusted Execution  || * all NXP i.MX SoC                 || optee           |
+|| Environment TEE    || * all TI K3 SoC                    ||                 |
 +---------------------+-------------------------------------+------------------+
 || Trusted platform   || * on base boards for i.MX8M series || tpm             |
 || Module TPM         || * on phyGATE-Tauri-S / L           ||                 |
@@ -43,17 +43,17 @@ acceleration and assurance engine.
 
 More information about the CAAM module can be found in the corresponding NXP
 reference Manual:
-`i:MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_
+`i.MX Reference Manual <https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf>`_
 
 Prerequisites and Caveats
 .........................
 
-Secureboot is required for trusted CAAM Key blob functionality. If Secure Boot
+Secure Boot is required for trusted CAAM Key blob functionality. If Secure Boot
 Keys are burned, the keys are locked. After a reset, the CAAM unit creates
 internal keys for the signing and encryption CAAM blobs.
 These keys are internal in the CAAM and can not be read out and overwritten.
 
-Test and using
+Test and Using
 ..............
 
 You can use the CAAM unit accelerator with the cryptodev driver.
@@ -70,7 +70,7 @@ OP-TEE is a Trusted Execution Environment (TEE) designed as a companion to a
 non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone
 technology.
 
-OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SOC.
+OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SoC.
 This allows users who are interested in utilizing
 `OP-TEE <https://optee.readthedocs.io/en/latest/>`_ to use and test it on their
 devices.
@@ -201,7 +201,7 @@ The TPM 2.0 must be initialized at first with the command *tss2_provision*.
 This command is used in the tool *physecurekeystorage-install*,
 when you use the *trustedtpm* key type.
 
-Error codes of the TPM
+Error Codes of the TPM
 ......................
 
 If you want decode some TPM error codes, then use the command tpm2_rc_decode
@@ -247,7 +247,7 @@ on the device.
       target:~$ tpm2_clear -c platform
 
 
-Kernel Key Retention Service for filesystem Encryption
+Kernel Key Retention Service for Filesystem Encryption
 ------------------------------------------------------
 
 "The Linux key-management facility is primarily a way for various kernel
@@ -270,7 +270,7 @@ The following description and implementation are based on the
   black key blob mechanism and used the kernel key type logon. The encrypted
   blobs are stored in the file  tksecure_key.
 
-The following table list the supported key types for the different SOC`s.
+The following table list the supported key types for the different SoCs.
 
 +-------------+------------------+-------------+-------------+------------+-------------+
 || Key        || depend on the   || NXP        || NXP        || NXP       || TI         |
