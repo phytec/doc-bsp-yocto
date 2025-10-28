@@ -4,6 +4,7 @@
 .. |secure-boot-link| replace:: :ref:`secure-boot-scarthgap`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-scarthgap`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-scarthgap`
+.. |physical-security-link| replace:: :ref:`physical-security-scarthgap`
 
 .. Yocto
 .. |branding-name| replace:: SECURIphy
@@ -106,6 +107,7 @@ read the correct sections fitting your platform.
 .. include:: common/secure-key-storage.rsti
 .. include:: common/secure-storage.rsti
 .. include:: common/hardening.rsti
+.. _physical-security-scarthgap:
 .. include:: common/physical-security.rsti
 .. _phytec-pki-scarthgap:
 .. include:: common/phytec-pki.rsti
