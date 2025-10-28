@@ -35,7 +35,7 @@ Alternatives for the complete root filesystem with integrity and encryption are:
    * An integrity check with dm-integrity is a highly recommended addition to
      the filesystem encryption.
 
-Filesystem with Integrity vs Authenticated filesystem
+Filesystem with Integrity vs Authenticated Filesystem
 -----------------------------------------------------
 
 The actual standard BSP includes integrity support with hash sha-256, which has
@@ -57,7 +57,7 @@ Requirements for Filesystem Encryption
 Boot Process Flow
 -----------------
 
-* bootloader verifies FIT-Image with linux-kernel image, device tree, and
+* bootloader verifies FIT-image with linux-kernel image, device tree, and
   ramdisk before they are executed
 * Linux kernel executes the ramdisk (read-only filesystem)
 * The bootscript loads the authenticated encrypted filesystem encryption key
@@ -68,14 +68,14 @@ Boot Process Flow
 Starting the Build Process
 --------------------------
 
-Filesystem integrity and encryption are included in the *DISTRO_FEATURE*
-secureboot and securestorage.
+Filesystem integrity and encryption are included in the ``DISTRO_FEATURES``
+``secureboot`` and ``securestorage``.
 
-You can choose in the *sources/meta-ampliphy/conf/distro/common-secure.inc*
+You can choose in the ``sources/meta-ampliphy/conf/distro/common-secure.inc``
 between
 
-  * fileauthorenc: use integrity or encrypted filesystem
-  * fileauthandenc: use integrity and encrypted filesystem
+  * ``fileauthorenc``: use integrity or encrypted filesystem
+  * ``fileauthandenc``: use integrity and encrypted filesystem
 
 This configuration is important for the RAUC update system because the use of
 integrity and encrypted filesystem are stacked and the number of device-mappers
@@ -88,9 +88,9 @@ is doubled to use integrity or encrypted filesystem.
    SECURE_STORAGE_TYPE = "fileauthandenc"
    OVERRIDES_append = ":securestorage:${SECURE_STORAGE_TYPE}"
 
-This configuration changes the rauc system.conf configuration in the rootfs
-image for the target, too. The device change from the /dev/mtdblockX to the
-device mapper /dev/dm-x. With this changes the integrity and the encryption are
+This configuration changes the RAUC ``system.conf`` configuration in the rootfs
+image for the target, too. The device changes from the ``/dev/mtdblockX`` to the
+device mapper ``/dev/dm-x``. With this changes the integrity and the encryption are
 retained during an update.
 
 Setup Secure Storage on your Device
@@ -113,7 +113,7 @@ First Boot
 From a high-level point of view, an eMMC device is like an SD card. Therefore,
 it is possible to flash the image phytec-provisioning-image
 from the Yocto build system directly to the SD card. The image contains the
-signed bootloader and signed FIT-Image with an initramfs.
+signed bootloader and signed FIT-image with an initramfs.
 
 If your filesystem is not initialized, is damaged, or the key blob is deleted,
 then you can reinstall the encrypted filesystem with the following instructions.
@@ -121,7 +121,7 @@ then you can reinstall the encrypted filesystem with the following instructions.
 * Boot the phytec-provisioning-image from the SD card or load the provisioning
   fitImage with tftp to the memory in the bootloader
 * The device stops with the following message because there is no encrypted key
-  stored in the folder /secrets:
+  stored in the folder ``/secrets``:
 
 The default user is root with the password root:
 
@@ -144,7 +144,7 @@ Key Generation for Secure Storage
 
 Please follow the instructions in the chapter |secure-key-storage-link|
 
-Secure Storage Initialization with phySecureStorage tool
+Secure Storage Initialization with phySecureStorage Tool
 ........................................................
 
 The tool physecurestorage-install is part of the initramfs userspace.
