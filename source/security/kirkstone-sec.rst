@@ -86,21 +86,21 @@ read the correct sections fitting your platform.
 Activate Secure Boot on the Device
 ==================================
 
-The final step to activate secure boot on your device is to burn the secure
+The final step to activate Secure Boot on your device is to burn the secure
 eFuse configuration.
 
 .. warning::
 
    The secure eFuse configuration can only be written once and is irreversible!
 
-For Secure Boot are only public information are burned to SOC from NXP and TI.
-When building the yocto-secure distro for the first time, the bootloader image
-is signed with PHYTEC's development keys.
-Yocto stores these development keys to ``yocto/phytec-dev-ca``
+For Secure Boot only public information are burned to SoC from NXP and TI. When
+building the |distro-secure| or |distro-secure-vendor| distro for the first
+time, the bootloader image is signed with PHYTEC's development keys. Yocto
+stores these development keys to ``yocto/phytec-dev-ca``
 
 .. note::
     Create and use your own keys and certificates for signing your images.
-    Burn the right key into the Controller eFuse.
+    Burn the right key into the controller's eFuse.
     Please refer to the chapter |secure-key-storage-link|
 
 eMMC Boot Partition to Enable Boot
@@ -141,10 +141,10 @@ Active boot output for u-boot
       BOOT_PARTITION_ENABLE: 0x1
       PARTITION_ACCESS: 0x7
 
-Activate Secure Boot for NXP SOC
+Activate Secure Boot for NXP SoC
 --------------------------------
 
-For NXP SOC you can burn the Fuses with u-boot or with the tool crucible in the
+For NXP SoCs you can burn the fuses with u-boot or with the tool crucible in the
 kernel userspace. The necessary SRK fuses contain the hash value of the SRK
 public keys. They are never used on open devices! In closed devices, they are
 used to validate the public key contained in signed firmware images.
@@ -190,7 +190,7 @@ Burn the SRK
 
       barebox$ hab -p -s SRK_1_2_3_4_fuse.bin
 
-   to check
+   * for checking the result use again
 
    .. code-block::
 
@@ -199,35 +199,35 @@ Burn the SRK
       3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
       devel mode
 
-   * SOC with u-boot you must write every word to the Fuses
+   * on a SoC with u-boot you must write every word to the fuses
 
-+--------------------------------------------+--------------------------------------------------+
-|                                            | NXP i.MX8M Series with HAB                       |
-+============================================+==================================================+
-|| ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     |
-||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     |
-+--------------------------------------------+--------------------------------------------------+
-|| burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           |
-||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           |
-||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           |
-||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           |
-||                                           ||                                                 |
-||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           |
-||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           |
-||                                           || ``u-boot=> fuse prog 7 0 0x704e9fe4``           |
-||                                           || ``u-boot=> fuse prog 7 0 0x9b025359``           |
-+--------------------------------------------+--------------------------------------------------+
-|| read and check                            || ``u-boot=> fuse read 6 0 4``                    |
-|| the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 |
-||                                           || ``u-boot=> fuse read 7 0 4``                    |
-||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 |
-+--------------------------------------------+--------------------------------------------------+
-| reset the booard                           | ``u-boot=> reset``                               |
-+--------------------------------------------+--------------------------------------------------+
-|| check the state                           || ``u-boot=> hab_status``                         |
-||                                           ||                                                 |
-||                                           || No Events Found!                                |
-+--------------------------------------------+--------------------------------------------------+
+   +--------------------------------------------+--------------------------------------------------+
+   |                                            | NXP i.MX8M Series with HAB                       |
+   +============================================+==================================================+
+   || ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     |
+   ||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     |
+   +--------------------------------------------+--------------------------------------------------+
+   || burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           |
+   ||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           |
+   ||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           |
+   ||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           |
+   ||                                           ||                                                 |
+   ||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           |
+   ||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           |
+   ||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           |
+   ||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           |
+   +--------------------------------------------+--------------------------------------------------+
+   || read and check                            || ``u-boot=> fuse read 6 0 4``                    |
+   || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 |
+   ||                                           || ``u-boot=> fuse read 7 0 4``                    |
+   ||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 |
+   +--------------------------------------------+--------------------------------------------------+
+   | reset the booard                           | ``u-boot=> reset``                               |
+   +--------------------------------------------+--------------------------------------------------+
+   || check the state                           || ``u-boot=> hab_status``                         |
+   ||                                           ||                                                 |
+   ||                                           || No Events Found!                                |
+   +--------------------------------------------+--------------------------------------------------+
 
 Lock the device
 ...............
@@ -249,7 +249,7 @@ Lock the device
 
 The device is directly locked and the SRK is write protected, too.
 
-* SOC with u-boot:
+* SoC with u-boot:
 
 +---------------------------+---------------------------------------+
 |                           | NXP i.MX8M Series with HAB            |
@@ -266,7 +266,7 @@ The device is directly locked and the SRK is write protected, too.
 || for SRK                  ||                                      |
 +---------------------------+---------------------------------------+
 
-Activate Secure Boot for TI K3 SOC
+Activate Secure Boot for TI K3 SoC
 ----------------------------------
 
 You can only burn the Fuses with the OTP-Keywriter, which you have create in
@@ -313,18 +313,17 @@ Next Steps after Activation of Secure Boot
     to how firmware authentication can potentially be skipped:
 
     * JTAG could be used to boot the processor and avoid the secure boot.
-      See Secure JTAG
+      See :ref:`physical-security-jtag-kirkstone`
     * The bootloader will drop to a console after an unsuccessful firmware
       authentication for debugging purposes. That console can still be used to
       boot, so it should be disabled in the production firmware.
-      See Protection Shield Level
-    * please check the NXP and TI websides for more information
+    * please check the NXP and TI websites for more information
 
 Key Revocation
 --------------
 
-* NXP SOC: You have four keys from which you can revoke until 3 keys.
-* TI K3 SOC: You have 2 keys, a SMPK and BMPK (Backup Key)
+* NXP SoC: You have four keys from which you can revoke until 3 keys.
+* TI K3 SoC: You have 2 keys, a SMPK and BMPK (Backup Key)
 
 Revoke NXP SRK Key
 ..................
@@ -359,7 +358,7 @@ The following keys are available:
 | 3        | IMG4_1_sha256_4096_* | CSF4_1_sha256_4096_* | not revocable   |
 +----------+----------------------+----------------------+-----------------+
 
-Example for Revoke Key Slot 0 on NXP SOC with HABV4
+Example for Revoke Key Slot 0 on NXP SoC with HABV4
 
 +--------------------------------------------------+--------------------------------+
 || barebox                                         || u-boot                        |
@@ -405,8 +404,8 @@ The available hardware support is activated with ``MACHINE_FEATURE``.
 ||                    || * all i.MX8M series                ||                 |
 ||                    ||                                    ||                 |
 +---------------------+-------------------------------------+------------------+
-|| Trusted Execution  || * all NXP i.MX SOC                 || optee           |
-|| Environment TEE    || * all TI K3 SOC                    ||                 |
+|| Trusted Execution  || * all NXP i.MX SoC                 || optee           |
+|| Environment TEE    || * all TI K3 SoC                    ||                 |
 +---------------------+-------------------------------------+------------------+
 || Trusted platform   || * on base boards for i.MX8M series || tpm             |
 || Module TPM         || * on phyGATE-Tauri-S / L           ||                 |
@@ -430,7 +429,7 @@ reference Manual:
 Prerequisites and Caveats
 .........................
 
-Secureboot is required for trusted CAAM Key blob functionality. If Secure Boot
+Secure Boot is required for trusted CAAM Key blob functionality. If Secure Boot
 Keys are burned, the keys are locked. After a reset, the CAAM unit creates
 internal keys for the signing and encryption CAAM blobs. These keys are
 internal in the CAAM and can not be read out and overwritten.
@@ -452,7 +451,7 @@ OP-TEE is a Trusted Execution Environment (TEE) designed as a companion to a
 non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone
 technology.
 
-OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SOC.
+OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SoC.
 This allows users who are interested in utilizing
 `OP-TEE <https://optee.readthedocs.io/en/latest/>`_ to use and test it on their
 devices.
@@ -582,7 +581,7 @@ The TPM 2.0 must be initialized at first with the command *tss2_provision*.
 This command is used in the tool *physecurekeystorage-install*, when you use
 the *trustedtpm* key type.
 
-Kernel Key Retention Service for filesystem Encryption
+Kernel Key Retention Service for Filesystem Encryption
 ------------------------------------------------------
 
 "The Linux key-management facility is primarily a way for various kernel
@@ -603,7 +602,7 @@ The following description and implementation are based on the `<https://www.kern
   black key blob mechanism and used the kernel key type logon. The encrypted
   blobs are stored in the file  tksecure_key.
 
-The following table list the supported key types for the different SOC`s.
+The following table list the supported key types for the different SoCs.
 
 +-------------+------------------+-------------+-------------+-------------+
 || Key        || depend on the   || NXP        || NXP        || TI         |
@@ -734,19 +733,21 @@ and read eFuses.
 
 .. warning::
 
-    The secure eFuse configuration can only be written once and is irreversible.
+   The secure eFuse configuration can only be written once and is irreversible.
+
+.. _physical-security-jtag-kirkstone:
 
 Secure JTAG
 -----------
 
 Most embedded devices provide a JTAG interface for debugging purposes. However,
 if left unprotected, this interface can become an important attack vector on
-the systems in series production. The most controllers allows you to regulate
+the systems in series production. Most controllers allow you to regulate
 JTAG access with three security modes using OTP (One Time Programmable) eFuses:
 
 +------------+-----------+----------------------------------------+-----------+-----------+
 || Mode      || Security || Description                           || NXP      || TI       |
-||           || level    ||                                       || SOC      || SOC      |
+||           || level    ||                                       || SoC      || SoC      |
 +============+===========+========================================+===========+===========+
 || Enabled   || low      || This is the default mode of operation || yes      || yes      |
 ||           ||          || and you have full access to JTAG.     ||          ||          |
@@ -765,11 +766,11 @@ JTAG access with three security modes using OTP (One Time Programmable) eFuses:
 ||           ||          || any debugging.                        ||          ||          |
 +------------+-----------+----------------------------------------+-----------+-----------+
 
-The NXP Soc support different authentication depend on the SoC or the state of
+The NXP SoCs support different authentication depend on the SoC or the state of
 the SoC
 
 * NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can
-  be activate independent of the lifecycle
+  be activated independent of the lifecycle
 
 The Secure Debug Mechanism with authentication differs between NXP and TI.
 
@@ -777,10 +778,10 @@ The Secure Debug Mechanism with authentication differs between NXP and TI.
 
 .. note::
 
-   The i.MX9 family supports additionally the asymmetric signed message based
+   The i.MX9 family additionally supports the asymmetric signed message based
    debug enablement, which has better security compared to the password based
    mechanism (Secret response key). Secure debug can only be enabled when the
-   device is in OEM_CLOSED lifecycle. In this life cycle, only authenticated
+   device is in OEM_CLOSED lifecycle. In this lifecycle, only authenticated
    debug is allowed.
 
 Additional information about JTAG Security can be found:
