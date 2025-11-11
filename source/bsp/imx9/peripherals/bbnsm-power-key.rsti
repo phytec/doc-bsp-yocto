@@ -13,3 +13,40 @@ and set using:
 .. code-block::
 
    HandlePowerKey=poweroff
+
+By default, ON/OFF button is configured to emit the KEY_POWER event code when
+short-pressed. This behavior can be verified using the ``evtest`` tool, which
+is included in our BSP:
+
+.. code-block:: console
+
+   target:~$ evtest /dev/input/by-path/platform-44440000.bbnsm\:pwrkey-event
+   Input driver version is 1.0.1
+   Input device ID: bus 0x19 vendor 0x0 product 0x0 version 0x0
+   Input device name: "44440000.bbnsm:pwrkey"
+   Supported events:
+   Event type 0 (EV_SYN)
+   Event type 1 (EV_KEY)
+      Event code 116 (KEY_POWER)
+   Properties:
+   Testing ... (interrupt to exit)
+   Event: time 1762862749.414004, type 1 (EV_KEY), code 116 (KEY_POWER), value 1
+   Event: time 1762862749.414004, -------------- SYN_REPORT ------------
+   Event: time 1762862749.542006, type 1 (EV_KEY), code 116 (KEY_POWER), value 0
+   Event: time 1762862749.542006, -------------- SYN_REPORT ------------
+
+However, it is possible to reassign the short-press event by modifying the
+device-tree and changing the default ``linux,code`` property of the
+``bbnsm_pwrkey`` node:
+
+.. code-block::
+
+   &bbnsm_pwrkey {
+      linux,code = <KEY_SLEEP>;
+   };
+
+In this example, the ON/OFF button is assigned KEY_SLEEP code, and pressing the
+button will now put the board into sleep mode by default.
+
+All valid key codes are defined in the ``include/uapi/linux/input-event-codes.h``
+file part of the Linux kernel.
