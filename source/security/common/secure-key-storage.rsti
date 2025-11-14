@@ -98,7 +98,11 @@ Prerequisites and Caveats
 * It is furthermore required to allow the generation of a hardware unique key
   that OP-TEE can use to derive a key for secure storage encryption and other
   use cases.
-* Trusted Application Key-Pair: `OP-TEE signs trusted applications <https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair>`_ in order to ensure their authenticity and integrity. By default, OP-TEE uses a pre-generated key, which you must replace with your own before using OP-TEE in production.
+* Trusted Application Key-Pair: `OP-TEE signs trusted applications
+  <https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair>`_
+  in order to ensure their authenticity and integrity. By default, OP-TEE uses a
+  pre-generated key, which you must replace with your own before using OP-TEE in
+  production.
 
 Testing OP-TEE
 ..............
@@ -197,9 +201,9 @@ The TPM is not on the SOM, it is located on the carrier board.
 Initialization of the TPM
 .........................
 
-The TPM 2.0 must be initialized at first with the command *tss2_provision*.
-This command is used in the tool *physecurekeystorage-install*,
-when you use the *trustedtpm* key type.
+At first, the TPM 2.0 must be initialized with the command ``tss2_provision``.
+This command is used in the tool ``physecurekeystorage-install``,
+when choosing the *trustedtpm* key type.
 
 Error Codes of the TPM
 ......................
@@ -228,6 +232,9 @@ on the device.
    * your internet connection
    * or deactivate the certificate check with adding
      ``"ek_cert_less": "yes"`` to /etc/tpm2-tss/fapi-config.json
+
+* ErrorCode (0x00060001) Failed to verify intermediate certificate / CRL is not yet valid
+   Please check if the date/clock is set correctly
 
 * ErrorCode (0x98E) authorization HMAC check failed
 
@@ -292,7 +299,7 @@ The tool `physecurekeystorage-install <https://git.phytec.de/meta-ampliphy/tree/
 is part of the ramdisk userspace of phytec-provisioning-initramfs and included
 in the meta-ampliphy layer of the PHYTEC Standard BSP.
 
-The *physecurekeystorage-install* tool can initialize all supported secure key
+The ``physecurekeystorage-install`` tool can initialize all supported secure key
 storages of your machine, but always only one can be active.
 For example, the phyBOARD-Polis-imx8mm supports Trusted TEE, Trusted TPM,
 Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.
@@ -333,12 +340,13 @@ Such a module may be a TPM or OP-TEE, it is a software PKCS#11 trusted
 application that appears to the userland as one.
 
 The library or pkcs11-module-path for PKCS#11 depend on the device:
+
 * TPM 2.0: /usr/lib/libtpm2_pkcs11.so.0
 * OP-TEE: /usr/lib/libckteec.so.0
 * SmartCards: /usr/lib/opensc-pkcs11.so
 
-The following provider.conf is for the usage with openssl 3.0 and a TPM 2.0.
-Please set the pkcs11-module-path to your selected Secure key storage.
+The following ``provider.conf`` is for the usage with OpenSSL 3.0 and a TPM 2.0.
+Please set the pkcs11-module-path to your selected Secure Key Storage.
 
 .. code-block:: ini
 
@@ -359,15 +367,15 @@ Please set the pkcs11-module-path to your selected Secure key storage.
    pkcs11-module-path = /usr/lib/pkcs11/libtpm2_pkcs11.so
    activate = 1
 
-If the TPM 2.0 is initialized e.g. with the tool physecurekeystorage, then you
-can create a device certificate.
+If the TPM 2.0 is initialized e.g. with the tool
+``physecurekeystorage-install``, then you can create a device certificate.
 
 .. code-block:: console
 
    #set TPM Pin
    target:~$ TPM_PIN=1234
    # Create self-signed certificate
-   target:~$ OPENSSL_CONF=provider.cnf openssl req -new -x509 -provider tpm2 -days 100 -subj '/CN=my_key/' -key "pkcs11:model=SLB9670;manufacturer=Infineon;token=test;object=test-keypair;type=private;pin-value=${TPM_PIN}" -out ecc.crt
+   target:~$ OPENSSL_CONF=provider.conf openssl req -new -x509 -provider tpm2 -days 100 -subj '/CN=my_key/' -key "pkcs11:model=SLB9670;manufacturer=Infineon;token=test;object=test-keypair;type=private;pin-value=${TPM_PIN}" -out ecc.crt
    # Write Device Cert to TPM
    target:~$  pkcs11-tool --module /usr/lib/pkcs11/libtpm2_pkcs11.so -w ecc.crt -y cert -a iotdm-cert --pin ${TPM_PIN} -d 2
 
@@ -379,8 +387,8 @@ can create a device certificate.
    other public objects like certificates for access to delete and read out,
    because a PIN (password) is necessary for every access.
 
-* You can find a more detailed example with Op-tee `<https://optee.readthedocs.io/en/latest/building/userland_integration.html>`_
-* Examples with openssl for the TPM 2.0: `<https://github.com/tpm2-software/tpm2-tss-engine>`_
+* You can find a more detailed example with OP-TEE `<https://optee.readthedocs.io/en/latest/building/userland_integration.html>`_
+* Examples with OpenSSL for the TPM 2.0: `<https://github.com/tpm2-software/tpm2-tss-engine>`_
 
 `OpenSSL <https://www.openssl.org/>`_ is a robust, commercial-grade,
 full-featured software library for general-purpose cryptography and secure
