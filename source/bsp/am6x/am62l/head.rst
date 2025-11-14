@@ -529,6 +529,30 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. include:: gpios.rsti
 
+.. include:: /bsp/peripherals/adc.rsti
+
+On |sbc| the ADC lines are accessible on X73 expansion connector:
+
+========= ========
+ADC input X73 pin
+========= ========
+ADC_IN0         3
+ADC_IN1         5
+ADC_IN2         7
+ADC_IN3         9
+ADC_IN4         4
+ADC_IN5         6
+ADC_IN6         8
+ADC_IN7        10
+========= ========
+
+.. note::
+   On AM62L, only ADC_IN0 to ADC_IN3 are available for use. ADC_IN4 to ADC_IN7
+   are not connected internally. This limitation also applies to the
+   current/voltage sensing functionality.
+
+.. include:: /bsp/peripherals/current_voltage_sensing_libra.rsti
+
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
