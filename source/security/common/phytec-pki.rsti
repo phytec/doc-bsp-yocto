@@ -488,7 +488,7 @@ Build the Keywriter
       host:~$ make keywriter_img SOC=j721s2 BOARD=j721s2_evm PROFILE=debug -sj
 
    The keywriter for the certificate has now been built and is in the
-   ``tiboot3.bin`` file is `<PROCESSOR_SDK_RTOS_DIRECTORY>/pdk_j721s2_<VERSION>/packages/ti/boot/keywriter/binary/j721s2/keywriter_img_combined_j721s2_release.tiimage``
+   ``tiboot3.bin`` file is ``<PROCESSOR_SDK_RTOS_DIRECTORY>/pdk_j721s2_<VERSION>/packages/ti/boot/keywriter/binary/j721s2/keywriter_img_combined_j721s2_release.tiimage``
 
 Save it elsewhere so that we can build the other keywriters without overwriting
 this one. Make sure that you keep track of the binaries so that you can flash
