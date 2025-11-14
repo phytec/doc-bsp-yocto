@@ -121,7 +121,7 @@ then you can reinstall the encrypted filesystem with the following instructions.
 * Boot the phytec-provisioning-image from the SD card or load the provisioning
   fitImage with tftp to the memory in the bootloader
 * The device stops with the following message because there is no encrypted key
-  stored in the folder ``/secrets``:
+  stored in the folder ``/mnt/config/secrets``:
 
 The default user is root with the password root:
 
@@ -147,9 +147,10 @@ Please follow the instructions in the chapter |secure-key-storage-link|
 Secure Storage Initialization with phySecureStorage Tool
 ........................................................
 
-The tool physecurestorage-install is part of the initramfs userspace.
+The tool ``physecurestorage-install`` is part of the initramfs userspace of the
+phytec-provisioning-image.
 
-The physecurestorage-install tool can initialize the filesystem with encryption,
+The ``physecurestorage-install`` tool can initialize the filesystem with encryption,
 integrity, or both methods together.
 
 .. code-block:: console
@@ -194,10 +195,10 @@ integrity, or both methods together.
 
 .. code-block:: console
 
-   kernel$ poweroff -f
+   target:~$ poweroff -f
 
 * Restart the system. After a successful installation, the system will boot to
-* the kernel login console.
+  the kernel login console.
 
 Recover an Initialized Device
 .............................
