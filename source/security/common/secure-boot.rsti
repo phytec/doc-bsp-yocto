@@ -198,7 +198,7 @@ Building a Signed Image
 
 To build a signed provisioning image for the configuration of the device
 which can boot from SD card or Serial Downloader, the ``DISTRO`` needs to
-be set to |distro-secure-vendor| or |distro-secure|.
+be set to |distro-provisioning-vendor| or |distro-provisioning|.
 The main parts for the provisioning-image are the bootloader and the FIT-image,
 which includes an initramfs with all necessary tools.
 
