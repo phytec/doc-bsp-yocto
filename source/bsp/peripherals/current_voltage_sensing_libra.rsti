@@ -1,0 +1,52 @@
+Additionally, there is a current and voltage sensing circuitry available on |sbc|.
+It is capable of measuring the input current consumption and supply voltage of
+the |som| SoM, as well as the |sbc| carrier board's 1.8V, 3.3V and 5V power rails.
+
+The current-sensing circuitry uses four INA241A4QDDFRQ1 current-sense amplifiers
+(gain: 100 V/V), each paired with a 4 mΩ shunt resistor. Their outputs feed the
+ADC input channels (Vref = 1.8 V) through a 1:3 voltage divider. With this
+configuration, the resulting current resolution is 3.295898 mA/LSB.
+
+The voltage-sensing circuitry uses simple 1:3.46 voltage dividers connected to
+the ADC input channels (Vref = 1.8 V). This yields a voltage resolution of
+1.520508 mV/LSB.
+
+======================================= =========
+Channel Function                        ADC Input
+======================================= =========
+SoM current sensing                     ADC_IN0
+SoM voltage sensing                     ADC_IN1
+Carrier board 5V rail current sensing   ADC_IN2
+Carrier board 5V rail voltage sensing   ADC_IN3
+Carrier board 3.3V rail current sensing ADC_IN4
+Carrier board 3.3V rail voltage sensing ADC_IN5
+Carrier board 1.8V rail current sensing ADC_IN6
+Carrier board 1.8V rail voltage sensing ADC_IN7
+======================================= =========
+
+Current scaling factor is available as a sysfs parameter
+``/sys/bus/iio/devices/iio:device1/in_current0_scale``.
+
+The |som| SoM consumption can thus be measured with this simple script:
+
+.. code-block:: bash
+
+   #!/bin/sh
+   RAW=$(cat /sys/bus/iio/devices/iio:device1/in_current0_raw)
+   SCALE=$(cat /sys/bus/iio/devices/iio:device1/in_current0_scale)
+   CURRENT=$(echo "$RAW * $SCALE" | bc -l)
+   printf "Current: %.3f mA\n" "$CURRENT"
+
+.. note::
+   Current scaling factor calculation depends on ``CONFIG_IIO_RESCALE=y`` kernel configuration.
+
+In our BSP we also enable config option ``CONFIG_SENSORS_IIO_HWMON=y`` which provides
+hwmon interface to conveniently measure |som| SoM consumption directly via the sysfs
+parameter:
+
+.. code-block:: bash
+
+   root@|yocto-machinename|:~$ cat /sys/class/hwmon/hwmon1/curr1_input
+   415
+
+In the example output provided above, the current consumption measured was 415 mA @ 5V.
