@@ -210,12 +210,12 @@ The device is directly locked and the SRK is write protected, too.
 Activate Secure Boot for TI K3 SoC
 ----------------------------------
 
-You can only burn the fuses with the OTP-Keywriter, which you have create in
-the chapter |phytec-pki-link|
-You burn the public key in the SoC. You can override the keys, if you use the
-incremental approach. If the KEYREV value is set to either 1 or 2, then the
-device is a HS-SE device with active Secure boot. After that you can not write
-any certificates with the keywriter tool.
+The fuses can only be burnt with the OTP-Keywriter, which can be built as
+described in chapter |phytec-pki-link|. The public key is burnt in the SoC. Keys
+may be overwritten, if the incremental approach is used. If the KEYREV value is
+set to either 1 or 2, then the device is an HS-SE device with active Secure
+Boot. After that, certificates cannot be written neither with the keywriter tool
+nor otherwise anymore.
 
 Check the State of your Device
 ..............................
