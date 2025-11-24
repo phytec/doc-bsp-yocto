@@ -52,6 +52,9 @@
 .. |debug-uart| replace::
 .. serial uart on the board used for e.g. RS232; Example: ttymxc0
 .. |serial-uart| replace::
+.. Name of the script to be loaded and executed in U-Boot for booting kernel and
+   rootfs via network; Used only for i.MX family
+.. |netboot-script| replace::
 
 
 .. Linux Kernel
