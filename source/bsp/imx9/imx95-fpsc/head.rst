@@ -29,6 +29,7 @@
 .. |serial-uart| replace:: ttyLP7
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X56
+.. |netboot-script| replace:: net_boot_fit.scr.uimg
 
 
 .. Linux Kernel
