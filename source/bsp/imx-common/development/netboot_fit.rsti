@@ -89,3 +89,20 @@ boot_targets to ethernet.
 
       u-boot=> env set boot_targets "ethernet"
       u-boot=> env save
+
+To use DHCP for booting from a network:
+
+   .. code-block:: console
+
+      u-boot=> env set ip_dyn true
+      u-boot=> env save
+
+When not using DHCP (ip_dyn set to false), U-Boot needs ipaddr and serverip to
+be set. If addresses different from the PHYTEC provided defaults are desired,
+they can be set in the U-Boot environment:
+
+   .. code-block:: console
+
+      u-boot=> env set ipaddr <xxx.xxx.xxx.xxx>
+      u-boot=> env set serverip <xxx.xxx.xxx.xxx>
+      u-boot=> env save
