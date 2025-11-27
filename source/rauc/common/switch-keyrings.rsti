@@ -33,15 +33,16 @@ root, alongside with ``build/`` and ``sources/``.
 Now, a RAUC bundle must be created that contains the new "production" CA keyring
 in its root filesystem but is still signed by the "development" CA. With this,
 the system is converted from a "development" system to a "production" system. To
-achieve this, exchange the file ``ca.cert.pem`` installed by the RAUC recipe in
-the Yocto sources. Create a file ``rauc_%.bbappend`` in your own Yocto layer:
+achieve this, exchange the file ``mainca-rsa.cert.pem`` installed by the RAUC
+recipe in the Yocto sources. Create a file ``rauc-conf.bbappend`` in your own
+Yocto layer:
 
 .. code-block::
-   :caption: recipes-core/rauc/rauc_%.bbappend
+   :caption: recipes-core/rauc/rauc-conf.bbappend
 
    FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-   RAUC_KEYRING_FILE = "${CERT_PATH}/rauc-customer/ca.cert.pem"
+   RAUC_KEYRING_FILE = "${CERT_PATH}/rauc-customer/mainca-rsa.cert.pem"
 
 Build the same RAUC bundle as before, now with the exchanged keyring:
 
