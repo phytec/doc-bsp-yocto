@@ -294,7 +294,7 @@ To revert to the old style of booting, you may do
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti

@@ -872,7 +872,7 @@ BSPs: `L-1006e.A3 RAUC Update & Device Management Manual
 Development
 ===========
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot.rsti
 
 Working with UUU-Tool

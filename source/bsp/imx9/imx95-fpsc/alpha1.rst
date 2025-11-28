@@ -286,7 +286,7 @@ You can build the SDK yourself with Yocto:
 .. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-emmc-marker
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/development/host_network_setup.rsti
 
 .. warning::
 

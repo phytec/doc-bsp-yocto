@@ -609,7 +609,7 @@ BSPs: `L-1006e.A6 RAUC Update & Device Management Manual
 Development
 ===========
 
-.. include:: /bsp/imx-common/development/host_network_setup.rsti
+.. include:: /bsp/development/host_network_setup.rsti
 
 Booting the Kernel from a Network
 ---------------------------------
