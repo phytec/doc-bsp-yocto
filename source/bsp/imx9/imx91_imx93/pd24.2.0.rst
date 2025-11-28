@@ -261,7 +261,7 @@ select the |som| default bootsource.
 Development
 ===========
 
-.. include:: ../../imx-common/development/host_network_setup.rsti
+.. include:: /bsp/development/host_network_setup.rsti
 .. include:: ../../imx-common/development/netboot.rsti
 
 Working with UUU-Tool
