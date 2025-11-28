@@ -86,11 +86,28 @@ NFS Server Setup
 
       host:~$ sudo mkdir /srv/nfs
 
-*  The NFS server is not restricted to a certain file system location, so all we
-   have to do on most distributions is modify the file ``/etc/exports`` and export
-   our root file system to the embedded network. In this example file, the whole
-   directory is exported and the "lab network" address of the development host is
-   192.168.3.10. The IP address has to be adapted to the local needs:
+*  Temporarily export the nfs directory:
+   The NFS server is not restricted to a certain file system location, so all we
+   have to do is to export our root file system to the embedded network. In this
+   example, the whole directory is exported and the "lab network" address of the
+   development host is 192.168.3.10. The IP address has to be adapted to the
+   local needs:
+
+    .. code-block:: console
+
+      host:~$ sudo exportfs -i -o rw,no_root_squash,sync,no_subtree_check 192.168.3.0/255.255.255.0:/srv/nfs
+
+* unexport the rootfs when finished:
+
+    .. code-block:: console
+
+      host:~$ sudo exportfs -u 192.168.3.0/255.255.255.0:/srv/nfs
+
+Permanent export
+^^^^^^^^^^^^^^^^
+
+*  To make the export persistent across reboots on most distributions, modify the
+   ``/etc/exports`` file and export it:
 
    .. code-block::
 
