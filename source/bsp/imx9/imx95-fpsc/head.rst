@@ -2,7 +2,7 @@
 .. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX95-ALPHA1
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
-.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-95-fpsc/#downloads
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-95-fpsc/
 .. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/
 .. |dl-server-link| replace:: |dl-server|_
@@ -19,12 +19,12 @@
 
 .. General Substitutions
 .. |doc-id| replace:: Head
-.. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
+.. |kit| replace:: **phyFLEX-i.MX 95 Libra Rapid Development Kit**
 .. |kit-ram-size| replace:: 8GiB
-.. |sbc| replace:: Libra FPSC
+.. |sbc| replace:: phyFLEX Libra RDK
 .. |soc| replace:: i.MX 95
 .. |socfamily| replace:: i.MX 9
-.. |som| replace:: phyCORE-|soc| FPSC
+.. |som| replace:: phyFLEX-|soc| FPSC
 .. |debug-uart| replace:: ttyLP6
 .. |serial-uart| replace:: ttyLP7
 .. |bluetooth-uart| replace:: UART3
@@ -42,7 +42,7 @@
 .. |emmcdev| replace:: mmcblk0
 
 .. Bootloader
-.. |u-boot-defconfig| replace:: imx95-libra-fpsc_defconfig
+.. |u-boot-defconfig| replace:: imx95-phyflex-libra-rdk_defconfig
 .. |bootloader-offset| replace:: 32
 .. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
@@ -54,7 +54,7 @@
 .. |sdcarddev-uboot| replace:: mmc 1
 
 .. IMX95 specific
-.. |u-boot-socname-config| replace:: IMX95_LIBRA_FPSC
+.. |u-boot-socname-config| replace:: IMX95_PHYFLEX_LIBRA_RDK
 .. |u-boot-tag| replace:: v2024.04_2.0.0-phy14
 
 
@@ -64,27 +64,27 @@
 
 
 .. Devicetree
-.. |dt-carrierboard| replace:: imx95-libra-rdk-fpsc
-.. |dt-som| replace:: imx95-phycore-fpsc
+.. |dt-carrierboard| replace:: imx95-phyflex-libra-rdk
+.. |dt-som| replace:: imx95-phyflex-fpsc-g-som
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L229`
 .. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX95
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: walnascar
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
-.. |yocto-machinename| replace:: imx95-libra-fpsc-1
+.. |yocto-machinename| replace:: imx95-phyflex-libra-2
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX95-ALPHA1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX95-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX95-PD25.1.y
-.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
-.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX95-PD26.1.y
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-walnascar>`
+.. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-walnascar-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  5.0.x
 .. |yocto-sdk-a-core| replace:: cortexa55-crypto
 
@@ -130,7 +130,7 @@
 +-----------------------+----------------------+
 | Article Number        | |doc-id|             |
 +-----------------------+----------------------+
-| Yocto Manual          | Scarthgap            |
+| Yocto Manual          | Walnascar            |
 +-----------------------+----------------------+
 | Release Date          | XXXX/XX/XX           |
 +-----------------------+----------------------+
@@ -144,7 +144,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 
 ============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
+BSP-Yocto-NXP-i.MX95-ALPHA2    ALPHA            q1 2026           in development
 ============================== ================ ================= ==============
 
 
@@ -201,10 +201,10 @@ First Start-up
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
 *  **bl31-imx95.bin**: ARM Trusted Firmware binary
-*  **lpddr5_dmem_qb_v202311.bin,
-   lpddr5_dmem_v202311.bin,
-   lpddr5_imem_qb_v202311.bin,
-   lpddr5_imem_v202311.bin**: DDR PHY firmware images
+*  **lpddr5_dmem_qb_v202409.bin,
+   lpddr5_dmem_v202409.bin,
+   lpddr5_imem_qb_v202409.bin,
+   lpddr5_imem_v202409.bin**: DDR PHY firmware images
 *  **oei-m33-ddr.bin,
    oei-m33-tcm.bin**: OEI images
 *  **m33_image-mx95libra.bin**: System Manager image
@@ -215,9 +215,9 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx95-libra-rdk-fpsc*.dtb**: Kernel device tree file
-*  **imx95-phycore-fpsc\*.dtbo,
-   imx95-libra-rdk-fpsc\*.dtbo**: Kernel device tree overlay files
+*  **imx95-phyflex-libra-rdk*.dtb**: Kernel device tree file
+*  **imx95-phyflex-fpsc\*.dtbo,
+   imx95-phyflex-libra-rdk\*.dtbo**: Kernel device tree overlay files
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
 
@@ -304,26 +304,26 @@ You can build the SDK yourself with Yocto:
 .. code-block::
    :substitutions:
 
-   imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
-   imx95-libra-rdk-fpsc-neoisp.dtbo
-   imx95-libra-rdk-fpsc-vm016-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm016-fpdlink-port0-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm016-fpdlink-port1-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm016-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm016-fpdlink-port0-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm016-fpdlink-port1-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm017-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm017-fpdlink-port0-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm017-fpdlink-port1-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm017-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm017-fpdlink-port0-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm017-fpdlink-port1-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm020-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm020-fpdlink-port0-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm020-fpdlink-port1-csi1.dtbo
-   imx95-libra-rdk-fpsc-vm020-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm020-fpdlink-port0-csi2.dtbo
-   imx95-libra-rdk-fpsc-vm020-fpdlink-port1-csi2.dtbo
+   imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
+   imx95-phyflex-libra-rdk-neoisp.dtbo
+   imx95-phyflex-libra-rdk-vm016-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port0-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port1-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm016-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port1-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm017-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port0-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port1-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm017-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port1-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm020-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm020-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi2.dtbo
 
 .. _imx95-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays.rsti
