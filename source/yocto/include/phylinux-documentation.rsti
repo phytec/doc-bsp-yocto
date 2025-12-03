@@ -257,7 +257,7 @@ or view the help command for more information
 After the execution of the *init* command, phyLinux will print a few important
 notes as well as information for the next steps in the build process.
 
-.. _master_phylinux-advanced-usage:
+.. phylinux-advanced-usage-marker
 
 Advanced Usage
 --------------

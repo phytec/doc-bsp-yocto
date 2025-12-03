@@ -10,6 +10,8 @@
 .. References
 .. |ref-gen-source-mirrors| replace:: :ref:`master_gen-source-mirrors`
 .. |ref-temporary-method| replace:: :ref:`master_temporary-method`
+.. |ref-build-container| replace:: :ref:`using build-container <master_build-container>`
+.. |ref-phylinux-advanced-usage| replace:: :ref:`master_phylinux-advanced-usage`
 
 .. _layerindex: https://layers.openembedded.org/layerindex/branch/master/layers/
 .. _Bitbake: https://docs.yoctoproject.org/bitbake/dev/index.html
@@ -59,7 +61,7 @@ Compatible Linux Distributions
 
 To build *Yocto* you need a compatible *Linux* host development machine. The
 list of supported distributions can be found in the reference manual:
-https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions
+`Supported Distributions`_
 
 .. include:: include/bsp-introduction.rsti
 
@@ -68,6 +70,14 @@ https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-
 .. include:: include/bsp-workspace-installation.rsti
 
 .. include:: include/phylinux-documentation.rsti
+   :end-before: .. phylinux-advanced-usage-marker
+
+.. _master_phylinux-advanced-usage:
+
+.. include:: include/phylinux-documentation.rsti
+   :start-after: .. phylinux-advanced-usage-marker
+
+.. _master_build-container:
 
 .. include:: include/build-container.rsti
 

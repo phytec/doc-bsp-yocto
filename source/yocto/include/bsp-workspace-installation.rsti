@@ -15,9 +15,8 @@ packages on your host
 
    host:~$ sudo apt install wget git
 
-Continue with the next step :ref:`master_git-config` after that. The
-documentation for using build-container can be found in this manual after
-:ref:`master_phylinux-advanced-usage` of phyLinux.
+Continue with the next step *Git Configuration* after that. Also see the
+documentation for |ref-build-container|.
 
 Else *Yocto* needs a handful of additional packages on your host.
 For *Ubuntu* you need
@@ -31,9 +30,7 @@ For *Ubuntu* you need
          python3-subunit mesa-common-dev zstd liblz4-tool file locales libacl1
 
 For other distributions you can find information in the *Yocto* Quick Build:
-https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html
-
-.. _master_git-config:
+`Quick Build`_
 
 Git Configuration
 -----------------
