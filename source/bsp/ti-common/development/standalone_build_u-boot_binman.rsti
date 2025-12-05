@@ -48,10 +48,6 @@ binaries to the SD-Card boot partition:
 
    host:~/|u-boot-repo-name|$ cp tiboot3.bin tispl.bin u-boot.img /path/to/SD-Card/boot
 
-.. hint::
-   The specific offset values are also declared in the Yocto variables
-   "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
-
 Use with block device
 ~~~~~~~~~~~~~~~~~~~~~
 
