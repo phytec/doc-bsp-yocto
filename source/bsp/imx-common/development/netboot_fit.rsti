@@ -81,11 +81,3 @@ Boot the board into the U-boot prompt and press any key to hold.
 
       u-boot=> setenv boot_targets ethernet
       u-boot=> bootflow scan -lb
-
-To persistently boot from network, save the environment after setting
-boot_targets to ethernet.
-
-   .. code-block:: console
-
-      u-boot=> env set boot_targets "ethernet"
-      u-boot=> env save
