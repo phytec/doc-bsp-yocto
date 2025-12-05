@@ -392,6 +392,14 @@ latex_documents = [
         False,
     ),
     (
+        'yocto/walnascar',
+        'walnascar.tex',
+        'Yocto Reference Manual Walnascar',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'rauc/kirkstone',
         'rauc-kirkstone.tex',
         'RAUC Update \\& Device Management Manual Kirkstone',

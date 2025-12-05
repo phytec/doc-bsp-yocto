@@ -41,3 +41,15 @@ Scarthgap
    :maxdepth: 2
 
    scarthgap
+
+=========
+Walnascar
+=========
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   walnascar
+

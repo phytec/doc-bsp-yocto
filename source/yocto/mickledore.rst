@@ -10,6 +10,7 @@
 .. References
 .. |ref-gen-source-mirrors| replace:: :ref:`mickledore_gen-source-mirrors`
 .. |ref-temporary-method| replace:: :ref:`mickledore_temporary-method`
+.. |ref-phylinux-advanced-usage| replace:: :ref:`mickledore_phylinux-advanced-usage`
 
 .. _layerindex: https://layers.openembedded.org/layerindex/branch/mickledore/layers/
 .. _Bitbake: https://docs.yoctoproject.org/bitbake/2.4/index.html
@@ -75,17 +76,7 @@ list of supported distributions can be found in the reference manual:
 
 .. include:: include/bsp-introduction.rsti
 
-Pre-built Images
-================
-
-For each BSP we provide pre-built target images that can be downloaded from the
-PHYTEC FTP server: https://download.phytec.de/Software/Linux/
-
-These images are also used for the BSP tests, which are flashed to the boards
-during production. You can use the provided ``.wic`` images to create a bootable
-SD card at any time. Identify your hardware and flash the downloaded image file
-to an empty SD card using ``dd``. Please see section Images for information
-about the correct usage of the command.
+.. include:: include/prebuilt-images.rsti
 
 BSP Workspace Installation
 ==========================
