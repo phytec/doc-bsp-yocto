@@ -17,9 +17,8 @@ Place Images on Host for Netboot
 *  Copy the bootscript to your tftp directory:
 
    .. code-block:: console
-      :substitutions:
 
-      host:~$ cp |netboot-script| /srv/tftp/boot.scr.uimg
+      host:~$ cp boot.scr.uimg /srv/tftp
 
 *  Make sure other users have read access to all the files in the tftp directory,
    otherwise they are not accessible from the target:

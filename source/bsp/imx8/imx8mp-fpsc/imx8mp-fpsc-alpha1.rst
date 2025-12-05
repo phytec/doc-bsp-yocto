@@ -30,7 +30,6 @@
 .. |serial-uart| replace:: ttymxc2
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
-.. |netboot-script| replace:: boot.scr.uimg
 
 
 .. Linux Kernel
