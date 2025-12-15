@@ -1,0 +1,75 @@
+Working with FIT images
+-----------------------
+
+Flattened Image Tree (FIT) images can be used to pack binaries into a devicetree
+blob. They are used in our BSPs to pack the kernel, devicetree and devicetree
+overlays.
+
+Show FIT image content
+......................
+
+Printing the FIT image content on the host can be done with the following commands:
+
+.. code-block:: console
+
+   host:~$ dumpimage -l fitImage
+
+or
+
+.. code-block:: console
+
+   host:~$ mkimage -l fitImage
+
+Alternatively the content can also be printed on target in U-Boot:
+
+.. code-block:: console
+
+   u-boot=> load mmc ${mmcdev}:1 ${loadaddr} fitImage
+   u-boot=> iminfo ${loadaddr}
+
+Building fitImages standalone
+.............................
+
+For building a FIT, an image tree source file (``*.its``) and binaries to be packed are
+needed. The ``fitImage.its`` file and kernel and devicetree binaries can be
+fetched from the Yocto deploy folder, the |dl-server| page or can be built
+standalone. The paths of the binaries in the ``data`` properties
+may need adjustment. For the kernel, the default data property will mention
+``linux.bin``, but the binary from the Yocto build is named ``Image``.
+
+Default:
+
+.. code-block:: dts
+
+   images {
+                kernel-1 {
+                        description = "Linux kernel";
+                        data = /incbin/("linux.bin");
+                        type = "kernel";
+   ...
+
+Customized:
+
+.. code-block:: dts
+
+   images {
+                kernel-1 {
+                        description = "Linux kernel";
+                        data = /incbin/("Image");
+                        type = "kernel";
+   ...
+
+Data properties for devicetrees also may need to be adjusted. After that the
+FIT image can be built using the ``mkimage`` command.
+
+.. code-block:: console
+
+   mkimage -f fitImage.its fitImage
+
+Adding overlays to a FIT image
+..............................
+
+Adding overlays to the FIT image can be done by editing the ``fitImage.its``
+file. For that the overlays need to be added to the ``images`` node and
+configurations need to be created for them. Already existing overlays can be
+used for reference. Only the names need to be adjusted.

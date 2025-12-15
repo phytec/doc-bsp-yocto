@@ -1,0 +1,60 @@
+Ampliphy-boot
+-------------
+
+Ampliphy-boot is a collection of bootscripts for booting the Ampliphy distro,
+which work uniformly across different PHYTEC platforms. The bootscripts are
+developed to work with the `standard boot
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html>`_ U-Boot
+feature. More details about ampliphy-boot, the bootscripts and their Yocto
+implementation can be found in the |yocto-ref-manual|.
+
+Ampliphy-boot currently provides these bootscripts:
+
+.. code-block::
+
+   mmc_boot
+   mmc_boot_fit
+   net_boot_fit
+   spi_boot_fit
+
+Not all platforms support all scripts. The |kit| supports the following bootscripts:
+
+.. ampliphy-boot-supported-bootscripts-marker
+
+U-Boot standard boot
+....................
+
+U-Boot standard boot is a built-in way to boot different operating systems.
+It handles scanning devices for the supported `boot methods
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html#bootmeth>`_
+and starts the `bootflow
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html#bootflow>`_.
+
+For ampliphy-boot the ``script`` bootmethod is used. This means a bootscript
+is placed inside the boot partition on the bootdevice that should be booted.
+This bootscript contains the logic for booting the ampliphy distro that
+previously was stored inside the U-Boot environment. This leads to the
+environment being a lot less cluttered and better readable for the user.
+
+U-Boot standard boot uses and sets some environment variables, which are
+documented `here
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html#environment-variables>`_.
+The most interesting variables for the BSP user are:
+
+``ip_dyn``
+   determines if the bootscript is loaded with dhcp (dynamic ip) or tftp
+   (static ip). Values can be [yes/no], [true/false], [1/0]. If the variable is
+   not set, dhcp will be used as default.
+
+``boot_script_dhcp``
+   Sets the name of the bootscript loaded from network.
+
+``boot_targets``
+   Determines the scanned bootsources and their order.
+
+``bootmeths``
+   Determines the scanned bootmethods and their order.
+
+Default values for ``boot_targets`` and ``bootmeths`` for standard boot can be
+set in the devicetree or in the environment. The environment variables will
+overwrite the devicetree values if set.

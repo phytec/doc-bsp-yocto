@@ -305,7 +305,46 @@ To revert to the old style of booting, you may do
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
-.. include:: /bsp/imx8/development/legacy_boot_deprecated.rsti
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :end-before: .. ampliphy-boot-supported-bootscripts-marker
+
+.. code-block::
+
+   mmc_boot
+   mmc_boot_fit
+   net_boot_fit
+
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :start-after: .. ampliphy-boot-supported-bootscripts-marker
+
+For the |kit|, the default values are defined in the U-Boot devicetree
+(e.g. arch/arm/dts/|dt-carrierboard|-u-boot.dtsi):
+
+.. code-block::
+
+   bootstd {
+           bootph-verify;
+           compatible = "u-boot,boot-std";
+
+           filename-prefixes = "/", "/boot/";
+           bootdev-order = "mmc2", "mmc1", "ethernet";
+
+           rauc {
+                   compatible = "u-boot,distro-rauc";
+           };
+
+           script {
+                   compatible = "u-boot,script";
+           };
+   };
+
+The filename-prefixes property describes the paths that will be searched for
+the bootscripts. In this case this is the root of the partition as well as the
+boot folder. The bootdev-order property sets the default value for the
+boot_targets variable. The supported bootmeths will also be named. In this case
+the script and rauc bootmethods are supported.
+
+.. include:: /bsp/development/fitImages.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                               DEVICE TREE
