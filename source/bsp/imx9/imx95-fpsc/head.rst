@@ -458,6 +458,8 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: peripherals/tm.rsti
 
+.. include:: /bsp/peripherals/pwm-fan.rsti
+
 .. include:: peripherals/gpu.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
