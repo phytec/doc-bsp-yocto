@@ -1,0 +1,203 @@
+Ampliphy-boot
+.............
+
+Ampliphy-boot is a collection of bootscripts for booting the ampliphy distro
+that work across different platforms. The bootscripts are developed to work with
+the U-Boot `standard boot
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html>`_ feature.
+
+Provided bootscripts
+~~~~~~~~~~~~~~~~~~~~
+
+Ampliphy-boot currently provides these bootscripts:
+
+.. code-block::
+
+   mmc_boot
+   mmc_boot_fit
+   net_boot_fit
+   spi_boot_fit
+
+mmc_boot
+^^^^^^^^
+
+This script is for booting kernel and devicetree from mmc devices.
+
+Used Variables:
+
+*  **console**: Console device and baudrate for kernel bootargs.
+*  **devnum**: Number of the device the bootscript is loaded from. This device will
+   also be used for loading overlaysenvfile, kernel, devicetrees and overlays
+   as well as mounting the root partition. Automatically set by U-Boot
+   standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
+   this bootscript. Automatically set by U-Boot standard boot.
+*  **distro_rootpart**: Number of root partition. If unset, default is 2.
+*  **earlycon**: Optional Early console bootargs parameter for kernel.
+*  **fdt_addr_r**: Address in RAM the fdt is loaded to.
+*  **fdtfile**: Name of the fdt file.
+*  **fdtoverlay_addr_r**: Address in RAM the fdtoverlays are loaded to.
+*  **kernel_addr_r**: Address in RAM the kernel is loaded to.
+*  **loadaddr**: Address in RAM the overlaysenvfile is loaded to.
+*  **optargs**: Optional additional arguments for kernel bootargs.
+*  **overlays**: Optional variable to set kernel devicetree overlays. If set in
+   U-Boot environment, that will be taken over the value in overlaysenvfile.
+*  **overlaysenvfile**: Filename of the bootenv file that sets the overlays
+   variable. If unset, default is ``overlays.txt``.
+*  **raucargs**: Optional additional RAUC arguments for kernel bootargs.
+
+mmc_boot_fit
+^^^^^^^^^^^^
+
+This script is for booting a fitImage from mmc devices.
+
+Used Variables:
+
+*  **console**: Console device and baudrate for kernel bootargs.
+*  **devnum**: Number of the device the bootscript is loaded from. This device will
+   also be used for loading overlaysenvfile and fitImage as well as mounting the
+   root partition. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
+   this bootscript. Automatically set by U-Boot standard boot.
+*  **distro_rootpart**: Number of root partition. If unset, default is 2.
+*  **earlycon**: Optional early console bootargs parameter for kernel.
+*  **fit_addr_r**: Optional variable for setting the RAM addr for loading
+   overlaysenvfile and kernel fitImage. If not set loadaddr will be used.
+*  **fit_extensions**: Optional variable where certain devicetree overlays can be
+   set depending on the SoM variant. This variable will be set by U-Boot in
+   board code depending on Phytec SoM detection.
+*  **fit_overlay_conf**: Optional variable to set kernel devicetree overlay
+   configs. If set in U-Boot environment, that will be taken over the value in
+   overlaysenvfile.
+*  **loadaddr**: Address in RAM the overlaysenvfile and kernel fitImage is loaded
+   to. Will be set to fit_addr_r if that variable is set.
+*  **optargs**: Optional additional arguments for kernel bootargs.
+*  **overlaysenvfile**: Filename of the bootenv file that sets the fit_overlay_conf
+   variable. If unset, default is ``overlays.txt``.
+*  **raucargs**: Optional additional RAUC arguments for kernel bootargs.
+
+net_boot_fit
+^^^^^^^^^^^^
+
+This script is for booting a fitImage over network (eth0) and mounting the
+rootfs over nfs.
+
+Used Variables:
+
+*  **console**: Console device and baudrate for kernel bootargs.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
+   this bootscript. Automatically set by U-Boot standard boot.
+*  **earlycon**: Optional early console bootargs parameter for kernel.
+*  **fit_addr_r**: Optional variable for setting the RAM addr for loading
+   overlaysenvfile and kernel fitImage. If not set loadaddr will be used.
+*  **fit_extensions**: Optional variable where certain devicetree overlays can be
+   set depending on the SoM variant. This variable will be set by U-Boot in
+   board code depending on Phytec SoM detection.
+*  **fit_overlay_conf**: Optional variable to set kernel devicetree overlay
+   configs. If set in U-Boot environment, that will be taken over the value in
+   overlaysenvfile.
+*  **ipaddr**: IP addr of the board. Only used if ip_dyn is set for static IPs.
+*  **ip_dyn**: Used to determine whether dhcp (dynamic IP) or tftp (static IP) is
+   used for network connection. Valid values are [yes/no], [true/false], [1/0].
+   If unset or other value dhcp will be used by default.
+*  **loadaddr**: Address in RAM the overlaysenvfile and kernel fitImage is loaded
+   to. Will be set to fit_addr_r if that variable is set.
+*  **netmask**: Netmask for ipaddr and serverip. Only used if ip_dyn is set for
+   static IPs.
+*  **nfsroot**: Path to nfs folder on host.
+*  **optargs**: Optional additional arguments for kernel bootargs.
+*  **overlaysenvfile**: Filename of the bootenv file that sets the fit_overlay_conf
+   variable. If unset, default is ``overlays.txt``.
+*  **serverip**: IP addr of the tftp and nfs server. Only used if ip_dyn is set for
+   static IPs.
+*  **nfs_eth_dev**: Can be used to set the nfs ethernet interface. If unset,
+   eth0 will be used as default.
+
+spi_boot_fit
+^^^^^^^^^^^^
+
+This script is for booting a fitImage with initramfs from SPI flash.
+
+This script has the ``.in`` fileending which means that there is an expression
+(``@@EXPRESSION@@``) that has to be replaced before compiling. In this case
+``@@SPI_MTD_PARTS@@`` will be replaced with the fitImage location in the SPI
+flash. The variable is set in the ampliphy-boot recipe.
+
+Used Variables:
+
+*  **console**: Console device and baudrate for kernel bootargs.
+*  **devnum**: Number of the device the bootscript is loaded from. This device
+   will also be used for loading overlaysenvfile and fitImage as well as
+   mounting the root partition. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
+   this bootscript. Automatically set by U-Boot standard boot.
+*  **earlycon**: Optional early console bootargs parameter for kernel.
+*  **fit_addr_r**: Optional variable for setting the RAM addr for loading
+   overlaysenvfile and kernel fitImage. If not set loadaddr will be used.
+*  **fit_extensions**: Optional variable where certain devicetree overlays can
+   be set depending on the SoM variant. This variable will be set by U-Boot in
+   board code depending on Phytec SoM detection.
+*  **fit_overlay_conf**: Optional variable to set kernel devicetree overlay
+   configs. Has to be set in U-Boot env. Overlaysenvfile is not supported.
+*  **loadaddr**: Address in RAM the overlaysenvfile and kernel fitImage is
+   loaded to. Will be set to fit_addr_r if that variable is set.
+*  **optargs**: Optional additional arguments for kernel bootargs.
+
+Adding ampliphy-boot to your platform in Yocto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To add ampliphy-boot to your platform in Yocto, first the dependencies need to
+be set.
+
+.. code-block::
+
+   WKS_FILE_DEPENDS:append = " ampliphy-boot"
+   PARTUP_PACKAGE_DEPENDS:append = " ampliphy-boot"
+
+By default all the bootscripts get deplayed and ``mmc_boot.cmd`` is the default
+bootscript and will get deployed as ``boot.scr.uimg``. This can be changed with
+the variables ``DEFAULT_BOOTSCRIPT`` and ``BOOTSCRIPTS`` that are set in the
+ampliphy-boot recipe in meta-ampliphy layer at
+``recipes-bsp/u-boot/ampliphy-boot.bb``. ``DEFAULT_BOOTSCRIPT`` specifies the
+bootscript that gets built into the WIC image boot partition. ``BOOTSCRIPTS``
+is a list of bootscripts (``*.cmd``) that should be built by Yocto.
+
+Finally, the default bootscript ``boot.scr.uimg`` needs to be added to the
+``IMAGE_BOOT_FILES`` variable in the machine conf file, so that it gets built
+into the boot partition of the WIC image and partup package.
+
+Working with bootscripts
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Bootscripts have a source form (``.cmd``) and a compiled form (``.scr`` or
+``.scr.uimg``). The ``.scr`` image is a raw U-Boot script image, while
+``.scr.uimg`` means that the script is packed into a FIT. For ampliphy-boot the
+bootscripts are packed into FITs.
+
+In case something needs to be changed in an existing script or a new one needs
+to be created, the sources need to be compiled. Therefore the source file
+(``*.cmd``) and the image tree source file (``*.its``) are required. Both can
+be found in meta-ampliphy in ``recipes-bsp/u-boot/ampliphy-boot/``. The ``.in``
+file ending means that there is an expression (``@@EXPRESSION@@``) that needs
+to be replaced. For the ``boot.its.in`` file ``@@BOOTCOMMAND_FILE@@`` needs to
+be replaced by the filename of the bootscript source file. Then the ``.in``
+ending can be removed. Finally the ``*.cmd`` file can be compiled into the
+``*.scr.uimg`` format with the following command:
+
+.. code-block:: console
+
+   host:~$ mkimage -C none -A arm64 -f boot.its <script>.scr.uimg
+
+Otherwise the ``*.cmd`` files can also be rebuilt in Yocto with the following
+command. With that command only the bootscripts get rebuilt, but not the
+complete WIC image:
+
+.. code-block:: console
+
+   host:~$ bitbake ampliphy-boot
+
+To update the bootscript in the image, rebuild the whole image with:
+
+.. code-block:: console
+
+   host:~$ bitbake <image-name>
