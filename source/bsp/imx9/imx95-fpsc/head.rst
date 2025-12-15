@@ -297,6 +297,42 @@ You can build the SDK yourself with Yocto:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :end-before: .. ampliphy-boot-supported-bootscripts-marker
+
+.. code-block::
+
+   mmc_boot_fit
+   net_boot_fit
+
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :start-after: .. ampliphy-boot-supported-bootscripts-marker
+
+For the |kit|, the default values are defined in the U-Boot devicetree
+(e.g. arch/arm/dts/|dt-carrierboard|-u-boot.dtsi):
+
+.. code-block::
+
+   bootstd {
+           bootph-verify;
+           compatible = "u-boot,boot-std";
+
+           filename-prefixes = "/", "/boot/";
+           bootdev-order = "mmc0", "mmc1", "ethernet";
+
+           script {
+                   compatible = "u-boot,script";
+           };
+   };
+
+The filename-prefixes property describes the paths that will be searched for
+the bootscripts. In this case this is the root of the partition as well as the
+boot folder. The bootdev-order property sets the default value for the
+boot_targets variable. The supported bootmeths will also be named. In this case
+only the script method is supported.
+
+.. include:: /bsp/development/fitImages.rsti
+
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
