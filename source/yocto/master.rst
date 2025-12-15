@@ -110,6 +110,7 @@ There are 2 ways to make major changes:
 
 Creating your own layer is described in the section Create your own Layer.
 
+.. include:: include/poky-bitbake/bsp-customization/ampliphy-boot.rsti
 .. include:: include/poky-bitbake/bsp-customization/features.rsti
 .. include:: include/poky-bitbake/bsp-customization/disable-qtdemo.rsti
 .. include:: include/poky-bitbake/bsp-customization/framebuffer-console.rsti
