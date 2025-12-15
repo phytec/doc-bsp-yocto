@@ -1,0 +1,36 @@
+PWM fan
+-------
+
+The |sbc| features a PWM fan connector. The fan's operation is coupled to the
+temperature of the SoC and may either be controlled by the kernel or sensord.
+Inspecting the fan's parameters can be done via sysfs. Quoting from the `Linux
+kernel documentation`_, the following parameters are available:
+
+=========== == ===============================================================
+fan1_input  ro fan tachometer speed in RPM
+pwm1_enable rw keep enable mode, defines behaviour when pwm1=0
+               0 -> disable pwm and regulator
+               1 -> enable pwm; if pwm==0, disable pwm, keep regulator enabled
+               2 -> enable pwm; if pwm==0, keep pwm and regulator enabled
+               3 -> enable pwm; if pwm==0, disable pwm and regulator
+pwm1        rw relative speed (0-255), 255=max. speed.
+=========== == ===============================================================
+
+These files are available under ``/sys/class/hwmon/hwmonX``. If there are
+multiple directories (``hwmon0``, ``hwmon1``, ...), the directory corresponding
+to the fan can either be found by listing the contents and searching for present
+files as shown in the table above or looking for ``pwmfan`` in the ``name``
+file:
+
+.. code-block:: console
+
+   target:~$ cat /sys/class/hwmon/hwmon1/name
+   pwmfan
+
+When controlling the fan's behaviour through sensord, a configuration file
+called ``fancontrol`` will be present in ``/etc/``.
+Otherwise, the kernel thermal driver may take control. See `sysfs attribute
+structure`_ for more detailed explanations.
+
+.. _sysfs attribute structure: https://www.kernel.org/doc/html/latest/driver-api/thermal/sysfs-api.html#sysfs-attributes-structure
+.. _linux kernel documentation: https://www.kernel.org/doc/html/latest/hwmon/pwm-fan.html#kernel-driver-pwm-fan
