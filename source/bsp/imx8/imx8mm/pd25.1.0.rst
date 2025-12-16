@@ -304,6 +304,35 @@ To revert to the old style of booting, you may do
    release. Standardboot will always use dhcp.
 
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
+   :end-before: .. network-settings-on-target-marker
+
+Set the bootenv.txt for Netboot
+...............................
+
+Create a bootenv.txt file in your tftp directory and write the following variables into it.
+
+.. code-block::
+
+   nfsroot=/srv/nfs
+   overlays=<overlayconfignames>
+
+<overlayconfignames> has to be replaced with the devicetree overlay config names that you want to use.
+Separate the config names by hash symbols. For example:
+
+.. code-block::
+
+   overlays=conf-example-overlay1.dtbo#conf-example-overlay2.dtbo
+
+.. Tip::
+
+   All supported devicetree overlays are in the |ref-dt| chapter. Or can be printed with:
+
+   .. code-block::
+
+      host:~$ dumpimage -l fitImage
+
+.. include:: /bsp/imx-common/development/netboot_fit.rsti
+   :start-after: .. network-settings-on-target-marker
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
