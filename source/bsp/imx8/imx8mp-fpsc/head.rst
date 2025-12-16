@@ -369,7 +369,7 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port1.dtbo
 
 .. _imx8mp-fpsc-head-ubootexternalenv:
-.. include:: /bsp/dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. include:: /bsp/fpsc-device-tree.rsti
 

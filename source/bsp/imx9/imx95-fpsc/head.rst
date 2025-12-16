@@ -364,7 +364,7 @@ only the script method is supported.
    imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi2.dtbo
 
 .. _imx95-fpsc-head-ubootexternalenv:
-.. include:: /bsp/dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
