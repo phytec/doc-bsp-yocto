@@ -713,7 +713,7 @@ The device tree of PEB-AV-10 can be found here:
 
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
-.. include:: /bsp/imx9/imx91_imx93/peripherals/tpm.rsti
+.. include:: /bsp/peripherals/tpm.rsti
 
 Device tree TPM configuration can be found here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L161`
