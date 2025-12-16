@@ -374,7 +374,7 @@ the script and rauc bootmethods are supported.
    imx8mm-phycore-rpmsg.dtbo
 
 .. _imx8mm-dt-overlays:
-.. include:: ../../dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
 ..                        ACCESSING PERIPHERALS
