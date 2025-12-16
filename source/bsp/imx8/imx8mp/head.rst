@@ -391,7 +391,7 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-vm017-csi2-fpdlink.dtbo
 
 .. _imx8mp-head-ubootexternalenv:
-.. include:: ../../dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
