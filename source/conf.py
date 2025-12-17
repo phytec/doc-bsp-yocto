@@ -216,8 +216,8 @@ latex_documents = [
         False,
     ),
     (
-        'bsp/imx8/imx8mp-fpsc/imx8mp-fpsc-alpha1',
-        'imx8mp-fpsc-imx8mp-fpsc-alpha1.tex',
+        'bsp/imx8/imx8mp-fpsc/alpha1',
+        'imx8mp-fpsc-alpha1.tex',
         'phyCORE-i.MX 8M Plus FPSC ALPHA1 Manual',
         'PHYTEC Messtechnik GmbH',
         'manual',
