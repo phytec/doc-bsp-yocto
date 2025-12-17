@@ -110,6 +110,7 @@
 
 
 .. IMX8(MM) specific replacements
+.. |gpu-model| replace:: Vivante
 .. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
@@ -596,6 +597,9 @@ If the PEB-AV-Adapter is not connected, an error message may occur at boot.
 
 The device tree of PEB-AV-10 can be found here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso`
+
+.. include:: /bsp/peripherals/gpu.rsti
+
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti

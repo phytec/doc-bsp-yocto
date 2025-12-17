@@ -1,0 +1,23 @@
+GPU
+---
+
+The |soc| has a |gpu-model| GPU.
+
+.. gpu-platform-specific-marker
+
+The |yocto-imagename| has glmark2 as a GPU benchmark built in. To run the
+benchmark, execute:
+
+.. code-block:: console
+
+   target:~$ glmark2-es2-wayland
+
+.. note::
+
+   For this benchmark to run properly, weston needs to be started successfully.
+   For this display overlays might need to be loaded.
+
+By default the benchmark is executed in 800x600 windowed mode. The benchmark
+can also be executed in fullscreen mode with the ``--fullscreen`` flag.
+Alternatively with the ``--off-screen`` flag the benchmark will not be shown on
+display.
