@@ -103,6 +103,7 @@
 
 
 .. IMX95 specific
+.. |gpu-model| replace:: MALI G310
 .. |sbc-network| replace::
    The device tree set up for the ethernet where the PHY is populated on the |sbc|
    can be found here:
@@ -462,7 +463,13 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/peripherals/tpm.rsti
 
+.. include:: /bsp/peripherals/gpu.rsti
+   :end-before: .. gpu-platform-specific-marker
+
 .. include:: peripherals/gpu.rsti
+
+.. include:: /bsp/peripherals/gpu.rsti
+   :start-after: .. gpu-platform-specific-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
