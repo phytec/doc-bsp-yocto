@@ -10,10 +10,6 @@ jobs:
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
-    - name: Install ripgrep
-      run: |
-          sudo apt update
-          sudo apt install ripgrep -y
     - name: Check file sizes
       run: scripts/check_filesize.sh
     - name: Check file names
