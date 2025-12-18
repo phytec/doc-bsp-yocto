@@ -287,6 +287,7 @@ You can build the SDK yourself with Yocto:
 
 .. include:: /bsp/imx-common/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
+.. include:: /bsp/development/pxe_boot.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
