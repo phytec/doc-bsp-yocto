@@ -1,0 +1,80 @@
+U-Boot PXE Boot
+---------------
+
+PXE Boot requires a bit of setup initially.
+As an upside, it allows to specify kernel command line parameters in a file on
+the server/host system.
+Also, it allows a choice of different kernels, depending on what is present on
+the server.
+
+This makes it ideal for kernel development; That is debugging, driver
+development, device tree changes (including overlays).
+
+.. code-block:: console
+
+   u-boot=> pxe get
+   u-boot=> pxe boot
+
+..
+   File name and what to put in it. use pxelinux.cfg subdir
+
+In the example below, ``C0A8030B`` is the Syslinux configuration file which will
+be loaded by U-boot. The name is the ip address PHYTEC sets for its boards in
+hex. If the board gets a different ip address, this file will be ignored. A
+catchall is ``default``, which is the last filename to be tried.
+For more information, see the official `PXELINUX`_ documentation.
+
+::
+
+   ├── fdts
+   │   ├── nightly-imx93-phyflex-libra-rdk.dtb
+   │   ├── nightly-imx95-phyflex-libra-rdk.dtb
+   │   └── nightly-imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
+   ├── kernels
+   │   └── nightly-image
+   └── pxelinux.cfg
+       └── C0A8030B
+
+
+The contents of which may look like this::
+
+   menu title Linux selections
+   timeout 300
+
+   label netboot-imx95-phyflex
+       menu label Netboot target for Libra-phyFLEX i.MX 95
+       kernel kernels/nightly-image
+       fdt fdts/nightly-imx95-phyflex-libra-rdk.dtb
+       fdtoverlays fdts/nightly-imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
+       append console=ttyLP3,115200 rw root=/dev/nfs ip=dhcp nfsroot=/srv/nfs,vers=4,tcp
+
+   label netboot-imx93-phyflex
+       menu label Netboot target for Libra-phyFLEX i.MX 93
+       kernel kernels/nightly-image
+       fdt fdts/nightly-imx93-phyflex-libra-rdk.dtb
+       append console=ttyLP3,115200 rw root=/dev/nfs ip=dhcp nfsroot=/srv/nfs,vers=4,tcp
+
+   default netboot-imx95-phyflex
+
+
+.. note::
+
+   The device tree directives are custom to U-Boot. See the
+   `PXE Boot and extlinux.conf`_ section in the U-Boot documentation on which
+   directives U-boot recognizes.
+
+..
+   Tested for Libra i.MX 95, known to be a conflict
+
+.. hint::
+
+   The default fit image does not work with pxeboot. This is due to a conflict
+   entry and load addresses for the kernel. FIT image will we loaded to
+   kernel_addr_r where the kernel will then be extracted to, leading to an error
+   (since the FIT image already resides at this address).
+
+
+Kernel nfs info: https://www.kernel.org/doc/html/latest/admin-guide/nfs/nfsroot.html
+
+.. _PXE Boot and extlinux.conf: https://docs.u-boot.org/en/latest/usage/pxe.html
+.. _PXELINUX: https://wiki.syslinux.org/wiki/index.php?title=PXELINUX
