@@ -110,6 +110,7 @@
 
 
 .. IMX8(MP) specific
+.. |gpu-model| replace:: Vivante GC7000UL
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
@@ -589,6 +590,8 @@ Device tree description of LVDS-1 and HDMI can be found here:
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtso#L133`
+
+.. include:: /bsp/peripherals/gpu.rsti
 
 .. include:: ../peripherals/pm.rsti
 

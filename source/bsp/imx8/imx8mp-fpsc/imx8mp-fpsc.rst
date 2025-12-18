@@ -20,7 +20,7 @@ BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
    :numbered:
    :maxdepth: 2
 
-   imx8mp-fpsc-alpha1
+   alpha1
 
 Quickstart Guide ALPHA1
 =======================
