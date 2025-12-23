@@ -1,0 +1,32 @@
+Camera
+------
+
+To support a phyCAM-M |sbc| the Device Tree overlay has to be enabled and
+the camera needs to be initialized, e.g. a VM-016 on CSI1 (x55):
+
+- Enable the overlay :
+
+.. code-block:: console
+
+   target:~$ vi /boot/bootenv.txt
+   overlays=k3-am68-phyboard-izar-lvds-ac200.dtbo k3-am68-phyboard-izar-pwm-fan.dtbo k3-am68-phyboard-izar-vm016-mipi-csi1.dtbo
+
+- Check if the camera has been loaded:
+
+.. code-block:: console
+
+   target:~$ media-ctl -d0 -p
+
+- Setup the camera:
+
+.. code-block:: console
+
+   target:~$ media-ctl -d0 -V "'ar0144 5-0010':0[fmt:SGRBG8_1X8/1280x800 (0,4)/1280x800]" -v
+
+- To start a camera stream using the LVDS Display, launch a GStreamer pipeline for example:
+
+.. code-block:: console
+
+   target:~$ systemctl stop phytec-qtdemo
+   target:~$ systemctl stop weston
+   target:~$ gst-launch-1.0 v4l2src device=/dev/video2 ! video/x-bayer, width=1280, height=800, format=grbg ! bayer2rgb ! videoconvert ! kmssink sync=false driver-name=tidss force-modesetting=true
