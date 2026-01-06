@@ -453,6 +453,26 @@ DT representation for USB Host:
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
+   :end-before: .. supported-display-interfaces-marker-start
+
+The |sbc| supports up to 3 different display outputs. The following table shows
+the required extensions and devicetree overlays for the different interfaces.
+For the alpha release, we have included overlays for two different LVDS displays.
+These displays are ``edt,etml1010g3dra`` or ``powertip,ph128800t006-zhc01``.
+The name can be found on the back of the display.
+
+.. note::
+   Currently only LVDS0 (onboard LVDS) is supported
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
+                                   imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
+========= ======================== ======================================
+
+.. include:: display.rsti
+   :start-after: .. supported-display-interfaces-marker-end
 
 .. include:: /bsp/qt6.rsti
 
