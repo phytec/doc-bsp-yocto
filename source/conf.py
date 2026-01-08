@@ -456,23 +456,3 @@ latex_documents = [
         False,
     ),
 ]
-
-# -- Linkcheck options ----------------------------------------------------
-
-linkcheck_ignore = [
-    "https://github.com/phytec/doc-bsp-yocto",
-    "https://opencv.org/",
-    # Github rate limiting
-    "https://github.com/phytec/linux-phytec-imx",
-    "https://github.com/phytec/linux-phytec",
-    # Client Error 403: Forbidden
-    "https://unix.stackexchange.com/",
-    # Timeout with linkcheck
-    "https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc",
-    # Often 403 Client Error: Forbidden
-    "https://e2fsprogs.sourceforge.net/e2fsprogs-release.html",
-]
-
-linkcheck_timeout = 60
-linkcheck_workers = 10
-linkcheck_anchors = False
