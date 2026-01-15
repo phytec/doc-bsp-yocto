@@ -66,6 +66,7 @@
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-phyflex-libra-rdk
 .. |dt-som| replace:: imx95-phyflex-fpsc-g-som
+.. |dtbo-peb-av-10| replace:: imx95-phyflex-libra-rdk-peb-av-10-ph128800t006-zhc01.dtbo
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L229`
