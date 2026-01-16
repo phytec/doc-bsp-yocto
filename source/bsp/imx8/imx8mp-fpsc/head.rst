@@ -293,6 +293,50 @@ Development
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :end-before: .. ampliphy-boot-supported-bootscripts-marker
+
+.. code-block::
+
+   mmc_boot_fit
+   net_boot_fit
+
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :start-after: .. ampliphy-boot-supported-bootscripts-marker
+
+For the |kit|, the default values are defined in the U-Boot devicetree at
+``arch/arm/dts/|dt-carrierboard|-u-boot.dtsi``:
+
+.. code-block::
+
+   bootstd {
+           bootph-verify;
+           compatible = "u-boot,boot-std";
+
+           filename-prefixes = "/", "/boot/";
+           bootdev-order = "mmc2", "mmc1", "ethernet";
+
+           efi {
+                   compatible = "u-boot,distro-efi";
+           };
+
+           rauc {
+                   compatible = "u-boot,distro-rauc";
+           };
+
+           script {
+                   compatible = "u-boot,script";
+           };
+   };
+
+The filename-prefixes property describes the paths that will be searched for
+the bootscripts. In this case this is the root of the partition as well as the
+boot folder. The bootdev-order property sets the default value for the
+boot_targets variable. The supported bootmeths will also be named. In this case
+the efi, rauc and script bootmethods are supported.
+
+.. include:: /bsp/development/fitImages.rsti
+
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
@@ -325,7 +369,7 @@ Development
    imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port1.dtbo
 
 .. _imx8mp-fpsc-head-ubootexternalenv:
-.. include:: /bsp/dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. include:: /bsp/fpsc-device-tree.rsti
 
