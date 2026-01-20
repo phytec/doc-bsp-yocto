@@ -290,7 +290,7 @@ You can build the SDK yourself with Yocto:
 
 .. warning::
 
-   Using netboot with standardboot and static IPs does not work yet in this
+   Using netboot with standard boot and static IPs does not work yet in this
    release. Standardboot will always use dhcp.
 
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
