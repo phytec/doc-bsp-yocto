@@ -2,7 +2,7 @@ Switch back to legacyboot
 -------------------------
 
 .. warning::
-   As we switched to standardboot with fitimage as default, legacyboot is
+   As we switched to standard boot with fitimage as default, legacyboot is
    deprecated. We kept the option to switch back to legacyboot for this
    release, but it will be removed in the future.
 
