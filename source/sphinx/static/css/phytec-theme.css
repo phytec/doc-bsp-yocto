@@ -52,7 +52,19 @@ a:visited {
     letter-spacing: 0.75px;
 }
 
+.wy-menu a {
+    color: var(--gray2);
+}
+
 .wy-menu a:hover {
+    color: var(--white);
+}
+
+.wy-menu a:visited {
+    color: var(--gray2);
+}
+
+.wy-menu a:visited:hover {
     color: var(--white);
 }
 
