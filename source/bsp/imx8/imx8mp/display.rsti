@@ -58,8 +58,11 @@ In our BSP, the default Weston output is set to HDMI.
    name=LVDS-1
    mode=off
 
-When using the LVDS0 (PEB-AV-10) as output, set the output mode to off for
-HDMI-A-1 and for LVDS-1 to current.
+When using the LVDS channel 0 (PEB-AV-10) or the LVDS channel 1 as output, set
+the output mode to ``off`` for HDMI-A-1 and for LVDS-1 to ``current``.
+If you want to use LVDS channel 1 (cables connected directly to the
+phyBOARD-Pollux, not to PEB-AV-10 expansion board) then you need to load no overlay.
+Remove the imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
 
 .. code-block::
 
@@ -70,9 +73,6 @@ HDMI-A-1 and for LVDS-1 to current.
    [output]
    name=LVDS-1
    mode=current
-
-If you want to use LVDS1 (onboard) then you need to load no overlay. Remove the
-imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
 
 Dual Display
 ~~~~~~~~~~~~
