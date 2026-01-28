@@ -531,11 +531,14 @@ carrier board:
 
 On the |som| SoM:
 
-*  Board Detection EEPROM (write-protected)
+*  SoM Detection EEPROM (write-protected)
+
    *  Bus: I2C-0
    *  Address: 0x51
-   *  Purpose: Factory configuration for board identification
+   *  Purpose: Factory configuration for SoM identification
+
 *  User EEPROM
+
    *  Bus: I2C-0
    *  Address: 0x50
    *  Purpose: Available for user applications
@@ -546,6 +549,7 @@ Device Tree Reference for SoM EEPROMs:
 And on the |sbc| carrier board:
 
 *  Board Detection EEPROM
+
    *  Bus: I2C-1
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
