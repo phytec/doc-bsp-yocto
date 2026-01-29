@@ -39,15 +39,15 @@ directory, e.g.:
 
 .. code-block::
 
-   deploy-ampliphy-vendor-rauc/images/phyboard-segin-imx93-2/phytec-headless-image-phyboard-segin-imx93-2.partup
+   deploy-ampliphy-vendor-rauc/images/phyboard-segin-imx93-2/phytec-headless-image-phyboard-segin-imx93-2.rootfs.partup
 
 This partup package contains all the necessary data and configuration to flash
-an eMMC. `Partup <https://github.com/phytec/partup>`__ can be obtained from its
+an eMMC. `partup <https://github.com/phytec/partup>`__ can be obtained from its
 `release page <https://github.com/phytec/partup/releases>`_. Also, see its
-README for detailed `installation instructions
-<https://github.com/phytec/partup#installation>`_. Partup is already installed
-in our Ampliphy images, ``phytec-headless-image`` and can be directly used e.g.
-from an SD card.
+documentation for detailed `installation instructions
+<https://partup.readthedocs.io/en/latest/build-install.html>`_. partup is
+already installed in our Ampliphy images, ``phytec-headless-image`` and can be
+directly used e.g. from an SD card.
 
 .. note::
    To flash the initial RAUC system, a booted non-RAUC system is needed first on
