@@ -17,7 +17,7 @@ Initialize the build directory with the OE init script:
 
 .. code-block:: console
 
-   host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source sources/poky/oe-init-build-env
+   host:~$ source sources/poky/oe-init-build-env
 
 Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8
 mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):
