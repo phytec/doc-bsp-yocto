@@ -425,6 +425,14 @@ latex_documents = [
         False,
     ),
     (
+        'rauc/walnascar',
+        'rauc-walnascar.tex',
+        'RAUC Update \\& Device Management Manual Walnascar',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'coprocessor/coprocessor',
         'coprocessor.tex',
         'Coprocessor Application Manual',
