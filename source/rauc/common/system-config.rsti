@@ -15,15 +15,16 @@ RAUC BSP Example Setup
 ----------------------
 
 The partition layout is defined in the ``/etc/rauc/system.conf`` file. As an
-example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:
+example, this is what it looks like for i.MX 8M Plus with eMMC flash storage:
 
 .. code-block:: cfg
    :caption: /etc/rauc/system.conf
 
    [system]
-   compatible=phyboard-polis-imx8mm-4
+   compatible=phyboard-pollux-imx8mp-3
    bootloader=uboot
    mountprefix=/mnt/rauc
+   data-directory=/mnt/config/rauc/
 
    [handlers]
    pre-install=/usr/lib/rauc/rauc-pre-install.sh
@@ -32,6 +33,7 @@ example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:
    [keyring]
    path=mainca-rsa.crt.pem
 
+   # Bootloader
    [slot.bootloader.0]
    device=/dev/mmcblk2
    type=boot-emmc
@@ -41,6 +43,7 @@ example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:
    device=/dev/mmcblk2p5
    type=ext4
    bootname=system0
+   resize=true
 
    [slot.boot.0]
    device=/dev/mmcblk2p1
@@ -52,6 +55,7 @@ example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:
    device=/dev/mmcblk2p6
    type=ext4
    bootname=system1
+   resize=true
 
    [slot.boot.1]
    device=/dev/mmcblk2p2
