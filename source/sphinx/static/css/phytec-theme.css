@@ -32,16 +32,42 @@
     --yellow: #f1bf00;
 }
 
-a {
+body {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--dark);
+}
+
+.rst-content code,
+.rst-content kbd,
+.rst-content pre,
+.rst-content samp
+.rst-content tt,
+code {
+    font-family: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+                 "Liberation Mono", "Courier New", monospace;
+}
+
+.rst-content code.literal,
+.rst-content tt.literal {
+    color: var(--pink);
+}
+
+.rst-content .toctree-wrapper > p.caption,
+h1, h2, h3, h4, h5, h6,
+legend {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wy-nav-content {
+    background: var(--white);
+}
+
+.wy-nav-content a {
     color: var(--teal3);
 }
 
-a:hover {
+.wy-nav-content a:hover {
     color: var(--teal2);
-}
-
-a:visited {
-    color: var(--purple);
 }
 
 .wy-menu-vertical header,
@@ -52,30 +78,20 @@ a:visited {
     letter-spacing: 0.75px;
 }
 
-.wy-menu a {
-    color: var(--gray2);
-}
-
-.wy-menu a:hover {
-    color: var(--white);
-}
-
-.wy-menu a:visited {
-    color: var(--gray2);
-}
-
-.wy-menu a:visited:hover {
-    color: var(--white);
-}
-
 .wy-side-nav-search,
 .wy-nav-top {
-    background-color: var(--teal4);
+    background-image: linear-gradient(to right, var(--teal2) 0%, var(--success) 400%);
 }
 
 .wy-side-nav-search input[type="text"] {
     border-color: transparent;
     background-clip: padding-box;
+    font-family: inherit;
+}
+
+.btn,
+.rst-versions {
+    font-family: inherit;
 }
 
 .rst-versions .rst-current-version {
