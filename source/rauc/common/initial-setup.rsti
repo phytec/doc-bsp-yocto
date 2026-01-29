@@ -52,7 +52,9 @@ from an SD card.
 .. note::
    To flash the initial RAUC system, a booted non-RAUC system is needed first on
    a different flash device. E.g. you could boot a regular
-   ``phytec-headless-image`` image with distro ``ampliphy`` from an SD card.
+   ``phytec-headless-image`` image with distro ``ampliphy`` from an SD card or,
+   for other scenarios, the more specialized ``phytec-provisioning-image`` with
+   distro ``securiphy-provisioning``.
 
 eMMC
 ....
