@@ -451,22 +451,11 @@ module and board.
 .. include:: /bsp/imx-common/peripherals/network.rsti
    :end-before: .. kernel-network-environment-marker
 
-Secondary Ethernet Interface Configuration in U-Boot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. warning::
 
-By default, U-Boot utilizes the Ethernet PHY located on the module. To use the network connection
-provided by the PHY on the carrier board, configuration changes are required.
-
-To enable the secondary Ethernet interface in U-Boot, the active Ethernet connection must be
-adjusted. The IP address configuration in U-Boot may also need modification.
-
-Configure the development host with IP address 192.168.4.10 and netmask 255.255.255.0. The target
-device must then be configured as follows:
-
-.. code-block::
-
-    u-boot=> setenv ethact eth1
-    u-boot=> setenv ipaddr 192.168.4.11
+   The ``ethrotate`` variable is broken for this release. U-Boot will not cycle
+   through the ethernet interfaces if the first one does not work. The ethernet
+   interface to be used needs to be set with ethact or ethprime.
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
    :start-after: .. kernel-network-environment-marker

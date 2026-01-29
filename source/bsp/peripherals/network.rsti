@@ -96,6 +96,43 @@ Please note that these modifications will only affect the bootloader settings.
    not work for variables like ipaddr or serveraddr as they need to be already
    set when the external environment is being loaded.
 
+Multiple network interfaces in U-Boot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some boards may have support for multiple network interfaces in U-Boot. U-Boot
+lists all supported network interfaces during startup. This would be an example
+where multiple network interfaces are supported.
+
+.. code-block:: console
+
+   Net:
+   eth0: ethernet@30be0000, eth1: ethernet@30bf0000
+
+There are three environment variables that will contribute to the selection of
+the ethernet interface for example when loading a file over tftp.
+
+``ethrotate``
+   Determines if other interfaces will be probed if the first one fails. Can be
+   set to yes/no. Default is yes if unset.
+
+``ethact``
+   Sets the current active ethernet interface. This interface will be used
+   (first). It is usually unset at boot, but will be set automatically by
+   U-Boot to the last used interface as soon as ethernet is used for the first
+   time. U-Boot will overwrite existing values. Only one ethernet interface can
+   be set, lists are not allowed.
+
+``ethprime``
+   This will determine the preferred ethernet interface if ethact is unset.
+   Otherwise this will be ignored. Only one ethernet interface can be set, lists
+   are not allowed.
+
+.. note::
+
+   The variables ``ipaddr``, ``serverip`` and ``netmask`` are global and not specific to a
+   certain ethernet interface, so they might need to be adapted to the ethernet
+   interface in use.
+
 .. kernel-network-environment-marker
 
 Kernel network-environment
