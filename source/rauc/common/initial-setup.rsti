@@ -117,8 +117,8 @@ Booting the A/B system is done mostly automatically by the bootloader since the
 Yocto release *hardknott*. For devices with eMMC flash storage, the
 corresponding setting is written into the bootloader environment during the
 building of the BSP. In particular, if the distribution ``ampliphy-rauc`` or
-``ampliphy-vendor-rauc`` is used, as described previously, the bootloader should
-automatically start the A/B system and have the variables set for RAUC
+``ampliphy-vendor-rauc`` is used, as described previously, the bootloader
+automatically starts the A/B system and have the variables set for RAUC
 accordingly.
 
 This automatic setting can be manually changed by setting one variable in the
@@ -128,6 +128,14 @@ for U-Boot and barebox.
 U-Boot
 ......
 
+The PHYTEC BSP uses `U-Boot's standard boot
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html>`_, to
+automatically select a supported distribution on available flash devices. With
+the distros ``ampliphy-rauc`` and ``ampliphy-vendor-rauc``, the `boot method
+rauc <https://docs.u-boot.org/en/latest/develop/bootstd/rauc.html>`_ is tried
+first, if it was being flashed to the eMMC. The selection of the correct RAUC
+slot is done automatically by the ``rauc`` boot method.
+
 After a successful boot into a Linux environment, this command is used to view
 the available parameters:
 
@@ -135,32 +143,23 @@ the available parameters:
 
    target:~$ fw_printenv
 
-You may see this parameter along with others in the output:
+Or in the U-Boot console:
 
 .. code-block::
 
-   doraucboot=1
+   u-boot=> env print
 
-To manually disable or enable booting the A/B system with RAUC, set this
-variable to ``0`` or ``1``:
-
-.. code-block:: console
-
-   target:~$ fw_setenv doraucboot 1
-
-This parameter can also be edited in U-Boot. Restart your board and hit any key
-to stop the automatic boot. The environment variables can now be viewed:
+You may see the RAUC specific parameters along with other U-Boot variables in
+the output:
 
 .. code-block::
 
-   u-boot=> printenv
+   BOOT_system0_LEFT=3
+   BOOT_system1_LEFT=3
+   BOOT_ORDER="system0 system1"
 
-and set:
-
-.. code-block::
-
-   u-boot=> setenv doraucboot 1
-   u-boot=> saveenv
+These variables are automatically set by the boot method ``rauc`` and should not
+be changed in normal operation.
 
 Barebox
 .......
