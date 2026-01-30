@@ -17,7 +17,7 @@ previously:
 
 This results in the creation of a ``.raucb`` bundle file in
 ``deploy/images/<MACHINE>/`` which can be used for updating the system as
-described later. There is no need to create a ``manifest.raucm`` manually as it
+described later. There is no need to create a ``manifest.raucm`` manually, as it
 is created automatically during the build of the bundle. As a reference, the
 created manifest would look something like this:
 
