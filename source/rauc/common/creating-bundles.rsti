@@ -48,11 +48,14 @@ Creating transition bundles
 
 Updating to a new major release can require a special RAUC bundle.
 
-When updating to a Scarthgap based release, add the following to your
-``local.conf`` and rebuild the RAUC bundle:
+When updating to a Scarthgap based release from an older version, add the
+following to your ``local.conf`` of the new release and rebuild the RAUC bundle:
 
 .. code-block::
    :caption: build/conf/local.conf
 
    RAUC_IMAGE_FSTYPE = "tar.gz"
    RAUC_SLOT_rootfs[adaptive] = ""
+
+After successfully migrating your system with the rebuilt bundle, revert these
+settings for any further bundle updates.
