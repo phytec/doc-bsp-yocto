@@ -48,7 +48,7 @@ Build the same RAUC bundle as before, now with the exchanged keyring:
 
 .. code-block:: console
 
-   host:~$ TEMPLATECONF=../meta-phytec/conf/templates/default source source/poky/oe-init-build-env
+   host:~$ source source/poky/oe-init-build-env
    host:~$ bitbake phytec-headless-bundle  # Build the desired RAUC bundle
 
 Install the resulting RAUC bundle as usual. The target now has the image with
