@@ -10,47 +10,26 @@ Boot Logic Implementation
    guide. PHYTEC BSPs that have RAUC support include these by default and the
    changes are already incorporated.
 
-U-Boot Environment Variables
-............................
+U-Boot standard boot
+....................
 
 For U-Boot, the boot logic that selects the correct partitions to boot from is
-implemented in its environment. As a reference, these are the most important
-U-Boot variables that are used for the A/B system with RAUC:
+implemented using `U-Boot's standard boot
+<https://docs.u-boot.org/en/latest/develop/bootstd/overview.html>`_. Only the
+RAUC-specific variables are saved in U-Boot's environment and should not need to
+be modified.
 
-+-------------------+--------------------------------------------------------+
-| Name              | Function                                               |
-+===================+========================================================+
-| BOOT_ORDER        | Contains a space-separated list of boot targets in the |
-|                   | order they should be tried. This parameter is          |
-|                   | automatically set by RAUC.                             |
-+-------------------+--------------------------------------------------------+
-| BOOT_<slot>_LEFT  | Contains the number of remaining boot attempts to      |
-|                   | perform for the respective slot. This parameter is     |
-|                   | automatically set by RAUC.                             |
-+-------------------+--------------------------------------------------------+
-| ``raucinit``      | Contains the boot logic that sets the partitions so    |
-|                   | the correct system is loaded.                          |
-+-------------------+--------------------------------------------------------+
-| ``doraucboot``    | Enables booting the A/B system if set to 1 and         |
-|                   | disables it if set to 0.                               |
-+-------------------+--------------------------------------------------------+
-| ``raucargs``      | Sets the Kernel bootargs like console, root, and RAUC  |
-|                   | slot.                                                  |
-+-------------------+--------------------------------------------------------+
-| ``raucrootpart``  | Sets the root filesystem partitions of the device.     |
-+-------------------+--------------------------------------------------------+
-| ``raucbootpart``  | Sets the boot partitions of the device.                |
-+-------------------+--------------------------------------------------------+
-
-These environment variables are defined in ``include/env/phytec/rauc.env`` in
-the u-boot source code.
-
-.. note::
-
-   A change in the partition layout, e.g. when using an additional data
-   partition, may require changing the variables ``raucrootpart`` and
-   ``raucbootpart``. Make sure to rebuild your image with the new bootloader
-   environment after you have made the appropriate changes.
++-----------------------+--------------------------------------------------------+
+| Name                  | Function                                               |
++=======================+========================================================+
+| ``BOOT_ORDER``        | Contains a space-separated list of boot targets in the |
+|                       | order they should be tried. This parameter is          |
+|                       | automatically set by RAUC.                             |
++-----------------------+--------------------------------------------------------+
+| ``BOOT_system0_LEFT`` | Contains the number of remaining boot attempts to      |
+| ``BOOT_system1_LEFT`` | perform for the respective slot. This parameter is     |
+|                       | automatically set by RAUC.                             |
++-----------------------+--------------------------------------------------------+
 
 Barebox Bootchooser Framework
 .............................
