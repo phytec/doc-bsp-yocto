@@ -180,6 +180,12 @@ legend {
     background-color: color-mix(in srgb, var(--dark), var(--black));
 }
 
+@media screen and (min-width: 1100px) {
+    .wy-nav-content-wrap {
+        background: color-mix(in srgb, var(--white) 95%, var(--dark));
+    }
+}
+
 .rst-content .danger,
 .rst-content .error,
 .rst-content .wy-alert-danger.admonition,
