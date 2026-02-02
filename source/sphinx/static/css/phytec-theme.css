@@ -120,6 +120,51 @@ legend {
     font-family: inherit;
 }
 
+.wy-nav-side {
+    color: var(--white);
+    background-color: color-mix(in srgb, var(--dark), var(--black));
+}
+
+.wy-menu-vertical a {
+    color: var(--gray1);
+}
+
+.wy-menu-vertical a:hover {
+    background-color: var(--gray-dark);
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    border: none;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+    background-color: var(--gray2);
+}
+
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
+    background-color: color-mix(in srgb, var(--gray2), var(--gray3));
+}
+
+.wy-menu-vertical li.current {
+    background-color: var(--gray1);
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on a {
+    color: var(--dark);
+    background-color: var(--white);
+}
+
+.wy-menu-vertical li.current a {
+    border: none;
+}
+
+.wy-menu-vertical li.current a:hover {
+    background-color: var(--gray2);
+}
+
 .btn,
 .rst-versions {
     font-family: inherit;
@@ -127,7 +172,12 @@ legend {
 
 .rst-versions .rst-current-version {
     color: var(--teal3);
+    background-color: color-mix(in srgb, var(--dark) 75%, var(--black));;
     font-weight: bold;
+}
+
+.rst-versions .rst-other-versions {
+    background-color: color-mix(in srgb, var(--dark), var(--black));
 }
 
 .rst-content .danger,
