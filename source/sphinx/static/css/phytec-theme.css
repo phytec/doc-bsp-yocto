@@ -47,6 +47,29 @@ code {
                  "Liberation Mono", "Courier New", monospace;
 }
 
+.rst-content .code-block-caption {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 87%;
+    padding: 8px 12px;
+    text-align: inherit;
+    background-color: var(--gray2);
+    border-bottom: 0px;
+    margin-bottom: -1px;
+}
+
+.rst-content .linenodiv pre,
+.rst-content div[class^="highlight"] pre,
+.rst-content pre.literal-block {
+    font-size: 81.25%;
+}
+
+.rst-content div[class^=highlight],
+.rst-content pre.literal-block {
+    border: none;
+    background-color: var(--gray1);
+}
+
 .rst-content code.literal,
 .rst-content tt.literal {
     color: var(--pink);

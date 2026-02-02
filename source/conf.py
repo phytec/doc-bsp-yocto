@@ -112,9 +112,10 @@ html_static_path = ['sphinx/static']
 templates_path = ['sphinx/templates']
 
 html_css_files = [
-    'css/code-block.css',
     'css/phytec-theme.css',
 ]
+
+pygments_style = 'bw'
 
 # -- Options for PDF output -------------------------------------------------
 latex_engine = 'xelatex'
