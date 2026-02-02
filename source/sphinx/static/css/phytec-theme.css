@@ -75,6 +75,14 @@ code {
     color: var(--pink);
 }
 
+.rst-content code,
+.rst-content tt,
+code {
+    background-color: var(--gray1);
+    font-size: 81.15%;
+    border: none;
+}
+
 .rst-content .toctree-wrapper > p.caption,
 h1, h2, h3, h4, h5, h6,
 legend {
