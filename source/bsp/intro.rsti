@@ -3,9 +3,9 @@ Board Support Package (BSP) and describes how to handle the interfaces for the
 |kit|. Furthermore, this document describes how to create BSP images from the
 source code. This is useful for those who need to change the default image and
 need a way to implement these changes in a simple and reproducible way. Further,
-some sections of this manual require executing commands on a personal
-computer (host). Any and all of these commands are assumed to be executed on a
-Linux Operating System.
+some sections of this manual require executing commands on a personal computer
+(host). Any and all of these commands are assumed to be executed on a Linux
+Operating System.
 
 .. note::
 
@@ -17,8 +17,8 @@ Linux Operating System.
 PHYTEC Documentation
 ====================
 
-PHYTEC provides a variety of hardware and software documentation for
-all of its products. This includes any or all of the following:
+PHYTEC provides a variety of hardware and software documentation for all of its
+products. This includes any or all of the following:
 
 QS Guide
    A short guide on how to set up and boot a phyCORE based board.
@@ -52,7 +52,7 @@ Pin Muxing Table
    changes and design options when developing a specialized carrier board or
    adapting a PHYTEC phyCORE SOM to an application.
 
-On top of these standard manuals and guides, PHYTEC will also
-provide Product Change Notifications, Application Notes, and
-Technical Notes. These will be done on a case-by-case basis. Most
-of the documentation can be found on the |dlpage-product| of our product.
+On top of these standard manuals and guides, PHYTEC will also provide Product
+Change Notifications, Application Notes, and Technical Notes. These will be done
+on a case-by-case basis. Most of the documentation can be found on the
+|dlpage-product| of our product.
