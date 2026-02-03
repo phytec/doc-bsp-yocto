@@ -10,8 +10,8 @@ Linux Operating System.
 .. note::
 
    This document contains code examples that describe the communication with the
-   board over the serial shell. The code examples lines begin with "host:~$",
-   "target:~$" or "u-boot=>". This describes where the commands are to be
+   board over the serial shell. The code examples lines begin with ``host:~$``,
+   ``target:~$`` or ``u-boot=>``. This describes where the commands are to be
    executed. Only after these keywords must the actual command be copied.
 
 PHYTEC Documentation
