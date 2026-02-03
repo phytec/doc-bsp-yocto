@@ -100,7 +100,7 @@ image and create the final fitImage with mkimage.
 
    host:~/|kernel-repo-name|$ cp /path/to/yocto/deploydir/fitimage-its*.its .
                      && ln -s arch/arm64/boot/Image.gz linux.bin
-                     && uboot-mkimage -f fitImage-its*.its fitImage
+                     && mkimage -f fitImage-its*.its fitImage
 
 
 Copy FIT image and kernel modules to SD card
