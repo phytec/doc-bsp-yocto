@@ -113,6 +113,7 @@ templates_path = ['sphinx/templates']
 
 html_css_files = [
     'css/phytec-theme.css',
+    'css/table-wrap-text.css',
 ]
 
 pygments_style = 'bw'
