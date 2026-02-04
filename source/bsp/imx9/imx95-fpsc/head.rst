@@ -244,13 +244,6 @@ select the |som| default bootsource.
 
 .. include:: /bsp/imx-common/installing-os.rsti
    :start-after: .. flash-emmc-from-sdcard-marker
-   :end-before: .. flash-emmc-from-sdcard-in-linux-marker
-
-.. note::
-   There is no partup support in imx95 ALPHA1 release yet.
-
-.. include:: /bsp/imx-common/installing-os.rsti
-   :start-after: .. flash-emmc-from-sdcard-in-linux-marker
    :end-before: .. flash-spi-nor-flash-marker
 
 .. +---------------------------------------------------------------------------+
