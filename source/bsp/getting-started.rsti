@@ -136,6 +136,8 @@ to skip.
 Using partup
 ............
 
+.. using-partup-marker
+
 Writing to an SD card with partup is done in a single command:
 
 .. code-block:: console

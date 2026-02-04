@@ -175,7 +175,7 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx95-fpsc-head-getting-started:
-.. include:: getting-started.rsti
+.. include:: /bsp/getting-started.rsti
 
 First Start-up
 --------------

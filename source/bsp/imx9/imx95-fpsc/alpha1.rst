@@ -174,7 +174,15 @@ should show you the necessary **Machine Name** for your specific hardware
 .. +---------------------------------------------------------------------------+
 
 .. _imx95-fpsc-alpha1-getting-started:
-.. include:: getting-started.rsti
+.. include:: /bsp/getting-started.rsti
+   :end-before: .. using-partup-marker
+
+.. hint::
+   There is no partup support in i.MX95 ALPHA1 release. partup will be supported
+   in upcoming releases.
+
+.. include:: /bsp/getting-started.rsti
+   :start-after: .. using-partup-marker
 
 First Start-up
 --------------
