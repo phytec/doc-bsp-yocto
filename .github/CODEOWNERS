@@ -1,0 +1,9 @@
+* @mschwan-phytec
+source/bsp/am6x/ @dominiknh90 @s-hemer
+source/bsp/imx-common/ @BHahn42618 @ymoog @tremmet
+source/bsp/imx8/ @BHahn42618 @ymoog @tremmet
+source/bsp/imx9/ @BHahn42618 @ymoog @tremmet
+source/bsp/imx9/imx91_imx93/ @cstoidner
+source/coprocessor/ @pefech
+source/rauc/ @landerweit-phytec @mschwan-phytec
+source/security/ @landerweit-phytec @motto-phytec
