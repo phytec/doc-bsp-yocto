@@ -1,25 +1,35 @@
-.. list-table::
+Internal fuses
+   .. figure:: /bsp/images/dipswitch-tristate-4-pppp.svg
+      :scale: 400%
 
-   *  -  .. figure:: images/eMMC.png
+      Boot from internal fuses
 
-            eMMC
+USB
+   .. figure:: /bsp/images/dipswitch-tristate-4-mppp.svg
+      :scale: 400%
 
-      -  .. figure:: images/Internal_Fuses.png
+      USB serial download
 
-            Internal Fuses
+eMMC
+   .. figure:: /bsp/images/dipswitch-tristate-4-pmpp.svg
+      :scale: 400%
 
-      -  .. figure:: images/SPI_NOR.png
+      Boot from onboard e.MMC
 
-            SPI NOR
+SD card
+   .. figure:: /bsp/images/dipswitch-tristate-4-mmpp.svg
+      :scale: 400%
 
-   *  -  .. figure:: images/USB_Serial_Download.png
+      Boot from external SD card
 
-            USB Serial Download
+SPI NOR flash
+   .. figure:: /bsp/images/dipswitch-tristate-4-pmmp.svg
+      :scale: 400%
 
-      -  .. figure:: images/SD_Card_Boot.png
+      Boot from onboard SPI NOR flash
 
-            SD Card
+JTAG
+   .. figure:: /bsp/images/dipswitch-tristate-4-mmmm.svg
+      :scale: 400%
 
-      -  .. figure:: images/JTAG_Mode.png
-
-            JTAG Mode
+      JTAG mode
