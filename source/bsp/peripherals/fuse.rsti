@@ -1,0 +1,5 @@
+Fuses
+-----
+
+The U-Boot provides the fuse API which allows to control a fusebox and how it is
+used by the upper hardware layers.
