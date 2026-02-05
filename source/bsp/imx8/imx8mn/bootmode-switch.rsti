@@ -4,28 +4,28 @@ Hardware revision baseboard: 1532.2 and newer
    :align: center
    :widths: auto
 
-   *  -  .. figure:: images/Nano_eMMC_BOOT.png
-            :width: 250px
+   *  -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
             eMMC (Default SoM boot)
 
-      -  .. figure:: images/Nano_Serial_downloader_BOOT.png
-            :width: 250px
+      -  .. figure:: /bsp/images/dipswitch-6-001011.svg
+            :scale: 400%
 
             USB Serial Downloader
 
-   *  -  .. figure:: images/Nano_SD_BOOT.jpg
-            :width: 250px
+   *  -  .. figure:: /bsp/images/dipswitch-6-011001.svg
+            :scale: 400%
 
             SD Card
 
-      -  .. figure:: images/Nano_Fuse_BOOT.png
-            :width: 250px
+      -  .. figure:: /bsp/images/dipswitch-6-000001.svg
+            :scale: 400%
 
             Internal Fuses
 
-   *  -  .. figure:: images/Nano_QSPI_BOOT.png
-            :width: 250px
+   *  -  .. figure:: /bsp/images/dipswitch-6-110001.svg
+            :scale: 400%
 
             SPI NOR
 
@@ -35,25 +35,25 @@ Hardware revision baseboard: 1532.2 and newer
 .. list-table:: Switch between USB HOST/OTG using Pos5 of switch(S1)
    :align: center
 
-   *  -  .. figure:: images/USB_HOST.jpg
-            :width: 250px
+   *  -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
             USB HOST
 
-      -  .. figure:: images/USB_OTG.png
-            :width: 250px
+      -  .. figure:: /bsp/images/dipswitch-6-000010.svg
+            :scale: 400%
 
             USB OTG
 
 .. list-table:: Switch between UART1 RS485/RS232 using Pos4 of switch(S1)
    :align: center
 
-   *  -  .. figure:: images/UART1_RS485.png
-            :width: 250px
+   *  -  .. figure:: /bsp/images/dipswitch-6-000100.svg
+            :scale: 400%
 
             UART1 RS485
 
-      -  .. figure:: images/UART1_RS232.jpg
-            :width: 250px
+      -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
             UART1 RS232
