@@ -1,0 +1,50 @@
+.. include:: ../../peripherals/fuse.rsti
+
+To find out the bank and word index for a fuse for burning in U-Boot, use the
+following formulae
+
+.. math::
+
+   \left\lfloor\frac{i}{256}\right\rfloor = b
+
+.. math::
+
+   \frac{i - 256b}{32} = w
+
+where :math:`i` is the ``Fuse Index`` as specified in the Reference Manual
+(Chapter 5 Fuse Map), :math:`b` is the bank and :math:`w` is the word U-Boot
+expects as arguments to fuse commands.
+
+All of the ``General Purpose fuse for customer use`` fuses are word aligned so
+no care needs to be taken in regards to bit positions within a word. Example of
+programming GPR4_CFG6 fuses (Fuse index 12224); These fuses will not be
+programmed by PHYTEC.
+
+.. code-block::
+   console
+
+   u-boot=> fuse prog 47 6 0xDEADBEEF
+   Programming bank 47 word 0x00000006 to 0xdeadbeef...
+   Warning: Programming fuses is an irreversible operation!
+            This may brick your system.
+            Use this command only if you are sure of what you are doing!
+
+   Really perform this fuse programming? <y/N>
+   y
+
+.. warning::
+
+   Individual fuses may not be burned after programming a word. In the 0xDEADBEEF
+   example above, trying to burn fuses that had not been burned before, e.g.
+   trying ``fuse prog 47 6 0xFFFFFFFF`` is not supported. Each word programming is
+   one-time-only.
+
+Reading fuse words can be done with
+
+.. code-block::
+   console
+
+   u-boot=> fuse read 47 6
+   Reading bank 47:
+
+   Word 0x00000006: deadbeef

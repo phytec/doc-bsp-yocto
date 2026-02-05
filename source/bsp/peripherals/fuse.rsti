@@ -1,0 +1,6 @@
+Fuses
+-----
+
+The U-Boot provides the `fuse API
+<https://docs.u-boot.org/en/latest/usage/cmd/fuse.html#fuse-command>`_ which
+allows to control a fusebox and how it is used by the upper hardware layers.
