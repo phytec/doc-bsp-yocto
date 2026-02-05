@@ -401,6 +401,7 @@ only the one Gigabit Ethernet ports are supported (ETH0 and ETH1).
 
 .. include:: /bsp/imx-common/peripherals/network.rsti
 
+.. include:: peripherals/fuse.rsti
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
