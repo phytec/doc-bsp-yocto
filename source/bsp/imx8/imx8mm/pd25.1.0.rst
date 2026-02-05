@@ -188,19 +188,16 @@ should show you the necessary **Machine Name** for your specific hardware
 First Start-up
 --------------
 
-* To boot from an SD card, |ref-bootswitch| needs to be set to the following
-  position:
+*  To boot from an SD card, |ref-bootswitch| needs to be set to the following
+   position:
 
-.. list-table:: Bootmode Selection
+   .. figure:: /bsp/images/dipswitch-6-100000.svg
+      :scale: 400%
 
-   *  -  .. figure:: images/SD_Card_Boot.jpg
-
-            Mini
-
-* Insert the SD card
-* Connect the target and the host with **micro USB** on |ref-debugusbconnector|
-  debug USB
-* Power up the board
+*  Insert the SD card
+*  Connect the target and the host with **micro USB** on |ref-debugusbconnector|
+   debug USB
+*  Power up the board
 
 .. +---------------------------------------------------------------------------+
 ..                          Building the BSP                                   |
@@ -410,13 +407,15 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 
 .. list-table:: Switch between UART1 RS485/RS232
 
-   *  - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS485.png
+   *  -  .. figure:: /bsp/images/dipswitch-6-000100.svg
+            :scale: 400%
 
             **UART1 RS485**
 
-      - .. figure:: /bsp/imx8/imx8mm/images/UART1_RS232.jpg
+      -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
-           **UART1 RS232**
+            **UART1 RS232**
 
 .. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti

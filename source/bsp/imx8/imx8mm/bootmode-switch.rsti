@@ -3,29 +3,35 @@ Mini
 
 .. list-table:: Bootmode Selection
 
-   * - .. figure:: images/eMMC.jpg
+   *  -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
-          eMMC (Default SoM boot)
+            eMMC (Default SoM boot)
 
-     - .. figure:: images/SPI_NOR.png
+      -  .. figure:: /bsp/images/dipswitch-6-110000.svg
+            :scale: 400%
 
-          SPI NOR
+            SPI NOR
 
-   * - .. figure:: images/USB_Serial_Download.png
+   *  -  .. figure:: /bsp/images/dipswitch-6-001000.svg
+            :scale: 400%
 
-          USB Serial Download
+            USB Serial Download
 
-     - .. figure:: images/SD_Card_Boot.jpg
+      -  .. figure:: /bsp/images/dipswitch-6-100000.svg
+            :scale: 400%
 
-          SD Card
+            SD Card
 
 
 .. list-table:: Switch between UART1 RS485/RS232
 
-   * - .. figure:: images/UART1_RS485.png
+   *  -  .. figure:: /bsp/images/dipswitch-6-000100.svg
+            :scale: 400%
 
-          UART1 RS485
+            UART1 RS485
 
-     - .. figure:: images/UART1_RS232.jpg
+      -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
 
-          UART1 RS232
+            UART1 RS232
