@@ -1,0 +1,17 @@
+Display
+-------
+
+.. supported-display-interfaces-marker-start
+
+The |sbc| supports one LVDS interface. The following table shows the
+required extensions and devicetree overlays for this interface. For the alpha
+release, we have included overlay for ``10" ETML1010G3DRA`` LVDS display.
+The name can be found on the back of the display.
+
+========= ======================== ======================================
+Interface Expansion                devicetree overlay
+========= ======================== ======================================
+LVDS0     |sbc|                    k3-am68-phyboard-izar-lvds-ac200.dtbo
+========= ======================== ======================================
+
+.. supported-display-interfaces-marker-end
