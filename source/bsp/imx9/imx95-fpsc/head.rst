@@ -342,6 +342,7 @@ only the script method is supported.
 .. code-block::
    :substitutions:
 
+   imx95-phyflex-libra-rdk-bluetooth-88w8987.dtbo
    imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
    imx95-phyflex-libra-rdk-neoisp.dtbo
    imx95-phyflex-libra-rdk-vm016-csi1.dtbo
@@ -362,6 +363,7 @@ only the script method is supported.
    imx95-phyflex-libra-rdk-vm020-csi2.dtbo
    imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi2.dtbo
    imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi2.dtbo
+   imx95-phyflex-fpsc-g-som-temperature.dtbo
 
 .. _imx95-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
@@ -406,6 +408,10 @@ by our module and board. Additionally there is a 10Gbit Ethernet. Currently
 only the one Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
 
 .. include:: /bsp/peripherals/network.rsti
+
+.. include:: wireless-network.rsti
+
+.. include:: ../../peripherals/wireless-network.rsti
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
