@@ -271,15 +271,16 @@ Flash a WIC image to SD card by calling::
 First Start-up
 --------------
 
-* To boot from an SD card, |ref-bootswitch| needs to be set to the following
-  position:
+*  To boot from an SD card, |ref-bootswitch| needs to be set to the following
+   position:
 
-.. image:: images/SD_Card_Boot.png
+   .. image:: /bsp/images/dipswitch-4-1000.svg
+      :scale: 400%
 
-* Insert the SD card
-* Connect the target and the host with **micro USB** on |ref-debugusbconnector|
-  debug USB
-* Power up the board
+*  Insert the SD card
+*  Connect the target and the host with **micro USB** on |ref-debugusbconnector|
+   debug USB
+*  Power up the board
 
 .. +---------------------------------------------------------------------------+
 .. Building the BSP
