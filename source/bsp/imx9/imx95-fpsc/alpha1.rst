@@ -244,7 +244,29 @@ The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
 .. _imx95-fpsc-alpha1-bootswitch:
-.. include:: bootmode-switch.rsti
+.. list-table::
+
+   *  -  .. figure:: images/eMMC.png
+
+            eMMC
+
+      -  .. figure:: images/Internal_Fuses.png
+
+            Internal Fuses
+
+      -  .. figure:: images/SPI_NOR.png
+
+            SPI NOR
+
+   *  -  .. figure:: images/USB_Serial_Download.png
+
+            USB Serial Download
+
+      -  .. figure:: images/SD_Card_Boot.png
+
+            SD Card
+
+      -
 
 .. include:: /bsp/imx-common/installing-os.rsti
    :end-before: .. flash-emmc-from-usb-stick-in-uboot-marker

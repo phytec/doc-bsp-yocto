@@ -1,23 +1,23 @@
-.. list-table::
+USB
+   .. figure:: /bsp/images/dipswitch-tristate-4-mppm.svg
+      :scale: 300%
 
-   *  -  .. figure:: images/eMMC.png
+      USB serial download
 
-            eMMC
+eMMC
+   .. figure:: /bsp/images/dipswitch-tristate-4-pmpm.svg
+      :scale: 300%
 
-      -  .. figure:: images/Internal_Fuses.png
+      Boot from onboard e.MMC
 
-            Internal Fuses
+SD card
+   .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
+      :scale: 300%
 
-      -  .. figure:: images/SPI_NOR.png
+      Boot from external SD card
 
-            SPI NOR
+SPI NOR flash
+   .. figure:: /bsp/images/dipswitch-tristate-4-mppm.svg
+      :scale: 300%
 
-   *  -  .. figure:: images/USB_Serial_Download.png
-
-            USB Serial Download
-
-      -  .. figure:: images/SD_Card_Boot.png
-
-            SD Card
-
-      -
+      Boot from onboard SPI NOR flash
