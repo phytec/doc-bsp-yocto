@@ -1,0 +1,37 @@
+WLAN/Bluetooth
+--------------
+
+WLAN and Bluetooth on the |sbc| are provided by the M.2 ublox MAYA-W271-00B
+expansion card. This module supports 2,4 and 5 GHz bandwidth and can be run
+in several modes, like client mode and Access Point (AP).
+More information about the module can be found at
+https://www.u-blox.com/en/product/maya-w2-series
+
+To use the bluetooth connection, the overlay needs to be activated first,
+otherwise the UART connection isn't configured as needed.
+
+.. code-block:: console
+
+   target:~$ vi /boot/bootenv.txt
+
+Afterwards the bootenv.txt file should look like this (it can also contain
+other devicetree overlays!):
+
+.. code-block::
+
+   fit_overlay_conf=conf-imx95-phyflex-libra-rdk-bluetooth-88w8987.dtbo
+
+The changes will be applied after a reboot:
+
+.. code-block:: console
+
+   target:~$ reboot
+
+For further information about devicetree overlays, read the |ref-dt| chapter.
+
+.. note::
+   The following WLAN chapter assumes wireless network interface name is
+   ``wlan0``. However with MAYA-W271-00B adapter the name of the WLAN
+   interface is actually ``mlan0``. Thus when using commands to configure
+   wireless network, substitute ``wlan0`` with ``mlan0`` when using
+   MAYA-W271-00B.
