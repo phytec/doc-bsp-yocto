@@ -533,13 +533,13 @@ On the |som| SoM:
 
 *  SoM Detection EEPROM (write-protected)
 
-   *  Bus: I2C-0
+   *  Bus: I2C-5
    *  Address: 0x51
    *  Purpose: Factory configuration for SoM identification
 
 *  User EEPROM
 
-   *  Bus: I2C-0
+   *  Bus: I2C-5
    *  Address: 0x50
    *  Purpose: Available for user applications
 
@@ -550,9 +550,15 @@ And on the |sbc| carrier board:
 
 *  Board Detection EEPROM
 
-   *  Bus: I2C-1
+   *  Bus: I2C-2
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
+
+*  User EEPROM
+
+   *  Bus: I2C-2
+   *  Address: 0x52
+   *  Purpose: Available for user applications
 
 Device Tree Reference for Carrier Board:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
