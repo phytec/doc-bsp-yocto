@@ -1,13 +1,16 @@
 .. list-table::
 
-   *  -  .. figure:: images/eMMC.png
+   *  -  .. figure:: /bsp/images/dipswitch-4-1100.svg
+            :scale: 400%
 
             eMMC
 
-      -  .. figure:: images/SD_Card_Boot.png
+      -  .. figure:: /bsp/images/dipswitch-4-1000.svg
+            :scale: 400%
 
             SD Card
 
-      -  .. figure:: images/SPI_NOR.png
+      -  .. figure:: /bsp/images/dipswitch-4-0010.svg
+            :scale: 400%
 
             SPI NOR

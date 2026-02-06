@@ -234,7 +234,8 @@ Boot with SD-Card
 *  To boot from an SD card, the bootmode switch (S1) needs to be set to the
    following position:
 
-.. image:: images/SD_Card_Boot.png
+   .. image:: /bsp/images/dipswitch-4-1000.svg
+      :scale: 400%
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on (X14) debug USB
@@ -293,4 +294,5 @@ eMMC booting in filesystem mode.
 *  Set the S1 DIP switch to the correct configuration for eMMC boot and then
    power up the board:
 
-   .. image:: images/DEVBOOT.png
+   .. image:: /bsp/images/dipswitch-4-1011.svg
+      :scale: 400%
