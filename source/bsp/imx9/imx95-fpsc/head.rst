@@ -115,6 +115,9 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx95-fpsc-head-ubootexternalenv>`
 
+.. |jtag-target-interface| replace:: S
+.. |jtag-soc-doc-link| replace:: https://kb.segger.com/NXP_i.MX_95
+
 .. _imx95-fpsc-head-bsp-manual:
 
 .. only:: html
@@ -512,6 +515,32 @@ Device tree description of LVDS-0 can be found here:
    :start-after: .. gpu-platform-specific-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: /bsp/peripherals/jtag.rsti
+   :end-before: .. jtag-basic-functions-marker
+
+.. warning::
+
+   There are some limitations:
+
+   -  Connecting to A55 core only works in U-Boot not in Linux
+   -  Booting Linux will fail when J-Link is connected
+   -  J-Link needs to be reconnected after board reset
+   -  Connecting to M7 core does not work, as there is currently not running any
+      application on it
+   -  Need to use SWD target protocol for connecting (at least for M33 core).
+      This is also used in |soc| example from Segger website.
+
+.. include:: /bsp/peripherals/jtag.rsti
+   :start-after: .. jtag-basic-functions-marker
+
+.. warning::
+
+   There are some limitations:
+
+   -  According to Segger |soc| documentation, reset command does not actually
+      trigger a core reset.
+   -  Writing to memory does not work from M33 core.
 
 .. +---------------------------------------------------------------------------+
 .. | NXP Demos                                                                 |
