@@ -1,0 +1,102 @@
+JTAG
+----
+
+A JTAG debugger can be connected to |sbc|. In this case, a `J-Link
+<https://www.segger.com/products/debug-probes/j-link/>`_ is used.
+For many SoCs and their reference platforms there is a documentation available
+on the Segger website. It describes on how to connect and which features are
+supported currently:
+|jtag-soc-doc-link|
+
+Preparation
+............
+
+First download the `J-Link Software <https://www.segger.com/downloads/jlink/>`_
+(.deb archive) and install it.
+
+.. code-block:: console
+
+   host:~$ sudo apt install ./path/to/JLink_Linux_*.deb
+
+Connect the J-Link debugger to the JTAG interface and to the host PC via USB.
+Ensure the connector to the |sbc| is oriented correctly. The first pin is
+usually marked on the connector and the cable.
+
+Connect to target
+.................
+
+Boot the target into U-Boot and run ``JLinkExe``. On the host, connect
+to the target using the ``connect`` command. When prompted to enter the device,
+either type in the device directly or type in ``?`` to get a Popup window, to
+list and search all devices and select the correct one.
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ JLinkExe
+   ...
+   J-Link>connect
+   ...
+   Device>?
+   Please specify target interface:
+     J) JTAG (Default)
+     S) SWD
+     T) cJTAG
+   TIF>|jtag-target-interface|
+   Specify target interface speed [kHz]. <Default>: 4000 kHz
+   Speed>
+   ...
+   J-Link>
+
+.. jtag-basic-functions-marker
+
+J-Link basic functions
+.............................
+
+The JTAG debugger can pause and resume the CPU using the ``halt`` and ``go``
+commands.
+
+.. code-block::
+
+   J-Link>halt
+   J-Link>go
+
+The CPU core can be reset with the reset command.
+
+.. code-block::
+
+   J-Link>reset
+   J-Link>go
+
+Reading from memory can be done with the ``mem`` command. The start address
+in memory needs to be specified as well as the length of memory to read. All
+the memory that is read needs to be accessible to the connected CPU Core.
+
+.. code-block::
+
+   J-Link>mem 0x90400000 0x100
+
+Writing to memory can be done with different commands. The ``Write1`` command
+will write one byte into memory. There are also other variants of this command
+that will write more bytes. They can be listed with the ``?`` command.
+
+.. code-block::
+
+   J-Link>Write1 0x90400000 0xFF
+
+There is also the ``loadfile`` command that will write a whole file raw into memory.
+If you do not specify ``noreset`` at the end, the CPU core will be reset after
+the file is loaded into memory.
+
+.. note:: Writing larger files can take a while.
+
+.. code-block::
+
+   J-Link>loadfile file.bin 0x90400000 noreset
+
+With the ``verifybin`` command, a file can be tested if it is present at a
+certain address in memory.
+
+.. code-block::
+
+   J-Link>verifybin file.bin 0x90400000
