@@ -30,6 +30,8 @@
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X56
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
+.. |can0-interface| replace:: fcan1
+.. |can-network-file| replace:: 11-fcan.network
 
 
 .. Linux Kernel
@@ -423,6 +425,21 @@ General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts#L166`
+
+CAN FD
+------
+
+The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
+Linux standard CAN framework which builds upon the Linux network layer. Using
+this framework, the CAN interfaces behave like an ordinary Linux network device,
+with some additional features special to CAN. More information can be found in
+the Linux Kernel
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
+
+.. include:: ../peripherals/canfd.rsti
+
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+  :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L200`
 
 EEPROM
 ------
