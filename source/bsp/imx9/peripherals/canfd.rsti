@@ -4,8 +4,7 @@
 
       target:~$ ip link
 
-   to see the state of the interfaces. The CAN interface should show up as
-   |can0-interface|.
+   to see the state of the interfaces.
 
 *  To get information on |can0-interface|, such as bit rate and error counters, type:
 
