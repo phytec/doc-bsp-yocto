@@ -5,14 +5,15 @@
       target:~$ ip link
 
    to see the state of the interfaces. The CAN interface should show up as
-   can0.
+   |can0-interface|.
 
-*  To get information on can0, such as bit rate and error counters, type:
+*  To get information on |can0-interface|, such as bit rate and error counters, type:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ ip -d -s link show can0
-      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 72 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+      target:~$ ip -d -s link show |can0-interface|
+      4: |can0-interface|: <NOARP,UP,LOWER_UP,ECHO> mtu 72 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
          link/can  promiscuity 0 allmulti 0 minmtu 0 maxmtu 0
          can <FD> state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
                bitrate 500000 sample-point 0.875
@@ -34,24 +35,25 @@ The output contains a standard set of parameters also shown for Ethernet
 interfaces, so not all of these are necessarily relevant for CAN (for example
 the MAC address). The following output parameters contain useful information:
 
-========== =============================
-can0       Interface Name
-========== =============================
-NOARP	     CAN cannot use ARP protocol
-MTU	     Maximum Transfer Unit
-RX packets Number of Received Packets
-TX packets Number of Transmitted Packets
-RX bytes   Number of Received Bytes
-TX bytes   Number of Transmitted Bytes
-errors...  Bus Error Statistics
-========== =============================
+================ ==============
+|can0-interface| Interface Name
+================ ==============
+NOARP            CAN cannot use ARP protocol
+MTU              Maximum Transfer Unit
+RX packets       Number of Received Packets
+TX packets       Number of Transmitted Packets
+RX bytes         Number of Received Bytes
+TX bytes         Number of Transmitted Bytes
+errors...        Bus Error Statistics
+================ ==============
 
 
 The CAN configuration is done in the systemd configuration
-file ``/lib/systemd/network/11-can.network``. For a persistent change of (as an
-example, the default bitrates), change the configuration in the BSP
-under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/11-can.network`` in
-the root filesystem and rebuild the root filesystem.
+file :substitution-code:`/lib/systemd/network/|can-network-file|`. 
+For a persistent change of (as an example, the default bitrates), change the
+configuration in the BSP under 
+:substitution-code:`./meta-ampliphy/recipes-core/systemd/systemd-conf/|can-network-file|`
+in the root filesystem and rebuild the root filesystem.
 
 .. code-block::
 
@@ -64,32 +66,36 @@ the root filesystem and rebuild the root filesystem.
    FDMode=yes
 
 .. note::
+
    By default, we enable CAN-FD (flexible datarate) in our BSP. In case CAN Classic
    is required one needs to remove options ``FDMode`` and ``DataBitRate`` from the
-   ``/lib/systemd/network/11-can.network`` file.
+   :substitution-code:`/lib/systemd/network/|can-network-file|` file.
 
 To disable flexible datarate manually, one can use:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ ip link set can0 down
-   target:~$ ip link set can0 type can bitrate 500000 dbitrate 0 fd off
-   target:~$ ip link set can0 up
+   target:~$ ip link set |can0-interface| down
+   target:~$ ip link set |can0-interface| type can bitrate 500000 dbitrate 0 fd off
+   target:~$ ip link set |can0-interface| up
 
 The bitrate can also be changed manually, for example:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ ip link set can0 down
-   target:~$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
-   target:~$ ip link set can0 up
+   target:~$ ip link set |can0-interface| down
+   target:~$ ip link set |can0-interface| txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+   target:~$ ip link set |can0-interface| up
 
 You can send messages with cansend or receive messages with candump:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ cansend can0 123#45.67
-   target:~$ candump can0
+   target:~$ cansend |can0-interface| 123#45.67
+   target:~$ candump |can0-interface|
 
 To generate random CAN traffic for testing purposes, use cangen:
 
