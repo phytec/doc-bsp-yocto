@@ -29,6 +29,8 @@
 .. |serial-uart| replace:: ttyLP6
 .. |bluetooth-uart| replace:: UART5
 .. |expansion-connector| replace:: X16
+.. |can0-interface| replace:: can0
+.. |can-network-file| replace:: 11-can.network
 
 
 .. Linux Kernel
