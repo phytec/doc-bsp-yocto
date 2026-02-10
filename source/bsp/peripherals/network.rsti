@@ -5,15 +5,17 @@ the target in ``/lib/systemd/network/`` as well as the BSP in
 ``meta-ampliphy/recipes-core/systemd/systemd-conf``.
 
 IP addresses can be configured within \*.network files. The interfaces are
-configured to static IP as default. The default IP address and netmask for end0
+configured to static IP as default. The default IP address and netmask for |kernel-primary-ethernet|
 is:
 
 .. code-block::
+   :substitutions:
 
-   end0: 192.168.3.11/24
+   |kernel-primary-ethernet|: 192.168.3.11/24
 
-To configure end0 to dynamic IP over DHCP, go to
-``/lib/systemd/network/\*-end0.network`` and delete the line:
+To configure |kernel-primary-ethernet| to dynamic IP over DHCP, go to
+:substitution-code:`/lib/systemd/network/\*-|kernel-primary-ethernet|.network`
+and delete the line:
 
 .. code-block::
 
@@ -101,20 +103,22 @@ Please note that these modifications will only affect the bootloader settings.
 Kernel network-environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*  Find the ethernet settings for end0 in the target kernel:
+*  Find the ethernet settings for |kernel-primary-ethernet| in the target kernel:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ ip -statistics address show end0
-      2: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state UP group default qlen 1000
+      target:~$ ip -statistics address show |kernel-primary-ethernet|
+      2: |kernel-primary-ethernet|: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state UP group default qlen 1000
           link/ether 50:2d:f4:19:d6:33 brd ff:ff:ff:ff:ff:ff
           RX:  bytes packets errors dropped  missed   mcast
                    0       0      0       0       0       0
           TX:  bytes packets errors dropped carrier collsns
                    0       0      0       0       0       0
 
-*  Temporary adaption of the end0 configuration:
+*  Temporary adaption of the |kernel-primary-ethernet| configuration:
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ ip address add 192.168.3.11/24 dev end0
+      target:~$ ip address add 192.168.3.11/24 dev |kernel-primary-ethernet|

@@ -58,6 +58,8 @@
 
 
 .. Linux Kernel
+.. Name of the primary ethernet interface as shown by e.g. ip addr
+.. |kernel-primary-ethernet| replace::
 .. Name for the SoC as being used in e.g Kernel source files; Example: imx8mp
 .. |kernel-socname| replace::
 .. Tag name of the final commit used with this release in the Linux Kernel.
