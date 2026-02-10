@@ -36,6 +36,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
+.. |kernel-primary-ethernet| replace:: end1
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
@@ -402,9 +403,9 @@ Ethernet
 
 |sbc|-|soc| provides three ethernet interfaces. A gigabit Ethernet is provided
 by our module and board. Additionally there is a 10Gbit Ethernet. Currently
-only the one Gigabit Ethernet ports are supported (ETH0 and ETH1).
+only the one Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
