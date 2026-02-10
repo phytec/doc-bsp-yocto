@@ -35,6 +35,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: phytec_ti_defconfig
+.. |kernel-primary-ethernet| replace:: end0
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-ti_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-ti
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-ti
