@@ -35,6 +35,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
+.. |kernel-primary-ethernet| replace:: end1
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
@@ -72,8 +73,6 @@
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L82`
-   `
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 .. |dt-gpio-expander| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L192`
 
 .. Yocto
@@ -464,7 +463,7 @@ module and board.
    | ETH1 = eth0
    | ETH0 = eth1
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
    :end-before: .. kernel-network-environment-marker
 
 Secondary Ethernet Interface Configuration in U-Boot
@@ -484,7 +483,7 @@ device must then be configured as follows:
     u-boot=> setenv ethact eth1
     u-boot=> setenv ipaddr 192.168.4.11
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
    :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti

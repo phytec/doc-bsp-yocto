@@ -34,6 +34,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
+.. |kernel-primary-ethernet| replace:: eth0
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
@@ -69,7 +70,6 @@
 
 .. IMX95 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi#L229`
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -411,7 +411,7 @@ Ethernet
 by our module and board. Additionally there is a 10Gbit Ethernet. Currently
 only the one Gigabit Ethernet ports are supported (ETH0 and ETH1).
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 

@@ -48,6 +48,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
+.. |kernel-primary-ethernet| replace:: end0
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: git://github.com/phytec/linux-phytec-imx.git
@@ -85,7 +86,7 @@
 .. _dt-somnet-91: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi#L56
 .. |dt-somnet-93| replace:: phyCORE i.MX 93
 .. _dt-somnet-93: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi#L61
-.. |dt-somnetwork-link| replace:: for |dt-somnet-91|_ or |dt-somnet-93|_
+.. |dt-somnetwork| replace:: for |dt-somnet-91|_ or |dt-somnet-93|_
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -543,7 +544,7 @@ Ethernet
    *  a 100 megabit Ethernet provided by |som|
    *  and 1 gigabit Ethernet provided by phyBOARD.
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 .. include:: wireless-network.rsti
 

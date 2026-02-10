@@ -84,7 +84,7 @@
 .. name of the devicetree file represnting the som without the file ending
 .. |dt-som| replace::
 .. link to the devicetree file and line containing the SOM's ethernet node
-.. |dt-somnetwork-link| replace::
+.. |dt-somnetwork| replace::
 
 
 .. Yocto

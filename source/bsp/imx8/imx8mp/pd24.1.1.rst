@@ -31,6 +31,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: defconfig
+.. |kernel-primary-ethernet| replace:: eth0
 .. |kernel-recipe-path| replace:: recipes-kernel/linux/linux-phytec_*.bb
 .. |kernel-repo-name| replace:: linux-phytec
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec.git
@@ -63,7 +64,6 @@
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: https://github.com/phytec/linux-phytec/blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L41
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -1181,7 +1181,7 @@ our module and board.
    | ethernet1 = eth0
    | ethernet0 = eth1
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
    :end-before: .. u-boot-network-environment-marker
 
 U-boot network-environment
@@ -1203,7 +1203,7 @@ U-boot network-environment
 
 Please note that these modifications will only affect the bootloader settings.
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
    :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
