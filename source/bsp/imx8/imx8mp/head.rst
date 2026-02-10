@@ -37,6 +37,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
+.. |kernel-primary-ethernet| replace:: end0
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
@@ -76,7 +77,6 @@
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L50`
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -468,7 +468,7 @@ our module and board.
    | ethernet1 = eth0
    | ethernet0 = eth1
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 .. include:: wireless-network.rsti
 

@@ -37,6 +37,7 @@
 .. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
 .. |emmcdev| replace:: mmcblk2
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+.. |kernel-primary-ethernet| replace:: eth0
 .. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
 .. |kernel-repo-name| replace:: linux-imx
 .. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
@@ -64,7 +65,6 @@
 
 .. IMX8(MM) specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx8mm-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n53`
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`
@@ -1236,7 +1236,7 @@ Ethernet
 
 |sbc|-|soc| provides one Gigabit Ethernet interface.
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 WLAN/Bluetooth
 --------------

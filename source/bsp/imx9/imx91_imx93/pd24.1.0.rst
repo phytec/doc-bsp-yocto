@@ -29,6 +29,7 @@
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
+.. |kernel-primary-ethernet| replace:: eth0
 .. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
 .. |kernel-repo-name| replace:: linux-imx
 .. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
@@ -63,7 +64,6 @@
 
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.36_2.1.0-phy1#n61`
-.. |dt-somnetwork-link| replace:: |dt-somnetwork|
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`mickledore`
@@ -690,7 +690,7 @@ Ethernet
 |sbc|-|soc| provides two ethernet interfaces. A 100 megabit Ethernet is
 provided by our module and board.
 
-.. include:: /bsp/imx-common/peripherals/network.rsti
+.. include:: /bsp/peripherals/network.rsti
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
