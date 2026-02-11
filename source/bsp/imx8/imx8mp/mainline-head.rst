@@ -961,11 +961,11 @@ our module and board.
 .. warning::
 
    The naming convention of the Ethernet interfaces in the hardware (ethernet0
-   and ethernet1) do not align with the network interfaces (eth0 and eth1) in
+   and ethernet1) do not align with the network interfaces (end0 and end1) in
    Linux. So, be aware of these differences:
 
-   | ethernet1 = eth0
-   | ethernet0 = eth1
+   | ethernet1 = end0
+   | ethernet0 = end1
 
 .. include:: /bsp/peripherals/network.rsti
    :end-before: .. u-boot-network-environment-marker

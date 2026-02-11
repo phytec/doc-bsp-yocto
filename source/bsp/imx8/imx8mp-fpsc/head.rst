@@ -454,15 +454,6 @@ Ethernet
 |sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
 module and board.
 
-.. warning::
-
-   The naming convention of the Ethernet interfaces in the hardware (ETH0
-   and ETH1) do not align with the network interfaces (eth0 and eth1) in
-   Linux. So, be aware of these differences:
-
-   | ETH1 = eth0
-   | ETH0 = eth1
-
 .. include:: /bsp/peripherals/network.rsti
    :end-before: .. kernel-network-environment-marker
 
