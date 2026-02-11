@@ -15,7 +15,6 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 .. _`static-pdf-dl`: ../../../_static/imx8mp-pd24.1.1.pdf
 
-
 .. General Substitutions
 .. |doc-id| replace:: PD24.1.1
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
@@ -27,7 +26,6 @@
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
 .. |expansion-connector| replace:: X6
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: defconfig
@@ -51,11 +49,9 @@
 .. |u-boot-repo-name| replace:: u-boot-phytec
 .. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec.git
 
-
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
 .. |u-boot-tag| replace:: v2024.01-phy3
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
@@ -94,7 +90,6 @@
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd24.1.1-components>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.2-format-sd>`
 
-
 .. IMX8(MP) specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -108,7 +103,6 @@
 .. |ref-serial| replace:: :ref:`X2 <imx8mp-pd24.1.1-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd24.1.1-components>`
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd24.1.1-components>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M7 Core
@@ -147,7 +141,6 @@ Compatible BSPs  BSP Release Type BSP Release  Date BSP Status
 ================ ================ ================= ==============
 PD24.1.1         Major            2024/04/08        Released
 ================ ================ ================= ==============
-
 
 .. include:: ../../intro.rsti
 
@@ -868,7 +861,6 @@ Boot the board into the U-boot prompt and press any key to hold.
 
       u-boot=> run netboot
 
-
 Working with UUU-Tool
 ---------------------
 
@@ -1238,7 +1230,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L145`
 
-
 EEPROM
 ------
 
@@ -1431,7 +1422,6 @@ variant used, several different frequencies are supported.
    change in the frequency settings of one CPU core always affects all other CPU
    cores too. So all CPU cores always share the same DVFS setting. An individual
    DVFS setting for each core is not possible.
-
 
 *  To get a complete list type:
 

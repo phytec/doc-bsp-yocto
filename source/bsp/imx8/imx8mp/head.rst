@@ -19,7 +19,6 @@
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2025.04-2.0.0-phy7#n177
 
-
 .. General Substitutions
 .. |doc-id| replace:: L-1017e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
@@ -33,7 +32,6 @@
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
@@ -63,11 +61,9 @@
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
 .. |u-boot-tag| replace:: v2025.04-2.0.0-phyX
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
@@ -108,7 +104,6 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-head-format-sd>`
 
-
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
 .. |sbc-network| replace::
@@ -123,7 +118,6 @@
    :ref:`device tree overlay section <imx8mp-head-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
-
 
 .. M-Core specific
 .. |mcore| replace:: M7 Core
@@ -162,7 +156,6 @@ Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 ============================== ================ ================= ==============
 BSP-Yocto-NXP-i.MX8MP-PD26.1.0 major            q1 2026           in development
 ============================== ================ ================= ==============
-
 
 .. include:: ../../intro.rsti
 
@@ -521,7 +514,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L239`
-
 
 EEPROM
 ------

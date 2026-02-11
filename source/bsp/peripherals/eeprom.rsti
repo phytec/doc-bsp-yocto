@@ -72,7 +72,6 @@ To fill the EEPROM with zeros leaving out the EEPROM data use:
 
    target:~$ dd if=/dev/zero of=<eeprom-sysfs-path> seek=1 bs=256
 
-
 EEPROM SoM Detection
 ....................
 

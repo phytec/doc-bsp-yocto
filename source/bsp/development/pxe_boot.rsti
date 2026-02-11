@@ -62,7 +62,6 @@ The contents of ``C0A8030B`` may look like this::
    loaded to ``kernel_addr_r`` where the kernel will then be extracted to,
    leading to an error (since the FIT image already resides at this address).
 
-
 Kernel nfs info: https://www.kernel.org/doc/html/latest/admin-guide/nfs/nfsroot.html
 
 .. _PXE Boot and extlinux.conf: https://docs.u-boot.org/en/latest/usage/pxe.html

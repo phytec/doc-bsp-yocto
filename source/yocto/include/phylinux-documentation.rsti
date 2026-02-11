@@ -209,7 +209,6 @@ release number, and the hardware you are working on
                                 distro: securiphy-vendor-provisioning
                                 target: phytec-provisioning-image
 
-
 If you cannot identify your board with the information given in the selector,
 have a look at the invoice for the product. After the configuration is done,
 you can always run

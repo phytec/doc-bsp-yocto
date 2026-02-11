@@ -52,7 +52,6 @@ read the correct sections fitting your platform.
    you are using the correct machine and device names for your application when
    executing any commands.
 
-
 System Configuration
 ====================
 

@@ -16,7 +16,6 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx95
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-head.pdf
 
-
 .. General Substitutions
 .. |doc-id| replace:: Head
 .. |kit| replace:: **phyFLEX-i.MX 95 Libra Rapid Development Kit**
@@ -32,7 +31,6 @@
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 .. |can0-interface| replace:: fcan1
 .. |can-network-file| replace:: 11-fcan.network
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
@@ -60,11 +58,9 @@
 .. |u-boot-socname-config| replace:: IMX95_PHYFLEX_LIBRA_RDK
 .. |u-boot-tag| replace:: v2024.04_2.0.0-phy14
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-phyflex-libra-rdk
@@ -103,7 +99,6 @@
 .. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-fpsc-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-fpsc-head-format-sd>`
-
 
 .. IMX95 specific
 .. |gpu-model| replace:: MALI G310
@@ -153,7 +148,6 @@ Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 ============================== ================ ================= ==============
 BSP-Yocto-NXP-i.MX95-ALPHA2    ALPHA            q1 2026           in development
 ============================== ================ ================= ==============
-
 
 .. include:: /bsp/intro.rsti
 

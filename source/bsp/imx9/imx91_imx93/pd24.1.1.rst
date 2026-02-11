@@ -27,7 +27,6 @@
 .. |serial-uart| replace:: ttyLP6
 .. |expansion-connector| replace:: X16
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
 .. |kernel-primary-ethernet| replace:: eth0
@@ -55,7 +54,6 @@
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2023.04_2.2.0-phy3
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
@@ -91,7 +89,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-PD24.1.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-PD24.1.1-components>`
 
-
 .. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -101,7 +98,6 @@
 
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-PD24.1.1-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
@@ -135,7 +131,6 @@ Compatible BSPs      BSP Release Type BSP Release Date BSP Status
 ==================== ================ ================ ==========
 |yocto-manifestname| Minor            2024/05/07       Released
 ==================== ================ ================ ==========
-
 
 .. include:: ../../intro.rsti
 
@@ -677,7 +672,6 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-
 .. include:: /bsp/peripherals/introduction.rsti
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
@@ -834,7 +828,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -887,7 +880,6 @@ General I²C2 bus configuration for |dt-carrierboard|.dts:
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n155` or for
 imx93-phyboard-nash.dts:
 :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n113`
-
 
 EEPROM
 ------
@@ -1066,7 +1058,6 @@ RX bytes   Number of Received Bytes
 TX bytes   Number of Transmitted Bytes
 errors...  Bus Error Statistics
 ========== =============================
-
 
 The CAN configuration is done in the systemd configuration
 file ``/lib/systemd/network/can0.network``. For a persistent change of (as an

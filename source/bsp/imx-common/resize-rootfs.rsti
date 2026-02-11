@@ -76,7 +76,6 @@ device such as eMMC, SD Card, or hard disk.
       /dev/|emmcdev|p1 *   128,0,1      1023,3,32        16384     140779     124396  60.7M   c Win95 FAT32 (LBA)
       /dev/|emmcdev|p2   1023,3,32      1023,3,32       141456   14876671   14735216  7194M  83 Linux
 
-
 Increasing the file system size can be done while it is mounted. An online
 resizing operation is performed. But you can also boot the board from an SD card
 and then resize the file system on the eMMC partition while it is not

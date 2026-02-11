@@ -206,7 +206,6 @@ The device is directly locked and the SRK is write protected, too.
 || for SRK                  ||                                      ||                                   |
 +---------------------------+---------------------------------------+------------------------------------+
 
-
 Activate Secure Boot for TI K3 SoC
 ----------------------------------
 

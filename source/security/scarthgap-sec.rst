@@ -15,7 +15,6 @@
 .. |distro-provisioning-vendor| replace:: securiphy-vendor-provisioning
 .. |image-secure-name| replace:: phytec-securiphy-image
 
-
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
@@ -73,7 +72,6 @@
 +-------------------------------------+--------------+--------------+-----------+
 | BSP-Yocto-Ampliphy-AM64x-PD25.1.0   | Major        | 2025-03-24   | partly    |
 +-------------------------------------+--------------+--------------+-----------+
-
 
 This manual applies to all |yocto-codename| based PHYTEC releases.
 

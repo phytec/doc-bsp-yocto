@@ -192,7 +192,6 @@ configuration in
    * |distro-provisioning| and |distro-provisioning-vendor|:
      ``INITRAMFS_IMAGE = "phytec-provisioning-initramfs"``
 
-
 Building a Signed Image
 -----------------------
 

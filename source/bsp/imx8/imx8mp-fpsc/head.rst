@@ -32,7 +32,6 @@
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
 .. |kernel-primary-ethernet| replace:: end1
@@ -61,11 +60,9 @@
 .. |u-boot-socname-config| replace:: IMX8MP_LIBRA
 .. |u-boot-tag| replace:: v2025.04-2.0.0-phyX
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-libra-rdk-fpsc
@@ -105,7 +102,6 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-fpsc-head-format-sd>`
 
-
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
 .. |sbc-network| replace::
@@ -118,7 +114,6 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
-
 
 .. M-Core specific
 .. |mcore| replace:: M7 Core
@@ -157,7 +152,6 @@ Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 ============================== ================ ================= ==============
 BSP-Yocto-NXP-i.MX8MP-PD26.1.0 Major            q1 2026           in development
 ============================== ================ ================= ==============
-
 
 .. include:: /bsp/intro.rsti
 
@@ -443,7 +437,6 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
       host:~$ cat /dev/ttyUSB2
 
-
 The device tree representation for RS232:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
 
@@ -560,7 +553,6 @@ Device Tree Reference for Carrier Board:
 
 DT representation for I²C RTCs:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L293`
-
 
 And the addions on the carrierboard:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L252`

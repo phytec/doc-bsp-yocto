@@ -68,7 +68,6 @@ Build the bootloader
       host:~/|u-boot-repo-name|$ make |u-boot-defconfig|
       host:~/|u-boot-repo-name|$ make flash.bin
 
-
 Flash the bootloader to a block device
 ......................................
 

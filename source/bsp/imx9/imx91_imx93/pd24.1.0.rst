@@ -26,7 +26,6 @@
 .. |debug-uart| replace:: ttyLP0
 .. |expansion-connector| replace:: X16
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
 .. |kernel-primary-ethernet| replace:: eth0
@@ -51,11 +50,9 @@
 .. |u-boot-repo-name| replace:: u-boot-imx
 .. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
 
-
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2023.04_2.1.0-phy1
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
@@ -90,7 +87,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-pd24.1.0-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-pd24.1.0-components>`
 
-
 .. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -99,7 +95,6 @@
 
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-pd24.1.0-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
@@ -133,7 +128,6 @@ Compatible BSPs      BSP Release Type BSP Release Date BSP Status
 ==================== ================ ================ ==========
 |yocto-manifestname| Major            2024/01/31       Released
 ==================== ================ ================ ==========
-
 
 .. include:: ../../intro.rsti
 
@@ -656,7 +650,6 @@ Execute and power up the board:
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-
 .. include:: /bsp/peripherals/introduction.rsti
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
@@ -803,7 +796,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -843,7 +835,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.36_2.1.0-phy1#n155`
-
 
 EEPROM
 ------
@@ -1005,7 +996,6 @@ RX bytes   Number of Received Bytes
 TX bytes   Number of Transmitted Bytes
 errors...  Bus Error Statistics
 ========== =============================
-
 
 The CAN configuration is done in the systemd configuration
 file ``/lib/systemd/network/can0.network``. For a persistent change of (as an

@@ -8,7 +8,6 @@ I2C EEPROM on |som|
    overwritten. As this will influence the behavior of the bootloader. The board
    might not boot correctly anymore.
 
-
 The I2C EEPROM on the |som| SoM is connected to I2C address 0x51 on the I2C-0
 bus. It is possible to read and write directly to the device populated:
 
@@ -28,7 +27,6 @@ To fill the 4KiB EEPROM (bus: I2C-0 addr: 0x51) with zeros leaving out the EEPRO
 .. code-block:: console
 
    target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom seek=1 bs=256 count=15
-
 
 EEPROM SoM Detection
 ....................

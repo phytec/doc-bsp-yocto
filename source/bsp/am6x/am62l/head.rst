@@ -32,7 +32,6 @@
 .. |expansion-connector| replace:: X6
 .. |vendor| replace:: TI
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: phytec_ti_defconfig
 .. |kernel-primary-ethernet| replace:: end0
@@ -61,11 +60,9 @@
 .. |u-boot-socname-config| replace:: AM62L_LIBRA
 .. |u-boot-tag| replace:: 11.01.02
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: k3-am62l3-libra-rdk-fpsc
@@ -105,7 +102,6 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <am62l-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <am62l-fpsc-head-format-sd>`
 
-
 .. AM62L specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -121,7 +117,6 @@
 .. |eeprom-detect-addr| replace:: 0x50
 .. |eeprom-som-detect-area| replace:: 1024
 .. |eeprom-som-detect-area-hex| replace:: 0x400
-
 
 .. only:: html
 
@@ -154,7 +149,6 @@ Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
 ================================= ================ ================= ==============
 BSP-Yocto-Ampliphy-AM62Lx-ALPHA2  Alpha            2025/07/10        Released
 ================================= ================ ================= ==============
-
 
 .. include:: /bsp/intro.rsti
 
@@ -397,7 +391,6 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
       host:~$ cat /dev/ttyUSB2
 
-
 The device tree representation for RS232:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L327`
 
@@ -602,7 +595,6 @@ Device Tree Reference for Carrier Board:
 
 DT representation for I²C RTCs:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L257`
-
 
 And the addions on the carrierboard:
 :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L228`

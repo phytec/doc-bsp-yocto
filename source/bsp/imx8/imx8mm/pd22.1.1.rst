@@ -17,7 +17,6 @@
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2021.04_2.2.0-phy13#n188
 
-
 .. General Replacements
 .. |atfloadaddr| replace:: 0x920000
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
@@ -30,7 +29,6 @@
 .. |serial-uart| replace:: ttymxc0
 .. |expansion-connector| replace:: X8
 .. |bluetooth-uart| replace:: UART2
-
 
 .. Linux Kernel
 .. |kernel-socname| replace:: imx8mm
@@ -55,7 +53,6 @@
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MM
 .. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
@@ -95,13 +92,11 @@
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.2-format-sd>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mm-pd22.1.1-development-build-uboot>`
 
-
 .. IMX8(MM) specific replacements
 .. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-pd22.1.1-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M4 Core
@@ -1992,7 +1987,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -2079,7 +2073,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C4 bus configuration (e.g. |dt-carrierboard|.dtsi):
 :imx-dt:`imx8mm-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n149`
-
 
 EEPROM
 ------

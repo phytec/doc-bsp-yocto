@@ -71,7 +71,6 @@
 | BSP-Yocto-NXP-i.MX7-PD23.1.0        | Major            | 15.12.2023       | released   |
 +-------------------------------------+------------------+------------------+------------+
 
-
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-kirkstone:

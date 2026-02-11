@@ -18,7 +18,6 @@
 .. IMX8(MN) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2022.04_2.2.2-phy5#n66
 
-
 .. General Replacements
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
@@ -31,7 +30,6 @@
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 .. |bluetooth-uart| replace:: UART2
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
@@ -59,11 +57,9 @@
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MN
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis
@@ -101,7 +97,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-head-components>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mn-head-format-sd>`
-
 
 .. IMX8(MN) specific replacements
 .. |sbc-network| replace:: \
@@ -402,7 +397,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C3 bus configuration (e.g. |dt-carrierboard|.dts):
 :imx-dt:`imx8mn-phyboard-polis.dts?h=v5.15.71_2.2.2-phy3#n196`
-
 
 EEPROM
 ------

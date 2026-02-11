@@ -260,7 +260,6 @@ At first you should burn the Boot Fuses.
       # set the FORCE_BT_FROM_FUSE bit
       u-boot=> fuse prog 3 0 0x40000000
 
-
 Disable Boot from External Memory
 ---------------------------------
 By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.

@@ -57,7 +57,6 @@
 | BSP-Yocto-Ampliphy-AM68x-PD24.1.0   | Major        | 12.03.2024   | keywriter |
 +-------------------------------------+--------------+--------------+-----------+
 
-
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
 Introduction
@@ -294,7 +293,6 @@ replacing the previous version of the binary.
    .. image:: images/phycore-am64x/pb-07225_secureboot_JP5.png
       :width: 700px
 
-
 Once this jumper is set, plug the SD card into the kit and boot as you normally
 would. You should see a message that keywriting was successful.
 The keywriter will only successfully write one time.
@@ -342,7 +340,6 @@ following variables in ``sources/meta-ampliphy/classes/secureboot.bbclass``:
    BOOTLOADER_SIGN_IMG_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem"
    BOOTLOADER_SIGN_CSF_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem"
    BOOTLOADER_HABV4_SRK_INDEX ??= "0"
-
 
 The following keys are available:
 
@@ -617,7 +614,6 @@ The following table list the supported key types for the different SoCs.
 | securecaam  | caam             |             | x           |             |
 +-------------+------------------+-------------+-------------+-------------+
 
-
 .. _secure-key-storage-init-kirkstone:
 
 Secure Key Storage Initialization with phySecureKeyStorage Tool
@@ -626,7 +622,6 @@ Secure Key Storage Initialization with phySecureKeyStorage Tool
 The tool `physecurekeystorage-install <https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage>`_
 is part of the ramdisk userspace of phytec-provisioning-initramfs and included
 in the meta-ampliphy layer of the PHYTEC Standard BSP.
-
 
 The *physecurekeystorage-install* tool can initialize all supported secure key
 storages of your machine, but always only one can be active.
@@ -658,7 +653,6 @@ Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.
       -p | --pkcs11testkey    Create an ECC testkey with user pin 1234
       -h | --help             This Help
       -v | --version          The version of physecurekeystorage-install
-
 
 Cryptographic Token Interface PKCS#11
 -------------------------------------
@@ -867,7 +861,6 @@ configurations:
 
       # Disable SDP Mode Completely
       u-boot=> fuse prog 2 0 0x200000
-
 
 Force Internal Boot
 -------------------

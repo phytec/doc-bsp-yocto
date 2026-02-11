@@ -31,7 +31,6 @@ Hardware revision baseboard: 1532.2 and newer
 
       -  \
 
-
 .. list-table:: Switch between USB HOST/OTG using Pos5 of switch(S1)
    :align: center
 
