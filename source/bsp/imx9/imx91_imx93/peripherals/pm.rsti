@@ -10,7 +10,6 @@ Unlike i.MX8 M family the i.MX 93 doesn't support *Dynamic* Voltage and
 Frequency Scaling (DVFS), but has the support of basic **Voltage and Frequency
 Scaling (VFS)**. The board can be put into these modes:
 
-
 * nominal (ND),
 * overdrive (OD),
 * Low Drive (LD) and

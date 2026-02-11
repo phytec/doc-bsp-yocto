@@ -19,7 +19,6 @@
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2024.04-2.2.0-phy10#n129
 
-
 .. General Replacements
 .. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
@@ -33,7 +32,6 @@
 .. |bluetooth-uart| replace:: UART2
 .. |expansion-connector| replace:: X8
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
@@ -58,16 +56,13 @@
 .. |emmcdev-uboot| replace:: mmc 2
 .. |sdcarddev-uboot| replace:: mmc 1
 
-
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MM
 .. |u-boot-tag| replace:: v2024.04-2.2.0-phy10
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
@@ -107,7 +102,6 @@
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mm-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mm-head-format-sd>`
-
 
 .. IMX8(MM) specific replacements
 .. |gpu-model| replace:: Vivante
@@ -500,7 +494,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C4 bus configuration (e.g. |dt-carrierboard|.dts):
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L246`
-
 
 EEPROM
 ------

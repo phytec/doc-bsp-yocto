@@ -53,7 +53,6 @@
 | BSP-Yocto-NXP-i.MX95-ALPHA2         | ALPHA            | q1 2026          | unreleased |
 +-------------------------------------+------------------+------------------+------------+
 
-
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-walnascar:

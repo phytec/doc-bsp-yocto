@@ -5,7 +5,6 @@
    in Yocto for nxp-bsp.
    This file shall only be included in vendor BSP manuals.
 
-
 NXP GoPoint demo suite
 ======================
 

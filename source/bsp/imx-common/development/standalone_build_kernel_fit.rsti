@@ -102,7 +102,6 @@ image and create the final fitImage with mkimage.
                      && ln -s arch/arm64/boot/Image.gz linux.bin
                      && mkimage -f fitImage-its*.its fitImage
 
-
 Copy FIT image and kernel modules to SD card
 ............................................
 

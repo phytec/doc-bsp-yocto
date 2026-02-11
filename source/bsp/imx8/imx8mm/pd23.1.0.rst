@@ -18,7 +18,6 @@
 .. IMX8(MM) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2022.04_2.2.2-phy5#n120
 
-
 .. General Replacements
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB
@@ -30,7 +29,6 @@
 .. |serial-uart| replace:: ttymxc0
 .. |bluetooth-uart| replace:: UART2
 .. |expansion-connector| replace:: X8
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
@@ -57,11 +55,9 @@
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MM
 .. |u-boot-tag| replace:: v2022.04_2.2.2-phy5
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A5 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=fgByJg
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
@@ -90,7 +86,6 @@
 .. |yocto-sdk-rev| replace:: 4.0.13
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
-
 .. Refs
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mm-pd23.1.0-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mm-pd23.1.0-images>`
@@ -104,13 +99,11 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mm-pd23.1.0-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mm-pd23.1.0-format-sd>`
 
-
 .. IMX8(MM) specific replacements
 .. |sbc-network| replace:: \
 .. |pollux-fan-note| replace:: Only GPIO fan supported.
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mm-pd23.1.0-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M4 Core
@@ -1524,7 +1517,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -1558,7 +1550,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C4 bus configuration (e.g. |dt-carrierboard|.dts):
 :imx-dt:`imx8mm-phyboard-polis-rdk.dts?h=v5.15.71_2.2.2-phy3#n244`
-
 
 EEPROM
 ------

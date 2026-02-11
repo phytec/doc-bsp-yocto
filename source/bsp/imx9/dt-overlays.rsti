@@ -32,7 +32,6 @@ You can read and write the file on booted target from linux:
 
       target:~$ mount /dev/mmcblkXp0 /boot
 
-
 Changes will take effect after the next reboot. If no ``bootenv.txt`` file is
 available the overlays variable can be set directly in the U-Boot environment.
 

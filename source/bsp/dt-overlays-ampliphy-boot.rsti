@@ -89,7 +89,6 @@ available the ``overlays`` variable can be set directly in the U-Boot environmen
    overlays=|dt-carrierboard|-overlay1.dtbo
    u-boot=> boot
 
-
 .. extension-support-marker
 
 Overlay detection for SoM Variants (fit_extensions)

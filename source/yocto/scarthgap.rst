@@ -72,7 +72,6 @@
 | BSP-Yocto-NXP-i.MX95-ALPHA1         | Alpha            | 2025-06-02       | released   |
 +-------------------------------------+------------------+------------------+------------+
 
-
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-scarthgap:

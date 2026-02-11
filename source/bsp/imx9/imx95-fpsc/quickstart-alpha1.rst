@@ -12,7 +12,6 @@
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA1/images/ampliphy-vendor/imx95-libra-fpsc-1/
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-quickstart-alpha1.pdf
 
-
 .. Yocto
 .. |yocto-codename| replace:: scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image

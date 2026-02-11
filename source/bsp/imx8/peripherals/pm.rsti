@@ -19,7 +19,6 @@ variant used, several different frequencies are supported.
    cores too. So all CPU cores always share the same DVFS setting. An individual
    DVFS setting for each core is not possible.
 
-
 *  To get a complete list type:
 
    .. code-block:: console

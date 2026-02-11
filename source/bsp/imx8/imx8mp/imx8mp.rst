@@ -52,7 +52,6 @@ BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
 
    pd24.1.1
 
-
 BSP-Yocto-NXP-i.MX8MP-PD23.1.0
 ==============================
 

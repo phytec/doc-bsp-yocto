@@ -71,7 +71,6 @@ TFTP Server Setup
 
       host:~$ sudo service tftpd-hpa restart
 
-
 Now connect the ethernet port of the board to your host system.
 We also need a network connection between the embedded board and the TFTP
 server. The server should be set to IP 192.168.3.10 and
@@ -155,7 +154,6 @@ DHCP Server setup
    Be careful when creating subnets as this may interfere with the company
    network policy. To be on the safe side, use a different network and specify
    that via the ``interfaces`` configuration option.
-
 
 *  Now the DHCP-Server has to read the ``/etc/kea/kea-dhcp4.conf`` file again:
 

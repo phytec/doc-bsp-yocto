@@ -215,7 +215,6 @@ your image, install and boot it.
    not be aware of a TPM Firmware Update without a restart (especially in case
    the TPM family has been changed with the update.)
 
-
 The configuration of the TPM should not be changed by the firmware update.
 The generated keys with ``keyctl`` and ``pkcs11`` should be available after the update
 of the firmware.

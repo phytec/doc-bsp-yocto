@@ -11,13 +11,11 @@ Welcome to the Documentation for our Yocto BSPs.
    bsp/imx9/imx9
    bsp/am6x/am6x
 
-
 .. toctree::
    :maxdepth: 1
    :caption: Yocto Manuals
 
    yocto/manual-index
-
 
 .. toctree::
    :maxdepth: 1
@@ -26,7 +24,6 @@ Welcome to the Documentation for our Yocto BSPs.
    rauc/manual-index
    security/manual-index
    coprocessor/index
-
 
 .. toctree::
    :maxdepth: 1

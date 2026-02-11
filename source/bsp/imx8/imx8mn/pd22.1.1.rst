@@ -17,7 +17,6 @@
 .. IMX8(MN) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13
 
-
 .. General Replacements
 .. |atfloadaddr| replace:: 0x960000
 .. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
@@ -30,7 +29,6 @@
 .. |debug-uart| replace:: ttymxc2
 .. |serial-uart| replace:: ttymxc0
 .. |bluetooth-uart| replace:: UART2
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
@@ -54,7 +52,6 @@
 .. IMX8(MN) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MN
 .. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis
@@ -82,7 +79,6 @@
 .. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
-
 .. Refs
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-pd22.1.1-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-pd22.1.1-images>`
@@ -93,7 +89,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-pd22.1.1-development>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-pd22.1.1-components>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.2-format-sd>`
-
 
 .. IMX8(MN) specific replacements
 .. |sbc-network| replace:: \
@@ -1981,7 +1976,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -2068,7 +2062,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C3 bus configuration (e.g. |dt-carrierboard|.dtsi):
 :imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n147`
-
 
 EEPROM
 ------

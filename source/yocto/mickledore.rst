@@ -53,7 +53,6 @@
 | BSP-Yocto-NXP-i.MX93-PD24.1.1    | Minor            | 08.05.2024       | released   |
 +----------------------------------+------------------+------------------+------------+
 
-
 This manual applies to all |yocto-codename| based PHYTEC releases.
 
 .. _yocto-man-mickledore:
@@ -109,7 +108,6 @@ you need
          python3-pexpect xz-utils debianutils iputils-ping python3-git \
          python3-jinja2 libegl1-mesa libsdl1.2-dev \
          python3-subunit mesa-common-dev zstd liblz4-tool file locales
-
 
 For other distributions you can find information in the *Yocto* Quick Build:
 `Quick Build`_

@@ -73,7 +73,6 @@ processor can be put into sleep mode while the coprocessor remains active to,
 for example, monitor I2C communication and wake up the application processor
 upon receiving a specific command.
 
-
 Time-Critical Communication
 ...........................
 
@@ -174,7 +173,6 @@ Additional Software Stacks
 OpenAMP
 .......
 
-
 The `OpenAMP <http://openampproject.org>`_ Project "seeks to standardize
 the interactions between operating environments in a heterogeneous embedded
 system through open source solutions for Asymmetric MultiProcessing (AMP)."
@@ -223,7 +221,6 @@ MAC Layer (2):
 Physical Layer (1):
    Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)
 
-
 Normally VirtIO is used to exchange messages between virtual machines in
 a hypervisor environment. In the context of OpenAMP, VirtIO is used to
 exchange messages between the master core and remote cores while
@@ -233,7 +230,6 @@ implementation of the buffer inside the Virtqueue.
 
 The `rpmsg documentation <https://docs.kernel.org/staging/rpmsg.html>`_
 on Kernel.org goes into further technical details.
-
 
 Requirements
 ^^^^^^^^^^^^
@@ -254,10 +250,8 @@ Resource Table
     included in the firmware binary of the remote core.
     (e.g. in Zephyr use ``CONFIG_OPENAMP_RSC_TABLE=y``)
 
-
 Protocol Buffers
 ................
-
 
 Application Architectures
 =========================
@@ -270,7 +264,6 @@ Typical Usage
 
    Typical Application Architecture with OpenAMP (source: `OpenAMP Whitepaper
    <https://www.openampproject.org/docs/whitepapers/Introduction_to_OpenAMPlib_v1.1a.pdf>`_)
-
 
 A typical application architecture when using OpenAMP is using two cores.
 One application processor (typically running Linux) while the coprocessor
@@ -312,7 +305,6 @@ starting the remote processor via remoteproc, which includes the resource
 table, and one ``.bin`` file for starting the remote processor via the
 bootloader.
 
-
 Starting the Coprocessor via Remoteproc
 ---------------------------------------
 
@@ -331,12 +323,10 @@ the BSP manual for your platform.
    target:~$ echo /lib/firmware/{your_firmware}.elf > /sys/class/remoteproc/remoteproc0/firmware
    target:~$ echo start > /sys/class/remoteproc/remoteproc0/state
 
-
 .. hint::
 
    If your device has multiple coprocessors, please make sure you use the
    correct remoteproc device.
-
 
 Starting the Coprocessor via Bootloader
 ---------------------------------------
@@ -371,7 +361,6 @@ When using Zephyr you can simply use the command
 
 to start GDB and load / start the firmware on the coprocessor.
 
-
 .. warning::
 
    Please note that it is not possible to use inter processor communication via
@@ -382,7 +371,6 @@ to start GDB and load / start the firmware on the coprocessor.
    This is especially impractical when you want to debug your
    coprocessor firmware via a debug probe, if your system requires the
    use of communication between the cores.
-
 
 Accessing the serial console
 ----------------------------
@@ -405,7 +393,6 @@ Take a look here: :ref:`openamp-using-resource-table`
 The easiest way to communicate on the Linux side through RPMsg is via the
 ``tty-rpmsg`` driver. This driver creates a tty device in ``/dev`` that can
 be used to send and receive messages to the coprocessor.
-
 
 Debugging the Coprocessor
 -------------------------
@@ -431,7 +418,6 @@ also needs to know in which state the coprocessor is.
    the architecture of the ARM-core you want to debug.
    Most cores are possible, for example the A- or M-Core or the DSP. You can find this information in the
    Segger knowledge base. (for example: `J-Link Base 9 <https://kb.segger.com/J-Link_BASE_V9>`_)
-
 
 When debugging the coprocessor firmware, you can use the following methods:
 
@@ -463,7 +449,6 @@ Debug a non remoteproc firmware
       (gdb) break main
       (gdb) continue
 
-
 Debugging a remoteproc firmware using GDB
 .........................................
 
@@ -484,7 +469,6 @@ Prerequisites:
 - Have the remoteproc device enabled in the devicetree.
 - Have a serial console to the coprocessor. (e.g. via ttyUSB1)
 - Have a shell of the application processor open (e.g. via SSH)
-
 
 1. Start a debugserver with west:
 
@@ -546,7 +530,6 @@ Prerequisites:
    It is important to use JTAG as debug interface. Using SWD will
    reset and halt the whole SoC which will cause unexpected behavior.
 
-
 GDB hints
 .........
 
@@ -567,7 +550,6 @@ If the command doesn't get ambiguous, you can shorten the command.
 For example, you can use ``b main`` instead of ``break main`` or ``c``
 instead of ``continue``. This is useful if you have to type the command
 multiple times.
-
 
 Debugging a remoteproc firmware using SEGGER Ozone
 ..................................................
@@ -616,7 +598,6 @@ Here are the steps how to connect to a running program:
 
 10. The target should now boot up, and you can debug the firmware via Ozone.
 
-
 You can use debugging with Ozone not just to debug the firmware,
 but also to debug the remoteproc framework itself.
 This can be useful if you want to find out why the coprocessor is not booting
@@ -636,7 +617,6 @@ principles can be applied to other platforms as well.
 
 * `NXP AN5317 - Loading code to Coprocessor <https://www.nxp.com/docs/en/application-note/AN5317.pdf>`_
 * `Zephyr IPC Samples <https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html>`_
-
 
 Hello World
 -----------
@@ -682,7 +662,6 @@ Run the Sample
       target_m7:~$ *** Booting Zephyr OS build v3.7.0 ***
                    Hello World! phyboard_pollux/mimx8ml8/m7
 
-
 .. _openamp-using-resource-table:
 
 OpenAMP using resource table
@@ -726,7 +705,6 @@ partition.
    @@ -1 +1 @@
    -overlays=conf-imx8mp-phyboard-pollux-peb-av-10.dtbo
    +overlays=conf-imx8mp-phyboard-pollux-peb-av-10.dtbo#conf-imx8mp-phycore-rpmsg.dtbo
-
 
 .. code-block:: diff
    :caption: Changes in the devicetree overlay 'imx8mp-phycore-rpmsg.dtbo'
@@ -831,7 +809,6 @@ Run the Sample
       target:~$ dmesg | tail                         # Check module messages
       target:~$ modprobe -u rpmsg_client_sample      # Unload Kernel module
 
-
 **Serial Communication**
 
 Once the demo is running, it opens two serial devices (``/dev/ttyRPMSG0``,
@@ -894,7 +871,6 @@ Console Output Linux
    [18402.320915] rpmsg_client_sample virtio0.rpmsg-client-sample.-1.1025: incoming msg 1 (src: 0x401)
    [18402.341810] rpmsg_client_sample virtio0.rpmsg-client-sample.-1.1025: incoming msg 2 (src: 0x401)
 
-
 Debugging
 .........
 
@@ -925,7 +901,6 @@ Debugging
        Number of buffers 8
        Notify ID 1
        Physical Address 0x0
-
 
 .. code-block:: console
    :caption: Print related memory areas in Linux:

@@ -46,7 +46,6 @@ TX bytes         Number of Transmitted Bytes
 errors...        Bus Error Statistics
 ================ ==============
 
-
 The CAN configuration is done in the systemd configuration
 file :substitution-code:`/lib/systemd/network/|can-network-file|`. 
 For a persistent change of (as an example, the default bitrates), change the

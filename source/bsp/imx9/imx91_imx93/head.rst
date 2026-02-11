@@ -45,7 +45,6 @@
 .. |can0-interface| replace:: can0
 .. |can-network-file| replace:: 11-can.network
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
@@ -72,7 +71,6 @@
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2024.04-2.2.0-phy9
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
@@ -119,7 +117,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-head-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-head-components>`
 
-
 .. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -131,11 +128,8 @@
 .. |dt-sbcnet-93-nash| replace:: phyBOARD-Nash i.MX 93
 .. _dt-sbcnet-93-nash: https://github.com/phytec/linux-phytec-imx/blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L87
 
-
-
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-head-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
@@ -175,7 +169,6 @@ Compatible BSPs         BSP Release Type BSP Release Date BSP Status
 |yocto-manifestname-91| Head             ----/--/--       Development
 |yocto-manifestname-93| Head             ----/--/--       Development
 ======================= ================ ================ ==========
-
 
 .. include:: ../../intro.rsti
 
@@ -499,7 +492,6 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-
 .. include:: /bsp/peripherals/introduction.rsti
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
@@ -636,7 +628,6 @@ General I²C2 bus configuration for |dt-carrierboard|.dts:
   :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts#L159`
 * for |sbc-nash|:
   :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L117`
-
 
 EEPROM
 ------

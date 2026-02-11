@@ -16,7 +16,6 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx95
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-alpha1.pdf
 
-
 .. General Substitutions
 .. |doc-id| replace:: ALPHA1
 .. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
@@ -30,7 +29,6 @@
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X56
 .. |netboot-script| replace:: boot.scr.uimg
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
@@ -57,11 +55,9 @@
 .. |u-boot-socname-config| replace:: IMX95_LIBRA_FPSC
 .. |u-boot-tag| replace:: v2024.04_2.0.0-phy14
 
-
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx95-libra-rdk-fpsc
@@ -100,7 +96,6 @@
 .. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-fpsc-alpha1-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-fpsc-alpha1-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-fpsc-alpha1-format-sd>`
-
 
 .. IMX95 specific
 .. |gpu-model| replace:: MALI G310
@@ -147,7 +142,6 @@ Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 ============================== ================ ================= ==============
 BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
 ============================== ================ ================= ==============
-
 
 .. include:: /bsp/intro.rsti
 

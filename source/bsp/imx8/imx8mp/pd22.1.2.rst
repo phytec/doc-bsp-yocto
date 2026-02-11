@@ -16,7 +16,6 @@
 .. IMX8(MP) specific
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2021.04_2.2.0-phy13#n239
 
-
 .. General Substitutions
 .. |atfloadaddr| replace:: 0x970000
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
@@ -29,7 +28,6 @@
 .. |serial-uart| replace:: ttymxc1
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
-
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
@@ -52,7 +50,6 @@
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
 .. |u-boot-tag| replace:: v2021.04_2.2.0-phy17
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
@@ -81,7 +78,6 @@
 .. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
-
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd22.1.2-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd22.1.2-images>`
@@ -92,7 +88,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd22.1.2-development>`
 .. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd22.1.2-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd22.1.2-development-build-uboot>`
-
 
 .. IMX8(MP) specific
 .. |sbc-network| replace::
@@ -109,7 +104,6 @@
 .. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd22.1.2-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-pd22.1.2-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M7 Core
@@ -2081,7 +2075,6 @@ of some usages of various tools:
       being driven high or low. It may happen if given pin is floating but it must be interpreted
       as undefined behavior.
 
-
 .. warning::
 
    Some of the user IOs are used for special functions. Before using a user IO,
@@ -2158,7 +2151,6 @@ General I²C1 bus configuration (e.g. |dt-som|.dtsi):
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
 :imx-dt:`imx8mp-phyboard-pollux.dtsi?h=v5.10.72_2.2.0-phy18#n201`
-
 
 EEPROM
 ------

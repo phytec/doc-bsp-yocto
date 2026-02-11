@@ -32,7 +32,6 @@ Example (taken from imx8mp-phycore-fpsc.dtsi)
            vqmmc-supply = <&ldo5>;
    };
 
-
    pinctrl_usdhc2: usdhc2grp {
            fsl,pins = <
                    MX8MP_IOMUXC_SD2_CD_B__USDHC2_CD_B	0x40	/* SDCARD_CD */

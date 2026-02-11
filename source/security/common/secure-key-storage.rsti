@@ -253,7 +253,6 @@ on the device.
 
       target:~$ tpm2_clear -c platform
 
-
 Kernel Key Retention Service for Filesystem Encryption
 ------------------------------------------------------
 
@@ -329,7 +328,6 @@ Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.
       -p | --pkcs11testkey    Create an ECC testkey with user pin 1234
       -h | --help             This Help
       -v | --version          The version of physecurekeystorage-install
-
 
 Cryptographic Token Interface PKCS#11
 -------------------------------------

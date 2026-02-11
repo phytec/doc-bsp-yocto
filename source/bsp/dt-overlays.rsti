@@ -76,7 +76,6 @@ unset the overlays variable and set no_bootenv to anything other than 0.
    u-boot=> env delete overlays
    u-boot=> env set no_bootenv 1
 
-
 If desired to use the bootenv.txt file for setting U-Boot variables other than
 overlays and having overlays disabled, remove the overlays definition line from
 the bootenv.txt file instead of setting no_bootenv.

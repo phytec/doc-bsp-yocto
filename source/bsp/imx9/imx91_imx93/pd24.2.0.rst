@@ -29,7 +29,6 @@
 .. |serial-uart| replace:: ttyLP6
 .. |expansion-connector| replace:: X16
 
-
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx9_phytec_defconfig
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
@@ -56,7 +55,6 @@
 .. IMX93 specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2024.04-2.0.0-phy6
-
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
@@ -93,7 +91,6 @@
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-PD24.2.0-development>`
 .. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-PD24.2.0-components>`
 
-
 .. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
@@ -103,7 +100,6 @@
 
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx93-PD24.2.0-ubootexternalenv>`
-
 
 .. M-Core specific
 .. |mcore| replace:: M33 Core
@@ -137,7 +133,6 @@ Compatible BSPs      BSP Release Type BSP Release Date BSP Status
 ==================== ================ ================ ==========
 |yocto-manifestname| Major            2024/10/08       Released
 ==================== ================ ================ ==========
-
 
 .. include:: ../../intro.rsti
 
@@ -445,7 +440,6 @@ Available overlays for phyboard-nash-imx93-1.conf are:
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
 
-
 .. include:: /bsp/peripherals/introduction.rsti
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
@@ -583,7 +577,6 @@ General I²C2 bus configuration for |dt-carrierboard|.dts:
 or for imx93-phyboard-nash.dts:
 :linux-phytec-imx:`blob/v6.6.23-2.0.0-phy8/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L113`
 
-
 EEPROM
 ------
 
@@ -699,7 +692,6 @@ RX bytes   Number of Received Bytes
 TX bytes   Number of Transmitted Bytes
 errors...  Bus Error Statistics
 ========== =============================
-
 
 The CAN configuration is done in the systemd configuration
 file ``/lib/systemd/network/can0.network``. For a persistent change of (as an

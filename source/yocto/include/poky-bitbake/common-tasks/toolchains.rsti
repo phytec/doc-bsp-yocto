@@ -72,7 +72,6 @@ You can activate the toolchain for your shell by sourcing the file
 
       host:~$ export PATH=$OECORE_NATIVE_SYSROOT/usr/libexec:$PATH
 
-
 Then the necessary tools like the cross compiler and linker are in your PATH. To
 compile a simple *C* program, use
 

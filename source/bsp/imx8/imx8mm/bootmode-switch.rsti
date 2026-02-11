@@ -19,7 +19,6 @@ Mini
 
           SD Card
 
-
 .. list-table:: Switch between UART1 RS485/RS232
 
    * - .. figure:: images/UART1_RS485.png

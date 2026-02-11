@@ -8,7 +8,6 @@
    definition. If unsure what to fill out, you can also look at existing
    documents.
 
-
 .. Download links
 
 .. Link to Support->BSP-Download Section for this release on PHYTEC Website
@@ -28,7 +27,6 @@
 .. |link-partup-package| replace::
 .. |link-boot-tools| replace::
 .. _releasenotes:
-
 
 .. General  substitutions
 
@@ -55,7 +53,6 @@
 .. Name of the script to be loaded and executed in U-Boot for booting kernel and
    rootfs via network; Used only for i.MX family
 .. |netboot-script| replace::
-
 
 .. Linux Kernel
 .. Name for the SoC as being used in e.g Kernel source files; Example: imx8mp
@@ -84,7 +81,6 @@
 .. link to the devicetree file and line containing the SOM's ethernet node
 .. |dt-somnetwork-link| replace::
 
-
 .. Yocto
 .. Name PHYTEC uses to identify all BSP Yocto releases for this SoC.
    Example: BSP-Yocto-IMX8MP
@@ -112,7 +108,6 @@
 .. |yocto-ref-manual| replace::
 .. _yocto-ref-manual:
 
-
 .. ref substitutions
    Note that for all labels you have to substitute "sbc-release" with the actual
    product and release this template is used for. E.g. "imx8mm-pd22.1.0". The
@@ -135,7 +130,6 @@
 .. Name of the USB OTG connector on the board with an internal link
 .. |ref-usb-otg| replace:: :ref:`name-of-connector <sbc-release-components>`
 
-
 .. The rest of this file is used to assemble the content needed for the BSP
    documentation. This can be a mix of include directives and text. Some content
    may already be present in the project. The best chance of finding content to
@@ -149,11 +143,9 @@ BSP documentation name
 
 .. include:: /bsp/intro.rsti
 
-
 .. Getting Started
 
 .. include:: /bsp/getting-started.rsti
-
 
 .. Building BSP
 
@@ -162,7 +154,6 @@ BSP documentation name
 
 .. _sbc-release-device-tree:
 .. include:: /bsp/device-tree.rsti
-
 
 .. Accessing Peripherals
 
@@ -191,7 +182,6 @@ Audio
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
-
 
 .. BSP Extensions
 
