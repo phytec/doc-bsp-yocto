@@ -33,6 +33,7 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_substitution_extensions',
     'sphinx_sitemap',
+    'sphinxcontrib.rsvgconverter',
 ]
 
 # List of patterns, relative to source directory, that match files and
