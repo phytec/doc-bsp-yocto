@@ -233,7 +233,8 @@ Boot with SD-Card
 *  To boot from an SD card, the bootmode switch (S1) needs to be set to the
    following position:
 
-.. image:: images/SD_Card_Boot.png
+   .. image:: /bsp/images/dipswitch-4-1001.svg
+      :scale: 400%
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on (X14) debug USB
