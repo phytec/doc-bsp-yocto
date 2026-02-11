@@ -1,18 +1,22 @@
 .. list-table::
 
-   *  -  .. figure:: images/eMMC.png
+   *  -  .. figure:: /bsp/images/dipswitch-4-0100.svg
+            :scale: 400%
 
             eMMC
 
-      -  .. figure:: images/Internal_Fuses.png
+      -  .. figure:: /bsp/images/dipswitch-4-0000.svg
+            :scale: 400%
 
             Internal Fuses
 
-   *  -  .. figure:: images/USB_Serial_Download.png
+   *  -  .. figure:: /bsp/images/dipswitch-4-1000.svg
+            :scale: 400%
 
             USB Serial Download
 
-      -  .. figure:: images/SD_Card_Boot.png
+      -  .. figure:: /bsp/images/dipswitch-4-1100.svg
+            :scale: 400%
 
             SD Card
 
