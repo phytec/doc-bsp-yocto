@@ -188,7 +188,8 @@ First Start-up
 *  To boot from an SD card, the |ref-bootswitch| needs to be set to the
    following position:
 
-.. image:: images/SD_Card_Boot.png
+   .. image:: /bsp/images/dipswitch-tristate-4-mmpm.svg
+      :scale: 400%
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on |ref-debugusbconnector|

@@ -190,7 +190,8 @@ First Start-up
 *  To boot from an SD card, the |ref-bootswitch| needs to be set to the
    following position:
 
-.. image:: images/SD_Card_Boot.png
+   .. image:: /bsp/images/dipswitch-4-1001.svg
+      :scale: 400%
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on |ref-debugusbconnector|
@@ -244,7 +245,34 @@ The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
 .. _imx95-fpsc-alpha1-bootswitch:
-.. include:: bootmode-switch.rsti
+.. list-table::
+
+   *  -  .. figure:: /bsp/images/dipswitch-4-0001.svg
+            :scale: 400%
+
+            eMMC
+
+      -  .. figure:: /bsp/images/dipswitch-4-0101.svg
+            :scale: 400%
+
+            Internal Fuses
+
+      -  .. figure:: /bsp/images/dipswitch-4-0101.svg
+            :scale: 400%
+
+            SPI NOR
+
+   *  -  .. figure:: /bsp/images/dipswitch-4-1101.svg
+            :scale: 400%
+
+            USB Serial Download
+
+      -  .. figure:: /bsp/images/dipswitch-4-1001.svg
+            :scale: 400%
+
+            SD Card
+
+      -
 
 .. include:: /bsp/imx-common/installing-os.rsti
    :end-before: .. flash-emmc-from-usb-stick-in-uboot-marker
