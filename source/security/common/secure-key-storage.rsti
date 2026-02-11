@@ -12,25 +12,25 @@ not an option in those cases.
 
 In the BSP, three different variants of Secure Key Storage can be implemented,
 depending on hardware support. The available hardware support is activated
-with ``MACHINE_FEATURE``.
+with ``MACHINE_FEATURES``.
 
-+---------------------+-------------------------------------+------------------+
-|| Type of            || Hardware Support                   || MACHINE_FEATURE |
-|| Secure Key Storage ||                                    ||                 |
-+=====================+=====================================+==================+
-|| NXP CAAM           || * all NXP i.MX6, i.MX6UL           || caam            |
-||                    || * all i.MX8M series                ||                 |
-||                    ||                                    ||                 |
-+---------------------+-------------------------------------+------------------+
-|| Trusted Execution  || * all NXP i.MX SoC                 || optee           |
-|| Environment TEE    || * all TI K3 SoC                    ||                 |
-+---------------------+-------------------------------------+------------------+
-|| Trusted platform   || * on base boards for i.MX8M series || tpm             |
-|| Module TPM         || * on phyGATE-Tauri-S / L           ||                 |
-||                    || * on i.MX9 phyBOARD-Nash           ||                 |
-+---------------------+-------------------------------------+------------------+
++---------------------+-------------------------------------+-------------------+
+|| Type of            || Hardware Support                   || MACHINE_FEATURES |
+|| Secure Key Storage ||                                    ||                  |
++=====================+=====================================+===================+
+|| NXP CAAM           || * all NXP i.MX6, i.MX6UL           || caam             |
+||                    || * all i.MX8M series                ||                  |
+||                    ||                                    ||                  |
++---------------------+-------------------------------------+-------------------+
+|| Trusted Execution  || * all NXP i.MX SoC                 || optee            |
+|| Environment TEE    || * all TI K3 SoC                    ||                  |
++---------------------+-------------------------------------+-------------------+
+|| Trusted platform   || * on base boards for i.MX8M series || tpm              |
+|| Module TPM         || * on phyGATE-Tauri-S / L           ||                  |
+||                    || * on i.MX9 phyBOARD-Nash           ||                  |
++---------------------+-------------------------------------+-------------------+
 
-Machines built with the ``MACHINE_FEATURE`` have all necessary prerequisites
+Machines built with the ``MACHINE_FEATURES`` have all necessary prerequisites
 enabled.
 
 NXP i.MX CAAM
