@@ -356,9 +356,7 @@ Starting in
    *  Readout Protection: ``--jtag-disable-rp``
    *  Overwrite Protection ``--jtag-disable-wp``
 
-* generate a certificate for Secure Board Config
-
-   `The Secure Board Configuration <https://software-dl.ti.com/tisci/esd/latest/3_boardcfg/BOARDCFG_SEC.html#>`_
+*  generate a certificate for the `Secure Board Configuration <https://software-dl.ti.com/tisci/esd/latest/3_boardcfg/BOARDCFG_SEC.html#>`_
 
    .. code-block:: console
       :caption: Secure Board Config
