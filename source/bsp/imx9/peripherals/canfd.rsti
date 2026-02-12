@@ -47,9 +47,9 @@ errors...        Bus Error Statistics
 ================ ==============
 
 The CAN configuration is done in the systemd configuration
-file :substitution-code:`/lib/systemd/network/|can-network-file|`. 
+file :substitution-code:`/lib/systemd/network/|can-network-file|`.
 For a persistent change of (as an example, the default bitrates), change the
-configuration in the BSP under 
+configuration in the BSP under
 :substitution-code:`./meta-ampliphy/recipes-core/systemd/systemd-conf/|can-network-file|`
 in the root filesystem and rebuild the root filesystem.
 
