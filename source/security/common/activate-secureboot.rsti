@@ -227,20 +227,17 @@ HS-SE after key programming.
 
 1. Set the boot mode switches into UART boot mode.
 
-   *  AM62x
+   AM62x: S5 & S6
+      .. image:: /bsp/images/dipswitch-8x2-11011100-00000000.svg
+         :scale: 400%
 
-      .. image:: images/phycore-am62x/am62x_uartboot.png
-         :width: 100px
+   AM64x: S3 & S4
+      .. image:: /bsp/images/dipswitch-8x2-11011100-00000000.svg
+         :scale: 400%
 
-   *  AM64x
-
-       .. image:: images/phycore-am64x/am64_uartboot.png
-         :width: 100px
-
-   *  AM68x
-
-       .. image:: images/phycore-am68x/am68x_uartboot.png
-         :width: 200px
+   AM68x: S8 & S7
+      .. image:: /bsp/images/dipswitch-8x2-00001110-10011010.svg
+         :scale: 400%
 
 2. Open your serial terminal on ``/dev/ttyUSB0``
 3. Power up your board
