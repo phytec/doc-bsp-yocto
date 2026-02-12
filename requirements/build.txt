@@ -1,6 +1,6 @@
-Sphinx==8.2.1
-sphinx-rtd-theme==3.0.2
-Sphinx-Substitution-Extensions==2025.2.19
-sphinx-intl==2.3.1
-sphinx-sitemap==2.6.0
-sphinx-autobuild==2024.10.3
+Sphinx==9.1.0
+sphinx-rtd-theme==3.1.0
+sphinx-substitution-extensions==2026.1.12
+sphinx-intl==2.3.2
+sphinx-sitemap==2.9.0
+sphinx-autobuild==2025.8.25
