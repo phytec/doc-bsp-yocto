@@ -1,0 +1,57 @@
+.. include:: ../../peripherals/fuse.rsti
+
+To find out the bank and word index for a fuse for burning in U-Boot, use the
+following formulae
+
+.. math::
+
+   \left\lfloor\frac{i}{256}\right\rfloor = b
+
+.. math::
+
+   \frac{i - 256b}{32} = w
+
+where :math:`i` is the ``Fuse Index`` as specfied in the Reference Manual,
+:math:`b` is the bank and :math:`w` is the word U-Boot expects as arguments to fuse
+commands.
+
+MAC_ADDR example; Substituting 10400 for :math:`i` in case for the higher order
+MAC address bits yields.
+
+.. math::
+
+   b = \left\lfloor\frac{10400}{256}\right\rfloor = \left\lfloor40.625\right\rfloor = 40
+
+.. math::
+
+   w = \frac{10400 - 40 * 256}{32} = \frac{160}{32} = 5
+
+To read the value in U-Boot, assuming a MAC address of 12:34:56:78:9A:BC
+
+.. code-block::
+   console
+
+   u-boot=> fuse read 40 5
+   Reading bank 40:
+
+   Word 0x00000005: 78563412
+   u-boot=> fuse read 40 6
+   Reading bank 40:
+
+   Word 0x00000006: 0300BC9A
+
+All of the ``General Purpose fuse for customer use`` fuses are word aligned so
+no care needs to be taken in regards to bit positions within a word.
+Example of burning GPR4_CFG6 fuses
+
+.. code-block::
+   console
+
+   u-boot=> fuse prog 47 6 0xDEADBEEF
+   Programming bank 47 word 0x00000006 to 0xdeadbeef...
+   Warning: Programming fuses is an irreversible operation!
+            This may brick your system.
+            Use this command only if you are sure of what you are doing!
+
+   Really perform this fuse programming? <y/N>
+   y
