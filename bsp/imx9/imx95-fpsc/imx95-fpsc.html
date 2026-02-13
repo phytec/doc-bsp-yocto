@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i.MX 95 Manuals &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/bsp/imx9/imx95-fpsc/imx95-fpsc.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. PHYTEC Documentation" href="head.html" />
+    <link rel="prev" title="1. PHYTEC Documentation" href="../imx91_imx93/pd24.1.0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../imx9.html">i.MX 9</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../imx91_imx93/imx91_imx93.html">phyCORE-i.MX 91/93 Manuals</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">phyCORE-i.MX 95 FPSC Manuals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#head">HEAD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="head.html">1. PHYTEC Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#getting-started">2. Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#building-the-bsp">3. Building the BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#installing-the-os">4. Installing the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#development">5. Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#device-tree-dt">6. Device Tree (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#nxp-gopoint-demo-suite">8. NXP GoPoint demo suite</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quickstart-guide-alpha1">Quickstart Guide ALPHA1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="quickstart-alpha1.html">1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="quickstart-alpha1.html#requirements">2. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="quickstart-alpha1.html#connecting-the-board">3. Connecting the Board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="quickstart-alpha1.html#prebuilt-images">4. Prebuilt Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="quickstart-alpha1.html#system-booting">5. System Booting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-yocto-nxp-i-mx95-alpha1">BSP-Yocto-NXP-i.MX95-ALPHA1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html">1. PHYTEC Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#getting-started">2. Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#building-the-bsp">3. Building the BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#installing-the-os">4. Installing the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#development">5. Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#device-tree-dt">6. Device Tree (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#accessing-peripherals">7. Accessing Peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="alpha1.html#nxp-gopoint-demo-suite">8. NXP GoPoint demo suite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_links.html">Contribute</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../imx9.html">i.MX 9</a></li>
+      <li class="breadcrumb-item active">i.MX 95 Manuals</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx9/imx95-fpsc/imx95-fpsc.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i-mx-95-manuals">
+<h1>i.MX 95 Manuals<a class="headerlink" href="#i-mx-95-manuals" title="Link to this heading"></a></h1>
+<section id="head">
+<h2>HEAD<a class="headerlink" href="#head" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="head.html">1. PHYTEC Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#supported-hardware">1.1. Supported Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#getting-started">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#get-the-image">2.1. Get the Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#write-the-image-to-sd-card">2.2. Write the Image to SD Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#first-start-up">2.3. First Start-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#building-the-bsp">3. Building the BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#basic-set-up">3.1. Basic Set-Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#get-the-bsp">3.2. Get the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#installing-the-os">4. Installing the OS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#bootmode-switch-s1">4.1. Bootmode Switch (S1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#flash-e-mmc">4.2. Flash e.MMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#development">5. Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#standalone-build-preparation">5.1. Standalone Build preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#u-boot-standalone-build">5.2. U-Boot standalone build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#kernel-standalone-build">5.3. Kernel standalone build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#working-with-uuu">5.4. Working with UUU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#host-network-preparation">5.5. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#u-boot-pxe-boot">5.7. U-Boot PXE Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#accessing-the-development-states">5.8. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#format-sd-card">5.9. Format SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#ampliphy-boot">5.10. Ampliphy-boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#working-with-fit-images">5.11. Working with FIT images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#device-tree-dt">6. Device Tree (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#introduction">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 95 BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#accessing-peripherals">7. Accessing Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#soc-pin-muxing">7.1. i.MX 95 Pin Muxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#wlan-bluetooth">7.3. WLAN/Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#sd-card">7.4. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#e-mmc-devices">7.5. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#gpios">7.6. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#i2c-bus">7.7. I²C Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#can-fd">7.8. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#eeprom">7.9. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#rtc">7.10. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#usb-host-controller">7.11. USB Host Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#video">7.12. Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#display">7.13. Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#power-management">7.14. Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#thermal-management">7.15. Thermal Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#pwm-fan">7.16. PWM fan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#tpm">7.17. TPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#gpu">7.18. GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#watchdog">7.19. Watchdog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#jtag">7.20. JTAG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#nxp-gopoint-demo-suite">8. NXP GoPoint demo suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#id2">8.1. ML Benchmark</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="quickstart-guide-alpha1">
+<h2>Quickstart Guide ALPHA1<a class="headerlink" href="#quickstart-guide-alpha1" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart-alpha1.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart-alpha1.html#requirements">2. Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#included-in-the-kit">2.1. Included in the Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#components">2.2. Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#additional-optional-equipment-not-included-in-alpha-kit">2.3. Additional (optional) equipment (not included in Alpha Kit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#linux-host-pc">2.4. Linux Host PC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart-alpha1.html#connecting-the-board">3. Connecting the Board</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#connecting-the-debug-usb-interface">3.1. Connecting the DEBUG USB interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#powering-the-board">3.2. Powering the Board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart-alpha1.html#prebuilt-images">4. Prebuilt Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart-alpha1.html#system-booting">5. System Booting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart-alpha1.html#boot-with-sd-card">5.1. Boot with SD-Card</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="bsp-yocto-nxp-i-mx95-alpha1">
+<h2>BSP-Yocto-NXP-i.MX95-ALPHA1<a class="headerlink" href="#bsp-yocto-nxp-i-mx95-alpha1" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html">1. PHYTEC Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#supported-hardware">1.1. Supported Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#getting-started">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#get-the-image">2.1. Get the Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#write-the-image-to-sd-card">2.2. Write the Image to SD Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#first-start-up">2.3. First Start-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#building-the-bsp">3. Building the BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#basic-set-up">3.1. Basic Set-Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#get-the-bsp">3.2. Get the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#installing-the-os">4. Installing the OS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#bootmode-switch-s1">4.1. Bootmode Switch (S1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#flash-e-mmc">4.2. Flash e.MMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#development">5. Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#standalone-build-preparation">5.1. Standalone Build preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#u-boot-standalone-build">5.2. U-Boot standalone build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#kernel-standalone-build">5.3. Kernel standalone build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#working-with-uuu">5.4. Working with UUU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#host-network-preparation">5.5. Host Network Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#booting-the-kernel-from-a-network">5.6. Booting the Kernel from a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#accessing-the-development-states">5.7. Accessing the Development states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#format-sd-card">5.8. Format SD card</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#device-tree-dt">6. Device Tree (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#introduction">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 95 BSP Device Tree Concept</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#accessing-peripherals">7. Accessing Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#soc-pin-muxing">7.1. i.MX 95 Pin Muxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#sd-card">7.3. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#e-mmc-devices">7.4. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#gpios">7.5. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#i2c-bus">7.6. I²C Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#eeprom">7.7. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#rtc">7.8. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#usb-host-controller">7.9. USB Host Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#video">7.10. Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#display">7.11. Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#power-management">7.12. Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#thermal-management">7.13. Thermal Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#gpu">7.14. GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#watchdog">7.15. Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alpha1.html#nxp-gopoint-demo-suite">8. NXP GoPoint demo suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alpha1.html#id2">8.1. ML Benchmark</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../imx91_imx93/pd24.1.0.html" class="btn btn-neutral float-left" title="1. PHYTEC Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="head.html" class="btn btn-neutral float-right" title="1. PHYTEC Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, PHYTEC Messtechnik GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

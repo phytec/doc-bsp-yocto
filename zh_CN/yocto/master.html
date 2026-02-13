@@ -1,0 +1,2570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. PHYTEC 文档 &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/yocto/master.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. PHYTEC 文档" href="kirkstone.html" />
+    <link rel="prev" title="Unstable (dev)" href="manual-index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="manual-index.html">Unstable (dev)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vocabulary">2.3. 词汇</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recipes">2.3.1. Recipes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes">2.3.2. 类</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layers">2.3.3. Layers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#machine">2.3.4. Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distribution-distro">2.3.5. 发行版 (Distro)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#poky">2.4. Poky</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">2.4.1. Bitbake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.4.2. Toaster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-structure">4.1. BSP 框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-management">4.1.1. BSP 包管理</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#phylinux">4.1.1.1. phyLinux</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#repo">4.1.1.2. Repo</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-metadata">4.1.2. BSP 元数据</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id3">4.1.2.1. Poky</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-openembedded">4.1.2.2. meta-openembedded</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-qt6">4.1.2.3. meta-qt6</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-nodejs">4.1.2.4. meta-nodejs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-gstreamer1-0">4.1.2.5. meta-gstreamer1.0</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-rauc">4.1.2.6. meta-rauc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-phytec">4.1.2.7. meta-phytec</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-ampliphy">4.1.2.8. meta-ampliphy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-qt6-phytec">4.1.2.9. meta-qt6-phytec</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-virtualization">4.1.2.10. meta-virtualization</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id4">4.1.2.11. meta-security</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-selinux">4.1.2.12. meta-selinux</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-browser">4.1.2.13. meta-browser</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-rust">4.1.2.14. meta-rust</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-timesys">4.1.2.15. meta-timesys</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-freescale">4.1.2.16. meta-freescale</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-freescale-3rdparty">4.1.2.17. meta-freescale-3rdparty</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-freescale-distro">4.1.2.18. meta-freescale-distro</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#base-fsl-community-bsp-base">4.1.2.19. base layer（fsl-community-bsp-base）</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#meta-fsl-bsp-release">4.1.2.20. meta-fsl-bsp-release</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-content">4.1.3. BSP 代码源</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialization">7.3. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">8.1. 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#images">9.2. Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#buildinfo">9.5.1. <em>Buildinfo</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-customization">9.6. 自定义BSP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ampliphy-boot">9.6.1. Ampliphy-boot</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#provided-bootscripts">9.6.1.1. Provided bootscripts</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#adding-ampliphy-boot-to-your-platform-in-yocto">9.6.1.2. Adding ampliphy-boot to your platform in Yocto</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#working-with-bootscripts">9.6.1.3. Working with bootscripts</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-software-features">9.6.2. Enabling software FEATURES</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#op-tee-optee">9.6.2.1. OP-TEE (optee)</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-qt-demo">9.6.3. 禁用 Qt 示例demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuffer-console">9.6.4. Framebuffer 控制台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools-provided-in-the-prebuild-image">9.6.5. 预编译镜像中提供的工具</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ram-benchmark">9.6.5.1. RAM 基准测试</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#add-additional-software-for-the-bsp-image">9.6.6. 为 BSP 镜像添加新的软件包</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#notes-about-packages-and-recipes">9.6.6.1. 关于软件包和Recipe的说明</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#add-an-additional-layer">9.6.7. 添加其他Layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-your-own-layer">9.6.8. Create your own layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-and-bootloader-recipe-and-version">9.6.9. kernel和Bootloader的Recipe和版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-and-bootloader-configuration">9.6.10. Kernel和Bootloader配置</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#add-a-configuration-fragment-to-a-recipe">9.6.10.1. 将配置片段添加到Recipe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#add-a-complete-default-configuration-defconfig-to-a-recipe">9.6.10.2. 向Recipe添加一个完整配置 (<em>defconfig</em>)</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#patch-the-kernel-or-bootloader-with-devtool">9.6.11. 使用 <em>devtool</em> 修改Kernel或Bootloader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patch-the-kernel-or-bootloader-using-the-temporary-method">9.6.12. 使用“临时方法”修补Kernel 或Bootloader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">9.6.13. 使用 <em>local.conf</em> 文件中的 SRC_URI 来配置Kernel 和Bootloader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-existing-software-with-sustainable-method">9.6.14. 使用“可持续方法”添加软件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-linux-firmware-files-to-the-root-filesystem">9.6.15. 将 Linux 固件添加到根文件系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-the-u-boot-environment-via-bbappend-files">9.6.16. 使用 <em>bbappend</em> 文件更改 <em>u-boot</em> 环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-the-barebox-environment-via-bbappend-files">9.6.17. 通过 <em>bbappend</em> 文件更改 <em>barebox</em> 环境变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#debugging-the-environment">9.6.17.1. 调试</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#changing-the-environment-depending-on-machines">9.6.17.2. 修改环境（依赖所使用的machine）</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#upgrading-the-barebox-environment-from-previous-bsp-releases">9.6.17.3. 在旧的 BSP 版本升级 <em>barebox</em> 环境</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-network-configuration">9.6.18. 更改网络配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-wireless-network-configuration">9.6.19. 更改无线网络配置</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#connecting-to-a-wlan-network">9.6.19.1. 连接至 WLAN 网络</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#creating-a-wlan-access-point">9.6.19.2. 创建 WLAN 接入点</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#phycore-i-mx-6ul-ull-bluetooth">9.6.19.3. phyCORE-i.MX 6UL/ULL 蓝牙</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#add-opencv-libraries-and-examples">9.6.20. 添加 OpenCV 库和示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-minimal-php-web-runtime-with-lightpd">9.6.21. 使用 <em>lightpd</em> 安装最小的 PHP Web 运行环境</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-tasks">9.7. 常见任务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-a-user-space-application">9.7.1. 调试用户空间应用程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-source-mirrors-working-offline">9.7.2. 生成镜像源，开启离线构建</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-on-the-target">9.7.3. 在目标主机上进行编译</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#different-toolchains">9.7.4. 不同的工具链</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#using-the-sdk">9.7.4.1. 使用 SDK</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#using-the-sdk-with-gnu-autotools">9.7.4.2. 将 SDK 与 GNU Autotools 结合使用</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-kernel-modules">9.7.5. 使用Kernel模块</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="manual-index.html">Unstable (dev)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>PHYTEC 文档</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/yocto/master.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Documentation in pdf format: <a class="reference external" href="../_static/master.pdf">Download</a></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Yocto Reference Manual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>文档标题</p></td>
+<td><p>Yocto Reference Manual Unstable</p></td>
+</tr>
+<tr class="row-odd"><td><p>文档类型</p></td>
+<td><p>Yocto手册</p></td>
+</tr>
+<tr class="row-even"><td><p>母文档</p></td>
+<td><p>Yocto Reference Manual</p></td>
+</tr>
+</tbody>
+</table>
+<section id="phytec-documentation">
+<span id="yocto-man-master"></span><h1><span class="section-number">1. </span>PHYTEC 文档<a class="headerlink" href="#phytec-documentation" title="Link to this heading"></a></h1>
+<p>PHYTEC provides a variety of hardware and software documentation for
+all of its products. This includes any or all of the following:</p>
+<ul class="simple">
+<li><p><strong>QS Guide</strong>: A short guide on how to set up and boot a phyCORE based
+board.</p></li>
+<li><p><strong>Hardware Manual</strong>: A detailed description of the System-on-Module and
+accompanying carrierboard.</p></li>
+<li><p><strong>Yocto 手册</strong>：phyCORE 使用的 Yocto 版本的综合指南。本指南包含: Yocto 概述；PHYTEC BSP 介绍、编译和定制化修改；如何使用 Poky 和 Bitbake 等编译框架。</p></li>
+<li><p><strong>BSP 手册</strong>：phyCORE 的 BSP 版本专用手册。可在此处找到如何编译BSP、启动、更新软件、设备树和外设等信息。</p></li>
+<li><p><strong>开发环境指南</strong>：本指南介绍了如何使用 PHYTEC 虚拟机来搭建多样的开发环境。VM 中包含了 Eclipse 和 Qt Creator 的详细上手指导，还说明了如何将所编译出的demo程序放到phyCORE 核心板上运行。本指南同时也介绍了如何在本地Linux ubuntu上搭建完整的应用开发环境。</p></li>
+<li><p><strong>Pin Muxing Table</strong>: phyCORE SOMs have an accompanying pin
+table (in Excel format). This table will show the complete
+default signal path, from the processor to the carrier board.
+The default device tree muxing option will also be included.
+This gives a developer all the information needed in one location
+to make muxing changes and design options when developing a
+specialized carrier board or adapting a PHYTEC phyCORE SOM to an
+application.</p></li>
+</ul>
+<p>除了这些标准手册和指南之外，PHYTEC 还将提供产品变更通知、应用说明和技术说明。这些文档将根据具体案例进行针对性提供。大多数文档都可以在我们产品的下载页面中找到。</p>
+</section>
+<section id="the-yocto-project">
+<h1><span class="section-number">2. </span>Yocto 项目<a class="headerlink" href="#the-yocto-project" title="Link to this heading"></a></h1>
+<section id="yocto-introduction">
+<h2><span class="section-number">2.1. </span>Yocto 介绍<a class="headerlink" href="#yocto-introduction" title="Link to this heading"></a></h2>
+<p>Yocto 是最小的国际单位制前缀。就像milli是描述 <code class="docutils literal notranslate"><span class="pre">10^-3</span></code> 一样，yocto 是描述 <code class="docutils literal notranslate"><span class="pre">10^-24</span></code> 。Yocto 也是  <a class="reference external" href="https://www.linuxfoundation.org/">Linux 基金会</a> 支持的项目，因此得到了该领域几家主流公司的支持。在 <a class="reference external" href="https://www.yoctoproject.org/">Yocto 项目网站</a> 上您可以阅读官方的介绍：</p>
+<blockquote>
+<div><p>Yocto 项目是一个开源协作项目，它提供模板、工具和方法，为您的嵌入式产品创建基于 Linux 的自定义系统，同时不用过多的关注底层硬件架构。该项目由众多硬件制造商、开源操作系统供应商和电子公司合作开发，成立于2010年，旨在引导嵌入式 Linux系统开发走向标准化。</p>
+</div></blockquote>
+<p>如前所述，该项目希望为嵌入式开发人员提供工具集。它建立在长期维护的 <a class="reference external" href="https://www.openembedded.org/wiki/Main_Page">OpenEmbedded</a>  项目之上。它不是一个Linux 发行版，但它包含创建定制化的Linux 发行版的所有工具。维护工具集的最重要步骤是定义一个通用的版本控制方案和一个参考系统。然后，所有子项目都必须兼容参考系统，并且遵守他的版本控制方案。</p>
+<p>发布过程类似于 <a class="reference external" href="https://kernel.org/">Linux kernel</a> 的发布机制。Yocto 每六个月增加一次版本号，并为发布版本指定版本代号。发布列表可在此处找到：<a class="reference external" href="https://wiki.yoctoproject.org/wiki/Releases">https://wiki.yoctoproject.org/wiki/Releases</a></p>
+</section>
+<section id="core-components">
+<h2><span class="section-number">2.2. </span>核心组件<a class="headerlink" href="#core-components" title="Link to this heading"></a></h2>
+<p><em>Yocto</em> 项目最重要的工具或子项目是：</p>
+<ul class="simple">
+<li><p>Bitbake：构建引擎，是一个类似 make 的任务调度程序，解析元数据</p></li>
+<li><p>OpenEmbedded-Core，Yocto 核心Layer，包含软件元数据</p></li>
+<li><p>Yocto kernel</p>
+<ul>
+<li><p>针对嵌入式设备进行了优化</p></li>
+<li><p>包括许多子项目：rt-kernel、供应商补丁</p></li>
+<li><p>Wind River 提供的基础框架</p></li>
+<li><p>Yocto kernel的替代方案：经典的内核编译方式→Phytec使用这种方式将我们的kernel集成到 <em>Yocto</em></p></li>
+</ul>
+</li>
+<li><p><em>Yocto</em> 参考 BSP： <em>beagleboneblack</em>、 <em>minnow max</em></p></li>
+<li><p><em>Poky</em>：Yocto参考系统，是项目和工具的集合，是创建基于 <em>Yocto</em> 的Linux发行版的基石</p></li>
+</ul>
+</section>
+<section id="vocabulary">
+<h2><span class="section-number">2.3. </span>词汇<a class="headerlink" href="#vocabulary" title="Link to this heading"></a></h2>
+<section id="recipes">
+<h3><span class="section-number">2.3.1. </span>Recipes<a class="headerlink" href="#recipes" title="Link to this heading"></a></h3>
+<p>Recipe包含有关软件项目的信息（作者、主页和许可证）。Recipe 有版本控制，它定义了依赖项，包含源代码的 URL，并描述如何获取、配置和编译源代码。它也描述了如何打包软件，例如打包成不同的 .deb 包，安装到目标系统不同的路径。Recipe是用 <em>Bitbake</em> 自己的编程语言编写的，语法很简单。但是，Recipe 可以包含 <em>Python</em> 以及 bash 代码</p>
+</section>
+<section id="classes">
+<h3><span class="section-number">2.3.2. </span>类<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<p>类将Recipe中的各个方法组合成可重复使用的代码块。</p>
+</section>
+<section id="layers">
+<h3><span class="section-number">2.3.3. </span>Layers<a class="headerlink" href="#layers" title="Link to this heading"></a></h3>
+<p>layer是Recipe、类和配置元数据的集合。Layer可以依赖于其他Layer, 它封装了特定的功能。每个Layer都属于一个特别的category：</p>
+<ul class="simple">
+<li><p>Base</p></li>
+<li><p>Machine（BSP）</p></li>
+<li><p>Software</p></li>
+<li><p>Distribution</p></li>
+<li><p>Miscellaneous</p></li>
+</ul>
+<p><em>Yocto</em> 的版本控制方案在每一个Layer中以版本分支的形式体现。对于每个 <em>Yocto</em> 版本，每个Layer在其 <em>Git</em> 仓库中都有一个对应分支。您可以在Yocto工程中添加一个或多个Layer。</p>
+<p>A collection of OpenEmbedded layers can be found here. The search function is
+very helpful to see if a software package can be retrieved and integrated
+easily: <a class="reference external" href="https://layers.openembedded.org/layerindex/branch/master/layers/">layerindex</a></p>
+</section>
+<section id="machine">
+<h3><span class="section-number">2.3.4. </span>Machine<a class="headerlink" href="#machine" title="Link to this heading"></a></h3>
+<p>Machine是用来描述所使用的目标硬件(核心板/开发套件)的变量。</p>
+</section>
+<section id="distribution-distro">
+<h3><span class="section-number">2.3.5. </span>发行版 (Distro)<a class="headerlink" href="#distribution-distro" title="Link to this heading"></a></h3>
+<p>发行版描述了软件配置以及一系列的软件特性。</p>
+</section>
+</section>
+<section id="poky">
+<h2><span class="section-number">2.4. </span>Poky<a class="headerlink" href="#poky" title="Link to this heading"></a></h2>
+<p><em>Poky</em> 是定义 <em>Yocto</em> 项目的参考系统。它将几个子项目组合成发行版：</p>
+<ul class="simple">
+<li><p><em>Bitbake</em></p></li>
+<li><p><em>Toaster</em></p></li>
+<li><p>OpenEmbedded Core</p></li>
+<li><p><em>Yocto</em> 文档</p></li>
+<li><p><em>Yocto</em> 参考 BSP</p></li>
+</ul>
+<section id="id1">
+<h3><span class="section-number">2.4.1. </span>Bitbake<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p><em>Bitbake</em> is the task scheduler. It is written in <em>Python</em> and interprets
+recipes that contain code in <em>Bitbake's</em> own programming language, <em>Python</em>, and
+bash code. The official documentation can be found here: <a class="reference external" href="https://docs.yoctoproject.org/bitbake/dev/index.html">Bitbake</a></p>
+</section>
+<section id="id2">
+<h3><span class="section-number">2.4.2. </span>Toaster<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p><em>Toaster</em> is a web frontend for <em>Bitbake</em> to start and investigate builds. It
+provides information about the build history and statistics on created images.
+There are several use cases where the installation and maintenance of
+a <em>Toaster</em> instance are beneficial. PHYTEC did not add or remove any features
+to the upstream <em>Toaster</em>, provided by <em>Poky</em>. The best source for more
+information is the official documentation: <a class="reference external" href="https://docs.yoctoproject.org/dev/toaster-manual/index.html">Toaster</a></p>
+</section>
+</section>
+<section id="official-documentation">
+<h2><span class="section-number">2.5. </span>官方文档<a class="headerlink" href="#official-documentation" title="Link to this heading"></a></h2>
+<p>For more general questions about <em>Bitbake</em> and <em>Poky</em> consult the mega-manual:
+<a class="reference external" href="https://docs.yoctoproject.org/dev/singleindex.html">megamanual</a></p>
+</section>
+</section>
+<section id="compatible-linux-distributions">
+<h1><span class="section-number">3. </span>Linux主机开发环境<a class="headerlink" href="#compatible-linux-distributions" title="Link to this heading"></a></h1>
+<p>To build <em>Yocto</em> you need a compatible <em>Linux</em> host development machine. The
+list of supported distributions can be found in the reference manual:
+<a class="reference external" href="https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions">Supported Distributions</a></p>
+</section>
+<section id="phytec-bsp-introduction">
+<h1><span class="section-number">4. </span>PHYTEC BSP 介绍<a class="headerlink" href="#phytec-bsp-introduction" title="Link to this heading"></a></h1>
+<section id="bsp-structure">
+<h2><span class="section-number">4.1. </span>BSP 框架<a class="headerlink" href="#bsp-structure" title="Link to this heading"></a></h2>
+<p>BSP 大致由三部分组成。BSP 包管理、BSP 元数据和 BSP 代码源。包管理包括 <em>Repo</em> 和 phyLinux，而元数据取决于 SOC，它描述了如何构建软件。BSP 内容源来自 PHYTEC 的 <em>Git</em> 仓库和外部源。</p>
+<section id="bsp-management">
+<h3><span class="section-number">4.1.1. </span>BSP 包管理<a class="headerlink" href="#bsp-management" title="Link to this heading"></a></h3>
+<p><em>Yocto</em> 是一个综合项目。通常情况下，这意味着会强制用户将他们的Yocto项目建立在几个外部仓库上。这些库需要以特定的方式进行管理。我们使用包含 XML 数据结构的清单文件来描述不同版本的 git 仓库。 <em>Repo</em> 工具和我们的 phyLinux 脚本用于管理清单文件并配置 BSP工程。</p>
+<section id="phylinux">
+<h4><span class="section-number">4.1.1.1. </span>phyLinux<a class="headerlink" href="#phylinux" title="Link to this heading"></a></h4>
+<p>phyLinux 是 <em>Repo</em> 的包装器，用于下载和配置 BSP，提供“开箱即用”的体验。</p>
+</section>
+<section id="repo">
+<h4><span class="section-number">4.1.1.2. </span>Repo<a class="headerlink" href="#repo" title="Link to this heading"></a></h4>
+<p><em>Repo</em> 是 <em>Repo</em> 工具集的包装器。phyLinux 脚本将把Repo安装在全局PATH中。当您首次运行 <code class="docutils literal notranslate"><span class="pre">repo</span> <span class="pre">init</span> <span class="pre">-u</span> <span class="pre">&lt;url&gt;</span></code>，它会从 <em>Googles</em> Git 服务器下载特定版本的 <em>Repo</em> 工具集到 <code class="docutils literal notranslate"><span class="pre">.repo/repo</span></code> 目录。下次运行 <em>Repo</em> 时， <em>Repo</em> 工具集相关的指令就可以直接被使用了。请注意，如果您不运行 <em>Repo sync</em>，不同构建目录中的 <em>Repo</em> 工具集版本可能会随着时间的推移而有所不同。此外，如果您要保存您的完整BSP工程信息，也需要保存完整的 <code class="docutils literal notranslate"><span class="pre">.repo</span></code> 文件夹。</p>
+<p><em>Repo</em> 需要一个 <em>Git</em> 仓库，该仓库信息是从Repo命令中解析得来。在 PHYTEC BSP 中，该仓库被称为 phy²octo。在此仓库中，有关软件 BSP 版本的所有信息都以XML形式的 <em>Repo</em> 清单存储。清单文件定义了 <em>Git</em> 服务器（称为“Remote”）的URL、 <em>Git</em> 仓库及其状态（称为“projects”）。 <em>Git</em> 仓库可以呈现不同的状态。这其中的状态变化涉及仓库的分支、标签或commit ID。这意味着仓库的状态不一定是唯一的，可以随时间而变化。这就是我们仅使用标签或commit ID 进行发布的原因。这样的话git工作目录的状态就是唯一的，不会改变。</p>
+<p>BSP的清单文件与BSP版本号同名。它是 BSP 的唯一标识符。发布的BSP会按 SoC 平台排序。所选 SoC 将定义 phy²octo <em>Git</em> 仓库的分支，该分支将用于选择对应的清单文件。</p>
+</section>
+</section>
+<section id="bsp-metadata">
+<h3><span class="section-number">4.1.2. </span>BSP 元数据<a class="headerlink" href="#bsp-metadata" title="Link to this heading"></a></h3>
+<p>我们在 BSP 中包含了几个第三方Layer，无需集成其他外部项目即可运行完整的 <em>Linux</em> 发行版。以下描述了所有使用的git仓库。</p>
+<section id="id3">
+<h4><span class="section-number">4.1.2.1. </span>Poky<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>PHYTEC BSP 建立在 <em>Poky</em> 之上。每个Poky有对应的版本，在 <em>Repo</em> 清单中定义。<em>Poky</em> 包含对应版本的 <em>Bitbake</em>。OpenEmbedded Core 的Layer-“meta”是我们自定义 <em>Linux</em> 系统的基石。</p>
+</section>
+<section id="meta-openembedded">
+<h4><span class="section-number">4.1.2.2. </span>meta-openembedded<a class="headerlink" href="#meta-openembedded" title="Link to this heading"></a></h4>
+<p>OpenEmbedded 是一组Layer，包含有许多开源软件项目的元数据。我们的 BSP 提供了所有的 OpenEmbedded Layer，但并非所有Layer都已使能。我们的示例镜像包含了几个 OpenEmbedded Layer中的Recipe所生成的软件包。</p>
+</section>
+<section id="meta-qt6">
+<h4><span class="section-number">4.1.2.3. </span>meta-qt6<a class="headerlink" href="#meta-qt6" title="Link to this heading"></a></h4>
+<p>该Layer在 <em>Poky</em> 根文件系统的基础上集成了 <em>Qt6</em> ，我们的BSP已经包含了该Layer。</p>
+</section>
+<section id="meta-nodejs">
+<h4><span class="section-number">4.1.2.4. </span>meta-nodejs<a class="headerlink" href="#meta-nodejs" title="Link to this heading"></a></h4>
+<p>这是用于添加最新版本 Node.js 的Layer。</p>
+</section>
+<section id="meta-gstreamer1-0">
+<h4><span class="section-number">4.1.2.5. </span>meta-gstreamer1.0<a class="headerlink" href="#meta-gstreamer1-0" title="Link to this heading"></a></h4>
+<p>这是用于添加最新版本 GStreamer 的Layer。</p>
+</section>
+<section id="meta-rauc">
+<h4><span class="section-number">4.1.2.6. </span>meta-rauc<a class="headerlink" href="#meta-rauc" title="Link to this heading"></a></h4>
+<p>这一Layer包含搭建 <a class="reference external" href="https://rauc.readthedocs.io/en/latest/index.html">RAUC</a> 系统更新服务所需的工具. 与其他系统更新机制的对比可以在这里找到：<a class="reference external" href="https://wiki.yoctoproject.org/wiki/System_Update">Yocto 系统更新工具</a>.</p>
+</section>
+<section id="meta-phytec">
+<h4><span class="section-number">4.1.2.7. </span>meta-phytec<a class="headerlink" href="#meta-phytec" title="Link to this heading"></a></h4>
+<p>This layer contains all machines and common features for all our BSPs. It is
+PHYTEC's <a class="reference external" href="https://docs.yoctoproject.org/dev/bsp-guide/index.html">Yocto Board Support Package</a> for all supported hardware (since
+<em>fido</em>) and is designed to be standalone with <em>Poky</em>. Only these two parts are
+required if you want to integrate the PHYTEC's hardware into your existing
+<em>Yocto</em> workflow. The features are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipes-bsp/barebox/</span></code> 和 <code class="docutils literal notranslate"><span class="pre">recipes-bsp/u-boot/</span></code> 中的Bootloader</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipes-kernel/linux/</span></code> 和 <code class="docutils literal notranslate"><span class="pre">dynamic-layers/fsl-bsp-release/recipes-kernel/linux/</span></code> 中的kernel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conf/machine/</span></code> 中有许多machine</p></li>
+<li><p>适配 AM335x 和 i.MX 6 平台的 <em>OpenGL ES/EGL</em> 上层库</p></li>
+<li><p>适配 i.MX 6 平台的 <em>OpenCL</em> 库</p></li>
+</ul>
+</section>
+<section id="meta-ampliphy">
+<h4><span class="section-number">4.1.2.8. </span>meta-ampliphy<a class="headerlink" href="#meta-ampliphy" title="Link to this heading"></a></h4>
+<p>这是我们的发行版示例 layer。它扩展了 <em>Poky</em> 的基础配置，为您的特定开发场景提供了基础。当前功能包括：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a> 初始化系统</p></li>
+<li><p>镜像：用于非图形应用的 <code class="docutils literal notranslate"><span class="pre">phytec-headless-image</span></code></p></li>
+<li><p>基于i.MX 6 平台 的相机、OpenCV 和 GStreamer 集成示例，包含在 <code class="docutils literal notranslate"><span class="pre">phytec-vision-image</span></code> 中</p></li>
+<li><p>集成RAUC：我们为 A/B 系统镜像更新提供了基础支持，该更新可在本地和远程进行</p></li>
+</ul>
+</section>
+<section id="meta-qt6-phytec">
+<h4><span class="section-number">4.1.2.9. </span>meta-qt6-phytec<a class="headerlink" href="#meta-qt6-phytec" title="Link to this heading"></a></h4>
+<p>这是我们用于集成 Qt6 和展示Qt6 demo的Layer。其特点是：</p>
+<ul class="simple">
+<li><p>针对 PHYTEC AM335x、i.MX 6 和 RK3288 平台的 <a class="reference external" href="https://doc.qt.io/qt-5/embedded-linux.html">带有 eglfs 后台的 Qt6</a></p></li>
+<li><p>镜像：带有 <em>Qt6</em> 以及视频应用的 <code class="docutils literal notranslate"><span class="pre">phytec-qt6demo-image</span></code></p></li>
+<li><p><em>Qt6</em> 示例程序演示如何使用 <em>QML</em> widgets 和 一个 <em>Bitbake</em> recipe在 <em>Yocto</em> 搭建 <em>Qt6</em> 项目并集成到 <em>systemd</em> 中。该示例程序可以在 <code class="docutils literal notranslate"><span class="pre">sources/meta-qt6-phytec/recipes-qt/examples/phytec-qtdemo_git.bb</span></code> 中找到</p></li>
+</ul>
+</section>
+<section id="meta-virtualization">
+<h4><span class="section-number">4.1.2.10. </span>meta-virtualization<a class="headerlink" href="#meta-virtualization" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>该Layer为构建Xen、KVM、Libvirt以及其他基于OpenEmbedded的虚拟化解决方案提供必要的支持。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4><span class="section-number">4.1.2.11. </span>meta-security<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>该Layer提供安全工具、Linux内核的强化工具以及实现安全机制的库。</p></li>
+</ul>
+</section>
+<section id="meta-selinux">
+<h4><span class="section-number">4.1.2.12. </span>meta-selinux<a class="headerlink" href="#meta-selinux" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>此Layer的目的是启用 SE Linux 支持。此Layer的大部分工作是在 <em>bbappend</em> 文件中完成的，用于在现有Recipe中启用 SE Linux 支持。</p></li>
+</ul>
+</section>
+<section id="meta-browser">
+<h4><span class="section-number">4.1.2.13. </span>meta-browser<a class="headerlink" href="#meta-browser" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>这是用于添加常用 Web 浏览器（Chromium、Firefox 等）的Layer。</p></li>
+</ul>
+</section>
+<section id="meta-rust">
+<h4><span class="section-number">4.1.2.14. </span>meta-rust<a class="headerlink" href="#meta-rust" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>包括 Rust 编译器和 Rust 的 Cargo 包管理器。</p></li>
+</ul>
+</section>
+<section id="meta-timesys">
+<h4><span class="section-number">4.1.2.15. </span>meta-timesys<a class="headerlink" href="#meta-timesys" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Timesys Layer用于 Vigiles Yocto CVE 监控、安全提醒和镜像清单的生成。</p></li>
+</ul>
+</section>
+<section id="meta-freescale">
+<h4><span class="section-number">4.1.2.16. </span>meta-freescale<a class="headerlink" href="#meta-freescale" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>该Layer为i.MX、Layerscape和QorIQ产品线提供支持。</p></li>
+</ul>
+</section>
+<section id="meta-freescale-3rdparty">
+<h4><span class="section-number">4.1.2.17. </span>meta-freescale-3rdparty<a class="headerlink" href="#meta-freescale-3rdparty" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>为来自不同供应商的主板提供支持。</p></li>
+</ul>
+</section>
+<section id="meta-freescale-distro">
+<h4><span class="section-number">4.1.2.18. </span>meta-freescale-distro<a class="headerlink" href="#meta-freescale-distro" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>该Layer为freescale的演示镜像提供支持，以便与 OpenEmbedded 和/或 Yocto Freescale 的 BSP Layer一起使用。</p></li>
+</ul>
+</section>
+<section id="base-fsl-community-bsp-base">
+<h4><span class="section-number">4.1.2.19. </span>base layer（fsl-community-bsp-base）<a class="headerlink" href="#base-fsl-community-bsp-base" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>该layer提供NXP的基础BSP文件。</p></li>
+</ul>
+</section>
+<section id="meta-fsl-bsp-release">
+<h4><span class="section-number">4.1.2.20. </span>meta-fsl-bsp-release<a class="headerlink" href="#meta-fsl-bsp-release" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>这是 i.MX Yocto 项目发行版的Layer。</p></li>
+</ul>
+</section>
+</section>
+<section id="bsp-content">
+<h3><span class="section-number">4.1.3. </span>BSP 代码源<a class="headerlink" href="#bsp-content" title="Link to this heading"></a></h3>
+<p>The BSP content gets pulled from different online sources when you first start
+using <em>Bitbake</em>. All files will be downloaded and cloned in a local directory
+configured as <code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code> in <em>Yocto</em>. If you backup your BSP with the complete
+content, those sources have to be backed up, too. How you can do this will be
+explained in the chapter <a class="reference internal" href="#master-gen-source-mirrors"><span class="std std-ref">生成镜像源，开启离线构建</span></a>.</p>
+</section>
+</section>
+<section id="build-configuration">
+<h2><span class="section-number">4.2. </span>编译配置<a class="headerlink" href="#build-configuration" title="Link to this heading"></a></h2>
+<p>BSP 初始化一个编译文件夹，该文件夹将包含运行 <em>Bitbake</em> 命令所生成的所有文件。它也包含一个用于处理用户输入的 <code class="docutils literal notranslate"><span class="pre">conf</span></code> 文件夹。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bblayers.conf</span></code> 定义使能的元 layers，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local.conf</span></code> 可以自定义Yocto工程的用户输入变量</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">site.conf</span></code> 自定义与编译主机相关的输入变量</p></li>
+</ul>
+<p>两个最顶层的用户输入变量是 <code class="docutils literal notranslate"><span class="pre">DISTRO</span></code> 和 <code class="docutils literal notranslate"><span class="pre">MACHINE</span></code> 。当您使用 phyLinux 的方式获取 BSP 时，它们会体现在BSP预先配置的 <code class="docutils literal notranslate"><span class="pre">local.conf</span></code> 文件中。</p>
+<p>我们在 BSP 中使用“<em>Ampliphy</em>”作为软件发行版 <code class="docutils literal notranslate"><span class="pre">DISTRO</span></code> 。此DISTRO将被预先选定，并为您提供实现自定义软件发行版的起点。</p>
+<p><code class="docutils literal notranslate"><span class="pre">MACHINE</span></code> 定义支持特定核心板和底板的二进制镜像。请查看 <code class="docutils literal notranslate"><span class="pre">machine.conf</span></code> 文件或我们的网页以了解硬件的描述。</p>
+</section>
+</section>
+<section id="pre-built-images">
+<h1><span class="section-number">5. </span>预编译镜像<a class="headerlink" href="#pre-built-images" title="Link to this heading"></a></h1>
+<p>对于每个 BSP，我们都提供了预编译的目标镜像，可以从 PHYTEC FTP 服务器下载：<a class="reference external" href="https://download.phytec.de/Software/Linux/">https://download.phytec.de/Software/Linux/</a></p>
+<p>这些镜像也可用于 BSP 测试，他们会在生产时烧写到产品中。您可以使用提供的 <code class="docutils literal notranslate"><span class="pre">.wic</span></code> 镜像创建 SD 卡启动盘。识别您的硬件Machine并使用 <code class="docutils literal notranslate"><span class="pre">dd</span></code> 将下载的镜像文件烧写到格式化的 SD 卡中。有关该命令的正确用法的信息，请参阅镜像部分。</p>
+</section>
+<section id="bsp-workspace-installation">
+<h1><span class="section-number">6. </span>BSP Workspace安装<a class="headerlink" href="#bsp-workspace-installation" title="Link to this heading"></a></h1>
+<section id="setting-up-the-host">
+<h2><span class="section-number">6.1. </span>设置主机<a class="headerlink" href="#setting-up-the-host" title="Link to this heading"></a></h2>
+<p>您可以设置主机或使用我们的编译容器来进行 Yocto 工程构建。您需要有一个运行中的 <em>Linux</em> 发行版系统，它应该在一台性能和存储空间强大的机器上运行，因为Yocto需要进行大量编译。</p>
+<p>如果您想使用编译容器，您只需要在主机上安装以下软件包</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wget<span class="w"> </span>git
+</pre></div>
+</div>
+<p>Continue with the next step <em>Git Configuration</em> after that. Also see the
+documentation for <a class="reference internal" href="#master-build-container"><span class="std std-ref">using build-container</span></a>.</p>
+<p>如果您不想使用编译container， <em>Yocto</em> 需要在您主机上安装一些其他的软件包。对于 <em>Ubuntu</em>，您需要</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gawk<span class="w"> </span>wget<span class="w"> </span>git<span class="w"> </span>diffstat<span class="w"> </span>unzip<span class="w"> </span>texinfo<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>gcc<span class="w"> </span>build-essential<span class="w"> </span>chrpath<span class="w"> </span>socat<span class="w"> </span>cpio<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>python3-pexpect<span class="w"> </span>xz-utils<span class="w"> </span>debianutils<span class="w"> </span>iputils-ping<span class="w"> </span>python3-git<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>python3-jinja2<span class="w"> </span>libegl1-mesa<span class="w"> </span>libsdl1.2-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>python3-subunit<span class="w"> </span>mesa-common-dev<span class="w"> </span>zstd<span class="w"> </span>liblz4-tool<span class="w"> </span>file<span class="w"> </span>locales<span class="w"> </span>libacl1
+</pre></div>
+</div>
+<p>For other distributions you can find information in the <em>Yocto</em> Quick Build:
+<a class="reference external" href="https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html">Quick Build</a></p>
+</section>
+<section id="git-configuration">
+<h2><span class="section-number">6.2. </span>Git 配置<a class="headerlink" href="#git-configuration" title="Link to this heading"></a></h2>
+<p>BSP 大量使用 <em>Git</em>。 <em>Git</em> 需要您提供一些信息来识别谁对文件进行了更改。如果您没有  <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code> 这个文件，请创建一个包含以下内容的文件</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>[user]
+<span class="w">    </span>name<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;Your<span class="w"> </span>Name&gt;
+<span class="w">    </span>email<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;Your<span class="w"> </span>Mail&gt;
+[core]
+<span class="w">    </span>editor<span class="w"> </span><span class="o">=</span><span class="w"> </span>vim
+[merge]
+<span class="w">    </span>tool<span class="w"> </span><span class="o">=</span><span class="w"> </span>vimdiff
+[alias]
+<span class="w">    </span>co<span class="w"> </span><span class="o">=</span><span class="w"> </span>checkout
+<span class="w">    </span>br<span class="w"> </span><span class="o">=</span><span class="w"> </span>branch
+<span class="w">    </span>ci<span class="w"> </span><span class="o">=</span><span class="w"> </span>commit
+<span class="w">    </span>st<span class="w"> </span><span class="o">=</span><span class="w"> </span>status
+<span class="w">    </span>unstage<span class="w"> </span><span class="o">=</span><span class="w"> </span>reset<span class="w"> </span>HEAD<span class="w"> </span>--
+<span class="w">    </span>last<span class="w"> </span><span class="o">=</span><span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span>HEAD
+[push]
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>current
+[color]
+<span class="w">    </span>ui<span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+</pre></div>
+</div>
+<p>您应该在 <em>Git</em> 配置中设置 <code class="docutils literal notranslate"><span class="pre">name</span></code> 和 <code class="docutils literal notranslate"><span class="pre">email</span></code>，否则， <em>Bitbake</em> 会在第一次构建时报错。您可以使用这两个命令直接设置它们，而无需手动编辑 <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+<span class="gp">host:~$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;name surname&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="site-conf-setup">
+<h2><span class="section-number">6.3. </span>site.conf 设置<a class="headerlink" href="#site-conf-setup" title="Link to this heading"></a></h2>
+<p>在开始编译 <em>Yocto</em> 之前，建议进行初步配置。有两个配置最为重要：下载目录和缓存目录的配置。PHYTEC 强烈建议对这两个配置项进行配置，因为它将减少您后续编译的时间。</p>
+<p>下载目录是 <em>Yocto</em> 存储从互联网获取的所有源文件/源代码的地方。它可以包含 tar.gz、 <em>Git</em> 镜像源等。建议将下载目录设置为编译主机上用户可以共享的目录。我们首先要给这个目录赋予777访问权限，因为如果要让不同用户共享此目录，则所有文件都需要具有组写入访问权限。这很可能与默认 <em>umask</em> 设置冲突。一种可能的解决方案是对此目录使用 ACL</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>acl
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>setfacl<span class="w"> </span>-R<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span>g::rwx<span class="w"> </span>&lt;dl_dir&gt;
+</pre></div>
+</div>
+<p>如果您已经创建了下载目录，但是后续想要更改权限，可以使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>find<span class="w"> </span>/home/share/<span class="w"> </span>-perm<span class="w"> </span>/u<span class="o">=</span>r<span class="w"> </span>!<span class="w"> </span>-perm<span class="w"> </span>/g<span class="o">=</span>r<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span>g+r<span class="w"> </span><span class="se">\{\}</span><span class="w"> </span><span class="se">\;</span>
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>find<span class="w"> </span>/home/share/<span class="w"> </span>-perm<span class="w"> </span>/u<span class="o">=</span>w<span class="w"> </span>!<span class="w"> </span>-perm<span class="w"> </span>/g<span class="o">=</span>w<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span>g+w<span class="w"> </span><span class="se">\{\}</span><span class="w"> </span><span class="se">\;</span>
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>find<span class="w"> </span>/home/share/<span class="w"> </span>-perm<span class="w"> </span>/u<span class="o">=</span>x<span class="w"> </span>!<span class="w"> </span>-perm<span class="w"> </span>/g<span class="o">=</span>x<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span>g+x<span class="w"> </span><span class="se">\{\}</span><span class="w"> </span><span class="se">\;</span>
+</pre></div>
+</div>
+<p>缓存目录存储编译过程的所有阶段产物。 <em>Poky</em> 具有相当复杂的缓存架构。建议创建一个共享目录，这样所有构建都可以访问此缓存目录，这被称为共享状态缓存。</p>
+<p>在大约有 50 GB 空闲空间的硬盘上创建这两个目录，并在``build/conf/local.conf``中分配两个变量</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DL_DIR ?= &quot;&lt;your_directory&gt;/yocto_downloads&quot;
+SSTATE_DIR ?= &quot;&lt;your_directory&gt;/yocto_sstate&quot;
+</pre></div>
+</div>
+<p>如果您想了解更多有关如何配置Yocto工程的信息，请参阅Yocto工程中的文档示例设置</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sources/poky/meta-yocto/conf/local.conf.sample
+sources/poky/meta-yocto/conf/local.conf.sample.extended
+</pre></div>
+</div>
+</section>
+</section>
+<section id="phylinux-documentation">
+<h1><span class="section-number">7. </span>phyLinux 文档<a class="headerlink" href="#phylinux-documentation" title="Link to this heading"></a></h1>
+<p>phyLinux 脚本是使用 <em>Python</em> 编写，用来管理 PHYTEC <em>Yocto</em> BSP 版本。它主要是帮助用户快速上手PHYTEC BSP。您无需与 <em>Repo</em> 或 <em>Git</em> 交互，只使用phyLinux可以获取所有 BSP 源文件</p>
+<p>phyLinux 脚本只有一个依赖项，那就是它需要您在主机上安装 <em>wget</em> 工具。执行后它会将 <a class="reference external" href="https://source.android.com/docs/setup/download">Repo 工具</a> 安装到您主机上的全局PATH (/usr/local/bin) 中。您也可以手动安装到其他位置。如果已经在 PATH 中找到 <em>Repo</em>，phyLinux 将自动检测到并使用它。 <em>Repo</em> 工具被用来管理 <em>Yocto</em> BSP 的众多 <em>Git</em> 仓库。</p>
+<section id="get-phylinux">
+<h2><span class="section-number">7.1. </span>获取 phyLinux<a class="headerlink" href="#get-phylinux" title="Link to this heading"></a></h2>
+<p>phyLinux 脚本可以在 PHYTEC 下载服务器上找到：<a class="reference external" href="https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux">https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux</a></p>
+</section>
+<section id="basic-usage">
+<h2><span class="section-number">7.2. </span>基本用法<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<p>对于 phyLinux 的基本用法，请输入</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>这将导致</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usage: phyLinux [-h] [-v] [--verbose] {init,info,clean} ...
+
+This Programs sets up an environment to work with The Yocto Project on Phytecs
+Development Kits. Use phyLinx &lt;command&gt; -h to display the help text for the
+available commands.
+
+positional arguments:
+  {init,info,clean}  commands
+    init             init the phytec bsp in the current directory
+    info             print info about the phytec bsp in the current directory
+    clean            Clean up the current working directory
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --version      show program&#39;s version number and exit
+  --verbose
+</pre></div>
+</div>
+</section>
+<section id="initialization">
+<h2><span class="section-number">7.3. </span>初始化<a class="headerlink" href="#initialization" title="Link to this heading"></a></h2>
+<p>创建一个新的项目文件夹</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>~/yocto
+</pre></div>
+</div>
+<p>调用 phyLinux 将使用系统上安装的默认Python版本。从 Ubuntu 20.04 开始，默认是 Python3。如果您想启动与 Python3 不兼容的 BSP，您需要在运行 phyLinux 之前将 Python2 设置为默认值（临时）</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>ln<span class="w"> </span>-s<span class="w"> </span><span class="se">\`</span>which<span class="w"> </span>python2<span class="se">\`</span><span class="w"> </span>python<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<p>现在在新文件夹下运行 phyLinux</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init
+</pre></div>
+</div>
+<p>空的文件夹很重要，因为 phyLinux 将会清空该目录。在非空目录运行 phyLinux 会有以下 <strong>告警</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This current directory is not empty. It could lead to errors in the BSP
+configuration process if you continue from here. At the very least, you
+have to check your build directory for settings in bblayers.conf and
+local.conf, which will not be handled correctly in all cases. It is
+advisable to start from an empty directory of call:
+$ ./phyLinux clean
+Do you really want to continue from here?
+[yes/no]:
+</pre></div>
+</div>
+<p>在第一次初始化时，phyLinux 脚本会要求您在 <em>/usr/local/bin</em> 目录中安装 <em>Repo</em> 工具。在执行 <em>init</em> 命令期间，您需要选择处理器平台 (SoC)、PHYTEC 的 BSP 版本号以及您正在使用的Machine</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>***************************************************
+* Please choose one of the available SoC Platforms:
+*
+*   1: am335x
+*   2: am57x
+*   3: am62ax
+*   4: am62x
+*   5: am64x
+*   6: am68x
+*   7: imx6
+*   8: imx6ul
+*   9: imx7
+*   10: imx8
+*   11: imx8m
+*   12: imx8mm
+*   13: imx8mp
+*   14: imx8x
+*   15: imx93
+*   16: nightly
+*   17: rk3288
+*   18: stm32mp13x
+*   19: stm32mp15x
+*   20: topic
+
+# Exemplary output for chosen imx8mp
+***************************************************
+* Please choose one of the available Releases:
+*
+*   1: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc1
+*   2: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1-rc2
+*   3: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+*   4: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.1
+*   5: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2-rc1
+*   6: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.2
+*   7: BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+*   8: BSP-Yocto-Ampliphy-i.MX8MP-master
+*   9: BSP-Yocto-FSL-i.MX8MP-ALPHA1
+*   10: BSP-Yocto-FSL-i.MX8MP-ALPHA2
+*   11: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc1
+*   12: BSP-Yocto-FSL-i.MX8MP-PD21.1-rc2
+*   13: BSP-Yocto-FSL-i.MX8MP-PD21.1.0
+*   14: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc1
+*   15: BSP-Yocto-FSL-i.MX8MP-PD21.1.1-rc2
+*   16: BSP-Yocto-FSL-i.MX8MP-PD21.1.1
+*   17: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc1
+*   18: BSP-Yocto-FSL-i.MX8MP-PD21.1.2-rc2
+*   19: BSP-Yocto-FSL-i.MX8MP-PD21.1.2
+*   20: BSP-Yocto-FSL-i.MX8MP-PD21.1.3-rc1
+*   21: BSP-Yocto-FSL-i.MX8MP-PD21.1.3
+*   22: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc1
+*   23: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc2
+*   24: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc3
+*   25: BSP-Yocto-NXP-i.MX8MP-PD22.1-rc4
+*   26: BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+*   27: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc1
+*   28: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc2
+*   29: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc3
+*   30: BSP-Yocto-NXP-i.MX8MP-PD22.1.1-rc4
+*   31: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+*   32: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc1
+*   33: BSP-Yocto-NXP-i.MX8MP-PD22.1.2-rc2
+*   34: BSP-Yocto-NXP-i.MX8MP-PD22.1.2
+*   35: BSP-Yocto-NXP-i.MX8MP-PD22.1.y
+*   36: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc1
+*   37: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc2
+*   38: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc3
+*   39: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc4
+*   40: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc5
+*   41: BSP-Yocto-NXP-i.MX8MP-PD23.1-rc6
+*   42: BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+*   43: BSP-Yocto-NXP-i.MX8MP-PD23.1.y
+*   44: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc1
+*   45: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc2
+*   46: BSP-Yocto-NXP-i.MX8MP-PD24.1-rc3
+*   47: BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+*   48: BSP-Yocto-NXP-i.MX8MP-PD24.1.y
+
+# Exemplary output for chosen BSP-Yocto-NXP-i.MX8MP-PD24.1.0
+*********************************************************************
+* Please choose one of the available builds:
+*
+no:                 machine: description and article number
+                             distro: supported yocto distribution
+                             target: supported build target
+
+1: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                             Pollux PL1552.2
+                             PB-03123-001.A3
+                             distro: ampliphy-vendor
+                             target: phytec-headless-image
+2: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                             Pollux PL1552.2
+                             PB-03123-001.A3
+                             distro: ampliphy-vendor-rauc
+                             target: phytec-headless-bundle
+                             target: phytec-headless-image
+3: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                             Pollux PL1552.2
+                             PB-03123-001.A3
+                             distro: ampliphy-vendor-xwayland
+                             target: -c populate_sdk phytec-qt6demo-image
+                             target: phytec-qt6demo-image
+                             target: phytec-vision-image
+4: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                             Pollux PL1552.2
+                             PB-03123-001.A3
+                             distro: securiphy-vendor
+                             target: phytec-securiphy-bundle
+                             target: phytec-securiphy-image
+5: phyboard-pollux-imx8mp-3: PHYTEC phyBOARD-Pollux i.MX8M Plus 1-4GB RAM
+                             Pollux PL1552.2
+                             PB-03123-001.A3
+                             distro: securiphy-vendor-provisioning
+                             target: phytec-provisioning-image
+</pre></div>
+</div>
+<p>如果您无法通过以上phyLinux选择器提供的信息识别您的所使用的硬件，请查看PHYTEC产品发票。配置完成后，您可以运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>info
+
+<span class="gp"># </span>Exemplary<span class="w"> </span>output
+<span class="go">**********************************************</span>
+<span class="go">* The current BSP configuration is:</span>
+<span class="go">*</span>
+<span class="go">* SoC:  refs/heads/imx8mp</span>
+<span class="go">* Release:  BSP-Yocto-NXP-i.MX8MP-PD24.1.0</span>
+<span class="go">*</span>
+<span class="go">**********************************************</span>
+</pre></div>
+</div>
+<p>查看当前BSP选择了哪款 SoC 和 BSP版本。如果您不想使用phyLinux提供的选择器，phyLinux 还支持多种命令行参数去设置Soc和BSP版本</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">MACHINE</span><span class="o">=</span>phyboard-pollux-imx8mp-3<span class="w"> </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0
+</pre></div>
+</div>
+<p>或者查看帮助命令以获取更多信息</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w">  </span>init<span class="w"> </span>--help
+
+<span class="go">usage: phyLinux init [-h] [--verbose] [--no-init] [-o REPOREPO] [-b REPOREPO_BRANCH] [-x XML] [-u URL] [-p PLATFORM] [-r RELEASE]</span>
+
+<span class="go">options:</span>
+<span class="go">  -h, --help          show this help message and exit</span>
+<span class="go">  --verbose</span>
+<span class="go">  --no-init           dont execute init after fetch</span>
+<span class="go">  -o REPOREPO         Use repo tool from another url</span>
+<span class="go">  -b REPOREPO_BRANCH  Checkout different branch of repo tool</span>
+<span class="go">  -x XML              Use a local XML manifest</span>
+<span class="go">  -u URL              Manifest git url</span>
+<span class="go">  -p PLATFORM         Processor platform</span>
+<span class="go">  -r RELEASE          Release version</span>
+</pre></div>
+</div>
+<p>执行 <em>init</em> 命令后，phyLinux 将打印一些重要说明以及后续构建步骤的信息。</p>
+</section>
+<section id="advanced-usage">
+<span id="master-phylinux-advanced-usage"></span><h2><span class="section-number">7.4. </span>高级用法<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
+<p>phyLinux 可用于通过多种媒介传输软件状态。软件状态在 <em>manifest.xml</em> 有特定标识。您可以创建一个清单文件，将其发送到另一个地方，然后使用以下方式来恢复软件状态，得到目标软件版本</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-x<span class="w"> </span>manifest.xml
+</pre></div>
+</div>
+<p>您还可以创建一个包含软件状态的 <em>Git</em> 仓库。该 <em>Git</em> 仓库需要有除了master以外的分支，因为我们保留了master分支用于其他用途。使用 phyLinux 检查软件状态</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>-u<span class="w"> </span>&lt;url-of-your-git-repo&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-build-container">
+<span id="master-build-container"></span><h1><span class="section-number">8. </span>使用编译容器<a class="headerlink" href="#using-build-container" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>目前，无法在容器内运行 phyLinux 脚本。在主机上使用 phyLinux 脚本完成初始化后，您可以使用容器进行编译。如果您的机器上没有 phyLinux 脚本，请参阅 phyLinux 文档。</p>
+</div>
+<p>运行编译容器有多种实现方式。常用的是 docker 和 podman，但我们更喜欢 podman，因为它不需要 root 权限即可运行。</p>
+<section id="installation">
+<h2><span class="section-number">8.1. </span>安装<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>如何安装 podman：<a class="reference external" href="https://podman.io">https://podman.io</a> 如何安装 docker：<a class="reference external" href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></p>
+</section>
+<section id="available-container">
+<h2><span class="section-number">8.2. </span>可用容器<a class="headerlink" href="#available-container" title="Link to this heading"></a></h2>
+<p>目前我们基于 Ubuntu LTS 版本提供了4个不同版本的容器：<a class="reference external" href="https://hub.docker.com/u/phybuilder">https://hub.docker.com/u/phybuilder</a></p>
+<ul class="simple">
+<li><p>yocto-ubuntu-16.04</p></li>
+<li><p>yocto-ubuntu-18.04</p></li>
+<li><p>yocto-ubuntu-20.04</p></li>
+<li><p>yocto-ubuntu-22.04</p></li>
+</ul>
+<p>这些容器可以使用 podman 或 docker 运行。对于 Yocto Unstable 版本，容器“yocto-ubuntu-20.04”是首选。</p>
+</section>
+<section id="download-pull-container">
+<h2><span class="section-number">8.3. </span>下载/拉取容器<a class="headerlink" href="#download-pull-container" title="Link to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>podman<span class="w"> </span>pull<span class="w"> </span>docker.io/phybuilder/yocto-ubuntu-20.04
+
+<span class="go">OR</span>
+
+<span class="gp">host:~$ </span>docker<span class="w"> </span>pull<span class="w"> </span>docker.io/phybuilder/yocto-ubuntu-20.04
+</pre></div>
+</div>
+<p>在末尾添加以冒号分隔的容器标签，您还可以拉取或运行带有特殊标签的容器。</p>
+<blockquote>
+<div><p>podman pull docker.io/phybuilder/yocto-ubuntu-20.04:phy2</p>
+</div></blockquote>
+<p>您可以在我们的 duckerhub 空间中找到所有可用的标签：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hub.docker.com/r/phybuilder/yocto-ubuntu-16.04/tags">https://hub.docker.com/r/phybuilder/yocto-ubuntu-16.04/tags</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/r/phybuilder/yocto-ubuntu-18.04/tags">https://hub.docker.com/r/phybuilder/yocto-ubuntu-18.04/tags</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags">https://hub.docker.com/r/phybuilder/yocto-ubuntu-20.04/tags</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags">https://hub.docker.com/r/phybuilder/yocto-ubuntu-22.04/tags</a></p></li>
+</ul>
+<p>如果您尝试运行尚未拉取/下载的容器，它将被自动拉取/下载。</p>
+<p>您可以使用以下命令查看所有已下载/拉取的容器：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>USERNAME@<span class="nv">$HOSTNAME</span>:~$<span class="w"> </span>podman<span class="w"> </span>images
+<span class="go">REPOSITORY                               TAG         IMAGE ID      CREATED       SIZE</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-22.04  latest      d626178e448d  4 months ago  935 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-22.04  phy2        d626178e448d  4 months ago  935 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-20.04  phy2        e29a88b7172a  4 months ago  900 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-20.04  latest      e29a88b7172a  4 months ago  900 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-18.04  phy1        14c9c3e477d4  7 months ago  567 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-18.04  latest      14c9c3e477d4  7 months ago  567 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-16.04  phy1        28c73e13ab4f  7 months ago  599 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-16.04  latest      28c73e13ab4f  7 months ago  599 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-22.04  phy1        5a0ef4b41935  8 months ago  627 MB</span>
+<span class="go">docker.io/phybuilder/yocto-ubuntu-20.04  phy1        b5a26a86c39f  8 months ago  680 MB</span>
+</pre></div>
+</div>
+</section>
+<section id="run-container">
+<h2><span class="section-number">8.4. </span>运行容器<a class="headerlink" href="#run-container" title="Link to this heading"></a></h2>
+<p>要运行并使用容器进行 Yocto 构建，首先进入您之前运行 phyLinux init 的文件夹。然后启动容器</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>podman<span class="w"> </span>run<span class="w"> </span>--rm<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-v<span class="w"> </span>/home:/home<span class="w"> </span>--userns<span class="o">=</span>keep-id<span class="w"> </span>--workdir<span class="o">=</span><span class="nv">$PWD</span><span class="w"> </span>-it<span class="w"> </span>docker.io/phybuilder/yocto-ubuntu-20.04<span class="w"> </span>bash
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>要使用 docker 运行和使用容器，并不像使用 podman 那么简单，必须先定义和配置容器用户。此外，默认情况下docker不支持转发信任凭据，所以必须对信任凭据进行配置。</p>
+</div>
+<p>现在您的命令行看起来应该是这样的（其中 $USERNAME 是调用“podman run”的用户，并且每次启动容器时容器代码都会有所不同）</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>USERNAME@6593e2c7b8f6:~$
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果进入容器的用户名是“root”，您将无法运行 bitbake。请确保使用您自己的用户名运行容器。</p>
+</div>
+<p>现在您可以在容器中开始构建。要停止/关闭容器，只需调用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>USERNAME@6593e2c7b8f6:~$<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-poky-and-bitbake">
+<h1><span class="section-number">9. </span>使用 Poky 和 Bitbake<a class="headerlink" href="#working-with-poky-and-bitbake" title="Link to this heading"></a></h1>
+<section id="start-the-build">
+<h2><span class="section-number">9.1. </span>开始构建<a class="headerlink" href="#start-the-build" title="Link to this heading"></a></h2>
+<p>使用 phyLinux init 下载所有元数据后，您必须设置 shell 环境变量。每次打开新 shell 开始构建时都需要执行此操作。我们使用 <em>Poky</em> 默认提供的 shell 脚本。在项目的根目录输入</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
+</pre></div>
+</div>
+<p>source命令的缩写是一个 .</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>.<span class="w"> </span>sources/poky/oe-init-build-env
+</pre></div>
+</div>
+<p>shell 的当前工作目录会被改为 <em>build/</em>。在第一次构建之前，您应该查看主配置文件</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>vim<span class="w"> </span>conf/local.conf
+</pre></div>
+</div>
+<p>您当前构建的所有产物存储在这里。根据您使用的芯片平台，可能需要接受许可协议。例如，对于Freescale/NXP 的芯片平台，您需要接受 GPU 和 VPU 二进制许可协议。通过取消注释相应的行来接受许可协议</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment to accept NXP EULA # EULA can be found under</span>
+../sources/meta-freescale/EULA<span class="w"> </span>ACCEPT_FSL_EULA<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>现在您可以构建第一个镜像了。我们建议从较小的非图形镜像 <em>phytec-headless-image</em> 开始，看看一切是否正常工作</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image
+</pre></div>
+</div>
+<p>在 Intel Core i7 上，首次编译大约需要 40 分钟。但是所有的后续构建都将复用之前的缓存，编译大约需要 3 分钟。</p>
+</section>
+<section id="images">
+<h2><span class="section-number">9.2. </span>Images<a class="headerlink" href="#images" title="Link to this heading"></a></h2>
+<p>如果一切顺利，可以在以下位置找到镜像</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>deploy/images/&lt;MACHINE&gt;
+</pre></div>
+</div>
+<p>测试镜像最简单的方法是将核心板配置为 SD 卡启动，并将构建所得镜像烧写到 SD 卡中</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>phytec-headless-image-&lt;MACHINE&gt;.wic<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/&lt;your_device&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>fsync
+</pre></div>
+</div>
+<p>这里&lt;your_device&gt;可以是“sde”，具体取决于您的系统。选择硬盘驱动时要非常小心！选择错误的硬盘驱动可能会擦除您的硬盘！参数 conv=fsync 强制数据缓冲区在 dd 返回之前写入硬盘。</p>
+<p>启动后，您可以使用串口或通过网口 <em>ssh</em> 登录。root账户没有密码。这是因为 <em>conf/local.conf</em> 中开启了调试模式。如果您取消注释该行</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1">#EXTRA_IMAGE_FEATURES = &quot;debug-tweaks&quot;</span>
+</pre></div>
+</div>
+<p>调试模式（例如设置空的 root 密码）将不会生效。</p>
+</section>
+<section id="accessing-the-development-states-between-releases">
+<h2><span class="section-number">9.3. </span>获取BSP长期维护版本之间的中间开发版本<a class="headerlink" href="#accessing-the-development-states-between-releases" title="Link to this heading"></a></h2>
+<p>您也可以访问 <em>Yocto</em> BSP 最新的开发中版本，这属于特殊版本，并不是正式的长期维护的版本。他们会在phyLinux的版本选项中以 <em>PDXX.X.y</em> 结尾</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./phyLinux<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>imx8mp<span class="w"> </span>-r<span class="w"> </span>BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.y
+</pre></div>
+</div>
+<p>这将初始化一个最新的BSP开发版本。</p>
+</section>
+<section id="inspect-your-build-configuration">
+<h2><span class="section-number">9.4. </span>检查您的编译配置<a class="headerlink" href="#inspect-your-build-configuration" title="Link to this heading"></a></h2>
+<p><em>Poky</em> 包含多个工具来检查您的Yocto工程。您可以查询Layer工具支持的指令</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake-layers
+</pre></div>
+</div>
+<p>例如，它可以用来查看特定Recipe在哪一个Layer被修改了</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake-layers<span class="w"> </span>show-appends
+</pre></div>
+</div>
+<p>在运行构建之前，您还可以启动 <em>Toaster</em>，以便能够使用 Toaster Web GUI 图形界面检查构建的详细信息</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>toaster<span class="w"> </span>start
+</pre></div>
+</div>
+<p>但是您可能需要先安装一些依赖才能运行toaster</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>pip3<span class="w"> </span>install<span class="w"> </span>-r
+<span class="go">../sources/poky/bitbake/toaster-requirements.txt</span>
+</pre></div>
+</div>
+<p>You can then point your browser to <em>http://0.0.0.0:8000/</em> and continue working
+with <em>Bitbake</em>. All build activity can be monitored and analyzed from this web
+server. If you want to learn more about <em>Toaster</em>, look at <a class="reference external" href="https://docs.yoctoproject.org/dev/toaster-manual/index.html">Toaster</a>.
+To shut down the <em>Toaster</em> web GUI again, execute</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>toaster<span class="w"> </span>stop
+</pre></div>
+</div>
+</section>
+<section id="bsp-features-of-meta-phytec-and-meta-ampliphy">
+<h2><span class="section-number">9.5. </span>meta-phytec 和 meta-ampliphy 的特点<a class="headerlink" href="#bsp-features-of-meta-phytec-and-meta-ampliphy" title="Link to this heading"></a></h2>
+<section id="buildinfo">
+<h3><span class="section-number">9.5.1. </span><em>Buildinfo</em><a class="headerlink" href="#buildinfo" title="Link to this heading"></a></h3>
+<p><em>Buildinfo</em> 任务是我们Recipe中的一个函数，可打印从公共仓库获取源代码的过程。因此您不必亲自查看对应的Recipe，用 <em>Buildinfo</em> 即可查看过程说明（例如 <em>barebox</em> 包的说明），请执行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>buildinfo
+</pre></div>
+</div>
+<p>在您的 shell 中，会打印如下类似信息</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(mini) HOWTO: Use a local git repository to build barebox:
+
+To get source code for this package and version (barebox-2022.02.0-phy1), execute
+
+$ mkdir -p ~/git
+$ cd ~/git
+$ git clone git://git.phytec.de/barebox barebox
+$ cd ~/git/barebox
+$ git switch -c v2022.02.0-phy1-local-development 7fe12e65d770f7e657e683849681f339a996418b
+
+You now have two possible workflows for your changes:
+
+1. Work inside the git repository:
+Copy and paste the following snippet to your &quot;local.conf&quot;:
+
+SRC_URI:pn-barebox = &quot;git://${HOME}/git/barebox;branch=${BRANCH}&quot;
+SRCREV:pn-barebox = &quot;${AUTOREV}&quot;
+BRANCH:pn-barebox = &quot;v2022.02.0-phy1-local-development&quot;
+
+After that you can recompile and deploy the package with
+
+$ bitbake barebox -c compile
+$ bitbake barebox -c deploy
+
+Note: You have to commit all your changes. Otherwise yocto doesn&#39;t pick them up!
+
+2. Work and compile from the local working directory
+To work and compile in an external source directory we provide the
+externalsrc.bbclass. To use it, copy and paste the following snippet to your
+&quot;local.conf&quot;:
+
+INHERIT += &quot;externalsrc&quot;
+EXTERNALSRC:pn-barebox = &quot;${HOME}/git/barebox&quot;
+EXTERNALSRC_BUILD:pn-barebox = &quot;${HOME}/git/barebox&quot;
+
+Note: All the compiling is done in the EXTERNALSRC directory. Every time
+you build an Image, the package will be recompiled and build.
+
+NOTE: Tasks Summary: Attempted 1 tasks of which 0 didn&#39;t need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+</pre></div>
+</div>
+<p>正如您所见，控制台输出了清楚地说明了构建信息。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>使用 <em>外部源</em> 会破坏 <em>Yocto</em> 的许多内部依赖机制。在构建过程中，源目录下的更改并不能保证被自动抓取并合并到根文件系统或 SD 卡镜像中。您必须始终使用 <em>--force</em>。例如，在编译 <em>barebox</em> 并将其重新部署到 <em>deploy/images/&lt;machine&gt;</em> 时需要执行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile<span class="w"> </span>--force
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>deploy
+</pre></div>
+</div>
+</div>
+<p>要使用新内核或镜像更新 SD 卡镜像，首先强制编译它，然后强制重建根文件系统。使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-qt6demo-image<span class="w"> </span>-c<span class="w"> </span>rootfs<span class="w"> </span>--force
+</pre></div>
+</div>
+<p>请注意，Yocto构建系统不会对外部源文件目录进行修改。如果要将 <em>Yocto</em> Recipe携带的所有补丁应用到外部源目录，请运行以下指令</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>SRCTREECOVEREDTASKS=&quot;&quot;<span class="w"> </span>BB_ENV_PASSTHROUGH_ADDITIONS=&quot;$BB_ENV_PASSTHROUGH_ADDITIONS<span class="w"> </span>SRCTREECOVEREDTASKS&quot;<span class="w"> </span>bitbake<span class="w"> </span>&lt;recipe&gt;<span class="w"> </span>-c<span class="w"> </span>patch
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bsp-customization">
+<span id="master-bsp-customization"></span><h2><span class="section-number">9.6. </span>自定义BSP<a class="headerlink" href="#bsp-customization" title="Link to this heading"></a></h2>
+<p>为了帮助您开始使用 BSP，我们从 <em>Yocto</em> 官方文档中总结了一些基本任务。它描述了如何向镜像添加其他软件、更改kernel和Bootloader配置，以及应用kernel和Bootloader的补丁。</p>
+<p>诸如添加软件之类的小修改是在文件 <em>build/conf/local.conf</em> 中完成的。在那里，您可以覆盖全局变量并对recipe进行小修改。</p>
+<p>有两种方法可以进行重大更改：</p>
+<ol class="arabic simple">
+<li><p>创建您自己的Layer并使用 <em>bbappend</em> 文件。</p></li>
+<li><p>将所有新增内容添加到 PHYTEC 的 Distro Layer <em>meta-ampliphy</em>。</p></li>
+</ol>
+<p>创建您自己的Layer部分描述了如何创建您自己的Layer。</p>
+<section id="ampliphy-boot">
+<h3><span class="section-number">9.6.1. </span>Ampliphy-boot<a class="headerlink" href="#ampliphy-boot" title="Link to this heading"></a></h3>
+<p>Ampliphy-boot is a collection of bootscripts for booting the ampliphy distro
+that work across different platforms. The bootscripts are developed to work with
+the U-Boot <a class="reference external" href="https://docs.u-boot.org/en/latest/develop/bootstd/overview.html">standard boot</a> feature.</p>
+<section id="provided-bootscripts">
+<h4><span class="section-number">9.6.1.1. </span>Provided bootscripts<a class="headerlink" href="#provided-bootscripts" title="Link to this heading"></a></h4>
+<p>Ampliphy-boot currently provides these bootscripts:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mmc_boot
+mmc_boot_fit
+net_boot_fit
+spi_boot_fit
+</pre></div>
+</div>
+<section id="mmc-boot">
+<h5><span class="section-number">9.6.1.1.1. </span>mmc_boot<a class="headerlink" href="#mmc-boot" title="Link to this heading"></a></h5>
+<p>This script is for booting kernel and devicetree from mmc devices.</p>
+<p>Used Variables:</p>
+<ul class="simple">
+<li><p><strong>console</strong>: Console device and baudrate for kernel bootargs.</p></li>
+<li><p><strong>devnum</strong>: Number of the device the bootscript is loaded from. This device will
+also be used for loading overlaysenvfile, kernel, devicetrees and overlays
+as well as mounting the root partition. Automatically set by U-Boot
+standard boot.</p></li>
+<li><p><strong>devtype</strong>: Type of the device the bootscript is loaded from. Must be mmc for
+this bootscript. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>distro_rootpart</strong>: Number of root partition. If unset, default is 2.</p></li>
+<li><p><strong>earlycon</strong>: Optional Early console bootargs parameter for kernel.</p></li>
+<li><p><strong>fdt_addr_r</strong>: Address in RAM the fdt is loaded to.</p></li>
+<li><p><strong>fdtfile</strong>: Name of the fdt file.</p></li>
+<li><p><strong>fdtoverlay_addr_r</strong>: Address in RAM the fdtoverlays are loaded to.</p></li>
+<li><p><strong>kernel_addr_r</strong>: Address in RAM the kernel is loaded to.</p></li>
+<li><p><strong>loadaddr</strong>: Address in RAM the overlaysenvfile is loaded to.</p></li>
+<li><p><strong>optargs</strong>: Optional additional arguments for kernel bootargs.</p></li>
+<li><p><strong>overlays</strong>: Optional variable to set kernel devicetree overlays. If set in
+U-Boot environment, that will be taken over the value in overlaysenvfile.</p></li>
+<li><p><strong>overlaysenvfile</strong>: Filename of the bootenv file that sets the overlays
+variable. If unset, default is <code class="docutils literal notranslate"><span class="pre">overlays.txt</span></code>.</p></li>
+<li><p><strong>raucargs</strong>: Optional additional RAUC arguments for kernel bootargs.</p></li>
+</ul>
+</section>
+<section id="mmc-boot-fit">
+<h5><span class="section-number">9.6.1.1.2. </span>mmc_boot_fit<a class="headerlink" href="#mmc-boot-fit" title="Link to this heading"></a></h5>
+<p>This script is for booting a fitImage from mmc devices.</p>
+<p>Used Variables:</p>
+<ul class="simple">
+<li><p><strong>console</strong>: Console device and baudrate for kernel bootargs.</p></li>
+<li><p><strong>devnum</strong>: Number of the device the bootscript is loaded from. This device will
+also be used for loading overlaysenvfile and fitImage as well as mounting the
+root partition. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>devtype</strong>: Type of the device the bootscript is loaded from. Must be mmc for
+this bootscript. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>distro_rootpart</strong>: Number of root partition. If unset, default is 2.</p></li>
+<li><p><strong>earlycon</strong>: Optional early console bootargs parameter for kernel.</p></li>
+<li><p><strong>fit_addr_r</strong>: Optional variable for setting the RAM addr for loading
+overlaysenvfile and kernel fitImage. If not set loadaddr will be used.</p></li>
+<li><p><strong>fit_extensions</strong>: Optional variable where certain devicetree overlays can be
+set depending on the SoM variant. This variable will be set by U-Boot in
+board code depending on Phytec SoM detection.</p></li>
+<li><p><strong>fit_overlay_conf</strong>: Optional variable to set kernel devicetree overlay
+configs. If set in U-Boot environment, that will be taken over the value in
+overlaysenvfile.</p></li>
+<li><p><strong>loadaddr</strong>: Address in RAM the overlaysenvfile and kernel fitImage is loaded
+to. Will be set to fit_addr_r if that variable is set.</p></li>
+<li><p><strong>optargs</strong>: Optional additional arguments for kernel bootargs.</p></li>
+<li><p><strong>overlaysenvfile</strong>: Filename of the bootenv file that sets the fit_overlay_conf
+variable. If unset, default is <code class="docutils literal notranslate"><span class="pre">overlays.txt</span></code>.</p></li>
+<li><p><strong>raucargs</strong>: Optional additional RAUC arguments for kernel bootargs.</p></li>
+</ul>
+</section>
+<section id="net-boot-fit">
+<h5><span class="section-number">9.6.1.1.3. </span>net_boot_fit<a class="headerlink" href="#net-boot-fit" title="Link to this heading"></a></h5>
+<p>This script is for booting a fitImage over network (eth0) and mounting the
+rootfs over nfs.</p>
+<p>Used Variables:</p>
+<ul class="simple">
+<li><p><strong>console</strong>: Console device and baudrate for kernel bootargs.</p></li>
+<li><p><strong>devtype</strong>: Type of the device the bootscript is loaded from. Must be mmc for
+this bootscript. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>earlycon</strong>: Optional early console bootargs parameter for kernel.</p></li>
+<li><p><strong>fit_addr_r</strong>: Optional variable for setting the RAM addr for loading
+overlaysenvfile and kernel fitImage. If not set loadaddr will be used.</p></li>
+<li><p><strong>fit_extensions</strong>: Optional variable where certain devicetree overlays can be
+set depending on the SoM variant. This variable will be set by U-Boot in
+board code depending on Phytec SoM detection.</p></li>
+<li><p><strong>fit_overlay_conf</strong>: Optional variable to set kernel devicetree overlay
+configs. If set in U-Boot environment, that will be taken over the value in
+overlaysenvfile.</p></li>
+<li><p><strong>ipaddr</strong>: IP addr of the board. Only used if ip_dyn is set for static IPs.</p></li>
+<li><p><strong>ip_dyn</strong>: Used to determine whether dhcp (dynamic IP) or tftp (static IP) is
+used for network connection. Valid values are [yes/no], [true/false], [1/0].
+If unset or other value dhcp will be used by default.</p></li>
+<li><p><strong>loadaddr</strong>: Address in RAM the overlaysenvfile and kernel fitImage is loaded
+to. Will be set to fit_addr_r if that variable is set.</p></li>
+<li><p><strong>netmask</strong>: Netmask for ipaddr and serverip. Only used if ip_dyn is set for
+static IPs.</p></li>
+<li><p><strong>nfsroot</strong>: Path to nfs folder on host.</p></li>
+<li><p><strong>optargs</strong>: Optional additional arguments for kernel bootargs.</p></li>
+<li><p><strong>overlaysenvfile</strong>: Filename of the bootenv file that sets the fit_overlay_conf
+variable. If unset, default is <code class="docutils literal notranslate"><span class="pre">overlays.txt</span></code>.</p></li>
+<li><p><strong>serverip</strong>: IP addr of the tftp and nfs server. Only used if ip_dyn is set for
+static IPs.</p></li>
+<li><p><strong>nfs_eth_dev</strong>: Can be used to set the nfs ethernet interface. If unset,
+eth0 will be used as default.</p></li>
+</ul>
+</section>
+<section id="spi-boot-fit">
+<h5><span class="section-number">9.6.1.1.4. </span>spi_boot_fit<a class="headerlink" href="#spi-boot-fit" title="Link to this heading"></a></h5>
+<p>This script is for booting a fitImage with initramfs from SPI flash.</p>
+<p>This script has the <code class="docutils literal notranslate"><span class="pre">.in</span></code> fileending which means that there is an expression
+(<code class="docutils literal notranslate"><span class="pre">&#64;&#64;EXPRESSION&#64;&#64;</span></code>) that has to be replaced before compiling. In this case
+<code class="docutils literal notranslate"><span class="pre">&#64;&#64;SPI_MTD_PARTS&#64;&#64;</span></code> will be replaced with the fitImage location in the SPI
+flash. The variable is set in the ampliphy-boot recipe.</p>
+<p>Used Variables:</p>
+<ul class="simple">
+<li><p><strong>console</strong>: Console device and baudrate for kernel bootargs.</p></li>
+<li><p><strong>devnum</strong>: Number of the device the bootscript is loaded from. This device
+will also be used for loading overlaysenvfile and fitImage as well as
+mounting the root partition. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>devtype</strong>: Type of the device the bootscript is loaded from. Must be mmc for
+this bootscript. Automatically set by U-Boot standard boot.</p></li>
+<li><p><strong>earlycon</strong>: Optional early console bootargs parameter for kernel.</p></li>
+<li><p><strong>fit_addr_r</strong>: Optional variable for setting the RAM addr for loading
+overlaysenvfile and kernel fitImage. If not set loadaddr will be used.</p></li>
+<li><p><strong>fit_extensions</strong>: Optional variable where certain devicetree overlays can
+be set depending on the SoM variant. This variable will be set by U-Boot in
+board code depending on Phytec SoM detection.</p></li>
+<li><p><strong>fit_overlay_conf</strong>: Optional variable to set kernel devicetree overlay
+configs. Has to be set in U-Boot env. Overlaysenvfile is not supported.</p></li>
+<li><p><strong>loadaddr</strong>: Address in RAM the overlaysenvfile and kernel fitImage is
+loaded to. Will be set to fit_addr_r if that variable is set.</p></li>
+<li><p><strong>optargs</strong>: Optional additional arguments for kernel bootargs.</p></li>
+</ul>
+</section>
+</section>
+<section id="adding-ampliphy-boot-to-your-platform-in-yocto">
+<h4><span class="section-number">9.6.1.2. </span>Adding ampliphy-boot to your platform in Yocto<a class="headerlink" href="#adding-ampliphy-boot-to-your-platform-in-yocto" title="Link to this heading"></a></h4>
+<p>To add ampliphy-boot to your platform in Yocto, first the dependencies need to
+be set.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WKS_FILE_DEPENDS:append = &quot; ampliphy-boot&quot;
+PARTUP_PACKAGE_DEPENDS:append = &quot; ampliphy-boot&quot;
+</pre></div>
+</div>
+<p>By default all the bootscripts get deplayed and <code class="docutils literal notranslate"><span class="pre">mmc_boot.cmd</span></code> is the default
+bootscript and will get deployed as <code class="docutils literal notranslate"><span class="pre">boot.scr.uimg</span></code>. This can be changed with
+the variables <code class="docutils literal notranslate"><span class="pre">DEFAULT_BOOTSCRIPT</span></code> and <code class="docutils literal notranslate"><span class="pre">BOOTSCRIPTS</span></code> that are set in the
+ampliphy-boot recipe in meta-ampliphy layer at
+<code class="docutils literal notranslate"><span class="pre">recipes-bsp/u-boot/ampliphy-boot.bb</span></code>. <code class="docutils literal notranslate"><span class="pre">DEFAULT_BOOTSCRIPT</span></code> specifies the
+bootscript that gets built into the WIC image boot partition. <code class="docutils literal notranslate"><span class="pre">BOOTSCRIPTS</span></code>
+is a list of bootscripts (<code class="docutils literal notranslate"><span class="pre">*.cmd</span></code>) that should be built by Yocto.</p>
+<p>Finally, the default bootscript <code class="docutils literal notranslate"><span class="pre">boot.scr.uimg</span></code> needs to be added to the
+<code class="docutils literal notranslate"><span class="pre">IMAGE_BOOT_FILES</span></code> variable in the machine conf file, so that it gets built
+into the boot partition of the WIC image and partup package.</p>
+</section>
+<section id="working-with-bootscripts">
+<h4><span class="section-number">9.6.1.3. </span>Working with bootscripts<a class="headerlink" href="#working-with-bootscripts" title="Link to this heading"></a></h4>
+<p>Bootscripts have a source form (<code class="docutils literal notranslate"><span class="pre">.cmd</span></code>) and a compiled form (<code class="docutils literal notranslate"><span class="pre">.scr</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.scr.uimg</span></code>). The <code class="docutils literal notranslate"><span class="pre">.scr</span></code> image is a raw U-Boot script image, while
+<code class="docutils literal notranslate"><span class="pre">.scr.uimg</span></code> means that the script is packed into a FIT. For ampliphy-boot the
+bootscripts are packed into FITs.</p>
+<p>In case something needs to be changed in an existing script or a new one needs
+to be created, the sources need to be compiled. Therefore the source file
+(<code class="docutils literal notranslate"><span class="pre">*.cmd</span></code>) and the image tree source file (<code class="docutils literal notranslate"><span class="pre">*.its</span></code>) are required. Both can
+be found in meta-ampliphy in <code class="docutils literal notranslate"><span class="pre">recipes-bsp/u-boot/ampliphy-boot/</span></code>. The <code class="docutils literal notranslate"><span class="pre">.in</span></code>
+file ending means that there is an expression (<code class="docutils literal notranslate"><span class="pre">&#64;&#64;EXPRESSION&#64;&#64;</span></code>) that needs
+to be replaced. For the <code class="docutils literal notranslate"><span class="pre">boot.its.in</span></code> file <code class="docutils literal notranslate"><span class="pre">&#64;&#64;BOOTCOMMAND_FILE&#64;&#64;</span></code> needs to
+be replaced by the filename of the bootscript source file. Then the <code class="docutils literal notranslate"><span class="pre">.in</span></code>
+ending can be removed. Finally the <code class="docutils literal notranslate"><span class="pre">*.cmd</span></code> file can be compiled into the
+<code class="docutils literal notranslate"><span class="pre">*.scr.uimg</span></code> format with the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkimage<span class="w"> </span>-C<span class="w"> </span>none<span class="w"> </span>-A<span class="w"> </span>arm64<span class="w"> </span>-f<span class="w"> </span>boot.its<span class="w"> </span>&lt;script&gt;.scr.uimg
+</pre></div>
+</div>
+<p>Otherwise the <code class="docutils literal notranslate"><span class="pre">*.cmd</span></code> files can also be rebuilt in Yocto with the following
+command. With that command only the bootscripts get rebuilt, but not the
+complete WIC image:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>ampliphy-boot
+</pre></div>
+</div>
+<p>To update the bootscript in the image, rebuild the whole image with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>&lt;image-name&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enabling-software-features">
+<h3><span class="section-number">9.6.2. </span>Enabling software FEATURES<a class="headerlink" href="#enabling-software-features" title="Link to this heading"></a></h3>
+<p>To include or exclude additional, optional, packages in your BSP, The Yocto
+Project provides the <a class="reference external" href="https://docs.yoctoproject.org/dev/ref-manual/features.html#features">FEATURES</a> variables.</p>
+<p>To keep it short, in the following section, only additional FEATURES will be
+discussed as well as <em>Ampliphy</em> quirks.</p>
+<section id="op-tee-optee">
+<h4><span class="section-number">9.6.2.1. </span>OP-TEE (optee)<a class="headerlink" href="#op-tee-optee" title="Link to this heading"></a></h4>
+<p>If <code class="docutils literal notranslate"><span class="pre">optee</span></code> is found in <code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURES</span></code>, the <a class="reference external" href="https://optee.readthedocs.io/en/latest/general/about.html">OP-TEE</a> trusted OS will be
+packaged into the image. OP-TEE has a high impact on functional safety as it is
+an essential part in the boot chain.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If there is an error in how OP-TEE is packaged, the board may not boot.</p>
+</div>
+<p>The OP-TEE is loaded by the Trusted Firmware-A (<a class="reference external" href="https://trustedfirmware-a.readthedocs.io/en/latest/">ref</a>) before the Bootloader
+is started. For conceptual details, please refer to the provided documentation.</p>
+<p>The practical impact for the BSP is that multiple pieces of software need to
+work together to make OP-TEE integration work. This is OP-TEE, Trusted Firmware-A and the
+Bootloader. The bootloader has the task of loading the TEE into RAM from
+non-volatile storage at the same address Trusted Firmware-A later passes control to. OP-TEE
+itself needs these (load) addresses set as well to correctly protect its RAM
+region.</p>
+</section>
+</section>
+<section id="disable-qt-demo">
+<h3><span class="section-number">9.6.3. </span>禁用 Qt 示例demo<a class="headerlink" href="#disable-qt-demo" title="Link to this heading"></a></h3>
+<p>默认情况下，BSP 映像 <em>phytec-qt6demo-image</em> 会在连接的显示器或监视器上启动 Qt6 示例应用程序。如果要停止示例并使用后台得 <em>Linux</em> framebuffer 控制台，请通过串口或网络 <em>ssh</em> 连接到目标并执行 shell 命令</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>phytec-qtdemo.service
+</pre></div>
+</div>
+<p>此命令暂时停止演示app。要重新启动，请重启主板或执行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>start<span class="w"> </span>phytec-qtdemo.service
+</pre></div>
+</div>
+<p>您可以永久禁用该服务，这样它就不会在开机时自启动</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>disable<span class="w"> </span>phytec-qtdemo.service
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>最后一个命令仅禁用了服务，但是它不会立即停止。要查看当前服务状态，请执行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>status<span class="w"> </span>phytec-qtdemo.service
+</pre></div>
+</div>
+</div>
+<p>如果要默认禁用该服务，请编辑文件 <em>build/conf/local.conf</em> 并添加以下行</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/local.conf</span>
+SYSTEMD_AUTO_ENABLE:pn-phytec-qtdemo<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;disable&quot;</span>
+</pre></div>
+</div>
+<p>之后重新编译镜像</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-qt6demo-image
+</pre></div>
+</div>
+</section>
+<section id="framebuffer-console">
+<h3><span class="section-number">9.6.4. </span>Framebuffer 控制台<a class="headerlink" href="#framebuffer-console" title="Link to this heading"></a></h3>
+<p>在具有显示接口的核心板上，默认启用Framebuffer控制台。您可以连接 USB 键盘并登录。要将键盘布局从默认的英语更改为德语，请键入</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>loadkeys<span class="w"> </span>/usr/share/keymaps/i386/qwertz/de-latin1.map.gz
+</pre></div>
+</div>
+<p>如果要退出Framebuffer控制台，请运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>sys/class/vtconsole/vtcon1/bind
+</pre></div>
+</div>
+<p>要完全停用Framebuffer控制台，请禁用以下内核配置选项</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Device Drivers-&gt;Graphics Support-&gt;Support for framebuffer devices-&gt;Framebuffer Console Support
+</pre></div>
+</div>
+<p>更多信息请访问：<a class="reference external" href="https://www.kernel.org/doc/Documentation/fb/fbcon.txt">https://www.kernel.org/doc/Documentation/fb/fbcon.txt</a></p>
+</section>
+<section id="tools-provided-in-the-prebuild-image">
+<h3><span class="section-number">9.6.5. </span>预编译镜像中提供的工具<a class="headerlink" href="#tools-provided-in-the-prebuild-image" title="Link to this heading"></a></h3>
+<section id="ram-benchmark">
+<h4><span class="section-number">9.6.5.1. </span>RAM 基准测试<a class="headerlink" href="#ram-benchmark" title="Link to this heading"></a></h4>
+<p>RAM 和缓存性能测试的最佳方法是使用 <em>pmbw</em> （并行内存带宽基准测试/测量工具）。 <em>Pmbw</em> 运行多个汇编例程，这些例程都使用不同的访问模式来访问 SoC 的缓存和 RAM。在运行测试之前，请确保设备上有大约 2 MiB 的空间用于存储日志文件。我们还降低了基准测试的级别，以便于更积极地向内核请求资源。基准测试将花费几个小时。</p>
+<p>要开始测试，请键入</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>nice<span class="w"> </span>-n<span class="w"> </span>-2<span class="w"> </span>pmbw
+</pre></div>
+</div>
+<p>测试完成后，日志文件可以转换为 <em>gnuplot</em> 脚本，运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>stats2gnuplot<span class="w"> </span>stats.txt<span class="w"> </span>&gt;<span class="w"> </span>run1.gnuplot
+</pre></div>
+</div>
+<p>现在您可以将日志文件传输到主机并安装任意版本的 <em>gnuplot</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gnuplot<span class="w"> </span>host:~$<span class="w"> </span>gnuplot<span class="w"> </span>run1.gnuplot
+</pre></div>
+</div>
+<p>生成的 <em>plots-&lt;machine&gt; .pdf</em> 文件包含所有图表。要将单个图表渲染为 <em>png</em> 文件，您可以使用 <em>Ghostscript</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ghostscript
+<span class="gp">host:~$ </span>gs<span class="w"> </span>-dNOPAUSE<span class="w"> </span>-dBATCH<span class="w"> </span>-sDEVICE<span class="o">=</span>png16m<span class="w"> </span>-r150<span class="w"> </span>-sOutputFile<span class="o">=</span><span class="s1">&#39;page-%00d.png&#39;</span><span class="w"> </span>plots-phyboard-wega-am335x-1.pdf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="add-additional-software-for-the-bsp-image">
+<h3><span class="section-number">9.6.6. </span>为 BSP 镜像添加新的软件包<a class="headerlink" href="#add-additional-software-for-the-bsp-image" title="Link to this heading"></a></h3>
+<p>To add additional software to the image, look at the OpenEmbedded layer index:
+<a class="reference external" href="https://layers.openembedded.org/layerindex/branch/master/layers/">layerindex</a></p>
+<p>首先，从左上角的下拉列表中选择您拥有的 BSP 的 <em>Yocto</em> 版本，然后单击 <strong>Recipes</strong>。现在您可以搜索软件项目名称并找到它所在的Layer。在某些情况下，程序位于 <em>meta-openembedded</em>、 <em>openembedded-core</em> 或 <em>Poky</em> 中，这意味着Recipe已在您的Yocto工程中。本节介绍在这种情况下如何添加软件。如果软件包位于另一个Layer，请参阅下一部分。</p>
+<p>您还可以搜索可用Recipe列表</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;program<span class="w"> </span>name&gt;<span class="w"> </span><span class="c1"># fill in program name, like in</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>lsof
+</pre></div>
+</div>
+<p>当程序的Recipe已在 <em>Yocto</em> 工程中时，您只需将他添加到文件 <em>build/conf/local.conf</em> 即可。向镜像添加其他软件的一般语法是</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/local.conf</span>
+IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &lt;package1&gt; &lt;package2&gt;&quot;</span>
+</pre></div>
+</div>
+<p>例如，这一行</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/local.conf</span>
+IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; ldd strace file lsof&quot;</span>
+</pre></div>
+</div>
+<p>在目标镜像上安装一些辅助程序。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>程序包名称前的空格非常重要。</p>
+</div>
+<p>local.conf 中的配置项均适用于所有镜像。因此，新增的这些软件工具将被同时包含在 phytec-headless-image 和 phytec-qt6demo-image 镜像中。</p>
+<section id="notes-about-packages-and-recipes">
+<h4><span class="section-number">9.6.6.1. </span>关于软件包和Recipe的说明<a class="headerlink" href="#notes-about-packages-and-recipes" title="Link to this heading"></a></h4>
+<p>您正在将软件包添加到 IMAGE_INSTALL 变量中。这些不一定等同于Layer的Recipe名称。Recipe默认定义一个具有相同名称的软件包。但Recipe也可以将 PACKAGES 变量设置为其他名称，并能够生成具有任意名称的软件包。当您查找软件时，严格来说，都必须搜索软件包名称，而不是Recipe。在最坏的情况下，您必须查看所有 PACKAGES 变量。这会有点繁琐， <em>Toaster</em> 之类的工具可能对查找有所帮助。</p>
+<p>如果您在文件夹 <em>sources</em> 提供的Layer中找不到您的软件，请参阅下一部分以将一个新的Layer包含到 <em>Yocto</em> 构建中。</p>
+<p>References: <a class="reference external" href="https://docs.yoctoproject.org/dev/singleindex.html#user-configuration">Yocto Documentation - Customizing Yocto builds</a></p>
+</section>
+</section>
+<section id="add-an-additional-layer">
+<h3><span class="section-number">9.6.7. </span>添加其他Layer<a class="headerlink" href="#add-an-additional-layer" title="Link to this heading"></a></h3>
+<p>This is a step-by-step guide on how to add another layer to your <em>Yocto</em> build
+and install additional software from it. As an example, we include the network
+security scanner <em>nmap</em> in the layer <em>meta-security</em>. First, you must locate the
+layer on which the software is hosted. Check out the <a class="reference external" href="https://layers.openembedded.org/layerindex/branch/master/layers/">layerindex</a>
+and guess a little bit. The network scanner <em>nmap</em> is in the <em>meta-security</em>
+layer. See <a class="reference external" href="https://layers.openembedded.org/layerindex/branch/master/layer/meta-security/">meta-security</a>.
+To integrate it into the <em>Yocto</em> build, you have to check out the repository and
+then switch to the correct stable branch. Since the BSP is based on the <em>Yocto</em>
+Unstable build, you should try to use the Unstable branch in the
+layer, too.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>sources
+<span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.yoctoproject.org/meta-security
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>meta-security
+<span class="gp">host:~$ </span>git<span class="w"> </span>branch<span class="w"> </span>-r
+</pre></div>
+</div>
+<p>所有可用的远程分支会被展示出来。通常应该有'sumo'、'warrior'、'zeus'、'dunfell'、'hardnkott'、'kirkstone'、'mickledore'、'master'...</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+</pre></div>
+</div>
+<p>现在我们通过把以下代码添加到 <em>build/conf/bblayers.conf</em> 文件末尾的方式来将Layer包含到构建中</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/bblayers.conf</span>
+BBLAYERS<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;${BSPDIR}/sources/meta-security&quot;</span>
+</pre></div>
+</div>
+<p>然后，您可以通过执行以下代码来检查该Layer是否在构建配置中可用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake-layers<span class="w"> </span>show-layers
+</pre></div>
+</div>
+<p>如果出现类似以下错误</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR: Layer &#39;security&#39; depends on layer &#39;perl-layer&#39;, but this layer is not enabled in your configuration
+</pre></div>
+</div>
+<p>如果您要添加的Layer（这里是 <em>meta-security</em>）依赖于另一个Layer，您需要先启用被依赖的Layer。例如，此处所需的依赖项是 <em>meta-openembedded</em> 中的Layer（在 PHYTEC BSP 中，它位于路径 <em>sources/meta-openembedded/meta-perl/</em> 中）。要启用它，请将以下行添加到 <em>build/conf/bblayers.conf</em></p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/bblayers.conf</span>
+BBLAYERS<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;${BSPDIR}/sources/meta-openembedded/meta-perl&quot;</span>
+</pre></div>
+</div>
+<p>执行命令 <em>bitbake-layers show-layers</em> 应该会打印所有已启用Layer的列表，包括 <em>meta-security</em> 和 <em>meta-perl</em>。包含该Layer后，您可以按照之前的描述安装Layer中的软件包。最简单的方法是添加以下行（这里是包 <em>nmap</em>）</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file build/conf/local.conf</span>
+IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; nmap&quot;</span>
+</pre></div>
+</div>
+<p>到您的 <em>build/conf/local.conf</em>。不要添加后忘记重新构建镜像</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-qt6demo-image
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>After adding further external or own layers, it makes sense to reflect
+those additions by deriving a custom manifest file, cmp
+<a class="reference internal" href="#master-phylinux-advanced-usage"><span class="std std-ref">高级用法</span></a></p>
+</div>
+</section>
+<section id="create-your-own-layer">
+<h3><span class="section-number">9.6.8. </span>Create your own layer<a class="headerlink" href="#create-your-own-layer" title="Link to this heading"></a></h3>
+<p>创建Layer应该是自定义 BSP 的首要任务之一。您有两个选择。您可以复制并重命名 <em>meta-ampliphy</em>，也可以创建一个包含修改的新Layer。哪个选择更好取决于您的使用场景。 <em>meta-ampliphy</em> 是我们自定义 <em>Linux</em> 发行版的示例，该发行版也会在未来持续更新。如果您想从这些更新中受益，并且总体上对它的用户空间配置感到满意，那么在 <em>Ampliphy</em> 基础上创建自己的Layer可能是最佳解决方案。如果您需要重建用户空间架构并且只需要 PHYTEC 的基本硬件支持，最好复制 <em>meta-ampliphy</em>，给Layer重新命名并修改其内容以使其适应您的需求。您还可以查看 OpenEmbedded Layer索引以查找不同的发行版 Layer。如果您只需要将自己的应用程序添加到镜像中，请创建自己的Layer。</p>
+<p>在下一章中，我们有一个名为“racer”的嵌入式项目，我们将使用我们的 <em>Ampliphy Linux</em> 发行版来集成它。首先，我们需要创建一个新的Layer。</p>
+<p><em>Yocto</em> 提供了一个脚本来实现Layer创建。如果您已经配置好 BSP 并且 shell 已准备就绪，请输入</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake-layers<span class="w"> </span>create-layer<span class="w"> </span>meta-racer
+</pre></div>
+</div>
+<p>目前来说，默认选项是可行的。将该Layer移动到source目录下</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mv<span class="w"> </span>meta-racer<span class="w"> </span>../sources/
+</pre></div>
+</div>
+<p>在此Layer创建一个 <em>Git</em> 仓库来跟踪您的更改</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>../sources/meta-racer
+<span class="gp">host:~$ </span>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-s
+</pre></div>
+</div>
+<p>现在您可以将该Layer直接添加到 build/conf/bblayers.conf</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>BBLAYERS<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;${BSPDIR}/sources/meta-racer&quot;</span>
+</pre></div>
+</div>
+<p>或者使用 <em>Yocto</em> 提供的脚本</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake-layers<span class="w"> </span>add-layer<span class="w"> </span>meta-racer
+</pre></div>
+</div>
+</section>
+<section id="kernel-and-bootloader-recipe-and-version">
+<h3><span class="section-number">9.6.9. </span>kernel和Bootloader的Recipe和版本<a class="headerlink" href="#kernel-and-bootloader-recipe-and-version" title="Link to this heading"></a></h3>
+<p>首先，您需要知道目标Machine使用哪个kernel和对应的版本。PHYTEC 提供多个kernel recipe <em>linux-mainline</em>、 <em>linux-ti</em> 和 <em>linux-imx</em>。第一个为 PHYTEC 的 i.MX 6 和 AM335x SOM提供支持，他是基于 <a class="reference external" href="https://kernel.org/">kernel.org</a> 的 <em>Linux</em> kernel稳定版本。 <em>Git</em> 仓库 URL 为：</p>
+<ul class="simple">
+<li><p><em>linux-mainline</em>：git://git.phytec.de/linux-mainline</p></li>
+<li><p><em>linux-ti</em>: git://git.phytec.de/linux-ti</p></li>
+<li><p><em>linux-imx:</em> git://git.phytec.de/linux-imx</p></li>
+<li><p><em>barebox</em>：git://git.phytec.de/barebox</p></li>
+<li><p><em>u-boot-imx</em>: git://git.phytec.de/u-boot-imx</p></li>
+</ul>
+<p>要找出您最终所使用的kernel recipe，请执行以下命令</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>virtual/kernel<span class="w"> </span>-e<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;PREFERRED_PROVIDER_virtual/kernel&quot;</span>
+</pre></div>
+</div>
+<p>该命令打印变量 <em>PREFERRED_PROVIDER_virtual/kernel</em> 的值。该变量在 <em>Yocto</em> 构建过程被用来选择要使用的kernel recipe。以下几行是您可能会看到的不同输出值</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>PREFERRED_PROVIDER_virtual/kernel=&quot;linux-mainline&quot;
+PREFERRED_PROVIDER_virtual/kernel=&quot;linux-ti&quot;
+PREFERRED_PROVIDER_virtual/kernel=&quot;linux-imx&quot;
+</pre></div>
+</div>
+<p>要查看使用的是哪个版本，请执行 <em>bitbake -s</em>。例如</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;linux-mainline|linux-ti|linux-imx|barebox|u-boot-imx&quot;</span>
+</pre></div>
+</div>
+<p>参数 <em>-s</em> 打印所有相关Recipe和它的版本。输出左侧包含Recipe名称，右侧包含版本</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox                      :2022.02.0-phy1-r7.0
+barebox-hosttools-native     :2022.02.0-phy1-r7.0
+barebox-targettools          :2022.02.0-phy1-r7.0
+linux-mainline               :5.15.102-phy1-r0.0
+</pre></div>
+</div>
+<p>如您所见，recipe <em>linux-mainline</em> 的版本为 <em>5.15.102-phy1</em>。在 PHYTEC 的 <em>linux-mainline</em> <em>Git</em> 仓库中，您将找到相应的标签 <em>v5.15.102-phy1</em>。 <em>barebox</em> recipe的版本为 2022.02.0-phy1。在 i.MX8M* 模块上，输出将包含 <em>linux-imx</em> 和 <em>u-boot-imx</em>。</p>
+</section>
+<section id="kernel-and-bootloader-configuration">
+<span id="yocto-man-master-kernel-and-bootloader-conf"></span><h3><span class="section-number">9.6.10. </span>Kernel和Bootloader配置<a class="headerlink" href="#kernel-and-bootloader-configuration" title="Link to this heading"></a></h3>
+<p>PHYTEC 所使用的bootloader <em>barebox</em> 采用与 <em>Linux</em> kernel相同的编译系统。因此，本节中的所有指令均可用于配置kernel以及bootloader。要配置kernel或bootloader，请执行以下命令中的一条。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>virtual/kernel<span class="w">  </span><span class="c1"># Using the virtual provider name</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>linux-ti<span class="w">        </span><span class="c1"># Or use the recipe name directly</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>linux-mainline<span class="w">  </span><span class="c1"># Or use the recipe name directly (If you use an i.MX 6 or RK3288 Module)</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>linux-imx<span class="w">       </span><span class="c1"># Or use the recipe name directly (If you use an i.MX 8M*)</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>barebox<span class="w">         </span><span class="c1"># Or change the configuration of the bootloader</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span>u-boot-imx<span class="w">      </span><span class="c1"># Or change the configuration of the bootloader (If you use an i.MX 8M*)</span>
+</pre></div>
+</div>
+<p>之后，您可以重新编译并部署kernel或bootloader</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>virtual/kernel<span class="w"> </span>-c<span class="w"> </span>compile<span class="w">  </span><span class="c1"># Or &#39;barebox&#39; for the bootloader</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>virtual/kernel<span class="w"> </span>-c<span class="w"> </span>deploy<span class="w">   </span><span class="c1"># Or &#39;barebox&#39; for the bootloader</span>
+</pre></div>
+</div>
+<p>或者，您也可以使用以下命令重新进行完整的构建</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w">  </span><span class="c1"># To update the kernel/bootloader, modules and the images</span>
+</pre></div>
+</div>
+<p>在最后一个命令中，您可以将镜像名称替换为您选择的镜像名称。新镜像和二进制文件位于 <em>build/deploy/images/&lt;machine&gt; /</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>之前对kernel的配置并不是永久生效的。执行 <em>bitbake virtual/kernel -c clean</em> 可以清除所有内容。</p>
+</div>
+<p>要使更改在构建系统中永久生效，您需要将配置修改整合到Layer中。您有两种选择：</p>
+<ul class="simple">
+<li><p>仅包含配置差异片段（新旧配置之间的最小 <em>差异</em>）</p></li>
+<li><p>修改后的完整配置（<em>defconfig</em>）。</p></li>
+</ul>
+<p>使用配置片段可以使开发者对不同阶段所做的更改更加清晰。您可以选择启用或禁用这些配置，对不同条件下的配置作管理，这有助于更迅速地将更改的配置迁移到新的kernel版本。您还可以对配置片段进行分组，以在不同的特定场景下使用。生成的完整kernel配置将被放在目录 <em>build/deploy/images/&lt;machine&gt;</em> 中。如果您没有上述这些需求，选择维护完整的 <em>defconfig</em> 文件可能会更加简单。</p>
+<section id="add-a-configuration-fragment-to-a-recipe">
+<h4><span class="section-number">9.6.10.1. </span>将配置片段添加到Recipe<a class="headerlink" href="#add-a-configuration-fragment-to-a-recipe" title="Link to this heading"></a></h4>
+<p>以下步骤适用于kernel和bootloader。只需将命令中的recipe名称 <em>linux-mainline</em> 替换为 <em>linux-ti</em>，或者将bootloader替换为 <em>barebox</em>。如果您对这个命令作用还不熟悉，请从一个干净的Yocto工程重新开始。否则，配置的差异可能会导致错误。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-mainline<span class="w"> </span>-c<span class="w"> </span>clean
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-mainline<span class="w"> </span>-c<span class="w"> </span>menuconfig
+</pre></div>
+</div>
+<p>在菜单中更改配置并生成配置片段</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-mainline<span class="w"> </span>-c<span class="w"> </span>diffconfig
+</pre></div>
+</div>
+<p>他将会打印生成的配置片段文件路径</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Config fragment has been dumped into:
+/home/&lt;path&gt;/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg
+</pre></div>
+</div>
+<p>所有的配置修改都记录在文件 <em>fragment.cfg</em> 中，该文件仅包含少量配置行。以下示例展示了如何创建 <em>bbappend</em> 文件，以及如何为配置片段添加所需的行。您只需根据特定Recipe调整目录和名称： <em>linux-mainline</em>、 <em>linux-ti</em>、linux-imx、u-boot-imx 或 <em>barebox</em>。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sources/&lt;layer&gt;/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-imx_%.bbappend          # For the recipe linux-imx
+sources/&lt;layer&gt;/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+sources/&lt;layer&gt;/recipes-bsp/u-boot/u-boot-imx_%.bbappend           # For the recipe u-boot-imx
+</pre></div>
+</div>
+<p>将字符串 <em>layer</em> 替换为您自己创建的layer（如上所示）（例如 <em>meta-racer</em>），或者直接使用 <em>meta-ampliphy</em>。要使用 <em>meta-ampliphy</em>，首先，需要为配置片段创建目录并为其指定一个新名称（此处为 <em>enable-r8169.cfg</em>），然后将片段放到这个Layer中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>sources/meta-ampliphy/recipes-kernel/linux/features
+<span class="gp"># </span>copy<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>*diffconfig*
+<span class="gp">host:~$ </span>cp<span class="w"> </span>/home/&lt;path&gt;/build/tmp/work/phyboard_mira_imx6_11-phytec-linux-gnueabi/linux-mainline/4.19.100-phy1-r0.0/fragment.cfg<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sources/meta-ampliphy/recipes-kernel/linux/features/enable-r8169.cfg
+</pre></div>
+</div>
+<p>之后使用您喜欢的编辑器打开 <em>bbappend</em> 文件（在本例中为 <em>sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend</em> ）并添加以下几行</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of the file linux-mainline_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/features:&quot;</span>
+SRC_URI:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">    file://enable-r8169.cfg \</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>不要忘记使用正确的 <em>bbappend</em> 文件名： <em>linux-ti_%.bbappend</em> 用于 linux-ti recipe， <em>barebox_%.bbappend</em> 用于文件夹 <em>recipes-bsp/barebox/</em> 中的bootloader！</p>
+</div>
+<p>保存 <em>bbappend</em> 文件后，您需要重新编译镜像。 <em>Yocto</em> 会自动识别recipe的更改并生成新的镜像。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># Or another image name</span>
+</pre></div>
+</div>
+</section>
+<section id="add-a-complete-default-configuration-defconfig-to-a-recipe">
+<h4><span class="section-number">9.6.10.2. </span>向Recipe添加一个完整配置 (<em>defconfig</em>)<a class="headerlink" href="#add-a-complete-default-configuration-defconfig-to-a-recipe" title="Link to this heading"></a></h4>
+<p>这种方法与之前的方法相似，但不是添加一个片段，而是采用 <em>defconfig</em>。首先，在您想要使用的Layer中创建所需的文件夹，这可以是您自己的Layer，或者是 <em>meta-ampliphy</em>。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>sources/meta-ampliphy/recipes-kernel/linux/features/<span class="w"> </span><span class="c1"># For both linux-mainline and linux-ti</span>
+<span class="gp">host:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>sources/meta-ampliphy/recipes-bsp/barebox/features/<span class="w"> </span><span class="c1"># Or for the bootloader</span>
+</pre></div>
+</div>
+<p>然后您需要创建一个合适的 <em>defconfig</em> 文件。使用 <em>menuconfig</em> 进行配置更改，然后将 <em>defconfig</em> 文件保存到Layer中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-mainline<span class="w"> </span>-c<span class="w"> </span>menuconfig<span class="w"> </span><span class="c1"># Or use recipe name linux-ti or barebox</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-mainline<span class="w"> </span>-c<span class="w"> </span>savedefconfig<span class="w"> </span><span class="c1"># Create file &#39;defconfig.temp&#39; in the work directory</span>
+</pre></div>
+</div>
+<p>这将打印defconfig的保存路径</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Saving defconfig to ..../defconfig.temp
+</pre></div>
+</div>
+<p>然后，按照前面的说明，将生成的完整配置文件复制到您的Layer中，重命名为 <em>defconfig</em>，并在 <em>bbappend</em> 文件中添加以下行（此处为 <em>sources/meta-ampliphy/recipes-kernel/linux/linux-mainline_%.bbappend</em>）。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of the file linux-mainline_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/features:&quot;</span>
+SRC_URI:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">    file://defconfig \</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>不要忘记使用正确的 bbappend 文件名： <em>linux-ti_%.bbappend</em> 用于 linux-ti recipe ， <em>barebox_%.bbappend</em> 用于文件夹 <em>recipes-bsp/barebox/</em> 中的bootloader ！</p>
+</div>
+<p>这样，在重编镜像时，新的镜像将会包含所作的配置修改。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># Or another image name</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="patch-the-kernel-or-bootloader-with-devtool">
+<span id="master-temporary-method"></span><h3><span class="section-number">9.6.11. </span>使用 <em>devtool</em> 修改Kernel或Bootloader<a class="headerlink" href="#patch-the-kernel-or-bootloader-with-devtool" title="Link to this heading"></a></h3>
+<p><em>除了使用recipes中提供的标准kernel和bootloader外，您可以选择在yocto中用devtool直接修改源代码或单独下载我们的git仓库来构建您的自定义kernel 。</em> 以下是两种修改方式的优劣对比</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>优势</p></td>
+<td><p>劣势</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Yocto</em> 官方文档的标准工作流程</p></td>
+<td><p>重复的源文件包，造成了不必要的硬盘空间浪费。</p></td>
+</tr>
+<tr class="row-odd"><td><p>工具链无需重新编译所有内容。</p></td>
+<td><p>未能有效利用缓存，导致构建成本增加。</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Devtool</em> 是一套辅助工具，旨在提升 <em>Yocto</em> 用户的工作效率。它与 1.8 版本相兼容。只需配置好 shell 环境，您就可以使用它。 <em>Devtool</em> 的功能包括：</p>
+<ul class="simple">
+<li><p>修改现有资源文件</p></li>
+<li><p>将其他软件项目纳入您的构建配置中</p></li>
+<li><p>编译软件并将修改后的软件部署到目标硬件中。</p></li>
+</ul>
+<p>这里我们将利用 <em>devtool</em> 来修改kernel。我们以 <em>linux-mainline</em> 作为 AM335x kernel的实现示例。我们首先使用的命令是 <em>devtool modify - x &lt;recipe&gt;&lt;directory&gt;</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>devtool<span class="w"> </span>modify<span class="w"> </span>-x<span class="w"> </span>linux-mainline<span class="w"> </span>linux-mainline
+</pre></div>
+</div>
+<p><em>Devtool</em> 将在 <em>build/workspace</em> 目录下创建一个layer ，您可以在这个Layer下查看 <em>devtool</em> 命令进行的所有更改。它将与recipe 相关的源代码下载到一个指定的文件夹中以及在workspace生成一个 <em>bbappend</em> 文件，其中的 SRC_URI 指向上述下载文件夹。使用 <em>Bitbake</em> 构建镜像时，将会使用此文件夹中的源代码。现在您可以对kernel进行修改。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>vim<span class="w"> </span>linux-mainline/arch/arm/boot/dts/am335x-phycore-som.dtsi
+<span class="go">      -&gt; make a change</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-qt6demo-image
+</pre></div>
+</div>
+<p>Your changes will now be recompiled and added to the image. If you want to store
+your changes permanently, it is advisable to create a patch from the changes,
+then store and backup only the patch. You can go into the <em>linux-mainline</em>
+directory and create a patch using <em>Git</em>. How to create a patch is described in
+<a class="reference internal" href="#master-temporary-method"><span class="std std-ref">使用 devtool 修改Kernel或Bootloader</span></a>
+and is the same for all methods.</p>
+<p>如果您想了解有关 <em>devtool</em> 的更多信息，请访问：</p>
+<p><a class="reference external" href="https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow">Yocto - Devtool</a> or <a class="reference external" href="https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html">Devtool Quick Reference</a>.</p>
+</section>
+<section id="patch-the-kernel-or-bootloader-using-the-temporary-method">
+<h3><span class="section-number">9.6.12. </span>使用“临时方法”修补Kernel 或Bootloader<a class="headerlink" href="#patch-the-kernel-or-bootloader-using-the-temporary-method" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>优势</p></td>
+<td><p>劣势</p></td>
+</tr>
+<tr class="row-even"><td><p>无开销，无额外配置</p></td>
+<td><p><em>Yocto</em> 非常容易覆盖您所作的修改（所有内容都会丢失！！）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>工具链无需重新编译所有内容。</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Yocto 允许在 <em>Bitbake</em> 配置和编译recipe之前，更改源代码。使用 <em>Bitbake</em> 的 <em>devshell</em> 命令跳转到recipe的源目录。这是 <em>barebox</em> recipe</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>devshell<span class="w"> </span><span class="c1"># or linux-mainline, linux-ti, linux-imx, u-boot-imx</span>
+</pre></div>
+</div>
+<p>执行命令后，将打开一个 shell 窗口。shell 的当前工作目录将更改为 <em>tmp</em> 文件夹中recipe的资源文件目录。在这里，您可以使用您最喜欢的编辑器（例如 <em>vim</em>、 <em>emacs</em> 或任何其他图形编辑器）来更改源代码。完成后，通过键入 <em>exit</em> 或按 <strong>CTRL-D</strong> 退出 <em>devshell</em>。</p>
+<p>离开 <em>devshell</em> 后，您可以重新编译软件包</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile<span class="w"> </span>--force<span class="w"> </span><span class="c1"># or linux-mainline, linux-ti, linux-imx, u-boot-imx</span>
+</pre></div>
+</div>
+<p>参数“--force”很重要，因为 <em>Yocto</em> 无法识别源代码是否已被更改。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>您无法在 <em>devshell</em> 中执行 <em>bitbake</em> 命令。您必须先退出devshell模式。</p>
+</div>
+<p>如果构建失败，请再次执行 devshell 命令并修复。如果构建成功，则可以部署包并创建新的 SD 卡镜像</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>deploy<span class="w"> </span><span class="c1"># new barebox in e.g. deploy/images/phyflex-imx6-2/barebox.bin</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># new WIC image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果您进行clean操作，比如 <em>bitbake barebox -c clean</em>，或者 <em>Yocto</em> 重新下载源码，您所做的所有更改将会丢失！！！</p>
+<p>为了防止这种情况发生，您可以制作一个补丁并将其添加到 <em>bbappend</em> 文件中。这与配置修改章节中提到的工作流程相似。</p>
+<p>如果您采用临时方法，让修改永久生效需要在 <em>devshell</em> 中生成补丁；如果您使用 <em>devtool</em>，则必须在 <em>devtool</em> 创建的子目录中生成补丁。</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>devshell<span class="w">            </span><span class="c1"># Or linux-mainline, linux-ti</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>status<span class="w">                   </span><span class="c1"># Show changes files</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">               </span><span class="c1"># Add a special file to the staging area</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;important modification&quot;</span><span class="w">   </span><span class="c1"># Creates a commit with a not so useful commit message</span>
+<span class="gp">host(devshell):~$ </span>git<span class="w"> </span>format-patch<span class="w"> </span>-1<span class="w"> </span>-o<span class="w"> </span>~/<span class="w">    </span><span class="c1"># Creates a patch of the last commit and saves it in your home folder</span>
+<span class="go">/home/&lt;user&gt;/0001-important-modification.patch  # Git prints the path of the written patch file</span>
+<span class="gp">host(devshell):~$ </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>创建补丁后，必须为其创建一个 <em>bbappend</em> 文件。三个不同recipe文件（<em>linux-mainline</em>、 <em>linux-ti</em> 和 <em>barebox</em>）的位置如下：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sources/&lt;layer&gt;/recipes-kernel/linux/linux-mainline_%.bbappend     # For the recipe linux-mainline
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-ti_%.bbappend           # For the recipe linux-ti
+sources/&lt;layer&gt;/recipes-kernel/linux/linux-imx_%.bbappend        # For the recipe linux-imx
+sources/&lt;layer&gt;/recipes-bsp/barebox/barebox_%.bbappend             # For the recipe barebox
+sources/&lt;layer&gt;/recipes-bsp/u-boot/u-boot-imx_%.bbappend           # For the recipe u-boot-imx
+</pre></div>
+</div>
+<p>以下示例适用于recipe <em>barebox</em>。但是必须根据您的实际情况调整补丁路径。首先，创建文件夹并将补丁移入其中。然后创建 <em>bbappend</em> 文件</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>sources/meta-ampliphy/recipes-bsp/barebox/features<span class="w">   </span><span class="c1"># Or use your own layer instead of *meta-ampliphy*</span>
+<span class="gp">host:~$ </span>cp<span class="w"> </span>~/0001-important-modification.patch<span class="w"> </span>sources/meta-ampliphy/recipes-bsp/barebox/features<span class="w">  </span><span class="c1"># copy patch</span>
+<span class="gp">host:~$ </span>touch<span class="w"> </span>sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>注意您当前的工作目录。您必须在BSP根目录中执行命令，而不是在 <em>build</em> 目录中！</p>
+</div>
+<p>之后，使用您最喜欢的编辑器将以下内容添加到 <em>bbappend</em> 文件中（此处为 <em>sources/meta-ampliphy/recipes-bsp/barebox/barebox_%.bbappend</em>）</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of the file barebox_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/features:&quot;</span>
+SRC_URI:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">    file://0001-important-modification.patch \</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>保存文件并使用以下方法重新编译 <em>barebox</em> recipe</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>clean<span class="w"> </span><span class="c1"># Or linux-ti, linux-mainline, linux-imx, u-boot-imx</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox
+</pre></div>
+</div>
+<p>如果构建成功，您可以通过以下方法重新生成最终镜像。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># Or another image name</span>
+</pre></div>
+</div>
+<p><strong>更多资源：</strong></p>
+<p><em>Yocto</em> 项目为软件开发人员提供了一些文档。请参考“Kernel开发手册”以获取有关Kernel配置的详细信息。请注意，并非所有 <em>Yocto</em> 手册中的内容都适用于 PHYTEC BSP，因为我们采用了传统的内核编译方法，而大部分文档会假设使用的是 <em>Yocto</em> 的内核编译方式。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.yoctoproject.org/dev/kernel-dev/index.html">Yocto - Kernel Development Manual</a></p></li>
+<li><p><a class="reference external" href="https://docs.yoctoproject.org/dev/dev-manual/index.html">Yocto - Development Manual</a></p></li>
+</ul>
+</section>
+<section id="working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf">
+<h3><span class="section-number">9.6.13. </span>使用 <em>local.conf</em> 文件中的 SRC_URI 来配置Kernel 和Bootloader<a class="headerlink" href="#working-with-the-kernel-and-bootloader-using-src-uri-in-local-conf" title="Link to this heading"></a></h3>
+<p><em>在这里，我们提供了第三个选项来修改kernel和Bootloader 。您可以从外部拉取 linux-mainline、linux-ti 或 barebox Git 仓库。您将需要重写源代码URL（变量 SRC_URI），以指向您的本地仓库而不是远程仓库。</em></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>优势</p></td>
+<td><p>劣势</p></td>
+</tr>
+<tr class="row-even"><td><p>所有更改均使用 <em>Git</em> 保存</p></td>
+<td><p><em>build/tmp-glibc/work/ 中有许多工作目录&lt;machine&gt;/&lt;package&gt; /</em></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>重新编译之前必须提交所有更改</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>对于每次更改，工具链都会从头开始编译所有内容（可以使用 <em>ccache</em> 避免）</p></td>
+</tr>
+</tbody>
+</table>
+<p>首先，您需要一个 <em>Git</em> 仓库 <em>barebox</em> 或kernel的本地副本。如果您还没有，请使用以下命令。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>mkdir<span class="w"> </span>~/git
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>~/git
+<span class="gp">host:~$ </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.phytec.de/barebox
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>barebox
+<span class="gp">host:~$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>v2022.02.0-phy<span class="w"> </span>remotes/origin/v2022.02.0-phy
+</pre></div>
+</div>
+<p>将以下代码片段添加到 build/conf/local.conf</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use your own path to the git repository</span>
+<span class="c1"># NOTE: Branch name in variable &quot;BRANCH_pn-barebox&quot; should be the same as the</span>
+<span class="c1"># branch which is used in the repository folder. Otherwise your commits won&#39;t be recognized later.</span>
+BRANCH:pn-barebox<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v2022.02.0-phy&quot;</span>
+SRC_URI:pn-barebox<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;git:///${HOME}/git/barebox;branch=${BRANCH}&quot;</span>
+SRCREV:pn-barebox<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${AUTOREV}&quot;</span>
+</pre></div>
+</div>
+<p>您需要在文件中正确设置git仓库分支名称。无论您是选择在 <em>Git</em> 仓库中创建自己的分支，还是使用默认的分支（这里是“v2015.02.0-phy”）。现在，您都可以用自己的源代码重新编译 <em>barebox</em>。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>clean
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile
+</pre></div>
+</div>
+<p>由于源代码尚未被修改，因此构建应该能够成功。</p>
+<p>您可以在 <em>~/git/barebox</em> 或默认的 <em>defconfig</em> 中修改源代码（例如 <em>~/git/barebox/arch/arm/configs/imx_v7_defconfig</em>）。一旦您完成了代码更改，您需要对 <em>Yocto</em> 进行本地提交。如果您不这样做， <em>Yocto</em> 将无法检测到您在git仓库中的源代码已被更改（例如 ~/git/barebox/）。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>git<span class="w"> </span>status<span class="w">  </span><span class="c1"># show modified files</span>
+<span class="gp">host:~$ </span>git<span class="w"> </span>diff<span class="w">    </span><span class="c1"># show changed lines</span>
+<span class="gp">host:~$ </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;dummy commit for yocto&quot;</span><span class="w">   </span><span class="c1"># This command is important!</span>
+</pre></div>
+</div>
+<p>本地提交后尝试编译。 <em>Yocto</em> 将自动注意到源代码已更改，并从头开始进行源代码获取和工程配置工作。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>compile
+</pre></div>
+</div>
+<p>如果构建失败，请返回源目录，修复问题并重新提交更改。如果构建成功，您可以获取 <em>barebox</em>，甚至创建一个新的 SD 卡镜像。.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>deploy<span class="w"> </span><span class="c1"># new barebox in e.g. deploy/images/phyflex-imx6-2/barebox-phyflex-imx6-2.bin</span>
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span><span class="c1"># new sd-card image in e.g. deploy/images/phyflex-imx6-2/phytec-headless-image-phyflex-imx6-2.wic</span>
+</pre></div>
+</div>
+<p>如果您想进行其他更改，只需在git仓库中进行另一次提交并再次重新编译 <em>barebox</em>。</p>
+</section>
+<section id="add-existing-software-with-sustainable-method">
+<h3><span class="section-number">9.6.14. </span>使用“可持续方法”添加软件<a class="headerlink" href="#add-existing-software-with-sustainable-method" title="Link to this heading"></a></h3>
+<p>现在您已经创建了自己的Layer，您有第二个方式可以将现有软件添加到目标镜像中。我们的标准镜像在 meta-ampliphy 中定义</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-ampliphy/recipes-images/images/phytec-headless-image.bb
+</pre></div>
+</div>
+<p>在您的layer中，可以使用 <em>bbappend</em> 修改recipe，无需改动源recipe文件</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meta-racer/recipes-images/images/phytec-headless-image.bbappend
+</pre></div>
+</div>
+<p>bbappend文件内容将与源recipe一起解析。因此，您可以轻松覆盖源recipe中设置的所有变量。如果我们想要包含一些其他软件，需要在bbapend中将其追加到 IMAGE_INSTALL 变量中</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; rsync&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="add-linux-firmware-files-to-the-root-filesystem">
+<h3><span class="section-number">9.6.15. </span>将 Linux 固件添加到根文件系统<a class="headerlink" href="#add-linux-firmware-files-to-the-root-filesystem" title="Link to this heading"></a></h3>
+<p>将额外的固件放入根文件系统的 <em>/lib/firmware/</em> 目录是一项常见的需求。例如，WiFi适配器或PCIe网卡可能需要专有的固件。为了解决这个问题，我们可以在Layer中使用 <em>bbappend</em> 。首先要创建所需的文件夹，在文件夹中创建bbapend文件并拷贝固件到对应的文件夹中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>meta-racer<span class="w">   </span><span class="c1"># go into your layer</span>
+<span class="gp">host:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>recipes-kernel/linux-firmware/linux-firmware/
+<span class="gp">host:~$ </span>touch<span class="w"> </span>recipes-kernel/linux-firmware/linux-firmware_%.bbappend
+<span class="gp">host:~$ </span>cp<span class="w"> </span>~/example-firmware.bin<span class="w"> </span>recipes-kernel/linux-firmware/linux-firmware/<span class="w">    </span><span class="c1"># adapt filename</span>
+</pre></div>
+</div>
+<p>然后将以下内容添加到 <em>bbappend</em> 文件中，用您的固件名替换每个出现的 <em>example-firmware.bin</em>。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file recipes-kernel/linux-firmware/linux-firmware_%.bbappend</span>
+
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/linux-firmware:&quot;</span>
+SRC_URI<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;file://example-firmware.bin&quot;</span>
+
+do_install:append<span class="w"> </span><span class="p">()</span><span class="w"> </span>{
+<span class="w">        </span>install<span class="w"> </span>-m<span class="w"> </span><span class="mi">0644</span><span class="w"> </span>${WORKDIR}/example-firmware.bin<span class="w"> </span>${D}/lib/firmware/example-firmware.bin
+}
+
+<span class="c1"># NOTE: Use &quot;=+&quot; instead of &quot;+=&quot;. Otherwise file is placed into the linux-firmware package.</span>
+PACKAGES<span class="w"> </span><span class="o">=</span>+<span class="w"> </span><span class="s2">&quot;${PN}-example&quot;</span>
+FILES:${PN}-example<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/lib/firmware/example-firmware.bin&quot;</span>
+</pre></div>
+</div>
+<p>现在尝试构建 linux-firmware recipe</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>.<span class="w"> </span>sources/poky/oe-init-build-env
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>linux-firmware
+</pre></div>
+</div>
+<p>这会生成一个新的软件包 <em>deploy/ipk/all/linux-firmware-example</em>。</p>
+<p>最后一步，您必须将固件包安装到您的镜像中。您可以通过在 <em>local.conf</em> 或镜像recipe中添加对应的代码行来实现</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file local.conf or image recipe</span>
+IMAGE_INSTALL<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;linux-firmware-example&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>确保您已将包名 <em>linux-firmware-example</em> 调整为您在 <em>linux-firmware_%.bbappend</em> 中指定的名称。</p>
+</div>
+</section>
+<section id="change-the-u-boot-environment-via-bbappend-files">
+<h3><span class="section-number">9.6.16. </span>使用 <em>bbappend</em> 文件更改 <em>u-boot</em> 环境变量<a class="headerlink" href="#change-the-u-boot-environment-via-bbappend-files" title="Link to this heading"></a></h3>
+<p>所有 i.MX8M* 产品均使用 u-boot 作为bootloader。可以使用临时方法修改 u-boot 环境变量。对 <em>u-boot-imx</em> 来说，环境变量定义位于 <em>include/configs/phycore_imx8m*</em> 中与处理器名称对应的头文件。新的环境变量应添加在 <em>CONFIG_EXTRA_ENV_SETTINGS</em> 的末尾</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1">#define CONFIG_EXTRA_ENV_SETTINGS \</span>
+[...]
+PHYCORE_FITIMAGE_ENV_BOOTLOGIC<span class="w"> </span>\
+<span class="s2">&quot;newvariable=1\0&quot;</span>
+</pre></div>
+</div>
+<p>提交修改并在您的layer中创建文件 <em>u-boot-imx_%.bbappend</em> <em>&lt;layer&gt; /recipes-bsp/u-boot/u-boot-imx_%.bbappend</em></p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of the file u-boot-imx_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/features:&quot;</span>
+SRC_URI:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">    file://0001-environment-addition.patch \</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="change-the-barebox-environment-via-bbappend-files">
+<h3><span class="section-number">9.6.17. </span>通过 <em>bbappend</em> 文件更改 <em>barebox</em> 环境变量<a class="headerlink" href="#change-the-barebox-environment-via-bbappend-files" title="Link to this heading"></a></h3>
+<p>从 <em>BSP-Yocto-AM335x-16.2.0</em> 和 <em>BSP-Yocto-i.MX6-PD16.1.0</em> 开始， <em>meta-phytec</em> 中的 <em>barebox</em> 环境变量已经采用新的机制。现在可以通过 <em>Python</em> bitbake 任务 <em>do_env</em> 在 <em>barebox</em> 环境中添加、更改和删除文件。有两个 <em>Python</em> 函数可以更改环境。它们是：</p>
+<ul class="simple">
+<li><p><em>env_add(d, ***filename as string*</em><em>, ***file content as string*</em><em>)</em>: 添加新文件或覆盖现有文件</p></li>
+<li><p><em>env_rm(d, ***filename as string*</em><em>)</em>: 删除文件</p></li>
+</ul>
+<p>自定义layer <em>meta-racer</em> 的第一个示例中用 <em>bbappend</em> 文件中展示了如何在 <em>barebox</em> 环境文件夹 <em>/env/nv/</em> 中加入新的非易失性变量 <em>linux.bootargs.fb</em>。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend</span>
+python<span class="w"> </span>do_env:append()<span class="w"> </span>{
+<span class="w">    </span>env_add(d,<span class="w"> </span><span class="s2">&quot;nv/linux.bootargs.fb&quot;</span>,<span class="w"> </span><span class="s2">&quot;imxdrm.legacyfb_depth=32\n&quot;</span><span class="p">)</span>
+}
+</pre></div>
+</div>
+<p>第二个示例显示如何替换网络配置文件 <em>/env/network/eth0</em></p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend</span>
+python<span class="w"> </span>do_env:append()<span class="w"> </span>{
+<span class="w">    </span>env_add(d,<span class="w"> </span><span class="s2">&quot;network/eth0&quot;</span>,
+<span class="s2">&quot;&quot;&quot;#!/bin/sh</span>
+
+<span class="s2"># ip setting (static/dhcp)</span>
+<span class="s2">ip=static</span>
+<span class="s2">global.dhcp.vendor_id=barebox-${global.hostname}</span>
+
+<span class="s2"># static setup used if ip=static</span>
+<span class="s2">ipaddr=192.168.178.5</span>
+<span class="s2">netmask=255.255.255.0</span>
+<span class="s2">gateway=192.168.178.1</span>
+<span class="s2">serverip=192.168.178.1</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+}
+</pre></div>
+</div>
+<p>在上述示例中， <em>Python</em> 的多行字符串语法  <strong>&quot;&quot;&quot; text &quot;&quot;&quot;</strong> 可以避免在 <em>Python</em> 代码中插入多个换行符 <em>\n</em>。 <em>Python</em> 函数 <em>env_add</em> 可以用于添加和替换环境文件。</p>
+<p>下一个示例显示如何删除已添加的环境文件，例如 <em>,</em> <em>/env/boot/mmc</em></p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file meta-racer/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend</span>
+python<span class="w"> </span>do_env:append()<span class="w"> </span>{
+<span class="w">    </span>env_rm(d,<span class="w"> </span><span class="s2">&quot;boot/mmc&quot;</span><span class="p">)</span>
+}
+</pre></div>
+</div>
+<section id="debugging-the-environment">
+<h4><span class="section-number">9.6.17.1. </span>调试<a class="headerlink" href="#debugging-the-environment" title="Link to this heading"></a></h4>
+<p>如果您想查看在构建过程中添加的所有环境文件，您可以在 <em>local.conf</em> 中启用调试标志</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file local.conf</span>
+ENV_VERBOSE<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>之后，您必须重新构建 <em>barebox</em> recipe才能看到调试输出</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>clean
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>barebox<span class="w"> </span>-c<span class="w"> </span>configure
+</pre></div>
+</div>
+<p>最后一个命令的输出如下所示</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[...]
+WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File &#39;nv/allow_color&#39; content &quot;false&quot;
+WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.base&#39; content &quot;consoleblank=0&quot;
+WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.fb&#39; content &quot;imxdrm.legacyfb_depth=32&quot;
+WARNING: barebox-2022.02.0-phy1-r7.0 do_env_write: File &#39;nv/linux.bootargs.rootfs&#39; content &quot;rootwait ro fsck.repair=yes&quot;
+</pre></div>
+</div>
+</section>
+<section id="changing-the-environment-depending-on-machines">
+<h4><span class="section-number">9.6.17.2. </span>修改环境（依赖所使用的machine）<a class="headerlink" href="#changing-the-environment-depending-on-machines" title="Link to this heading"></a></h4>
+<p>如果您只需将一些 <em>barebox</em> 环境设置应用于一台或多台设备，您可以利用 <em>Bitbake</em> 的machine覆盖语法。这个语法是，将machine名称或 SoC 名称（例如 <em>mx6</em>、 <em>ti33x</em> 或 <em>rk3288</em>）通过下划线附加到变量或任务上。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>DEPENDS:remove:mx6<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;virtual/libgl&quot;</span><span class="w"> </span>or
+python<span class="w"> </span>do_env_append_phyboard-mira-imx6-4().
+</pre></div>
+</div>
+<p>下一个示例仅当 MACHINE 设置为 <em>phyboard-mira-imx6-4</em> 时才添加环境变量</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file meta-phytec/recipes-bsp/barebox/barebox_2022.02.0-phy1.bbappend</span>
+python<span class="w"> </span>do_env:append:phyboard-mira-imx6-4()<span class="w"> </span>{
+<span class="w">    </span>env_add(d,<span class="w"> </span><span class="s2">&quot;nv/linux.bootargs.cma&quot;</span>,<span class="w"> </span><span class="s2">&quot;cma=64M\n&quot;</span><span class="p">)</span>
+}
+</pre></div>
+</div>
+<p><em>Bitbake</em> 变量覆盖语法的更详细解释如下：<a class="reference external" href="https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata">https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata</a></p>
+</section>
+<section id="upgrading-the-barebox-environment-from-previous-bsp-releases">
+<h4><span class="section-number">9.6.17.3. </span>在旧的 BSP 版本升级 <em>barebox</em> 环境<a class="headerlink" href="#upgrading-the-barebox-environment-from-previous-bsp-releases" title="Link to this heading"></a></h4>
+<p>在 BSP 版本 <em>BSP-Yocto-AM335x-16.2.0</em> 和 <em>BSP-Yocto-i.MX6-PD16.1.0</em> 之前，通过 <em>bbappend</em> 文件进行的 <em>barebox</em> 环境更改的机制和现在有所不同。例如，meta-layer（此处为 <em>meta-skeleton</em> ）中的目录结构可能如下所示</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>tree<span class="w"> </span>-a<span class="w"> </span>sources/meta-skeleton/recipes-bsp/barebox/
+<span class="go">sources/meta-skeleton/recipes-bsp/barebox</span>
+<span class="go">├── barebox</span>
+<span class="go">│   └── phyboard-wega-am335x-3</span>
+<span class="go">│       ├── boardenv</span>
+<span class="go">│       │   └── .gitignore</span>
+<span class="go">│       └── machineenv</span>
+<span class="go">│           └── nv</span>
+<span class="go">│               └── linux.bootargs.cma</span>
+<span class="go">└── barebox_%.bbappend</span>
+</pre></div>
+</div>
+<p>并且文件 <em>barebox_%.bbappend</em> 包含</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/barebox:&quot;</span>
+</pre></div>
+</div>
+<p>在这个示例中，将会忽略Layer <em>meta-phytec</em> 中目录 <em>boardenv</em> 下的所有环境变量更改，并添加文件 <em>nv/linux.bootargs.cma</em> 。而在 <em>barebox</em> 环境最新的处理机制下，您可以在 <em>Python</em> 任务 <em>do_env</em> 中使用 <em>Python</em> 函数 <em>env_add</em> 和 <em>env_rm</em> 来添加和删除环境。现在，上述示例被转换为文件 <em>barebox_%.bbappend</em> 中的一个单独的 <em>Python</em> 函数，如下所示。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file sources/meta-skeleton/recipes-bsp/barebox/barebox_%.bbappend</span>
+FILESEXTRAPATHS:prepend<span class="w"> </span>:=<span class="w"> </span><span class="s2">&quot;${THISDIR}/barebox:&quot;</span>
+python<span class="w"> </span>do_env:append()<span class="w"> </span>{
+<span class="w">    </span><span class="c1"># Removing files (previously boardenv)</span>
+<span class="w">    </span>env_rm(d,<span class="w"> </span><span class="s2">&quot;config-expansions&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1"># Adding new files (previously machineenv)</span>
+<span class="w">    </span>env_add(d,<span class="w"> </span><span class="s2">&quot;nv/linux.bootargs.cma&quot;</span>,<span class="w"> </span><span class="s2">&quot;cma=64M\n&quot;</span><span class="p">)</span>
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="changing-the-network-configuration">
+<span id="master-changing-net-config"></span><h3><span class="section-number">9.6.18. </span>更改网络配置<a class="headerlink" href="#changing-the-network-configuration" title="Link to this heading"></a></h3>
+<p>To tweak IP addresses, routes, and gateways at runtime you can use the
+<em>iproute2</em> tools. Some examples</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>addr<span class="w">                                         </span><span class="c1"># Show all network interfaces</span>
+<span class="gp">target:~$ </span>ip<span class="w"> </span>route<span class="w">                                        </span><span class="c1"># Show all routes</span>
+<span class="gp">target:~$ </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.178.11/24<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w">          </span><span class="c1"># Add static ip and route to interface eth0</span>
+<span class="gp">target:~$ </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.178.1<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span><span class="c1"># Add default gateway 192.168.178.1</span>
+<span class="gp">target:~$ </span>ip<span class="w"> </span>addr<span class="w"> </span>del<span class="w"> </span><span class="m">192</span>.168.178.11/24<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w">          </span><span class="c1"># Remove static ip address from interface eth0</span>
+</pre></div>
+</div>
+<p>网络配置由 <em>systemd-networkd</em> 管理。要查询当前状态，请使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>networkctl<span class="w"> </span>status
+<span class="gp">target:~$ </span>networkctl<span class="w"> </span>list
+</pre></div>
+</div>
+<p>网络守护进程从目录 <em>/etc/systemd/network/</em> 、 <em>/run/systemd/network/</em> 和 <em>/lib/systemd/network/</em> 读取配置（从高到低优先级）。 <em>/lib/systemd/network/10-eth0.network</em> 中的示例配置如下所示</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file /lib/systemd/network/10-eth0.network</span>
+[Match]
+Name=eth0
+
+[Network]
+Address=192.168.3.11/24
+Gateway=192.168.3.10
+</pre></div>
+</div>
+<p>这些文件 <em>*.network</em> 取代了其他发行版中的 <em>/etc/network/interfaces</em>。您可以直接编辑文件 <em>10-eth0.network</em>，或者将其复制到 <em>/etc/systemd/network/</em> 并进行修改。修改文件后，您需要重启守护进程以使更改生效。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
+<p>要查看网络守护进程的系统日志消息，请使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>journalctl<span class="w"> </span>--unit<span class="o">=</span>systemd-networkd.service
+</pre></div>
+</div>
+<p>要在编译时修改网络配置，请查看recipe <em>sources/meta-ampliphy/recipes-core/systemd/systemd-machine-units.bb</em> 和文件夹 <em>meta-ampliphy/recipes-core/systemd/systemd-machine-units/</em> 中的接口文件，其中定义了 <em>eth0</em> （以及可选的 <em>eth1</em> ）的静态 IP 地址配置。</p>
+<p>有关更多信息，请参阅https://wiki.archlinux.org/title/Systemd-networkd 和 <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html">https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html</a>。</p>
+</section>
+<section id="changing-the-wireless-network-configuration">
+<h3><span class="section-number">9.6.19. </span>更改无线网络配置<a class="headerlink" href="#changing-the-wireless-network-configuration" title="Link to this heading"></a></h3>
+<section id="connecting-to-a-wlan-network">
+<h4><span class="section-number">9.6.19.1. </span>连接至 WLAN 网络<a class="headerlink" href="#connecting-to-a-wlan-network" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>请首先为您的国家或地区选择合适的网络地域。</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DE
+<span class="gp">target:~$ </span>iw<span class="w"> </span>reg<span class="w"> </span>get
+</pre></div>
+</div>
+<p>您会看到</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>country DE: DFS-ETSI
+   (2400 - 2483 @ 40), (N/A, 20), (N/A)
+   (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+   (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+   (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+   (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>设置无线接口</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w">    </span><span class="c1"># list all interfaces. Search for wlan*</span>
+<span class="gp">target:~$ </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>dev<span class="w"> </span>wlan0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>现在您可以扫描可用网络</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>iw<span class="w"> </span>wlan0<span class="w"> </span>scan<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SSID
+</pre></div>
+</div>
+<p>您可以使用支持 <em>WEP</em>、 <em>WPA</em> 和 <em>WPA2</em> 的跨平台身份认证客户端（称为 <em>wpa_supplicant</em>）来建立加密连接。</p>
+<ul class="simple">
+<li><p>为此，请将网络凭据添加到文件 <em>/etc/wpa_supplicant.conf</em></p></li>
+</ul>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>Confluence<span class="w"> </span>country=DE<span class="w"> </span>network={<span class="w"> </span>ssid=&quot;&lt;SSID&gt;&quot;<span class="w"> </span>proto=WPA2<span class="w"> </span>psk=&quot;&lt;KEY&gt;&quot;<span class="w"> </span>}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>现在可以建立连接</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>wpa_supplicant<span class="w"> </span>-Dnl80211<span class="w"> </span>-c/etc/wpa_supplicant.conf<span class="w"> </span>-iwlan0<span class="w"> </span>-B
+</pre></div>
+</div>
+<p>这会有以下结果</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>ENT-CONNECTED<span class="w"> </span>-<span class="w"> </span>Connection<span class="w"> </span>to<span class="w"> </span><span class="mi">88</span>:33:14:5d:db:b1<span class="w"> </span>completed<span class="w"> </span>[id=0<span class="w"> </span>id_str=]
+</pre></div>
+</div>
+<p>最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 <a class="reference internal" href="scarthgap.html#scarthgap-changing-net-config"><span class="std std-ref">更改网络配置</span></a> 部分。</p>
+<ul class="simple">
+<li><p>首先，创建目录</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>然后在 <em>/etc/systemd/network/10-wlan0.network</em> 中添加以下配置片段</p></li>
+</ul>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file /etc/systemd/network/10-wlan0.network</span>
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>现在，重新启动网络守护程序以使配置生效</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
+</section>
+<section id="creating-a-wlan-access-point">
+<h4><span class="section-number">9.6.19.2. </span>创建 WLAN 接入点<a class="headerlink" href="#creating-a-wlan-access-point" title="Link to this heading"></a></h4>
+<p>本节提供基本的 <em>WPA2</em> 网络接入点 (AP) 的配置。</p>
+<p>使用以下命令查找 WLAN 接口名称</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>ip<span class="w"> </span>link
+</pre></div>
+</div>
+<p>编辑 <em>/etc/hostapd.conf</em> 文件中的设置。这在很大程度上依赖于具体的应用场景。以下是一些示例。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file /etc/hostapd.conf</span>
+interface=wlan0
+driver=nl80211
+ieee80211d=1
+country_code=DE
+hw_mode=g
+ieee80211n=1
+ssid=Test-Wifi
+channel=2
+wpa=2
+wpa_passphrase=12345678
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=CCMP
+</pre></div>
+</div>
+<p>通过 <em>systemd-networkd</em> 配置并启用网络接口 <em>wlan0</em> 的 DHCP 服务</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network/
+<span class="gp">target:~$ </span>vi<span class="w"> </span>/etc/systemd/network/10-wlan0.network
+</pre></div>
+</div>
+<p>将以下文本插入到文件中</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>[Match]
+Name=wlan0
+
+[Network]
+Address=192.168.0.1/24
+DHCPServer=yes
+
+[DHCPServer]
+EmitDNS=yes
+target:~$<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+target:~$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w">  </span>systemd-networkd<span class="w"> </span>-l<span class="w">   </span><span class="c1"># check status and see errors</span>
+</pre></div>
+</div>
+<p>启动用户空间后台进程 <em>hostapd</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>start<span class="w"> </span>hostapd
+<span class="gp">target:~$ </span>systemctl<span class="w"> </span>status<span class="w"> </span>hostapd<span class="w"> </span>-l<span class="w"> </span><span class="c1"># check for errors</span>
+</pre></div>
+</div>
+<p>现在，您应该可以在终端设备（笔记本电脑、智能手机等）上看到 WLAN 网络 <em>Test-Wifi</em>。</p>
+<p>如果接入点出现问题，您可以使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>journalctl<span class="w"> </span>--unit<span class="o">=</span>hostapd
+</pre></div>
+</div>
+<p>或者从命令行以调试模式启动守护进程</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>systemctl<span class="w"> </span>stop<span class="w"> </span>hostapd
+<span class="gp">target:~$ </span>hostapd<span class="w"> </span>-d<span class="w"> </span>/etc/hostapd.conf<span class="w"> </span>-P<span class="w"> </span>/var/run/hostapd.pid
+</pre></div>
+</div>
+<p>您会看到</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+wlan0: interface state UNINITIALIZED-&gt;ENABLED
+wlan0: AP-ENABLED
+</pre></div>
+</div>
+<p>有关 AP 设置和用户空间守护进程 <em>hostapd</em> 的更多信息，请访问</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://wireless.wiki.kernel.org/en/users/documentation/hostapd
+https://w1.fi/hostapd/
+</pre></div>
+</div>
+</section>
+<section id="phycore-i-mx-6ul-ull-bluetooth">
+<h4><span class="section-number">9.6.19.3. </span>phyCORE-i.MX 6UL/ULL 蓝牙<a class="headerlink" href="#phycore-i-mx-6ul-ull-bluetooth" title="Link to this heading"></a></h4>
+<p>在使用 phyCORE-i.MX 6UL/ULL 的蓝牙功能时，需要特别谨慎。了解更多详情，请参考 <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5i-Bluetooth">L-844e.A5 i.MX 6UL/ULL BSP手册 - 蓝牙</a>。</p>
+</section>
+</section>
+<section id="add-opencv-libraries-and-examples">
+<h3><span class="section-number">9.6.20. </span>添加 OpenCV 库和示例<a class="headerlink" href="#add-opencv-libraries-and-examples" title="Link to this heading"></a></h3>
+<p><em>OpenCV</em> （开源计算机视觉 <a class="reference external" href="https://opencv.org/">https://opencv.org/</a>）是一个计算机视觉应用的开源库。</p>
+<p>要安装库和示例，请编辑 <em>Yocto</em> 工程中的文件 <em>conf/local.conf</em> 并添加</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file conf/local.conf</span>
+<span class="c1"># Installing OpenCV libraries and examples</span>
+LICENSE_FLAGS_ACCEPTED<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;commercial_libav&quot;</span>
+LICENSE_FLAGS_ACCEPTED<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;commercial_x264&quot;</span>
+IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">    opencv \</span>
+<span class="s2">    opencv-samples \</span>
+<span class="s2">    libopencv-calib3d2.4 \</span>
+<span class="s2">    libopencv-contrib2.4 \</span>
+<span class="s2">    libopencv-core2.4 \</span>
+<span class="s2">    libopencv-flann2.4 \</span>
+<span class="s2">    libopencv-gpu2.4 \</span>
+<span class="s2">    libopencv-highgui2.4 \</span>
+<span class="s2">    libopencv-imgproc2.4 \</span>
+<span class="s2">    libopencv-legacy2.4 \</span>
+<span class="s2">    libopencv-ml2.4 \</span>
+<span class="s2">    libopencv-nonfree2.4 \</span>
+<span class="s2">    libopencv-objdetect2.4 \</span>
+<span class="s2">    libopencv-ocl2.4 \</span>
+<span class="s2">    libopencv-photo2.4 \</span>
+<span class="s2">    libopencv-stitching2.4 \</span>
+<span class="s2">    libopencv-superres2.4 \</span>
+<span class="s2">    libopencv-video2.4 \</span>
+<span class="s2">    libopencv-videostab2.4 \</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>然后重编译镜像</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-qt6demo-image
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>大多数示例无法开箱即用，因为它们依赖于 <em>GTK</em> 图形库。此BSP 仅支持 <em>Qt6</em> 。</p>
+</div>
+</section>
+<section id="add-minimal-php-web-runtime-with-lightpd">
+<h3><span class="section-number">9.6.21. </span>使用 <em>lightpd</em> 安装最小的 PHP Web 运行环境<a class="headerlink" href="#add-minimal-php-web-runtime-with-lightpd" title="Link to this heading"></a></h3>
+<p>这个示例说明如何在目标镜像上添加 PHP 应用程序和 Web 服务。Lighttpd 可以通过 cgi 与 PHP 命令行工具一起使用。此解决方案仅占用 5.5 MiB 的磁盘空间。它已在 meta-ampliphy 中预先配置。只需调整yocto工程构建配置即可将其安装到镜像中。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># file conf/local.conf</span>
+<span class="c1"># install lighttpd with php cgi module</span>
+IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; lighttpd&quot;</span>
+</pre></div>
+</div>
+<p>启动镜像后，您会在 <em>/www/pages</em> 目录下找到示例网页内容。为了测试 php，您可以删除 <em>index.html</em> 并将其替换为 <em>index.php</em> 文件。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>PHP-Test<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php phpinfo(); ?&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>在您的主机上，您可以将浏览器指向主板的 IP（例如 192.168.3.11），然后 phpinfo 就会显示出来。</p>
+</section>
+</section>
+<section id="common-tasks">
+<h2><span class="section-number">9.7. </span>常见任务<a class="headerlink" href="#common-tasks" title="Link to this heading"></a></h2>
+<section id="debugging-a-user-space-application">
+<h3><span class="section-number">9.7.1. </span>调试用户空间应用程序<a class="headerlink" href="#debugging-a-user-space-application" title="Link to this heading"></a></h3>
+<p>phytec-qt6demo-image 无需任何调整就可以进行交叉调试。您只需确保主机的 sysroot 与所使用的镜像相匹配。因此，您需要为该镜像创建一个编译工具链。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>phytec-qt6demo-image
+</pre></div>
+</div>
+<p>此外，如果您希望对镜像中的所有程序和库具有完整的调试和回溯功能，您可以添加</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>DEBUG_BUILD<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>到 <code class="docutils literal notranslate"><span class="pre">conf/local.conf</span></code>。这在某些情况下并不是必需的。这样配置之后，编译器选项将从 FULL_OPTIMIZATION 切换到 DEBUG_OPTIMIZATION。查看 <em>Poky</em> 源代码以了解 DEBUG_OPTIMIZATION 的默认设置。</p>
+<p>要开始交叉调试，请按照之前的说明安装 SDK，设置 SDK 环境，然后在同一个 shell 中启动 <em>Qt Creator</em>。如果您不使用 <em>Qt Creator</em>，可以在souce SDK环境脚本后直接运行 arm-&lt;..&gt;-gdb 调试器，该gdb调试器在source后会默认配置到您的PATH中。</p>
+<p>如果您使用 <em>Qt Creator</em>，请查看随产品提供的相应文档（快速入门或应用程序指南），以获取有关如何设置工具链的信息。</p>
+<p>使用调试器启动用户空间的应用程序时，您可能会遇到 SIGILL，这是来自 <em>libcrypto</em> 的非法指令。 <em>Openssl</em> 通过捕获这些非法指令来检测系统功能，这将导致 <em>GDB</em> 中断被触发。您可以选择忽略此操作并点击 <strong>继续</strong> （命令c）。如果希望永久忽略此信号，可以添加</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>handle<span class="w"> </span>SIGILL<span class="w"> </span>nostop
+</pre></div>
+</div>
+<p>到您的 <em>GDB</em> 启动脚本或 <em>Qt Creator GDB</em> 配置面板中。其次，您可以禁用安全功能，这通过添加</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>set<span class="w"> </span>auto-load<span class="w"> </span>safe-path<span class="w"> </span>/
+</pre></div>
+</div>
+<p>到同一个启动脚本，它允许从任何位置自动加载库。</p>
+<p>如果您想要进行本地调试，需要在目标设备上安装调试符号表。您可以通过在 <em>conf/local.conf</em> 中添加以下行来实现这一点。</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>EXTRA_IMAGE_FEATURES<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;dbg-pkgs&quot;</span>
+</pre></div>
+</div>
+<p>对于交叉调试，这并不是必需的，因为调试符号表会从PC侧加载，并且 dbg-pkgs 也会包含在镜像的 SDK 中。</p>
+</section>
+<section id="generating-source-mirrors-working-offline">
+<span id="master-gen-source-mirrors"></span><h3><span class="section-number">9.7.2. </span>生成镜像源，开启离线构建<a class="headerlink" href="#generating-source-mirrors-working-offline" title="Link to this heading"></a></h3>
+<p>参照如下方式，修改您的 <em>site.conf</em> (如果您不使用 <em>site.conf</em>,请修改 <em>local.conf</em> )</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1">#DL_DIR ?= &quot;&quot; don&#39;t set it! It will default to a directory inside /build</span>
+SOURCE_MIRROR_URL<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;file:///home/share/yocto_downloads/&quot;</span>
+INHERIT<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;own-mirrors&quot;</span>
+BB_GENERATE_MIRROR_TARBALLS<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>现在运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>--runall<span class="o">=</span>fetch<span class="w"> </span>&lt;image&gt;
+</pre></div>
+</div>
+<p>这适用于所有镜像及您希望提供镜像源的所有MACHINE。它将生成所需的所有 <em>tar</em> 文件。我们可以移除所有 SCM 子文件夹，因为它们是和 tar 文件重复的。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>rm<span class="w"> </span>-rf<span class="w"> </span>build/download/git2/
+<span class="go">etc...</span>
+</pre></div>
+</div>
+<p>请注意，我们使用本地镜像源来生成 dl_dir。这样，有一些文件是本地链接文件。</p>
+<p>首先，我们需要将所有文件包括符号链接的源文件拷贝到新的镜像源目录中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>rsync<span class="w"> </span>-vaL<span class="w"> </span>&lt;dl_dir&gt;<span class="w"> </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span>/../src_mirror/
+</pre></div>
+</div>
+<p>Now we clean the <em>/build</em> directory by deleting everything except <em>/build/conf/</em>
+but including <em>/build/conf/sanity</em>. We change <em>site.conf</em> as follows</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>SOURCE_MIRROR_URL<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;file://${TOPDIR}/../src_mirror&quot;</span>
+INHERIT<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;own-mirrors&quot;</span>
+BB_NO_NETWORK<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+SCONF_VERSION<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>BSP 目录现在可以使用以下方式压缩</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>tar<span class="w"> </span>cfJ<span class="w"> </span>&lt;filename&gt;.tar.xz<span class="w"> </span>&lt;folder&gt;
+</pre></div>
+</div>
+<p>其中文件名和文件夹应该以完整的 BSP 版本命名。</p>
+</section>
+<section id="compiling-on-the-target">
+<h3><span class="section-number">9.7.3. </span>在目标主机上进行编译<a class="headerlink" href="#compiling-on-the-target" title="Link to this heading"></a></h3>
+<p>在您的 <em>local.conf</em> 中添加</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>IMAGE_FEATURES:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; tools-sdk dev-pkgs&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="different-toolchains">
+<h3><span class="section-number">9.7.4. </span>不同的工具链<a class="headerlink" href="#different-toolchains" title="Link to this heading"></a></h3>
+<p>在 <em>Poky</em> 中有多种方法可以创建工具链安装程序。一种方法是运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>meta-toolchain
+</pre></div>
+</div>
+<p>这将在 <em>build/deploy/sdk</em> 中生成一个工具链安装程序，可用于交叉编译目标应用。但是，这个安装程序不包含添加到您自定义镜像中的库，因此它只是一个单纯的 <em>GCC</em> 编译器。这适用于bootloader和kernel开发。</p>
+<p>另一种方法是运行</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>&lt;your_image&gt;
+</pre></div>
+</div>
+<p>这将创建一个工具链安装程序，包含所有安装在目标根文件系统上的软件开发包。该安装程序涵盖开发应用程序所需的所有组件，可以被用户空间应用程序开发团队所使用。如果镜像中包含 <em>QT</em> 库，那么所有相关依赖库也将随安装程序提供。</p>
+<p>第三个选项是创建 ADT（应用程序开发工具包）安装程序。它将包含交叉工具链和一些帮助软件开发人员的工具，例如 <em>Eclipse</em> 插件和 <em>QEMU</em> 系统模拟器。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>adt-installer
+</pre></div>
+</div>
+<p>目前，我们的 BSP 尚未使用 ADT 进行测试。</p>
+<section id="using-the-sdk">
+<h4><span class="section-number">9.7.4.1. </span>使用 SDK<a class="headerlink" href="#using-the-sdk" title="Link to this heading"></a></h4>
+<p>使用以下方式生成 SDK 后</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>-c<span class="w"> </span>populate_sdk<span class="w"> </span>phytec-qt6demo-image<span class="w"> </span><span class="c1"># or another image</span>
+</pre></div>
+</div>
+<p>使用以下方式运行生成的二进制文件</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>deploy/sdk/ampliphy-glibc-x86_64-phytec-qt6demo-image-cortexa9hf-vfp-neon-toolchain-i.MX6-PD15.3-rc.sh
+<span class="go">Enter target directory for SDK (default: /opt/ampliphy/i.MX6-PD15.3-rc):</span>
+<span class="go">You are about to install the SDK to &quot;/opt/ampliphy/i.MX6-PD15.3-rc&quot;. Proceed[Y/n]?</span>
+<span class="go">Extracting SDK...done</span>
+<span class="go">Setting it up...done</span>
+<span class="go">SDK has been successfully set up and is ready to be used.</span>
+</pre></div>
+</div>
+<p>您可以通过source 工具链目录中的 <em>environment-setup</em> 脚本来激活当前shell的工具链环境</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在可以用SDK和Meson编译系统编译Qt6应用之前，需要在source SDK 后做以下步骤：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$OECORE_NATIVE_SYSROOT</span>/usr/libexec:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</div>
+<p>然后，交叉编译器和链接器等必要工具就在您的 PATH 中了。要编译一个简单的 <em>C</em> 程序，请使用</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ $</span>CC<span class="w"> </span>main.c<span class="w"> </span>-o<span class="w"> </span>main
+</pre></div>
+</div>
+<p>环境变量 $CC 包含 ARM 交叉编译器的路径和其他所需的编译器参数，如 <em>-march</em>、<em>-sysroot</em> 和 <em>--mfloat-abi</em>。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>您不能仅使用编译器名称来编译程序，例如</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>arm-phytec-linux-gnueabi-gcc<span class="w"> </span>main.c<span class="w"> </span>-o<span class="w"> </span>main
+</pre></div>
+</div>
+<p>在许多情况下它会导致编译失败。请使用 <em>CC</em>、CFLAGS、LDFLAGS 等。</p>
+</div>
+<p>为了方便起见， <em>environment-setup</em> 脚本会导出其他环境变量，如 CXX、LD、SDKTARGETSYSROOT。</p>
+<p>编译 <em>C</em> 和 <em>C++</em> 程序的一个简单的 makefile 可能如下所示</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span><span class="c1"># Makefile</span>
+TARGETS=c-program<span class="w"> </span>cpp-program
+
+all:<span class="w"> </span>$(TARGETS)
+
+c-program:<span class="w"> </span>c-program.c
+<span class="w">    </span>$(CC)<span class="w"> </span>$(CFLAGS)<span class="w"> </span>$(LDFLAGS)<span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span>$@
+
+cpp-program:<span class="w"> </span>cpp-program.cpp
+<span class="w">    </span>$(CXX)<span class="w"> </span>$(CXXFLAGS)<span class="w"> </span>$(LDFLAGS)<span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span>$@
+
+.PHONY:<span class="w"> </span>clean
+clean:
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span>$(TARGETS)
+</pre></div>
+</div>
+<p>要对目标进行编译，只需在执行 make 之前在当前 shell 中 source 工具链即可</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ make     # </span>Compiling<span class="w"> </span>with<span class="w"> </span>host<span class="w"> </span>CC,<span class="w"> </span>CXX<span class="w"> </span><span class="k">for</span><span class="w"> </span>host<span class="w"> </span>architecture
+<span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/ampliphy/i.MX6-PD15.3-rc/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+<span class="gp">host:~$ make     # </span>Compiling<span class="w"> </span>with<span class="w"> </span>target<span class="w"> </span>CC,<span class="w"> </span>CXX<span class="w"> </span><span class="k">for</span><span class="w"> </span>target<span class="w"> </span>architecture
+</pre></div>
+</div>
+<p>如果您需要在工具链的 sysroot 中指定额外包含的目录，则可以在 <em>-I</em> 参数中使用“=”符号，例如</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>-I=/usr/include/SDL
+</pre></div>
+</div>
+<p><em>GCC</em> 会用工具链中的 sysroot 路径替换它（此处为 <em>/opt/ampliphy/i.MX6-PD15.3-rc/sysroots/cortexa9hf-vfp-neon-phytec-linux-gnueabi/</em>）。有关更多信息，请参阅 <em>GCC</em> 主页。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>变量 $CFLAGS 和 $CXXFLAGS 默认会包含编译器的调试标志“-g”。这会在二进制文件中加入调试信息，从而使文件变得更大。应该从正式生产的镜像中去除这个标志。如果您编写 <em>Bitbake</em> recipe，默认情况下也会启用“-g”。调试符号在 SDK 根文件系统 中是有用的，以便在主机调用 <em>GDB</em> 时获取调试信息。但是在将软件包安装到目标 根文件系统 之前， <em>Bitbake</em> 会在程序上执行 <em>strip</em> 命令，以去除调试符号。因为默认情况下，这些符号在目标根文件系统中是不需要的。</p>
+</div>
+</section>
+<section id="using-the-sdk-with-gnu-autotools">
+<h4><span class="section-number">9.7.4.2. </span>将 SDK 与 GNU Autotools 结合使用<a class="headerlink" href="#using-the-sdk-with-gnu-autotools" title="Link to this heading"></a></h4>
+<p><em>Yocto</em> SDK 是 <em>GNU Autotools</em> 项目会用到的一个工具。传统的主机编译过程通常是</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ ./autogen.sh # </span>maybe<span class="w"> </span>not<span class="w"> </span>needed
+<span class="gp">host:~$ </span>./configure
+<span class="gp">host:~$ </span>make
+<span class="gp">host:~$ </span>make<span class="w"> </span>install<span class="w"> </span><span class="nv">DESTDIR</span><span class="o">=</span><span class="nv">$PWD</span>/build/
+</pre></div>
+</div>
+<p>用 <em>Yocto</em> SDK 对目标machine进行构建的命令也是非常相似的。以下命令假设 SDK 已解压到目录 <em>/opt/phytec-ampliphy/i.MX6-PD15.3.0/</em> （可根据实际情况修改路径）</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">source</span><span class="w"> </span>/opt/phytec-ampliphy/i.MX6-PD15.3.0/environment-setup-cortexa9hf-vfp-neon-phytec-linux-gnueabi
+<span class="gp">host:~$ ./autogen.sh  # </span>maybe<span class="w"> </span>not<span class="w"> </span>needed
+<span class="gp">host:~$ ./configure $</span><span class="o">{</span>CONFIGURE_FLAGS<span class="o">}</span>
+<span class="gp">host:~$ </span>make
+<span class="gp">host:~$ </span>make<span class="w"> </span>install<span class="w"> </span><span class="nv">DESTDIR</span><span class="o">=</span><span class="nv">$PWD</span>/build/
+</pre></div>
+</div>
+<p>Refer to the official <em>Yocto</em> documentation for more information:
+<a class="reference external" href="https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects">Autotools-Based Projects</a></p>
+</section>
+</section>
+<section id="working-with-kernel-modules">
+<h3><span class="section-number">9.7.5. </span>使用Kernel模块<a class="headerlink" href="#working-with-kernel-modules" title="Link to this heading"></a></h3>
+<p>如果您需要为内核模块配置一些选项，或者将一个模块加入黑名单。您可以通过 <em>udev</em> 进行，并写入 <em>*.conf</em> 文件中。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/modprobe.d/\*.conf.
+</pre></div>
+</div>
+<p>如果您希望在构建过程中指定kernel模块的一些选项，则有三个相关的变量。如果您仅想自动加载那些没有自动加载功能的模块，请将其添加到</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;your-module&quot;</span>
+</pre></div>
+</div>
+<p>无论是在kernel recipe中还是涉及到全局变量。如果您需要为模块指定选项，您可以这样做</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;your-module&quot;</span>
+KERNEL_MODULE_PROBECONF<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;your-module&quot;</span>
+module_conf_your-module<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;options your-module parametername=parametervalue&quot;</span>
+</pre></div>
+</div>
+<p>如果您想将某个模块列入自动加载黑名单，您可以直接使用</p>
+<div class="highlight-kconfig notranslate"><div class="highlight"><pre><span></span>KERNEL_MODULE_AUTOLOAD<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;your-module&quot;</span>
+KERNEL_MODULE_PROBECONF<span class="w"> </span>+=<span class="w"> </span><span class="s2">&quot;your-module&quot;</span>
+module_conf_your-module<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;blacklist your-module&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="troubleshooting">
+<h1><span class="section-number">10. </span>故障排除<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<section id="setscene-task-warning">
+<h2><span class="section-number">10.1. </span>setscene任务告警<a class="headerlink" href="#setscene-task-warning" title="Link to this heading"></a></h2>
+<p>当 Yocto 缓存处于dirty状态时会出现此告警。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING: Setscene task X ([...]) failed with exit code &#39;1&#39; - real task
+</pre></div>
+</div>
+<p>但是请避免强制取消构建，或者如果必须取消，请按一次 Ctrl-C 并等待构建过程停止。要删除所有这些告警，请清除 sstate 缓存并删除build文件夹。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image<span class="w"> </span>-c<span class="w"> </span>cleansstate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>tmp<span class="w"> </span>deploy/ipk
+</pre></div>
+</div>
+</section>
+</section>
+<section id="yocto-documentation">
+<h1><span class="section-number">11. </span>Yocto 文档<a class="headerlink" href="#yocto-documentation" title="Link to this heading"></a></h1>
+<p>The most important piece of documentation for a BSP user is probably the
+developer <a class="reference external" href="https://docs.yoctoproject.org/dev/dev-manual/index.html">manual</a>.</p>
+<p>The chapter about common tasks is a good starting point. <a class="reference external" href="https://docs.yoctoproject.org/dev/dev-manual/layers.html#understanding-and-creating-layers">Creating Layers</a></p>
+<p>The complete documentation is available on one single <a class="reference external" href="https://docs.yoctoproject.org/dev/singleindex.html">megamanual</a> HTML page,
+which is good for searching for a feature or a variable name.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="manual-index.html" class="btn btn-neutral float-left" title="Unstable (dev)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="kirkstone.html" class="btn btn-neutral float-right" title="1. PHYTEC 文档" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

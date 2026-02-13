@@ -1,0 +1,3317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Introduction &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/security/kirkstone-sec.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Coprocessor" href="../coprocessor/index.html" />
+    <link rel="prev" title="1. Introduction" href="scarthgap-sec.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="manual-index.html">Security Manuals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manual-index.html#head">Head</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="manual-index.html#kirkstone">Kirkstone</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securiphy-overview">2. SECURIphy Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#short-crypto-refresher">2.1. Short Crypto Refresher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recommended-security-requirements">2.2. Recommended Security Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-branding-name">3. Enable Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distro-distro-secure-and-distro-secure-vendor">3.1. Distro ampliphy-secure and ampliphy-vendor-secure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distro-distro-provisioning-and-distro-provisioning-vendor">3.2. Distro ampliphy-provisioning and ampliphy-vendor-provisioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-different-machines-for-ti-k3-controller">3.3. The Different Machines for TI K3 Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-branding-name-features-in-custom-distro">3.4. Enable Security Features in Custom Distro</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#secure-boot">4. Secure Boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chain-of-trust">4.1. Chain of Trust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boot-process">4.2. Boot Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-signing">4.3. Image Signing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flattened-image-tree-fit">4.4. Flattened Image Tree (FIT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-class-for-signing-images">4.5. Configuration Class for Signing Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-a-signed-image">4.6. Building a Signed Image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#activate-secure-boot-on-the-device">5. Activate Secure Boot on the Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emmc-boot-partition-to-enable-boot">5.1. eMMC Boot Partition to Enable Boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#activate-secure-boot-for-nxp-soc">5.2. Activate Secure Boot for NXP SoC</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#check-the-current-state-of-your-device">5.2.1. Check the current state of your device</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#burn-the-srk">5.2.2. Burn the SRK</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#lock-the-device">5.2.3. Lock the device</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#activate-secure-boot-for-ti-k3-soc">5.3. Activate Secure Boot for TI K3 SoC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#next-steps-after-activation-of-secure-boot">5.4. Next Steps after Activation of Secure Boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-revocation">5.5. Key Revocation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#revoke-nxp-srk-key">5.5.1. Revoke NXP SRK Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kernel-module-signing">6. Kernel Module Signing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enable-kernel-module-signing-facility">6.1. Enable Kernel Module Signing Facility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#device-tree-overlay-and-secure-boot">7. Device Tree Overlay and Secure Boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device-tree-overlay-for-i-mx6ul-and-i-mx6">7.1. Device Tree Overlay for i.MX6UL and i.MX6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-tree-overlay-for-the-other-nxp-socs">7.2. Device Tree Overlay for the other NXP SoCs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#build-time">7.2.1. Build Time</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#run-time">7.2.2. Run Time</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#deactivate-device-tree-overlay-support">7.2.3. Deactivate Device Tree Overlay Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#secure-key-storage">8. Secure Key Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nxp-i-mx-caam">8.1. NXP i.MX CAAM</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#prerequisites-and-caveats">8.1.1. Prerequisites and Caveats</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#test-and-using">8.1.2. Test and using</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#trusted-execution-environment-op-tee">8.2. Trusted Execution Environment: OP-TEE</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id1">8.2.1. Prerequisites and Caveats</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#testing-op-tee">8.2.2. Testing OP-TEE</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#trusted-platform-module-tpm-2-0">8.3. Trusted Platform Module (TPM) 2.0</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#initialization-of-the-tpm">8.3.1. Initialization of the TPM</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-key-retention-service-for-filesystem-encryption">8.4. Kernel Key Retention Service for Filesystem Encryption</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#secure-key-storage-initialization-with-physecurekeystorage-tool">8.4.1. Secure Key Storage Initialization with phySecureKeyStorage Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cryptographic-token-interface-pkcs-11">8.5. Cryptographic Token Interface PKCS#11</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#secure-storage">9. Secure Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#filesystem-with-integrity-vs-authenticated-filesystem">9.1. Filesystem with Integrity vs Authenticated Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements-for-filesystem-encryption">9.2. Requirements for Filesystem Encryption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boot-process-flow">9.3. Boot Process Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#starting-the-build-process">9.4. Starting the Build Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-secure-storage-on-your-device">9.5. Setup Secure Storage on your Device</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#first-boot">9.5.1. First Boot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#key-generation-for-secure-storage">9.5.2. Key Generation for Secure Storage</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#secure-storage-initialization-with-physecurestorage-tool">9.5.3. Secure Storage Initialization with phySecureStorage Tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#recover-an-initialized-device">9.5.4. Recover an Initialized Device</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hardening-of-the-system">10. Hardening of the System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physical-security">11. Physical security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secure-jtag">11.1. Secure JTAG</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#disable-debugging-mode-only-for-nxp-soc">11.1.1. Disable Debugging Mode only for NXP SoC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#disable-jtag-mode">11.1.2. Disable JTAG Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-serial-downloader">11.2. Disable Serial Downloader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#force-internal-boot">11.3. Force Internal Boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-boot-from-external-memory">11.4. Disable Boot from External Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#keys-and-certificates-management">12. Keys and Certificates Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#public-key-infrastructure-tree-pki-tree">12.1. Public Key Infrastructure Tree (PKI tree)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phytec-development-keys-phytec-dev-ca">12.2. PHYTEC Development Keys (phytec-dev-ca)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-custom-pki-tree">12.3. Create Custom PKI Tree</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#change-pki-tree-from-phytec-dev-ca-to-custom-pki">12.3.1. Change PKI Tree from phytec-dev-ca to Custom PKI</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#create-nxp-ahab-habv4-keys">12.4. Create NXP AHAB / HABV4 Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-ti-k3-keys">12.5. Create TI K3 Keys</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#installing-the-sdk">12.5.1. Installing the SDK</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#generating-keys">12.5.2. Generating Keys</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#building-the-keywriter">12.5.3. Building the Keywriter</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#create-kernel-fit-image-key">12.6. Create Kernel FIT-Image Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-kernel-module-signing-key">12.7. Create Kernel Module Signing Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-rauc-update-certificates">12.8. Create RAUC Update Certificates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="manual-index.html">Security Manuals</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/security/kirkstone-sec.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Documentation in pdf format: <a class="reference external" href="../_static/kirkstone-sec.pdf">Download</a></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Security Manual</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document Title</p></td>
+<td><p>Security Manual Kirkstone</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document Type</p></td>
+<td><p>Security Manual</p></td>
+</tr>
+<tr class="row-even"><td><p>Last modified</p></td>
+<td><p>2025/08/27</p></td>
+</tr>
+<tr class="row-odd"><td><p>Is Branch of</p></td>
+<td><p>Security Manual</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Compatible BSPs</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">BSP Release</div>
+<div class="line">Type</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">BSP Release</div>
+<div class="line">Date</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Security</div>
+<div class="line">Support</div>
+<div class="line">Status</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-i.MX6-PD22.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>14.12.2022</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-i.MX6-PD22.1.1</p></td>
+<td><p>Minor</p></td>
+<td><p>20.06.2023</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>11.08.2022</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1</p></td>
+<td><p>Minor</p></td>
+<td><p>23.05.2023</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-NXP-i.MX8MM-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>12.12.2023</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-NXP-i.MX8MP-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>12.12.2023</p></td>
+<td><p>full</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-AM62x-PD23.2.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>partly</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>partly</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-AM64x-PD23.2.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>partly</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-AM68x-PD24.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>12.03.2024</p></td>
+<td><p>keywriter</p></td>
+</tr>
+</tbody>
+</table>
+<p>This manual applies to all Kirkstone based PHYTEC releases.</p>
+<section id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>PHYTEC's Yocto distribution Ampliphy (former Yogurt) supports different
+security mechanism. The security features have impact on the bootloader,
+the Linux kernel, Device Tree, and root filesystem.
+This manual describes how security features are used and implemented on various
+PHYTEC platforms. Note that different modules use different bootloaders and
+flash storage devices, which affects the way things are handled. Make sure to
+read the correct sections fitting your platform.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This manual contains machine-specific paths and variable contents. Make sure
+you are using the correct machine and device names for your application when
+executing any commands.</p>
+</div>
+</section>
+<section id="securiphy-overview">
+<span id="kirkstone-security-overview"></span><h1><span class="section-number">2. </span>SECURIphy Overview<a class="headerlink" href="#securiphy-overview" title="Link to this heading"></a></h1>
+<p>SECURIphy is the PHYTEC secure linux distribution and a part of the security
+packages phyKNOX.</p>
+<img alt="../_images/phyknox-packages.png" src="../_images/phyknox-packages.png" />
+<p>With increasing digitization and networking, the protection of embedded systems
+against unauthorized access and targeted attacks is more important than ever.
+Guaranteeing this type of security, along with functional security, is a major
+challenge in electronics design.
+PHYTEC supports you in minimizing risks by considering security requirements
+during the development of our hardware and board support packages. On top of
+these deployment-ready solutions, we support you with individual project
+consulting on complex security principles.</p>
+<p>Security is a process encompassing all parts of a device and all development
+phases of its lifetime.</p>
+<section id="short-crypto-refresher">
+<h2><span class="section-number">2.1. </span>Short Crypto Refresher<a class="headerlink" href="#short-crypto-refresher" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symmetric cryptography</p></td>
+<td><p>The same key for encryption or decryption</p></td>
+</tr>
+<tr class="row-odd"><td><p>Public key cryptography</p></td>
+<td><div class="line-block">
+<div class="line">Two mathematically dependent keys for encryption or</div>
+<div class="line">decryption. The public key is used for encryption while</div>
+<div class="line">the private key is used for decryption.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Hash</p></td>
+<td><p>One-way function, fixed output size (SHA*)</p></td>
+</tr>
+<tr class="row-odd"><td><p>HMAC</p></td>
+<td><p>Data authentication using hash and shared secret</p></td>
+</tr>
+<tr class="row-even"><td><p>Signature</p></td>
+<td><div class="line-block">
+<div class="line">Data authentication using public-key cryptography</div>
+<div class="line">(keys &amp; certificates, RSA &amp; ECDSA)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Unauthenticated encryption</p></td>
+<td><div class="line-block">
+<div class="line">Attackers can‘t read private data but could modify it</div>
+<div class="line">(AES-CBC, AES-XTS, ...)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Authenticated encryption</p></td>
+<td><div class="line-block">
+<div class="line">Attacker can‘t read private data and modification is</div>
+<div class="line">detetcted (AEAD: AES GCM, AEGIS)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Trusted Keys</p></td>
+<td><div class="line-block">
+<div class="line">Symmetric key with variable length is a key type of the</div>
+<div class="line">existing kernel keyring service.</div>
+<div class="line">Require the availability of a Trust Source for greater</div>
+<div class="line">security like a TPM, NXP CAAM or TEE</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Encrypted Keys</p></td>
+<td><div class="line-block">
+<div class="line">Symmetric key with variable length is a key type of the</div>
+<div class="line">existing kernel keyring service.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recommended-security-requirements">
+<h2><span class="section-number">2.2. </span>Recommended Security Requirements<a class="headerlink" href="#recommended-security-requirements" title="Link to this heading"></a></h2>
+<p>As of the writing of this manual, recommendations apply to key lengths,
+certificates, and hash values. These recommendations come from BSI (Bundesamt
+für Sicherheit in der Informationstechnik) and NIST (National Institute of
+Standards and Technology).</p>
+<p>In the technical and connected world, it is important to build a &quot;security by
+design” approach that thwarts intrusion into your product, data, and
+intellectual property at multiple levels.</p>
+<img alt="../_images/security-pyramide.png" src="../_images/security-pyramide.png" />
+<p>Here are the Security features from the Standard BSP.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Basic Security</strong></dt><dd><p>Basic Security is the fundament of the security measures implementations and
+includes support for basic modules such as:</p>
+<ul>
+<li><p>True Number Generator and Cryptographic support</p></li>
+<li><p>Secure Boot</p></li>
+<li><p>Secure Key Storage and Usage</p></li>
+<li><p>Secure Storage</p></li>
+<li><p>Secure Updates</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Parts from Access Control</strong></dt><dd><p>Access Control regulates the access of users and services to the device and
+components in the device according to the least privilege access principle.</p>
+<ul>
+<li><p>Secure Console</p></li>
+<li><p>Secure Shell</p></li>
+<li><p>User and Role Management</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Provisioning</strong></dt><dd><p>Provisioning includes the activation of hardware security features like
+Secure Boot and the generation of specific keys and X509 certificates on the
+device in secure manufacturing like the PHYTEC secure production area.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>More Additional Security Features (not part of this BSP)</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Network Security</strong></dt><dd><p>Network Security enables secure connections to connected devices or servers
+via Ethernet, WLAN, and LTE, but also secures access to the device from
+outside.</p>
+<ul>
+<li><p>Remote Access</p></li>
+<li><p>Server, Cloud Integration Tools</p></li>
+<li><p>Intrusion Protection</p></li>
+<li><p>Firewall</p></li>
+<li><p>Container</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Interface Security</strong></dt><dd><p>Interface Security secures the interfaces against third-party access and
+enables the secure connection of intended devices.</p>
+<ul>
+<li><p>USB</p></li>
+<li><p>Field Bus</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Hardening</strong></dt><dd><p>Hardening refers to the reduction of software components and kernel
+configuration to a necessary minimum.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Physical Security</strong></dt><dd><p>Physical Security secures the device from direct physical access to protect
+the corresponding application and data from external access.</p>
+<ul>
+<li><p>Secure Debug</p></li>
+<li><p>Tamper Protection</p></li>
+<li><p>Housing</p></li>
+<li><p>Encapsulation of the circuit board</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+<section id="enable-branding-name">
+<h1><span class="section-number">3. </span>Enable Security<a class="headerlink" href="#enable-branding-name" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Distro ampliphy-secure, ampliphy-vendor-secure, ampliphy-provisioning and
+ampliphy-vendor-provisioning are sample Yocto distros like
+ampliphy with additional security pre-configurations.
+Additional security measurements for production usage are necessary and
+depend on your threat model.</p>
+<p>PHYTEC services can support your implementation.</p>
+</div>
+<section id="distro-distro-secure-and-distro-secure-vendor">
+<h2><span class="section-number">3.1. </span>Distro ampliphy-secure and ampliphy-vendor-secure<a class="headerlink" href="#distro-distro-secure-and-distro-secure-vendor" title="Link to this heading"></a></h2>
+<p>The distro ampliphy-secure or ampliphy-vendor-secure with the
+phytec-security-image is an example of a production image with secure-update
+support.
+The phytec-security-image.rootfs.wic or phytec-security-image.rootfs.partup
+can boot only from an eMMC!</p>
+<p>For devices based on the TI K3 controller (AM6 series) the <code class="docutils literal notranslate"><span class="pre">MACHINE</span></code> variable
+in the <code class="docutils literal notranslate"><span class="pre">$BUILDDIR/conf/local.conf</span></code> needs be set to HS-SE machine variant.</p>
+</section>
+<section id="distro-distro-provisioning-and-distro-provisioning-vendor">
+<h2><span class="section-number">3.2. </span>Distro ampliphy-provisioning and ampliphy-vendor-provisioning<a class="headerlink" href="#distro-distro-provisioning-and-distro-provisioning-vendor" title="Link to this heading"></a></h2>
+<p>The distro ampliphy-provisioning or ampliphy-vendor-provisioning with the
+phytec-provisioning-image is for the production or the first initialization
+of your device based on a NXP controller in a secure area.
+The phytec-provisioning-image.rootfs can boot directly from an SD card to a
+Kernel with a minimal initramfs to</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>install the phytec-security-image.rootfs as wic or partup to the eMMC</p></li>
+<li><p>initialize the secure key storage on the device</p></li>
+<li><p>initialize the secure storage on the device</p></li>
+</ul>
+</div></blockquote>
+<p>For devices based on the TI K3 controller (AM6 series) it is sufficient to build
+the phytec-headless-image to boot from SD card. The <code class="docutils literal notranslate"><span class="pre">MACHINE</span></code> variable in the
+<code class="docutils literal notranslate"><span class="pre">$BUILDDIR/conf/local.conf</span></code> needs to be set to the HS-SE machine variant.</p>
+</section>
+<section id="the-different-machines-for-ti-k3-controller">
+<h2><span class="section-number">3.3. </span>The Different Machines for TI K3 Controller<a class="headerlink" href="#the-different-machines-for-ti-k3-controller" title="Link to this heading"></a></h2>
+<p>The HS-SE machine variant is the machine with secure boot enabled, so it will be
+built with signed bootloaders.
+For the TI K3 controller, different machines exist for</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>General Purpose (GP): The device is not capable of secure operation</p></li>
+<li><p>High Secure - Field Securable (HS-FS): is the state of a K3 device before
+it has been eFused with customer security keys.</p></li>
+<li><p>High Secure - Security Enforced (HS-SE): devices enforce an authenticated
+boot flow for secure boot.</p></li>
+</ul>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Board</p></th>
+<th class="head"><p>HS-FS device</p></th>
+<th class="head"><p>HS-SE device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>phyCORE-AM62Ax</p></td>
+<td><p>phyboard-lyra-am62axx-2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>phyCORE-AM62x</p></td>
+<td><p>phyboard-lyra-am62xx-3</p></td>
+<td><p>phyboard-lyra-am62xx-4</p></td>
+</tr>
+<tr class="row-even"><td><p>phyCORE-AM64x</p></td>
+<td><p>phyboard-electra-am64xx-2</p></td>
+<td><p>phyboard-electra-am64xx-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>phyCORE-AM68x</p></td>
+<td><p>phyboard-izar-am68x-3</p></td>
+<td><p>phyboard-izar-am68x-4</p></td>
+</tr>
+</tbody>
+</table>
+<p>For NXP-controller-based boards, no different machines exist for devices with
+activated and not activated secure boot, because signed images can be booted
+independent of the device state.</p>
+</section>
+<section id="enable-branding-name-features-in-custom-distro">
+<h2><span class="section-number">3.4. </span>Enable Security Features in Custom Distro<a class="headerlink" href="#enable-branding-name-features-in-custom-distro" title="Link to this heading"></a></h2>
+<p>Activate the following <code class="docutils literal notranslate"><span class="pre">DISTRO_FEATURES</span></code> in your distribution</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>DISTRO_FEATURES</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>secureboot</p></td>
+<td><p>for building a signed bootloader and kernel FIT-image</p></td>
+</tr>
+<tr class="row-odd"><td><p>securestorage</p></td>
+<td><div class="line-block">
+<div class="line">All necessary tools and configurations for file encryption and</div>
+<div class="line">integrity initialization on the board</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>protectionshield</p></td>
+<td><ul class="simple">
+<li><p>Three levels low, medium, and high</p></li>
+<li><p>Four examples:  users root, phyadmin, phyuser, phyread</p></li>
+<li><p>Password protection for bootloader and kernel serial and ssh</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>hardening</p></td>
+<td><p>Example kernel reduction for machine features</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelmodsign</p></td>
+<td><div class="line-block">
+<div class="line">Enabled Linux kernel module signing, so only modules signed</div>
+<div class="line">with a specific key can be loaded.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>update</p></td>
+<td><p>Activate rauc A/B update system</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="secure-boot">
+<span id="secure-boot-kirkstone"></span><h1><span class="section-number">4. </span>Secure Boot<a class="headerlink" href="#secure-boot" title="Link to this heading"></a></h1>
+<section id="chain-of-trust">
+<h2><span class="section-number">4.1. </span>Chain of Trust<a class="headerlink" href="#chain-of-trust" title="Link to this heading"></a></h2>
+<p>Secure boot is used to ensure that only trustworthy, signed software can be
+executed on the controller. This is the first stage of the Chain-of-Trust.
+With the Chain-of-Trust, signed programs are always started by other previously
+verified programs. This ensures that even the end application is at the
+highest layer of trustworthiness.</p>
+<img alt="../_images/chain-of-trust.jpg" src="../_images/chain-of-trust.jpg" />
+</section>
+<section id="boot-process">
+<h2><span class="section-number">4.2. </span>Boot Process<a class="headerlink" href="#boot-process" title="Link to this heading"></a></h2>
+<p>The boot process differs between the different vendors of SoCs and even between
+SoCs of the same vendor. The main boot process is the following</p>
+<img alt="../_images/image-verification.png" src="../_images/image-verification.png" />
+<ol class="arabic simple">
+<li><p>The Trusted ROM-bootloader, which is part of the SoC, verifies the boot
+container (U-boot spl, ATF, firmware, op-tee) with the internal unit
+(<strong>Boot Step 1</strong>)</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>SoC</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Boot mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">NXP i.MX6, i.MX6UL, NXP i.MX8M Mini/Plus</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">NXP HABV4</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Single: Cortex-A</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">NXP i.MX93, i.MX91, i.MX95</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">NXP AHAB</div>
+<div class="line">+ EdgeLock secure</div>
+<div class="line">enclave</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">LPboot: M33</div>
+<div class="line">Single: A35 -&gt; M33</div>
+<div class="line">DUAL: M33 + A35</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>TI AM62x, AM64x, AM68x</p></td>
+<td><p>R5</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>u-boot SPL loads u-boot proper from the FIT-image and ATF
+(ARM Trusted Firmware) and optionally OP-TEE.</p></li>
+<li><p>Then, u-boot loads and verifies the FIT-image containing a Linux kernel,
+DTB, and ramdisk. (<strong>Boot Step 2</strong>)</p></li>
+<li><p>If built with signed kernel modules (standard), Linux will only load kernel
+modules verified with a kernel compiled-in public key</p></li>
+</ol>
+<p>If you use the DISTRO_FEATURE secureboot or a TI HS-SE machine variant, then
+the bootloader is configured additionally:</p>
+<ol class="arabic simple">
+<li><p>The bootloader is signed and is used in the images (wic, partup and bmap).</p></li>
+<li><p>The bootloader boots only signed kernel fitImage after a verification.</p></li>
+<li><p>The bootloader uses only the built-in environment and only loads some
+necessary variables for RAUC update mechanism.</p></li>
+</ol>
+</section>
+<section id="image-signing">
+<h2><span class="section-number">4.3. </span>Image Signing<a class="headerlink" href="#image-signing" title="Link to this heading"></a></h2>
+<p>In the following flowchart you can see the signing process for different parts
+of an image.</p>
+<img alt="../_images/image-signing.png" src="../_images/image-signing.png" />
+<ol class="arabic simple">
+<li><p>A Hash is created for the binary file like the boot container, Kernel
+fitImage, kernel modules, op-tee applications or the RAUC update bundle.</p></li>
+<li><p>A signature is derived from the hash with a private key.</p></li>
+<li><p>The signature is added to the binary file.</p></li>
+</ol>
+</section>
+<section id="flattened-image-tree-fit">
+<h2><span class="section-number">4.4. </span>Flattened Image Tree (FIT)<a class="headerlink" href="#flattened-image-tree-fit" title="Link to this heading"></a></h2>
+<p>FIT-images are used with Secure Boot as standard format for packing kernel,
+device-tree and optional initramfs. The FIT-image are signed in the Yocto build
+with a Private Key. The public key is on the target, compiled in the bootloader
+or the NXP HAB keys are used. Documentation about FIT is available in
+the <a class="reference external" href="https://fitspec.osfw.foundation/">Flattened Image Tree project</a>.</p>
+<p>There are two different Yocto classes for creation of a signed FIT-image.</p>
+<ul>
+<li><p>PHYTEC <code class="docutils literal notranslate"><span class="pre">sources/meta-phytec/classes/fitimage.bbclass</span></code></p>
+<blockquote>
+<div><ul>
+<li><p>With FIT-image recipes you can define custom, more refined FIT-images.</p></li>
+<li><p>Example for FIT-image recipes are in <code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/recipes-images/fitimage/</span></code></p></li>
+<li><p>To create custom FIT-image, you need to specify some variables in the
+recipe:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>FITIMAGE_SLOTS: Use this to list all slot classes for which the
+FIT-image should contain images. A value of &quot;kernel fdt fdtapply&quot;,
+for example, will create a manifest with images for two slot classes -
+kernel and devicetree.</p></li>
+<li><p>FITIMAGE_SLOT_&lt;slotclass&gt;: For each slot class, set this to the image
+(recipe) name which builds the artifact you intend to place in the slot
+class.</p></li>
+<li><p>FITIMAGE_SLOT_&lt;slotclass&gt;[type]: For each slot class, set this to the
+type of image you intend to place in this slot. Possible types are the
+kernel, fdt, fdto, fdtapply, or ramdisk.</p></li>
+<li><p>FITIMAGE_SLOT_&lt;slotclass&gt;[file]: For slot type kernel, fdt, fdt0 and
+fdtapply set this to the file of the image you intend to place in this
+slot.</p></li>
+<li><p>FITIMAGE_SLOT_&lt;slotclass&gt;[fstype]: For slot type ramdisk, set this to
+the filesystem type of image you intend to place in this slot.</p></li>
+<li><p>FITIMAGE_SLOT_&lt;slotclass&gt;[name]: For slot type fdtapply, set this to
+the final device tree and configuration name.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Poky <code class="docutils literal notranslate"><span class="pre">sources/poky/meta/classes-recipe/kernel-fitimage.bbclass</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This is the standard upstream FIT-image class in Yocto mainly for u-boot,
+which builts one FIT-image with initramfs and without initramfs.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Initially, the PHYTEC FIT-image class was used to create the FIT-images, because
+it supports barebox and u-boot and you can define more refined FIT-images.
+Since security has increasingly become an integral part of the SoC
+manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to
+gradually switch to this class, too.</p>
+</section>
+<section id="configuration-class-for-signing-images">
+<h2><span class="section-number">4.5. </span>Configuration Class for Signing Images<a class="headerlink" href="#configuration-class-for-signing-images" title="Link to this heading"></a></h2>
+<p>All variables to adjust the bootloader and kernel fitImage signing process can
+be found in the <code class="docutils literal notranslate"><span class="pre">source/meta-ampliphy/secureboot.bbclass</span></code></p>
+<p>First of all, the necessary variables for signing the bootloader for the
+different SoC types need to be defined. The variable <code class="docutils literal notranslate"><span class="pre">BOOTLOADER_SIGN</span></code> is
+obsolete, because the <code class="docutils literal notranslate"><span class="pre">DISTRO_FEATURES=&quot;secureboot&quot;</span></code> includes the bootloader
+signing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BOOTLOADER_SIGN<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
+BOOTLOADER_SIGN<span class="o">[</span>type<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+
+CERT_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OEROOT</span><span class="si">}</span><span class="s2">/../../phytec-dev-ca&quot;</span>
+<span class="c1"># for NXP HABv4 based systems</span>
+BOOTLOADER_SIGN_IMG_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem&quot;</span>
+BOOTLOADER_SIGN_CSF_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem&quot;</span>
+BOOTLOADER_SIGN_SRKFUSE_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_habv4_pki/crts/SRK_1_2_3_4_table.bin&quot;</span>
+BOOTLOADER_HABV4_SRK_INDEX<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+
+<span class="c1"># AHAB</span>
+AHAB_SRK_TABLE_BIN<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_ahab_pki/crts/SRK_1_2_3_4_table.bin&quot;</span>
+AHAB_SRK_PUB_CERT<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_ahab_pki/crts/SRK1_sha512_secp521r1_v3_usr_crt.pem&quot;</span>
+AHAB_SRK_INDEX<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+
+<span class="c1"># for TI K3</span>
+BOOTLOADER_TI_K3_MPK_KEY<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/ti_k3/keys/phytecSMPK.pem&quot;</span>
+BOOTLOADER_TI_K3_DEGENERATE_KEY<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/ti_k3/keys/ti-degenerate-key.pem&quot;</span>
+</pre></div>
+</div>
+<p>In the following view you can see the necessary variables for signing with the
+PHYTEC FIT-image class. The <code class="docutils literal notranslate"><span class="pre">FITIMAGE_PUBKEY_SIGNATURE_PATH</span></code> is only important,
+when using the <code class="docutils literal notranslate"><span class="pre">FITIMAGE_SIGN_ENGINE=&quot;software&quot;</span></code>. This means, that the u-boot
+validates the kernel fitImage und uses the compiled-in public key.
+The alternative is that the NXP HAB unit validates the kernel fitImage, then
+the <code class="docutils literal notranslate"><span class="pre">FITIMAGE_SIGN_ENGINE=&quot;nxphab&quot;</span></code> must be set. This is only possible for
+NXP SoCs with HAB unit and u-boot as bootloader.
+The following configuration is part of in the <code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/secureboot.bbclass</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FITIMAGE_SIGN<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
+FITIMAGE_SIGN<span class="o">[</span>type<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+
+FITIMAGE_NO_DTB_OVERLAYS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;false&quot;</span>
+FITIMAGE_NO_DTB_OVERLAYS<span class="o">[</span>type<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+
+FITIMAGE_SIGNER<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;customer&quot;</span>
+FITIMAGE_PUBKEY_SIGNATURE_PATH<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKDIR</span><span class="si">}</span><span class="s2">/signature_node.dtsi&quot;</span>
+
+FITIMAGE_SIGN_ENGINE<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;software&quot;</span>
+
+FITIMAGE_SIGN_KEY_PATH<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/fit/FIT-4096.key&quot;</span>
+FITIMAGE_HASH<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;sha256&quot;</span>
+FITIMAGE_SIGNATURE_ENCRYPTION<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;rsa4096&quot;</span>
+FITIMAGE_SIGNER_VERSION<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;vPD20.0.0&quot;</span>
+</pre></div>
+</div>
+<p>The signing with the poky kernel-fitimage class needs the following
+configuration in</p>
+<ul>
+<li><p>machine configuration in <code class="docutils literal notranslate"><span class="pre">sources/meta-phytec/conf/machine</span></code> for the kernel,
+initrd, device-tree and device-tree overlay <code class="docutils literal notranslate"><span class="pre">LOADADDRESS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ENTRYPOINT</span></code> addresses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source/meta-ampliphy/secureboot.bbclass</span></code> for the signing key parameter</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">UBOOT_SIGN_KEYDIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/fit&quot;</span>
+<span class="nv">UBOOT_SIGN_KEYNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;FIT-4096&quot;</span>
+<span class="nv">FIT_SIGN_ALG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rsa4096&quot;</span>
+<span class="nv">FIT_HASH_ALG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sha256&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sources/meta-ampliyphy/conf/distro</span></code> file for the <code class="docutils literal notranslate"><span class="pre">INITRAMFS_IMAGE</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ampliphy-secure and ampliphy-vendor-secure:
+<code class="docutils literal notranslate"><span class="pre">INITRAMFS_IMAGE</span> <span class="pre">=</span> <span class="pre">&quot;phytec-secureboot-initramfs&quot;</span></code></p></li>
+<li><p>ampliphy-provisioning and ampliphy-vendor-provisioning:
+<code class="docutils literal notranslate"><span class="pre">INITRAMFS_IMAGE</span> <span class="pre">=</span> <span class="pre">&quot;phytec-provisioning-initramfs&quot;</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="building-a-signed-image">
+<h2><span class="section-number">4.6. </span>Building a Signed Image<a class="headerlink" href="#building-a-signed-image" title="Link to this heading"></a></h2>
+<p>To build a signed provisioning image for the configuration of the device
+which can boot from SD card or Serial Downloader, the <code class="docutils literal notranslate"><span class="pre">DISTRO</span></code> needs to
+be set to ampliphy-vendor-provisioning or ampliphy-provisioning.
+The main parts for the provisioning-image are the bootloader and the FIT-image,
+which includes an initramfs with all necessary tools.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="k">for</span><span class="w"> </span>NXP<span class="w"> </span>SoC
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-provisioning-image
+
+<span class="gp"># </span><span class="k">for</span><span class="w"> </span>TI<span class="w"> </span>K3<span class="w"> </span>SoC
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image
+</pre></div>
+</div>
+<p>To build the phytec-security-image for the eMMC or ubifs with RAUC update support,
+then the <code class="docutils literal notranslate"><span class="pre">DISTRO</span></code> needs to be set to ampliphy-vendor-secure or
+ampliphy-secure.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>SoC
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-security-image
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have some boot warnings or errors like &quot;/initrd.image: incomplete
+write&quot; or the kernel boot fails, then please check the size for Contiguous
+Memory Allocation (CMA; kernel boot parameter, setting in bootloader). The
+allocated RAM for CMA can be too much, which is important for systems with
+256 MiB or 512 MiB RAM.</p>
+</div>
+</section>
+</section>
+<section id="activate-secure-boot-on-the-device">
+<h1><span class="section-number">5. </span>Activate Secure Boot on the Device<a class="headerlink" href="#activate-secure-boot-on-the-device" title="Link to this heading"></a></h1>
+<p>The final step to activate Secure Boot on your device is to burn the secure
+eFuse configuration.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The secure eFuse configuration can only be written once and is irreversible!</p>
+</div>
+<p>For Secure Boot only public information are burned to SoC from NXP and TI. When
+building the ampliphy-secure or ampliphy-vendor-secure distro for the first
+time, the bootloader image is signed with PHYTEC's development keys. Yocto
+stores these development keys to <code class="docutils literal notranslate"><span class="pre">yocto/phytec-dev-ca</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Create and use your own keys and certificates for signing your images.
+Burn the right key into the controller's eFuse.
+Please refer to the chapter <a class="reference internal" href="#secure-key-storage-kirkstone"><span class="std std-ref">Secure Key Storage</span></a></p>
+</div>
+<section id="emmc-boot-partition-to-enable-boot">
+<h2><span class="section-number">5.1. </span>eMMC Boot Partition to Enable Boot<a class="headerlink" href="#emmc-boot-partition-to-enable-boot" title="Link to this heading"></a></h2>
+<p>If you install your eMMC with the partup image, then the eMMC is configured
+with the right configuration. If you install the bootloader standalone on the
+eMMC, then please check the eMMC configuration for the right partition.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>barebox</p></th>
+<th class="head"><p>u-boot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Set eMMC as an active device</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">barebox$</span> <span class="pre">detect</span> <span class="pre">mmc3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">mmc</span> <span class="pre">dev</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Show active boot partition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">barebox$</span> <span class="pre">devinfo</span> <span class="pre">mmc3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">mmc</span> <span class="pre">partconf</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Set user area for boot</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">barebox$</span> <span class="pre">mmc3.boot=disabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">mmc</span> <span class="pre">partconf</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">7</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">disabled: user partition</div>
+<div class="line">boot0: Boot partition 0</div>
+<div class="line">boot1: Boot partition 1</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">0x7: user partition</div>
+<div class="line">0x1: Boot partition 0</div>
+<div class="line">0x2: Boot partition 1</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Active boot output for barebox:</dt><dd><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+Parameters:
+boot: disabled (type: enum) (values: &quot;disabled&quot;, &quot;boot0&quot;, &quot;boot1&quot;, &quot;user&quot;)
+nt_signature: 9a54880c (type: uint32)
+probe: 0 (type: bool)
+</pre></div>
+</div>
+</dd>
+<dt>Active boot output for u-boot</dt><dd><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EXT_CSD[179], PARTITION_CONFIG:
+BOOT_ACK: 0x0
+BOOT_PARTITION_ENABLE: 0x1
+PARTITION_ACCESS: 0x7
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="activate-secure-boot-for-nxp-soc">
+<h2><span class="section-number">5.2. </span>Activate Secure Boot for NXP SoC<a class="headerlink" href="#activate-secure-boot-for-nxp-soc" title="Link to this heading"></a></h2>
+<p>For NXP SoCs you can burn the fuses with u-boot or with the tool crucible in the
+kernel userspace. The necessary SRK fuses contain the hash value of the SRK
+public keys. They are never used on open devices! In closed devices, they are
+used to validate the public key contained in signed firmware images.
+Before closing the device, you must store the hash of the public keys in the
+SRK OTP bits on the device. This will allow the ROM loader to validate the
+public key included in signed firmware images.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NXP i.MX with HAB: example <code class="docutils literal notranslate"><span class="pre">SRK_1_2_3_4_fuse.bin</span></code> file in
+<code class="docutils literal notranslate"><span class="pre">yocto/phytec-dev-ca/nxp_habv4_pki/crts/SRK_1_2_3_4_fuse.bin</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>If you build the signed bootloader, then the following tools are available in
+the bootloader.</p>
+<section id="check-the-current-state-of-your-device">
+<h3><span class="section-number">5.2.1. </span>Check the current state of your device<a class="headerlink" href="#check-the-current-state-of-your-device" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>NXP i.MX6 with HAB and bootloader barebox</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ hab -i
+Current SRK hash:
+0000000000000000000000000000000000000000000000000000000000000000
+devel mode
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>NXP i.MX8M Series with HAB and bootloader u-boot</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; hab_status
+Secure boot disabled
+
+HAB Configuration: 0xf0, HAB State: 0x66
+No HAB Events Found!
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="burn-the-srk">
+<h3><span class="section-number">5.2.2. </span>Burn the SRK<a class="headerlink" href="#burn-the-srk" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin
+to the device with e.g. tftp and burn directly with</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ hab -p -s SRK_1_2_3_4_fuse.bin
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>for checking the result use again</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ hab -i
+Current SRK hash:
+3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
+devel mode
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>on a SoC with u-boot you must write every word to the fuses</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>NXP i.MX8M Series with HAB</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">host:~$</span> <span class="pre">od</span> <span class="pre">-t</span> <span class="pre">x4</span> <span class="pre">SRK_1_2_3_4_fuse.bin</span></code></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">0000000 9a842534 b0491ab4 d5b6a07b fd92dce7</div>
+<div class="line">0000020 c10dc87c d8bd04a9 704e9fe4 9b025359</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">burn the fuses</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">6</span> <span class="pre">0</span> <span class="pre">0x9a842534</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">6</span> <span class="pre">1</span> <span class="pre">0xb0491ab4</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">6</span> <span class="pre">2</span> <span class="pre">0xd5b6a07b</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">6</span> <span class="pre">3</span> <span class="pre">0xfd92dce7</span></code></div>
+<div class="line"><br /></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">7</span> <span class="pre">0</span> <span class="pre">0xc10dc87c</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">7</span> <span class="pre">1</span> <span class="pre">0xd8bd04a9</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">7</span> <span class="pre">2</span> <span class="pre">0x704e9fe4</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">7</span> <span class="pre">3</span> <span class="pre">0x9b025359</span></code></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">read and check</div>
+<div class="line">the fuses</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">read</span> <span class="pre">6</span> <span class="pre">0</span> <span class="pre">4</span></code></div>
+<div class="line">0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">read</span> <span class="pre">7</span> <span class="pre">0</span> <span class="pre">4</span></code></div>
+<div class="line">0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>reset the booard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">reset</span></code></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">check the state</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">hab_status</span></code></div>
+<div class="line"><br /></div>
+<div class="line">No Events Found!</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+<section id="lock-the-device">
+<h3><span class="section-number">5.2.3. </span>Lock the device<a class="headerlink" href="#lock-the-device" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This step is irreversible and could brick your device.
+Before closing the device:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Verify you have built a signed bootloader image.</p></li>
+<li><p>Reset your board and verify there are no HAB.</p></li>
+<li><p>Verify the SRK eFuses have been burned correctly.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<ul class="simple">
+<li><p>NXP i.MX6 with HAB and bootloader barebox:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ hab -p -l
+Device successfully locked down
+</pre></div>
+</div>
+<p>The device is directly locked and the SRK is write protected, too.</p>
+<ul class="simple">
+<li><p>SoC with u-boot:</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>NXP i.MX8M Series with HAB</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Lock your device</div>
+<div class="line">Secure Boot active</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">1</span> <span class="pre">3</span> <span class="pre">0x2000000</span></code></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Set Read protection</p></td>
+<td><p>not available</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Set Over-ride protection</div>
+<div class="line">for shadow register</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">not available</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Set Write protection</div>
+<div class="line">for SRK</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">0x200</span></code></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="activate-secure-boot-for-ti-k3-soc">
+<h2><span class="section-number">5.3. </span>Activate Secure Boot for TI K3 SoC<a class="headerlink" href="#activate-secure-boot-for-ti-k3-soc" title="Link to this heading"></a></h2>
+<p>You can only burn the Fuses with the OTP-Keywriter, which you have create in
+the chapter <a class="reference internal" href="#phytec-pki-kirkstone"><span class="std std-ref">Keys and Certificates Management</span></a>
+To run the keywriter on your hardware we recommend starting with a regular SD
+card that has an unsigned image on it. Once you have your bootable SD card,
+copy the <code class="docutils literal notranslate"><span class="pre">tiboot3.bin</span></code> you generated into the boot partition of the SD card,
+replacing the previous version of the binary.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AM62x</p></li>
+</ul>
+<p>Now you must set JP8 on the development kit for AM62x in order to flash the
+keys.</p>
+<a class="reference internal image-reference" href="../_images/pb-07124_secureboot_JP8_J28.png"><img alt="../_images/pb-07124_secureboot_JP8_J28.png" src="../_images/pb-07124_secureboot_JP8_J28.png" style="width: 700px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For some older AM62x boards you also need to verify that the resistor on J28 is set to position 2+3.</p>
+</div>
+<ul class="simple">
+<li><p>AM64x</p></li>
+</ul>
+<blockquote>
+<div><p>Now you must set JP5 to pins 1 and 2 on the development kit in order to flash the keys.</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/pb-07225_secureboot_JP5.png"><img alt="../_images/pb-07225_secureboot_JP5.png" src="../_images/pb-07225_secureboot_JP5.png" style="width: 700px;" />
+</a>
+</div></blockquote>
+<p>Once this jumper is set, plug the SD card into the kit and boot as you normally
+would. You should see a message that keywriting was successful.
+The keywriter will only successfully write one time.</p>
+<p>If you are using the incremental approach to programming your keys, it is
+essential that you run your Key Revision binary after all the other binaries
+have been successfully run. Writing the key revision is what converts the
+device to a secure boot device, so you will not be able to run your other
+binaries after the key revision is set.</p>
+</section>
+<section id="next-steps-after-activation-of-secure-boot">
+<h2><span class="section-number">5.4. </span>Next Steps after Activation of Secure Boot<a class="headerlink" href="#next-steps-after-activation-of-secure-boot" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>After you have closed the device, consider the following points with regard
+to how firmware authentication can potentially be skipped:</p>
+<ul class="simple">
+<li><p>JTAG could be used to boot the processor and avoid the secure boot.
+See <a class="reference internal" href="#physical-security-jtag-kirkstone"><span class="std std-ref">Secure JTAG</span></a></p></li>
+<li><p>The bootloader will drop to a console after an unsuccessful firmware
+authentication for debugging purposes. That console can still be used to
+boot, so it should be disabled in the production firmware.</p></li>
+<li><p>please check the NXP and TI websites for more information</p></li>
+</ul>
+</div>
+</section>
+<section id="key-revocation">
+<h2><span class="section-number">5.5. </span>Key Revocation<a class="headerlink" href="#key-revocation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>NXP SoC: You have four keys from which you can revoke until 3 keys.</p></li>
+<li><p>TI K3 SoC: You have 2 keys, a SMPK and BMPK (Backup Key)</p></li>
+</ul>
+<section id="revoke-nxp-srk-key">
+<h3><span class="section-number">5.5.1. </span>Revoke NXP SRK Key<a class="headerlink" href="#revoke-nxp-srk-key" title="Link to this heading"></a></h3>
+<p>Although securing the device involves programming the hash of four public keys
+into the eFuses, only one key (number 1 by default) is used in the secure boot
+process. If the key gets compromised, it can be revoked and a different key
+used.</p>
+<p>To use a different key for the signature of bootloader images, change the
+following variables in <code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/classes/secureboot.bbclass</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for NXP with HABV4</span>
+BOOTLOADER_SIGN_IMG_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem&quot;</span>
+BOOTLOADER_SIGN_CSF_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CERT_PATH</span><span class="si">}</span><span class="s2">/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem&quot;</span>
+BOOTLOADER_HABV4_SRK_INDEX<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+</pre></div>
+</div>
+<p>The following keys are available:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>key Slot</p></th>
+<th class="head"><p>IMG Certificate</p></th>
+<th class="head"><p>CSF Certificate</p></th>
+<th class="head"><p>SRK_REVOLE[2:0]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>IMG1_1_sha256_4096_*</p></td>
+<td><p>CSF1_1_sha256_4096_*</p></td>
+<td><p>001</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>IMG2_1_sha256_4096_*</p></td>
+<td><p>CSF2_1_sha256_4096_*</p></td>
+<td><p>010</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>IMG3_1_sha256_4096_*</p></td>
+<td><p>CSF3_1_sha256_4096_*</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>IMG4_1_sha256_4096_*</p></td>
+<td><p>CSF4_1_sha256_4096_*</p></td>
+<td><p>not revocable</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example for Revoke Key Slot 0 on NXP SoC with HABV4</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">barebox</div>
+<div class="line">i.MX6, i.MX6UL</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">u-boot</div>
+<div class="line">i.MX8M series</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">barebox$</span> <span class="pre">mw</span> <span class="pre">-l</span> <span class="pre">-d</span> <span class="pre">/dev/imx-ocotp</span> <span class="pre">0xBC</span> <span class="pre">0x0001</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">u-boot=&gt;</span> <span class="pre">fuse</span> <span class="pre">prog</span> <span class="pre">9</span> <span class="pre">3</span> <span class="pre">0x1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>The SRK Revocation does not modify the SRK hash values, only the
+SRK_REVOKE fuse has to be programmed.</p></li>
+<li><p>In a closed configuration, HAB, by default, sets the SRK_REVOKE_LOCK
+sticky bit in the OCOTP controller to write protect this eFuse field.</p></li>
+<li><p>To instruct HAB not to lock the SRK_REVOKE field, the CSF commands in the
+bootloader need to be reconfigured.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="kernel-module-signing">
+<h1><span class="section-number">6. </span>Kernel Module Signing<a class="headerlink" href="#kernel-module-signing" title="Link to this heading"></a></h1>
+<p>When the <a class="reference external" href="https://www.kernel.org/doc/html/latest/admin-guide/module-signing.html">kernel module signing facility</a>
+is enabled, Linux can enforce that only modules that have been signed with
+a specific key can be loaded.
+Keys with invalid signatures won't be allowed to load. This makes it harder
+for attackers to load malicious or manipulated modules.</p>
+<p>This is enforced by the kernel and does not require userland support.</p>
+<section id="enable-kernel-module-signing-facility">
+<h2><span class="section-number">6.1. </span>Enable Kernel Module Signing Facility<a class="headerlink" href="#enable-kernel-module-signing-facility" title="Link to this heading"></a></h2>
+<p>To enable the kernel module signing facility, add the following <code class="docutils literal notranslate"><span class="pre">DISTRO_FEATURES</span></code>
+to your configuration file in <code class="docutils literal notranslate"><span class="pre">conf/distro/xyz.conf</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">DISTRO_FEATURES</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;kernelmodsign&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>By default, the kernel modules will be signed with PHYTEC's public
+development key. Unless you create your custom key, this feature does not
+offer any protection.</p>
+</div>
+</section>
+</section>
+<section id="device-tree-overlay-and-secure-boot">
+<h1><span class="section-number">7. </span>Device Tree Overlay and Secure Boot<a class="headerlink" href="#device-tree-overlay-and-secure-boot" title="Link to this heading"></a></h1>
+<p>Device Tree Overlays are device tree fragments that can be merged into a
+Device Tree during boot time. These are for example hardware descriptions of
+an expansion board. They are instead of being added to the device tree as an
+extra include, now applied as an overlay. They also may only contain setting a
+node's status depending on whether it is mounted or not.</p>
+<section id="device-tree-overlay-for-i-mx6ul-and-i-mx6">
+<h2><span class="section-number">7.1. </span>Device Tree Overlay for i.MX6UL and i.MX6<a class="headerlink" href="#device-tree-overlay-for-i-mx6ul-and-i-mx6" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The Device Tree Overlay support is generally deactivated and not supported
+for i.MX6UL and i.MX6 with Secure Boot in the security distro and image</p>
+<p>The new ADIN1300 Ethernet PHY is supported in the standard BSP as devicetree
+overlay for the phyBOARD-Mira and phyBOARD-Nunki. In the security distro and
+image, a new device tree is created with the FIT-image recipes in the
+<code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/recipes-images/fitimages/</span></code> and the fdtapply
+mechanism from the <code class="docutils literal notranslate"><span class="pre">source/meta-phytec/classes/fitimage.bbclass</span></code>. More
+information can be found in FIT-image section in <a class="reference internal" href="#secure-boot-kirkstone"><span class="std std-ref">Secure Boot</span></a>.</p>
+<p>The barebox contains an Ethernet PHY detection, which boots the correct
+configuration from the FIT-image.</p>
+</div>
+</section>
+<section id="device-tree-overlay-for-the-other-nxp-socs">
+<h2><span class="section-number">7.2. </span>Device Tree Overlay for the other NXP SoCs<a class="headerlink" href="#device-tree-overlay-for-the-other-nxp-socs" title="Link to this heading"></a></h2>
+<section id="build-time">
+<h3><span class="section-number">7.2.1. </span>Build Time<a class="headerlink" href="#build-time" title="Link to this heading"></a></h3>
+<p>The overlays set in the <code class="docutils literal notranslate"><span class="pre">KERNEL_DEVICETREE</span></code> Yocto machine variable will be
+automatically added as a node to the signed FIT-image.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only Device Tree Overlays in the FIT-image can be used on the device.</p>
+</div>
+</section>
+<section id="run-time">
+<h3><span class="section-number">7.2.2. </span>Run Time<a class="headerlink" href="#run-time" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">overlays</span></code> variable can be either set directly in the U-Boot environment or
+be a part of the external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> environment.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Manipulation Risk! The external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> is not signed and protected
+against manipulation, so overlays can be changed and deleted in the
+<code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">overlays</span></code> variable loaded from the external environment will always
+overwrite the value from the environment saved directly in the flash.
+By default, the <code class="docutils literal notranslate"><span class="pre">overlays</span></code> variable is not set directly in the U-Boot
+environment but comes from the external <code class="docutils literal notranslate"><span class="pre">bootenv.txt</span></code> environment file.
+It is also located in the boot partition of the SD card image.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Please use Device Tree Overlay only in the development stage of your
+product. Create a final Device Tree for your device for the production
+phase.</p>
+</div>
+</section>
+<section id="deactivate-device-tree-overlay-support">
+<h3><span class="section-number">7.2.3. </span>Deactivate Device Tree Overlay Support<a class="headerlink" href="#deactivate-device-tree-overlay-support" title="Link to this heading"></a></h3>
+<p>To disable the Device Tree Overlay support set the following variable in
+<code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/classes/secureboot.bbclass</span></code> to true</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FITIMAGE_NO_DTB_OVERLAYS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
+</pre></div>
+</div>
+<p>All the machine-defined Device Tree Overlays will be added to the FIT-image.
+If you do not want Device Tree Overlays in the FIT-image,
+please remove fdto in the <code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/recipes-image/fitimage/phytec-secureboot-ramdisk-fitimage.bb</span></code>
+or in your custom FIT-image recipe.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FITIMAGE_SLOTS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;kernel fdt fdto ramdisk&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="secure-key-storage">
+<span id="secure-key-storage-kirkstone"></span><h1><span class="section-number">8. </span>Secure Key Storage<a class="headerlink" href="#secure-key-storage" title="Link to this heading"></a></h1>
+<p>A fundamental aspect of security is integrity and confidentiality. Many
+applications require an embedded device to keep sensitive data. The standard
+solution to this problem is to use encryption to protect the data and ensure
+that only authorized users have access to the encryption key. When a user
+interacts directly with a system, the encryption key can be protected with a
+password, pin code, or fingerprint that is provided by the user. However, many
+embedded devices work without user interaction, so this is not an option in
+those cases.</p>
+<p>In the BSP, three different variants of Secure Key Storage can be implemented,
+depending on hardware support.
+The available hardware support is activated with <code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURE</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Type of</div>
+<div class="line">Secure Key Storage</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Hardware Support</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">MACHINE_FEATURE</div>
+<div class="line"><br /></div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">NXP CAAM</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">* all NXP i.MX6, i.MX6UL</div>
+<div class="line">* all i.MX8M series</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">caam</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Trusted Execution</div>
+<div class="line">Environment TEE</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">* all NXP i.MX SoC</div>
+<div class="line">* all TI K3 SoC</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">optee</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Trusted platform</div>
+<div class="line">Module TPM</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">* on base boards for i.MX8M series</div>
+<div class="line">* on phyGATE-Tauri-S / L</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">tpm</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Machines built with the <code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURE</span></code> have all necessary prerequisites
+enabled.</p>
+<section id="nxp-i-mx-caam">
+<h2><span class="section-number">8.1. </span>NXP i.MX CAAM<a class="headerlink" href="#nxp-i-mx-caam" title="Link to this heading"></a></h2>
+<p>The NXP i.MX6, i.MX6UL and i.MX8M series processors include hardware encryption
+through NXP's Cryptographic Accelerator and Assurance Module (CAAM, also known
+as SEC4). The CAAM combines functions to create a modular and scalable
+acceleration and assurance engine.</p>
+<p>More information about the CAAM module can be found in the corresponding NXP
+reference Manual:
+<a class="reference external" href="https://www.nxp.com/docs/en/reference-manual/i.MX_Reference_Manual_Linux.pdf">i.MX Reference Manual</a></p>
+<section id="prerequisites-and-caveats">
+<h3><span class="section-number">8.1.1. </span>Prerequisites and Caveats<a class="headerlink" href="#prerequisites-and-caveats" title="Link to this heading"></a></h3>
+<p>Secure Boot is required for trusted CAAM Key blob functionality. If Secure Boot
+Keys are burned, the keys are locked. After a reset, the CAAM unit creates
+internal keys for the signing and encryption CAAM blobs. These keys are
+internal in the CAAM and can not be read out and overwritten.</p>
+</section>
+<section id="test-and-using">
+<h3><span class="section-number">8.1.2. </span>Test and using<a class="headerlink" href="#test-and-using" title="Link to this heading"></a></h3>
+<p>You can use the CAAM unit accelerator with the cryptodev driver.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>openssl<span class="w"> </span>rand<span class="w"> </span>-engine<span class="w"> </span>devcrypto<span class="w"> </span>-hex<span class="w"> </span><span class="m">30</span>
+<span class="gp">target:~$ </span>openssl<span class="w"> </span>ecparam<span class="w"> </span>-engine<span class="w"> </span>devcrypto<span class="w"> </span>-genkey<span class="w"> </span>-out<span class="w"> </span>eckey.pem<span class="w"> </span>-name<span class="w"> </span>prime256v1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="trusted-execution-environment-op-tee">
+<h2><span class="section-number">8.2. </span>Trusted Execution Environment: OP-TEE<a class="headerlink" href="#trusted-execution-environment-op-tee" title="Link to this heading"></a></h2>
+<p>OP-TEE is a Trusted Execution Environment (TEE) designed as a companion to a
+non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone
+technology.</p>
+<p>OP-TEE is supported for the NXP i.MX8M series, NXP i.MX9 series and TI K3 SoC.
+This allows users who are interested in utilizing
+<a class="reference external" href="https://optee.readthedocs.io/en/latest/">OP-TEE</a> to use and test it on their
+devices.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you want to use OP-TEE in production, then you must configure the
+complete isolation between the normal and secure TrustZone world.
+<a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/platforms/nxp.html">For more information</a></p>
+</div>
+<p>OP-TEE is divided into the following components:</p>
+<ul class="simple">
+<li><p>OP-TEE kernel: The kernel acts as a secure world OS. This kernel is signed by
+HABv4.</p></li>
+<li><p>tee-supplicant: Helper daemon allowing OP-TEE to read/write from/to secure
+storage. In practice, this means OP-TEE will save encrypted and authenticated
+data in the filesystem.</p></li>
+<li><p>xtest: Utilities to test OP-TEE.</p></li>
+</ul>
+<section id="id1">
+<h3><span class="section-number">8.2.1. </span>Prerequisites and Caveats<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Secure Boot is required for OP-TEE to prevent a malicious OP-TEE kernel from
+loading.</p></li>
+<li><p>It is furthermore required to allow the generation of a hardware unique key
+that OP-TEE can use to derive a key for secure storage encryption and other
+use cases.</p></li>
+<li><p>Trusted Application Key-Pair:
+<a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html#trusted-application-private-public-keypair">OP-TEE signs trusted applications</a> in order to ensure their authenticity and integrity. By default, OP-TEE uses a pre-generated key, which you must replace with your own before using OP-TEE in production.</p></li>
+</ul>
+</section>
+<section id="testing-op-tee">
+<h3><span class="section-number">8.2.2. </span>Testing OP-TEE<a class="headerlink" href="#testing-op-tee" title="Link to this heading"></a></h3>
+<dl>
+<dt><strong>xtest</strong></dt><dd><ul class="simple">
+<li><p>When OP-TEE is enabled during the build, the &quot;xtest&quot; utility will be
+shipped.</p></li>
+<li><p>Executing &quot;xtest&quot; will run a couple of tests supplied by the OP-TEE
+project to ensure it is working as intended.</p></li>
+</ul>
+</dd>
+<dt><strong>Memory Isolation: devmem2</strong></dt><dd><ul class="simple">
+<li><p>OP-TEE will load itself into a defined region in RAM. This region is
+reserved in Linux and does not attempt to allocate memory in this area.</p></li>
+<li><p>OP-TEE modifies the device tree of Linux during startup to ensure this.</p></li>
+<li><p>During runtime, the following nodes will be visible in the device tree:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dtc<span class="w"> </span>-I<span class="w"> </span>dtb<span class="w"> </span>-O<span class="w"> </span>dts<span class="w"> </span>/proc/device-tree
+<span class="go">reserved-memory {</span>
+<span class="gp">      #</span>address-cells<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;0x02&gt;<span class="p">;</span>
+<span class="gp">      #</span>size-cells<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;0x02&gt;<span class="p">;</span>
+<span class="go">      ranges;</span>
+
+<span class="go">      linux,cma {</span>
+<span class="go">            linux,cma-default;</span>
+<span class="go">            alloc-ranges = &lt;0x00 0x40000000 0x00 0x40000000&gt;;</span>
+<span class="go">            compatible = &quot;shared-dma-pool&quot;;</span>
+<span class="go">            size = &lt;0x00 0x28000000&gt;;</span>
+<span class="go">            reusable;</span>
+<span class="go">      };</span>
+
+<span class="go">      optee_shm@0x57c00000 {</span>
+<span class="go">            reg = &lt;0x00 0x57c00000 0x00 0x400000&gt;;</span>
+<span class="go">            no-map;</span>
+<span class="go">      };</span>
+
+<span class="go">      optee_core@0x56000000 {</span>
+<span class="go">            reg = &lt;0x00 0x56000000 0x00 0x1c00000&gt;;</span>
+<span class="go">            no-map;</span>
+<span class="go">      };</span>
+<span class="go">};</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>optee_core denotes the secure world memory region. It is not accessible,
+even to the Linux kernel. optee_shm is the shared region between the
+normal and secure world, allowing normal-world client applications to
+exchange data with OP-TEE-trusted applications.</p></li>
+<li><p>Memory access policy enforcement can be tested using the &quot;devmem2&quot; utility.</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>devmem2<span class="w"> </span>0x5600000
+
+<span class="go">Memory mapped at address 0xffff88e2c000.</span>
+<span class="go">Bus error</span>
+
+<span class="gp">target:~$ $</span>?
+<span class="go">135</span>
+
+<span class="gp">target:~$ </span>devmem2<span class="w"> </span>0x57c00000
+<span class="go">/dev/mem opened.</span>
+<span class="go">Memory mapped at address 0xffffb4f3c000.</span>
+<span class="go">Read at address  0x57C00000 (0xffffb4f3c000): 0xA0A28501</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In this example the 0x5600000 address is the optee_core region. Access is
+currently being blocked by the TZASC policy set up by OP-TEE, which causes
+a &quot;Bus error&quot;. The shared region, on the other hand, is accessible.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="trusted-platform-module-tpm-2-0">
+<h2><span class="section-number">8.3. </span>Trusted Platform Module (TPM) 2.0<a class="headerlink" href="#trusted-platform-module-tpm-2-0" title="Link to this heading"></a></h2>
+<p>The Trusted Platform Module (TPM) is an international standard for a secure
+cryptoprocessor, a dedicated microcontroller designed to secure hardware
+through integrated cryptographic keys.
+The TPM 2.0 is:</p>
+<ul class="simple">
+<li><p>specified from the <a class="reference external" href="https://trustedcomputinggroup.org/resource/pc-client-platform-tpm-profile-ptp-specification/">Trusted Computing Group (TCG)</a></p></li>
+<li><p>TCG and Common Criteria (CC) certified EAL4+</p></li>
+<li><p>updateable for the Firmware</p></li>
+<li><p>available from different manufacturers</p></li>
+<li><p>used to create and store keys and certificates that can be used for
+filesystem encryption, device identification, and authentication</p></li>
+<li><p>a safe on the device, because the persistent keys are in the TPM and the
+key blobs can only be encrypted with the specific TPM</p></li>
+</ul>
+<p>The Linux kernel has driver support for the TPM. TPM is the standard trusted
+key in the kernel keyring service.
+The <a class="reference external" href="https://github.com/tpm2-software">middleware for the TPM</a> is Open Source
+and supports OpenSSL, PKCS#11, and more.
+<a class="reference external" href="https://tpm2-software.github.io/">More information about the software stack for the TPM 2.0:</a>
+<a class="reference external" href="https://link.springer.com/content/pdf/10.1007%2F978-1-4302-6584-9.pdf">A practical guide for using the TPM 2.0:</a></p>
+<p>The TPM is not on the SOM, it is located on the carrier board.</p>
+<section id="initialization-of-the-tpm">
+<h3><span class="section-number">8.3.1. </span>Initialization of the TPM<a class="headerlink" href="#initialization-of-the-tpm" title="Link to this heading"></a></h3>
+<p>The TPM 2.0 must be initialized at first with the command <em>tss2_provision</em>.
+This command is used in the tool <em>physecurekeystorage-install</em>, when you use
+the <em>trustedtpm</em> key type.</p>
+</section>
+</section>
+<section id="kernel-key-retention-service-for-filesystem-encryption">
+<h2><span class="section-number">8.4. </span>Kernel Key Retention Service for Filesystem Encryption<a class="headerlink" href="#kernel-key-retention-service-for-filesystem-encryption" title="Link to this heading"></a></h2>
+<p>&quot;The Linux key-management facility is primarily a way for various kernel
+components to retain or cache security data, authentication keys, encryption
+keys, and other data in the kernel.&quot;
+Linux kernel is a kernels facility for “password caching”, which stores them in
+a computers memory (RAM) during an active users/system session.
+The Linux keyring accessing is via syscalls from the user space into the kernel
+space. Applications to access are keyctl, systemd-ask-password and others.</p>
+<p>The documentation about the Kernel Key Retention service can be found at <a class="reference external" href="https://www.kernel.org/doc/html/latest/security/keys/core.html">https://www.kernel.org/doc/html/latest/security/keys/core.html</a>
+The following description and implementation are based on the <a class="reference external" href="https://www.kernel.org/doc/html/latest/security/keys/trusted-encrypted.html">https://www.kernel.org/doc/html/latest/security/keys/trusted-encrypted.html</a></p>
+<ul class="simple">
+<li><p>The kernel standard trusted key types are trusted tpm, trusted tee and
+trusted caam. The encrypted blobs are stored in the file trusted_key.blob in
+the first boot partition and in the third partition with name config.</p></li>
+<li><p>The secure caam is only supported in the NXP vendor based BSP and used the
+black key blob mechanism and used the kernel key type logon. The encrypted
+blobs are stored in the file  tksecure_key.</p></li>
+</ul>
+<p>The following table list the supported key types for the different SoCs.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Key</div>
+<div class="line">Type</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">depend on the</div>
+<div class="line">MACHINE_FEATURE</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">NXP</div>
+<div class="line">i.MX6 (UL)</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">NXP</div>
+<div class="line">i.MX8M MNP</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">TI</div>
+<div class="line">AM6 Series</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trustedtpm</p></td>
+<td><p>tpm2</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p>trustedtee</p></td>
+<td><p>optee</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p>trustedcaam</p></td>
+<td><p>caam</p></td>
+<td><p>x (not ULL)</p></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>securecaam</p></td>
+<td><p>caam</p></td>
+<td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="secure-key-storage-initialization-with-physecurekeystorage-tool">
+<span id="secure-key-storage-init-kirkstone"></span><h3><span class="section-number">8.4.1. </span>Secure Key Storage Initialization with phySecureKeyStorage Tool<a class="headerlink" href="#secure-key-storage-initialization-with-physecurekeystorage-tool" title="Link to this heading"></a></h3>
+<p>The tool <a class="reference external" href="https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage">physecurekeystorage-install</a>
+is part of the ramdisk userspace of phytec-provisioning-initramfs and included
+in the meta-ampliphy layer of the PHYTEC Standard BSP.</p>
+<p>The <em>physecurekeystorage-install</em> tool can initialize all supported secure key
+storages of your machine, but always only one can be active.
+For example, the phyBOARD-Polis-imx8mm supports Trusted TEE, Trusted TPM,
+Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>physecurekeystorage-install<span class="w"> </span>-h
+
+<span class="go">PHYTEC Install Script v1.7 for Secure Key Storage</span>
+
+<span class="go">Usage:  physecurekeystorage-install [PARAMETER] [ACTION]</span>
+
+<span class="go">Example:</span>
+<span class="go">   physecurekeystorage-install --newkeystorage trustedtpm</span>
+<span class="go">   physecurekeystorage-install --deletekeystorage</span>
+<span class="go">   physecurekeystorage-install --loadkeystorage</span>
+<span class="go">   physecurekeystorage-install --pkcs11testkey</span>
+
+<span class="go">One of the following action can be selected:</span>
+<span class="go">   -n | --newkeystorage &lt;value&gt;  Create new Secure Key Storage</span>
+<span class="go">                           trustedcaam (only NXP controller)</span>
+<span class="go">                           trustedtee</span>
+<span class="go">                           trustedtpm</span>
+<span class="go">                           securecaam (black blob only NXP Vendor BSP)</span>
+<span class="go">   -d | --deletekeystorage Erase the existing Secure Key Storage</span>
+<span class="go">   -l | --loadkeystorage   Load the existing Secure Key Storage</span>
+<span class="go">   -p | --pkcs11testkey    Create an ECC testkey with user pin 1234</span>
+<span class="go">   -h | --help             This Help</span>
+<span class="go">   -v | --version          The version of physecurekeystorage-install</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cryptographic-token-interface-pkcs-11">
+<h2><span class="section-number">8.5. </span>Cryptographic Token Interface PKCS#11<a class="headerlink" href="#cryptographic-token-interface-pkcs-11" title="Link to this heading"></a></h2>
+<p>Also known as &quot;Cryptoki&quot;. PKCS#11 specifies a number of standard calls to
+relay cryptographic requests (such as a signing operation) to a third party
+module. Such a module may be a TPM or OP-TEE, it is a software PKCS#11 trusted
+application that appears to the userland as one.</p>
+<p>The library or pkcs11-module-path for PKCS#11 depend on the device:
+* TPM 2.0: /usr/lib/libtpm2_pkcs11.so.0
+* OP-TEE: /usr/lib/libckteec.so.0
+* SmartCards: /usr/lib/opensc-pkcs11.so</p>
+<p>The following provider.conf is for the usage with openssl 3.0 and a TPM 2.0.
+Please set the pkcs11-module-path to your selected Secure key storage.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">openssl_conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">openssl_init</span>
+
+<span class="k">[openssl_init]</span>
+<span class="na">providers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">provider_sect</span>
+
+<span class="k">[provider_sect]</span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default_sect</span>
+<span class="na">pkcs11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pkcs11_sect</span>
+
+<span class="k">[default_sect]</span>
+<span class="na">activate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+
+<span class="k">[pkcs11_sect]</span>
+<span class="na">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/lib/ossl-modules/pkcs11.so</span>
+<span class="na">pkcs11-module-path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/lib/pkcs11/libtpm2_pkcs11.so</span>
+<span class="na">activate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+</pre></div>
+</div>
+<p>If the TPM 2.0 is initialized e.g. with the tool physecurekeystorage,
+then you can create a device certificate.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="nb">set</span><span class="w"> </span>TPM<span class="w"> </span>Pin
+<span class="gp">target:~$ </span><span class="nv">TPM_PIN</span><span class="o">=</span><span class="m">1234</span>
+<span class="gp"># </span>Create<span class="w"> </span>self-signed<span class="w"> </span>certificate
+<span class="gp">target:~$ </span><span class="nv">OPENSSL_CONF</span><span class="o">=</span>provider.cnf<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-provider<span class="w"> </span>tpm2<span class="w"> </span>-days<span class="w"> </span><span class="m">100</span><span class="w"> </span>-subj<span class="w"> </span><span class="s1">&#39;/CN=my_key/&#39;</span><span class="w"> </span>-key<span class="w"> </span><span class="s2">&quot;pkcs11:model=SLB9670;manufacturer=Infineon;token=test;object=test-keypair;type=private;pin-value=</span><span class="si">${</span><span class="nv">TPM_PIN</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-out<span class="w"> </span>ecc.crt
+<span class="gp"># </span>Write<span class="w"> </span>Device<span class="w"> </span>Cert<span class="w"> </span>to<span class="w"> </span>TPM
+<span class="gp">target:~$  </span>pkcs11-tool<span class="w"> </span>--module<span class="w"> </span>/usr/lib/pkcs11/libtpm2_pkcs11.so<span class="w"> </span>-w<span class="w"> </span>ecc.crt<span class="w"> </span>-y<span class="w"> </span>cert<span class="w"> </span>-a<span class="w"> </span>iotdm-cert<span class="w"> </span>--pin<span class="w"> </span><span class="si">${</span><span class="nv">TPM_PIN</span><span class="si">}</span><span class="w"> </span>-d<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For device identification on a server or cloud provider, you need a
+Certificate Authority to sign the device certificate.</p>
+</div>
+<ul class="simple">
+<li><p>You can find a more detailed example with Op-tee
+<a class="reference external" href="https://optee.readthedocs.io/en/latest/building/userland_integration.html">https://optee.readthedocs.io/en/latest/building/userland_integration.html</a></p></li>
+<li><p>Examples with openssl for the TPM 2.0:
+<a class="reference external" href="https://github.com/tpm2-software/tpm2-tss-engine">https://github.com/tpm2-software/tpm2-tss-engine</a></p></li>
+</ul>
+<p><a class="reference external" href="https://www.openssl.org/">OpenSSL</a> is a robust, commercial-grade,
+full-featured software library for general-purpose cryptography and secure
+communication.</p>
+</section>
+</section>
+<section id="secure-storage">
+<h1><span class="section-number">9. </span>Secure Storage<a class="headerlink" href="#secure-storage" title="Link to this heading"></a></h1>
+<p>Secure storage is a combination of the authenticated and encrypted filesystem
+that adds another layer of security to your product. It uses the kernel's
+cryptographic support to encrypt all the data you store in the root filesystem.
+Attempting to access this data without the correct encryption key returns
+random, meaningless bytes.</p>
+<p>The default implementation of secure storage in the PHYTEC BSP is the root
+filesystem encryption with integrity support:</p>
+<img alt="../_images/secure-storage.png" src="../_images/secure-storage.png" />
+<p>This manual describes the integrity or/and encryption of the complete root
+filesystem. Note that on-the-fly encryption and decryption do introduce a small
+performance penalty in read and write speeds.</p>
+<p>Alternatives for the complete root filesystem with integrity and encryption are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Partition encryption: To protect some sensitive files but not pay the
+cost of encrypting the complete rootfs, you can keep the rootfs partition
+authenticated unencrypted and set up a specific authenticated encrypted
+partition where the sensitive files will be stored.</p></li>
+<li><p>File-specific encryption: Only separate folders and files will be
+encrypted.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>ampliphy-secure is an example of how integrity and encryption on embedded
+devices work. It uses encryption with integrity for a complete partition
+on eMMC.</p></li>
+<li><p>Encrypting the entire root partition should be considered. However, this
+can only be done on the device.</p></li>
+<li><p>An integrity check with dm-integrity is a highly recommended addition to
+the filesystem encryption.</p></li>
+</ul>
+</div>
+<section id="filesystem-with-integrity-vs-authenticated-filesystem">
+<h2><span class="section-number">9.1. </span>Filesystem with Integrity vs Authenticated Filesystem<a class="headerlink" href="#filesystem-with-integrity-vs-authenticated-filesystem" title="Link to this heading"></a></h2>
+<p>The actual standard BSP includes integrity support with hash sha-256, which has
+protection against data error. An authenticated file system should use HMAC
+with signed hashes, which have protection against device-turned-off data
+manipulation from attackers. For this variant, an additional symmetric key is
+necessary.</p>
+</section>
+<section id="requirements-for-filesystem-encryption">
+<h2><span class="section-number">9.2. </span>Requirements for Filesystem Encryption<a class="headerlink" href="#requirements-for-filesystem-encryption" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>File integrity and encryption support for block devices (SD card, eMMC) or
+MTD device (NAND, NOR)</p></li>
+<li><p>Secure Key Storage to securely store the authentication and encryption key</p></li>
+<li><p>Secure Boot must be activated and the device must be locked for proper secure
+key storage.</p></li>
+<li><p>A user login should be activated for access control on runtime.</p></li>
+</ul>
+</section>
+<section id="boot-process-flow">
+<h2><span class="section-number">9.3. </span>Boot Process Flow<a class="headerlink" href="#boot-process-flow" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>bootloader verifies FIT-image with linux-kernel image, device tree, and
+ramdisk before they are executed</p></li>
+<li><p>Linux kernel executes the ramdisk (read-only filesystem)</p></li>
+<li><p>The bootscript loads the authenticated encrypted filesystem encryption key
+with the CAAM, TEE or TPM unit in the RAM and encrypts the filesystem. After
+the encryption, the root filesystem will be switched and the boot process
+continues.</p></li>
+</ul>
+</section>
+<section id="starting-the-build-process">
+<h2><span class="section-number">9.4. </span>Starting the Build Process<a class="headerlink" href="#starting-the-build-process" title="Link to this heading"></a></h2>
+<p>Filesystem integrity and encryption are included in the <code class="docutils literal notranslate"><span class="pre">DISTRO_FEATURES</span></code>
+<code class="docutils literal notranslate"><span class="pre">secureboot</span></code> and <code class="docutils literal notranslate"><span class="pre">securestorage</span></code>.</p>
+<p>You can choose in the <code class="docutils literal notranslate"><span class="pre">sources/meta-ampliphy/conf/distro/common-secure.inc</span></code>
+between</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fileauthorenc</span></code>: use integrity or encrypted filesystem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileauthandenc</span></code>: use integrity and encrypted filesystem</p></li>
+</ul>
+</div></blockquote>
+<p>This configuration is important for the RAUC update system because the use of
+integrity and encrypted filesystem are stacked and the number of device-mappers
+is doubled to use integrity or encrypted filesystem.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">DISTRO_FEATURES</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;securestorage&quot;</span>
+<span class="c1">#possible types: fileauthorenc , fileauthandenc</span>
+<span class="nv">SECURE_STORAGE_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fileauthandenc&quot;</span>
+<span class="nv">OVERRIDES_append</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:securestorage:</span><span class="si">${</span><span class="nv">SECURE_STORAGE_TYPE</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>This configuration changes the RAUC <code class="docutils literal notranslate"><span class="pre">system.conf</span></code> configuration in the rootfs
+image for the target, too. The device changes from the <code class="docutils literal notranslate"><span class="pre">/dev/mtdblockX</span></code> to the
+device mapper <code class="docutils literal notranslate"><span class="pre">/dev/dm-x</span></code>. With this changes the integrity and the encryption are
+retained during an update.</p>
+</section>
+<section id="setup-secure-storage-on-your-device">
+<h2><span class="section-number">9.5. </span>Setup Secure Storage on your Device<a class="headerlink" href="#setup-secure-storage-on-your-device" title="Link to this heading"></a></h2>
+<p>The filesystem encryption ensures the target has a unique key or an equal key
+per device.</p>
+<p>The filesystem encryption process flow:</p>
+<ul class="simple">
+<li><p>The filesystem encryption key is generated and stored encrypted with CAAM,
+TEE, or TPM.</p></li>
+<li><p>Encryption is initialized.</p></li>
+<li><p>The partition is formatted.</p></li>
+<li><p>Data is copied to the encrypted partition.</p></li>
+</ul>
+<section id="first-boot">
+<h3><span class="section-number">9.5.1. </span>First Boot<a class="headerlink" href="#first-boot" title="Link to this heading"></a></h3>
+<p>From a high-level point of view, an eMMC device is like an SD card. Therefore,
+it is possible to flash the image phytec-provisioning-image
+from the Yocto build system directly to the SD card. The image contains the
+signed bootloader and signed FIT-image with an initramfs.</p>
+<p>If your filesystem is not initialized, is damaged, or the key blob is deleted,
+then you can reinstall the encrypted filesystem with the following instructions.</p>
+<ul class="simple">
+<li><p>Boot the phytec-provisioning-image from the SD card or load the provisioning
+fitImage with tftp to the memory in the bootloader</p></li>
+<li><p>The device stops with the following message because there is no encrypted key
+stored in the folder <code class="docutils literal notranslate"><span class="pre">/mnt/config/secrets</span></code>:</p></li>
+</ul>
+<p>The default user is root with the password root:</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If there is no login in 60s, then the system goes to power off</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Login timed out after 60 second</span>
+<span class="go">[ERROR] Key and Filesystem Initialization</span>
+<span class="go">The system will poweroff in 10 seconds</span>
+<span class="go">reboot: Power down</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If this is your first boot from the device and no image is on the eMMC,
+please flash an image to the eMMC.</p></li>
+</ul>
+</section>
+<section id="key-generation-for-secure-storage">
+<h3><span class="section-number">9.5.2. </span>Key Generation for Secure Storage<a class="headerlink" href="#key-generation-for-secure-storage" title="Link to this heading"></a></h3>
+<p>Please follow the instructions in the chapter <a class="reference internal" href="#secure-key-storage-kirkstone"><span class="std std-ref">Secure Key Storage</span></a></p>
+</section>
+<section id="secure-storage-initialization-with-physecurestorage-tool">
+<h3><span class="section-number">9.5.3. </span>Secure Storage Initialization with phySecureStorage Tool<a class="headerlink" href="#secure-storage-initialization-with-physecurestorage-tool" title="Link to this heading"></a></h3>
+<p>The tool <code class="docutils literal notranslate"><span class="pre">physecurestorage-install</span></code> is part of the initramfs userspace of the
+phytec-provisioning-image.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">physecurestorage-install</span></code> tool can initialize the filesystem with encryption,
+integrity, or both methods together.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>physecurestorage-install<span class="w"> </span>-h
+
+<span class="go">PHYTEC Install Script v1.5 for Secure Storage</span>
+
+<span class="go">Usage:  physecurestorage-install [PARAMETER] [ACTION]</span>
+
+<span class="go">Example:</span>
+<span class="go">physecurestorage-install --flashpath /dev/mmcblk0</span>
+<span class="go">--filesystem /media/phytec-security-image.ext4</span>
+<span class="go">--flashlayout 5,6</span>
+<span class="go">--newsecurestorage intenc</span>
+
+<span class="go">One of the following action can be selected:</span>
+<span class="go">   -n | --newsecurestorage &lt;value&gt;   Create new Secure Storage of type</span>
+<span class="go">                           int     Root File System with integrity</span>
+<span class="go">                           enc     Encrypted root file system</span>
+<span class="go">                           intenc  Encrypted root file system with integrity</span>
+<span class="go">   -h | --help             This Help</span>
+<span class="go">   -v | --version          The version of the physecurestorage-install</span>
+
+<span class="go">The following PARAMETER must be set for new Secure Storage:</span>
+<span class="go">   -p | --flashpath &lt;flash device&gt;</span>
+<span class="go">   -s | --filesystem &lt;path to root as tgz or ext4&gt;</span>
+<span class="go">   -l | --flashlayout &lt;value&gt;    partition number for the rootfs partitions</span>
+<span class="go">                        5,6       rootfs partitions are 5 and 6</span>
+<span class="go">   -L | --labelname &lt;value&gt;      label name for the partition</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The parameter &lt;flashpath&gt; is the eMMC device.</p></li>
+<li><p>The parameter &lt;filesystem&gt; is the path to tar.gz archive of the filesystem,
+which should be installed on the flash device.</p></li>
+<li><p>Please copy the filesystem image, &lt;IMAGENAME&gt;-&lt;MACHINE&gt;.tar.gz, to a USB or
+MMC drive so that it can be installed on the target. If partup packages are
+used for initial flashing, then mount the partup package as type squashfs
+first and find the root filesystem there.</p></li>
+<li><p>The parameter &lt;flashlayout&gt; contains the rootfs partition.</p></li>
+<li><p>The parameter RAUC initializes both RAUC rootfs partitions.</p></li>
+<li><p>After the installation, power off the system:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>poweroff<span class="w"> </span>-f
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restart the system. After a successful installation, the system will boot to
+the kernel login console.</p></li>
+</ul>
+</section>
+<section id="recover-an-initialized-device">
+<h3><span class="section-number">9.5.4. </span>Recover an Initialized Device<a class="headerlink" href="#recover-an-initialized-device" title="Link to this heading"></a></h3>
+<p>If your filesystem is damaged or the key blob is deleted, then you can
+reinstall the encrypted filesystem with the following options.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Reinitialize your device with the phytec-provisioning-image from the SD
+card (Boot in ramdisk)</p></li>
+<li><p>Boot in rescue mode of the existing flash image with minimal tools support</p></li>
+</ol>
+</div></blockquote>
+<p>The following commands are for starting the rescue mode with a booted device
+from eMMC:</p>
+<blockquote>
+<div><ul>
+<li><p>Stop booting in the bootloader. The Protection Shield Level low is in
+default with password: root</p></li>
+<li><p>Add Linux bootargs in the bootloader and boot the fitImage from the eMMC:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>for barebox (i.MX6 and i.MX6UL)</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ global linux.bootargs.rescue=&quot;rescue=1&quot;
+barebox$ boot
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>for u-boot:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; run loadraucimage
+u-boot=&gt; run raucargs
+u-boot=&gt; setenv bootargs ${bootargs} rescue=1
+u-boot=&gt; bootm ${loadaddr}
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="hardening-of-the-system">
+<h1><span class="section-number">10. </span>Hardening of the System<a class="headerlink" href="#hardening-of-the-system" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">DISTRO_FEATURES=&quot;hardening&quot;</span></code> activates the kernel reduction with deselect
+fragments. The name of the deselection variable is <code class="docutils literal notranslate"><span class="pre">KERNEL_FEATURES_DESELECT</span></code>.</p>
+<p>The deselect fragment selection for bluetooth, can, optee, pci and wifi depend
+on <code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURES</span></code> with the same name. If these features are not set in
+<code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURES</span></code>, then the deselect fragment with the same name is active,
+but can be selected independently from the <code class="docutils literal notranslate"><span class="pre">MACHINE_FEATURES</span></code> too. The
+fragments debug, kvm, media and xen are selected by default and are independent
+from the machine feature.</p>
+<p>Overwriting the initial definition of the variable <code class="docutils literal notranslate"><span class="pre">KERNEL_FEATURES_DESELECT</span></code>
+is possible.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Kernel</div>
+<div class="line">Fragment</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Description</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Selection with</div>
+<div class="line">KERNEL_FEATURES</div>
+<div class="line">_DESELECT</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Selection with</div>
+<div class="line">MACHINE_FEATURE</div>
+<div class="line"><br /></div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">hardening.cfg</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Activate some hardening features</div>
+<div class="line">in the kernel. This fragment is</div>
+<div class="line">the default active with the</div>
+<div class="line">distro feature hardening.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">NO</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">NO</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">bluetooth.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable the Bluetooth support.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">can.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable the CAN support.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">debug.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable kernel debug support.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line">initial set</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">no</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">kvm.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable kernel-based virtual</div>
+<div class="line">machine support.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line">initial set</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">no</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">media.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable the ANALOG / DIGITAL TV,</div>
+<div class="line">RADIO and SDR support</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line">initial set</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">no</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">optee.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable optee support.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">pci.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable PCI interface support.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">wifi.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable wireless and WLAN</div>
+<div class="line">support</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">deselect-</div>
+<div class="line">xen.cfg</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Disable xen paravirtualisation</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line">initial set</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">no</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="physical-security">
+<h1><span class="section-number">11. </span>Physical security<a class="headerlink" href="#physical-security" title="Link to this heading"></a></h1>
+<p>To further protect your device, it is important to reduce attack vectors.
+Start by securing development features like JTAG and serial downloader.
+For activation or deactivation of controller features, is necessary to write
+and read eFuses.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The secure eFuse configuration can only be written once and is irreversible.</p>
+</div>
+<section id="secure-jtag">
+<span id="physical-security-jtag-kirkstone"></span><h2><span class="section-number">11.1. </span>Secure JTAG<a class="headerlink" href="#secure-jtag" title="Link to this heading"></a></h2>
+<p>Most embedded devices provide a JTAG interface for debugging purposes. However,
+if left unprotected, this interface can become an important attack vector on
+the systems in series production. Most controllers allow you to regulate
+JTAG access with three security modes using OTP (One Time Programmable) eFuses:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Mode</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Security</div>
+<div class="line">level</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Description</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">NXP</div>
+<div class="line">SoC</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">TI</div>
+<div class="line">SoC</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Enabled</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">low</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">This is the default mode of operation</div>
+<div class="line">and you have full access to JTAG.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Disabled</div>
+<div class="line">debugging</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">medium</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">This mode disables debugging but</div>
+<div class="line">leaves the boundary scan</div>
+<div class="line">functionality enabled.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">yes</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Secure</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">high</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">This mode provides high security.</div>
+<div class="line">JTAG use is regulated by a challenge</div>
+<div class="line">response authentication mechanism</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Secret</div>
+<div class="line">response</div>
+<div class="line">key</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">X509</div>
+<div class="line">certifi-</div>
+<div class="line">cate</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Disabled</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">high</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">This mode provides maximum security.</div>
+<div class="line">All security-sensitive JTAG features</div>
+<div class="line">are permanently blocked, preventing</div>
+<div class="line">any debugging.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">yes</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">yes</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The NXP SoCs support different authentication depend on the SoC or the state of
+the SoC</p>
+<ul class="simple">
+<li><p>NXP i.MX6/UL/ULL and NXP i.MX8M MNP: Secret response key is supported and can
+be activated independent of the lifecycle</p></li>
+</ul>
+<p>The Secure Debug Mechanism with authentication differs between NXP and TI.</p>
+<img alt="../_images/secure-jtag.png" src="../_images/secure-jtag.png" />
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The i.MX9 family additionally supports the asymmetric signed message based
+debug enablement, which has better security compared to the password based
+mechanism (Secret response key). Secure debug can only be enabled when the
+device is in OEM_CLOSED lifecycle. In this lifecycle, only authenticated
+debug is allowed.</p>
+</div>
+<p>Additional information about JTAG Security can be found:</p>
+<ul class="simple">
+<li><p>NXP:
+<a class="reference external" href="https://www.nxp.com/webapp/Download?colCode=AN4686&amp;location=null&amp;isHTMLorPDF=HTML">Secure Debug in i.MX6/7/8M Family of Application Processors AN4686</a></p></li>
+<li><p>TI: <a class="reference external" href="https://downloads.ti.com/tisci/esd/latest/6_topic_user_guides/secure_debug.html?highlight=jtag">Secure Debug User Guide</a>
+or in the restricted security resources for your SoC type.</p></li>
+</ul>
+<section id="disable-debugging-mode-only-for-nxp-soc">
+<h3><span class="section-number">11.1.1. </span>Disable Debugging Mode only for NXP SoC<a class="headerlink" href="#disable-debugging-mode-only-for-nxp-soc" title="Link to this heading"></a></h3>
+<p>Set JTAG to &quot;Disabled debugging&quot; mode:</p>
+<ul>
+<li><p>i.MX6 and i.MX6UL/ULL with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$  mw -l -d /dev/imx-ocotp 0x18 0xC00000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>i.MX8M MNP with u-boot:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fuse prog 1 3 0xC00000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="disable-jtag-mode">
+<h3><span class="section-number">11.1.2. </span>Disable JTAG Mode<a class="headerlink" href="#disable-jtag-mode" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><strong>only for NXP i.MX6 family and NXP i.MX8M MNP:</strong></p>
+<p>The HAB can normally enable JTAG debugging with the HAB_JDE-bit in the
+OCOTP SCS register. The JTAG_HEO-bit can override this behavior.
+If this feature is not required, it is highly recommended this be disabled.</p>
+</div>
+<ul>
+<li><p>NXP i.MX6 and i.MX6UL/ULL with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Disable JTAG Mode
+barebox$  mw -l -d /dev/imx-ocotp 0x18 0x00100000
+# To prevent HAB from Enabling JTAG
+barebox$  mw -l -d /dev/imx-ocotp 0x18 0x08000000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX8M MNP with u-boot:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Disable JTAG Mode
+u-boot=&gt; fuse prog 1 3 0x200000
+# To prevent HAB from Enabling JTAG
+u-boot=&gt; fuse prog 1 3 0x4000000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="disable-serial-downloader">
+<h2><span class="section-number">11.2. </span>Disable Serial Downloader<a class="headerlink" href="#disable-serial-downloader" title="Link to this heading"></a></h2>
+<p>Disabling the serial download support is recommended for security-enabled
+configurations:</p>
+<ul>
+<li><p>NXP i.MX6 with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Disable only Read Access for SDP
+barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0004
+# Disable SDP Mode Completely
+barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0001
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX6UL/ULL with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Disable only Read Access for SDP
+barebox$ mw -l -d /dev/imx-ocotp 0x18 0x40000
+# Disable SDP Mode Completely
+barebox$ mw -l -d /dev/imx-ocotp 0x18 0x20000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX8M MNP with u-boot:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Disable SDP Mode Completely
+u-boot=&gt; fuse prog 2 0 0x200000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="force-internal-boot">
+<h2><span class="section-number">11.3. </span>Force Internal Boot<a class="headerlink" href="#force-internal-boot" title="Link to this heading"></a></h2>
+<p>Ensure the device always boots in INTERNAL BOOT (FORCE_BT_FROM_FUSE) mode,
+ignoring BOOT_MODE pins. This setting is recommended for security-enabled
+configurations.</p>
+<p>At first you should burn the Boot Fuses.</p>
+<ul>
+<li><p>NXP i.MX6 with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$  mw -l -d /dev/imx-ocotp 0x18 0x80000000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX6UL/ULL with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$  mw -l -d /dev/imx-ocotp 0x18 0x10000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX8M MNP with u-boot:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fuse prog 2 0 0x100000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="disable-boot-from-external-memory">
+<h2><span class="section-number">11.4. </span>Disable Boot from External Memory<a class="headerlink" href="#disable-boot-from-external-memory" title="Link to this heading"></a></h2>
+<p>By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.</p>
+<ul>
+<li><p>NXP i.MX6 and i.MX6UL/ULL with barebox:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0008
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>NXP i.MX8M MNP with u-boot:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; fuse prog 1 3 0x8000000
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="keys-and-certificates-management">
+<span id="phytec-pki-kirkstone"></span><h1><span class="section-number">12. </span>Keys and Certificates Management<a class="headerlink" href="#keys-and-certificates-management" title="Link to this heading"></a></h1>
+<section id="public-key-infrastructure-tree-pki-tree">
+<h2><span class="section-number">12.1. </span>Public Key Infrastructure Tree (PKI tree)<a class="headerlink" href="#public-key-infrastructure-tree-pki-tree" title="Link to this heading"></a></h2>
+<p>To use a secure boot with a signed bootloader and a signed kernel image,
+several keys and certificates are required to sign the images.
+The key and certificate creation is a manual process and the public key
+infrastructure (PKI) tree must be in place before you start your build.
+This BSP includes the PHYTEC development PKI tree as an example. You are
+obligated to create a custom PKI tree with your own keys and certificates.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>It is highly recommended to use different keys for different parts of your
+system to avoid a single point of failure regarding your security concept.</p>
+</div>
+</section>
+<section id="phytec-development-keys-phytec-dev-ca">
+<h2><span class="section-number">12.2. </span>PHYTEC Development Keys (phytec-dev-ca)<a class="headerlink" href="#phytec-development-keys-phytec-dev-ca" title="Link to this heading"></a></h2>
+<p>The included phytec-dev-ca example consists of a self-signed main-CA and three
+derived sub-CA's for bootloader, Fit-image, and RAUC updates.</p>
+<img alt="../_images/phytec-pki.png" src="../_images/phytec-pki.png" />
+<p>The recipes for bootloader, FIT-image, and RAUC depend on the
+recipe phytec-dev-ca. If you build the BSP for the first time,
+the PHYTEC development keys are downloaded from
+<a class="reference external" href="https://github.com/phytec/phytec-dev-ca">https://github.com/phytec/phytec-dev-ca</a> to yocto/phytec-dev-ca.
+They are used to sign the bootloader, FIT-image, Kernel modules, and the RAUC
+bundles.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Key Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>main-ca</p></td>
+<td><p>self-signed Certificate Authority</p></td>
+<td><p>RSA-4096</p></td>
+</tr>
+<tr class="row-odd"><td><p>nxp_ahab_pki</p></td>
+<td><p>NXP HABv4 Key Authority for i.MX93</p></td>
+<td><p>NIST P-521</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">nxp_habv4_pki</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">NXP HABv4 Key Authority for i.MX6/UL/ULL and</div>
+<div class="line">i.MX8M Nano/Mini/Plus</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RSA-4096</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ti_k3</p></td>
+<td><p>TI K3 Key Authority for AM62 / AM64 / AM68</p></td>
+<td><p>RSA-4096</p></td>
+</tr>
+<tr class="row-even"><td><p>fit</p></td>
+<td><p>Kernel FIT-image signing key and certificate</p></td>
+<td><p>RSA-4096</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">kernel-modsign</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Key for the Linux kernel module signing facility,</div>
+<div class="line">independent of CA</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RSA-4096</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">rauc-intermediate</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RAUC CA (intermediate CA) and</div>
+<div class="line">RAUC CA sign development key for signing the bundles</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RSA-2048</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">rauc-intermediate</div>
+<div class="line">-crypt</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RAUC CA for device certificates to encrypt</div>
+<div class="line">update bundles</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">RSA-4096</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The SoC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot
+container files,
+which are verified with the SoC internal unit and SoC rom loader or dedicated
+controllers in the SoC.</p>
+<p>All keys and certificates are stored in an XCA database phytec-dev-ca.xdb,
+which can be configured with the open-source application XCA from
+<a class="reference external" href="https://hohnstaedt.de/xca/">https://hohnstaedt.de/xca/</a>.
+The password for the phytec-dev-ca.xdb is: phytec-dev-ca</p>
+<p>Only the necessary keys and certificates for the build process are exported to
+the directory.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">The phytec-dev-ca is installed in the directory</span>
+<span class="go">/&lt;path to&gt;/yocto</span>
+<span class="go">|--build</span>
+<span class="go">|--phytec-dev-ca</span>
+<span class="go">|--source</span>
+</pre></div>
+</div>
+<p>All keys and certificates are in an XCA database and are not copied to
+different paths from the packages in the build folder.
+The directory contains only the necessary certificates and keys for the
+building process.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul class="simple">
+<li><p>Use the PHYTEC development keys only for the first test.</p></li>
+<li><p>The PHYTEC development keys are not secure!</p></li>
+<li><p>Create and use your own keys and certificates!</p></li>
+</ul>
+</div>
+</section>
+<section id="create-custom-pki-tree">
+<h2><span class="section-number">12.3. </span>Create Custom PKI Tree<a class="headerlink" href="#create-custom-pki-tree" title="Link to this heading"></a></h2>
+<p>Please create your PKI offline with a separate system.
+For example, boot a read-only system from USB which you only use to create
+the PKI. The phytec-dev-ca is created with XCA from
+<a class="reference external" href="https://hohnstaedt.de/xca/">https://hohnstaedt.de/xca/</a> , but you can use any other tool, too.</p>
+<section id="change-pki-tree-from-phytec-dev-ca-to-custom-pki">
+<h3><span class="section-number">12.3.1. </span>Change PKI Tree from phytec-dev-ca to Custom PKI<a class="headerlink" href="#change-pki-tree-from-phytec-dev-ca-to-custom-pki" title="Link to this heading"></a></h3>
+<p>In the configuration class <em>sources/meta-ampliphy/classes/secureboot.bbclass</em>,
+the path to your PKI tree is initially defined:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CERT_PATH<span class="w"> </span>??<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OEROOT</span><span class="si">}</span><span class="s2">/../../phytec-dev-ca&quot;</span>
+</pre></div>
+</div>
+<p>If you want to change the path, then reinit the <code class="docutils literal notranslate"><span class="pre">CERT_PATH</span> <span class="pre">?=</span></code> in your layer or
+overwrite the <code class="docutils literal notranslate"><span class="pre">CERT_PATH</span></code> in the <code class="docutils literal notranslate"><span class="pre">conf/local.conf</span></code>.</p>
+<p>The name of your PKI tree must have a name other than phytec-dev-ca. The recipe
+for phytec-dev-ca uses the name &quot;phytec-dev-ca&quot; as a parameter for the clean
+command.</p>
+<p>After the <code class="docutils literal notranslate"><span class="pre">CERT_PATH</span></code> has been changed, you must clean and rebuild the
+bootloader, FIT-image, RAUC bundles, and the rootfs!</p>
+</section>
+</section>
+<section id="create-nxp-ahab-habv4-keys">
+<h2><span class="section-number">12.4. </span>Create NXP AHAB / HABV4 Keys<a class="headerlink" href="#create-nxp-ahab-habv4-keys" title="Link to this heading"></a></h2>
+<p>NXP provided scripts to create keys and certificates for NXP AHAB or NXP HABV4.
+The scripts are from the
+<a class="reference external" href="https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/keys?ref_type=heads">imx-code-signing-tool repository</a></p>
+<p>You can use this script or a PKI application like the XCA to create the keys
+and certificates to sign the bootloader or boot container.</p>
+<p>For creation, the SRK table and SRK Fuses from the SRK certificates are scripts
+in the imx-code-signing-tool repository in the folder add-ons
+which used the srktool.
+You can install the srktool with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>apt<span class="w"> </span>install<span class="w"> </span>imx-code-signing-tool
+<span class="gp"># </span>or<span class="w"> </span>build<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="gp">host:~$ </span>make<span class="w"> </span>-C<span class="w"> </span>code/obj.linux64<span class="w"> </span><span class="nv">OSTYPE</span><span class="o">=</span>linux64<span class="w"> </span><span class="nv">ENCRYPTION</span><span class="o">=</span>yes
+</pre></div>
+</div>
+<p>More information about cst and HAB4 API you can find in the doc folder of
+the imx-code-signing-tool repository.</p>
+</section>
+<section id="create-ti-k3-keys">
+<h2><span class="section-number">12.5. </span>Create TI K3 Keys<a class="headerlink" href="#create-ti-k3-keys" title="Link to this heading"></a></h2>
+<p>Key Types Involved in Secure Boot</p>
+<ul class="simple">
+<li><p>MEK (Manufacture Encryption Key): TI-provided, permanently fused, validates
+TI-signed artifacts.</p></li>
+<li><p>SMPK (Secondary Manufacture Public Key): User-generated, fused into the
+device, used to validate user-signed bootloader images.</p></li>
+<li><p>BMPK (Backup Manufacture Public Key): Optional, user-generated backup key.
+If the SMPK is ever lost or compromised, you can reconfigure the system to
+use the BMPK for bootloader signature verification. The BMPK is strongly
+recommended for robust device security lifecycle management.</p></li>
+</ul>
+<section id="installing-the-sdk">
+<h3><span class="section-number">12.5.1. </span>Installing the SDK<a class="headerlink" href="#installing-the-sdk" title="Link to this heading"></a></h3>
+<p>To create a copy of the OTP Keywriter that includes your own keys, you will
+need TI's MCU Plus SDK, CCS, SYSCONFIG, and the OTP keywriter source code.</p>
+<dl>
+<dt><strong>For the TI AM62x</strong></dt><dd><ul class="simple">
+<li><p>MCU Plus SDK for AM62x (11.01.00.16): <a class="reference external" href="https://www.ti.com/tool/download/MCU-PLUS-SDK-AM62X/11.01.00.16">https://www.ti.com/tool/download/MCU-PLUS-SDK-AM62X/11.01.00.16</a></p></li>
+<li><p>SYSCONFIG (1.24): <a class="reference external" href="https://www.ti.com/tool/download/SYSCONFIG/1.24.0.4150">https://www.ti.com/tool/download/SYSCONFIG/1.24.0.4150</a></p></li>
+<li><p>ARM-CGT-CLANG (4.0.1): <a class="reference external" href="https://www.ti.com/tool/de-de/download/ARM-CGT-CLANG/4.0.1.LTS">https://www.ti.com/tool/de-de/download/ARM-CGT-CLANG/4.0.1.LTS</a></p></li>
+<li><p>Keywriter (11.01.00) source code must be requested from the AM62X-RESTRICTED-SW section of the AM62x downloads page: <a class="reference external" href="https://www.ti.com/secureresources/AM62X-RESTRICTED-SECURITY">https://www.ti.com/secureresources/AM62X-RESTRICTED-SECURITY</a></p></li>
+<li><p>OTP keywriter firmware supports a maximum certificate length of 6144 bytes</p></li>
+<li><p>Once you have the MCU Plus SDK set up, install the keywriter source to <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security</span></code>.</p></li>
+</ul>
+</dd>
+<dt><strong>For the TI AM64x</strong></dt><dd><ul class="simple">
+<li><p>MCU Plus SDK for AM64x (09.00.00.35): <a class="reference external" href="https://www.ti.com/tool/download/MCU-PLUS-SDK-AM64X/09.00.00.35">https://www.ti.com/tool/download/MCU-PLUS-SDK-AM64X/09.00.00.35</a></p></li>
+<li><p>CCS (12.4.0): <a class="reference external" href="https://www.ti.com/tool/download/CCSTUDIO/12.4.0">https://www.ti.com/tool/download/CCSTUDIO/12.4.0</a></p></li>
+<li><p>SYSCONFIG (1.17): <a class="reference external" href="https://www.ti.com/tool/download/SYSCONFIG/1.17.0.3128">https://www.ti.com/tool/download/SYSCONFIG/1.17.0.3128</a></p></li>
+<li><p>Keywriter (09.00.00.35) source code must be requested from the AM64X-HS-RESTRICTED-SW section of the AM64x downloads page: <a class="reference external" href="https://www.ti.com/secureresources/AM64X-HS-RESTRICTED-SW">https://www.ti.com/secureresources/AM64X-HS-RESTRICTED-SW</a></p></li>
+<li><p>OTP keywriter firmware supports a maximum certificate length of 5400 bytes</p></li>
+<li><p>Once you have the MCU Plus SDK set up, install the keywriter source to <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security</span></code>.</p></li>
+</ul>
+</dd>
+<dt><strong>For the TI AM68x/TDA4x</strong></dt><dd><ul class="simple">
+<li><p>TI Processor SDK RTOS for J721S2 (10.01.00.04): <a class="reference external" href="https://www.ti.com/tool/download/PROCESSOR-SDK-RTOS-J721S2/10.01.00.04">https://www.ti.com/tool/download/PROCESSOR-SDK-RTOS-J721S2/10.01.00.04</a></p></li>
+<li><p>GCC Compiler (9.2-2019.12): <a class="reference external" href="https://developer.arm.com/-/media/Files/downloads/gnu-a/9.2-2019.12/binrel/gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu.tar.xz">https://developer.arm.com/-/media/Files/downloads/gnu-a/9.2-2019.12/binrel/gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu.tar.xz</a></p></li>
+<li><p>CCS (12.4.0): <a class="reference external" href="https://www.ti.com/tool/download/CCSTUDIO/12.4.0">https://www.ti.com/tool/download/CCSTUDIO/12.4.0</a></p></li>
+<li><p>OTP keywriter add-on package (10.01.00) must be requested from the J7X-RESTRICTED-SECURITY section: <a class="reference external" href="https://www.ti.com/secureresources/J7X-RESTRICTED-SECURITY">https://www.ti.com/secureresources/J7X-RESTRICTED-SECURITY</a></p></li>
+<li><p>OTP keywriter firmware supports a maximum certificate length of 6144 bytes</p></li>
+<li><p>Follow the Readme instructions of the OTP keywriter add-on package</p></li>
+<li><p>Additional installation step</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;
+<span class="gp">host:~$ </span>./sdk_builder/scripts/setup_psdk_rtos.sh
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/scripts/
+<span class="gp">host:~$ </span>mkdir<span class="w"> </span>tifek
+<span class="gp">host:~$ </span>cp<span class="w"> </span>ti_fek_public.pem<span class="w"> </span>tifek/
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Wait for your access request approval by TI, this usually takes 1-3 days.
+Building the keywriter has only been tested with the specified versions!</p>
+</div>
+<p>Before we begin programming keys, we need to make changes to the source code.</p>
+<dl>
+<dt><strong>For the TI AM62x</strong></dt><dd><p>In <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/main.c</span></code> disable or remove line 76:</p>
+<p>Disable the voltage Vpp setting:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">//keywriter_setVpp();</span>
+</pre></div>
+</div>
+<p>This is because there is a pin on the SoC that needs to be set high to write
+keys, and TI does this using I2C on their boards which requires this function
+to run. We will set this pin using a jumper on our board.</p>
+</dd>
+<dt><strong>For the TI AM64x</strong></dt><dd><p>In <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/main.c</span></code> disable or remove line 61:</p>
+<p>Disable the voltage Vpp setting:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">//keywriter_setVpp();</span>
+</pre></div>
+</div>
+<p>This is because there is a pin on the SoC that needs to be set high to write
+keys, and TI does this using I2C on their boards which requires this function
+to run. We will set this pin using a jumper on our board.</p>
+</dd>
+<dt><strong>For the TI AM68x/TDA4x</strong></dt><dd><p>In <code class="docutils literal notranslate"><span class="pre">&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/soc/j721s2/keywriter_utils.c</span></code></p>
+<p>Activate the voltage Vpp on the phyCORE-AM68x with this patch <code class="docutils literal notranslate"><span class="pre">patch</span> <span class="pre">&lt;</span> <span class="pre">diff.patch</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">--- keywriter_utils.c     2024-12-12 18:18:53.000000000 +0100</span>
+<span class="go">+++ keywriter_utils.c     2025-08-25 11:41:59.935563549 +0200</span>
+<span class="go">@@ -40,6 +40,9 @@</span>
+
+<span class="gp">#</span>include<span class="w"> </span><span class="s2">&quot;keywriter_utils.h&quot;</span>
+<span class="gp">#</span>include<span class="w"> </span><span class="s2">&quot;board_utils.h&quot;</span>
+<span class="go">+#include &quot;board_internal.h&quot;</span>
+<span class="go">+</span>
+<span class="go">+#define MAIN_CTRL_BASE      (0x00100000U)</span>
+
+<span class="go">static void keywr_leo_pmicb_set_params(Pmic_CoreCfg_t *pmicConfigData)</span>
+<span class="go">{</span>
+<span class="go">@@ -164,37 +167,21 @@</span>
+<span class="go">*/</span>
+<span class="go">void OTP_VppEn(void)</span>
+<span class="go">{</span>
+<span class="go">-    Board_I2cInitCfg_t i2cCfg;</span>
+<span class="go">-    Board_IDInfo_v2    info;</span>
+<span class="go">-    Board_STATUS       status;</span>
+<span class="go">-    bool               skBoardDet = BFALSE;</span>
+<span class="go">-</span>
+<span class="go">-    i2cCfg.i2cInst    = BOARD_I2C_EEPROM_INSTANCE;</span>
+<span class="go">-    i2cCfg.socDomain  = BOARD_SOC_DOMAIN_WKUP;</span>
+<span class="go">-    i2cCfg.enableIntr = BFALSE;</span>
+<span class="go">-    Board_setI2cInitConfig(&amp;i2cCfg);</span>
+<span class="go">-</span>
+<span class="go">-    /* Check if the board is SK */</span>
+<span class="go">-    status = Board_getIDInfo_v2(&amp;info, KEYWRITER_SK_EEPROM_SLAVE_ADDR);</span>
+<span class="go">-    if(BOARD_SOK == status)</span>
+<span class="go">-    {</span>
+<span class="go">-        if(!(strncmp(info.boardInfo.boardName,</span>
+<span class="go">-                     &quot;AM68-SK-SOM&quot;,</span>
+<span class="go">-                     BOARD_BOARD_NAME_LEN)))</span>
+<span class="go">-        {</span>
+<span class="go">-            UART_printf(&quot;AM68 SK Detected!!\n&quot;);</span>
+<span class="go">-            skBoardDet = BTRUE;</span>
+<span class="go">-        }</span>
+<span class="go">-    }</span>
+<span class="go">+    uint32_t regVal;</span>
+
+<span class="go">-    if(BTRUE == skBoardDet)</span>
+<span class="go">-    {</span>
+<span class="go">-        /* Enable VPP for AM68 SK board */</span>
+<span class="go">-        OTP_VppEn_SK();</span>
+<span class="go">-    }</span>
+<span class="go">-    else</span>
+<span class="go">-    {</span>
+<span class="go">-        /* Enable VPP for J721S2 EVM or a Custom board */</span>
+<span class="go">-        OTP_VppEn_EVM();</span>
+<span class="go">-    }</span>
+<span class="go">+    UART_printf(&quot;OTP_VppEn_phyCORE-AM68x/TDV4 \n&quot;);</span>
+<span class="go">+</span>
+<span class="go">+    /* pinmux padconfig*/</span>
+<span class="go">+    mmr_unlock(MAIN_CTRL_BASE,7);</span>
+<span class="go">+    HW_WR_REG32(BOARD_MAIN_PMUX_CTRL_ADDR+PIN_MCAN12_RX, PIN_PULL_DISABLE | PIN_MODE(7));</span>
+<span class="go">+</span>
+<span class="go">+    /* Set the MAIN GPIO 0 Pin 2 direction to output */</span>
+<span class="go">+    regVal = (HW_RD_REG32(CSL_GPIO0_BASE+0x10)) &amp; (~(0x1 &lt;&lt; 0x02));</span>
+<span class="go">+    HW_WR_REG32(CSL_GPIO0_BASE+0x10, regVal);</span>
+<span class="go">+</span>
+<span class="go">+    /* Set the MAIN GPIO 0 Pin 2 value to high */</span>
+<span class="go">+    regVal = (HW_RD_REG32(CSL_GPIO0_BASE+0x14)) | (0x1 &lt;&lt; 0x02);</span>
+<span class="go">+    HW_WR_REG32(CSL_GPIO0_BASE+0x14, regVal);</span>
+<span class="go">+</span>
+<span class="go">+    UART_printf(&quot;OTP Vpp is Enabled!\n&quot;);</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>This is because there is a pin on the SoC that needs to be set high to write
+keys and a GPIO is on use of the phyCORE-AM68x.</p>
+</dd>
+</dl>
+</section>
+<section id="generating-keys">
+<h3><span class="section-number">12.5.2. </span>Generating Keys<a class="headerlink" href="#generating-keys" title="Link to this heading"></a></h3>
+<p>The keywriter source comes with a tool to help generate your own keys.
+To generate keys, go to</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AM62x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am62x</span></code></p></li>
+<li><p>AM64x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am64x</span></code></p></li>
+<li><p>AM68x: <code class="docutils literal notranslate"><span class="pre">&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/scripts</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>and run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./gen_keywr_cert.sh<span class="w"> </span>-g
+</pre></div>
+</div>
+<p>This will create a set of five keys in the <code class="docutils literal notranslate"><span class="pre">keys/</span></code> directory.</p>
+<p>Alternatively, you can copy the PHYTEC dummy keys to this folder,
+which you can get from <a class="reference external" href="https://github.com/phytec/phytec-dev-ca/tree/main/ti_k3">https://github.com/phytec/phytec-dev-ca/tree/main/ti_k3</a></p>
+<p>You can use the keywriter to flash these keys to your hardware
+and you will need to keep them safe to use for signing your images as well.</p>
+</section>
+<section id="building-the-keywriter">
+<h3><span class="section-number">12.5.3. </span>Building the Keywriter<a class="headerlink" href="#building-the-keywriter" title="Link to this heading"></a></h3>
+<p>There are two methods for creating the keywriter. You can create one keywriter
+that contains all of your keys and configuration (e.g. JTAG configuration),
+or you can make one keywriter per key and configurations.
+The all-at-once approach is more straightforward, but if your key certificates
+end up with a certificate exceeding the maximum certificate length you may need
+to use the incremental approach.</p>
+<section id="generate-incremental-certificates">
+<h4><span class="section-number">12.5.3.1. </span>Generate Incremental Certificates<a class="headerlink" href="#generate-incremental-certificates" title="Link to this heading"></a></h4>
+<p>If you end up with a certificate exceeding the maximum certificate length while
+trying to build and program all the keys at once, you may need to flash the
+keys incrementally. To do this you will need separate certificates for each key.
+Starting in</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AM62x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am62x</span></code>,</p></li>
+<li><p>AM64x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am64x</span></code>,</p></li>
+<li><p>AM68x: <code class="docutils literal notranslate"><span class="pre">&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/scripts</span></code>,</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Each certificate results in one programming step with a fresh boot of the
+device. Until the KEYREV value is set to either 1 or 2, the device is
+considered an HS-FS device, and key values can continue being programmed
+incrementally. So, programming the KEYREV should be left to the final step.</p>
+</div>
+<ul>
+<li><p>generate the first certificate for the Model Specific Value (MSV), the SMPK and
+the SMEK key:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">MSV+SMPK+SMEK</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>--msv<span class="w"> </span>0xC0FFE<span class="w"> </span>-s<span class="w"> </span>keys/smpk.pem<span class="w"> </span>--smek<span class="w"> </span>keys/smek.key<span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Override parameter: <code class="docutils literal notranslate"><span class="pre">--msv-ovrd,</span> <span class="pre">-s-ovrd,</span> <span class="pre">--smek-ovrd</span></code></p></li>
+<li><p>Readout Protection: <code class="docutils literal notranslate"><span class="pre">--msv-rp,</span> <span class="pre">-s-rp,</span> <span class="pre">--smek-rp</span></code></p></li>
+<li><p>Overwrite Protection <code class="docutils literal notranslate"><span class="pre">--msv-wp,</span> <span class="pre">--s-wp,</span> <span class="pre">--smek-wp</span></code></p></li>
+</ul>
+</li>
+<li><p>generate a certificate for the backup key BMPK and BMEK.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">BMPK+BMEK</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>-b<span class="w"> </span>keys/bmpk.pem<span class="w"> </span>--bmek<span class="w"> </span>keys/bmek.key<span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Override parameter: <code class="docutils literal notranslate"><span class="pre">-b-ovrd,</span> <span class="pre">--bmek-ovrd</span></code></p></li>
+<li><p>Readout Protection: <code class="docutils literal notranslate"><span class="pre">--b-rp,</span> <span class="pre">--bmek-rp</span></code></p></li>
+<li><p>Overwrite Protection <code class="docutils literal notranslate"><span class="pre">--b-wp,</span> <span class="pre">--bmek-wp</span></code></p></li>
+</ul>
+</li>
+<li><p>generate a certificate to disable JTAG</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Disable JTAG</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>--jtag-disable<span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<p>You can add this directly to the first certificate.</p>
+<ul class="simple">
+<li><p>Override parameter: <code class="docutils literal notranslate"><span class="pre">--jtag-disable-ovrd</span></code></p></li>
+<li><p>Readout Protection: <code class="docutils literal notranslate"><span class="pre">--jtag-disable-rp</span></code></p></li>
+<li><p>Overwrite Protection <code class="docutils literal notranslate"><span class="pre">--jtag-disable-wp</span></code></p></li>
+</ul>
+</li>
+<li><p>generate a certificate for Secure Board Config</p>
+<blockquote>
+<div><p><a class="reference external" href="https://software-dl.ti.com/tisci/esd/latest/3_boardcfg/BOARDCFG_SEC.html#">The Secure Board Configuration</a></p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Secure Board Config</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>--sr-bcfg<span class="w"> </span>&lt;board<span class="w"> </span>configuration&gt;<span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Override parameter: <code class="docutils literal notranslate"><span class="pre">--sr-bcfg-ovrd</span></code></p></li>
+<li><p>Readout Protection: <code class="docutils literal notranslate"><span class="pre">--sr-bcfg-rp</span></code></p></li>
+<li><p>Overwrite Protection <code class="docutils literal notranslate"><span class="pre">--sr-bcfg-wp</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Additionally, if the extended OTP needs to be programmed via keywriter
+(for USB/PCIE VID/PID), make sure to program the extended OTP before
+converting the device to an HS-SE device!</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Extended OTP</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>--ext-otp<span class="w"> </span>ext_otp_data.bin<span class="w"> </span>--ext-otp-indx<span class="w"> </span><span class="m">1</span><span class="w"> </span>--ext-otp-size<span class="w"> </span><span class="m">3</span><span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Readout and Overwrite Protection: <code class="docutils literal notranslate"><span class="pre">---ext-otp-wprp</span></code></p></li>
+</ul>
+</li>
+<li><p>generate certificate to set keycnt and keyref to enable the HS-SE device with
+secure boot</p>
+<ul class="simple">
+<li><p>keycnt = 1 for only SMPK, keycnt = 2 for using SMPK and BMPK</p></li>
+<li><p>keyrev = 1 for active SMPK, keyrev = 2 for active BMPK</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Activate Secure Boot</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$  </span>./gen_keywr_cert.sh<span class="w"> </span>--keycnt<span class="w"> </span><span class="m">2</span><span class="w"> </span>--keyrev<span class="w"> </span><span class="m">1</span><span class="w"> </span>--aes256<span class="w"> </span>keys/aes256.key<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Override parameter: <code class="docutils literal notranslate"><span class="pre">--keycnt-ovrd,</span> <span class="pre">--keyrev-ovrd</span></code></p></li>
+<li><p>Readout Protection: <code class="docutils literal notranslate"><span class="pre">--keycnt-rp,</span> <span class="pre">--keyrev-rp</span></code></p></li>
+<li><p>Overwrite Protection <code class="docutils literal notranslate"><span class="pre">--keycnt-wp,</span> <span class="pre">--keyrev-wp</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>If you create one certificate, then generate the keywriter and run it on the
+device.</p>
+</section>
+<section id="generate-one-shot-certificate">
+<h4><span class="section-number">12.5.3.2. </span>Generate One Shot Certificate<a class="headerlink" href="#generate-one-shot-certificate" title="Link to this heading"></a></h4>
+<p>Using the keys generated in the previous step, we can now generate a
+certificate to sign our hardware and enable secure boot. Go to</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AM62x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am62x</span></code></p></li>
+<li><p>AM64x: <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/am64x</span></code></p></li>
+<li><p>AM68x: <code class="docutils literal notranslate"><span class="pre">&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/scripts</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>and run the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>./gen_keywr_cert.sh<span class="w"> </span>-t<span class="w"> </span>tifek/ti_fek_public.pem<span class="w"> </span>--msv<span class="w"> </span>0xC0FFE<span class="w"> </span>-s<span class="w"> </span>keys/smpk.pem<span class="w"> </span>--smek<span class="w"> </span>keys/smek.key<span class="w"> </span>-b<span class="w"> </span>keys/bmpk.pem<span class="w"> </span>--bmek<span class="w"> </span>keys/bmek.key<span class="w"> </span>--jtag-disable<span class="w"> </span>--keycnt<span class="w"> </span><span class="m">2</span><span class="w"> </span>--keyrev<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Please add Readout and Overwrite protection for the field.</p>
+</div>
+<p>This generates a certificate containing our keys (primary_cert.bin).
+Please note the maximum certificate length limit, which requires incremental
+certificates writing.</p>
+</section>
+<section id="build-the-keywriter">
+<h4><span class="section-number">12.5.3.3. </span>Build the Keywriter<a class="headerlink" href="#build-the-keywriter" title="Link to this heading"></a></h4>
+<dl>
+<dt><strong>For the TI AM62x</strong></dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang/
+<span class="gp">host:~$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">MCU_PLUS_SDK_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;MCU_PLUS_SDK_DIRECTORY&gt;&quot;</span>
+<span class="gp">host:~$ </span>make<span class="w"> </span>-sj<span class="w"> </span><span class="nv">PROFILE</span><span class="o">=</span>debug<span class="w"> </span>clean
+<span class="gp">host:~$ </span>make<span class="w"> </span>-sj<span class="w"> </span><span class="nv">PROFILE</span><span class="o">=</span>debug
+</pre></div>
+</div>
+<p>The keywriter for the certificate has now been built and is in the
+<code class="docutils literal notranslate"><span class="pre">tiboot3.bin</span></code> file in <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/am62x-sk/r5fss0-0_nortos/ti-arm-clang</span></code>.</p>
+</dd>
+<dt><strong>For the TI AM64x</strong></dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/scripts/cert_gen/x509cert
+<span class="gp">host:~$ </span>python3<span class="w"> </span>../../../../../tools/bin2c/bin2c.py<span class="w"> </span>final_certificate.bin<span class="w"> </span>keycert.h<span class="w"> </span>KEYCERT
+<span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>../../am64x-evm/r5fss0-0_nortos/ti-arm-clang/
+<span class="gp">host:~$ </span>make<span class="w"> </span>-sj<span class="w"> </span><span class="nv">PROFILE</span><span class="o">=</span>debug<span class="w"> </span>clean
+<span class="gp">host:~$ </span>make<span class="w"> </span>-sj<span class="w"> </span><span class="nv">PROFILE</span><span class="o">=</span>debug
+</pre></div>
+</div>
+<p>The keywriter for the certificate has now been built and is in the
+<code class="docutils literal notranslate"><span class="pre">tiboot3.bin</span></code> file in <code class="docutils literal notranslate"><span class="pre">&lt;MCU_PLUS_SDK_DIRECTORY&gt;/source/security/sbl_keywriter/am64x-evm/r5fss0-0_nortos/ti-arm-clang</span></code></p>
+</dd>
+<dt><strong>For the TI AM68x/TDA4x</strong></dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nb">cd</span><span class="w"> </span>&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/build
+<span class="gp">host:~$ </span>make<span class="w"> </span>keywriter_img_clean<span class="w"> </span><span class="nv">SOC</span><span class="o">=</span>j721s2<span class="w"> </span><span class="nv">BOARD</span><span class="o">=</span>j721s2_evm
+<span class="gp">host:~$ </span>make<span class="w"> </span>keywriter_img<span class="w"> </span><span class="nv">SOC</span><span class="o">=</span>j721s2<span class="w"> </span><span class="nv">BOARD</span><span class="o">=</span>j721s2_evm<span class="w"> </span><span class="nv">PROFILE</span><span class="o">=</span>debug<span class="w"> </span>-sj
+</pre></div>
+</div>
+<p>The keywriter for the certificate has now been built and is in the
+<code class="docutils literal notranslate"><span class="pre">tiboot3.bin</span></code> file is <code class="docutils literal notranslate"><span class="pre">&lt;PROCESSOR_SDK_RTOS_DIRECTORY&gt;/pdk_j721s2_&lt;VERSION&gt;/packages/ti/boot/keywriter/binary/j721s2/keywriter_img_combined_j721s2_release.tiimage</span></code></p>
+</dd>
+</dl>
+<p>Save it elsewhere so that we can build the other keywriters without overwriting
+this one. Make sure that you keep track of the binaries so that you can flash
+them in the correct order later.</p>
+</section>
+</section>
+</section>
+<section id="create-kernel-fit-image-key">
+<h2><span class="section-number">12.6. </span>Create Kernel FIT-Image Key<a class="headerlink" href="#create-kernel-fit-image-key" title="Link to this heading"></a></h2>
+<p>You can create the Kernel FIT-image Key with a PKI tool or openssl.</p>
+<p>For the signing of the Kernel FIT-image the private key is used. The public key
+is build into as device-tree node in the bootloader and used for the FIT-image
+verification.</p>
+<p>The certificate is not necessary for the signing and verification of the
+FIT-image.</p>
+</section>
+<section id="create-kernel-module-signing-key">
+<h2><span class="section-number">12.7. </span>Create Kernel Module Signing Key<a class="headerlink" href="#create-kernel-module-signing-key" title="Link to this heading"></a></h2>
+<p>You can create the key and certificate for kernel module signing with a PKI
+tool or openssl. You must combine the private key and the certificate to one
+file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>cat<span class="w"> </span>private.key<span class="w"> </span>certificate.pem<span class="w"> </span>&gt;<span class="w"> </span>kernel_modsign.pem
+</pre></div>
+</div>
+</section>
+<section id="create-rauc-update-certificates">
+<h2><span class="section-number">12.8. </span>Create RAUC Update Certificates<a class="headerlink" href="#create-rauc-update-certificates" title="Link to this heading"></a></h2>
+<p>You can create the key and certificate for RAUC with a PKI tool or openssl.
+More details on the
+<a class="reference external" href="https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration">RAUC documentation</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="scarthgap-sec.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../coprocessor/index.html" class="btn btn-neutral float-right" title="Coprocessor" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 介绍 &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/bsp/imx8/imx8mp-fpsc/quickstart-alpha1.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="i.MX 8M Mini 手册" href="../imx8mm/imx8mm.html" />
+    <link rel="prev" title="1. PHYTEC 文档" href="alpha1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../imx8.html">i.MX 8</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../imx8mp/imx8mp.html">phyCORE-i.MX 8M Plus Manuals</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="imx8mp-fpsc.html">phyCORE-i.MX 8M Plus FPSC Manuals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="imx8mp-fpsc.html#head">HEAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imx8mp-fpsc.html#bsp-yocto-nxp-i-mx8mp-fpsc-alpha1">BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="imx8mp-fpsc.html#quickstart-guide-alpha1">Quickstart Guide ALPHA1</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. 介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">2. Requirements</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#included-in-the-kit">2.1. Included in the Kit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#components">2.2. Components</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#additional-optional-equipment-not-included-in-alpha-kit">2.3. Additional (optional) equipment (not included in Alpha Kit)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#linux-host-pc">2.4. Linux Host PC</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-the-board">3. Connecting the Board</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#connecting-the-debug-usb-interface">3.1. Connecting the DEBUG USB interface</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#powering-the-board">3.2. Powering the Board</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#prebuilt-images">4. Prebuilt Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-booting">5. System Booting</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#boot-with-sd-card">5.1. Boot with SD-Card</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../imx8mm/imx8mm.html">phyCORE-i.MX 8M Mini Manuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../imx8mn/imx8mn.html">phyCORE-i.MX 8M Nano Manuals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../imx8.html">i.MX 8</a></li>
+          <li class="breadcrumb-item"><a href="imx8mp-fpsc.html">Libra i.MX 8M Plus FPSC 手册</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>介绍</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx8/imx8mp-fpsc/quickstart-alpha1.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>pdf格式的文档： <a class="reference external" href="../../../_static/imx8mp-fpsc-quickstart-alpha1.pdf">下载</a></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>ALPHA1 i.MX 8M Plus
+Quickstart Guide</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>文档标题</p></td>
+<td><p>ALPHA1 i.MX 8M Plus
+Quickstart Guide</p></td>
+</tr>
+<tr class="row-odd"><td><p>文档类型</p></td>
+<td><p>Quickstart Guide</p></td>
+</tr>
+<tr class="row-even"><td><p>型号</p></td>
+<td><p>ALPHA1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yocto 手册</p></td>
+<td><p>Scarthgap</p></td>
+</tr>
+<tr class="row-even"><td><p>发布日期</p></td>
+<td><p>2025/08/11</p></td>
+</tr>
+<tr class="row-odd"><td><p>母文档</p></td>
+<td><p>ALPHA1 i.MX 8M Plus
+Quickstart Guide</p></td>
+</tr>
+</tbody>
+</table>
+<p>下表显示了与本手册兼容的 BSP：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>适用BSP</p></th>
+<th class="head"><p>BSP 发布类型</p></th>
+<th class="head"><p>BSP 发布日期</p></th>
+<th class="head"><p>BSP 状态</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1</p></td>
+<td><p>Alpha</p></td>
+<td><p>2025/08/11</p></td>
+<td><p>已发布</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h1><span class="section-number">1. </span>介绍<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>This Quickstart guide describes the tools and provides the know-how to install
+and boot the Linux Board Support Package (BSP) for the <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong>.</p>
+<p>This kit is currently in Alpha Status. There are several topics to keep in mind
+while working with this kit and guide:</p>
+<ul class="simple">
+<li><p>The <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong> will go through several functional changes during the Alpha Stage
+of development. Due to this, this Quickstart guide may change without any
+prior notice.</p></li>
+<li><p>The <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong> has some functionality that is not currently operational. Please
+be aware of this when working with the Alpha Kit.</p></li>
+<li><p>This Quickstart guide is only for booting and starting the basic
+functionality of the <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong>.</p></li>
+<li><p>Hardware manual for the <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong> can be found here: <a class="reference external" href="https://www.phytec.de/cdocuments/?doc=pRgRPw">Hardware Manual - phyCORE-i.MX 8M Plus FPSC (1617.2/1618.1) (L-1076e.A1)</a></p></li>
+<li><p>Yocto Reference Manual for scarthgap can be found here:
+<a class="reference internal" href="../../../yocto/scarthgap.html#yocto-man-scarthgap"><span class="std std-ref">Yocto Reference Manual (scarthgap)</span></a></p></li>
+<li><p>BSP Manual for <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong> can be found here: <a class="reference internal" href="alpha1.html#imx8mp-fpsc-alpha1-bsp-manual"><span class="std std-ref">phyCORE-i.MX 8MP FPSC ALPHA1 BSP Manual</span></a></p></li>
+</ul>
+<p>The following manuals will be available in future releases of the phyCORE-i.MX 8M Plus FPSC:</p>
+<ul class="simple">
+<li><p>Pin Muxing Table - a complete list of all signal chains from processor to
+carrier board output. Signal level, signal type, and other useful information
+is also included.</p></li>
+</ul>
+<p>For more information or details regarding the phyCORE-i.MX 8M Plus FPSC, please contact the PHYTEC
+Sales department.</p>
+</section>
+<section id="requirements">
+<h1><span class="section-number">2. </span>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h1>
+<section id="included-in-the-kit">
+<h2><span class="section-number">2.1. </span>Included in the Kit<a class="headerlink" href="#included-in-the-kit" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Alpha phyCORE-i.MX 8M Plus FPSC SOM on Alpha Libra Development Board
+(PD-05023-ALPHA.A0)</p></li>
+<li><p>Power adapter supplying 24 V / 3,75 A (SV071)</p></li>
+<li><p>Ethernet cable (WK114)</p></li>
+<li><p>USB-A to USB-C cable (WK560)</p></li>
+<li><p>SD Card with prepared prebuilt images</p></li>
+<li><p>2.54 10P to DB9P Female (WF072)</p></li>
+<li><p>2 x 2.54 10P to DB9P Male (WF228)</p></li>
+</ul>
+</section>
+<section id="components">
+<h2><span class="section-number">2.2. </span>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../../_images/Libra-front-components2.jpg"><img alt="../../../_images/Libra-front-components2.jpg" src="../../../_images/Libra-front-components2.jpg" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Libra FPSC Components (top)</strong></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../../_images/Libra-back-components2.jpg"><img alt="../../../_images/Libra-back-components2.jpg" src="../../../_images/Libra-back-components2.jpg" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Libra FPSC Components (bottom)</strong></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>As this is an Alpha Kit, there will be continuous revisions being made to
+the phyCORE-i.MX 8M Plus FPSC SoM and Libra FPSC board. Due to this, components and features may not
+be available. Contact PHYTEC if there any questions regarding components and
+features for this Alpha Kit. To see which components are currently
+functional, refer to the phyCORE-i.MX 8M Plus FPSC release notes.</p>
+</div>
+</section>
+<section id="additional-optional-equipment-not-included-in-alpha-kit">
+<h2><span class="section-number">2.3. </span>Additional (optional) equipment (not included in Alpha Kit)<a class="headerlink" href="#additional-optional-equipment-not-included-in-alpha-kit" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Display (KLCD-AC209-FPSCG)</p></li>
+<li><p>Embedded Imaging Kit (KPB-xxxx-Video-L01, KPB-xxxx-Video-L02)</p></li>
+</ul>
+</section>
+<section id="linux-host-pc">
+<h2><span class="section-number">2.4. </span>Linux Host PC<a class="headerlink" href="#linux-host-pc" title="Link to this heading"></a></h2>
+<p>Before you can work with the phyCORE-i.MX 8M Plus FPSC Board Support Package (BSP), you will need
+a host PC with the following minimum requirements:</p>
+<ul class="simple">
+<li><p>A modern Linux operating host system either natively or via a virtual
+machine.</p></li>
+<li><p>Ubuntu 22.04 LTS 64-bit recommended. Other distributions will likely work but
+note that some setup information as well as OS-specific commands and paths
+may differ.</p></li>
+<li><p>VMWare Workstation, VMWare Player, and VirtualBox are possible solutions if
+you want to use a virtual machine.</p></li>
+<li><p>Root access to your Linux host PC. Some commands in this guide will not work
+if you do not have sudo access (e.g. package installation, formatting an SD
+card).</p></li>
+<li><p>At least 40 GB to 50 GB of free space on the build partition of the host PC.</p></li>
+<li><p>An SD card reader, operational under Linux.</p></li>
+<li><p>An active internet connection.</p></li>
+</ul>
+</section>
+</section>
+<section id="connecting-the-board">
+<h1><span class="section-number">3. </span>Connecting the Board<a class="headerlink" href="#connecting-the-board" title="Link to this heading"></a></h1>
+<p>There a few manual connections that you will need to make before using the
+Libra FPSC.</p>
+<section id="connecting-the-debug-usb-interface">
+<h2><span class="section-number">3.1. </span>Connecting the DEBUG USB interface<a class="headerlink" href="#connecting-the-debug-usb-interface" title="Link to this heading"></a></h2>
+<p>For the following steps, a console connection via USB is required. You can use
+the included USB Type-A to USB Type-C cable.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For convenience, we have added a board UART to USB converter. This means,
+no RS232 interface is required during development for console communication
+between our carrier board and your host PC.</p>
+</div>
+<ul>
+<li><p>Connect your PC's USB port with the USB-C connector of the Libra FPSC (X14). After
+plugging the USB-C cable into X14 a red LED (D12) will light up to indicate a
+present USB bus voltage.</p></li>
+<li><p>Your device manager will show four new COM ports. Select the first COM port.
+On the processor side, UART3 is the default debug UART of the A55 Cores. The
+second COM port is the debug UART for the M7 core. This equals to UART4 on
+the processor side.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Do not open the third or fourth COM port in a terminal program! With the
+third COM port a reset of the board can be triggered. With the fourth COM
+port the bootmodes can be set. Opening these COM ports can lead to boards
+not booting. This feature is not fully functional yet.</p>
+</div>
+</li>
+<li><p>Setup your Terminal with the following parameters:
+- Speed: 115200 baud
+- Data bits: 8
+- Stop bits: 1
+- Parity: None
+- Flow control: None</p></li>
+</ul>
+</section>
+<section id="powering-the-board">
+<h2><span class="section-number">3.2. </span>Powering the Board<a class="headerlink" href="#powering-the-board" title="Link to this heading"></a></h2>
+<p>We recommend powering the Libra FPSC with the power supply (SV055) included in the
+kit. Connect the power supply to the Power-In connector (X8).</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you are using a power adapter other than the one provided, please note
+the polarity of the power component X8. Ensure that your power adapter is
+correctly set up to use the polarity as shown below.</p>
+<figure class="align-default">
+<img alt="../../../_images/power-connector.png" src="../../../_images/power-connector.png" />
+</figure>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If USB-PD port (X2) is mounted, do not use it in parallel with the 24V
+Power-In connector (X8). This may damage your device!</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>Be aware that as soon as the Libra FPSC is supplied with power, the SD Card boot
+sequence will begin. Ensure that all cables are connected to the board!</p>
+</div>
+</section>
+</section>
+<section id="prebuilt-images">
+<h1><span class="section-number">4. </span>Prebuilt Images<a class="headerlink" href="#prebuilt-images" title="Link to this heading"></a></h1>
+<p>PHYTEC provides prebuild images and release notes for the phyCORE-i.MX 8M Plus FPSC. They can be
+downloaded here: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/">https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1/images/ampliphy-vendor/imx8mp-libra-fpsc-1/</a></p>
+<p>There are three images available phytec-qt6demo-image, phytec-headless-image
+and phytec-vision-image.</p>
+</section>
+<section id="system-booting">
+<h1><span class="section-number">5. </span>System Booting<a class="headerlink" href="#system-booting" title="Link to this heading"></a></h1>
+<p>The <strong>phyCORE-i.MX 8M Plus FPSC Kit</strong> is shipped with a pre-flashed SD card. It contains the
+phytec-qt6demo-image and can be used directly as a boot source.</p>
+<p>The Quickstart guide will only describe how to boot from the pre-flashed
+SD card. How to build the BSP yourself, flash your own SD card or boot from
+other bootsources like eMMC is described in the <a class="reference internal" href="alpha1.html#imx8mp-fpsc-alpha1-bsp-manual"><span class="std std-ref">phyCORE-i.MX 8MP FPSC ALPHA1 BSP Manual</span></a>.</p>
+<section id="boot-with-sd-card">
+<h2><span class="section-number">5.1. </span>Boot with SD-Card<a class="headerlink" href="#boot-with-sd-card" title="Link to this heading"></a></h2>
+<ul>
+<li><p>To boot from an SD card, the bootmode switch (S1) needs to be set to the
+following position:</p>
+<a class="reference internal image-reference" href="../../../_images/dipswitch-4-1000.svg"><img alt="../../../_images/dipswitch-4-1000.svg" src="../../../_images/dipswitch-4-1000.svg" style="width: 92.0px; height: 112.0px;" />
+</a>
+</li>
+<li><p>插入SD卡</p></li>
+<li><p>Connect the target and the host with <strong>USB-C</strong> on (X14) debug USB</p></li>
+<li><p>给开发板通电</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="alpha1.html" class="btn btn-neutral float-left" title="1. PHYTEC 文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../imx8mm/imx8mm.html" class="btn btn-neutral float-right" title="i.MX 8M Mini 手册" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

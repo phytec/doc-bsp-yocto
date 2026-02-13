@@ -1,0 +1,1295 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Introduction &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/rauc/kirkstone.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Security Manuals" href="../security/manual-index.html" />
+    <link rel="prev" title="1. Introduction" href="mickledore.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="manual-index.html">RAUC Update &amp; Device Management</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manual-index.html#walnascar">Walnascar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="manual-index.html#kirkstone">Kirkstone</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-configuration">2. System Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rauc-bsp-example-setup">2.1. RAUC BSP Example Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup">4. Initial Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flash-storage">4.1. Flash Storage</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#emmc">4.1.1. eMMC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#nand">4.1.2. NAND</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bootloader">4.2. Bootloader</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#booting-the-a-b-system-by-default">4.2.1. Booting the A/B System by Default</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#u-boot">4.2.2. U-Boot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#barebox">4.2.3. Barebox</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-with-rauc">6. Updating with RAUC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-active-boot-slot">6.1. Changing the Active Boot Slot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#switching-rauc-keyrings">7. Switching RAUC Keyrings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keyring-switching-process">7.1. Keyring Switching Process</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-case-examples">8. Use Case Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-updates-from-usb-flash-drive-with-rauc">8.1. Automatic Updates from USB Flash Drive with RAUC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-measurement-downgrade-barrier">8.2. Security Measurement: Downgrade Barrier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streaming-bundles-over-http">8.3. Streaming Bundles over HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">9. Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#boot-logic-implementation">9.1. Boot Logic Implementation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#u-boot-environment-variables">9.1.1. U-Boot Environment Variables</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#barebox-bootchooser-framework">9.1.2. Barebox Bootchooser Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#emmc-boot-partitions">9.2. eMMC Boot Partitions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bootloader-offsets">9.2.1. Bootloader Offsets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">Contribute</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="manual-index.html">RAUC Update &amp; Device Management</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/rauc/kirkstone.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Documentation in pdf format: <a class="reference external" href="../_static/rauc-kirkstone.pdf">Download</a></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>RAUC Update &amp; Device Management Manual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document Title</p></td>
+<td><p>RAUC Update &amp; Device Management Manual Kirkstone</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document Type</p></td>
+<td><p>RAUC Update &amp; Device Management
+Manual</p></td>
+</tr>
+<tr class="row-even"><td><p>Last Modified</p></td>
+<td><p>2025-01-14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Is Branch of</p></td>
+<td><p>RAUC Update &amp; Device Management Manual</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Compatible BSPs</p></th>
+<th class="head"><p>BSP Release Type</p></th>
+<th class="head"><p>BSP Release Date</p></th>
+<th class="head"><p>BSP Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-i.MX6-PD22.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>14.12.2022</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-i.MX6-PD22.1.1</p></td>
+<td><p>Minor</p></td>
+<td><p>20.06.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>11.08.2022</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1</p></td>
+<td><p>Minor</p></td>
+<td><p>23.05.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-NXP-i.MX8MM-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>12.12.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-NXP-i.MX8MP-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>12.12.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-AM62x-PD23.2.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>released</p></td>
+</tr>
+<tr class="row-even"><td><p>BSP-Yocto-Ampliphy-AM64x-PD23.2.0</p></td>
+<td><p>Major</p></td>
+<td><p>28.09.2023</p></td>
+<td><p>released</p></td>
+</tr>
+</tbody>
+</table>
+<p>This manual was tested using the Yocto version Kirkstone.</p>
+<section id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>PHYTEC’s Yocto distribution Ampliphy (former Yogurt) supports the <a class="reference external" href="https://rauc.readthedocs.io/en/latest/">RAUC</a> (Robust Auto-Update Controller)
+mechanism. RAUC controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem. For
+eMMC devices only, it can also update the bootloader.</p>
+<p>This manual describes how RAUC is used and implemented on various PHYTEC
+platforms. Note, that different modules use different bootloaders and flash
+storage devices, which affects the way things are handled by RAUC. Make sure to
+read the correct sections fitting your platform.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This manual contains machine-specific paths and variable contents. Make sure
+you are using the correct machine and device names for your application when
+executing any commands.</p>
+</div>
+</section>
+<section id="system-configuration">
+<h1><span class="section-number">2. </span>System Configuration<a class="headerlink" href="#system-configuration" title="Link to this heading"></a></h1>
+<p>RAUC can be used with both eMMC and NAND flash storage. Using the distro
+<code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> or <code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code>, it is enabled by default and
+requires no additional setup to get started. RAUC can be used in different
+update scenarios. As an example, we configured the BSP to use an A/B setup to
+have a completely redundant system (including the bootloader on eMMC devices).
+Note, that there is an additional partition named <code class="docutils literal notranslate"><span class="pre">config</span></code> storing persistent
+configuration data not being changed when updating.</p>
+<img alt="../_images/rauc-ab-system.png" src="../_images/rauc-ab-system.png" />
+<section id="rauc-bsp-example-setup">
+<h2><span class="section-number">2.1. </span>RAUC BSP Example Setup<a class="headerlink" href="#rauc-bsp-example-setup" title="Link to this heading"></a></h2>
+<p>The partition layout is defined in the <code class="docutils literal notranslate"><span class="pre">/etc/rauc/system.conf</span></code> file. As an
+example, this is what it looks like for i.MX 8M Mini with eMMC flash storage:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">/etc/rauc/system.conf</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="k">[system]</span>
+<span class="na">compatible</span><span class="o">=</span><span class="s">phyboard-polis-imx8mm-4</span>
+<span class="na">bootloader</span><span class="o">=</span><span class="s">uboot</span>
+<span class="na">mountprefix</span><span class="o">=</span><span class="s">/mnt/rauc</span>
+
+<span class="k">[handlers]</span>
+<span class="na">pre-install</span><span class="o">=</span><span class="s">/usr/lib/rauc/rauc-pre-install.sh</span>
+<span class="na">post-install</span><span class="o">=</span><span class="s">/usr/lib/rauc/rauc-post-install.sh</span>
+
+<span class="k">[keyring]</span>
+<span class="na">path</span><span class="o">=</span><span class="s">mainca-rsa.crt.pem</span>
+
+<span class="k">[slot.bootloader.0]</span>
+<span class="na">device</span><span class="o">=</span><span class="s">/dev/mmcblk2</span>
+<span class="na">type</span><span class="o">=</span><span class="s">boot-emmc</span>
+
+<span class="c1"># System A</span>
+<span class="k">[slot.rootfs.0]</span>
+<span class="na">device</span><span class="o">=</span><span class="s">/dev/mmcblk2p5</span>
+<span class="na">type</span><span class="o">=</span><span class="s">ext4</span>
+<span class="na">bootname</span><span class="o">=</span><span class="s">system0</span>
+
+<span class="k">[slot.boot.0]</span>
+<span class="na">device</span><span class="o">=</span><span class="s">/dev/mmcblk2p1</span>
+<span class="na">type</span><span class="o">=</span><span class="s">vfat</span>
+<span class="na">parent</span><span class="o">=</span><span class="s">rootfs.0</span>
+
+<span class="c1"># System B</span>
+<span class="k">[slot.rootfs.1]</span>
+<span class="na">device</span><span class="o">=</span><span class="s">/dev/mmcblk2p6</span>
+<span class="na">type</span><span class="o">=</span><span class="s">ext4</span>
+<span class="na">bootname</span><span class="o">=</span><span class="s">system1</span>
+
+<span class="k">[slot.boot.1]</span>
+<span class="na">device</span><span class="o">=</span><span class="s">/dev/mmcblk2p2</span>
+<span class="na">type</span><span class="o">=</span><span class="s">vfat</span>
+<span class="na">parent</span><span class="o">=</span><span class="s">rootfs.1</span>
+</pre></div>
+</div>
+</div>
+<p>Note, that the devices specified in the slots are different depending on the
+selected machine.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Updates with RAUC use an OpenSSL certificate to verify the validity of an
+image. The BSP includes a certificate that can be used for development. In a
+productive system, however, it is highly recommended to use a self-created
+key and certificate. If you need to change the keyring on an existing device,
+see <a class="reference internal" href="#kirkstone-rauc-switch-keyrings"><span class="std std-ref">Switching RAUC Keyrings</span></a> for more
+information.</p>
+</div>
+</section>
+</section>
+<section id="design-considerations">
+<h1><span class="section-number">3. </span>Design Considerations<a class="headerlink" href="#design-considerations" title="Link to this heading"></a></h1>
+<p>In order to prevent the system from locking up, it may be a good idea to utilize
+a hardware watchdog. In case the Linux Kernel does not boot or another
+catastrophic event occurs that prevents the system from operating normally, the
+hardware watchdog then resets the system. By default, the hardware watchdog is
+disabled. To enable it, refer to the corresponding BSP manual that fits your
+SoM.</p>
+<p>Other important design considerations, as well as a checklist, can be found in
+the official RAUC documentation:
+<a class="reference external" href="https://rauc.readthedocs.io/en/latest/checklist.html">https://rauc.readthedocs.io/en/latest/checklist.html</a></p>
+</section>
+<section id="initial-setup">
+<h1><span class="section-number">4. </span>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h1>
+<p>To use RAUC, the flash device needs to be written with a complete Linux system
+and bootloader. The preferred method to do this is using the included tool
+<a class="reference external" href="https://partup.readthedocs.io/en/latest/">partup</a>.</p>
+<section id="flash-storage">
+<h2><span class="section-number">4.1. </span>Flash Storage<a class="headerlink" href="#flash-storage" title="Link to this heading"></a></h2>
+<p>To flash the device with the correct partitions/volumes, use a partup package
+built with the <code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> or <code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code> distribution.
+Prebuilt partup packages can be found in the BSP release. It is also possible to
+build a package with this distribution yourself using Yocto. Change
+<code class="docutils literal notranslate"><span class="pre">local.conf</span></code> so separate build directories are created, storing the images and
+packages for the RAUC system:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">build/conf/local.conf</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># When building multiple distros in the same TOPDIR
+TMPDIR = &quot;${TOPDIR}/tmp-${DISTRO}&quot;
+DEPLOY_DIR = &quot;${TOPDIR}/deploy-${DISTRO}&quot;
+</pre></div>
+</div>
+</div>
+<p>Then initialize the build directory with the OE init script:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">TEMPLATECONF</span><span class="o">=</span>../meta-phytec/conf/templates/default<span class="w"> </span><span class="nb">source</span><span class="w"> </span>sources/poky/oe-init-build-env
+</pre></div>
+</div>
+<p>Change the distribution to <code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> (for i.MX6, AM6x) or
+<code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code> (for i.MX8):</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">build/conf/local.conf</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DISTRO ?= &quot;ampliphy-rauc&quot;
+</pre></div>
+</div>
+</div>
+<p>Any image built with this distro now includes a full A/B system. Build the image
+as usual:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-image
+</pre></div>
+</div>
+<p>The resulting partup package is stored in the <code class="docutils literal notranslate"><span class="pre">deploy-ampliphy-vendor-rauc</span></code>
+directory, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deploy-ampliphy-vendor-rauc/images/phyboard-segin-imx93-2/phytec-headless-image-phyboard-segin-imx93-2.partup
+</pre></div>
+</div>
+<p>This partup package contains all the necessary data and configuration to flash
+an eMMC. <a class="reference external" href="https://github.com/phytec/partup">Partup</a> can be obtained from its
+<a class="reference external" href="https://github.com/phytec/partup/releases">release page</a>. Also, see its
+README for detailed <a class="reference external" href="https://github.com/phytec/partup#installation">installation instructions</a>. Partup is already installed
+in our Ampliphy images, <code class="docutils literal notranslate"><span class="pre">phytec-headless-image</span></code> and can be directly used e.g.
+from an SD card.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To flash the initial RAUC system, a booted non-RAUC system is needed first on
+a different flash device. E.g. you could boot a regular
+<code class="docutils literal notranslate"><span class="pre">phytec-headless-image</span></code> image with distro <code class="docutils literal notranslate"><span class="pre">ampliphy</span></code> from an SD card.</p>
+</div>
+<section id="emmc">
+<h3><span class="section-number">4.1.1. </span>eMMC<a class="headerlink" href="#emmc" title="Link to this heading"></a></h3>
+<p>While running a non-RAUC system from an SD card on the target, copy the
+<code class="docutils literal notranslate"><span class="pre">.partup</span></code> package built with distro <code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code> to the running target first:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>phytec-headless-image-phyboard-segin-imx93-2.partup<span class="w"> </span><span class="m">192</span>.168.3.11:/root
+</pre></div>
+</div>
+<p>Then install the partup package to the eMMC:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>partup<span class="w"> </span>install<span class="w"> </span>phytec-headless-image-phyboard-segin-imx93-2.partup<span class="w"> </span>/dev/mmcblk0
+</pre></div>
+</div>
+<p>Now the target can boot the flashed A/B system.</p>
+</section>
+<section id="nand">
+<h3><span class="section-number">4.1.2. </span>NAND<a class="headerlink" href="#nand" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are scripts provided with the bootloader barebox that previously were
+used to initialize NAND flash with an A/B system: <code class="docutils literal notranslate"><span class="pre">rauc_init_nand</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rauc_flash_nand_from_tftp</span></code> and <code class="docutils literal notranslate"><span class="pre">rauc_flash_nand_from_mmc</span></code>. These scripts
+are deprecated. It is advised to use the script <code class="docutils literal notranslate"><span class="pre">rauc-flash-nand</span></code> provided
+in the Linux environment with PHYTEC’s distribution <em>Ampliphy</em>.</p>
+</div>
+<p>With raw NAND flash the kernel, device tree, and root filesystem are written
+individually. Initialize the NAND flash with the correct volumes from a Linux on
+the target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc-flash-nand<span class="w"> </span>-k<span class="w"> </span>/path/to/zImage<span class="w"> </span>-d<span class="w"> </span>/path/to/oftree<span class="w"> </span>-r<span class="w"> </span>/path/to/root.ubifs
+</pre></div>
+</div>
+<p>The initialization script will automatically utilize all available space of NAND
+flash. The NAND device is also determined automatically by finding the device
+root in <code class="docutils literal notranslate"><span class="pre">/proc/mtd</span></code>.</p>
+<p>On i.MX6 and i.MX6UL devices with barebox, use bbu (barebox update) to flash the
+bootloader:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>bbu.sh<span class="w"> </span>-f<span class="w"> </span>/path/to/barebox.bin
+</pre></div>
+</div>
+<p>The A/B system on NAND Flash is now ready to be booted.</p>
+</section>
+</section>
+<section id="bootloader">
+<h2><span class="section-number">4.2. </span>Bootloader<a class="headerlink" href="#bootloader" title="Link to this heading"></a></h2>
+<section id="booting-the-a-b-system-by-default">
+<h3><span class="section-number">4.2.1. </span>Booting the A/B System by Default<a class="headerlink" href="#booting-the-a-b-system-by-default" title="Link to this heading"></a></h3>
+<p>Booting the A/B system is done mostly automatically by the bootloader since the
+Yocto release <em>hardknott</em>. For devices with eMMC flash storage, the
+corresponding setting is written into the bootloader environment during the
+building of the BSP. In particular, if the distribution <code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code> is used, as described previously, the bootloader should
+automatically start the A/B system and have the variables set for RAUC
+accordingly.</p>
+<p>This automatic setting can be manually changed by setting one variable in the
+bootloader. The procedure is described in more detail in the following chapters
+for U-Boot and barebox.</p>
+</section>
+<section id="u-boot">
+<h3><span class="section-number">4.2.2. </span>U-Boot<a class="headerlink" href="#u-boot" title="Link to this heading"></a></h3>
+<p>After a successful boot into a Linux environment, this command is used to view
+the available parameters:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>fw_printenv
+</pre></div>
+</div>
+<p>You may see this parameter along with others in the output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>doraucboot=1
+</pre></div>
+</div>
+<p>To manually disable or enable booting the A/B system with RAUC, set this
+variable to <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>fw_setenv<span class="w"> </span>doraucboot<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>This parameter can also be edited in U-Boot. Restart your board and hit any key
+to stop the automatic boot. The environment variables can now be viewed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; printenv
+</pre></div>
+</div>
+<p>and set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; setenv doraucboot 1
+u-boot=&gt; saveenv
+</pre></div>
+</div>
+</section>
+<section id="barebox">
+<h3><span class="section-number">4.2.3. </span>Barebox<a class="headerlink" href="#barebox" title="Link to this heading"></a></h3>
+<p>In barebox, the system to be booted can be selected directly by its name. To
+boot the A/B system, including RAUC, <code class="docutils literal notranslate"><span class="pre">bootchooser</span></code> is used. To boot e.g. a
+regular SD card without RAUC use <code class="docutils literal notranslate"><span class="pre">mmc</span></code> instead, or <code class="docutils literal notranslate"><span class="pre">nand</span></code> for NAND devices:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ nv boot.default=bootchooser
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="creating-rauc-bundles">
+<h1><span class="section-number">5. </span>Creating RAUC Bundles<a class="headerlink" href="#creating-rauc-bundles" title="Link to this heading"></a></h1>
+<p>To update your system with RAUC, a RAUC bundle (<code class="docutils literal notranslate"><span class="pre">.raucb</span></code>) needs to be created.
+It contains all required images and scripts for the update and a RAUC
+<code class="docutils literal notranslate"><span class="pre">manifest.raucm</span></code> that describes the content of the bundle for the RAUC update
+on the target. The BSP includes a Yocto target that lets you build a RAUC bundle
+from your Yocto build.</p>
+<p>To create the bundle with Yocto, run the following in <code class="docutils literal notranslate"><span class="pre">build/</span></code> with the
+distribution <code class="docutils literal notranslate"><span class="pre">ampliphy-rauc</span></code> or <code class="docutils literal notranslate"><span class="pre">ampliphy-vendor-rauc</span></code> set up, as described
+previously:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-bundle
+</pre></div>
+</div>
+<p>This results in the creation of a <code class="docutils literal notranslate"><span class="pre">.raucb</span></code> bundle file in
+<code class="docutils literal notranslate"><span class="pre">deploy/images/&lt;MACHINE&gt;/</span></code> which can be used for updating the system as
+described later. There is no need to create a <code class="docutils literal notranslate"><span class="pre">manifest.raucm</span></code> manually as it
+is created automatically during the build of the bundle. As a reference, the
+created manifest would look something like this:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">manifest.raucm</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="k">[update]</span>
+<span class="na">compatible</span><span class="o">=</span><span class="s">phyboard-polis-imx8mm-3</span>
+<span class="na">version</span><span class="o">=</span><span class="s">r0</span>
+<span class="na">description</span><span class="o">=</span><span class="s">PHYTEC rauc bundle based on BSP-Yocto-FSL-i.MX8MM-PD20.1.0</span>
+<span class="na">build</span><span class="o">=</span><span class="s">20200624074335</span>
+
+<span class="k">[image.rootfs]</span>
+<span class="na">sha256</span><span class="o">=</span><span class="s">cc3f65cd1c1993951d7a39bdb7b7d723617ac46460f8b640cd8d1622ad6e4c17</span>
+<span class="na">size</span><span class="o">=</span><span class="s">99942000</span>
+<span class="na">filename</span><span class="o">=</span><span class="s">phytec-headless-image-phyboard-polis-imx8mm-3.tar.gz</span>
+
+<span class="k">[image.boot]</span>
+<span class="na">sha256</span><span class="o">=</span><span class="s">bafe46679af8c6292dba22b9d402e3119ef78c6f8b458bcb6993326060de3aa4</span>
+<span class="na">size</span><span class="o">=</span><span class="s">12410534</span>
+<span class="na">filename</span><span class="o">=</span><span class="s">boot.tar.gz.img</span>
+</pre></div>
+</div>
+</div>
+<p>For more information about the manifest format, see
+<a class="reference external" href="https://rauc.readthedocs.io/en/latest/reference.html#manifest">https://rauc.readthedocs.io/en/latest/reference.html#manifest</a>.</p>
+</section>
+<section id="updating-with-rauc">
+<h1><span class="section-number">6. </span>Updating with RAUC<a class="headerlink" href="#updating-with-rauc" title="Link to this heading"></a></h1>
+<p>To update the target system with RAUC, the RAUC bundle file previously created
+first needs to be copied to the board or to a memory device that can be mounted
+in Linux. One way is to copy the bundle file with <code class="docutils literal notranslate"><span class="pre">scp</span></code>, but this requires
+enough space left on the board’s filesystem. To do this, boot the target board
+to Linux and connect it via Ethernet to your host PC.</p>
+<p>On the host, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>scp<span class="w"> </span>phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb<span class="w"> </span>root@192.168.3.11:/tmp/
+</pre></div>
+</div>
+<p>On the target, the bundle can be verified:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc<span class="w"> </span>info<span class="w"> </span>/tmp/phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+</pre></div>
+</div>
+<p>and the output should look similar to this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rauc-Message: 12:52:49.821: Reading bundle: /phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+rauc-Message: 12:52:49.830: Verifying bundle...
+Compatible:     &#39;phyboard-polis-imx8mm-3&#39;
+Version:        &#39;r0&#39;
+Description:    &#39;PHYTEC rauc bundle based on BSP-Yocto-FSL-i.MX8MM-PD20.1.0&#39;
+Build:          &#39;20200624073212&#39;
+Hooks:          &#39;&#39;
+2 Images:
+(1)     phytec-headless-image-phyboard-polis-imx8mm-3.tar.gz
+        Slotclass: rootfs
+        Checksum:  342f67f7678d7af3f77710e1b68979f638c7f4d20393f6ffd0c36beff2789070
+        Size:      180407809
+        Hooks:
+(2)     boot.tar.gz.img
+        Slotclass: boot
+        Checksum:  8c84465b4715cc142eca2785fea09804bd970755142c9ff57e08c791e2b71f28
+        Size:      12411786
+        Hooks:
+0 Files
+
+Certificate Chain:
+ 0 Subject: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH Development-1
+   Issuer: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+   SPKI sha256: E2:47:5F:32:05:37:04:D4:8C:48:8D:A6:74:A8:21:2E:97:41:EE:88:74:B5:F4:65:75:97:76:1D:FF:1D:7B:EE
+   Not Before: Jan  1 00:00:00 1970 GMT
+   Not After:  Dec 31 23:59:59 9999 GMT
+ 1 Subject: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+   Issuer: /O=PHYTEC Messtechnik GmbH/CN=PHYTEC Messtechnik GmbH PHYTEC BSP CA Development
+   SPKI sha256: AB:5C:DB:C6:0A:ED:A4:48:B9:40:AC:B1:48:06:AA:BA:92:09:83:8C:DC:6F:E1:5F:B6:FB:0C:39:3C:3B:E6:A2
+   Not Before: Jan  1 00:00:00 1970 GMT
+   Not After:  Dec 31 23:59:59 9999 GMT
+</pre></div>
+</div>
+<p>To check the current state of the system, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc<span class="w"> </span>status
+</pre></div>
+</div>
+<p>and get output similar to this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>=== System Info ===
+Compatible:  phyboard-segin-imx6ul-6
+Variant:
+Booted from: rootfs.0 (system0)
+
+=== Bootloader ===
+Activated: rootfs.0 (system0)
+
+=== Slot States ===
+o [rootfs.1] (/dev/ubi0_6, ubifs, inactive)
+        bootname: system1
+        boot status: good
+    [dtb.1] (/dev/ubi0_3, ubivol, inactive)
+    [kernel.1] (/dev/ubi0_2, ubivol, inactive)
+
+x [rootfs.0] (/dev/ubi0_5, ubifs, booted)
+        bootname: system0
+        boot status: good
+    [kernel.0] (/dev/ubi0_0, ubivol, active)
+    [dtb.0] (/dev/ubi0_1, ubivol, active)
+</pre></div>
+</div>
+<p>To update the currently inactive system with the downloaded bundle, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc<span class="w"> </span>install<span class="w"> </span>/tmp/phytec-headless-bundle-phyboard-polis-imx8mm-3.raucb
+</pre></div>
+</div>
+<p>and reboot afterward:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>reboot
+</pre></div>
+</div>
+<p>With the success of the update, RAUC automatically switches the active system to
+the newly updated system. Now during reboot, RAUC counts the boot attempts of
+the kernel and if it fails more often than specified in the state framework of
+the system, RAUC switches back to the old system and marks the new system as
+bad. If the boot attempt to the kernel is successful, the new system is marked
+as good and the old system can now be updated with the same instructions. After
+two successful <code class="docutils literal notranslate"><span class="pre">rauc</span> <span class="pre">install</span></code> and <code class="docutils literal notranslate"><span class="pre">reboot</span></code>, both systems are updated.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When you update from a USB stick, make sure to remove the stick after a
+successful update before rebooting. If not, an automatic update will be
+started after each boot. This is due to the <a class="reference internal" href="#kirkstone-rauc-automatic-updates-usb"><span class="std std-ref">Automatic Update from USB Flash
+Drive with RAUC</span></a> you can find below.</p>
+</div>
+<section id="changing-the-active-boot-slot">
+<h2><span class="section-number">6.1. </span>Changing the Active Boot Slot<a class="headerlink" href="#changing-the-active-boot-slot" title="Link to this heading"></a></h2>
+<p>It is possible to switch the active system manually:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc<span class="w"> </span>status<span class="w"> </span>mark-active<span class="w"> </span>other
+</pre></div>
+</div>
+<p>After a reboot, the target now starts from the other system.</p>
+</section>
+</section>
+<section id="switching-rauc-keyrings">
+<span id="kirkstone-rauc-switch-keyrings"></span><h1><span class="section-number">7. </span>Switching RAUC Keyrings<a class="headerlink" href="#switching-rauc-keyrings" title="Link to this heading"></a></h1>
+<p>PHYTEC’s distribution comes with keys and certificates used for development and
+demonstration purposes only. To change to a different PKI when devices are
+already rolled out, RAUC’s keyring must be changed. This chapter describes the
+full procedure from a development state to a production state. Keep in mind,
+that it is always a better idea to roll out your devices with a production
+keyring in the first place, instead of relying on a development one for too
+long. The following diagram shows the general process of switching keyrings for
+RAUC:</p>
+<img alt="../_images/rauc-switching-keyrings.png" src="../_images/rauc-switching-keyrings.png" />
+<section id="keyring-switching-process">
+<h2><span class="section-number">7.1. </span>Keyring Switching Process<a class="headerlink" href="#keyring-switching-process" title="Link to this heading"></a></h2>
+<p>Create new certificates and keys for your own PKI. See our security manual for a
+detailed description on how to create a custom PKI. For this document, we refer
+to this newly created PKI as “production”, as opposed to the existing
+“development” keys.</p>
+<p>Move the generated keys and certificates, to your main Yocto build directory
+root, alongside with <code class="docutils literal notranslate"><span class="pre">build/</span></code> and <code class="docutils literal notranslate"><span class="pre">sources/</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful where you store the private keys! These should in no way be made
+publicly available. E.g. do not store the private keys in a public Git
+repository. Otherwise, unauthorized entities could create RAUC bundles that
+can be installed on your target system!</p>
+</div>
+<p>Now, a RAUC bundle must be created that contains the new “production” CA keyring
+in its root filesystem but is still signed by the “development” CA. With this,
+the system is converted from a “development” system to a “production” system. To
+achieve this, exchange the file <code class="docutils literal notranslate"><span class="pre">ca.cert.pem</span></code> installed by the RAUC recipe in
+the Yocto sources. Create a file <code class="docutils literal notranslate"><span class="pre">rauc_%.bbappend</span></code> in your own Yocto layer:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">recipes-core/rauc/rauc_%.bbappend</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FILESEXTRAPATHS_prepend := &quot;${THISDIR}/files:&quot;
+
+RAUC_KEYRING_FILE = &quot;${CERT_PATH}/rauc-customer/ca.cert.pem&quot;
+</pre></div>
+</div>
+</div>
+<p>Build the same RAUC bundle as before, now with the exchanged keyring:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span><span class="nv">TEMPLATECONF</span><span class="o">=</span>../meta-phytec/conf/templates/default<span class="w"> </span><span class="nb">source</span><span class="w"> </span>source/poky/oe-init-build-env
+<span class="gp">host:~$ </span>bitbake<span class="w"> </span>phytec-headless-bundle<span class="w">  </span><span class="c1"># Build the desired RAUC bundle</span>
+</pre></div>
+</div>
+<p>Install the resulting RAUC bundle as usual. The target now has the image with
+the “production” keyring installed in its other slot (“System B” in the figure
+above). Reboot to start that system.</p>
+<p>All future RAUC bundles for the “production” system must now also be signed by
+the “production” CA. For this, change the key and certificate to your newly
+generated “production” ones in the bundle recipe:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">recipes-images/bundles/customer-headless-bundle.bb</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>require phytec-base-bundle.inc
+
+RAUC_SLOT_rootfs ?= &quot;phytec-headless-image&quot;
+
+RAUC_KEY_FILE = &quot;${CERT_PATH}/rauc-customer/private/production-1.key.pem&quot;
+RAUC_CERT_FILE = &quot;${CERT_PATH/rauc-customer/production-1.cert.pem&quot;
+
+RAUC_INTERMEDIATE_CERT_FILE = &quot;&quot;
+</pre></div>
+</div>
+</div>
+<p>Rebuild the RAUC bundle:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>bitbake<span class="w"> </span>customer-headless-bundle
+</pre></div>
+</div>
+<p>These and any future bundles are now ready to be installed on your “production”
+target system and have been fully migrated away from the “development” system.
+This also means that now only bundles signed by the “production” CA can be
+installed on the target (and e.g. “development” bundles cannot).</p>
+</section>
+</section>
+<section id="use-case-examples">
+<h1><span class="section-number">8. </span>Use Case Examples<a class="headerlink" href="#use-case-examples" title="Link to this heading"></a></h1>
+<section id="automatic-updates-from-usb-flash-drive-with-rauc">
+<span id="kirkstone-rauc-automatic-updates-usb"></span><h2><span class="section-number">8.1. </span>Automatic Updates from USB Flash Drive with RAUC<a class="headerlink" href="#automatic-updates-from-usb-flash-drive-with-rauc" title="Link to this heading"></a></h2>
+<p>One of the most prominent use cases for RAUC might be an automatic update system
+from a USB flash drive. This use case is implemented in the BSP as a reference
+example. We combine only standard Linux mechanisms with RAUC to build the
+system. The kernel notifies <em>udev</em> when a device gets plugged into the USB port.
+We use a custom <em>udev</em> rule to trigger a systemd service when this event
+happens.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">10-update-usb.rules</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>KERNEL!=&quot;sd[a-z][0-9]&quot;, GOTO=&quot;media_by_label_auto_mount_end&quot;
+
+# Trigger systemd service
+ACTION==&quot;add&quot;, TAG+=&quot;systemd&quot;, ENV{SYSTEMD_WANTS}=&quot;update-usb@%k.service&quot;
+
+# Exit
+LABEL=&quot;media_by_label_auto_mount_end&quot;
+</pre></div>
+</div>
+</div>
+<p>The service automatically mounts the USB flash drive and notifies the
+application.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">update-usb&#64;.service</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-systemd notranslate"><div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">usb media RAUC service</span>
+<span class="na">After</span><span class="o">=</span><span class="s">multi-user.target</span>
+<span class="na">Requires</span><span class="o">=</span><span class="s">rauc.service</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket</span>
+<span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/bin/mkdir -p /media/%I</span>
+<span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/bin/mount -t auto /dev/%I /media/%I</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/update_usb.sh %I</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">/bin/umount -l /media/%i</span>
+<span class="na">ExecStopPost</span><span class="o">=</span><span class="s">-/bin/rmdir /media/%I</span>
+</pre></div>
+</div>
+</div>
+<p>In our reference implementation, we simply use a shell script for the
+application logic.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">update_usb.sh</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">MOUNT</span><span class="o">=</span>/media/<span class="nv">$1</span>
+
+<span class="nv">NUMRAUCM</span><span class="o">=</span><span class="k">$(</span>find<span class="w"> </span><span class="si">${</span><span class="nv">MOUNT</span><span class="si">}</span>/*.raucb<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span>
+
+<span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NUMRAUCM</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">MOUNT</span><span class="si">}</span><span class="s2">*.raucb not found&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NUMRAUCM</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;more than one </span><span class="si">${</span><span class="nv">MOUNT</span><span class="si">}</span><span class="s2">/*.raucb&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+
+rauc<span class="w"> </span>install<span class="w"> </span><span class="nv">$MOUNT</span>/*.raucb
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Failed to install RAUC bundle.&quot;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Update successful.&quot;</span>
+<span class="k">fi</span>
+<span class="nb">exit</span><span class="w"> </span><span class="nv">$?</span>
+</pre></div>
+</div>
+</div>
+<p>The update logic can be integrated into an application using the <em>systemd D-Bus
+API</em>. RAUC does not need to be called by its command-line interface but can be
+integrated with D-Bus.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>RAUC features a D-Bus API interface (see
+<a class="reference external" href="https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api">https://rauc.readthedocs.io/en/latest/using.html#using-the-d-bus-api</a>).</p>
+</div>
+</section>
+<section id="security-measurement-downgrade-barrier">
+<h2><span class="section-number">8.2. </span>Security Measurement: Downgrade Barrier<a class="headerlink" href="#security-measurement-downgrade-barrier" title="Link to this heading"></a></h2>
+<p>As a second reference example, we will implement a security mechanism: a
+downgrade barrier. When you detect a security vulnerability on your system, you
+will fix it and update your system. The systems with the new software will now
+be secure again. If an attacker gets a hold of the old software update bundle,
+which still has a valid signature, the attacker might have the possibility to
+install the old software and still take advantage of the previously fixed
+security vulnerability. To prevent this from happening, you could revoke the
+updated certificate for every single update and create a new one. This might be
+difficult to handle, depending on the environment. A simpler solution would be
+to allow updates only in one direction using a version check.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">rauc_downgrade_barrier.sh</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">VERSION_FILE</span><span class="o">=</span>/etc/rauc/downgrade_barrier_version
+<span class="nv">MANIFEST_FILE</span><span class="o">=</span><span class="si">${</span><span class="nv">RAUC_UPDATE_SOURCE</span><span class="si">}</span>/manifest.raucm
+
+<span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">VERSION_FILE</span><span class="si">}</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">MANIFEST_FILE</span><span class="si">}</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+
+<span class="nv">VERSION</span><span class="o">=</span><span class="sb">`</span>cat<span class="w"> </span><span class="si">${</span><span class="nv">VERSION_FILE</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="sb">`</span>
+<span class="nv">BUNDLE_VERSION</span><span class="o">=</span><span class="sb">`</span>grep<span class="w"> </span><span class="s2">&quot;version&quot;</span><span class="w"> </span>-rI<span class="w"> </span><span class="si">${</span><span class="nv">MANIFEST_FILE</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">3</span><span class="sb">`</span>
+
+<span class="c1"># check from empty or unset variables</span>
+<span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">3</span>
+<span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BUNDLE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">4</span>
+
+<span class="c1"># developer mode, allow all updates if version is r0</span>
+<span class="c1">#[ ${VERSION} -eq 0 ] &amp;&amp; exit 0</span>
+
+<span class="c1"># downgrade barrier</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="si">${</span><span class="nv">BUNDLE_VERSION</span><span class="si">}</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Downgrade barrier blocked rauc update! CODE5\n&quot;</span>
+<span class="k">else</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="k">fi</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<p>The script is installed on the target but it is not activated. You need to
+remove the developer mode line in the script to activate it.</p>
+</section>
+<section id="streaming-bundles-over-http">
+<h2><span class="section-number">8.3. </span>Streaming Bundles over HTTP<a class="headerlink" href="#streaming-bundles-over-http" title="Link to this heading"></a></h2>
+<p>Instead of copying the bundle to the device, the bundle can be streamed over
+HTTP. Using bundle streaming has the advantage of not requiring local storage on
+the target. A simple approach to this is running NGINX inside a Docker
+container. The following example shows how to implement a minimal download
+server enabling HTTP range requests to support this feature.</p>
+<p>Create a Dockerfile with the following content:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Dockerfile</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">nginx</span>
+
+<span class="k">COPY</span><span class="w"> </span>bundles<span class="w"> </span>/bundles
+<span class="k">COPY</span><span class="w"> </span>nginx.conf<span class="w"> </span>/etc/nginx/nginx.conf
+</pre></div>
+</div>
+</div>
+<p>Configure NGINX to enable HTTP range requests and point it to the bundle file.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">nginx.conf</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">events</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_force_ranges</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">root</span><span class="w"> </span><span class="s">/bundles</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Place a bundle in the <code class="docutils literal notranslate"><span class="pre">bundles</span></code> sub-directory. The folder structure looks like
+the following after creating all configuration files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">user@host:rauc-bundle-streaming$ </span>find
+<span class="go">.</span>
+<span class="go">./bundles</span>
+<span class="go">./bundles/phytec-headless-bundle-phyboard-polis-imx8mn-1.raucb</span>
+<span class="go">./nginx.conf</span>
+<span class="go">./Dockerfile</span>
+</pre></div>
+</div>
+<p>Build and run the docker container on the host system:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:~$ </span>sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>rauc-bundle-streaming<span class="w"> </span>.
+<span class="gp">host:~$ </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>bundles<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>-d<span class="w"> </span>rauc-bundle-streaming
+</pre></div>
+</div>
+<p>Install the bundle on the currently inactive target partitions:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>rauc<span class="w"> </span>install<span class="w"> </span>http://192.168.3.10/phytec-headless-bundle-phyboard-polis-imx8mn-1.raucb
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the update finishes the target may display the following error which
+has no impact on the success of the update:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ 7416.336609] block nbd0: NBD_DISCONNECT
+[ 7416.340413] block nbd0: Send disconnect failed -32
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="reference">
+<h1><span class="section-number">9. </span>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h1>
+<section id="boot-logic-implementation">
+<h2><span class="section-number">9.1. </span>Boot Logic Implementation<a class="headerlink" href="#boot-logic-implementation" title="Link to this heading"></a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The implementation details described in this chapter serve as a reference
+guide. PHYTEC BSPs that have RAUC support include these by default and the
+changes are already incorporated.</p>
+</div>
+<section id="u-boot-environment-variables">
+<h3><span class="section-number">9.1.1. </span>U-Boot Environment Variables<a class="headerlink" href="#u-boot-environment-variables" title="Link to this heading"></a></h3>
+<p>For U-Boot, the boot logic that selects the correct partitions to boot from is
+implemented in its environment. As a reference, these are the most important
+U-Boot variables that are used for the A/B system with RAUC:</p>
+<p>For BSP-Yocto-NXP-i.MX8M*-PD23.1.0:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOT_ORDER</p></td>
+<td><p>Contains a space-separated list of boot targets in the
+order they should be tried. This parameter is
+automatically set by RAUC.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT_&lt;slot&gt;_LEFT</p></td>
+<td><p>Contains the number of remaining boot attempts to
+perform for the respective slot. This parameter is
+automatically set by RAUC.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucboot</span></code></p></td>
+<td><p>Contains the boot logic that sets the partitions so
+the correct system is loaded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">doraucboot</span></code></p></td>
+<td><p>Enables booting the A/B system if set to 1 and
+disables it if set to 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucslot</span></code></p></td>
+<td><p>Contains the current boot slot used in
+BOOT_&lt;slot&gt;_LEFT.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">raucargs</span></code></p></td>
+<td><p>Sets the Kernel bootargs like console, root, and RAUC
+lot.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucdev</span></code></p></td>
+<td><p>Sets the eMMC as the boot device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">raucrootpart</span></code></p></td>
+<td><p>Sets the root filesystem partitions of the device.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucpart</span></code></p></td>
+<td><p>Sets the boot partitions of the device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">loadraucimage</span></code></p></td>
+<td><p>Loads the Kernel image into RAM.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loadraucfdt</span></code></p></td>
+<td><p>Loads the device tree into RAM.</p></td>
+</tr>
+</tbody>
+</table>
+<p>These environment variables are defined in <code class="docutils literal notranslate"><span class="pre">include/configs/phycore_&lt;SOC&gt;.h</span></code>
+in the u-boot source code.</p>
+<p>For BSP-Yocto-Ampliphy-AM6xx-PD23.2.0:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOT_ORDER</p></td>
+<td><p>Contains a space-separated list of boot targets in the
+order they should be tried. This parameter is
+automatically set by RAUC.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT_&lt;slot&gt;_LEFT</p></td>
+<td><p>Contains the number of remaining boot attempts to
+perform for the respective slot. This parameter is
+automatically set by RAUC.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init_rauc</span></code></p></td>
+<td><p>Contains the boot logic that sets the partitions so
+the correct system is loaded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">doraucboot</span></code></p></td>
+<td><p>Enables booting the A/B system if set to 1 and
+disables it if set to 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucslot</span></code></p></td>
+<td><p>Contains the current boot slot used in
+BOOT_&lt;slot&gt;_LEFT.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">raucrootpart</span></code></p></td>
+<td><p>Sets the root filesystem partitions of the device.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raucbootpart</span></code></p></td>
+<td><p>Sets the boot partitions of the device.</p></td>
+</tr>
+</tbody>
+</table>
+<p>These environment variables are defined in
+<code class="docutils literal notranslate"><span class="pre">include/environment/phytec/rauc.env</span></code> in the u-boot source code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A change in the partition layout, e.g. when using an additional data
+partition, may require changing the variables <code class="docutils literal notranslate"><span class="pre">raucrootpart</span></code> and
+<code class="docutils literal notranslate"><span class="pre">raucpart</span></code>. Make sure to rebuild your image with the new bootloader
+environment after you have made the appropriate changes.</p>
+</div>
+</section>
+<section id="barebox-bootchooser-framework">
+<h3><span class="section-number">9.1.2. </span>Barebox Bootchooser Framework<a class="headerlink" href="#barebox-bootchooser-framework" title="Link to this heading"></a></h3>
+<p>For the barebox, the boot logic that selects the correct partitions to boot from
+is implemented using the bootchooser and state framework. See the barebox
+documentation for detailed information about these: <a class="reference external" href="https://www.barebox.org/doc/latest/user/bootchooser.html">Barebox Bootchooser
+Framework</a>, <a class="reference external" href="https://www.barebox.org/doc/latest/user/state.html">Barebox
+State Framework</a>.</p>
+<p>First, the state framework configuration needs to be added to the barebox device
+tree. Check out the <a class="reference internal" href="../yocto/kirkstone.html#kirkstone-bsp-customization"><span class="std std-ref">Customizing the BSP</span></a>
+chapter in the Yocto reference manual. The state framework configuration is
+already included with our BSP for the supported SoC and can be directly included
+in the main barebox device tree. E.g. for i.MX6 based module:</p>
+<div class="highlight-devicetree notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cm"> </span><span class="cpf">&quot;imx6qdl-phytec-state.dtsi&quot;</span>
+</pre></div>
+</div>
+<p>Afterward, rebuild the image and flash the new bootloader.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be aware that by adding the state framework configuration, the first 160
+bytes of the EEPROM are occupied and can no longer be used for user-specific
+purposes.</p>
+</div>
+<p>The following device tree snippet shows an example of the state framework
+configuration used with the BSP. As can be seen, the EEPROM is used as a backend
+for the state information:</p>
+<div class="highlight-devicetree notranslate"><div class="highlight"><pre><span></span><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">aliases</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nl">state</span><span class="p">:</span><span class="w"> </span><span class="nf">imx6qdl_phytec_boot_state</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">magic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x883b86a6</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;barebox,state&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">backend-type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;raw&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">backend_update_eeprom</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">backend-stridesize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">54</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="nf">bootstate</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="nf">last_chosen</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="nf">system0</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="nf">remaining_attempts</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x4</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">                </span><span class="nf">priority</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x8</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">21</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">                </span><span class="nf">ok</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0xc</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="nf">system1</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="nf">remaining_attempts</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x10</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">                </span><span class="nf">priority</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x14</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">20</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">                </span><span class="nf">ok</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x18</span><span class="w"> </span><span class="mh">0x4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uint32&quot;</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">};</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="o">&amp;</span><span class="nf">eeprom</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nf">partitions</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fixed-partitions&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="nl">backend_update_eeprom</span><span class="p">:</span><span class="w"> </span><span class="nf">state</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x100</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;update-eeprom&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>To be able to boot from two systems alternately, the bootchooser needs to be
+aware of the state framework configuration. For each system, a boot script is
+required. For a system with NAND flash, the boot script of the first system may
+look like the following:</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">/env/boot/system0</span><a class="headerlink" href="#id14" title="Link to this code"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/env/config-expansions<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>/env/config-expansions
+
+<span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>/dev/nand0.root.ubi<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ubiattach<span class="w"> </span>/dev/nand0.root
+
+global.bootm.image<span class="o">=</span><span class="s2">&quot;/dev/nand0.root.ubi.kernel0&quot;</span>
+global.bootm.oftree<span class="o">=</span><span class="s2">&quot;/dev/nand0.root.ubi.oftree0&quot;</span>
+global.linux.bootargs.dyn.root<span class="o">=</span><span class="s2">&quot;root=ubi0:root0 ubi.mtd=root rootfstype=ubifs&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>The second boot script has the same structure but uses the partitions containing
+the second system. Machines with eMMC flash use similar boot scripts, albeit the
+mounting and boot arguments look different.</p>
+<p>Run the following commands to create the required bootchooser non-volatile
+environment variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>barebox$ nv bootchooser.state_prefix=state.bootstate
+barebox$ nv bootchooser.system0.boot=system0
+barebox$ nv bootchooser.system1.boot=system1
+barebox$ nv bootchooser.targets=&quot;system0 system1&quot;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="emmc-boot-partitions">
+<h2><span class="section-number">9.2. </span>eMMC Boot Partitions<a class="headerlink" href="#emmc-boot-partitions" title="Link to this heading"></a></h2>
+<p>With eMMC flash storage it is possible to use the dedicated boot partitions for
+redundantly storing the bootloader.</p>
+<p>By default, bundles built with our BSP (e.g. <code class="docutils literal notranslate"><span class="pre">phytec-headless-bundle</span></code>) contain
+the bootloader for updating eMMC boot partitions accordingly.</p>
+<p>Note, that the U-Boot environment still resides in the user area before the
+first partition. The user area also still contains the bootloader which the
+image first shipped during its initialization process.</p>
+<p>To manually write the bootloader to the eMMC boot partitions, first disable the
+write protection:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/block/mmcblk2boot0/force_ro
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/block/mmcblk2boot1/force_ro
+</pre></div>
+</div>
+<p>Write the bootloader to the eMMC boot partitions:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>imx-boot<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2boot0<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1k<span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">33</span>
+<span class="gp">target:~$ </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>imx-boot<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk2boot1<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1k<span class="w"> </span><span class="nv">seek</span><span class="o">=</span><span class="m">33</span>
+</pre></div>
+</div>
+<p>This example is valid for the i.MX 8M Mini SoC. Note, that other SoCs may have
+different bootloader files and require different offsets where the bootloader is
+expected, specified by the seek parameter. See the following table for the
+different offsets being required by each SoC:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>SoC</p></th>
+<th class="head"><p>Offset User Area</p></th>
+<th class="head"><p>Offset Boot Partition</p></th>
+<th class="head"><p>eMMC Device</p></th>
+<th class="head"><p>Bootloader</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i.MX 6</p></td>
+<td><p>1 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk3</p></td>
+<td><p>barebox.bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>i.MX 6UL</p></td>
+<td><p>1 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk1</p></td>
+<td><p>barebox.bin</p></td>
+</tr>
+<tr class="row-even"><td><p>i.MX 8M</p></td>
+<td><p>33 kiB</p></td>
+<td><p>33 kiB</p></td>
+<td><p>/dev/mmcblk0</p></td>
+<td><p>imx-boot</p></td>
+</tr>
+<tr class="row-odd"><td><p>i.MX 8M Mini</p></td>
+<td><p>33 kiB</p></td>
+<td><p>33 kiB</p></td>
+<td><p>/dev/mmcblk2</p></td>
+<td><p>imx-boot</p></td>
+</tr>
+<tr class="row-even"><td><p>i.MX 8M Nano</p></td>
+<td><p>32 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk2</p></td>
+<td><p>imx-boot</p></td>
+</tr>
+<tr class="row-odd"><td><p>i.MX 8M Plus</p></td>
+<td><p>32 kiB</p></td>
+<td><p>0 kiB</p></td>
+<td><p>/dev/mmcblk2</p></td>
+<td><p>imx-boot</p></td>
+</tr>
+<tr class="row-even"><td><p>AM62x
+AM62Ax
+AM64x</p></td>
+<td><p>N/A</p></td>
+<td><p>0 kiB
+512 kiB
+2560 kiB</p></td>
+<td><p>/dev/mmcblk0</p></td>
+<td><p>tiboot3.bin
+tispl.bin
+u-boot.img</p></td>
+</tr>
+</tbody>
+</table>
+<section id="bootloader-offsets">
+<h3><span class="section-number">9.2.1. </span>Bootloader Offsets<a class="headerlink" href="#bootloader-offsets" title="Link to this heading"></a></h3>
+<p>Note that the offset is different, depending on whether the bootloader resides
+in the user area or the boot partitions of the eMMC.</p>
+<p>After a bootloader has been written to the eMMC boot partitions, booting from
+these can be enabled by using the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
+</pre></div>
+</div>
+<p>This also means that only the bootloaders written in the eMMC boot partitions
+are used. The bootloader in the user area is not used anymore. These steps are
+also executed by RAUC internally when updating the target system with a bundle.</p>
+<p>To disable booting from the eMMC boot partitions simply enter the following
+command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>mmc<span class="w"> </span>bootpart<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/mmcblk2
+</pre></div>
+</div>
+<p>After this command, the eMMC user area is used to provide the bootloader.</p>
+<p>When using U-Boot, a similar command is also available in the bootloader:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; mmc partconf 2 0 0 0  # disable
+u-boot=&gt; mmc partconf 2 0 1 0  # enable
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mickledore.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../security/manual-index.html" class="btn btn-neutral float-right" title="Security Manuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, PHYTEC Messtechnik GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

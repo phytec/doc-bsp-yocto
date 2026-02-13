@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAUC Update &amp; Device Management &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/rauc/manual-index.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Introduction" href="walnascar.html" />
+    <link rel="prev" title="1. PHYTEC Documentation" href="../yocto/walnascar.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RAUC Update &amp; Device Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#walnascar">Walnascar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#system-configuration">2. System Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#initial-setup">4. Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#updating-with-rauc">6. Updating with RAUC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#use-case-examples">8. Use Case Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="walnascar.html#reference">9. Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scarthgap">Scarthgap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#system-configuration">2. System Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#initial-setup">4. Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#updating-with-rauc">6. Updating with RAUC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#use-case-examples">8. Use Case Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scarthgap.html#reference">9. Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mickledore">Mickledore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#system-configuration">2. System Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#initial-setup">4. Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#updating-with-rauc">6. Updating with RAUC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#use-case-examples">8. Use Case Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mickledore.html#reference">9. Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kirkstone">Kirkstone</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#system-configuration">2. System Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#initial-setup">4. Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#updating-with-rauc">6. Updating with RAUC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#use-case-examples">8. Use Case Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kirkstone.html#reference">9. Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">Contribute</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RAUC Update &amp; Device Management</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/rauc/manual-index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rauc-update-device-management">
+<h1>RAUC Update &amp; Device Management<a class="headerlink" href="#rauc-update-device-management" title="Link to this heading"></a></h1>
+<section id="walnascar">
+<h2>Walnascar<a class="headerlink" href="#walnascar" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#system-configuration">2. System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#rauc-bsp-example-setup">2.1. RAUC BSP Example Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#initial-setup">4. Initial Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#flash-storage">4.1. Flash Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#bootloader">4.2. Bootloader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#creating-rauc-bundles">5. Creating RAUC Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#creating-transition-bundles">5.1. Creating transition bundles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#updating-with-rauc">6. Updating with RAUC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#changing-the-active-boot-slot">6.1. Changing the Active Boot Slot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#keyring-switching-process">7.1. Keyring Switching Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#use-case-examples">8. Use Case Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#automatic-updates-from-usb-flash-drive-with-rauc">8.1. Automatic Updates from USB Flash Drive with RAUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#security-measurement-downgrade-barrier">8.2. Security Measurement: Downgrade Barrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#streaming-bundles-over-http">8.3. Streaming Bundles over HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#adaptive-updates-and-http-streaming">8.4. Adaptive Updates and HTTP Streaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#reference">9. Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#boot-logic-implementation">9.1. Boot Logic Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#emmc-boot-partitions">9.2. eMMC Boot Partitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="scarthgap">
+<h2>Scarthgap<a class="headerlink" href="#scarthgap" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#system-configuration">2. System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#rauc-bsp-example-setup">2.1. RAUC BSP Example Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#initial-setup">4. Initial Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#flash-storage">4.1. Flash Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bootloader">4.2. Bootloader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#creating-rauc-bundles">5. Creating RAUC Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#creating-transition-bundles">5.1. Creating transition bundles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#updating-with-rauc">6. Updating with RAUC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#changing-the-active-boot-slot">6.1. Changing the Active Boot Slot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#keyring-switching-process">7.1. Keyring Switching Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#use-case-examples">8. Use Case Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#automatic-updates-from-usb-flash-drive-with-rauc">8.1. Automatic Updates from USB Flash Drive with RAUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#security-measurement-downgrade-barrier">8.2. Security Measurement: Downgrade Barrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#streaming-bundles-over-http">8.3. Streaming Bundles over HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#adaptive-updates-and-http-streaming">8.4. Adaptive Updates and HTTP Streaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#reference">9. Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#boot-logic-implementation">9.1. Boot Logic Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#emmc-boot-partitions">9.2. eMMC Boot Partitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="mickledore">
+<h2>Mickledore<a class="headerlink" href="#mickledore" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#system-configuration">2. System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#rauc-bsp-example-setup">2.1. RAUC BSP Example Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#initial-setup">4. Initial Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#flash-storage">4.1. Flash Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bootloader">4.2. Bootloader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#updating-with-rauc">6. Updating with RAUC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#changing-the-active-boot-slot">6.1. Changing the Active Boot Slot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#keyring-switching-process">7.1. Keyring Switching Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#use-case-examples">8. Use Case Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#automatic-updates-from-usb-flash-drive-with-rauc">8.1. Automatic Updates from USB Flash Drive with RAUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#security-measurement-downgrade-barrier">8.2. Security Measurement: Downgrade Barrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#streaming-bundles-over-http">8.3. Streaming Bundles over HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#reference">9. Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#boot-logic-implementation">9.1. Boot Logic Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#emmc-boot-partitions">9.2. eMMC Boot Partitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="kirkstone">
+<h2>Kirkstone<a class="headerlink" href="#kirkstone" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#system-configuration">2. System Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#rauc-bsp-example-setup">2.1. RAUC BSP Example Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#design-considerations">3. Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#initial-setup">4. Initial Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#flash-storage">4.1. Flash Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bootloader">4.2. Bootloader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#creating-rauc-bundles">5. Creating RAUC Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#updating-with-rauc">6. Updating with RAUC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#changing-the-active-boot-slot">6.1. Changing the Active Boot Slot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#switching-rauc-keyrings">7. Switching RAUC Keyrings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#keyring-switching-process">7.1. Keyring Switching Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#use-case-examples">8. Use Case Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#automatic-updates-from-usb-flash-drive-with-rauc">8.1. Automatic Updates from USB Flash Drive with RAUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#security-measurement-downgrade-barrier">8.2. Security Measurement: Downgrade Barrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#streaming-bundles-over-http">8.3. Streaming Bundles over HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#reference">9. Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#boot-logic-implementation">9.1. Boot Logic Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#emmc-boot-partitions">9.2. eMMC Boot Partitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../yocto/walnascar.html" class="btn btn-neutral float-left" title="1. PHYTEC Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="walnascar.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, PHYTEC Messtechnik GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

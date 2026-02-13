@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://phytec.github.io/doc-bsp-yocto/sitemap.xml

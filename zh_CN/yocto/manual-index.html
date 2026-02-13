@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unstable (dev) &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/yocto/manual-index.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. PHYTEC 文档" href="master.html" />
+    <link rel="prev" title="1. 介绍" href="../bsp/am6x/am62l/quickstart-alpha.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Unstable (dev)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#the-yocto-project">2. Yocto 项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#bsp-workspace-installation">6. BSP Workspace安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#phylinux-documentation">7. phyLinux 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#using-build-container">8. 使用编译容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#troubleshooting">10. 故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#kirkstone">Kirkstone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#the-yocto-project">2. Yocto 项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-workspace-installation">6. BSP Workspace安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#phylinux-documentation">7. phyLinux 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#using-build-container">8. 使用编译容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#troubleshooting">10. 故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#mickledore">Mickledore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#the-yocto-project">2. Yocto 项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-workspace-installation">6. BSP Workspace安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#phylinux-documentation">7. phyLinux 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#using-build-container">8. 使用编译容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#troubleshooting">10. 故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#scarthgap">Scarthgap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#the-yocto-project">2. Yocto 项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-workspace-installation">6. BSP Workspace安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#phylinux-documentation">7. phyLinux 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#using-build-container">8. 使用编译容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#troubleshooting">10. 故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#walnascar">Walnascar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#the-yocto-project">2. Yocto 项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#bsp-workspace-installation">6. BSP Workspace安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#phylinux-documentation">7. phyLinux 文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#using-build-container">8. 使用编译容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#troubleshooting">10. 故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Unstable (dev)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/yocto/manual-index.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="unstable-dev">
+<h1>Unstable (dev)<a class="headerlink" href="#unstable-dev" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="master.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#vocabulary">2.3. 词汇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#poky">2.4. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#bsp-structure">4.1. BSP 框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#initialization">7.3. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#installation">8.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#images">9.2. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#bsp-customization">9.6. 自定义BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master.html#common-tasks">9.7. 常见任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master.html#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</div>
+</section>
+<section id="kirkstone">
+<h1>Kirkstone<a class="headerlink" href="#kirkstone" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#vocabulary">2.3. 词汇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#poky">2.4. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-structure">4.1. BSP 框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#initialization">7.3. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#installation">8.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#images">9.2. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#bsp-customization">9.6. 自定义BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#common-tasks">9.7. 常见任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kirkstone.html#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kirkstone.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</div>
+</section>
+<section id="mickledore">
+<h1>Mickledore<a class="headerlink" href="#mickledore" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#vocabulary">2.3. 词汇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#poky">2.4. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-structure">4.1. BSP 框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#initialization">7.3. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#installation">8.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#images">9.2. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#bsp-customization">9.6. 自定义BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#common-tasks">9.7. 常见任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mickledore.html#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mickledore.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</div>
+</section>
+<section id="scarthgap">
+<h1>Scarthgap<a class="headerlink" href="#scarthgap" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#vocabulary">2.3. 词汇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#poky">2.4. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-structure">4.1. BSP 框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#initialization">7.3. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#installation">8.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#images">9.2. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#bsp-customization">9.6. 自定义BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#common-tasks">9.7. 常见任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scarthgap.html#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scarthgap.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</div>
+</section>
+<section id="walnascar">
+<h1>Walnascar<a class="headerlink" href="#walnascar" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#the-yocto-project">2. Yocto 项目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#yocto-introduction">2.1. Yocto 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#core-components">2.2. 核心组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#vocabulary">2.3. 词汇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#poky">2.4. Poky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#official-documentation">2.5. 官方文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#compatible-linux-distributions">3. Linux主机开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#phytec-bsp-introduction">4. PHYTEC BSP 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#bsp-structure">4.1. BSP 框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#build-configuration">4.2. 编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#pre-built-images">5. 预编译镜像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#bsp-workspace-installation">6. BSP Workspace安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#setting-up-the-host">6.1. 设置主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#git-configuration">6.2. Git 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#site-conf-setup">6.3. site.conf 设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#phylinux-documentation">7. phyLinux 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#get-phylinux">7.1. 获取 phyLinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#basic-usage">7.2. 基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#initialization">7.3. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#advanced-usage">7.4. 高级用法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#using-build-container">8. 使用编译容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#installation">8.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#available-container">8.2. 可用容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#download-pull-container">8.3. 下载/拉取容器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#run-container">8.4. 运行容器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#working-with-poky-and-bitbake">9. 使用 Poky 和 Bitbake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#start-the-build">9.1. 开始构建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#images">9.2. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#accessing-the-development-states-between-releases">9.3. 获取BSP长期维护版本之间的中间开发版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#inspect-your-build-configuration">9.4. 检查您的编译配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#bsp-features-of-meta-phytec-and-meta-ampliphy">9.5. meta-phytec 和 meta-ampliphy 的特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#bsp-customization">9.6. 自定义BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#common-tasks">9.7. 常见任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#troubleshooting">10. 故障排除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="walnascar.html#setscene-task-warning">10.1. setscene任务告警</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="walnascar.html#yocto-documentation">11. Yocto 文档</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../bsp/am6x/am62l/quickstart-alpha.html" class="btn btn-neutral float-left" title="1. 介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="master.html" class="btn btn-neutral float-right" title="1. PHYTEC 文档" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

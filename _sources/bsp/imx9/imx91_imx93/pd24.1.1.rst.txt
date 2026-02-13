@@ -1,0 +1,1208 @@
+.. Download links
+.. |dlpage-bsp| replace:: our BSP
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD24.1.1
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-91-93/#downloads
+.. |dl-server| replace:: BSP downloads
+.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-sdk| replace:: SDK downloads
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/sdk/ampliphy-vendor-wayland/
+.. |dl-sdk-link| replace:: |dl-sdk|_
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/phytec-qt6demo-image-phyboard-segin-imx93-2.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD24.1.1/images/ampliphy-vendor-wayland/phyboard-segin-imx93-2/imx-boot-tools/
+.. _`static-pdf-dl`: ../../../_static/imx93-pd24.1.1.pdf
+
+.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
+
+.. General Substitutions
+.. |kit| replace:: **phyBOARD-Segin i.MX 93 and phyBOARD-Nash i.MX 93 Kit**
+.. |kit-ram-size| replace:: 1GiB
+.. |sbc| replace:: phyBOARD-Segin/Nash i.MX 93
+.. |soc| replace:: i.MX 93
+.. |socfamily| replace:: i.MX 9
+.. |som| replace:: phyCORE-|soc|
+.. |debug-uart| replace:: ttyLP0
+.. |serial-uart| replace:: ttyLP6
+.. |expansion-connector| replace:: X16
+
+.. Linux Kernel
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx9_phytec_distro.config imx9_phytec_platform.config
+.. |kernel-primary-ethernet| replace:: eth0
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
+.. |kernel-socname| replace:: imx93
+.. |kernel-tag| replace:: v6.1.55_2.2.0-phy3
+.. |emmcdev| replace:: mmcblk0
+
+.. Bootloader
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
+.. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-emmc-devno| replace:: 0
+.. |u-boot-defconfig| replace:: imx93-phyboard-segin_defconfig
+.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phyboard-segin_defconfig`` or ``imx93-phyboard-nash_defconfig``, depending on the board you are about to build for.
+.. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyboard-segin.dtb`` or ``imx93-phyboard-nash.dtb``, depending on the board you are about to build for.
+.. |u-boot-imx-mkimage-tag| replace:: lf-6.1.55-2.2.0
+.. |u-boot-soc-name| replace:: iMX9
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+
+.. IMX93 specific
+.. |u-boot-socname-config| replace:: PHYCORE_IMX93
+.. |u-boot-tag| replace:: v2023.04_2.2.0-phy3
+
+.. Devicetree
+.. |dt-carrierboard| replace:: imx93-phyboard-segin
+.. |dt-som| replace:: imx93-phycore-som
+.. |dtbo-rpmsg| replace:: ``imx93-phycore-rpmsg.dtbo``
+
+.. IMX93 specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n61`
+
+.. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`mickledore`
+.. |yocto-bsp-name| replace:: BSP-Yocto-i.MX93
+.. _yocto-bsp-name: `dl-server`_
+.. |yocto-codename| replace:: mickledore
+.. |yocto-distro| replace:: ampliphy-vendor-wayland
+.. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-imageext| replace:: wic.xz
+.. |yocto-machinename| replace:: phyboard-segin-imx93-2
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD24.1.1
+.. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (mickledore) <yocto-man-mickledore>`
+.. |yocto-sdk-rev| replace:: 4.2.3
+.. |yocto-sdk-a-core| replace:: cortexa55
+
+.. Ref Substitutions
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx93-PD24.1.1-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx93-PD24.1.1-images>`
+.. |ref-debugusbconnector| replace:: UART1 console on PEB-EVAL-01 for **phyBOARD-Segin** and X-37
+   USB-C debug for **phyBOARD-Nash**
+.. |ref-dt| replace:: :ref:`device tree <imx93-PD24.1.1-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx93-PD24.1.1-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx93-PD24.1.1-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx93-PD24.1.1-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx93-PD24.1.1-development>`
+.. |ref-usb-otg| replace:: :ref:`X8 (USB micro/OTG connector) <imx93-PD24.1.1-components>`
+
+.. IMX93 specific
+.. |sbc-network| replace::
+   The device tree set up for EQOS Ethernet IP core where the PHY is populated
+   on the |sbc| can be found here:
+   :imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n114` or here:
+   :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n83`.
+
+.. |ubootexternalenv| replace:: U-boot External Environment subsection of the
+   :ref:`device tree overlay section <imx93-PD24.1.1-ubootexternalenv>`
+
+.. M-Core specific
+.. |mcore| replace:: M33 Core
+.. |ref-m-core-connections| replace:: :ref:`X16 <imx93-PD24.1.1-components>`
+.. |mcore-jtag-dev| replace:: MIMX8MM6_M4
+.. |mcore-sdk-version| replace:: 2.13.0
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
+
++-----------------------+----------------------+
+| |soc| BSP Manual                             |
++-----------------------+----------------------+
+| Document Title        | |soc| BSP Manual     |
++-----------------------+----------------------+
+| Document Type         | BSP Manual           |
++-----------------------+----------------------+
+| Yocto Manual          | Mickledore           |
++-----------------------+----------------------+
+| Release Date          | 2024/01/31           |
++-----------------------+----------------------+
+| Is Branch of          | |soc| BSP Manual     |
++-----------------------+----------------------+
+
+The table below shows the Compatible BSPs for this manual:
+
+==================== ================ ================ ==========
+Compatible BSPs      BSP Release Type BSP Release Date BSP Status
+
+==================== ================ ================ ==========
+|yocto-manifestname| Minor            2024/05/07       Released
+==================== ================ ================ ==========
+
+.. include:: ../../intro.rsti
+
+.. _imx93-PD24.1.1-supported-hardware:
+
+Supported Hardware
+------------------
+
+On our web page, you can see all supported Machines with the available Article
+Numbers for this release: |yocto-manifestname|, see `download <dlpage-bsp_>`_.
+
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware.
+
+.. tip::
+
+   **Console examples in this BSP manual only focus on phyBOARD-Segin i.MX 93.
+   Similar commands can also be executed for/on phyBOARD-Nash i.MX 93**
+
+.. _imx93-PD24.1.1-components:
+.. include:: components.rsti
+
+.. +---------------------------------------------------------------------------+
+.. Getting Started
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-PD24.1.1-getting-started:
+.. include:: /bsp/getting-started.rsti
+
+First Start-up
+--------------
+
+*  To boot from an SD card, the |ref-bootswitch| needs to be set to the
+   following position:
+
+   .. image:: /bsp/images/dipswitch-4-1100.svg
+      :scale: 400%
+
+*  Insert the SD card
+*  Connect the targets debug console with your host.
+   Use |ref-debugusbconnector|.
+*  Power up the board
+*  Open serial/usb port with 115200 baud and 8N1 (you should see u-boot/linux
+   start on the console
+
+.. +---------------------------------------------------------------------------+
+.. Building the BSP
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/building-bsp.rsti
+
+.. _imx93-PD24.1.1-images:
+
+*  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+   Bootloader image!
+*  **oftree**: Default kernel device tree
+*  **u-boot-spl.bin**: Secondary program loader (SPL)
+*  **bl31-imx93.bin**: ARM Trusted Firmware binary
+*  **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin,
+   lpddr4_imem_1d_v202201.bin,
+   lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
+*  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+   Trusted Firmware and DDR firmware. This is the final bootloader image which
+   is bootable.
+*  **Image**: Linux kernel image
+*  **Image.config**: Kernel configuration
+*  **imx93-phyboard-*.dtb**: Kernel device tree file
+*  **imx93-phy\*.dtbo**: Kernel device tree overlay files
+*  **phytec-\*.tar.gz**: Root file system,
+   of bitbake-image that was built.
+
+   * **phytec-qt6demo-image-phyboard-*-imx93-*.tar.gz**: when bitbake-build
+     was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-*-imx93-*.tar.gz**: when bitbake-build
+     was processed for ``phytec-headless-image``
+*  **phytec-\*.wic.xz**: Compressed bootable SD
+   card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
+   and Root file system.
+
+   * **phytec-qt6demo-image-phyboard-*-imx93-*.wic.xz**: when bitbake-build
+     was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-*-imx93-*.wic.xz**: when bitbake-build
+     was processed for ``phytec-headless-image``
+*  **imx93-11x11-evk_m33_\*.bin**, binaries of demo applications for the
+   Cortex-M33 MCU; can be manually loaded and started with U-Boot or Linux
+
+.. +---------------------------------------------------------------------------+
+.. INSTALLING THE OS
+.. +---------------------------------------------------------------------------+
+
+Installing the OS
+=================
+
+Bootmode Switch (S3)
+--------------------
+
+.. tip::
+
+   Hardware revision baseboard:
+
+   *  phyBOARD-Segin-i.MX 93: 1472.5
+   *  phyBOARD-Nash-i.MX 93: 1616.0
+
+The |sbc| features a boot switch with four individually switchable ports to
+select the |som| default bootsource.
+
+.. _imx93-PD24.1.1-bootswitch:
+.. include:: bootmode-switch.rsti
+
+Flash eMMC
+----------
+
+To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
+and the |ref-bootswitch| is set to **eMMC**.
+
+.. warning::
+   When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+   of the boot partitions are also identical. If the SD card is connected when
+   booting, this leads to non-deterministic behavior as Linux mounts the boot
+   partition based on UUID.
+
+   .. code-block:: console
+
+      target:~$ blkid
+
+   can be run to inspect whether the current setup is affected. If |emmcdev|\p1
+   and mmcblk1p1 have an identical UUID, the setup is affected.
+
+Flash eMMC from SD Card
+.......................
+
+If there is no network available, you can update the eMMC from SD card. For
+that, you only need a ready-to-use image file (``*.wic``) located on the
+SD card. Because the image file is quite large, you have to enlarge your SD card
+to use its full space (if it was not enlarged before). To enlarge your SD card,
+see Resizing ext4 Root Filesystem.
+
+Alternatively, flash a partup package to the SD card, as described in
+|ref-getting-started|. This will ensure the full space of the SD card is used.
+
+Flash eMMC from SD card in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can flash the eMMC on Linux. You only need a partup package or WIC image
+saved on the SD card.
+
+*  Show your saved partup package or WIC image or WIC.XZ image files on the
+   SD card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.partup
+      |yocto-imagename|-|yocto-machinename|.|yocto-imageext|
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
+*  Write the image to the |som| eMMC (/dev/|emmcdev| **without**
+   partition) using `partup`_:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.partup /dev/|emmcdev|
+
+   .. tip::
+
+      **Using partup is highly recommended since it is easier to use and has the
+      advantage of using the full capacity of the eMMC device, adjusting
+      partitions accordingly.**
+
+   .. note::
+
+      Alternatively, ``dd`` may be used instead.
+
+      For uncompressed WIC images (\*.wic):
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+      For compressed WIC images (\*.wic.xz):
+
+      .. code-block:: console
+         :substitutions:
+
+         target:~$ zstdcat |yocto-imagename|-|yocto-machinename|.wic.xz | sudo dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+      Keep in mind that the root partition does not make use of the full space
+      when flashing with ``dd``.
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. warning::
+
+      Before this will work, you need to configure the |ref-bootswitch| to eMMC.
+
+Flash eMMC from Network
+.......................
+
+|soc| boards have an Ethernet connector and can be updated over a network. Be
+sure to set up the development host correctly. The IP needs to be set to
+192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
+available. From a high-level point of view, an eMMC device is like an SD card.
+Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
+the Yocto build system directly to the eMMC. The image contains the
+bootloader, kernel, device tree, device tree overlays, and root file system.
+
+.. note::
+
+   Some PHYTECs BSPs produce compressed ``.wic.xz`` images. In this case, the
+   compressed image must first be uncompressed.
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ unxz phytec-qt6demo-image-phyboard-segin-imx93-2.wic.xz
+
+Flash eMMC via Network in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can update the eMMC from your target.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Take an uncompressed image on the host and send it with ssh through
+the network to the eMMC of the target with a one-line command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+Flash eMMC via Network in Linux on Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is also possible to install the OS at eMMC from your Linux host. As before,
+you need a complete image on your host.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Show your available image files on the host:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ls
+   |yocto-imagename|-|yocto-machinename|.wic
+
+Send the image with the ``dd`` command combined with ssh through the network
+to the eMMC of your device:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic bs=1M status=progress | ssh root@192.168.3.11 "dd of=/dev/|emmcdev| conv=fsync"
+
+Flash eMMC U-Boot image via Network from running U-Boot
+.......................................................
+
+Update the standalone U-Boot image imx-boot is also possible from U-Boot. This
+can be used if the bootloader on eMMC is located in the eMMC user area.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+Load image over tftp into RAM and then write it to eMMC:
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> tftp ${loadaddr} imx-boot
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc dev 0
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
+
+.. hint::
+   The hexadecimal value represents the offset as a multiple of 512 byte
+   blocks. See the `offset table <#offset-table>`__ for the correct value
+   of the corresponding SoC.
+
+Flash eMMC from USB
+...................
+
+Flash eMMC from USB in Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to flash the eMMC on Linux with a USB stick. You only
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
+|yocto-imagename|-|yocto-machinename|.wic). Set the |ref-bootswitch| to SD Card.
+
+*  Insert and mount the USB stick:
+
+   .. code-block:: console
+
+      [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+      [   60.467286] scsi host0: usb-storage 1-1.1:1.0
+      [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
+      [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
+      [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
+      [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
+      [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
+      [   61.665969]  sda: sda1
+      [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
+      target:~$ mount /dev/sda1 /mnt
+
+*  Now show your saved image files on the USB Stick:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ cd /mnt
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      |emmcdev|
+      |emmcdev|boot0
+      |emmcdev|boot1
+      |emmcdev|p1
+      |emmcdev|p2
+      |emmcdev|rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (|emmcdev|\ **boot0**; |emmcdev|\ **boot1**)
+*  Write the image to the |som| eMMC (/dev/|emmcdev| without partition):
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/|emmcdev| bs=1M conv=fsync status=progress
+
+*  After a complete write, your board can boot from eMMC.
+
+   .. tip::
+
+      Before this will work, you need to configure the |ref-bootswitch| to
+      **eMMC**.
+
+RAUC
+----
+
+The RAUC (Robust Auto-Update Controller) mechanism support has been added to
+meta-ampliphy. It controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem.
+PHYTEC has written an online manual on how we have intergraded RAUC into our
+BSPs: `L-1006e.A5 RAUC Update & Device Management Manual
+<https://www.phytec.de/cdocuments/?doc=fgByJg>`__.
+
+.. +---------------------------------------------------------------------------+
+.. DEVELOPMENT
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-PD24.1.1-development:
+
+Development
+===========
+
+.. include:: /bsp/development/host_network_setup.rsti
+.. include:: ../../imx-common/development/netboot.rsti
+
+Working with UUU-Tool
+---------------------
+
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
+documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+
+Host preparations for UUU-Tool Usage
+....................................
+
+*  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
+
+*  If you built UUU from source, add it to ``PATH``:
+
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
+
+   .. code-block:: console
+
+      export PATH=~/mfgtools/uuu/:"$PATH"
+
+*  Set udev rules (documented in ``uuu -udev``):
+
+   .. code-block:: console
+
+      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+      host:~$ sudo udevadm control --reload
+
+Get Images
+..........
+
+Download imx-boot from our server or get it from your Yocto build directory at
+build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
+you will also need |yocto-imagename|-|yocto-machinename|.wic.
+
+Prepare Target
+..............
+
+Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
+|ref-usb-otg| to your host.
+
+Starting bootloader via UUU-Tool
+................................
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b spl imx-boot
+
+You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
+
+.. note::
+   The default boot command when booting with UUU-Tool is set to fastboot. If
+   you want to change this, please adjust the environment variable bootcmd_mfg
+   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
+   UUU-tool the default environment is loaded. Saveenv has no effect. If you
+   want to change the boot command permanently for UUU-boot, you need to change
+   this in U-Boot code.
+
+Flashing U-boot Image to eMMC via UUU-Tool
+...........................................
+
+.. warning::
+
+   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+
+   .. code-block:: console
+      :substitutions:
+
+      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
+      u-boot=> mmc partconf |u-boot-emmc-devno|
+      EXT_CSD[179], PARTITION_CONFIG:
+      BOOT_ACK: 0x0
+      BOOT_PARTITION_ENABLE: 0x0
+      PARTITION_ACCESS: 0x0
+
+   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+   from Linux.
+
+   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   not used!
+
+   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   done by default, which makes partup again superior flash option.
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b emmc imx-boot
+
+Flashing wic Image to eMMC via UUU-Tool
+...........................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
+
+.. include:: ../../imx-common/development/standalone_build_preface.rsti
+.. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
+.. include:: ../../imx-common/development/standalone_build_kernel.rsti
+
+.. include:: ../../imx-common/development/format_sd-card.rsti
+
+.. +---------------------------------------------------------------------------+
+.. DEVICE TREE
+.. +---------------------------------------------------------------------------+
+
+.. _imx93-PD24.1.1-device-tree:
+.. include:: /bsp/device-tree.rsti
+
+::
+
+   imx93-phyboard-segin-peb-av-02.dtbo
+   imx93-phyboard-segin-peb-eval-01.dtbo
+   imx93-phycore-rpmsg.dtbo
+   imx93-phycore-no-emmc.dtbo
+   imx93-phycore-no-eth.dtbo
+
+Available overlays for phyboard-nash-imx93-1.conf are:
+
+::
+
+   imx93-phyboard-nash-peb-av-010.dtbo
+   imx93-phycore-rpmsg.dtbo
+   imx93-phycore-no-emmc.dtbo
+   imx93-phycore-no-eth.dtbo
+
+.. _imx93-PD24.1.1-ubootexternalenv:
+.. include:: ../dt-overlays.rsti
+
+.. +---------------------------------------------------------------------------+
+.. ACCESSING PERIPHERALS
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/peripherals/introduction.rsti
+
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
+
+The following is an example of the pin muxing of the UART1 device in
+|dt-carrierboard|.dts:
+
+.. code-block::
+
+   pinctrl_uart1: uart1grp {
+           fsl,pins = <
+                   MX93_PAD_UART1_RXD__LPUART1_RX     0x31e
+                   MX93_PAD_UART1_TXD__LPUART1_TX     0x30e
+           >;
+   };
+
+The first part of the string MX93_PAD_UART1_RXD__LPUART1_RX names the pad
+(in this example UART1_RXD). The second part of the string (LPUART1_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the
+right) defines different modes of the pad, for example, if internal pull
+resistors are activated or not. In this case, the internal pull up is
+activated.
+
+The device tree representation for UART1 pinmuxing:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n262`
+
+.. _imx93-PD24.1.1-network:
+
+Ethernet
+--------
+
+|sbc| provides two ethernet interfaces.
+
+*  On **phyBOARD-Segin** we have:
+
+   *  a 100 megabit Ethernet provided by |som|
+   *  and 100 megabit Ethernet provided by phyBOARD.
+
+*  On **phyBOARD-Nash** we have:
+
+   *  a 100 megabit Ethernet provided by |som|
+   *  and 1 gigabit Ethernet provided by phyBOARD.
+
+.. include:: /bsp/peripherals/network.rsti
+
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
+
+DT configuration for the MMC (SD card slot) interface can be found here:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n216` or here:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n201`
+
+DT configuration for the eMMC interface can be found here:
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n194` or here:
+
+.. include:: /bsp/peripherals/emmc.rsti
+
+GPIOs
+-----
+
+The |sbc| doesn't have a set of pins especially dedicated for user I/Os since
+all GPIOs are used by kernel device drivers or used for a specific purpose. The
+processor has organized its GPIOs into five banks of 32 GPIOs each (GPIO1 –
+GPIO4) GPIOs. gpiochip0, gpiochip32, gpiochip64 and gpiochip96 are the sysfs
+representation of these internal |soc| GPIO banks GPIO1 – GPIO4.
+
+The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO4_07). <X> identifies the GPIO
+bank and counts from 1 to 4, while <Y> stands for the GPIO within the bank. <Y>
+is being counted from 0 to 31 (32 GPIOs on each bank).
+
+By contrast, the Linux kernel uses a single integer to enumerate all available
+GPIOs in the system. The formula to calculate the right number is:
+
+.. code-block::
+
+   Linux GPIO number: <N> = (<X> - 1) * 32 + <Y>
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+   .. code-block:: console
+
+      target:~$ gpiodetect
+      gpiochip0 [43810080.gpio] (32 lines)
+      gpiochip1 [43820080.gpio] (32 lines)
+      gpiochip2 [43830080.gpio] (32 lines)
+      gpiochip3 [47400080.gpio] (32 lines)
+
+.. note::
+
+   Order of GPIOchips in ``i.MX 93 Application Processor Reference Manual`` and
+   in Linux kernel differ!
+
+   +------------------+-----------+------------------+
+   | GPIOchip address | Linux     | Reference Manual |
+   +------------------+-----------+------------------+
+   | 0x43810080       | gpiochip0 | gpiochip2        |
+   +------------------+-----------+------------------+
+   | 0x43820080       | gpiochip1 | gpiochip3        |
+   +------------------+-----------+------------------+
+   | 0x43830080       | gpiochip2 | gpiochip4        |
+   +------------------+-----------+------------------+
+   | 0x47400080       | gpiochip3 | gpiochip1        |
+   +------------------+-----------+------------------+
+
+*  Show detailed information about the gpiochips. Like their names, consumers,
+   direction, active state, and additional flags:
+
+   .. code-block:: console
+
+      target:~$ gpioinfo gpiochip0
+
+*  Read the value of a GPIO (e.g GPIO 3 from chip0):
+
+   .. code-block:: console
+
+      target:~$ gpioget gpiochip0 3
+
+*  Set the value of GPIO 3 on chip0 to 0 and exit tool:
+
+   .. code-block:: console
+
+      target:~$ gpioset --mode=exit gpiochip0 3=0
+
+*  Help text of gpioset shows possible options:
+
+   .. code-block:: console
+
+      target:~$ gpioset --help
+      Usage: gpioset [OPTIONS] <chip name/number> <offset1>=<value1> <offset2>=<value2> ...
+      Set GPIO line values of a GPIO chip
+
+      Options:
+        -h, --help:           display this message and exit
+        -v, --version:        display the version and exit
+        -l, --active-low:     set the line active state to low
+        -m, --mode=[exit|wait|time|signal] (defaults to 'exit'):
+                      tell the program what to do after setting values
+        -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
+        -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
+        -b, --background:     after setting values: detach from the controlling terminal
+
+      Modes:
+        exit:         set values and exit immediately
+        wait:         set values and wait for user to press ENTER
+        time:         set values and sleep for a specified amount of time
+        signal:       set values and wait for SIGINT or SIGTERM
+
+      Note: the state of a GPIO line controlled over the character device reverts to default
+      when the last process referencing the file descriptor representing the device file exits.
+      This means that it's wrong to run gpioset, have it exit and expect the line to continue
+      being driven high or low. It may happen if given pin is floating but it must be interpreted
+      as undefined behavior.
+
+.. warning::
+
+   Some of the user IOs are used for special functions. Before using a user IO,
+   refer to the schematic or the hardware manual of your board to ensure that it
+   is not already in use.
+
+GPIOs via sysfs
+...............
+
+.. warning::
+
+   Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
+   instead.
+
+Support to access GPIOs via sysfs is not enabled by default any more.
+It is only possible with manually enabling CONFIG_GPIO_SYSFS in the kernel
+configuration. To make CONFIG_GPIO_SYSFS visible in menuconfig the option
+CONFIG_EXPERT has to be enabled first.
+
+You can also add this option for example to the
+imx9_phytec_distro.config config fragment in the linux kernel sources
+under arch/arm64/configs ::
+
+   ..
+   CONFIG_GPIO_SYSFS=y
+   ..
+
+.. include:: /bsp/peripherals/adc.rsti
+
+On phyBOARD-Nash the ADC lines are accessible on X16 expansion connector:
+
+========= ========
+ADC input X16 pin
+========= ========
+ADC_IN0        47
+ADC_IN2        49
+========= ========
+
+.. include:: ../peripherals/leds.rsti
+
+Device tree configuration for the User I/O configuration can be found here:
+:imx-dt:`imx93-phyboard-segin-peb-eval-01.dtso?h=v6.1.55_2.2.0-phy3#n33`
+
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n88`
+
+General I²C2 bus configuration for |dt-carrierboard|.dts:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n155` or for
+imx93-phyboard-nash.dts:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n113`
+
+EEPROM
+------
+
+There are two different I2C EEPROM flashes populated on |som| SoM and on the
+|sbc|. For now only the one on the |som| is enabled, and it is used for board
+detection.
+
+I2C EEPROM on |som|
+...........................
+
+The I2C EEPROM on the |som| SoM has its memory divided into two parts.
+
+* normal area (size: 4096 bytes, bus: I2C-2, addr: 0x50)
+* ID page (size: 32 bytes, bus: I2C-2, addr: 0x58)
+
+It is possible to read and write from the device populated:
+
+.. code-block:: console
+
+   target:~$ hexdump -C /sys/class/i2c-dev/i2c-2/device/2-0058/eeprom
+
+To read and print the first 1024 bytes of the EEPROM as a hex number,
+execute:
+
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-2/device/2-0050/eeprom bs=1 count=1024  | od -x
+
+To fill the whole EEPROM (ID page) with zeros we first need to disable the
+EEPROM write protection, use:
+
+.. code-block:: console
+
+   target:~$ gpioset 2 21=0
+
+Then the EEPROM can be written to:
+
+.. code-block:: console
+
+   target:~$ dd if=/dev/zero of=/sys/class/i2c-dev/i2c-2/device/2-0058/eeprom bs=32 count=1
+
+.. warning::
+
+   The first 256 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50) are
+   reserved and should not be overwritten! (See below)
+
+EEPROM SoM Detection
+....................
+
+PHYTEC uses first 256 bytes in EEPROM normal area to store information about the
+SoM. This includes PCB revision and mounting options.
+
+The EEPROM data is read at a really early stage during startup. It is used to
+select the correct RAM configuration. This makes it possible to use the same
+bootloader image for different RAM sizes and choose the correct DTS overlays
+automatically.
+
+If the first 256 bytes of the normal area are deleted, the bootloader will fall
+back to the |som| Kit RAM setup, which is |kit-ram-size| RAM.
+
+.. warning::
+
+   Data in the first 256 bytes of the normal EEPROM area (bus: I2C-2 addr: 0x50)
+   shouldn't be erased or corrupted! This might influence the behavior of the
+   bootloader. The board might not boot correctly anymore.
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-written on the EEPROM data spaces. If
+you have accidentally deleted or overwritten the HW data, you could contact our
+support!
+
+DT representation, e.g. in |som| file can be found in our PHYTEC git:
+:imx-dt:`imx93-phycore-som.dtsi?h=v6.1.55_2.2.0-phy3#n172`
+
+.. include:: ../../peripherals/rtc.rsti
+
+DT representation for I²C RTCs:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n173` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n122`
+
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed of up to 480 Mbps (HighSpeed
+'HS'). The USB subsystem has two independent USB controller cores. Both cores
+are capable of acting as a USB peripheral device or a USB host, but on the |sbc|
+one of them is used as a host-only port (USB-A connector).
+
+.. include:: /bsp/peripherals/usb-host.rsti
+
+The OTG port provides an additional pin for over-current protection, which is
+not used on the |sbc|. Since it's not used, the driver part is also disabled
+from within the device tree. In case this pin is used, activate this
+over-current in the device tree and set the correct polarity (active high/low)
+according to the device specification. For the correct setup, please refer to
+the Kernel documentation under
+Linux/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.txt.
+
+DT representation for USB Host:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n190` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n180`
+
+.. include:: /bsp/peripherals/usb-otg.rsti
+
+RS232/RS485
+-----------
+
+The **phyBOARD-Nash** i.MX 93 SoC provides one RS232/RS485 serial port.
+
+.. warning::
+   RS232 with HW flow control and RS485 are not working due to HW bug on the
+   phyBOARD-Nash PCB revision 1616.0
+
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
+
+The device tree representation for RS232 and RS485:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n173`
+
+CAN FD
+------
+
+The |sbc| has one flexCAN interface supporting CAN FD. They are supported by the
+Linux standard CAN framework which builds upon the Linux network layer. Using
+this framework, the CAN interfaces behave like an ordinary Linux network device,
+with some additional features special to CAN. More information can be found in
+the Linux Kernel
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
+
+*  Use:
+
+   .. code-block:: console
+
+      target:~$ ip link
+
+   to see the state of the interfaces. The CAN interface should show up as
+   can0.
+
+*  To get information on can0, such as bit rate and error counters, type:
+
+   .. code-block:: console
+
+      target:~$ ip -d -s link show can0
+      4: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+         link/can  promiscuity 0  allmulti 0 minmtu 0 maxmtu 0
+         can state ERROR-ACTIVE (berr-counter tx 0 rx 0) restart-ms 0
+               bitrate 500000 sample-point 0.875
+               tq 25 prop-seg 37 phase-seg1 32 phase-seg2 10 sjw 1 brp 1
+               flexcan: tseg1 2..96 tseg2 2..32 sjw 1..16 brp 1..1024 brp_inc 1
+               flexcan: dtseg1 2..39 dtseg2 2..8 dsjw 1..4 dbrp 1..1024 dbrp_inc 1
+               clock 40000000
+               re-started bus-errors arbit-lost error-warn error-pass bus-off
+               0          0          0          0          0          0         numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus platform parentdev 443a0000.can
+         RX:  bytes packets errors dropped  missed   mcast
+                  0       0      0       0       0       0
+         TX:  bytes packets errors dropped carrier collsns
+                  0       0      0       0       0       0
+
+The output contains a standard set of parameters also shown for Ethernet
+interfaces, so not all of these are necessarily relevant for CAN (for example
+the MAC address). The following output parameters contain useful information:
+
+========== =============================
+can0       Interface Name
+========== =============================
+NOARP	     CAN cannot use ARP protocol
+MTU	     Maximum Transfer Unit
+RX packets Number of Received Packets
+TX packets Number of Transmitted Packets
+RX bytes   Number of Received Bytes
+TX bytes   Number of Transmitted Bytes
+errors...  Bus Error Statistics
+========== =============================
+
+The CAN configuration is done in the systemd configuration
+file ``/lib/systemd/network/can0.network``. For a persistent change of (as an
+example, the default bitrates), change the configuration in the BSP
+under ``./meta-ampliphy/recipes-core/systemd/systemd-conf/can0.network`` in
+the root filesystem and rebuild the root filesystem.
+
+.. code-block::
+
+   [Match]
+   Name=can0
+
+   [Can]
+   BitRate=500000
+
+The bitrate can also be changed manually, for example, to make use of the
+flexible bitrate:
+
+.. code-block:: console
+
+   target:~$ ip link set can0 down
+   target:~$ ip link set can0 txqueuelen 10 up type can bitrate 500000 sample-point 0.75 dbitrate 4000000 dsample-point 0.8 fd on
+
+You can send messages with cansend or receive messages with candump:
+
+.. code-block:: console
+
+   target:~$ cansend can0 123#45.67
+   target:~$ candump can0
+
+To generate random CAN traffic for testing purposes, use cangen:
+
+.. code-block:: console
+
+   target:~$ cangen
+
+``cansend --help`` and ``candump --help`` provide help messages for further
+information on options and usage.
+
+Device Tree CAN configuration of |dt-carrierboard|.dts:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n147` or
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n105`
+
+Audio on phyBOARD-Segin
+-----------------------
+
+On phyBOARD-Segin i.MX 93 the TI TLV320AIC3007 audio codec is used. It uses I2S
+for data transmission and I2C for codec control. The audio signals available
+are:
+
+* Stereo LINE IN,
+* Stereo LINE OUT,
+* Output where D-Class 1W speaker can be connected
+
+.. include:: /bsp/peripherals/audio.rsti
+   :end-before: .. audio_alsa_configuration_start_label
+
+.. include:: /bsp/peripherals/audio.rsti
+   :start-after: .. audio_playback_start_label
+   :end-before: .. audio_capture_start_label
+
+If Speaker volume it too low you can increase its volume with (values 0-3):
+
+.. code-block:: console
+
+   target:~$ amixer -c 0 sset Class-D 3
+
+.. hint::
+
+   Speaker output is only mono so when stereo track is played only left channel
+   will be played by speaker.
+
+Capture
+.......
+
+``arecord`` is a command-line tool for capturing audio streams which use Line In
+as the default input source.
+
+.. code-block:: console
+
+   target:~$ arecord -t wav -c 2 -r 44100 -f S16_LE test.wav
+
+.. hint::
+
+   Since playback and capture share hardware interfaces, it is not possible to
+   use different sampling rates and formats for simultaneous playback and
+   capture operations.
+
+Device Tree Audio configuration:
+:imx-dt:`imx93-phyboard-segin.dts?h=v6.1.55_2.2.0-phy3#n62`
+
+Audio on phyBOARD-Nash
+----------------------
+
+.. warning::
+
+   Due to HW bug Audio is broken on phyBOARD-Nash i.MX 93 PCB revision: 1616.0
+
+To use audio with phyBOARD-Nash an additional adapter for the Audio/Video
+connector is needed. The PEB-AV-10 (1531.1 revision) can be bought separately to
+the Kit. PEB-AV-10 is populated with a TI TLV320AIC3007 audio codec. Audio
+support is done via the I2S interface and controlled via I2C.
+
+There is a 3.5mm headset jack with OMTP standard and an 8-pin header to connect
+audio devices with the AV-Connector.  The 8-pin header contains a mono speaker,
+headphones, and line-in signals.
+
+.. include:: /bsp/peripherals/audio.rsti
+
+Device Tree Audio configuration:
+:imx-dt:`imx93-phyboard-nash-peb-av-010.dtso?h=v6.1.55_2.2.0-phy3#n57`
+
+.. include:: /bsp/peripherals/video.rsti
+
+.. include:: display.rsti
+
+.. include:: /bsp/qt6.rsti
+
+.. include:: /bsp/imx-common/peripherals/display.rsti
+
+The device tree of PEB-AV-02 can be found here:
+:imx-dt:`imx93-phyboard-segin-peb-av-02.dtso?h=v6.1.55_2.2.0-phy3`
+
+The device tree of PEB-AV-10 can be found here:
+:imx-dt:`imx93-phyboard-nash-peb-av-010.dtso?h=v6.1.55_2.2.0-phy3`
+
+.. include:: peripherals/pm.rsti
+
+.. include:: ../peripherals/tm.rsti
+
+.. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: ../peripherals/bbnsm-power-key.rsti
+
+.. include:: ../peripherals/pxp.rsti
+
+.. include:: ../peripherals/ocotp-ctrl.rsti
+
+.. include:: /bsp/peripherals/tpm.rsti
+
+Device tree TPM configuration can be found here:
+:imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n151`
+
+.. +---------------------------------------------------------------------------+
+.. i.MX 8M Plus M7 Core
+.. +---------------------------------------------------------------------------+
+
+.. include:: ../mcu.rsti

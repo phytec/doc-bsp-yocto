@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Introduction &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/coprocessor/coprocessor.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="贡献" href="../contributing_links.html" />
+    <link rel="prev" title="Coprocessor" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Coprocessor</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#internal-vs-external-coprocessor">1.1. Internal vs. External Coprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-cases">1.2. Use Cases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#energy-constrained-applications">1.2.1. Energy Constrained Applications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-critical-communication">1.2.2. Time-Critical Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensors-and-real-time">1.2.3. Sensors and Real-Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interface-virtualization">1.2.4. Interface Virtualization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-technologies">2. Overview of Technologies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#real-time-operating-systems-rtos-and-development-frameworks">2.1. Real-Time Operating Systems (RTOS) and Development Frameworks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zephyr">2.1.1. Zephyr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mcuxpresso-sdk-nxp">2.1.2. MCUXpresso SDK (NXP)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-software-stacks">2.2. Additional Software Stacks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openamp">2.2.1. OpenAMP</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#remoteproc">2.2.1.1. remoteproc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rpmsg">2.2.1.2. RPMsg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#requirements">2.2.1.3. Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#protocol-buffers">2.2.2. Protocol Buffers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#application-architectures">3. Application Architectures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#typical-usage">3.1. Typical Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtio">3.2. VirtIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpmsg-overlaying-protocol">3.3. RPmsg + Overlaying Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">4. Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-coprocessor-via-remoteproc">4.1. Starting the Coprocessor via Remoteproc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-coprocessor-via-bootloader">4.2. Starting the Coprocessor via Bootloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-coprocessor-via-debug-probe">4.3. Starting the Coprocessor via Debug Probe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-the-serial-console">4.4. Accessing the serial console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-the-coprocessor">4.5. Debugging the Coprocessor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debug-a-non-remoteproc-firmware">4.5.1. Debug a non remoteproc firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-a-remoteproc-firmware-using-gdb">4.5.2. Debugging a remoteproc firmware using GDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gdb-hints">4.5.3. GDB hints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-a-remoteproc-firmware-using-segger-ozone">4.5.4. Debugging a remoteproc firmware using SEGGER Ozone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-and-resources">5. Examples and Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">5.1. Hello World</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run-the-sample">5.1.1. Run the Sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#openamp-using-resource-table">5.2. OpenAMP using resource table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-linux">5.2.1. Prepare Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-zephyr">5.2.2. Prepare Zephyr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5.2.3. Run the Sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-output-linux">5.2.4. Console Output Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging">5.2.5. Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-examples">5.3. Other Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#current-problems">6. Current Problems</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Coprocessor</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/coprocessor/coprocessor.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Documentation in pdf format: <a class="reference external" href="../_static/coprocessor.pdf">Download</a></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This manual is a draft version and is currently <strong>work in progress</strong>. It
+will undergo significant changes over time.</p>
+<p>We value your feedback, questions, and suggestions and encourage you to open
+an issue or pull request in the linked repository to get in contact.</p>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Coprocessor Application Manual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document Title</p></td>
+<td><p>Coprocessor Application Manual</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document Type</p></td>
+<td><p>Generic Application Guide</p></td>
+</tr>
+<tr class="row-even"><td><p>Release Date</p></td>
+<td><p>XXXX/XX/XX</p></td>
+</tr>
+</tbody>
+</table>
+<p>This manual applies to all Phytec releases from kernel version x.</p>
+<section id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>Most modern SoCs include one or more coprocessors beside an application
+processor. In most cases the application processor runs Linux, while the
+coprocessor may run an RTOS. This manual goes into detail how to utilize the
+coprocessor efficiently for projects.</p>
+<p>The manual explains generic principles and applies those principles in examples
+for a specific platform and tools. It gives an introduction into
+coprocessor software stacks and RTOS like Zephyr, MCUXpresso and OpenAMP</p>
+<p>For now this manual is focused on the NXP i.MX platform,
+but an attempt is made to keep the manual as generic as possible.</p>
+<section id="internal-vs-external-coprocessor">
+<h2><span class="section-number">1.1. </span>Internal vs. External Coprocessor<a class="headerlink" href="#internal-vs-external-coprocessor" title="Link to this heading"></a></h2>
+<p>A coprocessor can be internal or external (Of the application processors SoC).
+Both have their advantages and disadvantages. Advantages on internal
+coprocessors are for example a more simple firmware update management,
+a more efficient communication between the coprocessor and the application
+processor and a probably more inexpensive PCB design.
+External coprocessors have, for example, the advantages of more interfaces in
+addition to the ones of the application processor, and they are starting up
+directly, not depending on the application processor.</p>
+<p>This manual focuses on internal coprocessors of the PHYTEC SoMs.</p>
+</section>
+<section id="use-cases">
+<h2><span class="section-number">1.2. </span>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
+<p>There are several use cases for coprocessors in embedded systems. Almost every
+time-critical task that cannot be handled by the application processor can be
+offloaded to a coprocessor.</p>
+<p>Here are some more explicit use-case examples to give an idea of the
+possibilities:</p>
+<section id="energy-constrained-applications">
+<h3><span class="section-number">1.2.1. </span>Energy Constrained Applications<a class="headerlink" href="#energy-constrained-applications" title="Link to this heading"></a></h3>
+<p>For energy constrained applications, it may be beneficial to reduce the active
+time of the entire SoC to conserve power. In such cases, the application
+processor can be put into sleep mode while the coprocessor remains active to,
+for example, monitor I2C communication and wake up the application processor
+upon receiving a specific command.</p>
+</section>
+<section id="time-critical-communication">
+<h3><span class="section-number">1.2.2. </span>Time-Critical Communication<a class="headerlink" href="#time-critical-communication" title="Link to this heading"></a></h3>
+<p>Some protocols may require sending or receiving data in real-time. If there is
+no hardware IP-core that is capable of handling the desired protocol, the
+coprocessor could help out to support it through building it in software.</p>
+</section>
+<section id="sensors-and-real-time">
+<h3><span class="section-number">1.2.3. </span>Sensors and Real-Time<a class="headerlink" href="#sensors-and-real-time" title="Link to this heading"></a></h3>
+<p>Some applications may require a sensor to be read in a time-critical manner
+(e.g. an accelerometer) to detect small value changes in a short time frame.
+This can be done by a coprocessor to ensure that the sensor is read at the
+right time. The data can be buffered and fed to the application processor if
+it has time to process the data.</p>
+</section>
+<section id="interface-virtualization">
+<h3><span class="section-number">1.2.4. </span>Interface Virtualization<a class="headerlink" href="#interface-virtualization" title="Link to this heading"></a></h3>
+<p>On SoCs like the i.MX9 series there is the FLEXIO interface
+(compare RPi PIO, Microchip CLC). Received data on this interface needs to be
+processed in a time-critical manner because it is lacking a FIFO buffer.
+If serial data with higher speeds is received, the application processor
+may need to process too many interrupts. That could slow down other running
+applications. Another problem is the interrupt latency. The application
+processor could possibly lose data frames.</p>
+<p>The coprocessor can be used to read the data from the interface, buffer it
+and send it to the application processor when it has time to process it.</p>
+</section>
+</section>
+</section>
+<section id="overview-of-technologies">
+<h1><span class="section-number">2. </span>Overview of Technologies<a class="headerlink" href="#overview-of-technologies" title="Link to this heading"></a></h1>
+<section id="real-time-operating-systems-rtos-and-development-frameworks">
+<h2><span class="section-number">2.1. </span>Real-Time Operating Systems (RTOS) and Development Frameworks<a class="headerlink" href="#real-time-operating-systems-rtos-and-development-frameworks" title="Link to this heading"></a></h2>
+<p>There are multiple RTOS and SDKs available that can be used on coprocessors.</p>
+<section id="zephyr">
+<h3><span class="section-number">2.1.1. </span>Zephyr<a class="headerlink" href="#zephyr" title="Link to this heading"></a></h3>
+<p>Zephyr is an Open Source and vendor neutral RTOS that is is governed by the
+Linux Foundation and supported by various companies and a large community.
+It is designed to be small and efficient and is suitable for a wide range of
+devices from simple embedded devices to complex SoCs.
+The key feature is the platform independence, which allows developing
+applications with a generic API that can run on multiple platforms without
+modification.</p>
+<p>It supports a wide range of SoCs and boards from various manufacturers
+based on different processor architectures. There is also support for a lot
+of different peripherals and interfaces,
+as well as a wide range of communication protocols.
+(e.g. TCP/IP stack, Bluetooth, CAN, USB, etc.)</p>
+<p>Zephyr supports the coprocessor on multiple phyBOARDs,
+including the phyBOARD Pollux (i.MX8MP), Polis (i.MX8MM), Nash (i.MX93),
+Electra (AM64x) and Lyra (AM62x).</p>
+<p>It should be mentioned, that not all hardware features are available in Zephyr
+yet. The support is constantly being expanded through NXP and the Zephyr
+community. Despite this PHYTEC recommends using Zephyr for new projects because
+of its many advantages.</p>
+<p>You can find more information about using Zephyr in the <a class="reference external" href="https://docs.zephyrproject.org/latest/introduction/index.html">Zephyr Documentation</a> website.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>Please reach out to us if there is any feature missing in Zephyr that you
+need for your project. We will try our best to get that feature implemented.</p>
+</div>
+</section>
+<section id="mcuxpresso-sdk-nxp">
+<h3><span class="section-number">2.1.2. </span>MCUXpresso SDK (NXP)<a class="headerlink" href="#mcuxpresso-sdk-nxp" title="Link to this heading"></a></h3>
+<p>The MCUX SDK is a software development kit for NXP microcontrollers and
+microprocessors. It provides a comprehensive set of peripheral drivers,
+middlewares and examples for all NXP Platforms.
+MCUX gives the possibility to use different RTOS like FreeRTOS, Azure RTOS
+or even using it BareMetal.</p>
+<p>If Zephyr is not suitable for your project (e.g. because of missing features),
+MCUX SDK is the alternative. You can use it either with the MCUX SDK
+or repository-managed via make and cpp.</p>
+<p>Here are some resources to get started with MCUX:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools/mcuxpresso-software-development-kit-sdk:MCUXpresso-SDK">MCUXpresso SDK</a></p></li>
+<li><p><a class="reference external" href="https://github.com/phytec/mcux-sdk">PHYTEC MCUX-SDK</a></p></li>
+<li><p><a class="reference external" href="https://www.nxp.com/design/design-center/training/TIP-GETTING-STARTED-WITH-MCUXPRESSO-FOR-VS-CODE">MCUXpresso VS-Code IDE</a></p></li>
+<li><p><a class="reference external" href="https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE">MCUXpresso IDE</a></p></li>
+</ul>
+</section>
+</section>
+<section id="additional-software-stacks">
+<h2><span class="section-number">2.2. </span>Additional Software Stacks<a class="headerlink" href="#additional-software-stacks" title="Link to this heading"></a></h2>
+<section id="openamp">
+<h3><span class="section-number">2.2.1. </span>OpenAMP<a class="headerlink" href="#openamp" title="Link to this heading"></a></h3>
+<p>The <a class="reference external" href="http://openampproject.org">OpenAMP</a> Project &quot;seeks to standardize
+the interactions between operating environments in a heterogeneous embedded
+system through open source solutions for Asymmetric MultiProcessing (AMP).&quot;</p>
+<p>This introduction explains the main components and terms, the <a class="reference external" href="https://openamp.readthedocs.io/en/latest/openamp/index.html">OpenAMP
+documentation</a>
+goes into further detail.
+OpenAMP is available in Linux as well as in RTOS
+(e.g. Zephyr) and Vendor SDKs (e.g. NXP MCUX, TI SDK, STM32Cube).</p>
+<p>In general, OpenAMP is a framework that allows communication between
+asymmetric processor cores inside a SoC via shared memory.</p>
+<p>A differentiation is made between a master core
+(mostly the application processor) and one or more remote cores (coprocessors).
+The master core has to load the firmware on the remote core, start it and
+prepare shared memory regions for communication.</p>
+<p>The OpenAMP framework consists of two main components:</p>
+<section id="remoteproc">
+<h4><span class="section-number">2.2.1.1. </span>remoteproc<a class="headerlink" href="#remoteproc" title="Link to this heading"></a></h4>
+<p>The remoteproc framework is used to control the life cycle of a remote
+processor. It is responsible for loading the firmware, starting and stopping
+the remote processor and managing the resources of both cores.
+The <a class="reference external" href="https://docs.kernel.org/staging/remoteproc.html">remoteproc documentation</a>
+on Kernel.org goes into further technical details.</p>
+</section>
+<section id="rpmsg">
+<h4><span class="section-number">2.2.1.2. </span>RPMsg<a class="headerlink" href="#rpmsg" title="Link to this heading"></a></h4>
+<p>RPMsg is a messaging protocol that is used to exchange messages between the
+master core and remote cores. It is built on top of VirtIO and Virtqueue and
+uses the shared memory regions prepared by remoteproc to exchange messages.</p>
+<p>The communication stack is consisting of several protocol layers, similar
+to the OSI model:</p>
+<dl class="simple">
+<dt>Transport Layer (3):</dt><dd><p>RPMsg</p>
+</dd>
+<dt>MAC Layer (2):</dt><dd><p>VirtIO, Virtqueue, Vring</p>
+</dd>
+<dt>Physical Layer (1):</dt><dd><p>Shared Memory, Inter-core Interrupts e.g. via Messaging Unit (MU)</p>
+</dd>
+</dl>
+<p>Normally VirtIO is used to exchange messages between virtual machines in
+a hypervisor environment. In the context of OpenAMP, VirtIO is used to
+exchange messages between the master core and remote cores while
+being very efficient. The Virtqueue is underlying VirtIO and
+organizes the messages in a circular buffer. The Vring is the specific
+implementation of the buffer inside the Virtqueue.</p>
+<p>The <a class="reference external" href="https://docs.kernel.org/staging/rpmsg.html">rpmsg documentation</a>
+on Kernel.org goes into further technical details.</p>
+</section>
+<section id="requirements">
+<h4><span class="section-number">2.2.1.3. </span>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Shared Memory</dt><dd><p>To exchange messages between the cores, a shared memory region is required.</p>
+</dd>
+<dt>Interrupts</dt><dd><p>Minimum set of one interrupt line per communicating core. This interrupt is
+often implemented in hardware blocks of the SoC, e.g. the &quot;Messaging Unit
+(MU)&quot; on the NXP i.MX8MP.</p>
+</dd>
+<dt>Resource Table</dt><dd><p>The resource table is a data structure that describes the shared memory
+regions and the VirtIO devices that are used for communication between the
+cores. It is used by the remoteproc framework to prepare the shared memory
+regions and the VirtIO devices. Ensure that the resource table is correctly
+included in the firmware binary of the remote core.
+(e.g. in Zephyr use <code class="docutils literal notranslate"><span class="pre">CONFIG_OPENAMP_RSC_TABLE=y</span></code>)</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="protocol-buffers">
+<h3><span class="section-number">2.2.2. </span>Protocol Buffers<a class="headerlink" href="#protocol-buffers" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+<section id="application-architectures">
+<h1><span class="section-number">3. </span>Application Architectures<a class="headerlink" href="#application-architectures" title="Link to this heading"></a></h1>
+<section id="typical-usage">
+<h2><span class="section-number">3.1. </span>Typical Usage<a class="headerlink" href="#typical-usage" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id6">
+<img alt="Typical Usage" src="../_images/openamp_typical_usage.png" />
+<figcaption>
+<p><span class="caption-text">Typical Application Architecture with OpenAMP (source: <a class="reference external" href="https://www.openampproject.org/docs/whitepapers/Introduction_to_OpenAMPlib_v1.1a.pdf">OpenAMP Whitepaper</a>)</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A typical application architecture when using OpenAMP is using two cores.
+One application processor (typically running Linux) while the coprocessor
+is processing time-critical tasks.</p>
+</section>
+<section id="virtio">
+<h2><span class="section-number">3.2. </span>VirtIO<a class="headerlink" href="#virtio" title="Link to this heading"></a></h2>
+</section>
+<section id="rpmsg-overlaying-protocol">
+<h2><span class="section-number">3.3. </span>RPmsg + Overlaying Protocol<a class="headerlink" href="#rpmsg-overlaying-protocol" title="Link to this heading"></a></h2>
+<p>Sometimes it can be necessary to use an overlaying protocol on top of RPMsg
+to exchange more complex data structures.</p>
+<p>This could be done with using a protocol like <a class="reference external" href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> or <a class="reference external" href="https://google.github.io/flatbuffers/">Flat Buffers</a> to serialize and deserialize the
+data structures.</p>
+</section>
+</section>
+<section id="getting-started">
+<h1><span class="section-number">4. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>There are multiple ways to get started with using a coprocessor.</p>
+<p>First of all you need to decide which RTOS you want to use.</p>
+<p>If you want to use Zephyr, you can use the <a class="reference external" href="https://docs.zephyrproject.org/latest/getting_started/index.html">Zephyr Getting Started Guide</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When building a Zephyr project / sample for a SoC, the board naming can be
+confusing. The naming convention is <code class="docutils literal notranslate"><span class="pre">&lt;board&gt;/&lt;soc&gt;/&lt;core&gt;</span></code>. For example,
+to build a Zephyr project for the phyBOARD Pollux (i.MX8MP) with the
+M7 core, the board name is <code class="docutils literal notranslate"><span class="pre">phyboard_pollux/mimx8ml8/m7</span></code>.</p>
+</div>
+<p>When compiling the firmware, you'll get two binary files. One <code class="docutils literal notranslate"><span class="pre">.elf</span></code> file for
+starting the remote processor via remoteproc, which includes the resource
+table, and one <code class="docutils literal notranslate"><span class="pre">.bin</span></code> file for starting the remote processor via the
+bootloader.</p>
+<section id="starting-the-coprocessor-via-remoteproc">
+<h2><span class="section-number">4.1. </span>Starting the Coprocessor via Remoteproc<a class="headerlink" href="#starting-the-coprocessor-via-remoteproc" title="Link to this heading"></a></h2>
+<p>To start a remote processor via remoteproc, you need to place
+the firmware into the <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code> directory on the target.</p>
+<p>This can be done using SCP (e.g., for development), by copying the file to the
+SD card, or by including it in the Yocto build (e.g., for production use).</p>
+<p>Make sure the devicetree overlay that enables remoteproc support is activated.
+You can find more information about how to activate the devicetree overlay in
+the BSP manual for your platform.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>/lib/firmware/<span class="o">{</span>your_firmware<span class="o">}</span>.elf<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/firmware
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>If your device has multiple coprocessors, please make sure you use the
+correct remoteproc device.</p>
+</div>
+</section>
+<section id="starting-the-coprocessor-via-bootloader">
+<h2><span class="section-number">4.2. </span>Starting the Coprocessor via Bootloader<a class="headerlink" href="#starting-the-coprocessor-via-bootloader" title="Link to this heading"></a></h2>
+<p>Starting the Coprocessor via the bootloader is platform specific.
+You can find more information in the BSP manual for your platform.</p>
+<p>Using this method can be useful, if you want to have the coprocessor running
+before the application processor boots up, for example for applications that
+need to have a fast response time on startup.</p>
+<p>Here is the manual for the i.MX8MP for example:
+<a class="reference external" href="https://phytec.github.io/doc-bsp-yocto/bsp/imx8/imx8mp/head.html#running-mcore-examples">Running the M7 Core</a></p>
+</section>
+<section id="starting-the-coprocessor-via-debug-probe">
+<span id="starting-coprocessor-via-debug-probe"></span><h2><span class="section-number">4.3. </span>Starting the Coprocessor via Debug Probe<a class="headerlink" href="#starting-the-coprocessor-via-debug-probe" title="Link to this heading"></a></h2>
+<p>It is possible to start the coprocessor via a debug probe like J-Link or
+OpenOCD. This is useful for debugging the firmware on the coprocessor, or
+for starting up the coprocessor in a development environment.</p>
+<p>On most PHYTEC boards, you can use a PEB-EVAL-01 shield to connect the
+debug probe to the board via a 20-pin JTAG connector.</p>
+<p>When using Zephyr you can simply use the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>west<span class="w"> </span>debug
+</pre></div>
+</div>
+<p>to start GDB and load / start the firmware on the coprocessor.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Please note that it is not possible to use inter processor communication via
+RPMsg when not starting the coprocessor via remoteproc!
+This is because remoteproc prepares Linux and the shared memory for
+communication!</p>
+<p>This is especially impractical when you want to debug your
+coprocessor firmware via a debug probe, if your system requires the
+use of communication between the cores.</p>
+</div>
+</section>
+<section id="accessing-the-serial-console">
+<h2><span class="section-number">4.4. </span>Accessing the serial console<a class="headerlink" href="#accessing-the-serial-console" title="Link to this heading"></a></h2>
+<p>The coprocessor firmware can output messages via a serial console.
+It differs from platform to platform how to gain access to the serial console.</p>
+<p>For example, on the i.MX8 platform, you'll get a serial console via the
+debug USB port on the board.
+On i.MX93 (on segin board) on the other hand, you can access it via RS232
+on the PEB-EVAL-01.</p>
+<p>It's recommended to take a look into the corresponding BSP or Zephyr
+manual for your platform to find out how to access the serial console.</p>
+<p>Zephyr offers a shell backend to be able to access a shell via RPMsg.
+This can help for debugging purposes or to send commands to the coprocessor.
+Take a look here: <a class="reference internal" href="#openamp-using-resource-table"><span class="std std-ref">OpenAMP using resource table</span></a></p>
+<p>The easiest way to communicate on the Linux side through RPMsg is via the
+<code class="docutils literal notranslate"><span class="pre">tty-rpmsg</span></code> driver. This driver creates a tty device in <code class="docutils literal notranslate"><span class="pre">/dev</span></code> that can
+be used to send and receive messages to the coprocessor.</p>
+</section>
+<section id="debugging-the-coprocessor">
+<h2><span class="section-number">4.5. </span>Debugging the Coprocessor<a class="headerlink" href="#debugging-the-coprocessor" title="Link to this heading"></a></h2>
+<p>In some cases it can be necessary to get a deeper insight into the coprocessor
+firmware to find bugs or to optimize the performance.
+To do that you can use any JTAG debugger.
+The following sections describe it with the J-Link as an example.</p>
+<p>If the firmware does not need to communicate with the application processor
+via RPMsg, the coprocessor can be started easily via the debug probe and
+debugged with GDB. (see <a class="reference internal" href="#starting-coprocessor-via-debug-probe"><span class="std std-ref">Starting the Coprocessor via Debug Probe</span></a>)</p>
+<p>If the firmware needs to communicate with the application processor via RPMsg,
+the preparation in order to start the coprocessor and the communication
+between the cores is a bit more complex. This is because remoteproc prepares
+the shared memory and the Linux Kernel for communication but GDB
+also needs to know in which state the coprocessor is.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>Before you start debugging, please make sure your J-Link is compatible with
+the architecture of the ARM-core you want to debug.
+Most cores are possible, for example the A- or M-Core or the DSP. You can find this information in the
+Segger knowledge base. (for example: <a class="reference external" href="https://kb.segger.com/J-Link_BASE_V9">J-Link Base 9</a>)</p>
+</div>
+<p>When debugging the coprocessor firmware, you can use the following methods:</p>
+<section id="debug-a-non-remoteproc-firmware">
+<h3><span class="section-number">4.5.1. </span>Debug a non remoteproc firmware<a class="headerlink" href="#debug-a-non-remoteproc-firmware" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Connect the debug probe to the board. (e.g. via PEB-EVAL-01)</p></li>
+<li><p>Start the coprocessor via the debug probe. With west:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>west<span class="w"> </span>debug
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>The only thing <cite>west debug</cite> does is to start a JLinkGDBServer and
+GDB with the correct parameters for your target. If you don't want to use
+or can't use west, you can do this manually as well.</p>
+</div>
+</li>
+<li><p>Load the firmware on the coprocessor via GDB.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">load</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set a breakpoint and start the firmware on the coprocessor via GDB.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">break main</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">continue</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="debugging-a-remoteproc-firmware-using-gdb">
+<h3><span class="section-number">4.5.2. </span>Debugging a remoteproc firmware using GDB<a class="headerlink" href="#debugging-a-remoteproc-firmware-using-gdb" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This is a workaround to debug a remoteproc firmware. It is neither the most
+convenient way to debug a processor nor is it recommended by NXP.
+Maybe there will be a better solution in the future but for now this is the
+only way found to debug a remoteproc firmware.</p>
+</div>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li><p>Have the target booted up and connected to the host via debug usb and J-Link.</p></li>
+<li><p>Have the firmware in <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code> on the target. For example
+<a class="reference internal" href="#openamp-using-resource-table"><span class="std std-ref">OpenAMP using resource table</span></a> (Make sure it is the same file you are
+debugging with GDB!)</p></li>
+<li><p>Have the resource table included in the firmware binary.</p></li>
+<li><p>Have the remoteproc device enabled in the devicetree.</p></li>
+<li><p>Have a serial console to the coprocessor. (e.g. via ttyUSB1)</p></li>
+<li><p>Have a shell of the application processor open (e.g. via SSH)</p></li>
+</ul>
+<ol class="arabic">
+<li><p>Start a debugserver with west:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>west<span class="w"> </span>debugserver<span class="w"> </span>--runner<span class="w"> </span>jlink<span class="w"> </span>--iface<span class="w"> </span>jtag
+</pre></div>
+</div>
+</li>
+<li><p>Start GDB with your firmware in a new terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>gdb-multiarch<span class="w"> </span>build/zephyr/zephyr.elf<span class="w"> </span>-tui
+</pre></div>
+</div>
+</li>
+<li><p>Connect to the debugserver:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">target remote :2331</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reset the coprocessor and load the firmware:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">monitor reset</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">load</span>
+</pre></div>
+</div>
+</li>
+<li><p>Insert needed kernel modules on the target (e.g. rpmsg_tty.ko)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>modprobe<span class="w"> </span>rpmsg_tty
+</pre></div>
+</div>
+</li>
+<li><p>Start the firmware on the coprocessor via remoteproc:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>/lib/firmware/zephyr.elf<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/firmware
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+</li>
+<li><p>The Linux shell freezes now because GDB is halting the coprocessor.
+Continue the execution in GDB:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">continue</span>
+</pre></div>
+</div>
+</li>
+<li><p>Zephyr will not boot up and hang in a fault condition. This is expected.
+To overcome this issue, break execution with Ctrl+C, reset the coprocessor
+and continue again.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">monitor reset</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">continue</span>
+</pre></div>
+</div>
+</li>
+<li><p>The coprocessor should now boot up, and you can debug the firmware via GDB.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>It is important to use JTAG as debug interface. Using SWD will
+reset and halt the whole SoC which will cause unexpected behavior.</p>
+</div>
+</section>
+<section id="gdb-hints">
+<h3><span class="section-number">4.5.3. </span>GDB hints<a class="headerlink" href="#gdb-hints" title="Link to this heading"></a></h3>
+<p>Here are some useful GDB commands to debug the coprocessor firmware:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">monitor</span> <span class="pre">reset</span></code>: Reset the coprocessor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monitor</span> <span class="pre">halt</span></code>: Halt the coprocessor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">main</span></code>: Set a breakpoint at the main function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">main.c:42</span></code>: Set a breakpoint at line 42 in main.c</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">*(unsigned</span> <span class="pre">short*)0x30a30010</span></code>: Set a watchpoint on a 16-bit memory
+address(e.g. some register)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">var</span></code>: Print the value of a variable in the current context</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backtrace</span></code>: Print the current stack trace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code>: Continue the execution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code>: Step into the next function</p></li>
+</ul>
+<p>If the command doesn't get ambiguous, you can shorten the command.
+For example, you can use <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">main</span></code> instead of <code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">c</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">continue</span></code>. This is useful if you have to type the command
+multiple times.</p>
+</section>
+<section id="debugging-a-remoteproc-firmware-using-segger-ozone">
+<h3><span class="section-number">4.5.4. </span>Debugging a remoteproc firmware using SEGGER Ozone<a class="headerlink" href="#debugging-a-remoteproc-firmware-using-segger-ozone" title="Link to this heading"></a></h3>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li><p>Have the target booted up and connected to the host via debug USB and J-Link.</p></li>
+<li><p>Have the firmware in <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code> on the target. For example
+<a class="reference internal" href="#openamp-using-resource-table"><span class="std std-ref">OpenAMP using resource table</span></a> (Make sure it is the same file you are
+debugging with Ozone!)</p></li>
+<li><p>Have the resource table included in the firmware binary.</p></li>
+<li><p>Have the remoteproc device enabled in the devicetree.</p></li>
+<li><p>Have a serial console to the coprocessor. (e.g. via ttyUSB1)</p></li>
+<li><p>Have a shell of the application processor open (e.g. via SSH)</p></li>
+</ul>
+<p>SEGGER Ozone is a powerful graphical debugging tool that can be used to debug
+any kind of target with any kind of architecture.
+It makes it more easy to attach to a running program than GDB.</p>
+<p>Here are the steps how to connect to a running program:</p>
+<ol class="arabic">
+<li><p>Start the target and load the firmware via remoteproc:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>/lib/firmware/zephyr.elf<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/firmware
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+</li>
+<li><p>Start SEGGER Ozone and use the new project wizard</p></li>
+<li><p>Select your target (for example MIMX8ML8_M7 for i.MX8MP), click next and
+select the connected J-Link debug probe.</p></li>
+<li><p>Select the compiled elf file of your firmware and click next.</p></li>
+<li><p>Select &quot;Do not set&quot; for initial PC and Stack Pointer to ensure that nothing
+is overwritten.</p></li>
+<li><p>Click &quot;Finish&quot; to create the project.</p></li>
+<li><p>Click on the small green arrow directly next to the &quot;On/Off&quot; button in the
+top left corner of the window. Click on &quot;Attach to running program&quot;.</p></li>
+<li><p>The target will halt, even though Ozone shows &quot;CPU Running...&quot;</p></li>
+<li><p>To fix this behavior just restart the coprocessor via remoteproc on the
+target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>stop<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+<span class="gp">target:~$ </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+</li>
+<li><p>The target should now boot up, and you can debug the firmware via Ozone.</p></li>
+</ol>
+<p>You can use debugging with Ozone not just to debug the firmware,
+but also to debug the remoteproc framework itself.
+This can be useful if you want to find out why the coprocessor is not booting
+up or why the communication is not working or if you just want to
+get a deeper insight into the remoteproc framework.</p>
+</section>
+</section>
+</section>
+<section id="examples-and-resources">
+<h1><span class="section-number">5. </span>Examples and Resources<a class="headerlink" href="#examples-and-resources" title="Link to this heading"></a></h1>
+<p>This section gives an overview of examples and resources that can be used
+to get started with a coprocessor.</p>
+<p>The examples are focused on the NXP i.MX platform and Zephyr for now, but the
+principles can be applied to other platforms as well.</p>
+<p><strong>Resources:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nxp.com/docs/en/application-note/AN5317.pdf">NXP AN5317 - Loading code to Coprocessor</a></p></li>
+<li><p><a class="reference external" href="https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html">Zephyr IPC Samples</a></p></li>
+</ul>
+<section id="hello-world">
+<h2><span class="section-number">5.1. </span>Hello World<a class="headerlink" href="#hello-world" title="Link to this heading"></a></h2>
+<p>The <a class="reference external" href="https://docs.zephyrproject.org/latest/samples/hello_world/README.html">hello_world</a>
+sample is a simple example Zephyr project, that prints &quot;Hello World!&quot; to the
+serial console.</p>
+<section id="run-the-sample">
+<h3><span class="section-number">5.1.1. </span>Run the Sample<a class="headerlink" href="#run-the-sample" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Make sure the devicetree overlay <code class="docutils literal notranslate"><span class="pre">imx8mp-phycore-rpmsg.dtbo</span></code> is activated,
+the BSP manual for your platform explains how to activate this.</p></li>
+<li><p>Restart the target and execute in U-Boot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; run prepare_mcore
+</pre></div>
+</div>
+</li>
+<li><p>Save the environment in U-Boot in order to enable the m-core on every boot
+by default. Executing <code class="docutils literal notranslate"><span class="pre">saveenv</span></code> twice will save the environment to the
+redundant MMC partition as well.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; saveenv
+Saving Environment to MMC... Writing to MMC(1)... OK
+u-boot=&gt; saveenv
+Saving Environment to MMC... Writing to redundant MMC(1)... OK
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>The target will now boot and you can build and flash the Zephyr application
+with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>west<span class="w"> </span>build<span class="w"> </span>-b<span class="w"> </span>phyboard_pollux/mimx8ml8/m7<span class="w"> </span>samples/hello_world<span class="w"> </span>-p
+</pre></div>
+</div>
+</li>
+<li><p>Zephyr should now boot with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target_m7:~$ </span>***<span class="w"> </span>Booting<span class="w"> </span>Zephyr<span class="w"> </span>OS<span class="w"> </span>build<span class="w"> </span>v3.7.0<span class="w"> </span>***
+<span class="go">             Hello World! phyboard_pollux/mimx8ml8/m7</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="openamp-using-resource-table">
+<span id="id4"></span><h2><span class="section-number">5.2. </span>OpenAMP using resource table<a class="headerlink" href="#openamp-using-resource-table" title="Link to this heading"></a></h2>
+<p>The <a class="reference external" href="https://docs.zephyrproject.org/latest/samples/subsys/ipc/openamp_rsc_table/README.html">openamp_rsc_table</a>
+sample &quot;demonstrates how to use OpenAMP with Zephyr based on a resource table.
+It is designed to respond to [..]&quot; the <a class="reference external" href="https://elixir.bootlin.com/linux/latest/source/samples/rpmsg/rpmsg_client_sample.c">rpmsg client</a>
+and <a class="reference external" href="https://elixir.bootlin.com/linux/latest/source/drivers/tty/rpmsg_tty.c">rpmsg tty</a>
+samples in the Linux Kernel. This sample demonstrates communication between
+Zephyr (coprocessor) and Linux (application processor) using OpenAMP. It
+creates the two RPMsg endpoints:</p>
+<dl class="simple">
+<dt>rpmsg-client-sample</dt><dd><p>Demonstrates generic RPMsg message exchange (Ping-pong) between Zephyr and
+Linux.</p>
+</dd>
+<dt>rpmsg-tty</dt><dd><p>A TTY service that virtualizes a serial connection at <cite>/dev/rpmsg-tty</cite> in
+Linux, facilitating data exchange with Zephyr over this virtualized
+interface.</p>
+</dd>
+</dl>
+<section id="prepare-linux">
+<h3><span class="section-number">5.2.1. </span>Prepare Linux<a class="headerlink" href="#prepare-linux" title="Link to this heading"></a></h3>
+<p>The example has been tested with the imx8mp and the
+<a class="reference external" href="https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD24.1.0">BSP-Yocto-NXP-i.MX8MP-PD24.1.0</a>.
+However, some modifications are necessary to be able to communicate in between
+Zephyr and Linux with RPMsg. The devicetree overlay that enables rpmsg has to
+be enabled. You can edit this line directly in bootenv.txt in the boot
+partition.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Changes in 'bootenv.txt'</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gi">+++ b/recipes-bsp/bootenv/phytec-bootenv/phyboard-pollux-imx8mp-3/bootenv.txt</span>
+<span class="gu">@@ -1 +1 @@</span>
+<span class="gd">-overlays=conf-imx8mp-phyboard-pollux-peb-av-10.dtbo</span>
+<span class="gi">+overlays=conf-imx8mp-phyboard-pollux-peb-av-10.dtbo#conf-imx8mp-phycore-rpmsg.dtbo</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Changes in the devicetree overlay 'imx8mp-phycore-rpmsg.dtbo'</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gi">+++ b/arch/arm64/boot/dts/freescale/imx8mp-phycore-rpmsg.dtso</span>
+<span class="gu">@@ -14,11 +14,11 @@</span>
+<span class="w"> </span>       core-m7 {
+<span class="w"> </span>               compatible = &quot;fsl,imx8mn-cm7&quot;;
+<span class="w"> </span>               clocks = &lt;&amp;clk IMX8MP_CLK_M7_DIV&gt;;
+<span class="gd">-               mboxes = &lt;&amp;mu 0 1&gt;,</span>
+<span class="gd">-                       &lt;&amp;mu 1 1&gt;,</span>
+<span class="gd">-                       &lt;&amp;mu 3 1&gt;;</span>
+<span class="gi">+               mboxes = &lt;&amp;mu 0 0&gt;,</span>
+<span class="gi">+                       &lt;&amp;mu 1 0&gt;,</span>
+<span class="gi">+                       &lt;&amp;mu 3 0&gt;;</span>
+<span class="w"> </span>               mbox-names = &quot;tx&quot;, &quot;rx&quot;, &quot;rxdb&quot;;
+<span class="gd">-               memory-region = &lt;&amp;vdevbuffer&gt;, &lt;&amp;vdev0vring0&gt;, &lt;&amp;vdev0vring1&gt;, &lt;&amp;rsc_table&gt;;</span>
+<span class="gi">+               memory-region = &lt;&amp;vdevbuffer&gt;, &lt;&amp;vdev0vring0&gt;, &lt;&amp;vdev0vring1&gt;;</span>
+<span class="w"> </span>       };
+
+<span class="w"> </span>       reserved-memory {
+<span class="gu">@@ -27,29 +27,31 @@ reserved-memory {</span>
+<span class="w"> </span>               #size-cells = &lt;2&gt;;
+
+<span class="w"> </span>               vdev0vring0: vdev0vring0@55000000 {
+<span class="gd">-                       no-map;</span>
+<span class="gi">+                       compatible = &quot;shared-dma-pool&quot;;</span>
+<span class="w"> </span>                       reg = &lt;0 0x55000000 0 0x8000&gt;;
+<span class="gi">+                       no-map;</span>
+<span class="w"> </span>               };
+
+<span class="w"> </span>               vdev0vring1: vdev0vring1@55008000 {
+<span class="gd">-                       no-map;</span>
+<span class="gi">+                       compatible = &quot;shared-dma-pool&quot;;</span>
+<span class="w"> </span>                       reg = &lt;0 0x55008000 0 0x8000&gt;;
+<span class="gi">+                       no-map;</span>
+<span class="w"> </span>               };
+</pre></div>
+</div>
+</div>
+</section>
+<section id="prepare-zephyr">
+<h3><span class="section-number">5.2.2. </span>Prepare Zephyr<a class="headerlink" href="#prepare-zephyr" title="Link to this heading"></a></h3>
+<p>The sample needs some board specific settings and a devicetree overlay for the
+phyBOARD Pollux. This will be upstreamed soon and maybe it is possible to make
+the Zephyr sample fully generic.</p>
+<p>You can see a branch with the required changes <a class="reference external" href="https://github.com/phytec/zephyr-phytec/tree/WIP/j.remmert%40phytec.de/openamp_rsc_pollux">here</a>.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">5.2.3. </span>Run the Sample<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Make sure the devicetree overlay <code class="docutils literal notranslate"><span class="pre">imx8mp-phycore-rpmsg.dtbo</span></code> is activated,
+the BSP manual for your platform explains how to activate this.</p></li>
+<li><p>Restart the target and execute in U-Boot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>u-boot=&gt; run prepare_mcore
+</pre></div>
+</div>
+</li>
+<li><p>Build Zephyr and copy the firmware to <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code> on the target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">host:zephyrproject/zephyr$ </span>west<span class="w"> </span>build<span class="w"> </span>-b<span class="w"> </span>phyboard_pollux/mimx8ml8/m7<span class="w"> </span>samples/subsys/ipc/openamp_rsc_table/<span class="w"> </span>-p
+</pre></div>
+</div>
+</li>
+<li><p>Start the Zephyr application with remoteproc:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>stop<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>/lib/firmware/zephyr_openamp_rsc_table.elf<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/firmware
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Zephyr should now boot now. The kernel module <code class="docutils literal notranslate"><span class="pre">rpmsg_client_sample</span></code> should
+load automatically and respond to the running m-core.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target_m7:~$ </span>***<span class="w"> </span>Booting<span class="w"> </span>Zephyr<span class="w"> </span>OS<span class="w"> </span>build<span class="w"> </span>v4.0.0-870-g6d87bd65aebf<span class="w"> </span>***
+<span class="go">             I: Starting application threads!</span>
+<span class="go">             I: OpenAMP[remote] Linux responder demo started</span>
+<span class="go">             D: mailbox_notify: msg received</span>
+<span class="go">             I: OpenAMP[remote] Linux sample client responder started</span>
+<span class="go">             D: mailbox_notify: msg received</span>
+<span class="go">             I: OpenAMP[remote] Linux TTY responder started</span>
+<span class="go">             D: mailbox_notify: msg received</span>
+
+<span class="go">             : platform_ipm_callback: msg received from mb 0</span>
+<span class="go">             I: [Linux sample client] incoming msg 1: hello world!</span>
+<span class="go">             D: mailbox_notify: msg received</span>
+<span class="go">             D: platform_ipm_callback: msg received from mb 0</span>
+<span class="go">             I: [Linux sample client] incoming msg 1: hello world!</span>
+<span class="go">             D: mailbox_notify: msg received</span>
+</pre></div>
+</div>
+</li>
+<li><p>If the the kernel Module does not load automatically, you can manually load
+it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">target:~$ </span>modprobe<span class="w"> </span>rpmsg_client_sample
+<span class="gp">target:~$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w">                         </span><span class="c1"># Check module messages</span>
+<span class="gp">target:~$ </span>modprobe<span class="w"> </span>-u<span class="w"> </span>rpmsg_client_sample<span class="w">      </span><span class="c1"># Unload Kernel module</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Serial Communication</strong></p>
+<p>Once the demo is running, it opens two serial devices (<code class="docutils literal notranslate"><span class="pre">/dev/ttyRPMSG0</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/dev/ttyRPMSG1</span></code>), one to send/receive any messages to Zephyr and one for the
+Zephyr shell backend.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Open<span class="w"> </span>the<span class="w"> </span>tty<span class="w"> </span>channel
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span>cat<span class="w"> </span>/dev/ttyRPMSG1<span class="w"> </span><span class="p">&amp;</span>
+<span class="go">[3] 504</span>
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello Zephyr&quot;</span><span class="w"> </span>&gt;/dev/ttyRPMSG1
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span>TTY<span class="w"> </span>0x0402:<span class="w"> </span>Hello<span class="w"> </span>Zephyr
+<span class="go">TTY 0x0402: Hello Zephyr</span>
+
+<span class="gp"># </span>Open<span class="w"> </span>the<span class="w"> </span>Zephyr<span class="w"> </span>shell<span class="w"> </span>with<span class="w"> </span>micocom
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span>microcom<span class="w"> </span>/dev/ttyRPMSG0
+
+<span class="go">clear    device   devmem   help     history  kernel   rem      resize</span>
+<span class="go">retval   shell</span>
+<span class="gp">ipc:~$</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Remoteproc ensures to register the resource table and the RPMsg service.
+Running firmware via debug probe is not possible when using RPMsg.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Remoteproc only reads firmware files from the <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code> directory!
+If you try to load a binary from another location errors will occur!</p>
+</div>
+</section>
+<section id="console-output-linux">
+<h3><span class="section-number">5.2.4. </span>Console Output Linux<a class="headerlink" href="#console-output-linux" title="Link to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Stop<span class="w"> </span>a<span class="w"> </span>running<span class="w"> </span>m-core
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>stop<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+<span class="go">[18375.572034] imx-rproc core-m7: Not in wfi, force stopped</span>
+<span class="go">[18375.577423] remoteproc remoteproc0: stopped remote processor imx-rproc</span>
+
+<span class="gp"># </span>Load<span class="w"> </span>the<span class="w"> </span>firmware
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>/lib/firmware/zephyr_openamp_rsc_table.elf<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/firmware
+
+<span class="gp"># </span>Start<span class="w"> </span>the<span class="w"> </span>m-core
+<span class="gp">root@phyboard-pollux-imx8mp-3:~# </span><span class="nb">echo</span><span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/remoteproc/remoteproc0/state
+<span class="go">[18402.215721] remoteproc remoteproc0: powering up imx-rproc</span>
+<span class="go">[18402.221215] remoteproc remoteproc0: Direct firmware load for /lib/firmware/zephyr.elf failed with error -2</span>
+<span class="go">[18402.230900] remoteproc remoteproc0: Falling back to sysfs fallback for: /lib/firmware/zephyr.elf</span>
+<span class="go">[18402.243066] remoteproc remoteproc0: Booting fw image /lib/firmware/zephyr.elf, size 1402364</span>
+<span class="go">[18402.252283] rproc-virtio rproc-virtio.3.auto: assigned reserved memory node vdevbuffer@55400000</span>
+<span class="go">[18402.262788] virtio_rpmsg_bus virtio0: rpmsg host is online</span>
+<span class="go">[18402.268484] rproc-virtio rproc-virtio.3.auto: registered virtio0 (type 7)</span>
+<span class="go">[18402.275367] virtio_rpmsg_bus virtio0: creating channel rpmsg-tty addr 0x400</span>
+<span class="go">[18402.276433] remoteproc remoteproc0: remote processor imx-rproc is now up</span>
+<span class="go">[18402.282735] virtio_rpmsg_bus virtio0: creating channel rpmsg-client-sample addr 0x401</span>
+<span class="go">[18402.297625] rpmsg_client_sample virtio0.rpmsg-client-sample.-1.1025: new channel: 0x401 -&gt; 0x401!</span>
+<span class="go">[18402.308941] virtio_rpmsg_bus virtio0: creating channel rpmsg-tty addr 0x402</span>
+<span class="go">[18402.320915] rpmsg_client_sample virtio0.rpmsg-client-sample.-1.1025: incoming msg 1 (src: 0x401)</span>
+<span class="go">[18402.341810] rpmsg_client_sample virtio0.rpmsg-client-sample.-1.1025: incoming msg 2 (src: 0x401)</span>
+</pre></div>
+</div>
+</section>
+<section id="debugging">
+<h3><span class="section-number">5.2.5. </span>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h3>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Print resource table in Linux</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-pollux-imx8mp-3:~# </span>cat<span class="w"> </span>/sys/kernel/debug/remoteproc/remoteproc0/resource_table
+<span class="go">Entry 0 is of type vdev</span>
+<span class="go">  ID 7</span>
+<span class="go">  Notify ID 0</span>
+<span class="go">  Device features 0x1</span>
+<span class="go">  Guest features 0x1</span>
+<span class="go">  Config length 0x0</span>
+<span class="go">  Status 0x7</span>
+<span class="go">  Number of vrings 2</span>
+<span class="go">  Reserved (should be zero) [0][0]</span>
+
+<span class="go">  Vring 0</span>
+<span class="go">    Device Address 0x55000000</span>
+<span class="go">    Alignment 16</span>
+<span class="go">    Number of buffers 8</span>
+<span class="go">    Notify ID 0</span>
+<span class="go">    Physical Address 0x0</span>
+
+<span class="go">  Vring 1</span>
+<span class="go">    Device Address 0x55008000</span>
+<span class="go">    Alignment 16</span>
+<span class="go">    Number of buffers 8</span>
+<span class="go">    Notify ID 1</span>
+<span class="go">    Physical Address 0x0</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Print related memory areas in Linux:</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-pollux-imx8mp-3:~# </span>cat<span class="w"> </span>/sys/kernel/debug/remoteproc/remoteproc0/resource_table
+<span class="go">Entry 0 is of type vdev</span>
+<span class="go">  ID 7</span>
+<span class="go">  Notify ID 0</span>
+<span class="go">  Device features 0x1</span>
+<span class="go">  Guest features 0x1</span>
+<span class="go">  Config length 0x0</span>
+<span class="go">  Status 0x7</span>
+<span class="go">  Number of vrings 2</span>
+<span class="go">  Reserved (should be zero) [0][0]</span>
+
+<span class="go">  Vring 0</span>
+<span class="go">    Device Address 0x55000000</span>
+<span class="go">    Alignment 16</span>
+<span class="go">    Number of buffers 8</span>
+<span class="go">    Notify ID 0</span>
+<span class="go">    Physical Address 0x0</span>
+
+<span class="go">  Vring 1</span>
+<span class="go">    Device Address 0x55008000</span>
+<span class="go">    Alignment 16</span>
+<span class="go">    Number of buffers 8</span>
+<span class="go">    Notify ID 1</span>
+<span class="go">    Physical Address 0x0</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="other-examples">
+<h2><span class="section-number">5.3. </span>Other Examples<a class="headerlink" href="#other-examples" title="Link to this heading"></a></h2>
+<p>The following examples exist in Zephyr, however, they are specific to SoCs that
+have multiple instances of Zephyr running in the same SoC. They are partly
+related to Zephyrs
+<a class="reference external" href="https://docs.zephyrproject.org/latest/services/ipc/ipc_service/ipc_service.html">ipc_service</a> and not suitable for communication with Linux.</p>
+<p><a class="reference external" href="https://docs.zephyrproject.org/latest/samples/subsys/ipc/openamp/README.html#openamp">OpenAMP Sample</a></p>
+<blockquote>
+<div><p>sample builds different images for two targets running Zephyr. Both targets
+setup virtqueue and virtio and communicate with each other via RPMsg. This
+sample is mainly used to evaluate SoCs with two Cortex M devices and can not
+be used with Linux.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://github.com/OpenAMP/openamp-system-reference">openamp-system-reference</a></p>
+<blockquote>
+<div><p>Several samples for both platforms, Linux and Zephyr that demonstrate
+different aspects of OpenAMP.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://docs.zephyrproject.org/latest/samples/subsys/ipc/ipc.html">Samples in ipc_service/</a></p>
+<blockquote>
+<div><p>Examples related to Zephyr ipc_service subsystem. Note that not all of those
+examples may be applicable to heterogeneous systems with one core running
+Linux and the other Zephyr.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="current-problems">
+<h1><span class="section-number">6. </span>Current Problems<a class="headerlink" href="#current-problems" title="Link to this heading"></a></h1>
+<p>This section lists current problems that need work.</p>
+<ol class="arabic">
+<li><p>Shell not working in Zephyr for Linux SoCs.</p>
+<p>There may be a problem with interrupts and nxp deactivated the shell for the
+imx8qm  boards. <a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/79428">https://github.com/zephyrproject-rtos/zephyr/pull/79428</a></p>
+</li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Coprocessor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../contributing_links.html" class="btn btn-neutral float-right" title="贡献" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

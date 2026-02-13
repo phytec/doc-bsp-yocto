@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i.MX 91/93 Manuals &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=a2e5d7c6" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table-wrap-text.css?v=4b2a02b9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/bsp/imx9/imx91_imx93/imx91_imx93.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="1. PHYTEC 文档" href="head.html" />
+    <link rel="prev" title="i.MX 9" href="../imx9.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../imx9.html">i.MX 9</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">phyCORE-i.MX 91/93 Manuals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#head">HEAD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="head.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#getting-started">2. 开始使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#building-the-bsp">3. 编译BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#installing-the-os">4. 安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#development">5. 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#device-tree-dt">6. 设备树 (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#accessing-peripherals">7. 访问外设</a></li>
+<li class="toctree-l4"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 93 M33 Core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-yocto-nxp-i-mx93-pd24-2-1">BSP-Yocto-NXP-i.MX93-PD24.2.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#getting-started">2. 开始使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#building-the-bsp">3. 编译BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#installing-the-os">4. 安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#development">5. 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#device-tree-dt">6. 设备树 (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#accessing-peripherals">7. 访问外设</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.1.html#soc-mcore">8. i.MX 93 M33 Core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-yocto-nxp-i-mx93-pd24-2-0">BSP-Yocto-NXP-i.MX93-PD24.2.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#getting-started">2. 开始使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#building-the-bsp">3. 编译BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#installing-the-os">4. 安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#development">5. 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#device-tree-dt">6. 设备树 (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#accessing-peripherals">7. 访问外设</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.2.0.html#soc-mcore">8. i.MX 93 M33 Core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-yocto-nxp-i-mx93-pd24-1-1">BSP-Yocto-NXP-i.MX93-PD24.1.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#getting-started">2. 开始使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#building-the-bsp">3. 编译BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#installing-the-os">4. 安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#development">5. 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#device-tree-dt">6. 设备树 (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#accessing-peripherals">7. 访问外设</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.1.html#soc-mcore">8. i.MX 93 M33 Core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bsp-yocto-nxp-i-mx93-pd24-1-0">BSP-Yocto-NXP-i.MX93-PD24.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html">1. PHYTEC 文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#getting-started">2. 开始使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#building-the-bsp">3. 编译BSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#installing-the-os">4. 安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#development">5. 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#device-tree-dt">6. 设备树 (DT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#accessing-peripherals">7. 访问外设</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pd24.1.0.html#soc-mcore">8. i.MX 93 M33 Core</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../imx95-fpsc/imx95-fpsc.html">phyCORE-i.MX 95 FPSC Manuals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../imx9.html">i.MX 9</a></li>
+      <li class="breadcrumb-item active">i.MX 91/93 Manuals</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/imx9/imx91_imx93/imx91_imx93.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i-mx-91-93-manuals">
+<h1>i.MX 91/93 Manuals<a class="headerlink" href="#i-mx-91-93-manuals" title="Link to this heading"></a></h1>
+<section id="head">
+<h2>HEAD<a class="headerlink" href="#head" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="head.html">1. PHYTEC 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#supported-hardware">1.1. 支持的硬件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#getting-started">2. 开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#get-the-image">2.1. 下载镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#write-the-image-to-sd-card">2.2. 将镜像写入SD卡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#first-start-up">2.3. 首次启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#building-the-bsp">3. 编译BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#basic-set-up">3.1. 基本设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#get-the-bsp">3.2. 下载BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#installing-the-os">4. 安装操作系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#bootmode-switch-s3">4.1. 启动模式开关 (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#flash-emmc">4.2. 烧写eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#rauc">4.3. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#development">5. 开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#host-network-preparation">5.1. 主机网络准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#booting-the-kernel-from-a-network">5.2. 从网络启动内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#working-with-uuu-tool">5.3. 使用UUU工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#standalone-build-preparation">5.4. 独立编译准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#u-boot-standalone-build">5.5. 单独编译U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#kernel-standalone-build">5.6. 单独编译内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#format-sd-card">5.7. Format SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#enabling-jtag-debug-interface-on-phyboard-nash">5.8. Enabling JTAG Debug Interface on phyBOARD Nash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#device-tree-dt">6. 设备树 (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#introduction">6.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 93 BSP设备树概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#accessing-peripherals">7. 访问外设</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#soc-pin-muxing">7.1. i.MX 93 引脚复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#wlan-bluetooth">7.3. WLAN/Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#sd-card">7.4. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#e-mmc-devices">7.5. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#gpios">7.6. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#adc">7.7. ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#leds">7.8. LED灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#i2c-bus">7.9. I²C总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#rtc">7.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#usb-host-controller">7.12. USB主控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#usb-otg">7.13. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#rs232-rs485">7.14. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#can-fd">7.15. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#audio-on-sbc-segin">7.16. phyBOARD-Segin i.MX 91/93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#audio-on-sbc-nash">7.17. phyBOARD-Nash i.MX 93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#video">7.18. 视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#display">7.19. 显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#power-management">7.20. 电源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#thermal-management">7.21. 热管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#watchdog">7.22. 看门狗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#bbnsm-power-key">7.23. bbnsm 电源键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#pxp">7.24. PXP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.25. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#tpm">7.26. TPM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="head.html#soc-mcore">8. i.MX 93 M33 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="head.html#running-mcore-examples">8.1. 运行 M33 Core 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head.html#arm-ethos-u-npu">8.2. ARM Ethos-U NPU</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="bsp-yocto-nxp-i-mx93-pd24-2-1">
+<h2>BSP-Yocto-NXP-i.MX93-PD24.2.1<a class="headerlink" href="#bsp-yocto-nxp-i-mx93-pd24-2-1" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html">1. PHYTEC 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#supported-hardware">1.1. 支持的硬件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#getting-started">2. 开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#get-the-image">2.1. 下载镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#write-the-image-to-sd-card">2.2. 将镜像写入SD卡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#first-start-up">2.3. 首次启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#building-the-bsp">3. 编译BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#basic-set-up">3.1. 基本设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#get-the-bsp">3.2. 下载BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#installing-the-os">4. 安装操作系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#bootmode-switch-s3">4.1. 启动模式开关 (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#flash-emmc">4.2. 烧写eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#rauc">4.3. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#development">5. 开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#host-network-preparation">5.1. 主机网络准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#booting-the-kernel-from-a-network">5.2. 从网络启动内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#working-with-uuu-tool">5.3. 使用UUU工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#standalone-build-preparation">5.4. 独立编译准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#u-boot-standalone-build">5.5. 单独编译U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#kernel-standalone-build">5.6. 单独编译内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#format-sd-card">5.7. Format SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#enabling-jtag-debug-interface-on-phyboard-nash">5.8. Enabling JTAG Debug Interface on phyBOARD Nash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#device-tree-dt">6. 设备树 (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#introduction">6.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 93 BSP设备树概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#accessing-peripherals">7. 访问外设</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#soc-pin-muxing">7.1. i.MX 93 引脚复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#wlan-bluetooth">7.3. WLAN/Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#sd-card">7.4. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#e-mmc-devices">7.5. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#gpios">7.6. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#adc">7.7. ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#leds">7.8. LED灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#i2c-bus">7.9. I²C总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#rtc">7.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#usb-host-controller">7.12. USB主控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#usb-otg">7.13. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#rs232-rs485">7.14. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#can-fd">7.15. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#audio-on-sbc-segin">7.16. phyBOARD-Segin i.MX 93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#audio-on-sbc-nash">7.17. phyBOARD-Nash i.MX 93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#video">7.18. 视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#display">7.19. 显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#power-management">7.20. 电源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#thermal-management">7.21. 热管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#watchdog">7.22. 看门狗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#bbnsm-power-key">7.23. bbnsm 电源键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#pxp">7.24. PXP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.25. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#tpm">7.26. TPM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.1.html#soc-mcore">8. i.MX 93 M33 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.1.html#running-mcore-examples">8.1. 运行 M33 Core 示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="bsp-yocto-nxp-i-mx93-pd24-2-0">
+<h2>BSP-Yocto-NXP-i.MX93-PD24.2.0<a class="headerlink" href="#bsp-yocto-nxp-i-mx93-pd24-2-0" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html">1. PHYTEC 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#supported-hardware">1.1. 支持的硬件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#getting-started">2. 开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#get-the-image">2.1. 下载镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#write-the-image-to-sd-card">2.2. 将镜像写入SD卡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#first-start-up">2.3. 首次启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#building-the-bsp">3. 编译BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#basic-set-up">3.1. 基本设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#get-the-bsp">3.2. 下载BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#installing-the-os">4. 安装操作系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#bootmode-switch-s3">4.1. 启动模式开关 (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#flash-emmc">4.2. 烧写eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#rauc">4.3. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#development">5. 开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#host-network-preparation">5.1. 主机网络准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#booting-the-kernel-from-a-network">5.2. 从网络启动内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#working-with-uuu-tool">5.3. 使用UUU工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#standalone-build-preparation">5.4. 独立编译准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#u-boot-standalone-build">5.5. 单独编译U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#kernel-standalone-build">5.6. 单独编译内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#format-sd-card">5.7. Format SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#enabling-jtag-debug-interface-on-phyboard-nash">5.8. Enabling JTAG Debug Interface on phyBOARD Nash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#device-tree-dt">6. 设备树 (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#introduction">6.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 93 BSP设备树概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#accessing-peripherals">7. 访问外设</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#soc-pin-muxing">7.1. i.MX 93 引脚复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#wlan-bluetooth">7.3. WLAN/Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#sd-card">7.4. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#e-mmc-devices">7.5. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#gpios">7.6. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#adc">7.7. ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#leds">7.8. LED灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#i2c-bus">7.9. I²C总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#eeprom">7.10. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#rtc">7.11. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#usb-host-controller">7.12. USB主控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#usb-otg">7.13. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#rs232-rs485">7.14. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#can-fd">7.15. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#audio-on-sbc-segin">7.16. phyBOARD-Segin i.MX 93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#audio-on-sbc-nash">7.17. phyBOARD-Nash i.MX 93 上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#video">7.18. 视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#display">7.19. 显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#power-management">7.20. 电源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#thermal-management">7.21. 热管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#watchdog">7.22. 看门狗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#bbnsm-power-key">7.23. bbnsm 电源键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#pxp">7.24. PXP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.25. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#tpm">7.26. TPM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.2.0.html#soc-mcore">8. i.MX 93 M33 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.2.0.html#running-mcore-examples">8.1. 运行 M33 Core 示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="bsp-yocto-nxp-i-mx93-pd24-1-1">
+<h2>BSP-Yocto-NXP-i.MX93-PD24.1.1<a class="headerlink" href="#bsp-yocto-nxp-i-mx93-pd24-1-1" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html">1. PHYTEC 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#supported-hardware">1.1. 支持的硬件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#getting-started">2. 开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#get-the-image">2.1. 下载镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#write-the-image-to-sd-card">2.2. 将镜像写入SD卡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#first-start-up">2.3. 首次启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#building-the-bsp">3. 编译BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#basic-set-up">3.1. 基本设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#get-the-bsp">3.2. 下载BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#installing-the-os">4. 安装操作系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#bootmode-switch-s3">4.1. 启动模式开关 (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#flash-emmc">4.2. 烧写eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#rauc">4.3. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#development">5. 开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#host-network-preparation">5.1. 主机网络准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#booting-the-kernel-from-a-network">5.2. 从网络启动内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#working-with-uuu-tool">5.3. 使用UUU工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#standalone-build-preparation">5.4. 独立编译准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#u-boot-standalone-build">5.5. 单独编译U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#kernel-standalone-build">5.6. 单独编译内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#format-sd-card">5.7. Format SD card</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#device-tree-dt">6. 设备树 (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#introduction">6.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 93 BSP设备树概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#accessing-peripherals">7. 访问外设</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#soc-pin-muxing">7.1. i.MX 93 引脚复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#sd-card">7.3. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#e-mmc-devices">7.4. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#gpios">7.5. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#adc">7.6. ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#leds">7.7. LED灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#i2c-bus">7.8. I²C总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#eeprom">7.9. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#rtc">7.10. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#usb-host-controller">7.11. USB主控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#usb-otg">7.12. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#rs232-rs485">7.13. RS232/RS485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#can-fd">7.14. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#audio-on-phyboard-segin">7.15. phyBOARD-Segin上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#audio-on-phyboard-nash">7.16. phyBOARD-Nash上的音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#video">7.17. 视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#display">7.18. 显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#power-management">7.19. 电源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#thermal-management">7.20. 热管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#watchdog">7.21. 看门狗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#bbnsm-power-key">7.22. bbnsm 电源键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#pxp">7.23. PXP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.24. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#tpm">7.25. TPM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.1.html#soc-mcore">8. i.MX 93 M33 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.1.html#running-mcore-examples">8.1. 运行 M33 Core 示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="bsp-yocto-nxp-i-mx93-pd24-1-0">
+<h2>BSP-Yocto-NXP-i.MX93-PD24.1.0<a class="headerlink" href="#bsp-yocto-nxp-i-mx93-pd24-1-0" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html">1. PHYTEC 文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#supported-hardware">1.1. 支持的硬件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#getting-started">2. 开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#get-the-image">2.1. 下载镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#write-the-image-to-sd-card">2.2. 将镜像写入SD卡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#first-start-up">2.3. 首次启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#building-the-bsp">3. 编译BSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#basic-set-up">3.1. 基本设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#get-the-bsp">3.2. 下载BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#installing-the-os">4. 安装操作系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#bootmode-switch-s3">4.1. 启动模式开关 (S3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#flash-emmc">4.2. 烧写eMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#rauc">4.3. RAUC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#development">5. 开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#host-network-preparation">5.1. 主机网络准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#booting-the-kernel-from-a-network">5.2. 从网络启动内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#working-with-uuu-tool">5.3. 使用UUU工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#standalone-build-preparation">5.4. 独立编译准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#u-boot-standalone-build">5.5. 单独编译U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#kernel-standalone-build">5.6. 单独编译内核</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#format-sd-card">5.7. Format SD card</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#device-tree-dt">6. 设备树 (DT)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#introduction">6.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#phytec-soc-bsp-device-tree-concept">6.2. PHYTEC i.MX 93 BSP设备树概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#accessing-peripherals">7. 访问外设</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#soc-pin-muxing">7.1. i.MX 93 引脚复用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#ethernet">7.2. Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#sd-card">7.3. SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#e-mmc-devices">7.4. e.MMC Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#gpios">7.5. GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#leds">7.6. LED灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#i2c-bus">7.7. I²C总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#eeprom">7.8. EEPROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#rtc">7.9. RTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#usb-host-controller">7.10. USB主控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#usb-otg">7.11. USB OTG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#can-fd">7.12. CAN FD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#audio">7.13. 音频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#video">7.14. 视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#display">7.15. 显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#power-management">7.16. 电源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#thermal-management">7.17. 热管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#watchdog">7.18. 看门狗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#bbnsm-power-key">7.19. bbnsm 电源键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#pxp">7.20. PXP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#on-chip-otp-controller-ocotp-ctrl-efuses">7.21. 片上一次性可编程控制器 (OCOTP_CTRL) - eFuse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd24.1.0.html#soc-mcore">8. i.MX 93 M33 Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd24.1.0.html#running-mcore-examples">8.1. 运行 M33 Core 示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../imx9.html" class="btn btn-neutral float-left" title="i.MX 9" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="head.html" class="btn btn-neutral float-right" title="1. PHYTEC 文档" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-237-ga19484b</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
