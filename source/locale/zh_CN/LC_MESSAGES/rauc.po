@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd24.1.0-nxp-19-ga3c4ac3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 09:55+0100\n"
+"POT-Creation-Date: 2025-06-06 11:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -36,11 +36,11 @@ msgstr "文档类型"
 msgid "RAUC Update & Device Management Manual"
 msgstr "RAUC 升级和设备管理手册"
 
-msgid "Release Date"
-msgstr "发布日期"
+msgid "Last Modified"
+msgstr ""
 
-msgid "XXXX/XX/XX"
-msgstr "XXXX/XX/XX"
+msgid "2025-01-14"
+msgstr ""
 
 msgid "Is Branch of"
 msgstr "母文档"
@@ -684,16 +684,17 @@ msgstr "使用U-Boot时，在bootloader中也可以使用相似的命令："
 msgid "Table of Contents"
 msgstr "目录"
 
-msgid "RAUC Update & Device Management Manuals"
-msgstr "RAUC 升级 和 设备管理手册"
+#, fuzzy
+msgid "RAUC Update & Device Management"
+msgstr "RAUC 升级和设备管理手册"
 
-msgid "Kirkstone"
+msgid "Scarthgap"
 msgstr ""
 
 msgid "Mickledore"
 msgstr ""
 
-msgid "Scarthgap"
+msgid "Kirkstone"
 msgstr ""
 
 msgid "BSP-Yocto-NXP-i.MX93-PD24.1.0"
@@ -714,7 +715,6 @@ msgstr "RAUC升级使用OPENSSL证书验证镜像的有效性。BSP中包含一�
 msgid "To flash the device with the correct partitions/volumes, use a partup package built with the ``ampliphy-rauc`` or ``ampliphy-vendor-rauc`` distribution. Prebuilt partup packages can be found in the BSP release. It is also possible to build an image with this distribution yourself using Yocto. Separate build directories are created, storing the images and packages for the RAUC system. Initialize the build directory with the OE init script:"
 msgstr "要给设备烧写正确的分区/卷，请使用 ``ampliphy-rauc`` 或者 ``ampliphy-vendor-rauc`` 发行版编译出的partup包。您可以直接使用BSP release中预编译的partup包，也可以使用Yocto自主编译。修改 ``local.conf`` 文件去修改Distro，这样不同的distro，会产生不同的build文件夹，存储编译过程中生成的对应软件包和镜像。使用OE init脚本初始化build目录："
 
-
 msgid "Change the distribution to ``ampliphy-rauc`` (for i.MX6, AM6x, i.MX8 mainline BSP) or ``ampliphy-vendor-rauc`` (for i.MX8, i.MX9 vendor BSP):"
 msgstr "把distro 变量配置为 ``ampliphy-rauc`` (i.MX6, AM6x，i.MX8 mainline BSP) 或者 ``ampliphy-vendor-rauc`` (i.MX8,i.MX9 vendor BSP):"
 
@@ -734,6 +734,9 @@ msgid "First, the state framework configuration needs to be added to the barebox
 msgstr "首先，需要在设备树中配置state框架。查阅Yocto 参考手册中的 :ref:`Customizing the BSP <mickledore_bsp-customization>` 章节。针对支持的SoC，我们的BSP中已经包含state框架配置，可以直接添加到主barebox设备树中。例如 针对 i.MX6 系列核心板:"
 
 msgid "i.MX 93"
+msgstr ""
+
+msgid "2025-02-10"
 msgstr ""
 
 msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
@@ -816,4 +819,13 @@ msgstr "这些环境变量在U-boot代码 ``include/env/phytec/rauc.env`` 中定
 
 msgid "First, the state framework configuration needs to be added to the barebox device tree. Check out the :ref:`Customizing the BSP <scarthgap_bsp-customization>` chapter in the Yocto reference manual. The state framework configuration is already included with our BSP for the supported SoC and can be directly included in the main barebox device tree. E.g. for i.MX6 based module:"
 msgstr "首先，需要在设备树中配置state框架。查阅Yocto 参考手册中的 :ref:`Customizing the BSP <scarthgap_bsp-customization>` 章节。针对支持的SoC，我们的BSP中已经包含state框架配置，可以直接添加到主barebox设备树中。例如 针对 i.MX6 系列核心板:"
+
+#~ msgid "Release Date"
+#~ msgstr "发布日期"
+
+#~ msgid "XXXX/XX/XX"
+#~ msgstr "XXXX/XX/XX"
+
+#~ msgid "RAUC Update & Device Management Manuals"
+#~ msgstr "RAUC 升级 和 设备管理手册"
 
