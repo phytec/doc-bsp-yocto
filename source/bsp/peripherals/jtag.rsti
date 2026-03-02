@@ -28,7 +28,13 @@ Connect to target
 Boot the target into U-Boot and run ``JLinkExe``. On the host, connect
 to the target using the ``connect`` command. When prompted to enter the device,
 either type in the device directly or type in ``?`` to get a Popup window, to
-list and search all devices and select the correct one.
+list and search all devices and select the correct one. You will most likely
+find the exact model of the device printed on the SoC.
+
+.. hint::
+
+   For USB-C cables with E-Marker chip, connection to the probe will not work.
+   See `<https://kb.segger.com/USB-C_-_Connection_Issue>`_
 
 .. code-block:: console
    :substitutions:
