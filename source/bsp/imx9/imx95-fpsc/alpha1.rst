@@ -524,12 +524,12 @@ These displays are ``edt,etml1010g3dra`` or ``powertip,ph128800t006-zhc01``.
 The name can be found on the back of the display.
 
 .. note::
-   Currently only LVDS0 (onboard LVDS) is supported
+   Currently only LVDS1 (onboard LVDS) is supported
 
 ========= ======================== ======================================
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
-LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
+LVDS1     |sbc|                    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
                                    imx95-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
 ========= ======================== ======================================
 
@@ -540,7 +540,7 @@ LVDS0     |sbc|                    imx95-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
-Device tree description of LVDS-0 can be found here:
+Device tree description of LVDS-1 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc-lvds.dtsi#L35`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti

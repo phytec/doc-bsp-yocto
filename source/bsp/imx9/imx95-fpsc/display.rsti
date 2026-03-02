@@ -10,8 +10,8 @@ We support the ``powertip,ph128800t006-zhc01`` display.
 ========= ======================== ======================================
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
-LVDS0     |sbc|                    imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
-LVDS1     PEB-AV-10                imx95-phyflex-libra-rdk-peb-av-10-ph128800t006-zhc01.dtbo
+LVDS1     |sbc|                    imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
+LVDS2     PEB-AV-10                imx95-phyflex-libra-rdk-peb-av-10-ph128800t006-zhc01.dtbo
 ========= ======================== ======================================
 
 .. supported-display-interfaces-marker-end
@@ -19,9 +19,9 @@ LVDS1     PEB-AV-10                imx95-phyflex-libra-rdk-peb-av-10-ph128800t00
 .. note::
 
    *  When changing Weston output, make sure to match the audio output as well.
-   *  LVDS0 (PEB-AV-10) and LVDS1 (onboard)can not be used at the same time.
+   *  LVDS2 (PEB-AV-10) and LVDS1 (onboard) can not be used at the same time.
 
-The default interface is LVDS0 (onboard LVDS).
+The default interface is LVDS1 (onboard LVDS).
 
 .. note::
 

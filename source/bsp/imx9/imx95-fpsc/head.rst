@@ -513,7 +513,7 @@ DT representation for USB Host:
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
-Device tree description of LVDS-0 can be found here:
+Device tree description of LVDS-1 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc-lvds.dtsi#L35`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
