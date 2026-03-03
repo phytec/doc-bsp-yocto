@@ -279,7 +279,7 @@ You can build the SDK yourself with Yocto:
 .. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
-   :end-before: .. uuu-flash-emmc-marker
+   :end-before: .. uuu-flash-spinor-marker
 
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
