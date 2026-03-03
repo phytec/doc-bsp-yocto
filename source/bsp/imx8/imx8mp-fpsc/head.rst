@@ -273,7 +273,7 @@ Development
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
-.. include:: /bsp//imx-common/development/uuu.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-spinor-marker
 
 .. include:: /bsp/development/host_network_setup.rsti
