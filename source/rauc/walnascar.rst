@@ -61,3 +61,9 @@ Use Case Examples
 .. include:: common/use-case/adaptive-updates.rsti
 
 .. include:: common/reference.rsti
+   :end-before: .. bootloader-offsets-marker
+
+.. _walnascar-bootloader-offsets:
+
+.. include:: common/reference.rsti
+   :start-after: .. bootloader-offsets-marker

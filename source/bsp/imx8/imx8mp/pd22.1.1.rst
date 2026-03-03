@@ -54,6 +54,9 @@
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
 .. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
 
+.. RAUC
+.. |ref-bootloader-offsets-marker| replace:: :ref:`Disable booting from e.MMC boot partitions <kirkstone-bootloader-offsets>`
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
@@ -953,8 +956,7 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-   from Linux.
+   or check |ref-bootloader-offsets-marker| from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!
@@ -1944,8 +1946,6 @@ After that set the boot partition from user space using the mmc tool:
    :substitutions:
 
    target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
-
-.. _emmc-disable-boot-part:
 
 To disable booting from the e.MMC boot partitions simply enter the following
 command:

@@ -63,6 +63,7 @@
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
+.. |ref-bootloader-offsets-marker| replace:: :ref:`Disable booting from e.MMC boot partitions <walnascar-bootloader-offsets>`
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mp-libra-rdk-fpsc

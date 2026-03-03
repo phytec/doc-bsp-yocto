@@ -493,6 +493,8 @@ different offsets being required by each SoC:
 | AM64x        |                  | 2560 kiB              |              | u-boot.img  |
 +--------------+------------------+-----------------------+--------------+-------------+
 
+.. _scarthgap-bootloader-offsets:
+
 Bootloader Offsets
 ..................
 
