@@ -513,6 +513,12 @@ DT representation for USB Host:
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
+.. note::
+
+   On current hardware (1618.2) the backlight brightness 0 will not turn off the
+   backlight enable. Therefore the backlight will be set to max brightness on
+   brightness level 0.
+
 Device tree description of LVDS-1 can be found here:
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy13/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc-lvds.dtsi#L35`
 
