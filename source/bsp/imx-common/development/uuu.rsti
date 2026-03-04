@@ -84,8 +84,7 @@ Flashing U-boot Image to e.MMC via UUU
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from e.MMC boot partitions
-   <emmc-disable-boot-part>` from Linux.
+   or check |ref-bootloader-offsets-marker| from Linux.
 
    This way the bootloader is still flashed to e.MMC BOOT partitions but it is
    not used!

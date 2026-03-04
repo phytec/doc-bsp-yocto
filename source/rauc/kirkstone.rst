@@ -1073,6 +1073,8 @@ different offsets being required by each SoC:
 | AM64x        |                  | 2560 kiB              |              | u-boot.img  |
 +--------------+------------------+-----------------------+--------------+-------------+
 
+.. _kirkstone-bootloader-offsets:
+
 Bootloader Offsets
 ..................
 

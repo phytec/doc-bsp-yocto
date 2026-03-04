@@ -59,6 +59,7 @@
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A5 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=fgByJg
+.. |ref-bootloader-offsets-marker| replace:: :ref:`Disable booting from e.MMC boot partitions <kirkstone-bootloader-offsets>`
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mn-phyboard-polis
@@ -1045,8 +1046,7 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-   from Linux.
+   or check |ref-bootloader-offsets-marker| from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!

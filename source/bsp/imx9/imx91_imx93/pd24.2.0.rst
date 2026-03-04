@@ -57,6 +57,9 @@
 .. |u-boot-socname-config| replace:: PHYCORE_IMX93
 .. |u-boot-tag| replace:: v2024.04-2.0.0-phy6
 
+.. RAUC
+.. |ref-bootloader-offsets-marker| replace:: :ref:`Disable booting from e.MMC boot partitions <scarthgap-bootloader-offsets>`
+
 .. Devicetree
 .. |dt-carrierboard| replace:: imx93-phyboard-segin
 .. |dt-som| replace:: imx93-phycore-som
@@ -343,8 +346,7 @@ Flashing U-boot Image to eMMC via UUU-Tool
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-   from Linux.
+   or check |ref-bootloader-offsets-marker| from Linux.
 
    This way the bootloader is still flashed to eMMC BOOT partitions but it is
    not used!
