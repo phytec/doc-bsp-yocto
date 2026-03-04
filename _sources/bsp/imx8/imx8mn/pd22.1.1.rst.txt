@@ -1,0 +1,2192 @@
+.. Download links
+.. |dlpage-bsp| replace:: our BSP
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. |dlpage-bsp-link| replace:: |dlpage-bsp|_
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
+.. |dl-server| replace:: BSP downloads
+.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
+.. |dl-server-link| replace:: |dl-server|_
+.. |dl-sdk| replace:: SDK downloads
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/sdk/ampliphy-vendor-xwayland/
+.. |dl-sdk-link| replace:: |dl-sdk|_
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/phytec-headless-image-phyboard-polis-imx8mn-2.wic
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD22.1.1/images/ampliphy-vendor/phyboard-polis-imx8mn-2/imx-boot-tools/
+.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
+.. _`static-pdf-dl`: ../../../_static/imx8mn-pd22.1.1.pdf
+
+.. IMX8(MN) specific
+.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2021.04_2.2.0-phy13
+
+.. General Replacements
+.. |atfloadaddr| replace:: 0x960000
+.. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
+.. |kit-ram-size| replace:: 1GiB
+.. |mcore| replace:: M4 Core
+.. |sbc| replace:: phyBOARD-Polis
+.. |soc| replace:: i.MX 8M Nano
+.. |socfamily| replace:: i.MX 8
+.. |som| replace:: phyCORE-|soc|
+.. |debug-uart| replace:: ttymxc2
+.. |serial-uart| replace:: ttymxc0
+.. |bluetooth-uart| replace:: UART2
+
+.. Linux Kernel
+.. |kernel-defconfig| replace:: imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config
+.. |kernel-primary-ethernet| replace:: eth0
+.. |kernel-recipe-path| replace:: meta-phytec/dynamic-layers/freescale-layer/recipes-kernel/linux/linux-imx_*.bb
+.. |kernel-repo-name| replace:: linux-imx
+.. |kernel-repo-url| replace:: git://git.phytec.de/linux-imx
+.. |kernel-socname| replace:: imx8mn
+.. |kernel-tag| replace:: v5.10.72_2.2.0-phy17
+.. |emmcdev| replace:: mmcblk2
+
+.. Bootloader
+.. |bootloader-offset| replace:: 32
+.. |bootloader-offset-boot-part| replace:: 0
+.. |u-boot-mmc-flash-offset| replace:: 0x40
+.. |u-boot-defconfig| replace:: phycore-imx8mm_defconfig
+.. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
+.. |u-boot-repo-name| replace:: u-boot-imx
+.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+
+.. IMX8(MN) specific
+.. |u-boot-socname-config| replace:: PHYCORE_IMX8MN
+.. |u-boot-tag| replace:: v2021.04_2.2.0-phy13
+
+.. Devicetree
+.. |dt-carrierboard| replace:: imx8mn-phyboard-polis
+.. |dt-som| replace:: imx8mn-phycore-som
+.. |dtbo-peb-av-10| replace:: imx8mn-phyboard-polis-peb-av-010.dtbo
+
+.. IMX8(MN) specific
+.. |dt-somnetwork| replace:: :imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n47`
+
+.. Yocto
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`hardknott`
+.. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MM
+.. _yocto-bsp-name: `dl-server`_
+.. |yocto-codename| replace:: hardknott
+.. |yocto-distro| replace:: ampliphy-vendor
+.. |yocto-imagename| replace:: phytec-headless-image
+.. |yocto-machinename| replace:: phyboard-polis-imx8mn-2
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD22.1.y
+.. |yocto-ref-manual| replace:: L-813e.A12 Yocto Reference Manual (Hardknott)
+.. _yocto-ref-manual: https://www.phytec.de/cdocuments/?doc=UIHsG
+.. _yocto-ref-manual-kernel-and-bootloader-config: https://www.phytec.de/cdocuments/?doc=UIHsG#YoctoReferenceManualHardknottL813e-A12-KernelandBootloaderConfiguration
+.. |yocto-sdk-rev| replace:: BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+.. |yocto-sdk-a-core| replace:: cortexa53-crypto
+
+.. Refs
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mn-pd22.1.1-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mn-pd22.1.1-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X30) <imx8mn-pd22.1.1-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mn-pd22.1.1-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mn-pd22.1.1-supported-hardware>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mn-pd22.1.1-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mn-pd22.1.1-development>`
+.. |ref-usb-otg| replace:: :ref:`X2 <imx8mn-pd22.1.1-components>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd24.1.2-format-sd>`
+
+.. IMX8(MN) specific replacements
+.. |sbc-network| replace:: \
+.. |pollux-fan-note| replace:: Only GPIO fan supported.
+.. |ubootexternalenv| replace:: U-boot External Environment subsection of the
+   :ref:`device tree overlay section <imx8mn-pd22.1.1-ubootexternalenv>`
+
+.. only:: html
+
+   Documentation in pdf format: `Download <static-pdf-dl_>`_
+
++----------------------+----------------------+
+| |soc| BSP Manual                            |
++----------------------+----------------------+
+| Document Title       | |soc| BSP Manual     |
++----------------------+----------------------+
+| Document Type        | BSP Manual           |
++----------------------+----------------------+
+| Yocto Manual         |                      |
++----------------------+----------------------+
+| Release Date         | 2023/05/25           |
++----------------------+----------------------+
+| Is Branch of         | |soc| BSP Manual     |
++----------------------+----------------------+
+
+The table below shows the Compatible BSPs for this manual:
+
+==================== ================ ================= ==========
+Compatible BSPs      BSP Release Type BSP Release  Date BSP Status
+
+==================== ================ ================= ==========
+|yocto-manifestname| Minor            2023/05/23        Released
+==================== ================ ================= ==========
+
+.. include:: ../../intro.rsti
+
+.. _imx8mn-pd22.1.1-supported-hardware:
+
+Supported Hardware
+------------------
+
+The |sbc| populated with the |soc| SoC is supported.
+
+On our web page, you can see all supported Machines with the available Article
+Numbers for this release: |yocto-manifestname| `download <dlpage-bsp_>`_.
+If you choose a specific **Machine Name** in the section **Supported Machines**,
+you can see which **Article Numbers** are available under this machine and also
+a short description of the hardware information. In case you only have
+the **Article Number** of your hardware, you can leave the **Machine
+Name** drop-down menu empty and only choose your **Article Number**. Now it
+should show you the necessary **Machine Name** for your specific hardware
+
+.. _imx8mn-pd22.1.1-components:
+.. include:: ../imx8mm/components.rsti
+
+Getting Started
+===============
+
+The |kit| is shipped with a pre-flashed SD card. It contains the
+|yocto-imagename| and can be used directly as a boot source. The eMMC is
+programmed with only a U-boot by default. You can get all sources from the
+`PHYTEC download server <dl-server_>`_. This chapter explains how to flash a BSP
+image to SD card and how to start the board.
+
+Get the Image
+-------------
+
+The WIC image contains all BSP files in several, correctly pre-formatted
+partitions and can be copied to an SD card easily using the single Linux
+command ``dd``. It can be built by Yocto or downloaded from the PHYTEC download
+server.
+
+Get the WIC file from the download server:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ wget |link-image|
+
+Write the Image to SD Card
+--------------------------
+
+.. warning::
+   To create your bootable SD card with the ``dd`` command, you must have root
+   privileges. Be very careful when specifying the destination device with
+   ``dd``! All files on the selected destination device will be erased
+   immediately without any further query!
+
+   Selecting the wrong device may result in **data loss** and e.g. could erase
+   your currently running system!
+
+To create your bootable SD card, you must first find the correct device name
+of your SD card and possible partitions. Unmount any mounted partitions before
+you start copying the image to the SD card.
+
+#. In order to get the correct device name, remove your SD card and
+   execute::
+
+      host$ lsblk
+
+#. Now insert your SD card and execute the command again::
+
+      host$ lsblk
+
+#. Compare the two outputs to find the new device names listed in the second
+   output. These are the device names of the SD card (device and partitions if
+   the SD card was formatted).
+#. In order to verify the device names being found, execute the command
+   ``sudo dmesg``. Within the last lines of its output, you should also find the
+   device names, e.g. ``/dev/sde`` or ``/dev/mmcblk0`` (depending on your
+   system).
+
+Alternatively, you may use a graphical program of your choice, like `GNOME Disks
+<https://apps.gnome.org/en/DiskUtility/>`_ or `KDE Partition Manager
+<https://apps.kde.org/partitionmanager/>`_, to find the correct device.
+
+Now that you have the correct device name, e.g. ``/dev/sde``,
+you can see the partitions which must be unmounted if the SD card is formatted.
+In this case, you will also find the device name with an appended number
+(e.g. ``/dev/sde1``) in the output. These represent the partitions. Some Linux
+distributions automatically mount partitions when the device gets plugged in.
+Before writing, however, these need to be unmounted to avoid data corruption.
+
+*  Unmount all partitions, e.g.::
+
+      host$ sudo umount /dev/sde1
+
+*  After having unmounted all partitions, you can create your bootable SD card::
+
+      host$ sudo dd if=<IMAGENAME>-<MACHINE>.wic of=/dev/sdX bs=1M conv=fsync status=progress
+
+   Again, make sure to replace ``/dev/sdX`` with your actual device name found
+   previously.
+
+   The parameter ``conv=fsync`` forces a sync operation on the device before
+   ``dd`` returns. This ensures that all blocks are written to the SD card and
+   none are left in memory. The parameter ``status=progress`` will print out
+   information on how much data is and still has to be copied until it is
+   finished.
+
+An alternative and much faster way to prepare an SD card can be done by using
+`bmap-tools <https://github.com/intel/bmap-tools>`_ from Intel. Yocto
+automatically creates a block map file (``<IMAGENAME>-<MACHINE>.wic.bmap``) for
+the WIC image that describes the image content and includes checksums for data
+integrity. *bmaptool* is packaged by various Linux distributions. For
+Debian-based systems install it by issuing::
+
+   host$ sudo apt install bmap-tools
+
+Flash a WIC image to SD card by calling::
+
+   host$ bmaptool copy <IMAGENAME>-<MACHINE>.wic /dev/<your_device>
+
+.. warning::
+   *bmaptool* only overwrites the areas of an SD card where image data is
+   located. This means that a previously written U-Boot environment may still be
+   available after writing the image.
+
+First Start-up
+--------------
+
+*  To boot from an SD card, |ref-bootswitch| needs to be set to the following
+   position:
+
+   .. figure:: /bsp/images/dipswitch-6-011001.svg
+      :scale: 400%
+
+*  Insert the SD card
+*  Connect the target and the host with **micro USB** on |ref-debugusbconnector|
+   debug USB
+*  Power up the board
+
+.. +---------------------------------------------------------------------------+
+..                          Building the BSP                                   |
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/building-bsp.rsti
+
+.. _imx8mn-pd22.1.1-images:
+
+* **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+  Bootloader image!
+* **oftree**: Default kernel device tree
+* **u-boot-spl.bin**: Secondary program loader (SPL)
+* **bl31-imx8mm.bin**: ARM Trusted Firmware binary
+* **lpddr4_pmu_train_2d_dmem_202006.bin,
+  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+* **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+  Trusted Firmware and DDR firmware. This is the final bootloader image which is
+  bootable.
+* **Image**: Linux kernel image
+* **Image.config**: Kernel configuration
+* **imx8mn-phyboard-polis-dsi*.dtb**: Kernel device tree file
+* **imx8mn-phy*.dtbo**: Kernel device tree overlay files
+* **phytec-headless-image\*.tar.gz**: Root file system
+* **phytec-headless-image\*.wic**: SD card image
+
+.. +---------------------------------------------------------------------------+
+..                          INSTALLING THE OS
+.. +---------------------------------------------------------------------------+
+
+Installing the OS
+=================
+
+Bootmode Switch (S1)
+--------------------
+
+The |sbc| features a boot switch with six individually switchable ports to
+select the |som| default bootsource.
+
+.. _imx8mn-pd22.1.1-bootswitch:
+.. include:: bootmode-switch.rsti
+
+Flash eMMC
+----------
+
+To boot from eMMC, make sure that the BSP image is flashed correctly to the eMMC
+and the |ref-bootswitch| is set to **Default SOM boot**.
+
+.. warning::
+   When eMMC and SD card are flashed with the same (identical) image, the UUIDs
+   of the boot partitions are also identical. If the SD card is connected when
+   booting, this leads to non-deterministic behavior as Linux mounts the boot
+   partition based on UUID.
+
+   .. code-block:: console
+
+      target:~$ blkid
+
+   can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
+   and ``mmcblk1p1`` have an identical UUID, the setup is affected.
+
+Flash eMMC from Network
+.......................
+
+|soc| boards have an Ethernet connector and can be updated over a network. Be
+sure to set up the development host correctly. The IP needs to be set to
+192.168.3.10, the netmask to 255.255.255.0, and a TFTP server needs to be
+available. From a high-level point of view, an eMMC device is like an SD card.
+Therefore, it is possible to flash the **WIC image** (``<name>.wic``) from
+the Yocto build system directly to the eMMC. The image contains the
+bootloader, kernel, device tree, device tree overlays, and root file system.
+
+Flash eMMC from Network in u-boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to update the eMMC via a network. However, they only
+work if the size of the image file is less than 1GB. If the image file is
+larger, go to the section Format SD Card. Configure the |ref-bootswitch| to boot
+from SD Card and put in an SD card. Power on the board and stop in U-Boot
+prompt.
+
+.. tip::
+
+   A working network is necessary! |ref-setup-network-host|
+
+*  Load your image via network to RAM:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> tftp ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      Using ethernet@30be0000 device
+      TFTP from server 192.168.3.10; our IP address is 192.168.3.11
+      Filename '|yocto-imagename|-|yocto-machinename|.wic'.
+      Load address: 0x40480000
+      Loading: ######################################
+               ######################################
+               ######################################
+               ...
+               ...
+               ...
+               ######################################
+               #############
+               11.2 MiB/s
+      done
+      Bytes transferred = 911842304 (36599c00 hex)
+
+*  Write the image to the eMMC:
+
+   .. code-block::
+
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc2(part 0) is current device
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+
+Flash eMMC via Network in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can update the eMMC from your target.
+
+.. tip::
+   A working network is necessary! Setup Network Host.
+
+Take a compressed or uncompressed image on the host and send it with ssh through
+the network (then uncompress it, if necessary) to the eMMC of the target with a
+one-line command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ ssh <USER>@192.168.3.10 "dd if=<path_to_file>/|yocto-imagename|-|yocto-machinename|.wic" | dd of=/dev/mmcblk2
+
+Flash eMMC via Network in Linux on Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is also possible to install the OS at eMMC from your Linux host. As before,
+you need a complete image on your host.
+
+.. tip::
+
+   A working network is necessary! Setup Network Host.
+
+Show your available image files on the host:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ ls
+   |yocto-imagename|-|yocto-machinename|.wic
+
+Send the image with the command dd command combined with ssh through the network
+to the eMMC of your device:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic status=progress | ssh root@192.168.3.11 "dd of=/dev/mmcblk2"
+
+Flash eMMC u-boot image via Network from running u-boot
+.......................................................
+
+Update the standalone u-boot image imx-boot is also possible from u-boot. This
+can be used if the bootloader on eMMC is located in the eMMC user area.
+
+.. tip::
+
+   A working network is necessary! Setup Network Host.
+
+Load image over tftp into RAM and then write it to eMMC:
+
+.. code-block::
+   :substitutions:
+
+   u-boot=> tftp ${loadaddr} imx-boot
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc dev 2
+   u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
+
+.. hint::
+   The hexadecimal value represents the offset as a multiple of 512 byte
+   blocks. See the `offset table <#offset-table>`__ for the correct value
+   of the corresponding SoC.
+
+Flash eMMC from USB
+...................
+
+Flash eMMC from USB in u-boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in Bootloader after enabling the OPTEE.
+
+These steps will show how to update the eMMC via a USB device. Configure the
+bootmode switch to |ref-bootswitch| and put in an SD card. Power on the board
+and stop in u-boot prompt. Insert a USB device with the copied WIC image
+to the USB slot.
+
+Load your image from the USB device to RAM:
+
+.. code-block::
+
+   u-boot=> usb start
+   starting USB...
+   USB0:   USB EHCI 1.00
+   scanning bus 0 for devices... 2 USB Device(s) found
+          scanning usb for storage devices... 1 Storage Device(s) found
+   u-boot=> fatload usb 0:1 ${loadaddr} *.wic
+   497444864 bytes read in 31577 ms (15 MiB/s)
+
+Write the image to the eMMC:
+
+.. code-block::
+
+   u-boot=> mmc dev 2
+   switch to partitions #0, OK
+   mmc2(part 0) is current device
+   u-boot=> setexpr nblk ${filesize} / 0x200
+   u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
+   u-boot=> boot
+
+Flash eMMC from USB in Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These steps will show how to flash the eMMC on Linux with a USB stick. You only
+need a complete image saved on the USB stick and a bootable WIC image. (e.g.
+|yocto-imagename|-|yocto-machinename|.wic). Set the bootmode switch to
+|ref-bootswitch|.
+
+*  Insert and mount the USB stick:
+
+   .. code-block:: console
+
+      [   60.458908] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+      [   60.467286] scsi host0: usb-storage 1-1.1:1.0
+      [   61.504607] scsi 0:0:0:0: Direct-Access                               8.07 PQ: 0 ANSI: 2
+      [   61.515283] sd 0:0:0:0: [sda] 3782656 512-byte logical blocks: (1.94 GB/1.80 GiB)
+      [   61.523285] sd 0:0:0:0: [sda] Write Protect is off
+      [   61.528509] sd 0:0:0:0: [sda] No Caching mode page found
+      [   61.533889] sd 0:0:0:0: [sda] Assuming drive cache: write through
+      [   61.665969]  sda: sda1
+      [   61.672284] sd 0:0:0:0: [sda] Attached SCSI removable disk
+      target:~$ mount /dev/sda1 /mnt
+
+*  Now show your saved image files on the USB Stick:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ cd /mnt
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (mmcblk2boot0; mmcblk2boot1)
+*  Write the image to the |som| eMMC (MMC device 2 without partition):
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+
+*  After a complete write, your board can boot from eMMC.
+
+.. warning::
+
+   Before this will work, you need to configure the multi-port switch
+   to **Default SOM Boot** to |ref-bootswitch|.
+
+Flash eMMC from SD Card
+.......................
+
+Even if there is no network available, you can update the eMMC. For that, you
+only need a ready-to-use image file (``*.wic``) located on the SD card.
+Because the image file is quite large, you have to create a third partition.
+To create a new partition or enlarge your SD card, see |ref-format-sd|.
+
+Flash eMMC from SD card in u-boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+
+   This step only works if the size of the image file is less than 1GB due to
+   limited usage of RAM size in Bootloader after enabling the OPTEE. If the
+   image file is too large use the `Updating eMMC from SD card in
+   Linux on Target` subsection.
+
+*  Flash an SD card with a working image and create a third FAT partition. Copy
+   the WIC image (for example |yocto-imagename|.wic) to this
+   partition.
+*  Configure the bootmode switch to boot from the SD Card and insert the SD
+   card.
+*  Power on the board and stop in u-boot.
+*  Flash your WIC image (for example |yocto-imagename|.wic)
+   from the SD card to eMMC. This will partition the card and copy imx-boot,
+   Image, dtb, dtbo, and root file system to eMMC.
+*  Load the image:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> fatload mmc 1:3 ${loadaddr} |yocto-imagename|-|yocto-machinename|.wic
+      reading
+      911842304 bytes read in 39253 ms (22.2 MiB/s)
+
+*  Switch the mmc dev:
+
+   .. code-block::
+
+      u-boot=> mmc list
+      FSL_SDHC: 1 (SD)
+      FSL_SDHC: 2 (eMMC)
+      u-boot=> mmc dev 2
+      switch to partitions #0, OK
+      mmc0(part 0) is current device
+      u-boot=> setexpr nblk ${filesize} / 0x200
+      u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
+
+      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+
+*  Power off the board and change the multi-port switch to Default SOM Boot to
+   boot from eMMC.
+
+Flash eMMC from SD card in Linux on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can also flash the eMMC on Linux. You only need a complete image saved on
+the SD card (e.g. |yocto-imagename|-|yocto-machinename|.wic).
+
+*  Show your saved image files on the SD card:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ ls
+      |yocto-imagename|-|yocto-machinename|.wic
+
+*  Show list of available MMC devices:
+
+   .. code-block:: console
+
+      target:~$ ls /dev | grep mmc
+      mmcblk1
+      mmcblk1p1
+      mmcblk1p2
+      mmcblk2
+      mmcblk2boot0
+      mmcblk2boot1
+      mmcblk2p1
+      mmcblk2p2
+      mmcblk2rpmb
+
+*  The eMMC device can be recognized by the fact that it contains two boot
+   partitions: (mmcblk2\ **boot0**; mmcblk2\ **boot1**)
+*  Write the image to the |som| eMMC (MMC device 2 **without**
+   partition):
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=|yocto-imagename|-|yocto-machinename|.wic of=/dev/mmcblk2
+
+*  After a complete write, your board can boot from eMMC.
+
+.. warning::
+
+   Before this will work, you need to configure the |ref-bootswitch| to Default
+   SOM Boot to boot from eMMC.
+
+Flash SPI NOR Flash
+-------------------
+
+The |som| modules are optionally equipped with SPI NOR Flash. To boot from SPI
+Flash, set |ref-bootswitch| to **QSPI boot** to boot from QSPI. The SPI Flash is
+usually quite small. The phyBOARD-Pollux-i.MX8MP kit only has 32MB SPI NOR flash
+populated. Only the bootloader and the environment can be stored. The kernel,
+device tree, and file system are taken from eMMC by default.
+
+The SPI NOR flash partition table is defined in the U-Boot environment. It can
+be printed with:
+
+.. code-block::
+
+   u-boot=> printenv mtdparts
+   mtdparts=30bb0000.spi:3840k(u-boot),128k(env),128k(env:redund),-(none)
+
+Flash SPI NOR Flash from Network
+................................
+
+The SPI NOR can contain the bootloader and environment to boot from. The arm64
+kernel can not decompress itself, the image size extends the SPI NOR flash
+populated on the |som|.
+
+.. tip::
+
+   A working network is necessary! Setup Network Host.
+
+Flash SPI NOR from Network in u-boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Similar to updating the eMMC over a network, be sure to set up the development
+host correctly. The IP needs to be set to 192.168.3.10, the netmask to
+255.255.255.0, and a TFTP server needs to be available. Before reading and
+writing is possible, the SPI-NOR flash needs to be probed:
+
+.. code-block::
+
+   u-boot=> sf probe
+   SF: Detected mt25qu512a with page size 256 Bytes, erase size 64 KiB, total 64 MiB
+
+*  A specially formatted u-boot image for the SPI NOR flash is used. Ensure you
+   use the correct image file. Load the image over tftp, erase and write the
+   bootloader to the flash:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> tftp ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> sf update ${loadaddr} 0 ${filesize}
+      device 0 offset 0x0, size 0x1c0b20
+      1641248 bytes written, 196608 bytes skipped in 4.768s, speed 394459 B/s
+
+*  Erase the environment partition as well. This way, the environment can be
+   written after booting from SPI NOR flash:
+
+   .. code-block::
+
+      u-boot=> sf erase 0x400000 0x100000
+
+.. warning::
+
+   Erasing the complete SPI NOR flash when it is fully written will take quite
+   some time. This can trigger the watchdog to reset. Due to this, erase the
+   full flash in Linux.
+
+Flash SPI NOR from Network in kernel on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Copy the image from the host to the target:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ scp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi root@192.168.3.11:/root
+
+*  Find the number of erase blocks of the U-boot partition:
+
+   .. code-block:: console
+
+      target:~$ mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
+
+*  Erase the u-boot partition and flash it:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+
+Flash SPI NOR Flash from SD Card
+................................
+
+The bootloader on SPI NOR flash can be also flashed with SD Card.
+
+Flash SPI NOR from SD Card in u-boot on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Copy the SPI NOR flash U-boot image
+   imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi to the FAT partition
+   on the SD Card. Before reading and writing are possible, the SPI-NOR flash
+   needs to be probed:
+
+   .. code-block::
+
+      u-boot=> sf probe
+      SF: Detected n25q256ax1 with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+
+*  A specially formatted U-boot image for the SPI NOR flash is used. Ensure you
+   use the correct image file. Load the image from the SD Card, erase and write
+   the bootloader to the flash:
+
+   .. code-block::
+      :substitutions:
+
+      u-boot=> mmc dev 1
+      u-boot=> fatload mmc 1:1 ${loadaddr} imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
+      u-boot=> sf update ${loadaddr} 0 ${filesize}
+
+*  Erase the environment partition as well. This way, the environment can be
+   written after booting from SPI NOR flash:
+
+   .. code-block::
+
+      u-boot=> sf erase 0x400000 0x100000
+
+.. warning::
+
+   Erasing the complete SPI NOR flash when it is fully written will take quite
+   some time. This can trigger the watchdog to reset. Due to this, erase the
+   full flash in Linux.
+
+Flash SPI NOR from SD Card in kernel on Target
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  Mount the SD Card:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ mount /dev/mmcblkp1 /mnt
+
+*  Find the number of erase blocks of the u-boot partition:
+
+   .. code-block:: console
+
+      target:~$  mtdinfo /dev/mtd0
+      mtd0
+      Name:                           u-boot
+      Type:                           nor
+      Eraseblock size:                65536 bytes, 64.0 KiB
+      Amount of eraseblocks:          60 (3932160 bytes, 3.7 MiB)
+      Minimum input/output unit size: 1 byte
+      Sub-page size:                  1 byte
+      Character device major/minor:   90:0
+      Bad blocks are allowed:         false
+      Device is writable:             true
+
+*  Erase the u-boot partition and flash it:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ flash_erase /dev/mtd0 0x0 60
+      target:~$ flashcp /mnt/imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi /dev/mtd0
+
+RAUC
+----
+
+The RAUC (Robust Auto-Update Controller) mechanism support has been added to
+meta-ampliphy. It controls the procedure of updating a device with new firmware.
+This includes updating the Linux kernel, Device Tree, and root filesystem.
+PHYTEC has written an online manual on how we have intergraded RAUC into our
+BSPs: `L-1006e.A3 RAUC Update & Device Management Manual
+<https://www.phytec.de/cdocuments/?doc=BKXvGQ>`__.
+
+.. +---------------------------------------------------------------------------+
+..                                DEVELOPMENT
+.. +---------------------------------------------------------------------------+
+
+.. _imx8mn-pd22.1.1-development:
+
+Development
+===========
+
+.. include:: /bsp/development/host_network_setup.rsti
+.. include:: /bsp/imx-common/development/netboot.rsti
+
+Working with UUU-Tool
+---------------------
+
+The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
+on the host to load and run the bootloader on the board through SDP (Serial
+Download Protocol). For detailed information visit
+https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
+documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+
+Host preparations for UUU-Tool Usage
+....................................
+
+*  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
+
+*  If you built UUU from source, add it to ``PATH``:
+
+   This BASH command adds UUU only temporarily to ``PATH``. To add it
+   permanently, add this line to ``~/.bashrc``.
+
+   .. code-block:: console
+
+      export PATH=~/mfgtools/uuu/:"$PATH"
+
+*  Set udev rules (documented in ``uuu -udev``):
+
+   .. code-block:: console
+
+      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+      host:~$ sudo udevadm control --reload
+
+Get Images
+..........
+
+Download imx-boot from our server or get it from your Yocto build directory at
+build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
+you will also need |yocto-imagename|-|yocto-machinename|.wic.
+
+Prepare Target
+..............
+
+Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
+|ref-usb-otg| to your host.
+
+Starting bootloader via UUU-Tool
+................................
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b spl imx-boot
+
+You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
+
+.. note::
+   The default boot command when booting with UUU-Tool is set to fastboot. If
+   you want to change this, please adjust the environment variable bootcmd_mfg
+   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
+   UUU-tool the default environment is loaded. Saveenv has no effect. If you
+   want to change the boot command permanently for UUU-boot, you need to change
+   this in U-Boot code.
+
+Flashing U-boot Image to eMMC via UUU-Tool
+...........................................
+
+.. warning::
+
+   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
+   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
+   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
+   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
+   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+
+   .. code-block:: console
+      :substitutions:
+
+      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
+      u-boot=> mmc partconf |u-boot-emmc-devno|
+      EXT_CSD[179], PARTITION_CONFIG:
+      BOOT_ACK: 0x0
+      BOOT_PARTITION_ENABLE: 0x0
+      PARTITION_ACCESS: 0x0
+
+   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
+   from Linux.
+
+   This way the bootloader is still flashed to eMMC BOOT partitions but it is
+   not used!
+
+   When using **partup** tool and ``.partup`` package for eMMC flashing this is
+   done by default, which makes partup again superior flash option.
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b emmc imx-boot
+
+Flashing wic Image to eMMC via UUU-Tool
+...........................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
+
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+
+U-Boot standalone build
+-----------------------
+
+Get the source code
+...................
+
+*  Get the U-Boot sources:
+
+   .. code-block:: console
+
+      host:~$ git clone git://git.phytec.de/u-boot-imx
+
+*  To get the correct *U-Boot* **tag** you need to take a look at our release
+   notes, which can be found here: `release notes <releasenotes_>`_
+*  The **tag** needed at this release is called |u-boot-tag|
+*  Check out the needed *U-Boot* **tag**:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ cd ~/u-boot-imx/
+   host:~$ git fetch --all --tags
+   host:~$ git checkout tags/|u-boot-tag|
+
+*  Technically, you can now build the U-Boot, but practically there are some
+   further steps necessary:
+
+   *  Create your own development branch:
+
+      .. code-block:: console
+
+         host:~$ git switch --create <new-branch>
+
+      .. note::
+
+         You can name your development branch as you like, this is just an example.
+
+*  Set up a build environment:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ source /opt/|yocto-distro|/|yocto-manifestname|/environment-setup-cortexa53-crypto-phytec-linux
+
+*  Set this environment variable before building the Image:
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ export ATF_LOAD_ADDR=|atfloadaddr|
+
+Get the needed binaries
+.......................
+
+To build the bootloader, you need to **copy** these **files** to your
+|u-boot-repo-name| **build directory** and rename them to fit with *mkimage*
+script:
+
+*  **ARM Trusted firmware binary** (*mkimage tool* compatible format
+   **bl31.bin**): bl31-|kernel-socname|.bin
+*  **OPTEE image** (optional): tee.bin
+*  **DDR firmware files** (*mkimage tool* compatible format
+   **lpddr4_[i,d]mem_\*d_\*.bin**):
+   lpddr4_dmem_1d_*.bin, lpddr4_dmem_2d_*.bin, lpddr4_imem_1d_*.bin,
+   lpddr4_imem_2d_*.bin
+
+If you already built our BSP with Yocto, you can get the
+bl31-|kernel-socname|.bin, tee.bin and lpddr4_*.bin from the directory mentioned
+here: |ref-bsp-images|
+
+Or you can download the files here: |link-boot-tools|
+
+.. warning::
+
+   Make sure you rename the files you need so that they are compatible with the
+   *mkimage tool*.
+
+Build the bootloader
+....................
+
+*  build flash.bin (imx-boot):
+
+   .. code-block:: console
+      :substitutions:
+
+      host:~$ make phycore-|kernel-socname|_defconfig
+      host:~$ make flash.bin
+
+Flash the bootloader to a block device
+......................................
+
+The flash.bin can be found at u-boot-imx/ directory and now can be flashed. A
+chip-specific offset is needed:
+
+.. _offset-table:
+
+===== ======================= ================================= ============
+SoC   Offset User Area        Offset Boot Partition             eMMC Device
+===== ======================= ================================= ============
+|soc| |bootloader-offset| kiB |bootloader-offset-boot-part| kiB /dev/mmcblk2
+===== ======================= ================================= ============
+
+E.g. flash SD card:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo dd if=flash.bin of=/dev/sd[x] bs=1024 seek=|bootloader-offset| conv=fsync
+
+.. hint::
+   The specific offset values are also declared in the Yocto variables "BOOTLOADER_SEEK" and "BOOTLOADER_SEEK_EMMC"
+
+.. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
+
+.. include:: /bsp/imx-common/development/development_manifests.rsti
+
+.. include:: /bsp/imx-common/development/master_manifest.rsti
+
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
+
+.. +---------------------------------------------------------------------------+
+..                               DEVICE TREE
+.. +---------------------------------------------------------------------------+
+
+.. _imx8mn-pd22.1.1-device-tree:
+
+Device Tree (DT)
+================
+
+Introduction
+------------
+
+The following text briefly describes the Device Tree and can be found in
+the Linux kernel Documentation
+(https://docs.kernel.org/devicetree/usage-model.html)
+
+*"The “Open Firmware Device Tree”, or simply Devicetree (DT), is a data
+structure and language for describing hardware. More specifically, it is a
+description of hardware that is readable by an operating system so that the
+operating system doesn't need to hard code details of the machine."*
+
+The kernel documentation is a really good source for a DT introduction. An
+overview of the device tree data format can be found on the device tree usage
+page at `devicetree.org <https://www.devicetree.org/>`_.
+
+PHYTEC |soc| BSP Device Tree Concept
+------------------------------------
+
+The following sections explain some rules PHYTEC has defined on how to set up
+device trees for our |soc| SoC-based boards.
+
+Device Tree Structure
+.....................
+
+*  *Module.dtsi* - Module includes all devices mounted on the SoM, such as PMIC
+   and RAM.
+*  *Carrierboard.dtsi* - Devices that come from the |soc| SoC but are just
+   routed down to the carrier board and used there are included in this dtsi.
+*  *Board.dts* - include the carrier board and module dtsi files. There may also
+   be some hardware configuration nodes enabled on the carrier board or the
+   module (i.e. the Board .dts shows the special characteristics of the board
+   configuration). For example, there are |som| SOMs which may or may not
+   have a MIPI DSI to LVDS converter mounted. The converter is enabled (if
+   available) in the Board .dts and not in the Module .dtsi
+
+From the root directory of the Linux Kernel our devicetree files for |socfamily|
+platforms can be found in ``arch/arm64/boot/dts/freescale/``.
+
+Device Tree Overlay
+...................
+
+Device Tree overlays are device tree fragments that can be merged into a device
+tree during boot time. These are for example hardware descriptions of an
+expansion board. They are instead of being added to the device tree as an extra
+include, now applied as an overlay. They also may only contain setting the
+status of a node depending on if it is mounted or not. The device tree overlays
+are placed next to the other device tree files in our Linux kernel repository in
+the subfolder ``arch/arm64/boot/dts/freescale/overlays``.
+
+Available overlays for |yocto-machinename|.conf are:
+
+.. code-block::
+
+   imx8mn-phyboard-polis-peb-eval-01.dtbo
+   imx8mn-phyboard-polis-peb-av-010.dtbo
+   imx8mn-phycore-rpmsg.dtbo
+   imx8mn-phycore-no-eth.dtbo
+   imx8mn-phycore-no-spiflash.dtbo
+   imx8mn-vm016.dtbo
+   imx8mn-vm016-fpdlink.dtbo
+   imx8mn-vm017.dtbo
+   imx8mn-vm017-fpdlink.dtbo
+   imx8mn-dual-vm017-fpdlink.dtbo
+
+.. _imx8mn-pd22.1.1-ubootexternalenv:
+.. include:: ../dt-overlays.rsti
+
+.. +---------------------------------------------------------------------------+
+..                        ACCESSING PERIPHERALS
+.. +---------------------------------------------------------------------------+
+
+.. include:: /bsp/peripherals/introduction.rsti
+
+.. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
+
+The following is an example of the pin muxing of the UART1 device in
+imx8mn-phyboard-polis.dtsi:
+
+.. code-block::
+
+   pinctrl_uart1: uart1grp {
+           fsl,pins = <
+                   MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX     0x00
+                   MX8MN_IOMUXC_SAI2_RXC_UART1_DCE_RX      0x00
+                   MX8MN_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B  0x00
+                   MX8MN_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B  0x00
+           >;
+   };
+
+The first part of the string MX8MN_IOMUXC_SAI2_RXFS_UART1_DCE_TX names the pad
+(in this example SAI2_RXFS). The second part of the string (UART1_DCE_RX) is the
+desired muxing option for this pad. The pad setting value (hex value on the right)
+defines different modes of the pad, for example, if internal pull resistors are
+activated or not. In this case, the internal resistors are disabled.
+
+RS232/RS485
+-----------
+
+The |soc| SoC provides up to 4 UART units. PHYTEC boards support different
+numbers of these UART units. UART1 can also be used as RS-485. For this,
+|ref-bootswitch| needs to be set correctly:
+
+.. list-table:: Switch between UART1 RS485/RS232
+
+   *  -  .. figure:: /bsp/images/dipswitch-6-000100.svg
+            :scale: 400%
+
+            **UART1 RS485**
+
+      -  .. figure:: /bsp/images/dipswitch-6-000000.svg
+            :scale: 400%
+
+            **UART1 RS232**
+
+.. include:: /bsp/peripherals/rs232.rsti
+.. include:: /bsp/peripherals/rs485.rsti
+
+The device tree representation for RS232 and RS485:
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n166`
+
+.. _imx8mn-pd22.1.1-network:
+
+Ethernet
+--------
+
+|sbc|-|soc| provides one Gigabit Ethernet interface.
+
+.. include:: /bsp/peripherals/network.rsti
+
+WLAN/Bluetooth
+--------------
+
+For WLAN and Bluetooth support, we use the Sterling-LWB module from LSR. This
+module supports 2,4 GHz bandwidth and can be run in several modes, like client
+mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
+information about the module can be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
+
+Connecting to a WLAN Network
+............................
+
+First set the correct regulatory domain for your country:
+
+.. code-block:: console
+
+   target:~$ iw reg set DE
+   target:~$ iw reg get
+
+You will see:
+
+.. code-block::
+
+   country DE: DFS-ETSI
+      (2400 - 2483 @ 40), (N/A, 20), (N/A)
+      (5150 - 5250 @ 80), (N/A, 20), (N/A), NO-OUTDOOR
+      (5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS
+      (5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+      (57000 - 66000 @ 2160), (N/A, 40), (N/A)
+
+Set up the wireless interface:
+
+.. code-block:: console
+
+   target:~$ ip link
+   target:~$ ip link set up dev wlan0
+
+Now you can scan for available networks:
+
+.. code-block:: console
+
+   target:~$ iw wlan0 scan | grep SSID
+
+You can use a cross-platform supplicant with support for WEP, WPA, and WPA2
+called wpa_supplicant for an encrypted connection.
+
+To do so, add the network-credentials to the file ``/etc/wpa_supplicant.conf``:
+
+.. code-block::
+
+   country=DE
+   network={
+       ssid="<SSID>"
+       proto=WPA2
+       psk="<KEY>"
+   }
+
+Now a connection can be established:
+
+.. code-block:: console
+
+   target:~$ wpa_supplicant -D nl80211 -c /etc/wpa_supplicant.conf -i wlan0 -B
+
+This should result in the following output:
+
+.. code-block::
+
+   ...
+   ENT-CONNECTED - Connection to 88:33:14:5d:db:b1 completed [id=0 id_str=]
+
+To finish the configuration you can configure DHCP to receive an IP address
+(supported by most WLAN access points). For other possible IP configurations,
+see section `Changing the Network Configuration` in the |yocto-ref-manual|_.
+
+First, create the directory:
+
+.. code-block:: console
+
+   target:~$ mkdir -p /etc/systemd/network/
+
+Then add the following configuration snippet in
+``/etc/systemd/network/10-wlan0.network``:
+
+.. code-block::
+
+   # file /etc/systemd/network/10-wlan0.network
+   [Match]
+   Name=wlan0
+
+   [Network]
+   DHCP=yes
+
+Now, restart the network daemon so that the configuration takes effect:
+
+.. code-block:: console
+
+   target:~$ systemctl restart systemd-networkd
+
+Bluetooth
+---------
+
+Bluetooth is connected to |bluetooth-uart| interface. More information about
+the module can be found at
+https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf.
+The Bluetooth device needs to be set up manually:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 up
+
+   target:~$ hciconfig -a
+
+   hci0:   Type: Primary  Bus: UART
+           BD Address: 00:25:CA:2F:39:96  ACL MTU: 1021:8  SCO MTU: 64:1
+           UP RUNNING PSCAN
+           RX bytes:1392 acl:0 sco:0 events:76 errors:0
+           TX bytes:1198 acl:0 sco:0 commands:76 errors:0
+           ...
+
+Now you can scan your environment for visible Bluetooth devices. Bluetooth is
+not visible during a default startup.
+
+.. code-block:: console
+
+   target:~$ hcitool scan
+   Scanning ...
+          XX:XX:XX:XX:XX:XX       <SSID>
+
+Visibility
+..........
+
+To activate visibility:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 piscan
+
+To disable visibility:
+
+.. code-block:: console
+
+   target:~$ hciconfig hci0 noscan
+
+Connect
+.......
+
+.. code-block:: console
+
+   target:~$ bluetoothctl
+   [bluetooth]# discoverable on
+   Changing discoverable on succeeded
+   [bluetooth]# pairable on
+   Changing pairable on succeeded
+   [bluetooth]# agent on
+   Agent registered
+   [bluetooth]# default-agent
+   Default agent request successful
+   [bluetooth]# scan on
+   [NEW] Device XX:XX:XX:XX:XX:XX <name>
+   [bluetooth]# connect XX:XX:XX:XX:XX:XX
+
+.. note::
+
+   If the connection fails with the error message: "Failed to connect:
+   org.bluez.Error.Failed" try restarting PulseAudio with:
+
+   .. code-block:: console
+
+      target:~$ pulseaudio --start
+
+.. include:: /bsp/imx-common/peripherals/sd-card.rsti
+
+DT configuration for the MMC (SD card slot) interface can be found here:
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n238`
+
+DT configuration for the eMMC interface can be found here:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n293`
+
+eMMC Devices
+------------
+
+PHYTEC modules like |som| is populated with an eMMC memory chip as the
+main storage. eMMC devices contain raw MLC memory cells combined with a memory
+controller that handles ECC and wear leveling. They are connected via an SD/MMC
+interface to the |soc| and are represented as block devices in the Linux kernel
+like SD cards, flash drives, or hard disks.
+
+The electric and protocol specifications are provided by JEDEC
+(https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc).
+The eMMC manufacturer's datasheet is relatively short and meant to be read
+together with the supported version of the JEDEC eMMC standard.
+
+PHYTEC currently utilizes the eMMC chips with JEDEC Version 5.0 and 5.1
+
+Extended CSD Register
+.....................
+
+eMMC devices have an extensive amount of extra information and settings that are
+available via the Extended CSD registers. For a detailed list of the registers,
+see manufacturer datasheets and the JEDEC standard.
+
+In the Linux user space, you can query the registers:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc extcsd read /dev/|emmcdev|
+
+You will see:
+
+.. code-block::
+
+   =============================================
+      Extended CSD rev 1.7 (MMC 5.0)
+   =============================================
+
+    Card Supported Command sets [S_CMD_SET: 0x01]
+    [...]
+
+Enabling Background Operations (BKOPS)
+......................................
+
+In contrast to raw NAND Flash, an eMMC device contains a Flash Transfer Layer
+(FTL) that handles the wear leveling, block management, and ECC of the raw MLC
+cells. This requires some maintenance tasks (for example erasing unused blocks)
+that are performed regularly. These tasks are called **Background
+Operations (BKOPS)**.
+
+By default (depending on the chip), the background operations may or may not be
+executed periodically, impacting the worst-case read and write latency.
+
+The JEDEC Standard has specified a method since version v4.41 that the host can
+issue BKOPS manually. See the JEDEC Standard chapter Background Operations and
+the description of registers BKOPS_EN (Reg: 163) and BKOPS_START (Reg: 164) in
+the eMMC datasheet for more details.
+
+Meaning of Register BKOPS_EN (Reg: 163) Bit MANUAL_EN (Bit 0):
+
+*  Value 0: The host does not support the manual trigger of BKOPS. Device write
+   performance suffers.
+*  Value 1: The host does support the manual trigger of BKOPS. It will issue
+   BKOPS from time to time when it does not need the device.
+
+The mechanism to issue background operations has been implemented in
+the Linux kernel since v3.7. You only have to enable BKOPS_EN on the eMMC device
+(see below for details).
+
+The JEDEC standard v5.1 introduces a new automatic BKOPS feature. It frees the
+host to trigger the background operations regularly because the device starts
+BKOPS itself when it is idle (see the description of bit AUTO_EN in
+register BKOPS_EN (Reg: 163)).
+
+The userspace tool mmc does not currently support enabling automatic BKOPS
+features.
+
+*  To check whether *BKOPS_EN* is set, execute:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep BKOPS_EN
+
+   The output will be, for example:
+
+   .. code-block::
+
+      Enable background operations handshake [BKOPS_EN]: 0x01
+      #OR
+      Enable background operations handshake [BKOPS_EN]: 0x00
+
+   Where value 0x00 means BKOPS_EN is disabled and device write performance
+   suffers. Where value 0x01 means BKOPS_EN is enabled and the host will issue
+   background operations from time to time.
+
+*  To set the BKOPS_EN bit, execute:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mmc bkops enable /dev/|emmcdev|
+
+*  To ensure that the new setting is taken over and the kernel triggers BKOPS by
+   itself, shut down the system:
+
+   .. code-block:: console
+
+      target:~$ poweroff
+
+.. tip::
+
+   The BKOPS_EN bit is one-time programmable only. It cannot be reversed.
+
+Reliable Write
+..............
+
+There are two different Reliable Write options:
+
+1. Reliable Write option for a whole eMMC device/partition.
+2. Reliable Write for single write transactions.
+
+.. tip::
+
+   Do not confuse eMMC partitions with partitions of a DOS, MBR, or GPT
+   partition table (see the previous section).
+
+The first Reliable Write option is mostly already enabled on the eMMCs mounted
+on the |som| SoMs. To check this on the running target:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc extcsd read /dev/|emmcdev| | grep -A 5 WR_REL_SET
+   Write reliability setting register [WR_REL_SET]: 0x1f
+    user area: the device protects existing data if a power failure occurs during a write o
+   peration
+    partition 1: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 2: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 3: the device protects existing data if a power failure occurs during a write
+    operation
+    partition 4: the device protects existing data if a power failure occurs during a write
+    operation
+   --
+    Device supports writing EXT_CSD_WR_REL_SET
+    Device supports the enhanced def. of reliable write
+
+Otherwise, it can be enabled with the mmc tool:
+
+.. code-block:: console
+
+   target:~$ mmc --help
+
+   [...]
+   mmc write_reliability set <-y|-n> <partition> <device>
+
+The second Reliable Write option is the configuration bit Reliable Write Request
+parameter (bit 31) in command CMD23. It has been used in the kernel
+since v3.0 by file systems, e.g. ext4 for the journal and user space
+applications such as fdisk for the partition table. In the Linux kernel source
+code, it is handled via the flag REQ_META.
+
+**Conclusion**: ext4 file system with mount option data=journal should be safe
+against power cuts. The file system check can recover the file system after a
+power failure, but data that was written just before the power cut may be lost.
+In any case, a consistent state of the file system can be recovered. To ensure
+data consistency for the files of an application, the system functions fdatasync
+or fsync should be used in the application.
+
+Resizing ext4 Root Filesystem
+.............................
+
+When flashing the sdcard image to eMMC the ext4 root partition is not extended
+to the end of the eMMC. parted can be used to expand the root partition. The
+example works for any block device such as eMMC, SD card, or hard disk.
+
+*  Get the current device size:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ parted /dev/|emmcdev| print
+
+*  The output looks like this:
+
+   .. code-block::
+      :substitutions:
+
+      Model: MMC Q2J55L (sd/mmc)
+      Disk /dev/|emmcdev|: 7617MB
+      Sect[ 1799.850385]  |emmcdev|: p1 p2
+      or size (logical/physical): 512B/512B
+      Partition Table: msdos
+      Disk Flags:
+
+      Number  Start   End     Size    Type     File system  Flags
+       1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+       2      72.4MB  537MB   465MB   primary  ext4
+
+*  Use parted to resize the root partition to the max size of the device:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ parted /dev/|emmcdev| resizepart 2 100%
+      Information: You may need to update /etc/fstab.
+
+      target:~$ parted /dev/|emmcdev| print
+      Model: MMC Q2J55L (sd/mmc)
+      Disk /dev/|emmcdev|: 7617MB
+      Sector size (logical/physical): 512[ 1974.191657]  |emmcdev|: p1 p2
+      B/512B
+      Partition Table: msdos
+      Disk Flags:
+
+      Number  Start   End     Size    Type     File system  Flags
+       1      4194kB  72.4MB  68.2MB  primary  fat16        boot, lba
+       2      72.4MB  7617MB  7545MB  primary  ext4
+
+Increasing the filesystem size can be done while it is mounted.  But you can
+also boot the board from an SD card and then resize the file system on the eMMC
+partition while it is not mounted.
+
+*  Resize the filesystem to a new partition size:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ resize2fs /dev/|emmcdev|p2
+      resize2fs 1.46.1 (9-Feb-2021)
+      Filesystem at /dev/|emmcdev|p2 is mounted on /; on-line resizing required
+      [ 131.609512] EXT4-fs (|emmcdev|p2): resizing filesystem
+      from 454136 to 7367680 blocks
+      old_desc_blocks = 4, new_desc_blocks = 57
+      [ 131.970278] EXT4-fs (|emmcdev|p2): resized filesystem to 7367680
+      The filesystem on /dev/|emmcdev|p2 is now 7367680 (1k) blocks long
+
+Enable pseudo-SLC Mode
+......................
+
+eMMC devices use MLC memory cells
+(https://en.wikipedia.org/wiki/Multi-level_cell) to store the data. Compared
+with SLC memory cells used in NAND Flash, MLC memory cells have lower
+reliability and a higher error rate at lower costs.
+
+If you prefer reliability over storage capacity, you can enable
+the pseudo-SLC mode or SLC mode. The method used here employs the enhanced
+attribute, described in the JEDEC standard, which can be set for continuous
+regions of the device. The JEDEC standard does not specify the implementation
+details and the guarantees of the enhanced attribute. This is left to the
+chipmaker. For the Micron chips, the enhanced attribute increases the
+reliability but also halves the capacity.
+
+.. warning::
+
+   When enabling the enhanced attribute on the device, all data will be lost.
+
+The following sequence shows how to enable the enhanced attribute.
+
+*  First obtain the current size of the eMMC device with:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ parted -m /dev/|emmcdev| unit B print
+
+   You will receive:
+
+   .. code-block::
+      :substitutions:
+
+      BYT;
+      /dev/|emmcdev|:63652757504B:sd/mmc:512:512:unknown:MMC S0J58X:;
+
+   As you can see this device has 63652757504 Byte = 60704 MiB.
+
+*  To get the maximum size of the device after pseudo-SLC is enabled use:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep ENH_SIZE_MULT -A 1
+
+   which shows, for example:
+
+   .. code-block::
+
+      Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
+      i.e. 3719168 KiB
+      --
+      Enhanced User Data Area Size [ENH_SIZE_MULT]: 0x000000
+      i.e. 0 KiB
+
+   Here the maximum size is 3719168 KiB = 3632 MiB.
+
+*  Now, you can set enhanced attribute for the whole device, e.g. 3719168 KiB,
+   by typing:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mmc enh_area set -y 0 3719168 /dev/|emmcdev|
+
+   You will get:
+
+   .. code-block::
+      :substitutions:
+
+      Done setting ENH_USR area on /dev/|emmcdev|
+      setting OTP PARTITION_SETTING_COMPLETED!
+      Setting OTP PARTITION_SETTING_COMPLETED on /dev/|emmcdev| SUCCESS
+      Device power cycle needed for settings to take effect.
+      Confirm that PARTITION_SETTING_COMPLETED bit is set using 'extcsd read' after power cycle
+
+*  To ensure that the new setting has taken over, shut down the system:
+
+   .. code-block:: console
+
+      target:~$ poweroff
+
+   and perform a power cycle. It is recommended that you verify the settings now.
+
+*  First, check the value of ENH_SIZE_MULT which must be 3719168 KiB:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ mmc extcsd read /dev/|emmcdev| | grep ENH_SIZE_MULT  -A 1
+
+   You should receive::
+
+      Max Enhanced Area Size [MAX_ENH_SIZE_MULT]: 0x000764
+      i.e. 3719168 KiB
+      --
+      Enhanced User Data Area Size [ENH_SIZE_MULT]: 0x000764
+      i.e. 3719168 KiB
+
+*  Finally, check the size of the device:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ parted -m /dev/|emmcdev| unit B print
+      BYT;
+      /dev/|emmcdev|:31742492672B:sd/mmc:512:512:unknown:MMC S0J58X:;
+
+Erasing the Device
+..................
+
+It is possible to erase the eMMC device directly rather than overwriting it with
+zeros. The eMMC block management algorithm will erase the underlying MLC memory
+cells or mark these blocks as discard. The data on the device is lost and will
+be read back as zeros.
+
+*  After booting from SD Card execute:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ blkdiscard -f --secure /dev/|emmcdev|
+
+   The option --secure ensures that the command waits until the eMMC device has
+   erased all blocks. The -f (force) option disables all checking before erasing
+   and it is needed when the eMMC device contains existing partitions with data.
+
+.. tip::
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ dd if=/dev/zero of=/dev/|emmcdev| conv=fsync
+
+   also destroys all information on the device, but this command is bad for wear
+   leveling and takes much longer!
+
+e.MMC Boot Partitions
+.....................
+
+An e.MMC device contains four different hardware partitions: user, boot1, boot2,
+and rpmb.
+
+The user partition is called the User Data Area in the JEDEC standard and is the
+main storage partition. The partitions boot1 and boot2 can be used to host the
+bootloader and are more reliable. Which partition the |soc| uses to load
+the bootloader is controlled by the boot configuration of the e.MMC device. The
+partition rpmb is a small partition and can only be accessed via a trusted
+mechanism.
+
+Furthermore, the user partition can be divided into four user-defined General
+Purpose Area Partitions. An explanation of this feature exceeds the scope of
+this document. For further information, see the JEDEC Standard Chapter 7.2
+Partition Management.
+
+.. tip::
+
+   Do not confuse e.MMC partitions with partitions of a DOS, MBR, or GPT
+   partition table.
+
+The current PHYTEC BSP does not use the extra partitioning feature of e.MMC
+devices. The U-Boot is flashed at the beginning of the user partition.
+The U-Boot environment is placed at a fixed location after the U-Boot. An MBR
+partition table is used to create two partitions, a FAT32 boot, and ext4 rootfs
+partition. They are located right after the U-Boot and the U-Boot environment.
+The FAT32 boot partition contains the kernel and device tree.
+
+With e.MMC flash storage it is possible to use the dedicated boot partitions for
+redundantly storing the bootloader. The Bootloader environment still resides in
+the user area before the first partition. The user area also still contains the
+bootloader which the image first shipped during its initialization process.
+Below is an example, to flash the bootloader to one of the two boot partitions
+and switch the boot device via userspace commands.
+
+Via userspace Commands
+~~~~~~~~~~~~~~~~~~~~~~
+
+On the host, run:
+
+.. code-block:: console
+
+   host:~$ scp <bootloader> root@192.168.3.11:/tmp/
+
+The partitions boot1 and boot2 are read-only by default. To write to them from
+user space, you have to disable force_ro in the sysfs.
+
+To manually write the bootloader to the e.MMC boot partitions, first disable the
+write protection:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ echo 0 > /sys/block/|emmcdev|boot0/force_ro
+   target:~$ echo 0 > /sys/block/|emmcdev|boot1/force_ro
+
+Write the bootloader to the e.MMC boot partitions:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot0
+   target:~$ dd if=/tmp/<bootloader> of=/dev/|emmcdev|boot1
+
+The following table is for the offset of the |soc| SoC:
+
+===== ======================= =========== ==============
+SoC   Offset User Area        Offset Boot eMMC Device
+                              Partition
+===== ======================= =========== ==============
+|soc| |bootloader-offset| kiB 0 kiB       /dev/|emmcdev|
+===== ======================= =========== ==============
+
+After that set the boot partition from user space using the mmc tool:
+
+(for 'boot0') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 1 0 /dev/|emmcdev|
+
+(for 'boot1') :
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 2 0 /dev/|emmcdev|
+
+.. _emmc-disable-boot-part:
+
+To disable booting from the e.MMC boot partitions simply enter the following
+command:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 0 0 /dev/|emmcdev|
+
+To choose back to the user area u-boot environment:
+
+.. code-block:: console
+   :substitutions:
+
+   target:~$ mmc bootpart enable 7 0 /dev/|emmcdev|
+
+.. include:: /bsp/imx-common/resize-rootfs.rsti
+
+.. include:: ../peripherals/spi-master.rsti
+
+The definition of the SPI master node in the device tree can be found here:
+
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n75`
+
+GPIOs
+-----
+
+The |sbc| has a set of pins especially dedicated to user I/Os. Those pins are
+connected directly to |soc| pins and are muxed as GPIOs. They are directly
+usable in Linux userspace. The processor has organized its GPIOs into five banks
+of 32 GPIOs each (GPIO1 – GPIO5)
+GPIOs. gpiochip0, gpiochip32, gpiochip64, gpiochip96, and gpiochip128 are
+the sysfs representation of these internal |soc| GPIO banks GPIO1 – GPIO5.
+
+The GPIOs are identified as GPIO<X>_<Y> (e.g. GPIO5_07). <X> identifies the GPIO
+bank and counts from 1 to 5, while <Y> stands for the GPIO within the bank. <Y>
+is being counted from 0 to 31 (32 GPIOs on each bank).
+
+By contrast, the Linux kernel uses a single integer to enumerate all available
+GPIOs in the system. The formula to calculate the right number is:
+
+.. code-block::
+
+   Linux GPIO number: <N> = (<X> - 1) * 32 + <Y>
+
+Accessing GPIOs from userspace will be done using the libgpiod. It provides a
+library and tools for interacting with the Linux GPIO character device. Examples
+of some usages of various tools:
+
+*  Detecting the gpiochips on the chip:
+
+   .. code-block:: console
+
+      target:~$ gpiodetect
+      gpiochip0 [30200000.gpio] (32 lines)
+      gpiochip1 [30210000.gpio] (32 lines)
+      gpiochip2 [30220000.gpio] (32 lines)
+      gpiochip3 [30230000.gpio] (32 lines)
+      gpiochip4 [30240000.gpio] (32 lines)
+
+*  Show detailed information about the gpiochips. Like their names, consumers,
+   direction, active state, and additional flags:
+
+   .. code-block:: console
+
+      target:~$ gpioinfo gpiochip0
+
+*  Read the value of a GPIO (e.g GPIO 20 from chip0):
+
+   .. code-block:: console
+
+      target:~$ gpioget gpiochip0 20
+
+*  Set the value of GPIO 20 on chip0 to 0 and exit tool:
+
+   .. code-block:: console
+
+      target:~$ gpioset --mode=exit gpiochip0 20=0
+
+*  Help text of gpioset shows possible options:
+
+   .. code-block:: console
+
+      target:~$ gpioset --help
+      Usage: gpioset [OPTIONS] <chip name/number> <offset1>=<value1> <offset2>=<value2> ...
+      Set GPIO line values of a GPIO chip
+
+      Options:
+        -h, --help:           display this message and exit
+        -v, --version:        display the version and exit
+        -l, --active-low:     set the line active state to low
+        -m, --mode=[exit|wait|time|signal] (defaults to 'exit'):
+                      tell the program what to do after setting values
+        -s, --sec=SEC:        specify the number of seconds to wait (only valid for --mode=time)
+        -u, --usec=USEC:      specify the number of microseconds to wait (only valid for --mode=time)
+        -b, --background:     after setting values: detach from the controlling terminal
+
+      Modes:
+        exit:         set values and exit immediately
+        wait:         set values and wait for user to press ENTER
+        time:         set values and sleep for a specified amount of time
+        signal:       set values and wait for SIGINT or SIGTERM
+
+      Note: the state of a GPIO line controlled over the character device reverts to default
+      when the last process referencing the file descriptor representing the device file exits.
+      This means that it's wrong to run gpioset, have it exit and expect the line to continue
+      being driven high or low. It may happen if given pin is floating but it must be interpreted
+      as undefined behavior.
+
+.. warning::
+
+   Some of the user IOs are used for special functions. Before using a user IO,
+   refer to the schematic or the hardware manual of your board to ensure that it
+   is not already in use.
+
+GPIOs via sysfs
+...............
+
+.. warning::
+
+   Accessing gpios via sysfs is deprecated and we encourage to use libgpiod
+   instead.
+
+Support to access GPIOs via sysfs is not enabled by default any more.
+It is only possible with manually enabling ``CONFIG_GPIO_SYSFS`` in the kernel
+configuration. To make ``CONFIG_GPIO_SYSFS`` visible in menuconfig the option
+``CONFIG_EXPERT`` has to be enabled first.
+
+You can also add this option for example to the defconfig you use in
+``arch/arm64/configs/`` in the linux kernel sources. For our NXP based releases,
+this could be for example ``imx8_phytec_distro.config``::
+
+   ..
+   CONFIG_EXPERT=y
+   CONFIG_GPIO_SYSFS=y
+   ..
+
+Otherwise you can create a new config fragment. This is described in our
+`Yocto Reference Manual <yocto-ref-manual-kernel-and-bootloader-config_>`_.
+
+Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dtsi::
+
+   pinctrl_leds: leds1grp {
+           fsl,pins = <
+                   MX8MN_IOMUXC_GPIO1_IO01_GPIO1_IO1       0x16
+                   MX8MN_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x16
+                   MX8MN_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x16
+           >;
+   };
+
+LEDs
+----
+
+If any LEDs are connected to GPIOs, you have the possibility to access them by a
+special LED driver interface instead of the general GPIO interface (section
+GPIOs). You will then access them using ``/sys/class/leds/`` instead
+of ``/sys/class/gpio/``. The maximum brightness of the LEDs can be read from
+the ``max_brightness`` file. The brightness file will set the brightness of the
+LED (taking a value from 0 up to max_brightness). Most LEDs do not have
+hardware brightness support and will just be turned on by all non-zero
+brightness settings.
+
+Below is a simple example.
+
+To get all available LEDs, type:
+
+.. code-block:: console
+
+   target:~$ ls /sys/class/leds
+   mmc1::@    mmc2::@    user-led1@ user-led2@ user-led3@
+
+Here the LEDs blue-mmc, green-heartbeat, and red-emmc are on the |sbc|.
+
+*  To toggle the LEDs ON:
+
+   .. code-block:: console
+
+      target:~$ echo 255 > /sys/class/leds/user-led1/brightness
+
+*  To toggle OFF:
+
+   .. code-block:: console
+
+      target:~$ echo 0 > /sys/class/leds/user-led1/brightness
+
+Device tree configuration for the User I/O configuration can be found here:
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n35`
+
+.. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
+
+General I²C1 bus configuration (e.g. |dt-som|.dtsi):
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n98`
+
+General I²C3 bus configuration (e.g. |dt-carrierboard|.dtsi):
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n147`
+
+EEPROM
+------
+
+On the |som| there is an i2c EEPROM flash populated. It has two addresses. The
+main EEPROM space (bus: I2C-0 address: 0x51) and the ID-page (bus: I2C-0
+address: 0x59) can be accessed via the sysfs interface in Linux. The first
+256 bytes of the main EEPROM and the ID-page are used for board detection and
+must not be overwritten. Overwriting reserved spaces will result in boot issues.
+
+.. include:: ../peripherals/eeprom.rsti
+
+Rescue EEPROM Data
+..................
+
+The hardware introspection data is pre-written on both EEPROM data spaces. If
+you have accidentally deleted or overwritten the normal area, you can copy the
+hardware introspection from the ID area to the normal area.
+
+.. code-block:: console
+
+   target:~$ dd if=/sys/class/i2c-dev/i2c-0/device/0-0059/eeprom of=/sys/class/i2c-dev/i2c-0/device/0-0051/eeprom bs=1
+
+.. note::
+
+   If you deleted both EEPROM spaces, please contact our support!
+
+DT representation, e.g. in |som| file |dt-som|.dtsi can be
+found in our PHYTEC git:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy17#n248`
+
+.. include:: /bsp/peripherals/rtc.rsti
+   :end-before: .. rtc_parameter_start_label
+
+DT representation for I²C RTCs:
+:imx-dt:`imx8mn-phycore-som.dtsi?h=v5.10.72_2.2.0-phy9#n254`
+
+USB Host Controller
+-------------------
+
+The USB controller of the |soc| SoC provides a low-cost connectivity solution
+for numerous consumer portable devices by providing a mechanism for data
+transfer between USB devices with a line/bus speed up to 480 Mbps (HighSpeed
+'HS').
+
+The |soc| SoC has a single USB controller core that is set to OTG mode.
+To use the micro USB / OTG port dip switch S1 Pos5 has to be set to on.
+
+.. include:: /bsp/peripherals/usb-host.rsti
+
+.. include:: /bsp/peripherals/usb-otg.rsti
+
+Both USB interfaces are configured as host in the kernel device tree
+|dt-carrierboard|.dtsi. See:
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n206`
+
+CAN FD
+------
+
+The |sbc| has one CAN interface supporting CAN FD. It is supported by the
+Linux standard CAN framework which builds upon then the Linux network layer.
+Using this framework, the CAN interfaces behave like an ordinary Linux network
+device, with some additional features special to CAN. More information can be
+found in the Linux Kernel
+documentation: https://www.kernel.org/doc/html/latest/networking/can.html
+
+.. Hint::
+
+   phyBOARD-Polis has an external CANFD chip MCP2518FD connected over SPI.
+   There are different interfaces involved, which limits the datarate
+   capabilities of CANFD.
+
+.. Hint::
+
+   On phyBOARD-Polis-i.MX8MN a terminating resistor can be enabled by setting
+   S5 to ON if required.
+
+.. include:: ../peripherals/canfd.rsti
+
+Device Tree CAN configuration of |dt-carrierboard|.dtsi:
+:imx-dt:`imx8mn-phyboard-polis.dtsi?h=v5.10.72_2.2.0-phy17#n104`
+
+.. include:: ../peripherals/pm.rsti
+
+.. include:: ../peripherals/tm.rsti
+
+.. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: ../peripherals/ocotp-ctrl.rsti
+
+.. +---------------------------------------------------------------------------+
+..                          BSP EXTENSIONS
+.. +---------------------------------------------------------------------------+
+
+BSP Extensions
+==============
+
+Chromium
+--------
+
+Our BSP for the |sbc|-|soc| supports Chromium. You can include it in the
+|yocto-imagename| with only a few steps.
+
+Adding Chromium to Your local.conf
+..................................
+
+To include Chromium you have to add the following line into your local.conf. You
+can find it in <yocto_dir>/build/conf/local.conf. This adds Chromium to your
+next image build. ::
+
+   IMAGE_INSTALL_append = " chromium-ozone-wayland"
+
+.. note::
+
+   Compiling Chromium takes a long time.
+
+Get Chromium Running on the Target
+..................................
+
+To run Chromium, it needs a few arguments to use the hardware graphics
+acceleration::
+
+   target$ chromium --use-gl=desktop --enable-features=VaapiVideoDecoder --no-sandbox
+
+If you want to start Chromium via SSH, you must first define the display on
+which Chromium will run. For example::
+
+   target$ DISPLAY=:0
+
+After you have defined this, you can start it via virtual terminal on Weston as
+shown above.
