@@ -407,6 +407,7 @@ only the one Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
 
 .. include:: ../../peripherals/wireless-network.rsti
 
+.. include:: peripherals/fuse.rsti
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
