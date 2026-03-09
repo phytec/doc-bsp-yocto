@@ -282,6 +282,31 @@ To revert to the old style of booting, you may do
 
 .. _imx8mm-head-development-build-uboot:
 .. include:: /bsp/imx-common/development/standalone_build_u-boot_binman.rsti
+
+Build U-Boot With a Fixed SOM revision
+......................................
+
+Starting with i.MX8MM PD25.1.1 phyCORE-i.MX8MM has optimized RAM timings for different
+PCB revisions. During boot the correct revision is detected over the EEPROM data.
+If this is not possible the PCB revision can be set fix during compile time.
+
+Follow the steps to get the U-boot sources and check the correct branch in the
+**Build U-Boot** section.
+
+Edit the file configs/|u-boot-defconfig|:
+
+.. code-block:: kconfig
+   :substitutions:
+
+   CONFIG_TARGET_|u-boot-socname-config|=y
+   CONFIG_|u-boot-socname-config|_RAM_STATIC_SOM_REV=y
+   # CONFIG_|u-boot-socname-config|_USE_SOM_REV_6=y
+   # CONFIG_|u-boot-socname-config|_USE_SOM_REV_7=y
+
+Choose the correct PCB revision as printed on the SoM and uncomment the line for
+the revision.
+After saving the changes, follow the remaining steps from |ref-build-uboot|.
+
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
 
