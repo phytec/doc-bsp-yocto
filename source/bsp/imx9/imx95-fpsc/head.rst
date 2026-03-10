@@ -41,6 +41,8 @@
 .. |kernel-socname| replace:: imx95
 .. |kernel-tag| replace:: v6.12.34-2.1.0-phy9
 .. |emmcdev| replace:: mmcblk0
+.. |led-names| replace:: red:status, green:status and blue:status
+.. |led-example| replace:: red:status
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx95-phyflex-libra-rdk_defconfig
@@ -427,6 +429,8 @@ General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
 :linux-phytec-imx:`tree/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L242`
 
+.. include:: /bsp/peripherals/leds.rsti
+
 CAN FD
 ------
 
@@ -441,6 +445,14 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
   :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
+
+RS232/RS485
+-----------
+
+.. include:: /bsp/peripherals/rs232.rsti
+
+.. include:: /bsp/peripherals/rs485.rsti
+.. include:: /bsp/peripherals/rs485-halfduplex.rsti
 
 EEPROM
 ------
@@ -504,6 +516,8 @@ connected to a USB 3.0 PHY.
 
 DT representation for USB Host:
 :linux-phytec-imx:`tree/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
+
+.. include:: /bsp/peripherals/usb-device.rsti
 
 .. include:: /bsp/peripherals/video.rsti
 
