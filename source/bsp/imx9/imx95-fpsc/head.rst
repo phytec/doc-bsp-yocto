@@ -24,8 +24,8 @@
 .. |soc| replace:: i.MX 95
 .. |socfamily| replace:: i.MX 9
 .. |som| replace:: phyFLEX-|soc| FPSC
-.. |debug-uart| replace:: ttyLP6
-.. |serial-uart| replace:: ttyLP7
+.. |debug-uart| replace:: ttyLP3
+.. |serial-uart| replace:: ttyLP1
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X56
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
