@@ -109,6 +109,27 @@ Execute and power up the board:
 
    host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
+.. uuu-flash-sdcard-marker
+
+Flashing U-Boot to SD Card via UUU
+..................................
+
+Execute and power up the board:
+
+.. code-block:: console
+
+   host:~$ sudo uuu -b sd imx-boot
+
+Flashing wic Image to SD Card via UUU
+.....................................
+
+Execute and power up the board:
+
+.. code-block:: console
+   :substitutions:
+
+   host:~$ sudo uuu -b sd_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
+
 .. uuu-flash-spinor-marker
 
 Flashing SPI NOR Flash via UUU
