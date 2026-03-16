@@ -50,7 +50,7 @@
 +-------------------------------------+------------------+------------------+------------+
 | Compatible BSPs                     | BSP Release Type | BSP Release Date | BSP Status |
 +=====================================+==================+==================+============+
-| BSP-Yocto-NXP-i.MX95-ALPHA2         | ALPHA            | q1 2026          | unreleased |
+| BSP-Yocto-NXP-i.MX95-ALPHA2         | ALPHA            | 2026/03/06       | Released   |
 +-------------------------------------+------------------+------------------+------------+
 
 This manual applies to all |yocto-codename| based PHYTEC releases.

@@ -12,6 +12,16 @@ HEAD
 
    head
 
+BSP-Yocto-NXP-i.MX95-ALPHA2
+===================================
+
+.. toctree::
+   :caption: Table of Contents
+   :numbered:
+   :maxdepth: 2
+
+   alpha2
+
 Quickstart Guide ALPHA1
 =======================
 

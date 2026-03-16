@@ -14,10 +14,10 @@
 .. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA2/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/imx-boot-tools/
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA2/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx95
-.. _`static-pdf-dl`: ../../../_static/imx95-fpsc-head.pdf
+.. _`static-pdf-dl`: ../../../_static/imx95-fpsc-alpha2.pdf
 
 .. General Substitutions
-.. |doc-id| replace:: Head
+.. |doc-id| replace:: ALPHA2
 .. |kit| replace:: **phyFLEX-i.MX 95 Libra Rapid Development Kit**
 .. |kit-ram-size| replace:: 8GiB
 .. |sbc| replace:: phyFLEX Libra RDK
@@ -90,17 +90,17 @@
 .. |yocto-sdk-a-core| replace:: cortexa55-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx95-fpsc-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx95-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx95-fpsc-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx95-fpsc-head-device-tree>`
-.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx95-fpsc-head-supported-hardware>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx95-fpsc-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx95-fpsc-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx95-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-fpsc-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-fpsc-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-fpsc-head-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx95-fpsc-alpha2-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx95-fpsc-alpha2-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx95-fpsc-alpha2-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx95-fpsc-alpha2-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx95-fpsc-alpha2-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx95-fpsc-alpha2-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx95-fpsc-alpha2-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx95-fpsc-alpha2-development>`
+.. |ref-usb-otg| replace:: :ref:`X18 (upper connector) <imx95-fpsc-alpha2-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx95-fpsc-alpha2-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx95-fpsc-alpha2-format-sd>`
 
 .. IMX95 specific
 .. |gpu-model| replace:: MALI G310
@@ -109,15 +109,15 @@
    can be found here:
    :linux-phytec-imx:`tree/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L196`.
 
-.. |ref-serial| replace:: :ref:`X27 <imx95-fpsc-head-components>`
-.. |ref-S5| replace:: :ref:`S5 <imx95-fpsc-head-components>`
+.. |ref-serial| replace:: :ref:`X27 <imx95-fpsc-alpha2-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx95-fpsc-alpha2-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx95-fpsc-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx95-fpsc-alpha2-ubootexternalenv>`
 
 .. |jtag-target-interface| replace:: S
 .. |jtag-soc-doc-link| replace:: https://kb.segger.com/NXP_i.MX_95
 
-.. _imx95-fpsc-head-bsp-manual:
+.. _imx95-fpsc-alpha2-bsp-manual:
 
 .. only:: html
 
@@ -125,10 +125,10 @@
 
 +-----------------------+----------------------+
 | |doc-id| |soc| BSP    |                      |
-| Manual Head           |                      |
+| Manual                |                      |
 +-----------------------+----------------------+
 | Document Title        | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+|                       | Manual               |
 +-----------------------+----------------------+
 | Document Type         | BSP Manual           |
 +-----------------------+----------------------+
@@ -139,7 +139,7 @@
 | Release Date          | 2026/03/06           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
+|                       | Manual               |
 +-----------------------+----------------------+
 
 The table below shows the Compatible BSPs for this manual:
@@ -153,7 +153,7 @@ BSP-Yocto-NXP-i.MX95-ALPHA2    ALPHA            2026/03/06        Released
 
 .. include:: /bsp/intro.rsti
 
-.. _imx95-fpsc-head-supported-hardware:
+.. _imx95-fpsc-alpha2-supported-hardware:
 
 Supported Hardware
 ------------------
@@ -168,14 +168,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx95-fpsc-head-components:
+.. _imx95-fpsc-alpha2-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-fpsc-head-getting-started:
+.. _imx95-fpsc-alpha2-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -198,7 +198,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx95-fpsc-head-images:
+.. _imx95-fpsc-alpha2-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -238,7 +238,7 @@ Bootmode Switch (S1)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx95-fpsc-head-bootswitch:
+.. _imx95-fpsc-alpha2-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
@@ -252,7 +252,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-fpsc-head-development:
+.. _imx95-fpsc-alpha2-development:
 
 Development
 ===========
@@ -276,7 +276,7 @@ You can build the SDK yourself with Yocto:
 .. include:: /bsp/imx-common/development/standalone_build_preface.rsti
    :start-after: .. install-sdk-marker
 
-.. _imx95-fpsc-head-development-build-uboot:
+.. _imx95-fpsc-alpha2-development-build-uboot:
 .. include:: development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
@@ -288,7 +288,7 @@ You can build the SDK yourself with Yocto:
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. _imx95-fpsc-head-format-sd:
+.. _imx95-fpsc-alpha2-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -332,7 +332,7 @@ only the script method is supported.
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx95-fpsc-head-device-tree:
+.. _imx95-fpsc-alpha2-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -361,7 +361,7 @@ only the script method is supported.
    imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi2.dtbo
    imx95-phyflex-fpsc-g-som-temperature.dtbo
 
-.. _imx95-fpsc-head-ubootexternalenv:
+.. _imx95-fpsc-alpha2-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -394,7 +394,7 @@ resistors are enabled.
 The device tree representation for UART1 pinmuxing:
 :linux-phytec-imx:`tree/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L264`
 
-.. _imx95-fpsc-head-network:
+.. _imx95-fpsc-alpha2-network:
 
 Ethernet
 --------
