@@ -340,6 +340,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx9/imx95-fpsc/alpha2',
+        'imx95-fpsc-alpha2.tex',
+        'phyFLEX-i.MX 95 FPSC BSP Manual ALPHA2',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx9/imx95-fpsc/quickstart-alpha1',
         'imx95-fpsc-quickstart-alpha1.tex',
         'phyCORE-i.MX 95 FPSC Quickstart Guide ALPHA1',
