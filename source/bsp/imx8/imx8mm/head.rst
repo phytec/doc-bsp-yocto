@@ -1,23 +1,23 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD25.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MM-PD25.1.1
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-mini/nano/#downloads
 .. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/
 .. |dl-server-link| replace:: |dl-server|_
 .. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/sdk/ampliphy-vendor/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.1/sdk/ampliphy-vendor/
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.0/images/ampliphy-vendor/phyboard-polis-imx8mm-5/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.1/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.1/images/ampliphy-vendor/phyboard-polis-imx8mm-5/phytec-qt6demo-image-phyboard-polis-imx8mm-5.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.1/images/ampliphy-vendor/phyboard-polis-imx8mm-5/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MM/BSP-Yocto-NXP-i.MX8MM-PD25.1.1/images/ampliphy-vendor/phyboard-polis-imx8mm-5/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mm
 .. _`static-pdf-dl`: ../../../_static/imx8mm-head.pdf
 
 .. IMX8(MM) specific
-.. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2024.04-2.2.0-phy10#n129
+.. _overlaycallback: https://github.com/phytec/u-boot-phytec-imx/blob/v2024.04-2.2.0-phy25/board/phytec/phycore_imx8mm/phycore-imx8mm.c#L130
 
 .. General Replacements
 .. |doc-id| replace:: L-1002e.Ax
@@ -40,7 +40,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mm
-.. |kernel-tag| replace:: v6.6.52-2.2.0-phy9
+.. |kernel-tag| replace:: v6.6.52-2.2.0-phy26
 .. |emmcdev| replace:: mmcblk2
 .. |led-names| replace:: led-0, led-1 and led-2
 .. |led-example| replace:: led-1
@@ -53,17 +53,17 @@
 .. |u-boot-emmc-devno| replace:: 2
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-imx
-.. |u-boot-repo-url| replace:: git://git.phytec.de/u-boot-imx
+.. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
 .. |emmcdev-uboot| replace:: mmc 2
 .. |sdcarddev-uboot| replace:: mmc 1
 
 .. IMX8(MM) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MM
-.. |u-boot-tag| replace:: v2024.04-2.2.0-phy10
+.. |u-boot-tag| replace:: v2024.04-2.2.0-phy25
 
 .. RAUC
-.. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
-.. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
+.. |rauc-manual| replace:: Scarthgap RAUC Update & Device Management Manual
+.. _rauc-manual: ../../../rauc/scarthgap.html
 
 .. Devicetree
 .. |dt-carrierboard| replace:: imx8mm-phyboard-polis-rdk
@@ -71,7 +71,7 @@
 .. |dtbo-rpmsg| replace:: imx8mm-phycore-rpmsg.dtbo
 
 .. IMX8(MM) specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L50`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L58`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -82,7 +82,7 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-polis-imx8mm-5
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD25.1.0
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MM-PD25.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MM-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MM-PD25.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
@@ -445,7 +445,7 @@ numbers of these UART units. UART1 can also be used as RS-485. For this,
 .. include:: /bsp/peripherals/rs485-halfduplex.rsti
 
 The device tree representation for RS232 and RS485:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L297`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L296`
 
 .. _imx8mm-head-network:
 
@@ -479,10 +479,10 @@ https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLW
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L381`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L382`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L293`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L336`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -490,7 +490,7 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L77`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L86`
 
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
@@ -509,15 +509,15 @@ Pinmuxing of some GPIO pins in the device tree |dt-carrierboard|.dts:
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L47`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L46`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L105`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L114`
 
 General I²C4 bus configuration (e.g. |dt-carrierboard|.dts):
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L246`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L245`
 
 EEPROM
 ------
@@ -537,12 +537,12 @@ Overwriting reserved spaces will result in boot issues.
 
 DT representation, e.g. in |som| file |dt-som|.dtsi can be
 found in our PHYTEC git:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L278`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L316`
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L286`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi#L324`
 
 USB Host Controller
 -------------------
@@ -569,13 +569,12 @@ User USB2 (host) configuration is in the kernel device tree
    };
 
 DT representation for USB Host:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L353`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L354`
 
 .. include:: /bsp/peripherals/usb-otg.rsti
 
-Both USB interfaces are configured as host in the kernel device tree
-|dt-carrierboard|.dts. See:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L342`
+DT representation for USB Device:
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L341`
 
 CAN FD
 ------
@@ -601,12 +600,12 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L178`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L184`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L260`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L260`
 
 Audio
 -----
@@ -621,7 +620,7 @@ headphones, and line-in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtsi#L52`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtsi#L45`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -652,7 +651,7 @@ If the PEB-AV-Adapter is not connected, an error message may occur at boot.
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 The device tree of PEB-AV-10 can be found here:
-:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso`
+:linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso`
 
 .. include:: /bsp/peripherals/gpu.rsti
 
