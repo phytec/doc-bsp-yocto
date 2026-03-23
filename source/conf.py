@@ -49,7 +49,7 @@ extlinks = {
     'linux-phytec': ('https://github.com/phytec/linux-phytec/%s', None),
     'linux-phytec-imx': ('https://github.com/phytec/linux-phytec-imx/%s', None),
     'linux-phytec-ti': ('https://github.com/phytec/linux-phytec-ti/%s', None),
-    'yocto-bootenv': ('https://git.phytec.de/meta-phytec/tree/recipes-bsp/bootenv?h=%s', None)
+    'yocto-bootenv': ('https://github.com/phytec/meta-phytec/tree/%s/recipes-bsp/bootenv', None)
 }
 
 extlinks_detect_hardcoded_links = True
