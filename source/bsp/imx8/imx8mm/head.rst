@@ -98,7 +98,7 @@
 .. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mm-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mm-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mm-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-development>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mm-head-host-net-setup>`
 .. |ref-usb-otg| replace:: :ref:`X2 <imx8mm-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mm-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mm-head-format-sd>`
@@ -309,6 +309,8 @@ After saving the changes, follow the remaining steps from |ref-build-uboot|.
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
+
+.. _imx8mm-head-host-net-setup:
 
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
