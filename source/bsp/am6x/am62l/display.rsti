@@ -15,7 +15,7 @@ The name can be found on the back of the display.
 ========= ======================== ======================================
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
-LVDS1     |sbc|                    k3-am62l3-libra-fpsc-lvds-ac209.dtbo
+LVDS1     |sbc|                    k3-am62l3-phyflex-libra-lvds.dtbo
 ========= ======================== ======================================
 
 .. supported-display-interfaces-marker-end

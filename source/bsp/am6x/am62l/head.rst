@@ -33,13 +33,13 @@
 .. |vendor| replace:: TI
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: phytec_ti_defconfig
+.. |kernel-defconfig| replace:: am62lx_phyflex_fpsc_g_defconfig
 .. |kernel-primary-ethernet| replace:: end0
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-ti_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-ti
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-ti
 .. |kernel-socname| replace:: am62l-fpsc
-.. |kernel-tag| replace:: v6.12.35-11.01.05-phy
+.. |kernel-tag| replace:: v6.12.57-11.02.11-phy
 .. |emmcdev| replace:: mmcblk0
 .. |led-names| replace:: led-1, led-2 and led-3
 .. |led-example| replace:: led-1
@@ -58,20 +58,20 @@
 
 .. AM62L specific
 .. |u-boot-socname-config| replace:: AM62L_LIBRA
-.. |u-boot-tag| replace:: 11.01.02
+.. |u-boot-tag| replace:: 11.02.11
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
 
 .. Devicetree
-.. |dt-carrierboard| replace:: k3-am62l3-libra-rdk-fpsc
-.. |dt-som| replace:: k3-am62l-phyflex-fpsc
+.. |dt-carrierboard| replace:: k3-am62l3-phyflex-libra-rdk
+.. |dt-som| replace:: k3-am62l-phyflex-fpsc-g-som
 
 .. AM62L specific
-.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L148`
+.. |dt-somnetwork| replace:: :linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g-som.dtsi#L143`
    `
-.. |dt-gpio-expander| replace:: :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L274`
+.. |dt-gpio-expander| replace:: :linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L313`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
@@ -81,10 +81,10 @@
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
-.. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
+.. |yocto-machinename| replace:: am62lxx-phyflex-libra-rdk-2
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-AM62Lx-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD25.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
@@ -104,9 +104,9 @@
 
 .. AM62L specific
 .. |sbc-network| replace::
-   The device tree set up for EQOS Ethernet IP core where the PHY is populated
+   The device tree set up for CPSW Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L213`.
+   :linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L247`.
 
 .. |ref-serial| replace:: :ref:`X27 <am62l-fpsc-head-components>`
 .. |ref-S5| replace:: :ref:`S5 <am62l-fpsc-head-components>`
@@ -141,14 +141,13 @@
 |                       | BSP Manual Head      |
 +-----------------------+----------------------+
 
-The table below shows the Compatible BSPs for this manual:
+The table below shows the compatible BSPs for this manual:
 
-================================= ================ ================= ==============
-Compatible BSPs                   BSP Release Type BSP Release  Date BSP Status
+=================================== ================= ================= ===============
+Compatible BSPs                     BSP Release Type  BSP Release  Date BSP Status
 
-================================= ================ ================= ==============
-BSP-Yocto-Ampliphy-AM62Lx-ALPHA2  Alpha            2025/07/10        Released
-================================= ================ ================= ==============
+=================================== ================= ================= ===============
+=================================== ================= ================= ===============
 
 .. include:: /bsp/intro.rsti
 
@@ -202,7 +201,7 @@ First Start-up
 
 *  **u-boot.img**: U-Boot bootloader image
 *  **oftree**: Default kernel device tree
-*  **ti-boot3.bin**: First stage bootloader (R5 SPL)
+*  **tiboot3.bin**: First stage bootloader (TF-A BL1)
 *  **tispl.bin**: Secondary program loader (SPL)
 *  **bl1.bin**: ARM Trusted Firmware binary
 *  **bl31.bin**: ARM Trusted Firmware binary
@@ -210,7 +209,7 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **k3-am62l32-libra-fpsc*.dtb**: Kernel device tree file
+*  **k3-am62l32-phyflex-libra-rdk*.dtb**: Kernel device tree file
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
 
@@ -226,7 +225,7 @@ Bootmode Switch (S1)
 
 .. tip::
 
-   Hardware revision baseboard: 1618.1
+   Hardware revision baseboard: 1618.1a
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
@@ -359,7 +358,7 @@ for the pad, i.e. which peripheral signal is connected to it. In this case, 0
 corresponds to the default mux option for UART0.
 
 The device tree representation for UART0 pinmuxing:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L150`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L190`
 
 RS232
 -----
@@ -392,7 +391,7 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
       host:~$ cat /dev/ttyUSB2
 
 The device tree representation for RS232:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L327`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L358`
 
 .. _am62l-fpsc-head-network:
 
@@ -437,12 +436,12 @@ device must then be configured as follows:
 .. include:: /bsp/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L272`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g.dtsi#L274`
 and
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L355`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L394`
 
 DT configuration for the e.MMC interface can be found here:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L263`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g.dtsi#L263`
 
 .. include:: emmc.rsti
 
@@ -520,7 +519,7 @@ DT configuration for the e.MMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L335`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L374`
 
 .. include:: gpios.rsti
 
@@ -551,15 +550,15 @@ ADC_IN7        10
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L251`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L290`
 
 .. include:: /bsp/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L172`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g.dtsi#L172`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L233`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L272`
 
 EEPROM
 ------
@@ -576,7 +575,7 @@ On the |som| SoM:
    *  Purpose: Factory configuration for board identification
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L249`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g.dtsi#L249`
 
 And on the |sbc| carrier board:
 
@@ -587,17 +586,17 @@ And on the |sbc| carrier board:
    *  Purpose: Reserved for carrier board identification
 
 Device Tree Reference for Carrier Board:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L238`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L277`
 
 .. include:: /bsp/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l-phycore-fpsc.dtsi#L257`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l-phyflex-fpsc-g.dtsi#L257`
 
 And the addions on the carrierboard:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L228`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L267`
 
 USB Host Controller
 -------------------
@@ -612,7 +611,7 @@ connected to a USB 2.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L382`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L421`
 
 CAN FD
 ------
@@ -634,7 +633,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: ../peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-rdk-fpsc.dts#L306`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-rdk.dts#L345`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -645,7 +644,7 @@ Device Tree CAN configuration of |dt-carrierboard|.dts:
 .. include:: /bsp/peripherals/display.rsti
 
 Device tree description of LVDS-0 can be found here:
-:linux-phytec-ti:`tree/v6.12.35-11.01.05-phy/arch/arm64/boot/dts/ti/k3-am62l3-libra-fpsc-lvds-ac209.dtso#L16`
+:linux-phytec-ti:`tree/v6.12.57-11.02.11-phy/arch/arm64/boot/dts/ti/k3-am62l3-phyflex-libra-lvds-ac209.dtso#L16`
 
 .. include:: /bsp/am6x/peripherals/pm.rsti
 
