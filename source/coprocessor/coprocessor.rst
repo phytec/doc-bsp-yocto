@@ -13,16 +13,6 @@
    We value your feedback, questions, and suggestions and encourage you to open
    an issue or pull request in the linked repository to get in contact.
 
-+-----------------------------------------------------------------+
-| Coprocessor Application Manual                                  |
-+================================+================================+
-| Document Title                 | Coprocessor Application Manual |
-+--------------------------------+--------------------------------+
-| Document Type                  | Generic Application Guide      |
-+--------------------------------+--------------------------------+
-| Release Date                   | XXXX/XX/XX                     |
-+--------------------------------+--------------------------------+
-
 This manual applies to all Phytec releases from kernel version x.
 
 Introduction

@@ -114,28 +114,14 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |soc| BSP Manual                             |
-+-----------------------+----------------------+
-| Document Title        | |soc| BSP Manual     |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Yocto Manual          | Scarthgap            |
-+-----------------------+----------------------+
-| Release Date          | 2025/03/21           |
-+-----------------------+----------------------+
-| Is Branch of          | |soc| BSP Manual     |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ================ ==========
-Compatible BSPs      BSP Release Type BSP Release Date BSP Status
+==================== ================ ============= ================ ==========
+Compatible BSPs      BSP Release Type Yocto Version BSP Release Date BSP Status
 
-==================== ================ ================ ==========
-|yocto-manifestname| Minor            2025/03/21       Released
-==================== ================ ================ ==========
+==================== ================ ============= ================ ==========
+|yocto-manifestname| Minor            Scarthgap     2025/03/21       Released
+==================== ================ ============= ================ ==========
 
 .. include:: ../../intro.rsti
 

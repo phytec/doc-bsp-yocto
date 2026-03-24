@@ -114,33 +114,14 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |doc-id| |soc| BSP    |                      |
-| ManualHead            |                      |
-+-----------------------+----------------------+
-| Document Title        | |doc-id| |soc| BSP   |
-|                       | Mainline Manual Head |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Article Number        | |doc-id|             |
-+-----------------------+----------------------+
-| Yocto Manual          |                      |
-+-----------------------+----------------------+
-| Release Date          | XXXX/XX/XX           |
-+-----------------------+----------------------+
-| Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Mainline Manual Head |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ================= ==========
-Compatible BSPs  BSP Release Type BSP Release  Date BSP Status
+================ ================ ============= ================= ==========
+Compatible BSPs  BSP Release Type Yocto Version BSP Release Date  BSP Status
 
-================ ================ ================= ==========
+================ ================ ============= ================= ==========
 ..
-================ ================ ================= ==========
+================ ================ ============= ================= ==========
 
 .. include:: ../../intro.rsti
 

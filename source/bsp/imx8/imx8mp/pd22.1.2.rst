@@ -111,28 +111,14 @@
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
 
-+-----------------------+----------------------+
-| |soc| BSP Manual                             |
-+-----------------------+----------------------+
-| Document Title        | |soc| BSP Manual     |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Yocto Manual          |                      |
-+-----------------------+----------------------+
-| Release Date          | 2024/08/05           |
-+-----------------------+----------------------+
-| Is Branch of          | |soc| BSP Manual     |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ================= ==========
-Compatible BSPs      BSP Release Type BSP Release  Date BSP Status
+==================== ================ ============= ================= ==========
+Compatible BSPs      BSP Release Type Yocto Version BSP Release Date  BSP Status
 
-==================== ================ ================= ==========
-|yocto-manifestname| Minor            2024/08/05        Released
-==================== ================ ================= ==========
+==================== ================ ============= ================= ==========
+|yocto-manifestname| Minor            Hardknott     2024/08/05        Released
+==================== ================ ============= ================= ==========
 
 .. include:: ../../intro.rsti
 
