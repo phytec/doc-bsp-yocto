@@ -171,6 +171,8 @@ should show you the necessary **Machine Name** for your specific hardware
 .. _imx95-fpsc-alpha2-components:
 .. include:: components.rsti
 
+.. include:: changelog.rst
+
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
