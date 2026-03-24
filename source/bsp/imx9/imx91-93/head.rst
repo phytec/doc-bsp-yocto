@@ -840,4 +840,4 @@ Device tree TPM configuration can be found here:
 .. i.MX 93 NPU
 .. +---------------------------------------------------------------------------+
 
-.. include:: /bsp/imx9/imx91_imx93/peripherals/npu.rsti
+.. include:: /bsp/imx9/imx91-93/peripherals/npu.rsti
