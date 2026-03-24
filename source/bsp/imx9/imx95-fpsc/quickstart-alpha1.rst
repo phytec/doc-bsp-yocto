@@ -22,33 +22,14 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |doc-id| |soc|        |                      |
-| Quickstart Guide      |                      |
-+-----------------------+----------------------+
-| Document Title        | |doc-id| |soc|       |
-|                       | Quickstart Guide     |
-+-----------------------+----------------------+
-| Document Type         | Quickstart Guide     |
-+-----------------------+----------------------+
-| Article Number        | |doc-id|             |
-+-----------------------+----------------------+
-| Yocto Manual          | Scarthgap            |
-+-----------------------+----------------------+
-| Release Date          | 2025/06/02           |
-+-----------------------+----------------------+
-| Is Branch of          | |doc-id| |soc|       |
-|                       | Quickstart Guide     |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ================= ==============
-Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
+============================== ================ ============= ================= ==============
+Compatible BSPs                BSP Release Type Yocto Version BSP Release Date  BSP Status
 
-============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            2025/06/02        Released
-============================== ================ ================= ==============
+============================== ================ ============= ================= ==============
+BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            Scarthgap     2025/06/02        Released
+============================== ================ ============= ================= ==============
 
 Introduction
 ============

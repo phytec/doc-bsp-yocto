@@ -129,33 +129,14 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |doc-id| |soc| BSP    |                      |
-| ManualHead            |                      |
-+-----------------------+----------------------+
-| Document Title        | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Article Number        | |doc-id|             |
-+-----------------------+----------------------+
-| Yocto Manual          |                      |
-+-----------------------+----------------------+
-| Release Date          | XXXX/XX/XX           |
-+-----------------------+----------------------+
-| Is Branch of          | |doc-id| |soc| BSP   |
-|                       | Manual Head          |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ================= ==============
-Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
+============================== ================ ============= ================= ==============
+Compatible BSPs                BSP Release Type Yocto Version BSP Release Date  BSP Status
 
-============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX8MP-PD26.1.0 major            q2 2026           in development
-============================== ================ ================= ==============
+============================== ================ ============= ================= ==============
+BSP-Yocto-NXP-i.MX8MP-PD26.1.0 major            Walnascar     Q2 2026           in development
+============================== ================ ============= ================= ==============
 
 .. include:: ../../intro.rsti
 

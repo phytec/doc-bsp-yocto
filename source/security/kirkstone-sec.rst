@@ -19,18 +19,6 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------+----------------------------------+
-| Security Manual |                                  |
-+=================+==================================+
-| Document Title  | Security Manual |yocto-codename| |
-+-----------------+----------------------------------+
-| Document Type   | Security Manual                  |
-+-----------------+----------------------------------+
-| Last modified   | 2025/08/27                       |
-+-----------------+----------------------------------+
-| Is Branch of    | Security Manual                  |
-+-----------------+----------------------------------+
-
 +-------------------------------------+--------------+--------------+-----------+
 || Compatible BSPs                    || BSP Release || BSP Release || Security |
 ||                                    || Type        || Date        || Support  |

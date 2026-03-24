@@ -35,16 +35,6 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-------------------------------------------------------------+
-| |yocto-ref-manual|                                          |
-+=======================+=====================================+
-| Document Title        | |yocto-ref-manual| |yocto-codename| |
-+-----------------------+-------------------------------------+
-| Document Type         | Yocto Manual                        |
-+-----------------------+-------------------------------------+
-| Is Branch of          | |yocto-ref-manual|                  |
-+-----------------------+-------------------------------------+
-
 .. _yocto-man-master:
 
 .. include:: ../phytec-documentation.rsti

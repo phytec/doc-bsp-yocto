@@ -127,28 +127,14 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-+-----------------------+----------------------+
-| |soc| BSP Manual                             |
-+-----------------------+----------------------+
-| Document Title        | |soc| BSP Manual     |
-+-----------------------+----------------------+
-| Document Type         | BSP Manual           |
-+-----------------------+----------------------+
-| Yocto Manual          | Kirkstone            |
-+-----------------------+----------------------+
-| Release Date          | 2024/01/10           |
-+-----------------------+----------------------+
-| Is Branch of          | |soc| BSP Manual     |
-+-----------------------+----------------------+
-
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ================ ==========
-Compatible BSPs      BSP Release Type BSP Release Date BSP Status
+==================== ================ ============= ================ ==========
+Compatible BSPs      BSP Release Type Yocto Version BSP Release Date BSP Status
 
-==================== ================ ================ ==========
-|yocto-manifestname| Major            2023/12/12       Released
-==================== ================ ================ ==========
+==================== ================ ============= ================ ==========
+|yocto-manifestname| Major            Kirkstone     2023/12/12       Released
+==================== ================ ============= ================ ==========
 
 .. include:: ../../intro.rsti
 
