@@ -27,7 +27,8 @@ dependencies are specified in ``requirements/``::
 Make also sure that your system has following tools installed
 (example for debian based systems)::
 
-   apt install latexmk texlive-xetex texlive-latex-extra texlive-lang-chinese
+   apt install latexmk texlive-xetex texlive-latex-extra texlive-lang-chinese \
+               librsvg2-bin
 
 Building the Documentation
 --------------------------
