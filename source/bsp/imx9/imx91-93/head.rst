@@ -285,138 +285,54 @@ select the |som| default bootsource.
 Development
 ===========
 
+.. include:: /bsp/imx-common/development/standalone_build_preface.rsti
+.. include:: /bsp/imx-common/development/standalone_build_u-boot_imxmkimage.rsti
+.. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
+.. include:: /bsp/imx-common/development/uuu.rsti
+   :end-before: .. uuu-flash-spinor-marker
+
 .. include:: /bsp/development/host_network_setup.rsti
-.. include:: ../../imx-common/development/netboot.rsti
+.. include:: /bsp/imx-common/development/netboot_fit.rsti
 
-Working with UUU-Tool
----------------------
+.. include:: /bsp/imx-common/development/development_manifests.rsti
 
-The Universal Update Utility Tool (UUU-Tool) from NXP is a software to execute
-on the host to load and run the bootloader on the board through SDP (Serial
-Download Protocol). For detailed information visit
-https://github.com/nxp-imx/mfgtools or download the `Official UUU-tool
-documentation <https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/140261/1/UUU.pdf>`_.
+.. include:: /bsp/imx-common/development/format_sd-card.rsti
 
-Host preparations for UUU-Tool Usage
-....................................
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :end-before: .. ampliphy-boot-supported-bootscripts-marker
 
-*  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
+.. code-block::
 
-*  If you built UUU from source, add it to ``PATH``:
+   mmc_boot_fit
+   net_boot_fit
 
-   This BASH command adds UUU only temporarily to ``PATH``. To add it
-   permanently, add this line to ``~/.bashrc``.
+.. include:: /bsp/development/ampliphy-boot.rsti
+   :start-after: .. ampliphy-boot-supported-bootscripts-marker
 
-   .. code-block:: console
+For the |kit|, the default values are defined in the U-Boot devicetree
+(e.g. arch/arm/dts/|dt-carrierboard|-u-boot.dtsi):
 
-      export PATH=~/mfgtools/uuu/:"$PATH"
+.. code-block::
 
-*  Set udev rules (documented in ``uuu -udev``):
+   bootstd {
+           bootph-verify;
+           compatible = "u-boot,boot-std";
 
-   .. code-block:: console
+           filename-prefixes = "/", "/boot/";
+           bootdev-order = "mmc0", "mmc1", "ethernet";
 
-      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
-      host:~$ sudo udevadm control --reload
+           script {
+                   compatible = "u-boot,script";
+           };
+   };
 
-Get Images
-..........
+The filename-prefixes property describes the paths that will be searched for
+the bootscripts. In this case this is the root of the partition as well as the
+boot folder. The bootdev-order property sets the default value for the
+boot_targets variable. The supported bootmeths will also be named. In this case
+only the script method is supported.
 
-Download imx-boot from our server or get it from your Yocto build directory at
-build/deploy/images/|yocto-machinename|/. For flashing a wic image to eMMC,
-you will also need |yocto-imagename|-|yocto-machinename|.wic.
-
-Prepare Target
-..............
-
-Set the |ref-bootswitch| to **USB Serial Download**. Also, connect USB port
-|ref-usb-otg| to your host.
-
-Starting bootloader via UUU-Tool
-................................
-
-Execute and power up the board:
-
-.. code-block:: console
-
-   host:~$ sudo uuu -b spl imx-boot
-
-You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
-
-.. note::
-   The default boot command when booting with UUU-Tool is set to fastboot. If
-   you want to change this, please adjust the environment variable bootcmd_mfg
-   in U-boot prompt with setenv bootcmd_mfg. Please note, when booting with
-   UUU-tool the default environment is loaded. Saveenv has no effect. If you
-   want to change the boot command permanently for UUU-boot, you need to change
-   this in U-Boot code.
-
-Flashing U-boot Image to eMMC via UUU-Tool
-...........................................
-
-.. warning::
-
-   UUU flashes U-boot into eMMC BOOT (hardware) boot partitions, and it sets
-   the BOOT_PARTITION_ENABLE in the eMMC! This is a problem since we want the
-   bootloader to reside in the eMMC USER partition. Flashing next U-Boot version
-   .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in device
-   always using U-boot saved in BOOT partitions. To fix this in U-Boot:
-
-   .. code-block:: console
-      :substitutions:
-
-      u-boot=> mmc partconf |u-boot-emmc-devno| 0 0 0
-      u-boot=> mmc partconf |u-boot-emmc-devno|
-      EXT_CSD[179], PARTITION_CONFIG:
-      BOOT_ACK: 0x0
-      BOOT_PARTITION_ENABLE: 0x0
-      PARTITION_ACCESS: 0x0
-
-   or check :ref:`Disable booting from eMMC boot partitions <emmc-disable-boot-part>`
-   from Linux.
-
-   This way the bootloader is still flashed to eMMC BOOT partitions but it is
-   not used!
-
-   When using **partup** tool and ``.partup`` package for eMMC flashing this is
-   done by default, which makes partup again superior flash option.
-
-Execute and power up the board:
-
-.. code-block:: console
-
-   host:~$ sudo uuu -b emmc imx-boot
-
-Flashing wic Image to eMMC via UUU-Tool
-...........................................
-
-Execute and power up the board:
-
-.. code-block:: console
-   :substitutions:
-
-   host:~$ sudo uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.wic
-
-.. include:: ../../imx-common/development/standalone_build_preface.rsti
-
-.. warning::
-   Using the SDK on older host distributions (e.g., Ubuntu 20.04 LTS) with Walnascar NXP-based BSPs
-   can cause issues when building U-Boot or Linux kernel tools for host use. If you encounter an
-   "undefined reference" error, a workaround is to prepend the host's binutils to the PATH.
-
-   .. code-block:: console
-
-      host$ export PATH=/usr/bin:$PATH
-
-   Run this after sourcing the SDK *environment-setup* file.
-
-   Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
-   without requiring any modifications.
-
-.. include:: ../../imx-common/development/standalone_build_u-boot_imxmkimage.rsti
-
-.. include:: ../../imx-common/development/standalone_build_kernel.rsti
-
-.. include:: ../../imx-common/development/format_sd-card.rsti
+.. include:: /bsp/development/fitImages.rsti
 
 Enabling JTAG Debug Interface on phyBOARD Nash
 ----------------------------------------------
@@ -476,7 +392,7 @@ Available overlays for phyboard-nash-imx93-1.conf are:
    imx93-phycore-rpmsg.dtbo
 
 .. _imx93-head-ubootexternalenv:
-.. include:: ../dt-overlays.rsti
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
