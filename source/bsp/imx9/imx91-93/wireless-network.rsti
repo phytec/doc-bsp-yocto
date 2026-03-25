@@ -12,19 +12,19 @@ PEB-WLBT-05 on |sbc-segin|
 
 .. tip::
 
-   With the BSP Version PD24.2.0 and newer, the PEB-WLBT-05 overlay needs to be activated first,
-   otherwise the PEB-WLBT-05 won't be recognized.
+   The PEB-WLBT-05 overlay configuration needs to be activated first, otherwise the
+   PEB-WLBT-05 won't be recognized.
 
    .. code-block:: console
 
-      target:~$ vi /boot/bootenv.txt
+      target:~$ vi /boot/overlays.txt
 
-   Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
-   overlays!):
+   Afterwards the overlays.txt file should look like this (it can also contain other devicetree
+   overlay configurations!):
 
    .. code-block::
 
-      overlays=imx93-phyboard-segin-peb-wlbt-05.dtbo
+      fit_overlay_conf=conf-imx93-phyboard-segin-peb-wlbt-05.dtbo
 
    The changes will be applied after a reboot:
 
@@ -48,19 +48,19 @@ PEB-WLBT-07 on |sbc-nash|
 
 .. tip::
 
-   With the BSP Version PD24.2.1 and newer, the PEB-WLBT-07 overlay needs to be activated first,
-   otherwise the PEB-WLBT-07 won't be recognized.
+   The PEB-WLBT-07 overlay configuration needs to be activated first, otherwise the
+   PEB-WLBT-07 won't be recognized.
 
    .. code-block:: console
 
-      target:~$ vi /boot/bootenv.txt
+      target:~$ vi /boot/overlays.txt
 
-   Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
-   overlays!):
+   Afterwards the overlays.txt file should look like this (it can also contain other devicetree
+   overlay configurations!):
 
    .. code-block::
 
-      overlays=imx93-phyboard-nash-peb-wlbt-07.dtbo
+      fit_overlay_conf=conf-imx93-phyboard-nash-peb-wlbt-07.dtbo
 
    The changes will be applied after a reboot:
 
