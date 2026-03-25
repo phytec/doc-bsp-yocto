@@ -82,14 +82,14 @@ be recognized.
 
 .. code-block:: console
 
-   target:~$ vi /boot/bootenv.txt
+   target:~$ vi /boot/overlays.txt
 
-The bootenv.txt file should look like this (it can also contain other devicetree
-overlays!):
+The overlays.txt file should look like this (it can also contain other devicetree
+overlay configuration!):
 
 .. code-block::
 
-   overlays=imx93-phyboard-nash-pwm-fan.dtbo
+   fit_overlay_conf=conf-imx93-phyboard-nash-pwm-fan.dtbo
 
 The changes will be applied after a reboot:
 
