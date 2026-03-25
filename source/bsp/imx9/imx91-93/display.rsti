@@ -1,11 +1,21 @@
 Display
 -------
 
-The **phyBOARD-Segin** i.MX 93 supports PEB-AV-02 with 7'' ``edt,etm0700g0edh6``
+The **phyBOARD-Segin** i.MX 91/93 supports PEB-AV-02 with 7'' ``edt,etm0700g0edh6``
 parallel display with capacitive touchscreen. Device-tree overlay for the
-aforementioned display is enabled in ``/boot/bootenv.txt`` by default!
+aforementioned display is enabled in ``/boot/overlays.txt`` by default!
+
+Additionally, since release PD26.1.0 **phyBOARD-Segin** i.MX 91/93 supports
+PEB-AV-18 with 7'' ``powertip,ph800480t032-zhc19`` parallel display with capacitive
+touchscreen. Device-tree overlay for the aforementioned display can be enabled
+in ``/boot/overlays.txt``:
+
+.. code-block::
+
+    fit_overlay_conf=conf-imx93-phyboard-segin-peb-av-18.dtbo
 
 The **phyBOARD-Nash** i.MX 93 needs additional adapter to support 10''
-``edt,etml1010g3dra`` LVDS display with capacitive touchscreen. The PEB-AV-10
-(1531.1 revision) can be bought separately to the Kit. Device-tree overlay for
-the aforementioned adapter is enabled in ``/boot/bootenv.txt`` by default!
+``edt,etml1010g3dra`` or ``powertip,ph128800t006-zhc01`` LVDS displays with capacitive
+touchscreen. The PEB-AV-10 (1531.1 revision) can be bought separately to the Kit.
+Device-tree overlay for the aforementioned panel ``powertip,ph128800t006-zhc01``
+is enabled in ``/boot/overlays.txt`` by default!
