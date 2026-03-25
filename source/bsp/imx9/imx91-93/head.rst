@@ -144,6 +144,9 @@
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. |jtag-target-interface| replace:: S
+.. |jtag-soc-doc-link| replace:: https://kb.segger.com/NXP_i.MX_93
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
@@ -333,23 +336,6 @@ boot_targets variable. The supported bootmeths will also be named. In this case
 only the script method is supported.
 
 .. include:: /bsp/development/fitImages.rsti
-
-Enabling JTAG Debug Interface on phyBOARD Nash
-----------------------------------------------
-
-The |soc| has a JTAG debug interface which can be used to debug software running
-on the SoC. The JTAG interface is routed through the pinmux and is not enabled
-by default. To enable the JTAG interface, please add this overlay to your
-``bootenv.txt`` file:
-
-.. code-block::
-
-   imx93-phyboard-nash-jtag.dtbo
-
-.. note::
-   JTAG and the MIPI CSI interface cannot be used at the same time, since they
-   share the same pins. Jumper ``JP15`` switches signals between JTAG and
-   MIPI CSI. It needs to be set to use JTAG.
 
 .. +---------------------------------------------------------------------------+
 .. DEVICE TREE
@@ -735,6 +721,29 @@ The device tree of PEB-AV-10 for |sbc-nash| can be found here:
 
 Device tree TPM configuration can be found here:
 :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L166`
+
+.. include:: /bsp/peripherals/jtag.rsti
+   :end-before: .. jtag-preparation-marker
+
+Enabling JTAG Debug Interface on phyBOARD Nash
+..............................................
+
+The |soc| has a JTAG debug interface which can be used to debug software running
+on the SoC. The JTAG interface is routed through the pinmux and is not enabled
+by default. To enable the JTAG interface, please add this overlay configuration
+to your ``overlays.txt`` file:
+
+.. code-block::
+
+   #conf-imx93-phyboard-nash-jtag.dtbo
+
+.. note::
+   JTAG and the MIPI CSI interface cannot be used at the same time, since they
+   share the same pins. Jumper ``JP15`` switches signals between JTAG and
+   MIPI CSI. It needs to be set to use JTAG.
+
+.. include:: /bsp/peripherals/jtag.rsti
+   :start-after: .. jtag-preparation-marker
 
 .. +---------------------------------------------------------------------------+
 .. i.MX 93 M33 Core
