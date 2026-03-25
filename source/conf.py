@@ -340,6 +340,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx9/imx91-93/pd24.2.2',
+        'imx93-pd24.2.2.tex',
+        'phyCORE-i.MX 93 BSP Manual PD24.2.2',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx9/imx95-fpsc/head',
         'imx95-fpsc-head.tex',
         'phyCORE-i.MX 95 FPSC BSP Manual DRAFT',
