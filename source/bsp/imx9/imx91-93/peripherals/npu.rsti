@@ -22,13 +22,13 @@ Running NPU examples
 ....................
 
 From Linux, you can delegate NPU tasks using the remoteproc subsystem.
-First, load the device tree overlays for remoteproc and NPU. Edit ``bootenv.txt``
-in the ``/boot`` directory and add |dtbo-rpmsg| and |dtbo-npu| overlays:
+First, load the device tree overlays for remoteproc and NPU. Edit ``overlays.txt``
+in the ``/boot`` directory and add |dtbo-rpmsg| and |dtbo-npu| overlay configurations:
 
 .. code-block::
    :substitutions:
 
-   overlays=imx93-phyboard-segin-peb-av-02.dtbo |dtbo-rpmsg| |dtbo-npu|
+   fit_overlay_conf=conf-imx93-phyboard-segin-peb-av-02.dtbo#conf-|dtbo-rpmsg|#conf-|dtbo-npu|
 
 Reboot the target afterwards.
 
