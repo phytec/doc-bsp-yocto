@@ -8,6 +8,8 @@ on the Segger website. It describes on how to connect and which features are
 supported currently:
 |jtag-soc-doc-link|
 
+.. jtag-preparation-marker
+
 Preparation
 ............
 
