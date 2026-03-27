@@ -1,3 +1,6 @@
+To boot from e.MMC, make sure that the BSP image is flashed correctly to the
+e.MMC and the |ref-bootswitch| is set to **e.MMC**.
+
 Flash e.MMC
 -----------
 
@@ -6,22 +9,6 @@ importantly, all generated images, as listed above, are copied to the default
 /srv/tftp directory. If you do not have this set up, you need to adjust the
 paths that point to the images being used in the instructions. For instructions
 on how to set up the TFTP server and directory, see |ref-setup-network-host|.
-
-To boot from e.MMC, make sure that the BSP image is flashed correctly to the
-e.MMC and the |ref-bootswitch| is set to **e.MMC**.
-
-.. warning::
-   When e.MMC and SD card are flashed with the same (identical) image, the UUIDs
-   of the boot partitions are also identical. If the SD card is connected when
-   booting, this leads to non-deterministic behavior as Linux mounts the boot
-   partition based on UUID.
-
-   .. code-block:: console
-
-      target:~$ blkid
-
-   can be run to inspect whether the current setup is affected. If ``mmcblk2p1``
-   and ``mmcblk1p1`` have an identical UUID, the setup is affected.
 
 Flash e.MMC from Network
 ........................
