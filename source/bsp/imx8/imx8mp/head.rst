@@ -69,7 +69,6 @@
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 .. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
-.. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L50`
@@ -368,9 +367,10 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
    imx8mp-phyboard-pollux-etml1010g3dra.dtbo
-   imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
-   |dtbo-peb-av-10|
    imx8mp-phyboard-pollux-ph128800t006.dtbo
+   imx8mp-phyboard-pollux-peb-av-10.dtbo
+   imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
+   imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
    imx8mp-phycore-no-eth.dtbo
    imx8mp-phycore-no-rtc.dtbo
@@ -607,9 +607,13 @@ overlays for the different interfaces.
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
 HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10                |dtbo-peb-av-10|
+LVDS0     PEB-AV-10 AC209          imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
                                    (loaded by default)
-LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
+LVDS0     PEB-AV-10 AC200          imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
+LVDS1     |sbc| AC209              imx8mp-phyboard-pollux-ph128800t006.dtbo
+                                   (disabled if PEB-AV-10 display overlay is used)
+LVDS1     |sbc| AC200              imx8mp-phyboard-pollux-etml1010g3dra.dtbo
+                                   (disabled if PEB-AV-10 display overlay is used)
 ========= ======================== ======================================
 
 .. include:: display.rsti
