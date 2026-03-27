@@ -701,7 +701,7 @@ Device tree TPM configuration can be found here:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts#L161`
 
 .. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
+.. i.MX 93 M33 Core
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti

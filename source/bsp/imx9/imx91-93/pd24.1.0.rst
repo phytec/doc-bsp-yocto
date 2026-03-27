@@ -1095,7 +1095,7 @@ The device tree of PEB-AV-02 can be found here:
 .. include:: ../peripherals/ocotp-ctrl.rsti
 
 .. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
+.. i.MX 93 M33 Core
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti

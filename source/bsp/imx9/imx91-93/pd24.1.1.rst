@@ -1188,7 +1188,7 @@ Device tree TPM configuration can be found here:
 :imx-dt:`imx93-phyboard-nash.dts?h=v6.1.55_2.2.0-phy3#n151`
 
 .. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
+.. i.MX 93 M33 Core
 .. +---------------------------------------------------------------------------+
 
 .. include:: ../mcu.rsti
