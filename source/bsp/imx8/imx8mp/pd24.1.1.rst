@@ -16,7 +16,6 @@
 .. _`static-pdf-dl`: ../../../_static/imx8mp-pd24.1.1.pdf
 
 .. General Substitutions
-.. |doc-id| replace:: PD24.1.1
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux

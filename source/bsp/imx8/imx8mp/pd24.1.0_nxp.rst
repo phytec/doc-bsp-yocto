@@ -20,7 +20,6 @@
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mp/phycore-imx8mp.c?h=v2024.04-2.0.0-phy7#n177
 
 .. General Substitutions
-.. |doc-id| replace:: PD24.1.0 NXP
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux

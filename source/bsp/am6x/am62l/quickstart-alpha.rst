@@ -1,5 +1,4 @@
 .. General Substitutions
-.. |doc-id| replace:: ALPHA
 .. |kit| replace:: **phyFLEX-AM62L FPSC Kit**
 .. |soc| replace:: AM62L
 .. |som| replace:: phyFLEX-AM62L FPSC

@@ -1,5 +1,4 @@
 .. General Substitutions
-.. |doc-id| replace:: ALPHA1
 .. |kit| replace:: **phyCORE-i.MX 8M Plus FPSC Kit**
 .. |soc| replace:: i.MX 8M Plus
 .. |som| replace:: phyCORE-|soc| FPSC

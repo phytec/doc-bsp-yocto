@@ -19,7 +19,6 @@
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mn/phycore-imx8mn.c?h=v2022.04_2.2.2-phy5#n66
 
 .. General Replacements
-.. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Nano Kit**
 .. |kit-ram-size| replace:: 1GiB
 .. |mcore| replace:: M4 Core

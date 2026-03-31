@@ -1,5 +1,4 @@
 .. General Substitutions
-.. |doc-id| replace:: ALPHA1
 .. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
 .. |soc| replace:: i.MX 95
 .. |som| replace:: phyCORE-|soc| FPSC
