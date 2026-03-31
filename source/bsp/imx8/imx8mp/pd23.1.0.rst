@@ -129,12 +129,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ============= ================ ==========
-Compatible BSPs      BSP Release Type Yocto Version BSP Release Date BSP Status
+==================== ================ ================ ================ ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
-==================== ================ ============= ================ ==========
-|yocto-manifestname| Major            Kirkstone     2023/12/12       Released
-==================== ================ ============= ================ ==========
+==================== ================ ================ ================ ==========
+|yocto-manifestname| Major            |yocto-codename| 2023/12/12       Released
+==================== ================ ================ ================ ==========
 
 .. include:: ../../intro.rsti
 

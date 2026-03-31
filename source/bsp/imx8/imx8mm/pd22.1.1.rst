@@ -110,12 +110,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-==================== ================ ============= ================= ==========
-Compatible BSPs      BSP Release Type Yocto Version BSP Release Date  BSP Status
+==================== ================ ================ ================= ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date  BSP Status
 
-==================== ================ ============= ================= ==========
-|yocto-manifestname| Minor            Hardknott     2023/05/23        Released
-==================== ================ ============= ================= ==========
+==================== ================ ================ ================= ==========
+|yocto-manifestname| Minor            |yocto-codename| 2023/05/23        Released
+==================== ================ ================ ================= ==========
 
 .. include:: ../../intro.rsti
 

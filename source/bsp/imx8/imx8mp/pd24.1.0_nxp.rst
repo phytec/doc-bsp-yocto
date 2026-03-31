@@ -134,12 +134,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ============= ================= ==========
-Compatible BSPs                BSP Release Type Yocto Version BSP Release Date  BSP Status
+==================== ================ ================ ================= ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date  BSP Status
 
-============================== ================ ============= ================= ==========
-BSP-Yocto-NXP-i.MX8MP-PD24.1.0 Major            Scarthgap     2024/11/06        Released
-============================== ================ ============= ================= ==========
+==================== ================ ================ ================= ==========
+|yocto-manifestname| Major            |yocto-codename| 2024/11/06        Released
+==================== ================ ================ ================= ==========
 
 .. include:: ../../intro.rsti
 
