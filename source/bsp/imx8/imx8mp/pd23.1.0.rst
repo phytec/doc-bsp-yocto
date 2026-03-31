@@ -73,7 +73,7 @@
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`kirkstone`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: kirkstone
+.. |yocto-codename| replace:: Kirkstone
 .. |yocto-distro| replace:: ampliphy-vendor-xwayland
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic

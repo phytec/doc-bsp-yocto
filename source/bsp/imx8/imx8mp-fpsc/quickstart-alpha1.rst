@@ -12,7 +12,7 @@
 .. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-quickstart-alpha1.pdf
 
 .. Yocto
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: Scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-FPSC-ALPHA1
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`

@@ -76,7 +76,7 @@
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
 .. |yocto-bsp-name| replace:: BSP-Yocto-AM68x
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: Scarthgap
 .. |yocto-distro| replace:: ampliphy-xwayland
 .. |yocto-imagename| replace:: phytec-qt5demo-image
 .. |yocto-imageext| replace:: wic.xz

@@ -70,7 +70,7 @@
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`scarthgap`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX95
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: Scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz

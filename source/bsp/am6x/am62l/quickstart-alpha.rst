@@ -13,7 +13,7 @@
 .. _pin-muxing-table: https://download.phytec.de/Products/phyCORE-AM62Lx%20FPSC/Tech%20Data/phyCORE-AM62Lx_FPSC_PL1627.0_Pinout_Table.A0.xlsx
 
 .. Yocto
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: Scarthgap
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2

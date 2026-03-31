@@ -75,7 +75,7 @@
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX95
 .. _yocto-bsp-name: `dl-server`_
-.. |yocto-codename| replace:: walnascar
+.. |yocto-codename| replace:: Walnascar
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
