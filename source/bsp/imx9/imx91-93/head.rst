@@ -90,7 +90,7 @@
 .. use imx93 as default BSP name
 .. |yocto-bsp-name| replace:: BSP-Yocto-i.MX93
 .. _yocto-bsp-name: `dl-server-93`_
-.. |yocto-codename| replace:: scarthgap
+.. |yocto-codename| replace:: Scarthgap
 .. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: wic.xz
