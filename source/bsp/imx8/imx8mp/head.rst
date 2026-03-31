@@ -130,12 +130,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ============= ================= ==============
-Compatible BSPs                BSP Release Type Yocto Version BSP Release Date  BSP Status
+==================== ================ ================ ================ ==============
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
-============================== ================ ============= ================= ==============
-BSP-Yocto-NXP-i.MX8MP-PD26.1.0 major            Walnascar     Q2 2026           in development
-============================== ================ ============= ================= ==============
+==================== ================ ================ ================ ==============
+|yocto-manifestname| Major            |yocto-codename| Q2 2026          in development
+==================== ================ ================ ================ ==============
 
 .. include:: ../../intro.rsti
 

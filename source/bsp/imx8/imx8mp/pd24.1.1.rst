@@ -115,12 +115,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-================ ================ ============= ================= ==============
-Compatible BSPs  BSP Release Type Yocto Version BSP Release Date  BSP Status
+==================== ================ ================ ================= ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date  BSP Status
 
-================ ================ ============= ================= ==============
-PD24.1.1         Major            Scarthgap     2024/04/08        Released
-================ ================ ============= ================= ==============
+==================== ================ ================ ================= ==========
+|yocto-manifestname| Minor            |yocto-codename| 2024/04/08        Released
+==================== ================ ================ ================= ==========
 
 .. include:: ../../intro.rsti
 

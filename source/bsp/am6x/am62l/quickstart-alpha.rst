@@ -25,12 +25,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-================================ ================ ============= ================ =============
-Compatible BSPs                  BSP Release Type Yocto Version BSP Release Date BSP Status
+==================== ================ ================ ================ ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
-================================ ================ ============= ================ =============
-BSP-Yocto-Ampliphy-AM62Lx-ALPHA2   Alpha          Scarthgap       2025/07/17      Released
-================================ ================ ============= ================ =============
+==================== ================ ================ ================ ==========
+|yocto-manifestname| Alpha            |yocto-codename| 2025/07/17       Released
+==================== ================ ================ ================ ==========
 
 Introduction
 ============

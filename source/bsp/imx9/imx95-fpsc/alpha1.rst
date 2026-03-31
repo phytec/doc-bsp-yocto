@@ -116,12 +116,12 @@
 
 The table below shows the Compatible BSPs for this manual:
 
-============================== ================ ============= ================= ==============
-Compatible BSPs                BSP Release Type Yocto Version BSP Release Date  BSP Status
+==================== ================ ================ ================ ==========
+Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
-============================== ================ ============= ================= ==============
-BSP-Yocto-NXP-i.MX95-ALPHA1    Alpha            Scarthgap     2025/06/02        Released
-============================== ================ ============= ================= ==============
+==================== ================ ================ ================ ==========
+|yocto-manifestname| Alpha            |yocto-codename| 2025/06/02       Released
+==================== ================ ================ ================ ==========
 
 .. include:: /bsp/intro.rsti
 
