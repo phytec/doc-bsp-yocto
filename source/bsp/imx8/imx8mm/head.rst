@@ -20,7 +20,6 @@
 .. _overlaycallback: https://github.com/phytec/u-boot-phytec-imx/blob/v2024.04-2.2.0-phy25/board/phytec/phycore_imx8mm/phycore-imx8mm.c#L130
 
 .. General Replacements
-.. |doc-id| replace:: L-1002e.Ax
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Polis

@@ -17,7 +17,6 @@
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-alpha1.pdf
 
 .. General Substitutions
-.. |doc-id| replace:: ALPHA1
 .. |kit| replace:: **phyCORE-i.MX 95 FPSC Kit**
 .. |kit-ram-size| replace:: 8GiB
 .. |sbc| replace:: Libra FPSC

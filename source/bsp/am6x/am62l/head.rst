@@ -19,7 +19,6 @@
 .. AM62Lx specific
 
 .. General Substitutions
-.. |doc-id| replace:: Head
 .. |kit| replace:: **phyFLEX-AM62L FPSC Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: Libra FPSC

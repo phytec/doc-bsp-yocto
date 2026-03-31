@@ -16,7 +16,6 @@
 .. _`static-pdf-dl`: ../../../_static/imx8mp-mainline-head.pdf
 
 .. General Substitutions
-.. |doc-id| replace:: L-XXXXX.Xx
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Pollux

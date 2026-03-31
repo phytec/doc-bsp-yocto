@@ -17,7 +17,6 @@
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-alpha2.pdf
 
 .. General Substitutions
-.. |doc-id| replace:: ALPHA2
 .. |kit| replace:: **phyFLEX-i.MX 95 Libra Rapid Development Kit**
 .. |kit-ram-size| replace:: 8GiB
 .. |sbc| replace:: phyFLEX Libra RDK

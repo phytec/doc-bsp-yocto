@@ -19,7 +19,6 @@
 .. IMX8(MP) specific
 
 .. General Substitutions
-.. |doc-id| replace:: i.MX8MP FPSC ALPHA1
 .. |kit| replace:: **phyCORE-i.MX 8M Plus FPSC Alpha1 Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: Libra FPSC

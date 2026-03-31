@@ -20,7 +20,6 @@
 .. _overlaycallback: https://git.phytec.de/u-boot-imx/tree/board/phytec/phycore_imx8mm/phycore-imx8mm.c?h=v2024.04-2.2.0-phy10#n129
 
 .. General Replacements
-.. |doc-id| replace:: PD25.1.0 NXP
 .. |kit| replace:: **phyCORE-i.MX8M Mini Kit**
 .. |kit-ram-size| replace:: 2GiB
 .. |sbc| replace:: phyBOARD-Polis

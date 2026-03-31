@@ -19,7 +19,6 @@
 .. AM68x specific
 
 .. General Substitutions
-.. |doc-id| replace:: Head
 .. |kit| replace:: **phyCORE-AM68x/TDA4x Kit**
 .. |kit-ram-size| replace:: 2x2GiB
 .. |sbc| replace:: phyBOARD-Izar

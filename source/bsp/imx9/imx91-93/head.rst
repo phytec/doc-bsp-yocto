@@ -27,7 +27,6 @@
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
 
 .. General Substitutions
-.. |doc-id| replace:: L-1069e.Ax
 .. |kit| replace:: **phyBOARD-Segin i.MX 93 and phyBOARD-Nash i.MX 93 Kit**
 .. |kit-ram-size| replace:: 1GiB
 .. |sbc| replace:: phyBOARD-Segin/Nash i.MX 91/93
