@@ -1,0 +1,23 @@
+Display
+-------
+
+.. supported-display-interfaces-marker-start
+
+The |kit| supports up to 2 different display outputs: LVDS and MIPI-DSI.
+The BSP contains two different device tree overlays:
+
+* ``imx93-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo`` for LVDS
+* ``imx93-phyflex-libra-rdk-peb-av-12-ph128800t006-zhc01.dtbo`` for MIPI-DSI
+
+Both overlays are for the display Powertip display PH12800T006 (AC209).
+For LVDS the display is connected directly to the |sbc|. For MIPI-DSI the
+Phytec PEB-AV-12 adapter is used between |sbc| and the display.
+
+.. supported-display-interfaces-marker-end
+
+.. code-block::
+   :substitutions:
+
+   [output]
+   name=LVDS-1
+   mode=preferred
