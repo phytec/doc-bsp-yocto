@@ -506,8 +506,8 @@ Prerequisites:
       (gdb) continue
 
 8. Zephyr will not boot up and hang in a fault condition. This is expected.
-   To overcome this issue, break execution with Ctrl+C, reset the coprocessor
-   and continue again.
+   To overcome this issue, break execution with :kbd:`Ctrl+C`, reset the
+   coprocessor and continue again.
 
    .. code-block:: console
 
