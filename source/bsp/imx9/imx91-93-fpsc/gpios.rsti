@@ -1,0 +1,22 @@
+.. include:: ../peripherals/gpios.rsti
+   :end-before: .. gpio-gpiochip-table
+
+*  GPIO expander
+
+   Beside the GPIOs of the |soc| SoC, the |sbc| has two GPIO expanders, which add
+   more GPIOs to the system.
+
+   .. code-block:: console
+
+      gpiochip4 [2-0021] (16 lines)
+      gpiochip5 [3-0021] (16 lines)
+
+   DT configuration for the GPIO expanders can be found here:
+
+   |dt-gpio-expander1|
+
+   |dt-gpio-expander2|
+
+.. include:: ../peripherals/gpios.rsti
+   :start-after: .. gpio-gpiochip-table
+
