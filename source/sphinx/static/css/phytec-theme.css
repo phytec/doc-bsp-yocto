@@ -369,3 +369,15 @@ legend {
 .wy-alert.wy-alert-success .wy-alert-title {
     background-image: linear-gradient(to right, var(--teal2) 0%, var(--success) 300%);
 }
+
+.rst-content :not(dl.option-list) > :not(dt):not(kbd):not(.kbd) > .kbd,
+.rst-content :not(dl.option-list) > :not(dt):not(kbd):not(.kbd) > kbd {
+    font-size: 81.25%;
+    font-weight: bold;
+    background-color: var(--white);
+    border: 1px solid var(--gray2);
+    border-radius: 3px;
+    box-shadow: 0 2px var(--gray1);
+    padding: 1px 6px;
+    margin: auto 0;
+}
