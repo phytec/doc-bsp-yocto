@@ -1,5 +1,5 @@
 ===============================
-Libra i.MX 8M Plus FPSC Manuals
+Libra i.MX 93 FPSC Manuals
 ===============================
 
 HEAD

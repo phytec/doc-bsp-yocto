@@ -1,94 +1,98 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX93-PD26.1.0
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
-.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus-fpsc/#downloads
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-91/93-fpsc/#downloads/
 .. |dl-server| replace:: BSP downloads
-.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
+.. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/
 .. |dl-server-link| replace:: |dl-server|_
 .. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD26.1.0/sdk/ampliphy-vendor/
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/phytec-qt6demo-image-imx8mp-libra-fpsc-1.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-libra-fpsc-1/
-.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-head.pdf
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD26.1.0/images/ampliphy-vendor/imx93-phyflex-libra-rdk-1/phytec-qt6demo-image-imx93-phyflex-libra-rdk-1.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD26.1.0/images/ampliphy-vendor/imx93-phyflex-libra-rdk-1/phytec-qt6demo-image-imx93-phyflex-libra-rdk-1.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD26.1.0/images/ampliphy-vendor/imx93-phyflex-libra-rdk-1/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX93/BSP-Yocto-NXP-i.MX93-PD26.1.0/images/ampliphy-vendor/imx93-phyflex-libra-rdk-1/
+.. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx93
+.. _`static-pdf-dl`: ../../../_static/imx91-93-fpsc-head.pdf
 
-.. IMX8(MP) specific
+.. IMX93 specific
 
 .. General Substitutions
 .. |doc-id| replace:: Head
-.. |kit| replace:: **phyCORE-i.MX 8M Plus FPSC Kit**
+.. |kit| replace:: **phyFLEX-i.MX 93 Libra Rapid Development Kit**
 .. |kit-ram-size| replace:: 2GiB
-.. |sbc| replace:: Libra FPSC
-.. |soc| replace:: i.MX 8M Plus
-.. |socfamily| replace:: i.MX 8
+.. |sbc| replace:: Libra Rapid Development Kit
+.. |soc| replace:: phyFLEX-i.MX 93 FPSC-Gamma
+.. |socfamily| replace:: i.MX 93
 .. |som| replace:: phyCORE-|soc| FPSC
-.. |debug-uart| replace:: ttymxc3
-.. |serial-uart| replace:: ttymxc2
+.. |debug-uart| replace:: ttyLP3
+.. |serial-uart| replace:: ttyLP2
+.. TODO bluetooth works over USB
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
+.. TODO do we support netboot? Maybe remove for 1st shot.
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 
 .. Linux Kernel
-.. |kernel-defconfig| replace:: imx8_phytec_defconfig
+.. |kernel-defconfig| replace:: imx9_phytec_defconfig
 .. |kernel-primary-ethernet| replace:: end1
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
-.. |kernel-socname| replace:: imx8mp-fpsc
-.. |kernel-tag| replace:: v6.12.20-2.0.0-phyX
-.. |emmcdev| replace:: mmcblk2
+.. |kernel-socname| replace:: imx93
+.. |kernel-tag| replace:: v6.12.34-2.1.0-phyX
+.. |emmcdev| replace:: mmcblk0
 .. |led-names| replace:: red:user1, green:user2 and blue:user3
 .. |led-example| replace:: red\\:user1
 
 .. Bootloader
-.. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
+.. |u-boot-defconfig| replace:: imx93-phyflex_defconfig
 .. |bootloader-offset| replace:: 32
 .. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
-.. |u-boot-emmc-devno| replace:: 2
+.. |u-boot-emmc-devno| replace:: 0
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-phytec-imx
 .. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
-.. |emmcdev-uboot| replace:: mmc 2
+.. |emmcdev-uboot| replace:: mmc 0
 .. |sdcarddev-uboot| replace:: mmc 1
 
-.. IMX8(MP) specific
-.. |u-boot-socname-config| replace:: IMX8MP_LIBRA
-.. |u-boot-tag| replace:: v2025.04-2.0.0-phyX
+.. IMX93 specific
+.. |u-boot-socname-config| replace:: PHYCORE_IMX93
+.. |u-boot-tag| replace:: v2025.04-2.1.0-phyX
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
 
 .. Devicetree
-.. |dt-carrierboard| replace:: imx8mp-libra-rdk-fpsc
-.. |dt-som| replace:: imx8mp-phycore-fpsc
+.. |dt-carrierboard| replace:: imx93-phyflex-libra-rdk
+.. |dt-som| replace:: imx93-phyflex-fpsc-g-som
 
-.. IMX8(MP) specific
+.. TODO
+.. IMX93 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L82`
 .. |dt-gpio-expander| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L192`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
-.. |yocto-bsp-name| replace:: BSP-Yocto-IMX8MP-FPSC
+.. |yocto-bsp-name| replace:: BSP-Yocto-NXP-i.MX93
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: walnascar
-.. |yocto-distro| replace:: ampliphy-vendor-xwayland
+.. |yocto-distro| replace:: ampliphy-vendor
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
-.. |yocto-machinename| replace:: imx8mp-libra-fpsc-1
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.0
-.. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.y
+.. |yocto-machinename| replace:: imx93-phyflex-libra-rdk-1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX93-PD26.1.0
+.. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX93-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-master>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-master-kernel-and-bootloader-conf>`
+.. TODO
 .. |yocto-sdk-rev| replace::  5.2.x
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
+.. TODO
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-fpsc-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
@@ -102,6 +106,7 @@
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-fpsc-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-fpsc-head-format-sd>`
 
+.. TODO
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
 .. |sbc-network| replace::
@@ -109,12 +114,14 @@
    on the |sbc| can be found here:
    :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#97`.
 
+.. TODO
 .. |ref-serial| replace:: :ref:`X27 <imx8mp-fpsc-head-components>`
 .. |ref-S5| replace:: :ref:`S5 <imx8mp-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
+.. TODO
 .. M-Core specific
 .. |mcore| replace:: M7 Core
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
@@ -138,7 +145,7 @@
 +-----------------------+----------------------+
 | Yocto Manual          | Scarthgap            |
 +-----------------------+----------------------+
-| Release Date          | XXXX/XX/XX           |
+| Release Date          | 2023/03/13           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| FPSC  |
 |                       | BSP Manual Head      |
@@ -150,8 +157,10 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 
 ============================== ================ ================= ==============
-BSP-Yocto-NXP-i.MX8MP-PD26.1.0 Major            q1 2026           in development
+BSP-Yocto-NXP-i.MX93-PD26.1.0  Major            2026/03/13        Released
 ============================== ================ ================= ==============
+
+.. TODO CONTINUE HERE
 
 .. include:: /bsp/intro.rsti
 
@@ -241,6 +250,7 @@ select the |som| default bootsource.
 .. _imx8mp-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
+.. CHECK in rsti below is network boot mentions, see sentence "For instructions on how to set up the TFTP server and directory [...]"
 .. include:: /bsp/imx-common/installing-os.rsti
    :end-before: .. flash-spi-nor-flash-marker
 
