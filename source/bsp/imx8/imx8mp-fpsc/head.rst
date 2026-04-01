@@ -445,7 +445,7 @@ device must then be configured as follows:
 
 .. code-block::
 
-    u-boot=> setenv ethact eth1
+    u-boot=> setenv ethact eth2
     u-boot=> setenv ipaddr 192.168.4.11
 
 .. include:: /bsp/peripherals/network.rsti
