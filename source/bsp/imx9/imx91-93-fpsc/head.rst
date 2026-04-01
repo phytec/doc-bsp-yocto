@@ -269,6 +269,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
+.. check to maybe include imx_mkimage build like for imx93-phycore
 .. _imx8mp-fpsc-head-development-build-uboot:
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
@@ -276,6 +277,7 @@ Development
 .. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-spinor-marker
 
+.. Check if we really support (already) netboot, or just remove it to keep it simple
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
@@ -549,6 +551,7 @@ Device Tree Reference for Carrier Board:
 
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
+.. check if we support the "interrupt from the RTC to wake up" explained in the rsti below. Maybe better copy from phycore-imx93.
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
@@ -599,14 +602,6 @@ Device Tree CAN configuration of |dt-som|.dtsi:
 and of |dt-carrierboard|.dts:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L117`
 
-.. include:: /bsp/peripherals/pcie.rsti
-
-Device Tree PCIe configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L339`
-
-and of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L245`
-
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
@@ -618,16 +613,21 @@ and of |dt-carrierboard|.dts:
 Device tree description of LVDS-0 can be found here:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
 
+.. check if that GPU stuff matches
 .. include:: /bsp/peripherals/gpu.rsti
 
+.. checl if that power management stuff matches. Maybe better copy from phycore-imx93.
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
+.. check if that power-key stuff matches. Maybe better copy from phycore-imx93.
 .. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
 
+.. check: I dont think we have that ISP.
 .. include:: /bsp/imx8/peripherals/isp.rsti
 
+.. check that OTP stuff below. Maybe better copy from phycore-imx93.
 .. include:: /bsp/imx8/peripherals/ocotp-ctrl.rsti
 
 .. +---------------------------------------------------------------------------+
