@@ -24,7 +24,7 @@ After executing the command, a shell window opens. The current working directory
 of the shell will be changed to the source directory of the recipe inside the
 *tmp* folder. Here you can use your favorite editor, e.g. *vim*, *emacs*, or any
 other graphical editor, to alter the source code. When you are finished, exit
-the *devshell* by typing *exit* or hitting **CTRL-D**.
+the *devshell* by typing *exit* or hitting :kbd:`Ctrl+D`.
 
 After leaving the *devshell* you can recompile the package
 

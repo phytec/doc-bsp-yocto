@@ -10,9 +10,9 @@ This warning occurs when the Yocto cache is in a dirty state.
 
    WARNING: Setscene task X ([...]) failed with exit code '1' - real task
 
-You should avoid canceling the build process or if you have to, press Ctrl-C
-once and wait until the build process has stopped. To remove all these warnings
-just clean the sstate cache and remove the build folders.
+You should avoid canceling the build process or if you have to, press
+:kbd:`Ctrl+C` once and wait until the build process has stopped. To remove all
+these warnings just clean the sstate cache and remove the build folders.
 
 .. code-block:: console
 
