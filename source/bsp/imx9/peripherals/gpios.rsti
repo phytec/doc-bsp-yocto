@@ -32,6 +32,8 @@ of some usages of various tools:
       gpiochip2 [43830000.gpio] (32 lines)
       gpiochip3 [47400000.gpio] (32 lines)
 
+.. gpio-gpiochip-table
+
 .. note::
 
    Order of GPIOchips in ``i.MX 93 Application Processor Reference Manual`` and
