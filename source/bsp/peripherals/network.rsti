@@ -102,13 +102,13 @@ Multiple network interfaces in U-Boot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some boards may have support for multiple network interfaces in U-Boot. U-Boot
-lists all supported network interfaces during startup. This would be an example
-where multiple network interfaces are supported.
+lists all supported network interfaces during startup. This generic example
+illustrates support for multiple network interfaces:
 
 .. code-block:: console
 
    Net:
-   eth0: ethernet@30be0000, eth1: ethernet@30bf0000
+   eth0: ethernet@10000000, eth1: ethernet@10010000
 
 There are three environment variables that will contribute to the selection of
 the ethernet interface for example when loading a file over tftp.
