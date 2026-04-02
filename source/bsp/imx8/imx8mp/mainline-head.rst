@@ -25,6 +25,8 @@
 .. |debug-uart| replace:: ttymxc0
 .. |serial-uart| replace:: ttymxc1
 .. |expansion-connector| replace:: X6
+.. |can0-interface| replace:: can0
+.. |can-network-file| replace:: 11-can.network
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: defconfig
@@ -1117,7 +1119,7 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L130`
