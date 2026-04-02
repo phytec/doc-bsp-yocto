@@ -32,6 +32,8 @@
 .. |bluetooth-uart| replace:: UART2
 .. |expansion-connector| replace:: X8
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
+.. |can0-interface| replace:: can0
+.. |can-network-file| replace:: can0.network
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
@@ -580,7 +582,12 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
    On phyBOARD-Polis-i.MX8MM a terminating resistor can be enabled by setting
    S5 to ON if required.
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: /bsp/peripherals/canfd.rsti
+
+.. warning::
+
+   The mcp2518fd SPI to CANfd supports only baudrates starting from 125kB/s.
+   Slower rates can be selected but may not work correctly.
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec-imx:`blob/v6.6.52-2.2.0-phy25/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts#L184`

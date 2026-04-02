@@ -30,6 +30,8 @@
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
+.. |can0-interface| replace:: fcan1
+.. |can-network-file| replace:: 11-can.network
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
@@ -571,7 +573,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
    terminated. If no external bus termination resistors are mounted, the
    switches S6 (for CAN FD1) and S7 (for CAN FD2) need to be set to ON.
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-som|.dtsi:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L109`

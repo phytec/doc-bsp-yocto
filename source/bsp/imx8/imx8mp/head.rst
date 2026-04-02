@@ -31,6 +31,8 @@
 .. |bluetooth-uart| replace:: UART3
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
+.. |can0-interface| replace:: can0
+.. |can-network-file| replace:: 11-can.network
 
 .. Linux Kernel
 .. |kernel-defconfig| replace:: imx8_phytec_defconfig
@@ -546,7 +548,7 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`
