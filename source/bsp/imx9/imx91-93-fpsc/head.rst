@@ -52,6 +52,12 @@
 .. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
 .. |u-boot-emmc-devno| replace:: 0
+
+.. |u-boot-multiple-defconfig-note| replace:: In command above replace ``<defconfig>`` with ``imx93-phyflex_defconfig``
+.. |u-boot-multiple-dtb-note| replace:: In command above replace ``<dtb>`` with ``imx93-phyflex-libra-rdk.dtb``
+.. |u-boot-soc-name| replace:: iMX9
+
+
 .. |u-boot-recipe-path| replace:: meta-phytec/recipes-bsp/u-boot/u-boot-phytec-imx_*.bb
 .. |u-boot-repo-name| replace:: u-boot-phytec-imx
 .. |u-boot-repo-url| replace:: https://github.com/phytec/u-boot-phytec-imx
@@ -159,8 +165,6 @@ Compatible BSPs                BSP Release Type BSP Release  Date BSP Status
 ============================== ================ ================= ==============
 BSP-Yocto-NXP-i.MX93-PD26.1.0  Major            2026/03/13        Released
 ============================== ================ ================= ==============
-
-.. TODO CONTINUE HERE
 
 .. include:: /bsp/intro.rsti
 
@@ -279,10 +283,8 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. check to maybe include imx_mkimage build like for imx93-phycore
 .. _imx8mp-fpsc-head-development-build-uboot:
-.. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
-   :end-before: .. build-uboot-fixed-ram-size-marker
+.. include:: /bsp//imx-common/development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-spinor-marker
@@ -292,8 +294,6 @@ Development
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
-
-.. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mp-fpsc-head-format-sd:
 
@@ -377,8 +377,6 @@ the efi, rauc and script bootmethods are supported.
 .. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
-.. include:: /bsp/fpsc-device-tree.rsti
-
 .. +---------------------------------------------------------------------------+
 .. ACCESSING PERIPHERALS
 .. +---------------------------------------------------------------------------+
@@ -461,27 +459,6 @@ Ethernet
 module and board.
 
 .. include:: /bsp/peripherals/network.rsti
-   :end-before: .. kernel-network-environment-marker
-
-Secondary Ethernet Interface Configuration in U-Boot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-By default, U-Boot utilizes the Ethernet PHY located on the module. To use the network connection
-provided by the PHY on the carrier board, configuration changes are required.
-
-To enable the secondary Ethernet interface in U-Boot, the active Ethernet connection must be
-adjusted. The IP address configuration in U-Boot may also need modification.
-
-Configure the development host with IP address 192.168.4.10 and netmask 255.255.255.0. The target
-device must then be configured as follows:
-
-.. code-block::
-
-    u-boot=> setenv ethact eth1
-    u-boot=> setenv ipaddr 192.168.4.11
-
-.. include:: /bsp/peripherals/network.rsti
-   :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
@@ -493,18 +470,7 @@ and
 DT configuration for the e.MMC interface can be found here:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L412`
 
-.. include:: ../imx8mp/emmc.rsti
-
-.. include:: ../peripherals/spi-master.rsti
-  :end-before: .. peripherals-spi-nor-flash-marker
-
-.. include:: ../peripherals/spi-nor-flash-no-boot.rsti
-
-The definition of the SPI master node in the device tree can be found here:
-
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
-
-.. include:: gpios.rsti
+.. include:: /bsp/peripherals/emmc.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 
@@ -519,49 +485,6 @@ General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L149`
 
-EEPROM
-------
-
-The system features three I2C EEPROM devices distributed across the SoM and
-carrier board:
-
-On the |som| SoM:
-
-*  SoM Detection EEPROM (write-protected)
-
-   *  Bus: I2C-5
-   *  Address: 0x51
-   *  Purpose: Factory configuration for SoM identification
-
-*  User EEPROM
-
-   *  Bus: I2C-5
-   *  Address: 0x50
-   *  Purpose: Available for user applications
-
-Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L276`
-
-And on the |sbc| carrier board:
-
-*  Board Detection EEPROM
-
-   *  Bus: I2C-2
-   *  Address: 0x51
-   *  Purpose: Reserved for carrier board identification
-
-*  User EEPROM
-
-   *  Bus: I2C-2
-   *  Address: 0x52
-   *  Purpose: Available for user applications
-
-Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L153`
-
-.. include:: /bsp/imx-common/peripherals/eeprom.rsti
-
-.. check if we support the "interrupt from the RTC to wake up" explained in the rsti below. Maybe better copy from phycore-imx93.
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
@@ -585,35 +508,6 @@ connected to a USB 3.0 PHY.
 DT representation for USB Host:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L295`
 
-.. include:: /bsp/peripherals/usb-device.rsti
-
-CAN FD
-------
-
-The |sbc| has two flexCAN interfaces supporting CAN FD. They are supported by the
-Linux standard CAN framework which builds upon then the Linux network layer.
-Using this framework, the CAN interfaces behave like an ordinary Linux network
-device, with some additional features special to CAN. More information can be
-found in the Linux Kernel
-documentation: https://www.kernel.org/doc/html/latest/networking/can.html
-
-.. note::
-
-   The switches S6 and S7 are switching the 120 Ohm bus termination resistors.
-   For proper functionality of the CAN FD interface, the bus needs to be
-   terminated. If no external bus termination resistors are mounted, the
-   switches S6 (for CAN FD1) and S7 (for CAN FD2) need to be set to ON.
-
-.. include:: ../peripherals/canfd.rsti
-
-Device Tree CAN configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L109`
-
-and of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L117`
-
-.. include:: /bsp/peripherals/video.rsti
-
 .. include:: display.rsti
 
 .. include:: /bsp/qt6.rsti
@@ -623,23 +517,4 @@ and of |dt-carrierboard|.dts:
 Device tree description of LVDS-0 can be found here:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L223`
 
-.. check if that GPU stuff matches
-.. include:: /bsp/peripherals/gpu.rsti
-
-.. checl if that power management stuff matches. Maybe better copy from phycore-imx93.
-.. include:: /bsp/imx8/peripherals/pm.rsti
-
 .. include:: /bsp/peripherals/watchdog.rsti
-
-.. check if that power-key stuff matches. Maybe better copy from phycore-imx93.
-.. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
-
-.. check: I dont think we have that ISP.
-.. include:: /bsp/imx8/peripherals/isp.rsti
-
-.. check that OTP stuff below. Maybe better copy from phycore-imx93.
-.. include:: /bsp/imx8/peripherals/ocotp-ctrl.rsti
-
-.. +---------------------------------------------------------------------------+
-.. i.MX 8M Plus M7 Core
-.. +---------------------------------------------------------------------------+
