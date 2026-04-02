@@ -268,8 +268,7 @@ select the |som| default bootsource.
 .. _imx8mp-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. include:: /bsp/imx-common/installing-os.rsti
-   :end-before: .. flash-spi-nor-flash-marker
+.. include:: ../installing-os.rsti
 
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
