@@ -149,9 +149,9 @@
 +-----------------------+----------------------+
 | Article Number        | |doc-id|             |
 +-----------------------+----------------------+
-| Yocto Manual          | Scarthgap            |
+| Yocto Manual          | walnascar            |
 +-----------------------+----------------------+
-| Release Date          | 2023/03/13           |
+| Release Date          | 2026/03/13           |
 +-----------------------+----------------------+
 | Is Branch of          | |doc-id| |soc| FPSC  |
 |                       | BSP Manual Head      |
@@ -219,9 +219,10 @@ First Start-up
    Bootloader image!
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
-*  **bl31-imx8mp.bin**: ARM Trusted Firmware binary
-*  **lpddr4_pmu_train_2d_dmem_202006.bin,
-   lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+*  **bl31-imx93i.bin**: ARM Trusted Firmware binary
+* **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin,
+   lpddr4_imem_1d_v202201.bin,
+   lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
    Trusted Firmware and DDR firmware. This is the final bootloader image which is
    bootable.
@@ -229,10 +230,23 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx8mp-libra-rdk-fpsc*.dtb**: Kernel device tree file
-*  **imx8mp-libra*.dtbo**: Kernel device tree overlay files
-*  **phytec-qt6demo-image\*.tar.gz**: Root file system
-*  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
+*  **imx93-phyboard-*.dtb** or **imx91-phyboard-*.dtb**: Kernel device tree file
+*  **imx93-phy\*.dtbo** or **imx91-phy\*.dtbo**: Kernel device tree overlay files
+*  **phytec-\*.tar.gz**: Root file system,
+   of bitbake-image that was built.
+
+   * **phytec-qt6demo-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
+     was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
+     was processed for ``phytec-headless-image``
+*  **phytec-\*.rootfs.wic.xz**: Compressed bootable SD
+   card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
+   and Root file system.
+
+   * **phytec-qt6demo-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
+     bitbake-build was processed for ``phytec-qt6demo-image``
+   * **phytec-headless-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
+     bitbake-build was processed for ``phytec-headless-image``
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
@@ -246,7 +260,7 @@ Bootmode Switch (S1)
 
 .. tip::
 
-   Hardware revision baseboard: 1618.1
+   Hardware revision baseboard: 1618.2
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
@@ -254,7 +268,6 @@ select the |som| default bootsource.
 .. _imx8mp-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
-.. CHECK in rsti below is network boot mentions, see sentence "For instructions on how to set up the TFTP server and directory [...]"
 .. include:: /bsp/imx-common/installing-os.rsti
    :end-before: .. flash-spi-nor-flash-marker
 
@@ -289,7 +302,6 @@ Development
 .. include:: /bsp/imx-common/development/uuu.rsti
    :end-before: .. uuu-flash-spinor-marker
 
-.. Check if we really support (already) netboot, or just remove it to keep it simple
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
@@ -320,11 +332,7 @@ For the |kit|, the default values are defined in the U-Boot devicetree
            compatible = "u-boot,boot-std";
 
            filename-prefixes = "/", "/boot/";
-           bootdev-order = "mmc2", "mmc1", "ethernet";
-
-           efi {
-                   compatible = "u-boot,distro-efi";
-           };
+           bootdev-order = "mmc0", "mmc1", "ethernet";
 
            rauc {
                    compatible = "u-boot,distro-rauc";
@@ -353,26 +361,11 @@ the efi, rauc and script bootmethods are supported.
 .. code-block::
    :substitutions:
 
-   imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
-   imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm016-csi2-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm017-csi2-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi1-fpdlink-port1.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port0.dtbo
-   imx8mp-libra-rdk-fpsc-vm020-csi2-fpdlink-port1.dtbo
+   imx93-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
+   imx93-phyflex-libra-rdk-peb-av-10.dtbo
+   imx93-phyflex-libra-rdk-peb-av-12-ph128800t006-zhc01.dtbo
+   imx93-phyflex-libra-rdk-vm016.dtbo
+   imx93-phyflex-libra-rdk-vm020.dtbo
 
 .. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
@@ -385,72 +378,27 @@ the efi, rauc and script bootmethods are supported.
 
 .. include:: /bsp/imx-common/peripherals/pin-muxing.rsti
 
-The following is an example of the pin muxing of the UART3 device in
+The following is an example of the pin muxing of the UART1 device in
 |dt-som|.dtsi:
 
 .. code-block::
 
-   pinctrl_uart4: uart4grp {
+   pinctrl_uart1: uart1grp {
            fsl,pins = <
-                   MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX	0x140	/* UART3_RXD */
-                   MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX	0x140	/* UART3_TXD */
+                   MX93_PAD_UART1_RXD__LPUART1_RX     0x31e
+                   MX93_PAD_UART1_TXD__LPUART1_TX     0x30e
            >;
    };
 
-The first part of the string MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX names the pad
-(in this example UART4_RX). The second part of the string (UART3_DCE_RX) is the
+The first part of the string MX93_PAD_UART1_RXD__LPUART1_RX names the pad
+(in this example UART1_RXD). The second part of the string (LPUART1_RX) is the
 desired muxing option for this pad. The pad setting value (hex value on the
 right) defines different modes of the pad, for example, if internal pull
-resistors are activated or not. In this case, the internal resistors are
-disabled.
+resistors are activated or not. In this case, the internal pull up is
+activated.
 
-The device tree representation for UART3 pinmuxing:
+The device tree representation for UART1 pinmuxing:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
-
-RS232
------
-
-The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
-of UART3 (the standard console) and UART2 are routed to a FT4232H UART
-to USB converter expansion. This USB is brought out at USB-C connector X14.
-UART1 is connected to a multi-protocol transceiver for RS-232 and RS-485,
-available at pin header connector |ref-serial| at the RS-232 level,
-or at the RS-485 level. The muxing of the used transceivers is done by switch
-|ref-S5| on the baseboard. Presently, RS485 is not working and will be fixed
-in 1618.4 SoM revision.
-For more information about the correct setup please refer to the |som|/|sbc|
-Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
-
-*  Display the current settings of a terminal in a human-readable format:
-
-   .. code-block:: console
-
-      target:~$ stty -a
-
-*  By default crtscts is enabled, as hardware flow control is not
-   functioning, need to configure UART interface with stty. This will be
-   fixed in 1618.4 SoM revision. For example:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ stty -F /dev/|serial-uart| 115200 -crtscts raw -echo
-
-*  With a simple echo and cat, basic communication can be tested. Example:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ echo 123 > /dev/|serial-uart|
-
-   .. code-block:: console
-
-      host:~$ cat /dev/ttyUSB2
-
-The device tree representation for RS232:
-:linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L271`
-
-.. _imx8mp-fpsc-head-network:
 
 Ethernet
 --------

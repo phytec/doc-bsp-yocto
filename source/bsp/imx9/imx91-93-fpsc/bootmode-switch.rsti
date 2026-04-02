@@ -21,15 +21,3 @@ SD card
       :scale: 400%
 
       Boot from external SD card
-
-SPI NOR flash
-   .. figure:: /bsp/images/dipswitch-tristate-4-pmmp.svg
-      :scale: 400%
-
-      Boot from onboard SPI NOR flash
-
-JTAG
-   .. figure:: /bsp/images/dipswitch-tristate-4-mmmm.svg
-      :scale: 400%
-
-      JTAG mode
