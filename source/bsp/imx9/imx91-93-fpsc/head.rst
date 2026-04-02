@@ -79,7 +79,6 @@
 .. TODO
 .. IMX93 specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyflex-fpsc-g-som.dtsi#L110`
-.. |dt-gpio-expander| replace:: :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L192`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -100,17 +99,17 @@
 
 .. TODO
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-fpsc-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-fpsc-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-fpsc-head-device-tree>`
-.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-fpsc-head-supported-hardware>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-fpsc-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-fpsc-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-fpsc-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-fpsc-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-fpsc-head-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx91-93-fpsc-head-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx91-93-fpsc-head-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx91-93-fpsc-head-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx91-93-fpsc-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx91-93-fpsc-head-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx91-93-fpsc-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx91-93-fpsc-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx91-93-fpsc-head-development>`
+.. |ref-usb-otg| replace:: :ref:`X18 <imx91-93-fpsc-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx91-93-fpsc-head-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx91-93-fpsc-head-format-sd>`
 
 .. TODO
 .. IMX8(MP) specific
@@ -121,10 +120,10 @@
    :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx93-phyflex-fpsc-g-som.dtsi#L102`.
 
 .. TODO
-.. |ref-serial| replace:: :ref:`X27 <imx8mp-fpsc-head-components>`
-.. |ref-S5| replace:: :ref:`S5 <imx8mp-fpsc-head-components>`
+.. |ref-serial| replace:: :ref:`X27 <imx91-93-fpsc-head-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx91-93-fpsc-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-fpsc-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx91-93-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
 .. TODO
@@ -168,7 +167,7 @@ BSP-Yocto-NXP-i.MX93-PD26.1.0  Major            2026/03/13        Released
 
 .. include:: /bsp/intro.rsti
 
-.. _imx8mp-fpsc-head-supported-hardware:
+.. _imx91-93-fpsc-head-supported-hardware:
 
 Supported Hardware
 ------------------
@@ -183,14 +182,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-fpsc-head-components:
+.. _imx91-93-fpsc-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-getting-started:
+.. _imx91-93-fpsc-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -213,7 +212,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-fpsc-head-images:
+.. _imx91-93-fpsc-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -265,7 +264,7 @@ Bootmode Switch (S1)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx8mp-fpsc-head-bootswitch:
+.. _imx91-93-fpsc-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: ../installing-os.rsti
@@ -274,7 +273,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-development:
+.. _imx91-93-fpsc-head-development:
 
 Development
 ===========
@@ -295,7 +294,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. _imx8mp-fpsc-head-development-build-uboot:
+.. _imx91-93-fpsc-head-development-build-uboot:
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_imxmkimage.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
 .. include:: /bsp/imx-common/development/uuu.rsti
@@ -306,7 +305,7 @@ Development
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
-.. _imx8mp-fpsc-head-format-sd:
+.. _imx91-93-fpsc-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -354,7 +353,7 @@ the efi, rauc and script bootmethods are supported.
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-device-tree:
+.. _imx91-93-fpsc-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -366,7 +365,7 @@ the efi, rauc and script bootmethods are supported.
    imx93-phyflex-libra-rdk-vm016.dtbo
    imx93-phyflex-libra-rdk-vm020.dtbo
 
-.. _imx8mp-fpsc-head-ubootexternalenv:
+.. _imx91-93-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
 
 .. +---------------------------------------------------------------------------+
@@ -398,6 +397,8 @@ activated.
 
 The device tree representation for UART1 pinmuxing:
 :linux-phytec-imx:`tree/v6.12.20-2.0.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-fpsc.dtsi#L714`
+
+.. _imx91-93-fpsc-head-network:
 
 Ethernet
 --------
