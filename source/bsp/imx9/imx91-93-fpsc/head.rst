@@ -219,9 +219,7 @@ First Start-up
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
 *  **bl31-imx93i.bin**: ARM Trusted Firmware binary
-* **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin,
-   lpddr4_imem_1d_v202201.bin,
-   lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
+*  **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin, lpddr4_imem_1d_v202201.bin, lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
    Trusted Firmware and DDR firmware. This is the final bootloader image which is
    bootable.
