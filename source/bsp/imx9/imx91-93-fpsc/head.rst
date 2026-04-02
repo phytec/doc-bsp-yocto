@@ -216,7 +216,7 @@ First Start-up
    Bootloader image!
 *  **oftree**: Default kernel device tree
 *  **u-boot-spl.bin**: Secondary program loader (SPL)
-*  **bl31-imx93i.bin**: ARM Trusted Firmware binary
+*  **bl31-imx93.bin**: ARM Trusted Firmware binary
 *  **lpddr4_dmem_1d_v202201.bin, lpddr4_dmem_2d_v202201.bin, lpddr4_imem_1d_v202201.bin, lpddr4_imem_2d_v202201.bin**: DDR PHY firmware images
 *  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
    Trusted Firmware and DDR firmware. This is the final bootloader image which is
@@ -225,22 +225,22 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx93-phyboard-*.dtb** or **imx91-phyboard-*.dtb**: Kernel device tree file
-*  **imx93-phy\*.dtbo** or **imx91-phy\*.dtbo**: Kernel device tree overlay files
+*  **imx93-phyflex-libra-rdk.dtb**: Kernel device tree file
+*  **imx93-phyflex-libra-rdk-\*.dtbo**: Kernel device tree overlay files
 *  **phytec-\*.tar.gz**: Root file system,
    of bitbake-image that was built.
 
-   * **phytec-qt6demo-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
+   * **phytec-qt6demo-image-imx93-phyflex-libra-rdk-1.rootfs.tar.gz**: when bitbake-build
      was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx9*-*.tar.gz**: when bitbake-build
+   * **phytec-headless-image-imx93-phyflex-libra-rdk-1.rootfs.tar.gz**: when bitbake-build
      was processed for ``phytec-headless-image``
 *  **phytec-\*.rootfs.wic.xz**: Compressed bootable SD
    card image of bitbake-image that was built. Includes bootloader, DTBs, Kernel
    and Root file system.
 
-   * **phytec-qt6demo-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
+   * **phytec-qt6demo-image-imx93-phyflex-libra-rdk-1.rootfs.wic.xz**: when
      bitbake-build was processed for ``phytec-qt6demo-image``
-   * **phytec-headless-image-phyboard-*-imx9*-*.rootfs.wic.xz**: when
+   * **phytec-headless-image-imx93-phyflex-libra-rdk-1.rootfs.wic.xz**: when
      bitbake-build was processed for ``phytec-headless-image``
 
 .. +---------------------------------------------------------------------------+
