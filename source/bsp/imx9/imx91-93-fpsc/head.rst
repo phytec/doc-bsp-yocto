@@ -112,8 +112,7 @@
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx91-93-fpsc-head-format-sd>`
 
 .. TODO
-.. IMX8(MP) specific
-.. |gpu-model| replace:: Vivante GC7000UL
+.. IMX93 specific
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
@@ -125,13 +124,6 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx91-93-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
-
-.. TODO
-.. M-Core specific
-.. |mcore| replace:: M7 Core
-.. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
-.. |mcore-jtag-dev| replace:: MIMX8ML8_M7
-.. |mcore-sdk-version| replace:: 2.13.0
 
 .. only:: html
 
