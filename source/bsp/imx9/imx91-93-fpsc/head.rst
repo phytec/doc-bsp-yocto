@@ -127,6 +127,14 @@
 
 .. only:: html
 
+**This is a preliminary version of the BSP Manual for the phyFLEX-i.MX 93 FPSC-Gamma and the
+phyFLEX-i.MX 93 Libra Rapid Development Kit.**
+
+This preliminary version is a HEAD of the BSP Manual under work, or the
+Release BSP-Yocto-NXP-i.MX93-PD26.1.0.
+
+Snapshot Date: 2026-04-02
+
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
 +-----------------------+----------------------+
