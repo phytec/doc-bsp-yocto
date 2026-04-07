@@ -691,7 +691,7 @@ with some additional features special to CAN. More information can be found in
 the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
-.. include:: ../peripherals/canfd.rsti
+.. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
 
