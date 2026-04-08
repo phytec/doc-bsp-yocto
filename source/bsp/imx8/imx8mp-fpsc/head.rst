@@ -42,8 +42,8 @@
 .. |kernel-socname| replace:: imx8mp-fpsc
 .. |kernel-tag| replace:: v6.12.20-2.0.0-phyX
 .. |emmcdev| replace:: mmcblk2
-.. |led-names| replace:: red:user1, green:user2 and blue:user3
-.. |led-example| replace:: red\\:user1
+.. |led-names| replace:: red:status, green:status and blue:status
+.. |led-example| replace:: red\\:status
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx8mp-libra_defconfig
