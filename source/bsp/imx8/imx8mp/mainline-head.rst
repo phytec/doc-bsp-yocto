@@ -1328,4 +1328,11 @@ and set using:
 
    HandlePowerKey=poweroff
 
+Make sure the value from logind.conf is not overwritten by another config
+file by executing this command:
+
+.. code-block:: console
+
+   target:~$ systemd-analyze cat-config systemd/logind.conf
+
 .. include:: ../peripherals/ocotp-ctrl.rsti

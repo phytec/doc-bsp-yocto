@@ -121,6 +121,12 @@
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. Powerkey specific
+.. |powerkey-driver| replace:: snvs_pwrkey
+.. |systemd-logind-conf-path-powerkey| replace:: ``/etc/systemd/logind.conf``
+.. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
+.. |powerkey-keycode-property| replace:: linux,keycode
+
 .. _imx8mp-fpsc-alpha1-bsp-manual:
 
 .. only:: html
@@ -629,7 +635,7 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
+.. include:: /bsp/imx-common/peripherals/power-key.rsti
 
 .. include:: /bsp/imx8/peripherals/isp.rsti
 

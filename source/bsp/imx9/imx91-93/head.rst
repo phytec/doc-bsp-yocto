@@ -147,6 +147,12 @@
 .. |jtag-target-interface| replace:: S
 .. |jtag-soc-doc-link| replace:: https://kb.segger.com/NXP_i.MX_93
 
+.. Powerkey specific
+.. |powerkey-driver| replace:: bbnsm_pwrkey
+.. |systemd-logind-conf-path-powerkey| replace:: ``/usr/lib/systemd/logind.conf.d/00-systemd-conf-imx.conf``
+.. |powerkey-input-dev| replace:: 44440000.bbnsm\:pwrkey
+.. |powerkey-keycode-property| replace:: linux,code
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
@@ -711,7 +717,7 @@ The device tree of PEB-AV-10 for |sbc-nash| can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/bbnsm-power-key.rsti
+.. include:: /bsp/imx-common/peripherals/power-key.rsti
 
 .. include:: ../peripherals/pxp.rsti
 
