@@ -1371,7 +1371,7 @@ Weston Configuration
 ....................
 
 Weston will work without any additional configuration. Configuration options are
-done at /etc/xdg/weston/weston.ini.
+done at ``/etc/xdg/weston/weston.ini``.
 
 Device tree description of LVDS can be found here:
 :linux-phytec:`blob/v6.6.21-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L182`

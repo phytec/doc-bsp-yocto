@@ -26,5 +26,5 @@ The default interface is LVDS1 (onboard LVDS).
 .. note::
 
    The current display driver limits the pixel clock for a display connected to
-   LVDS to 74.25Mhz (or a divider of it).  If this does not fit your display
+   LVDS to 74.25 MHz (or a divider of it). If this does not fit your display
    requirements, please contact Support for further help.
