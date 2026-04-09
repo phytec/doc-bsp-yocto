@@ -137,6 +137,12 @@
 .. |mcore-jtag-dev| replace:: MIMX8MM6_M4
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. Powerkey specific
+.. |powerkey-driver| replace:: bbnsm_pwrkey
+.. |systemd-logind-conf-path-powerkey| replace:: ``/etc/systemd/logind.conf``
+.. |powerkey-input-dev| replace:: 44440000.bbnsm\:pwrkey
+.. |powerkey-keycode-property| replace:: linux,code
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
@@ -1008,7 +1014,7 @@ with:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/bbnsm-power-key.rsti
+.. include:: /bsp/imx-common/peripherals/power-key.rsti
 
 .. include:: ../peripherals/pxp.rsti
 

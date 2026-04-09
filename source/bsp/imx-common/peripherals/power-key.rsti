@@ -1,14 +1,14 @@
-bbnsm Power Key
----------------
+Power Key
+---------
 
 The X_ONOFF pin connected to the ON/OFF button can be pressed long (for 5
 seconds) to trigger Power OFF without SW intervention or used to wake up the
-system out of suspend. With the *bbnsm_pwrkey* driver, the KEY_POWER event is
+system out of suspend. With the |powerkey-driver| driver, the KEY_POWER event is
 also reported to userspace when the button is pressed. On default, systemd is
 configured to ignore such events. The function of Power OFF without SW
-intervention are not configured. Triggering a power off with systemd when
-pushing the ON/OFF button can be configured under ``/etc/systemd/logind.conf``
-and set using:
+intervention is not configured. Triggering a power off with systemd when
+pushing the ON/OFF button can be configured under
+|systemd-logind-conf-path-powerkey| and set using:
 
 .. code-block::
 
@@ -19,11 +19,12 @@ short-pressed. This behavior can be verified using the ``evtest`` tool, which
 is included in our BSP:
 
 .. code-block:: console
+   :substitutions:
 
-   target:~$ evtest /dev/input/by-path/platform-44440000.bbnsm\:pwrkey-event
+   target:~$ evtest /dev/input/by-path/platform-|powerkey-input-dev|-event
    Input driver version is 1.0.1
    Input device ID: bus 0x19 vendor 0x0 product 0x0 version 0x0
-   Input device name: "44440000.bbnsm:pwrkey"
+   Input device name: "|powerkey-input-dev|"
    Supported events:
    Event type 0 (EV_SYN)
    Event type 1 (EV_KEY)
@@ -36,13 +37,14 @@ is included in our BSP:
    Event: time 1762862749.542006, -------------- SYN_REPORT ------------
 
 However, it is possible to reassign the short-press event by modifying the
-device-tree and changing the default ``linux,code`` property of the
-``bbnsm_pwrkey`` node:
+device-tree and changing the default |powerkey-keycode-property| property of the
+|powerkey-driver| node:
 
 .. code-block::
+   :substitutions:
 
-   &bbnsm_pwrkey {
-      linux,code = <KEY_SLEEP>;
+   &|powerkey-driver| {
+      |powerkey-keycode-property| = <KEY_SLEEP>;
    };
 
 In this example, the ON/OFF button is assigned KEY_SLEEP code, and pressing the

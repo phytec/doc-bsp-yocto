@@ -125,6 +125,12 @@
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
 
+.. Powerkey specific
+.. |powerkey-driver| replace:: snvs_pwrkey
+.. |systemd-logind-conf-path-powerkey| replace:: ``/usr/lib/systemd/logind.conf.d/00-systemd-conf-imx.conf``
+.. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
+.. |powerkey-keycode-property| replace:: linux,keycode
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
@@ -624,7 +630,7 @@ The device tree description of GPIO Fan can be found here:
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
-.. include:: ../peripherals/snvs-power-key.rsti
+.. include:: /bsp/imx-common/peripherals/power-key.rsti
 
 .. include:: ../peripherals/npu.rsti
 
