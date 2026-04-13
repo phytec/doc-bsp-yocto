@@ -39,7 +39,7 @@
 .. |kernel-recipe-path| replace:: meta-phytec/recipes-kernel/linux/linux-phytec-imx_*.bb
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
-.. |kernel-socname| replace:: imx8mp-fpsc
+.. |kernel-socname| replace:: imx8mp
 .. |kernel-tag| replace:: v6.6.52-2.2.0-phy20
 .. |emmcdev| replace:: mmcblk2
 .. |led-names| replace:: red:user1, green:user2 and blue:user3
@@ -511,13 +511,13 @@ On the |som| SoM:
 
 *  SoM Detection EEPROM (write-protected)
 
-   *  Bus: I2C-0
+   *  Bus: I2C-1
    *  Address: 0x51
    *  Purpose: Factory configuration for SoM identification
 
 *  User EEPROM
 
-   *  Bus: I2C-0
+   *  Bus: I2C-1
    *  Address: 0x50
    *  Purpose: Available for user applications
 
@@ -528,7 +528,7 @@ And on the |sbc| carrier board:
 
 *  Board Detection EEPROM
 
-   *  Bus: I2C-1
+   *  Bus: I2C-2
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
 
