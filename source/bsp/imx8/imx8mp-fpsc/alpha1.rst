@@ -486,7 +486,24 @@ The definition of the SPI master node in the device tree can be found here:
 
 :linux-phytec-imx:`tree/v6.6.52-2.2.0-phy20/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts#L128`
 
-.. include:: gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
+   :end-before: .. gpio-gpiochip-table
+
+*  GPIO expander
+
+   Beside the GPIOs of the |soc| SoC, the |sbc| has a GPIO expander, which adds
+   more GPIOs to the system.
+
+   .. code-block:: console
+
+      gpiochip5 [4-0020] (16 lines)
+
+   DT configuration for the GPIO expander can be found here:
+
+   |dt-gpio-expander|
+
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
+   :start-after: .. gpio-gpiochip-table
 
 .. include:: /bsp/peripherals/leds.rsti
 
