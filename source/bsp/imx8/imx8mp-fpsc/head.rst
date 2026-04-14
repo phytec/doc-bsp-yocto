@@ -604,6 +604,9 @@ Device tree description of LVDS-0 can be found here:
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
+.. include:: /bsp/imx8/peripherals/tm.rsti
+   :end-before: .. tm-gpio-fan-marker
+
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: /bsp/imx8/peripherals/snvs-power-key.rsti
