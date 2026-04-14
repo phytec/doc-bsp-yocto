@@ -26,8 +26,8 @@
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyFLEX-|soc| FPSC Gamma
 .. |debug-uart| replace:: ttymxc3
-.. |serial-uart| replace:: ttymxc2
-.. |bluetooth-uart| replace:: UART3
+.. |serial-uart| replace:: ttymxc1
+.. |bluetooth-uart| replace:: UART1
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 .. |can0-interface| replace:: fcan1
