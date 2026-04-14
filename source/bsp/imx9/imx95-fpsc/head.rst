@@ -25,7 +25,7 @@
 .. |som| replace:: phyFLEX-|soc| FPSC
 .. |debug-uart| replace:: ttyLP3
 .. |serial-uart| replace:: ttyLP1
-.. |bluetooth-uart| replace:: UART3
+.. |bluetooth-uart| replace:: UART1
 .. |expansion-connector| replace:: X56
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 .. |can0-interface| replace:: fcan1
