@@ -139,14 +139,15 @@ Load your image via network to RAM:
 Write the image to the e.MMC:
 
 .. code-block::
+   :substitutions:
 
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev |u-boot-emmc-devno|
    switch to partitions #0, OK
-   mmc2(part 0) is current device
+   mmc|u-boot-emmc-devno|(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+   MMC write: dev # |u-boot-emmc-devno|, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 Flash e.MMC U-Boot image via Network from running U-Boot
 ........................................................
@@ -165,7 +166,7 @@ Load image over tftp into RAM and then write it to e.MMC:
 
    u-boot=> tftp ${loadaddr} imx-boot
    u-boot=> setexpr nblk ${filesize} / 0x200
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev |u-boot-emmc-devno|
    u-boot=> mmc write ${loadaddr} |u-boot-mmc-flash-offset| ${nblk}
 
 .. hint::
@@ -253,14 +254,15 @@ Load your image from the USB device to RAM:
 Write the image to the e.MMC:
 
 .. code-block::
+   :substitutions:
 
-   u-boot=> mmc dev 2
+   u-boot=> mmc dev |u-boot-emmc-devno|
    switch to partitions #0, OK
-   mmc2(part 0) is current device
+   mmc|u-boot-emmc-devno|(part 0) is current device
    u-boot=> setexpr nblk ${filesize} / 0x200
    u-boot=> mmc write 0x58000000 0x0 ${nblk}
 
-   MMC write: dev # 2, block # 0, count 1024000 ... 1024000 blocks written: OK
+   MMC write:  dev # |u-boot-emmc-devno|, block # 0, count 1024000 ... 1024000 blocks written: OK
    u-boot=> boot
 
 .. flash-emmc-from-sdcard-marker
@@ -351,24 +353,26 @@ Flash e.MMC from SD card in U-Boot on Target
 *  Switch the mmc dev to e.MMC:
 
    .. code-block::
+      :substitutions:
 
       u-boot=> mmc list
       FSL_SDHC: 1 (SD)
       FSL_SDHC: 2 (eMMC)
-      u-boot=> mmc dev 2
+      u-boot=> mmc dev |u-boot-emmc-devno|
       switch to partitions #0, OK
-      mmc2(part 0) is current device
+      mmc|u-boot-emmc-devno|(part 0) is current device
 
 *  Flash your WIC image (for example |yocto-imagename|.rootfs.wic)
    from the SD card to e.MMC. This will partition the card and copy imx-boot,
    Image, dtb, dtbo, and root file system to e.MMC.
 
    .. code-block::
+      :substitutions:
 
       u-boot=> setexpr nblk ${filesize} / 0x200
       u-boot=> mmc write ${loadaddr} 0x0 ${nblk}
 
-      MMC write: dev # 2, block # 0, count 1780942 ... 1780942 blocks written: OK
+      MMC write:  dev # |u-boot-emmc-devno|, block # 0, count 1780942 ... 1780942 blocks written: OK
 
 *  Power off the board and change the |ref-bootswitch| to e.MMC.
 
