@@ -1,9 +1,6 @@
 Activate Secure Boot on the Device
 ==================================
 
-The final step to activate Secure Boot on your device is to burn the secure
-eFuse configuration.
-
 .. warning::
 
    The secure eFuse configuration can only be written once and is irreversible!
@@ -17,46 +14,6 @@ stores these development keys to ``yocto/phytec-dev-ca``
    Create and use your own keys and certificates for signing your images.
    Burn the right key into the Controller eFuse.
    Please refer to the chapter |secure-key-storage-link|
-
-eMMC Boot Partition to Enable Boot
-----------------------------------
-
-If you install your eMMC with the partup image, then the eMMC is configured
-with the right configuration.
-If you install the bootloader standalone on the eMMC, then please check the
-eMMC configuration for the
-right partition.
-
-+------------------------------+---------------------------------+-----------------------------------+
-|                              | barebox                         | U-Boot                            |
-+==============================+=================================+===================================+
-| Set eMMC as an active device | ``barebox$ detect mmc3``        | ``u-boot=> mmc dev 2``            |
-+------------------------------+---------------------------------+-----------------------------------+
-| Show active boot partition   | ``barebox$ devinfo mmc3``       | ``u-boot=> mmc partconf 2``       |
-+------------------------------+---------------------------------+-----------------------------------+
-| Set user area for boot       | ``barebox$ mmc3.boot=disabled`` | ``u-boot=> mmc partconf 2 0 7 0`` |
-+------------------------------+---------------------------------+-----------------------------------+
-|                              || disabled: user partition       || 0x7: user partition              |
-|                              || boot0: Boot partition 0        || 0x1: Boot partition 0            |
-|                              || boot1: Boot partition 1        || 0x2: Boot partition 1            |
-+------------------------------+---------------------------------+-----------------------------------+
-
-Active boot output for barebox:
-   .. code-block::
-
-      ...
-      Parameters:
-      boot: disabled (type: enum) (values: "disabled", "boot0", "boot1", "user")
-      nt_signature: 9a54880c (type: uint32)
-      probe: 0 (type: bool)
-
-Active boot output for U-Boot
-   .. code-block::
-
-      EXT_CSD[179], PARTITION_CONFIG:
-      BOOT_ACK: 0x0
-      BOOT_PARTITION_ENABLE: 0x1
-      PARTITION_ACCESS: 0x7
 
 Activate Secure Boot for NXP SoC
 --------------------------------
