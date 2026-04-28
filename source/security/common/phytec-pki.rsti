@@ -490,3 +490,29 @@ Create RAUC Update Certificates
 You can create the key and certificate for RAUC with a PKI tool or openssl.
 More details on the
 `RAUC documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_
+
+Create SSH Keys and Certificates
+--------------------------------------
+
+.. note::
+
+   Available from Yocto Walnascar
+
+First, create the user CA.
+
+.. code-block:: console
+
+   host:~$ ssh-keygen -t ed25519 -f user_ca -C "User CA"
+
+This creates ``user_ca``, which should be kept save, and ``user_ca.pub``, which
+will be installed on the target.
+
+Second, create the user private key and a corresponding public key, which is
+signed by the user CA, both will be installed on the client accessing the
+target.
+
+.. code-block:: console
+
+   host:~$ ssh-keygen -t ed25519 -f user_root_ed25519 -a 32 -C "root"
+   # example with 24h access to the target
+   host:~$ ssh-keygen -s user_ca -I root -n root -V +24h user_root_ed25519.pub
