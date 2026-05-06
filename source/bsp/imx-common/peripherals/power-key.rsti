@@ -14,6 +14,12 @@ pushing the ON/OFF button can be configured under
 
    HandlePowerKey=poweroff
 
+To use the changes, reboot or restart the logind service.
+
+.. code-block::
+
+   systemctl restart systemd-logind
+
 By default, ON/OFF button is configured to emit the KEY_POWER event code when
 short-pressed. This behavior can be verified using the ``evtest`` tool, which
 is included in our BSP:
