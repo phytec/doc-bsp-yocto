@@ -121,7 +121,7 @@
 .. |mcore| replace:: M7 Core
 .. |mcore-zephyr-docs| replace:: https://docs.zephyrproject.org/latest/boards/phytec/mimx8mp_phyboard_pollux/doc/index.html
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
-.. |mcore-sdk-version| replace:: 2.13.0
+.. |mcore-sdk-version| replace:: v2.15.0-phy
 
 .. Powerkey specific
 .. |powerkey-driver| replace:: snvs_pwrkey
