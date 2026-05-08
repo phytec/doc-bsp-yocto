@@ -89,19 +89,14 @@ page:
 Building the Firmware
 .....................
 
-To build the PHYTEC samples an environment has to be sourced
-
-.. code-block:: console
-
-   host:~/mcuxsdk$ source scripts/setenv
-
 The scripts to build the firmware are located in
-<sdk-directory>/phytec-mcux-boards/phyboard-pollux/<example_category>/<example>/armgcc.
+<sdk-directory>/examples-phytec/phyboard-pollux/<example_category>/<example>/armgcc.
 There are scripts for each memory location the firmware is supposed to run in,
 e.g.
 
 .. code-block:: console
 
+   host:~$ cd examples-phytec/phyboard-pollux/demo_apps/hello_world/armgcc
    host:~$ ./build_release.sh
 
 to build the firmware for the |mcore|'s TCM. The output will be placed under
@@ -165,17 +160,17 @@ Remoteproc is a module that allows you to control the |mcore| from Linux
 during runtime. Firmware built for TCM can be loaded and the execution started
 or stopped. To use Remoteproc a devicetree overlay needs to be set:
 
-Edit the bootenv.txt file located in the /boot directory on the target by
+Edit the overlays.txt file located in the /boot directory on the target by
 adding |dtbo-rpmsg|:
 
 .. code-block::
    :substitutions:
 
-   overlays=|dtbo-rpmsg|
+   fit_overlay_conf=|dtbo-rpmsg|
 
-Restart the target and execute in U-Boot::
+Restart the target and add to/set the optargs variable:
 
-   u-boot=> run prepare_mcore
+   u-boot=> env set optargs "$optargs clk-imx8mp.mcore_booted"
 
 Firmware .elf files for the |mcore| can be found under /lib/firmware.
 To load the firmware, type:
