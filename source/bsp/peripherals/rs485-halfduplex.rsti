@@ -5,6 +5,10 @@ For half-duplex mode your connection setup should look like this:
 
 .. image:: ./images/RS485_halfduplex_connection.png
 
+.. note::
+
+   Note that TX+ corresponds to signal A and TX- corresponds to signal B.
+
 Which function is on which pin is described in the hardware manual.
 
 For half-duplex mode you can set the ioctls manually like this:
