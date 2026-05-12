@@ -175,7 +175,7 @@ adding |dtbo-rpmsg|:
 
 Restart the target and execute in U-Boot::
 
-   u-boot=> run prepare_mcore
+   u-boot=> setenv optargs clk-imx8mp.mcore_booted
 
 Firmware .elf files for the |mcore| can be found under /lib/firmware.
 To load the firmware, type:
