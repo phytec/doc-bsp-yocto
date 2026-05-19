@@ -7,7 +7,7 @@
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-head`
 
 .. Yocto
-.. |branding-name| replace:: SECURIphy
+.. |branding-name| replace:: securiPHY
 .. |yocto-codename| replace:: Walnascar
 .. |distro-secure-vendor| replace:: securiphy-vendor
 .. |distro-secure| replace:: securiphy
