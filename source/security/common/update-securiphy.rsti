@@ -1,0 +1,31 @@
+Updating securiPHY
+==================
+
+The update mechanism used in securiPHY is `RAUC
+<https://rauc.readthedocs.io/en/latest/>`_ (Robust Auto-Update Controller). The
+|rauc-manual| describes how its integration and general
+usage in the Phytec BSP.
+
+Build update bundle
+-------------------
+
+The update bundle can be build with the command.
+
+.. code-block:: console
+
+   host:~$ bitbake phytec-securiphy-bundle
+
+Migration Steps
+---------------
+
+Yocto scarthgap to walnascar or newer
+.....................................
+
+The optee-client ``tee-supplicant`` uses a newly added user teesuppl. This user
+has no access to data previously stored by optee in the config partition.
+
+There are 2 ways to fix this:
+
+1. Set optee client user back to root
+
+2. Change ownership of the optee data after the update

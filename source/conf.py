@@ -475,9 +475,9 @@ latex_documents = [
         False,
     ),
     (
-        'security/head-sec',
-        'head-sec.tex',
-        'Security Manual DRAFT',
+        'security/walnascar-sec',
+        'walnascar-sec.tex',
+        'Security Manual Walnascar',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,

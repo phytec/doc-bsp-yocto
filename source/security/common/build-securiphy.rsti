@@ -1,0 +1,57 @@
+Build securiPHY image
+=====================
+
+Building an image requires a working Yocto build setup according to the
+|yocto-ref-manual|.
+
+Building a Signed Image
+-----------------------
+
+To build a signed provisioning image for the configuration of the device
+which can boot from SD card or Serial Downloader, the ``DISTRO`` needs to
+be set to |distro-provisioning-vendor| or |distro-provisioning|.
+The main parts for the provisioning-image are the bootloader and the FIT-image,
+which includes an initramfs with all necessary tools.
+
+.. code-block:: console
+
+   # for NXP SoC
+   host:~$ bitbake phytec-provisioning-image
+
+   # for TI K3 SoC
+   host:~$ bitbake phytec-headless-image
+
+To build the |image-secure-name| for the eMMC or ubifs with RAUC update support,
+then the ``DISTRO`` needs to be set to |distro-secure-vendor| or
+|distro-secure|.
+
+.. code-block:: console
+   :substitutions:
+
+   # for all SoC
+   host:~$ bitbake |image-secure-name|
+
+.. note::
+   If you have some boot warnings or errors like "/initrd.image: incomplete
+   write" or the kernel boot fails, then please check the size for Contiguous
+   Memory Allocation (CMA; kernel boot parameter, setting in bootloader). The
+   allocated RAM for CMA can be too much, which is important for systems with
+   256 MiB or 512 MiB RAM.
+
+Configure the securiPHY build
+-----------------------------
+
+Configuration options in the yocto build:
+
+* ``UBOOT_SIGN_ENABLE`` controls if the fitImage will be signed. The default is
+  ``1`` enabled.
+
+* The ``DISTROOVERRIDE secureboot`` enables security features and bootloader sigining
+  for NXP i.MX SoCs. To enable bootloader signing on TI K3 SoCs use a machine with
+  the ``MACHINEOVERRIDE secureenforced``.
+
+* ``DISTRO_FEATURE disable-console`` disables the u-boot and linux console.
+
+* ``DISTRO_FEATURE ssh-authentication`` requires ssh certificate authentication.
+
+* ``DISTRO_FEATURE ssh-hardening`` enables additional ssh hardening options.

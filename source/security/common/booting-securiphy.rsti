@@ -1,0 +1,54 @@
+Booting securiPHY
+=================
+
+After successfully provisioning the device you can use the freshly installed
+securiPHY system.
+
+Set the boot jumper to eMMC and power the device.
+
+SSH Certificate Authentication Login
+------------------------------------
+
+Once the ``phytec-securiphy-image`` is running, the serial console only shows
+the kernel log. Login is only possible with ssh now.
+
+Login with development certificates
+...................................
+The keys and certificates for ssh access are included in `phytec-dev-ca
+<https://github.com/phytec/phytec-dev-ca>`__. Download and extract the latest
+release.
+
+.. code-block:: console
+
+   host:~$ cd phytec-dev-ca/ssh-ca/user-root
+   host:~$ ssh-add user_root_ed25519 # enter password sshtest
+
+Check if private key and certificate have been added successfully.
+
+.. code-block:: console
+
+   host:~$ ssh-add -l
+   256 SHA256:/Cw8W1Z0N/XFCmLvBLDPDuwh+aFYWKWWinLxX/Rx918 root (ED25519)
+   256 SHA256:/Cw8W1Z0N/XFCmLvBLDPDuwh+aFYWKWWinLxX/Rx918 root (ED25519-CERT)
+
+After that, connect to the board.
+
+.. code-block:: console
+
+   host:~$ ssh -v -o IdentitiesOnly=yes -i user_root_ed25519 root@192.168.3.11
+
+Create user certificate
+.......................
+
+The development user certificate `user_root_ed25519-cert.pub` allows
+unrestricted access to the target device. A certificate with restricted access
+can be created as follows:
+
+.. code-block:: console
+
+   host:~$ ssh-keygen -s user_ca -I root -n root \
+   -V "YYYYMMDDHHMMSS:YYYYMMDDHHMMSS" \
+   -O source-address=192.168.0.0/16 \
+   -O clear \
+   -O permit-pty \
+   user_root_ed25519.pub
