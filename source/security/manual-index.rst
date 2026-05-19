@@ -2,15 +2,15 @@
 Security Manuals
 ================
 
-Head
-====
+Walnascar
+=========
 
 .. toctree::
    :caption: Table of Contents
    :numbered:
    :maxdepth: 2
 
-   head-sec
+   walnascar-sec
 
 Scarthgap
 =========

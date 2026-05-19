@@ -1,0 +1,110 @@
+SecuriPHY Provisioning Scripts
+===================================
+
+The ``phytec-securiphy-image`` needs to be installed with the following provisioning
+scripts. They are included in the ``phytec-provisioning-image``.
+
+phyprovisioning-install-emmc
+----------------------------
+
+The `phyprovisioning-install-emmc
+<https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/provisioning/provisioning>`_
+script creates the partitions on the eMMC and installs bootloader and kernel.
+
+.. code-block:: console
+
+   target:~$ phyprovisioning-install-emmc -h
+
+   PHYTEC Install Script v0.7 for eMMC
+
+   Usage:  phyprovisioning-install-emmc [PARAMETER] [ACTION]
+
+   Example:
+       phyprovisioning-install-emmc --filesystem /media/phytec-security-image.rootfs.partup --newemmc
+
+   One of the following action can be selected:
+       -n | --newemmc    Copy filesystem image to eMMC
+
+   The following PARAMETER must be set for eMMC provisioning:
+       -p | --flashpath <flash device> = /dev/mmcblk2
+       -s | --filesystem <path to partup package>
+
+physecurekeystorage-install
+---------------------------
+
+The `physecurekeystorage-install
+<https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage>`_
+tool initializes all supported secure key storages of your machine, but only one
+can be active at a time.
+
+.. code-block:: console
+
+   root@imx8mp-phyflex-libra-rdk-2:~# physecurekeystorage-install -h
+
+   PHYTEC Install Script v1.7 for Secure Key Storage
+
+   Usage:  physecurekeystorage-install [PARAMETER] [ACTION]
+
+   Example:
+       physecurekeystorage-install --newkeystorage trustedtpm
+       physecurekeystorage-install --deletekeystorage
+       physecurekeystorage-install --loadkeystorage
+       physecurekeystorage-install --pkcs11testkey
+
+   One of the following action can be selected:
+       -n | --newkeystorage <value>  Create new Secure Key Storage
+   			    trustedcaam (only NXP controller)
+   			    trustedtee
+   			    trustedtpm
+   			    securecaam (black blob only NXP Vendor BSP)
+       -d | --deletekeystorage Erase the existing Secure Key Storage
+       -l | --loadkeystorage   Load the existing Secure Key Storage
+       -p | --pkcs11testkey    Create an ECC testkey with user pin 1234
+       -h | --help             This Help
+       -v | --version          The version of physecurekeystorage-install
+
+physecurestorage-install
+------------------------
+
+The `physecurestorage-install
+<https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-storage/secure-storage>`_
+tool initializes the filesystem with encryption or integrity and encryption
+combined.
+
+.. code-block:: console
+
+   target:~$ physecurestorage-install -h
+
+   PHYTEC Install Script v1.5 for Secure Storage
+
+   Usage:  physecurestorage-install [PARAMETER] [ACTION]
+
+   Example:
+   physecurestorage-install --flashpath /dev/mmcblk0
+   --filesystem /media/phytec-security-image.ext4
+   --flashlayout 5,6
+   --newsecurestorage intenc
+
+   One of the following action can be selected:
+      -n | --newsecurestorage <value>   Create new Secure Storage of type
+                              enc     Encrypted root file system
+                              intenc  Encrypted root file system with integrity
+      -h | --help             This Help
+      -v | --version          The version of the physecurestorage-install
+
+   The following PARAMETER must be set for new Secure Storage:
+      -p | --flashpath <flash device>
+      -s | --filesystem <path to root as tgz or ext4>
+      -l | --flashlayout <value>    partition number for the rootfs partitions
+                           5,6       rootfs partitions are 5 and 6
+      -L | --labelname <value>      label name for the partition
+
+* The parameter <flashpath> is the eMMC device.
+* The parameter <filesystem> is the path to the filesystem as tgz or ext4,
+  which should be installed on the flash device.
+* Please copy the filesystem image, <IMAGENAME>-<MACHINE>.tar.gz, to a USB or
+  MMC drive so that it can be installed on the target. If partup packages are
+  used for initial flashing, then mount the partup package as type squashfs
+  first and find the root filesystem there.
+* The parameter <flashlayout> contains the rootfs partition numbers on the
+  target device. Set all partitions used for RAUC.
