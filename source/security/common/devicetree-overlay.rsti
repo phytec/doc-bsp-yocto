@@ -24,7 +24,7 @@ Device Tree Overlay for i.MX6UL and i.MX6
    The barebox contains an Ethernet PHY detection, which boots the correct
    configuration from the FIT-image.
 
-Device Tree Overlay for the other NXP SoCs
+Device Tree Overlay for other SoCs
 --------------------------------------------
 
 Build Time
@@ -40,42 +40,14 @@ automatically added as a node to the signed FIT-image.
 Run Time
 ........
 
-The ``overlays`` variable can be either set directly in the U-Boot environment or
-be a part of the external ``bootenv.txt`` environment.
+Configuring device tree overlays through ``overlays.txt`` is disabled in secure
+context as this file can't be signed and verified.
 
-.. warning::
-
-   Manipulation Risk! The external ``bootenv.txt`` is not signed and protected
-   against manipulation, so overlays can be changed and deleted in the
-   ``bootenv.txt``.
-
-The ``overlays`` variable loaded from the external environment will always
-overwrite the value from the environment saved directly in the flash.
-By default, the ``overlays`` variable is not set directly in the U-Boot
-environment but comes from the external ``bootenv.txt`` environment file.
-It is also located in the boot partition of the SD card image.
+Device tree overlays specified in the u-boot variable ``fit_overlay_conf`` will
+be used. This variable can either be defined in the default u-boot environment
+or in the ampliphy-boot bootscript.
 
 .. note::
    Please use Device Tree Overlay only in the development stage of your
    product. Create a final Device Tree for your device for the production
    phase.
-
-Deactivate Device Tree Overlay Support
-......................................
-
-To disable the Device Tree Overlay support set the following variable in
-``sources/meta-ampliphy/classes/secureboot.bbclass`` to true
-
-.. code-block:: bash
-
-   FITIMAGE_NO_DTB_OVERLAYS ?= "true"
-
-All the machine-defined Device Tree Overlays will be added to the FIT-image.
-If you do not want Device Tree Overlays in the FIT-image,
-please remove fdto in the ``sources/meta-ampliphy/recipes-image/fitimage/phytec-secureboot-ramdisk-fitimage.bb``
-or in your custom FIT-image recipe.
-
-.. code-block:: bash
-
-   FITIMAGE_SLOTS ?= "kernel fdt fdto ramdisk"
-
