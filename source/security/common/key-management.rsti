@@ -1,0 +1,70 @@
+Using your own Keys and Certificates
+====================================
+
+See chapter |phytec-pki-link| to create your own keys and certificates for
+secure boot.
+
+Key Settings in Yocto
+---------------------
+
+The created keys and certificates can be used in the yocto build by setting
+specific variables. A list of all variables is in
+``meta-ampliphy/classes/secureboot.bbclass``
+Set the variables corresponding to the used SoC in ``conf/local.conf`` of the
+Yocto build directory.
+
+U-Boot signing
+..............
+
+NXP i.MX8MP using HABv4
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   BOOTLOADER_SIGN_IMG_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem"
+   BOOTLOADER_SIGN_CSF_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem"
+   BOOTLOADER_SIGN_SRKFUSE_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/SRK_1_2_3_4_table.bin"
+   BOOTLOADER_HABV4_SRK_INDEX ??= "0
+
+NXP i.MX91/93 using AHAB
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   AHAB_SRK_TABLE_BIN ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK_1_2_3_4_table.bin"
+   AHAB_SRK_PUB_CERT ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK1_sha512_secp521r1_v3_usr_crt.pem"
+   AHAB_SRK_INDEX ?= "0"
+
+TI K3
+~~~~~
+
+.. code-block:: bash
+
+   BOOTLOADER_TI_K3_MPK_KEY ??= "${CERT_PATH}/ti_k3/keys/phytecSMPK.pem"
+   BOOTLOADER_TI_K3_DEGENERATE_KEY ??= "${CERT_PATH}/ti_k3/keys/ti-degenerate-key.pem"
+
+FitImage signing
+................
+
+.. code-block:: bash
+
+   UBOOT_SIGN_KEYDIR = "${CERT_PATH}/fit"
+   UBOOT_SIGN_KEYNAME = "FIT-4096"
+   UBOOT_SIGN_IMG_KEYNAME = "FIT-IMG-4096"
+   FIT_SIGN_ALG = "rsa4096"
+   FIT_HASH_ALG = "sha256"
+
+Kernel module signing
+.....................
+
+.. code-block:: bash
+
+   MODSIGN_KEY ?= "${CERT_PATH}/kernel_modsign/kernel_modsign.pem"
+   MODSIGN_CERT ?= "${CERT_PATH}/kernel_modsign/kernel_modsign.pem"
+
+SSH CA public key
+.................
+
+.. code-block:: bash
+
+   SSH_CA_PUBKEY ?= "${CERT_PATH}/ssh-ca/user-client-ca/user_client_ca.pub"
