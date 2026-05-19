@@ -7,7 +7,7 @@
 .. |physical-security-link| replace:: :ref:`physical-security-scarthgap`
 
 .. Yocto
-.. |branding-name| replace:: SECURIphy
+.. |branding-name| replace:: securiPHY
 .. |yocto-codename| replace:: Scarthgap
 .. |distro-secure-vendor| replace:: securiphy-vendor
 .. |distro-secure| replace:: securiphy
@@ -66,7 +66,7 @@ This manual applies to all |yocto-codename| based PHYTEC releases.
 Introduction
 ============
 
-PHYTEC's Yocto distribution Securiphy (former Ampliphy-secure) supports
+PHYTEC's Yocto distribution securiPHY (former Ampliphy-secure) supports
 different security mechanism. The security features have impact on the
 bootloader, the Linux kernel, Device Tree, and root filesystem. This manual
 describes how security features are used and implemented on various PHYTEC
