@@ -600,9 +600,7 @@ The device tree of LVDS-0 on PEB-AV-10 can be found here:
 .. include:: ../peripherals/pm.rsti
 
 .. include:: ../peripherals/tm.rsti
-
-The device tree description of GPIO Fan can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L35`
+   :end-before: .. tm-gpio-fan-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
 
