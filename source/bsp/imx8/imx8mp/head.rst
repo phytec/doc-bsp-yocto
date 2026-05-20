@@ -443,26 +443,6 @@ our module and board.
 
 .. include:: /bsp/peripherals/network.rsti
 
-.. include:: wireless-network.rsti
-
-.. include:: ../../peripherals/wireless-network.rsti
-   :end-before: .. bluetooth_chapter_start_label
-
-Bluetooth is supported on |sbc| with the PEB-WLBT-05 expansion card. How this
-can be activated is described in the WLAN/Bluetooth section.
-
-.. include:: ../../peripherals/wireless-network.rsti
-   :start-after: .. bluetooth_chapter_start_label
-
-.. note::
-
-   If the connection fails with the error message: "Failed to connect:
-   org.bluez.Error.Failed" try restarting PulseAudio with:
-
-   .. code-block:: console
-
-      target:~$ pulseaudio --start
-
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
