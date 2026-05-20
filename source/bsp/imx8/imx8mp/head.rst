@@ -235,9 +235,6 @@ select the |som| default bootsource.
 
 .. include:: /bsp/imx-common/installing-os.rsti
 
-.. include:: ../efi.rsti
-.. include:: /bsp/installing-distro-efi.rsti
-
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
@@ -319,10 +316,6 @@ For the |kit|, the default values are defined in the U-Boot devicetree
 
            filename-prefixes = "/", "/boot/";
            bootdev-order = "mmc2", "mmc1", "ethernet";
-
-           efi {
-                   compatible = "u-boot,distro-efi";
-           };
 
            rauc {
                    compatible = "u-boot,distro-rauc";
