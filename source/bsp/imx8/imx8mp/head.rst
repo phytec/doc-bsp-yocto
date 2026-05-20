@@ -548,6 +548,11 @@ speaker, headphones, and line in signals.
    Using the PEB-AV-10 connector for display output along HDMI as audio output
    is not supported. The audio output device must match the video output device.
 
+.. warning::
+
+   In PD26.1.0 release, PEB-AV-10 audio is not working. Only HDMI audio is
+   supported.
+
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
