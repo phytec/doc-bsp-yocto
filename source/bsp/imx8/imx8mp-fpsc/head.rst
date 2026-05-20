@@ -300,10 +300,6 @@ For the |kit|, the default values are defined in the U-Boot devicetree
            filename-prefixes = "/", "/boot/";
            bootdev-order = "mmc2", "mmc1", "ethernet";
 
-           efi {
-                   compatible = "u-boot,distro-efi";
-           };
-
            rauc {
                    compatible = "u-boot,distro-rauc";
            };
