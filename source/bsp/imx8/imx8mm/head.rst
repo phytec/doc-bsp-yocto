@@ -181,24 +181,25 @@ First Start-up
 
 .. _imx8mm-head-images:
 
-* **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
-  Bootloader image!
-* **oftree**: Default kernel device tree
-* **u-boot-spl.bin**: Secondary program loader (SPL)
-* **bl31-imx8mm.bin**: ARM Trusted Firmware binary
-* **lpddr4_pmu_train_2d_dmem_202006.bin,
-  lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
-* **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
-  Trusted Firmware and DDR firmware. This is the final bootloader image which is
-  bootable.
+*  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
+   Bootloader image!
+*  **oftree**: Default kernel device tree
+*  **u-boot-spl.bin**: Secondary program loader (SPL)
+*  **bl31-imx8mm.bin**: ARM Trusted Firmware binary
+*  **lpddr4_pmu_train_2d_dmem_202006.bin,
+   lpddr4_pmu_train_2d_imem_202006.bin**: DDR PHY firmware images
+*  **imx-boot**: Bootloader build by imx-mkimage which includes SPL, U-Boot, ARM
+   Trusted Firmware and DDR firmware. This is the final bootloader image which is
+   bootable.
 *  **fitImage**: Linux kernel FIT image
 *  **fitImage-its\*.its**: FIT image configuration file
-* **Image**: Linux kernel image
-* **Image.config**: Kernel configuration
-* **imx8mm-phyboard-polis-rdk*.dtb**: Kernel device tree file
-* **imx8mm-phy*.dtbo**: Kernel device tree overlay files
-* **phytec-qt6demo-image\*.tar.gz**: Root file system
-* **phytec-qt6demo-image\*.rootfs.wic.xz**: SD card image
+*  **Image**: Linux kernel image
+*  **Image.config**: Kernel configuration
+*  **imx8mm-phyboard-polis-rdk*.dtb**: Kernel device tree file
+*  **imx8mm-phy*.dtbo**: Kernel device tree overlay files
+*  **phytec-qt6demo-image\*.tar.gz**: Root file system
+*  **phytec-qt6demo-image\*.rootfs.wic.xz**: SD card image
+*  **\*.scr.uimg**: compiled bootscripts
 
 .. +---------------------------------------------------------------------------+
 ..                          INSTALLING THE OS
