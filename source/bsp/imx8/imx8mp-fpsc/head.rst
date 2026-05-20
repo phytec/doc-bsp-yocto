@@ -604,6 +604,7 @@ Device tree description of LVDS-0 can be found here:
 .. include:: /bsp/peripherals/gpu.rsti
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
+   :end-before: .. suspend_to_ram_start_label
 
 .. include:: /bsp/imx8/peripherals/tm.rsti
    :end-before: .. tm-gpio-fan-marker
