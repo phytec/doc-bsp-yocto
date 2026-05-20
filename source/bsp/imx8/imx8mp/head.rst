@@ -327,28 +327,38 @@ the efi, rauc and script bootmethods are supported.
 .. code-block::
    :substitutions:
 
+   imx8mp-phyboard-pollux-etml1010g3dra.dtbo
    imx8mp-isi-csi1.dtbo
    imx8mp-isi-csi2.dtbo
    imx8mp-isp-csi1.dtbo
    imx8mp-isp-csi2.dtbo
-   imx8mp-phyboard-pollux-etml1010g3dra.dtbo
-   imx8mp-phyboard-pollux-ph128800t006.dtbo
    imx8mp-phyboard-pollux-peb-av-10.dtbo
    imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
    imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+   imx8mp-phyboard-pollux-ph128800t006.dtbo
+   imx8mp-phyboard-pollux-vm016-csi1.dtbo
+   imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm016-csi2.dtbo
+   imx8mp-phyboard-pollux-vm016-csi2-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm016-csi2-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm017-csi1.dtbo
+   imx8mp-phyboard-pollux-vm017-csi1-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm017-csi1-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm017-csi2.dtbo
+   imx8mp-phyboard-pollux-vm017-csi2-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm017-csi2-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm020-csi1.dtbo
+   imx8mp-phyboard-pollux-vm020-csi1-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm020-csi1-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm020-csi2.dtbo
+   imx8mp-phyboard-pollux-vm020-csi2-fpdlink-port0.dtbo
+   imx8mp-phyboard-pollux-vm020-csi2-fpdlink-port1.dtbo
+   imx8mp-phyboard-pollux-vm024-csi1.dtbo
+   imx8mp-phyboard-pollux-vm024-csi2.dtbo
    imx8mp-phycore-no-eth.dtbo
-   imx8mp-phycore-no-rtc.dtbo
-   imx8mp-phycore-no-spiflash.dtbo
    imx8mp-phycore-rpmsg.dtbo
-   imx8mp-vm016-csi1.dtbo
-   imx8mp-vm016-csi1-fpdlink.dtbo
-   imx8mp-vm016-csi2.dtbo
-   imx8mp-vm016-csi2-fpdlink.dtbo
-   imx8mp-vm017-csi1.dtbo
-   imx8mp-vm017-csi1-fpdlink.dtbo
-   imx8mp-vm017-csi2.dtbo
-   imx8mp-vm017-csi2-fpdlink.dtbo
 
 .. _imx8mp-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
