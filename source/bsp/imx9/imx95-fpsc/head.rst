@@ -204,6 +204,7 @@ First Start-up
    imx95-phyflex-libra-rdk\*.dtbo**: Kernel device tree overlay files
 *  **phytec-qt6demo-image\*.tar.gz**: Root file system
 *  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
+*  **\*.scr.uimg**: compiled bootscripts
 
 .. +---------------------------------------------------------------------------+
 .. INSTALLING THE OS
