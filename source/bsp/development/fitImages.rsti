@@ -27,8 +27,8 @@ Alternatively the content can also be printed on target in U-Boot:
    u-boot=> load mmc ${mmcdev}:1 ${loadaddr} fitImage
    u-boot=> iminfo ${loadaddr}
 
-Building fitImages standalone
-.............................
+Building FIT images standalone
+..............................
 
 For building a FIT, an image tree source file (``*.its``) and binaries to be packed are
 needed. The ``fitImage.its`` file and kernel and devicetree binaries can be
