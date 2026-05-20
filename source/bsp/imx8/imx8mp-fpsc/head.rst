@@ -353,6 +353,10 @@ the efi, rauc and script bootmethods are supported.
 
 .. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
+   :end-before: .. extension-support-marker
+
+.. include:: /bsp/dt-overlays-ampliphy-boot.rsti
+   :start-after: .. change-u-boot-env-in-linux-marker
 
 .. include:: /bsp/fpsc-device-tree.rsti
 
