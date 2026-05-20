@@ -282,7 +282,6 @@ Development
 
 .. code-block::
 
-   mmc_boot
    mmc_boot_fit
    net_boot_fit
 
