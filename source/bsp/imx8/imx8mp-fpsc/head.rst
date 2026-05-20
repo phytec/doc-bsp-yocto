@@ -565,8 +565,6 @@ connected to a USB 3.0 PHY.
 DT representation for USB Host:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L295`
 
-.. include:: /bsp/peripherals/usb-device.rsti
-
 CAN FD
 ------
 
