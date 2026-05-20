@@ -328,6 +328,7 @@ the efi, rauc and script bootmethods are supported.
    :substitutions:
 
    imx8mp-phyflex-libra-rdk-lvds-etml1010g3dra.dtbo
+   imx8mp-phyflex-libra-rdk-lvds-peb-av-10.dtbo
    imx8mp-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
    imx8mp-phyflex-libra-rdk-vm016-csi1.dtbo
    imx8mp-phyflex-libra-rdk-vm016-csi1-fpdlink-port0.dtbo
@@ -347,6 +348,8 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-phyflex-libra-rdk-vm020-csi2.dtbo
    imx8mp-phyflex-libra-rdk-vm020-csi2-fpdlink-port0.dtbo
    imx8mp-phyflex-libra-rdk-vm020-csi2-fpdlink-port1.dtbo
+   imx8mp-phyflex-libra-rdk-vm024-csi1.dtbo
+   imx8mp-phyflex-libra-rdk-vm024-csi2.dtbo
 
 .. _imx8mp-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
