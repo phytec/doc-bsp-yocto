@@ -291,44 +291,6 @@ The following table list the supported key types for the different SoCs.
 | securecaam  | caam             |             | x           |            |             |
 +-------------+------------------+-------------+-------------+------------+-------------+
 
-Secure Key Storage Initialization with phySecureKeyStorage Tool
-...............................................................
-
-The tool `physecurekeystorage-install <https://git.phytec.de/meta-ampliphy/tree/recipes-securiphy/secure-key-storage/secure-key-storage>`_
-is part of the ramdisk userspace of phytec-provisioning-initramfs and included
-in the meta-ampliphy layer of the PHYTEC Standard BSP.
-
-The ``physecurekeystorage-install`` tool can initialize all supported secure key
-storages of your machine, but always only one can be active.
-For example, the phyBOARD-Polis-imx8mm supports Trusted TEE, Trusted TPM,
-Trusted CAAM and Secure CAAM, but initialized is only Trusted TPM.
-
-.. code-block:: console
-
-   target:~$ physecurekeystorage-install -h
-
-   PHYTEC Install Script v1.7 for Secure Key Storage
-
-   Usage:  physecurekeystorage-install [PARAMETER] [ACTION]
-
-   Example:
-      physecurekeystorage-install --newkeystorage trustedtpm
-      physecurekeystorage-install --deletekeystorage
-      physecurekeystorage-install --loadkeystorage
-      physecurekeystorage-install --pkcs11testkey
-
-   One of the following action can be selected:
-      -n | --newkeystorage <value>  Create new Secure Key Storage
-                              trustedcaam (only NXP controller)
-                              trustedtee
-                              trustedtpm
-                              securecaam (black blob only NXP Vendor BSP)
-      -d | --deletekeystorage Erase the existing Secure Key Storage
-      -l | --loadkeystorage   Load the existing Secure Key Storage
-      -p | --pkcs11testkey    Create an ECC testkey with user pin 1234
-      -h | --help             This Help
-      -v | --version          The version of physecurekeystorage-install
-
 Cryptographic Token Interface PKCS#11
 -------------------------------------
 
