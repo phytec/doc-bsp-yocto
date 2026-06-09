@@ -165,6 +165,11 @@ legend {
     background-color: var(--gray2);
 }
 
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: inherit;
+}
+
 .btn,
 .rst-versions {
     font-family: inherit;
