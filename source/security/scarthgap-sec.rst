@@ -86,6 +86,56 @@ read the correct sections fitting your platform.
 .. include:: common/distro-using.rsti
 .. _secure-boot-scarthgap:
 .. include:: common/secure-boot.rsti
+
+There are two different Yocto classes for creation of a signed FIT-image.
+
+* PHYTEC ``sources/meta-phytec/classes/fitimage.bbclass``
+
+   * With FIT-image recipes you can define custom, more refined FIT-images.
+   * Example for FIT-image recipes are in ``sources/meta-ampliphy/recipes-images/fitimage/``
+   * To create custom FIT-image, you need to specify some variables in the
+     recipe:
+
+      * FITIMAGE_SLOTS: Use this to list all slot classes for which the
+        FIT-image should contain images. A value of "kernel fdt fdtapply",
+        for example, will create a manifest with images for two slot classes -
+        kernel and devicetree.
+      * FITIMAGE_SLOT_<slotclass>: For each slot class, set this to the image
+        (recipe) name which builds the artifact you intend to place in the slot
+        class.
+      * FITIMAGE_SLOT_<slotclass>[type]: For each slot class, set this to the
+        type of image you intend to place in this slot. Possible types are the
+        kernel, fdt, fdto, fdtapply, or ramdisk.
+      * FITIMAGE_SLOT_<slotclass>[file]: For slot type kernel, fdt, fdt0 and
+        fdtapply set this to the file of the image you intend to place in this
+        slot.
+      * FITIMAGE_SLOT_<slotclass>[fstype]: For slot type ramdisk, set this to
+        the filesystem type of image you intend to place in this slot.
+      * FITIMAGE_SLOT_<slotclass>[name]: For slot type fdtapply, set this to
+        the final device tree and configuration name.
+
+* Poky ``sources/poky/meta/classes-recipe/kernel-fitimage.bbclass``
+
+   * This is the standard upstream FIT-image class in Yocto mainly for u-boot,
+     which builts one FIT-image with initramfs and without initramfs.
+
+Initially, the PHYTEC FIT-image class was used to create the FIT-images, because
+it supports barebox and u-boot and you can define more refined FIT-images.
+Since security has increasingly become an integral part of the SoC
+manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to
+gradually switch to this class, too.
+
+Configuration Class for Signing Images
+--------------------------------------
+All variables to adjust the bootloader and kernel fitImage signing process can
+be found in the ``source/meta-ampliphy/secureboot.bbclass``
+
+First of all, the necessary variables for signing the bootloader for the
+different SoC types need to be defined. The variable ``BOOTLOADER_SIGN`` is
+obsolete, because the ``DISTRO_FEATURES="secureboot"`` includes the bootloader
+signing.
+
+.. code-block:: bash
 .. include:: common/activate-secureboot.rsti
 .. include:: common/kernel-module-signing.rsti
 .. include:: common/devicetree-overlay.rsti
