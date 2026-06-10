@@ -7,12 +7,12 @@
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
 .. |dl-server-link| replace:: |dl-server|_
 .. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor-xwayland/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor/
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor-xwayland/phyboard-pollux-imx8mp-3/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
 .. _`static-pdf-dl`: ../../../_static/imx8mp-head.pdf
 
@@ -38,7 +38,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v6.12.49-2.2.0-phyX
+.. |kernel-tag| replace:: v6.12.49-2.2.0-phy11
 .. |emmcdev| replace:: mmcblk2
 .. |led-names| replace:: red:user1, green:user2 and blue:user3
 .. |led-example| replace:: red\\:user1
@@ -57,7 +57,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
-.. |u-boot-tag| replace:: v2025.04-2.2.0-phyX
+.. |u-boot-tag| replace:: v2025.04-2.2.0-phy9
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
@@ -69,7 +69,7 @@
 .. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L50`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L59`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -106,7 +106,7 @@
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L179`.
+   :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L179`.
 
 .. |ref-serial| replace:: :ref:`X2 <imx8mp-head-components>`
 .. |ref-jp3| replace:: :ref:`JP3 <imx8mp-head-components>`
@@ -138,7 +138,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
 ==================== ================ ================ ================ ==============
-|yocto-manifestname| Major            |yocto-codename| Q2 2026          in development
+|yocto-manifestname| Major            |yocto-codename| 2026/06/08       Released
 ==================== ================ ================ ================ ==============
 
 .. include:: ../../intro.rsti
@@ -405,7 +405,7 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART1 pinmuxing:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L373`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L337`
 
 RS232/RS485
 -----------
@@ -432,7 +432,7 @@ correctly.
 .. include:: /bsp/peripherals/rs485-fullduplex.rsti
 
 The device tree representation for RS232 and RS485:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L412`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L376`
 
 .. _imx8mp-head-network:
 
@@ -456,10 +456,10 @@ our module and board.
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L422`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L386`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L214`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L223`
 
 .. include:: emmc.rsti
 
@@ -467,22 +467,22 @@ DT configuration for the eMMC interface can be found here:
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L76`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L85`
 
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L255`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L249`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C1 bus configuration (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L113`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L122`
 
 General I²C2 bus configuration (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L239`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L233`
 
 EEPROM
 ------
@@ -502,12 +502,12 @@ Overwriting reserved spaces will result in boot issues.
 
 DT representation, e.g. in |som| file imx8mp-phycore-som.dtsi can be
 found in our PHYTEC git:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L201`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L210`
 
 .. include:: ../../peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L208`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L217`
 
 USB Host Controller
 -------------------
@@ -522,7 +522,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L380`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L344`
 
 CAN FD
 ------
@@ -538,12 +538,12 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L203`
 
 .. include:: /bsp/peripherals/pcie.rsti
 
 Device Tree PCIe configuration of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L345`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L312`
 
 Audio
 -----
@@ -566,7 +566,7 @@ speaker, headphones, and line in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtso#L58`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi#L58`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -599,11 +599,11 @@ LVDS1     |sbc| AC200              imx8mp-phyboard-pollux-etml1010g3dra.dtbo
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
 Device tree description of LVDS-1 and HDMI can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L294`
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L218`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L281`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L218`
 
 The device tree of LVDS-0 on PEB-AV-10 can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy1/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtso#L133`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi#L125`
 
 .. include:: /bsp/peripherals/gpu.rsti
 
