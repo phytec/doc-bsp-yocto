@@ -164,6 +164,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mp/pd26.1.0_nxp',
+        'imx8mp-pd26.1.0_nxp.tex',
+        'phyCORE-i.MX 8M Plus BSP Manual PD26.1.0 NXP',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mp/pd24.1.0_nxp',
         'imx8mp-pd24.1.0_nxp.tex',
         'phyCORE-i.MX 8M Plus BSP Manual PD24.1.0 NXP',
@@ -214,7 +222,15 @@ latex_documents = [
     (
         'bsp/imx8/imx8mp-fpsc/head',
         'imx8mp-fpsc-head.tex',
-        'phyCORE-i.MX 8M Plus FPSC BSP Manual DRAFT',
+        'phyFLEX-i.MX 8M Plus FPSC BSP Manual DRAFT',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
+        'bsp/imx8/imx8mp-fpsc/pd26.1.0_nxp',
+        'imx8mp-fpsc-pd26.1.0_nxp.tex',
+        'phyFLEX-i.MX 8M Plus FPSC BSP Manual',
         'PHYTEC Messtechnik GmbH',
         'manual',
         False,
