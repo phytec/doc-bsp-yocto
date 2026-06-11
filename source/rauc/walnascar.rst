@@ -29,6 +29,8 @@
 
 This manual was tested using the Yocto version |yocto-codename|.
 
+.. _rauc-man-walnascar:
+
 .. include:: common/intro.rsti
 .. include:: common/system-config.rsti
 .. include:: common/design-considerations.rsti
