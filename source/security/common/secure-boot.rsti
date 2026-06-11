@@ -39,9 +39,10 @@ SoCs of the same vendor. The main boot process is the following
 
 2. u-boot SPL loads u-boot proper from the FIT-image and ATF
    (ARM Trusted Firmware) and optionally OP-TEE.
-3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel,
-   DTB, and ramdisk. (**Boot Step 2**)
-4. If built with signed kernel modules (standard), Linux will only load kernel
+3. Then, u-boot loads and verifies the boot script. (**Boot Step 2**)
+4. Next, u-boot executes the boot script, which loads and verifies the FIT-image
+   containing a Linux kernel, DTB, and ramdisk. (**Boot Step 3**)
+5. If built with signed kernel modules (standard), Linux will only load kernel
    modules verified with a kernel compiled-in public key
 
 If you use the DISTRO_FEATURE secureboot or a TI HS-SE machine variant, then
