@@ -53,16 +53,6 @@ configuration in the BSP under
 :substitution-code:`./meta-ampliphy/recipes-core/systemd/systemd-conf/|can-network-file|`
 in the root filesystem and rebuild the root filesystem.
 
-.. code-block::
-
-   [Match]
-   Name=can*
-
-   [CAN]
-   BitRate=500000
-   DataBitRate=2000000
-   FDMode=yes
-
 .. note::
 
    By default, we enable CAN-FD (flexible datarate) in our BSP. In case CAN Classic
