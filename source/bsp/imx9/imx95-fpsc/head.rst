@@ -475,6 +475,8 @@ And on the |sbc| carrier board:
 Device Tree Reference for Carrier Board:
 :linux-phytec-imx:`tree/v6.12.34-2.1.0-phy9/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L339`
 
+.. include:: /bsp/imx-common/peripherals/eeprom.rsti
+
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
