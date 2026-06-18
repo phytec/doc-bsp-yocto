@@ -380,9 +380,9 @@ The device tree representation for UART1 pinmuxing:
 Ethernet
 --------
 
-|sbc|-|soc| provides three ethernet interfaces. A gigabit Ethernet is provided
+|sbc|-|soc| provides three ethernet interfaces. Gigabit Ethernet is provided
 by our module and board. Additionally there is a 10Gbit Ethernet. Currently
-only the one Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
+only the Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
 
 .. include:: /bsp/peripherals/network.rsti
 
