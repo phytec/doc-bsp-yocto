@@ -46,7 +46,7 @@ to the e.MMC of your device:
 .. code-block:: console
    :substitutions:
 
-   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2"
+   host:~$ scp /srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* root@192.168.3.11:/tmp && ssh root@192.168.3.11 "bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/|emmcdev|"
 
 Flash e.MMC via Network in Linux on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ the target with a one-line command:
 .. code-block:: console
    :substitutions:
 
-   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+   target:~$ scp <USER>@192.168.3.10:/srv/tftp/|yocto-imagename|-|yocto-machinename|.rootfs.wic.* /tmp && bmaptool copy /tmp/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/|emmcdev|
 
 Flash e.MMC from Network in U-Boot on Target
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,7 +213,7 @@ need a complete image saved on the USB stick and a bootable WIC image. (e.g.
    .. code-block:: console
       :substitutions:
 
-      target:~$ bmaptool copy /mnt/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+      target:~$ bmaptool copy /mnt/|yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/|emmcdev|
 
 *  After a complete write, your board can boot from e.MMC.
 
@@ -300,7 +300,7 @@ image saved on the SD card.
    .. code-block:: console
       :substitutions:
 
-      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/mmcblk2
+      target:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/|emmcdev|
 
    Flashing the partup package has the advantage of using the full capacity of
    the e.MMC device, adjusting partitions accordingly.
@@ -312,7 +312,7 @@ image saved on the SD card.
       .. code-block:: console
          :substitutions:
 
-         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/mmcblk2
+         target:~$ bmaptool copy |yocto-imagename|-|yocto-machinename|.|yocto-imageext| /dev/|emmcdev|
 
       Keep in mind that the root partition does not make use of the full space when
       flashing with ``bmaptool``.
