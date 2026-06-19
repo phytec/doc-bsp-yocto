@@ -182,7 +182,7 @@ substitutions are used.
 
 
 Internal vs. external Links
-..............
+...........................
 
 When linking to internal (doc-bsp-yocto) documents or chapters,
 cross-references must be used. Referencing via external links is not allowed as
