@@ -168,7 +168,7 @@ adding |dtbo-rpmsg|:
 
    fit_overlay_conf=|dtbo-rpmsg|
 
-Restart the target and add to/set the optargs variable:
+Restart the target and add to/set the optargs variable::
 
    u-boot=> env set optargs "$optargs clk-imx8mp.mcore_booted"
 
