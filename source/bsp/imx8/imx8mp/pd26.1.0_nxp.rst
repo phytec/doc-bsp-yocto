@@ -693,7 +693,7 @@ We use the same device tree node for RS-232 and RS-485. RS-485 mode can be
 enabled with ioctl TIOCSRS485. Also, full-duplex support is also configured
 using ioctls. Have a look at our small example application rs485test, which is
 also included in the BSP. The jumpers |ref-jp3| and |ref-jp4| need to be set
-correctly.
+correctly according to the hardware `documentation <https://www.phytec.de/cdocuments/?doc=ZYaQPw#HardwareManualphyCOREi-MX8MPlusphyBOARDPollux1549-31552-2L1009e-A3-RS-232andRS-485X2RS-232andRS-485X2>`_.
 
 .. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti
