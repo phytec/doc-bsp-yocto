@@ -1,0 +1,74 @@
+Introduction
+============
+
+PHYTEC's Yocto distribution securiPHY supports different security mechanism. The
+security features have impact on the bootloader, the Linux kernel, Device Tree,
+and root filesystem. This manual describes how security features are used and
+implemented on various PHYTEC platforms. Note that different modules use
+different bootloaders and flash storage devices, which affects the way things
+are handled. Make sure to read the correct sections fitting your platform.
+
+Short Crypto Refresher
+----------------------
+
++----------------------------+-----------------------------------------------------------+
+| Function                   |                 Description                               |
++============================+===========================================================+
+| Symmetric cryptography     | The same key for encryption or decryption                 |
++----------------------------+-----------------------------------------------------------+
+| Public key cryptography    | | Two mathematically dependent keys for encryption or     |
+|                            | | decryption. The public key is used for encryption while |
+|                            | | the private key is used for decryption.                 |
++----------------------------+-----------------------------------------------------------+
+| Hash                       | One-way function, fixed output size (SHA*)                |
++----------------------------+-----------------------------------------------------------+
+| HMAC                       | Data authentication using hash and shared secret          |
++----------------------------+-----------------------------------------------------------+
+| Signature                  | | Data authentication using public-key cryptography       |
+|                            | | (keys & certificates, RSA & ECDSA)                      |
++----------------------------+-----------------------------------------------------------+
+| Unauthenticated encryption | | Attackers can‘t read private data but could modify it   |
+|                            | | (AES-CBC, AES-XTS, ...)                                 |
++----------------------------+-----------------------------------------------------------+
+| Authenticated encryption   | | Attacker can‘t read private data and modification is    |
+|                            | | detetcted (AEAD: AES GCM, AEGIS)                        |
++----------------------------+-----------------------------------------------------------+
+| Trusted Keys               | | Symmetric key with variable length is a key type of the |
+|                            | | existing kernel keyring service.                        |
+|                            | | Require the availability of a Trust Source for greater  |
+|                            | | security like a TPM, NXP CAAM or TEE                    |
++----------------------------+-----------------------------------------------------------+
+| Encrypted Keys             | | Symmetric key with variable length is a key type of the |
+|                            | | existing kernel keyring service.                        |
++----------------------------+-----------------------------------------------------------+
+
+Chain of Trust
+--------------
+
+Secure boot is used to ensure that only trustworthy, signed software can be
+executed on the controller. This is the first stage of the Chain-of-Trust.
+With the Chain-of-Trust, signed programs are always started by other previously
+verified programs. This ensures that even the end application is at the
+highest layer of trustworthiness.
+
+.. image:: images/chain-of-trust.jpg
+
+Phytec yocto distributions
+--------------------------
+
++--------------------+-----------------------+------------------------------------+------------------------------+
+|                    | ampliphy              | securiPHY-provisioning             | securiPHY                    |
++====================+=======================+====================================+==============================+
+| Use case           | early development     || for production => provisioning    || development with            |
+|                    |                       || initialize a device for the field || security focus              |
++--------------------+-----------------------+------------------------------------+------------------------------+
+| Image              | phytec-headless-image | phytec-provisioning-image          | phytec-securiphy-image       |
++--------------------+-----------------------+------------------------------------+------------------------------+
+| Update support     | no                    | no                                 | yes                          |
++--------------------+-----------------------+------------------------------------+------------------------------+
+| Secure boot chain  | no                    | yes                                | yes                          |
++--------------------+-----------------------+------------------------------------+------------------------------+
+| serial console     | yes                   | yes                                | no                           |
++--------------------+-----------------------+------------------------------------+------------------------------+
+| ssh access         | root without password | root without password              | root with client certificate |
++--------------------+-----------------------+------------------------------------+------------------------------+

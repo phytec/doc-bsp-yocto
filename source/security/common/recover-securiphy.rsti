@@ -1,0 +1,8 @@
+Recover an Initialized Device
+.............................
+
+If your filesystem is damaged or the key blob is deleted, then you can
+reinstall the encrypted filesystem with the following options.
+
+   1. Reinitialize your device with the phytec-provisioning-image from the SD
+      card (Boot in initramfs)

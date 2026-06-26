@@ -30,40 +30,6 @@ the PHYTEC development keys are downloaded from
 They are used to sign the bootloader, FIT-image, Kernel modules, and the RAUC
 bundles.
 
-+--------------------+-------------------------------------------------------+------------+
-| Name               | Description                                           | Key Type   |
-+====================+=======================================================+============+
-| main-ca            | self-signed Certificate Authority                     | RSA-4096   |
-+--------------------+-------------------------------------------------------+------------+
-| nxp_ahab_pki       | NXP HABv4 Key Authority for i.MX93                    | NIST P-521 |
-+--------------------+-------------------------------------------------------+------------+
-|| nxp_habv4_pki     || NXP HABv4 Key Authority for i.MX6/UL/ULL and         || RSA-4096  |
-||                   || i.MX8M Nano/Mini/Plus                                ||           |
-+--------------------+-------------------------------------------------------+------------+
-| ti_k3              | TI K3 Key Authority for AM62 / AM64 / AM68            | RSA-4096   |
-+--------------------+-------------------------------------------------------+------------+
-| fit                | Kernel FIT-image signing key and certificate          | RSA-4096   |
-+--------------------+-------------------------------------------------------+------------+
-|| kernel-modsign    || Key for the Linux kernel module signing facility,    || RSA-4096  |
-||                   || independent of CA                                    ||           |
-+--------------------+-------------------------------------------------------+------------+
-|| rauc-intermediate || RAUC CA (intermediate CA) and                        || RSA-2048  |
-||                   || RAUC CA sign development key for signing the bundles ||           |
-+--------------------+-------------------------------------------------------+------------+
-|| rauc-intermediate || RAUC CA for device certificates to encrypt           || RSA-4096  |
-|| -crypt            || update bundles                                       ||           |
-+--------------------+-------------------------------------------------------+------------+
-
-The SoC specific nxp_ahab_pki, nxp_habv4_pki and ti_k3 are for signing the boot
-container files,
-which are verified with the SoC internal unit and SoC rom loader or dedicated
-controllers in the SoC.
-
-All keys and certificates are stored in an XCA database phytec-dev-ca.xdb,
-which can be configured with the open-source application XCA from
-`<https://hohnstaedt.de/xca/>`_.
-The password for the phytec-dev-ca.xdb is: phytec-dev-ca
-
 Only the necessary keys and certificates for the build process are exported to
 the directory.
 
@@ -134,8 +100,9 @@ You can install the srktool with
    # or build from source
    host:~$ make -C code/obj.linux64 OSTYPE=linux64 ENCRYPTION=yes
 
-More information about cst and HAB4 API you can find in the doc folder of
-the imx-code-signing-tool repository.
+More information about cst and the HABv4 API can be found in the `doc folder of
+the imx-code-signing-tool repository
+<https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/docs?ref_type=heads>`_.
 
 Create TI K3 Keys
 -----------------
@@ -523,3 +490,29 @@ Create RAUC Update Certificates
 You can create the key and certificate for RAUC with a PKI tool or openssl.
 More details on the
 `RAUC documentation <https://rauc.readthedocs.io/en/latest/advanced.html#ca-configuration>`_
+
+Create SSH Keys and Certificates
+--------------------------------------
+
+.. note::
+
+   Available from Yocto Walnascar
+
+First, create the user CA.
+
+.. code-block:: console
+
+   host:~$ ssh-keygen -t ed25519 -f user_ca -C "User CA"
+
+This creates ``user_ca``, which should be kept save, and ``user_ca.pub``, which
+will be installed on the target.
+
+Second, create the user private key and a corresponding public key, which is
+signed by the user CA, both will be installed on the client accessing the
+target.
+
+.. code-block:: console
+
+   host:~$ ssh-keygen -t ed25519 -f user_root_ed25519 -a 32 -C "root"
+   # example with 24h access to the target
+   host:~$ ssh-keygen -s user_ca -I root -n root -V +24h user_root_ed25519.pub

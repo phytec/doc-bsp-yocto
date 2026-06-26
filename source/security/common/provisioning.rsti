@@ -1,0 +1,82 @@
+Provisioining
+=============
+
+.. note::
+   Create and use your own keys and certificates for signing your images.
+   Burn the right key into the Controller eFuse.
+
+Prepare Provisioning
+--------------------
+
+Flash the image ``phytec-provisioning-image-*.partup`` to the SD card using
+partup. Set the boot mode to SD card according to the BSP manual for the used
+board. Power the device and stop in the u-boot shell.
+
+Activate Secure Boot
+--------------------
+
+The first step to activate Secure Boot on your device is to burn the secure
+eFuse configuration according to |activate-secureboot-link|.
+
+.. warning::
+
+   The secure eFuse configuration can only be written once and is irreversible!
+
+Provisioning the eMMC
+---------------------
+
+After the fuses are burned we can continue with provisioning the eMMC. Only the
+eMMC should be used for the production image.
+Boot into the provisioning image and log in as root. There is no password needed
+at this point. Login over SSH is also possible.
+The next three steps install the security image to the eMMC. The scripts are
+already included in the provisioning image. More information about the
+provisioning scripts is available in |provisioning-scripts-link|.
+
+phyprovisioning-install-emmc
+............................
+
+The tool ``phyprovisioning-install-emmc`` is used to initialize the eMMC and to
+create all the required partitions. It requires the
+``phytec-securiphy-image-*.partup`` package as input. Provide the file on the SD
+card or through the network.
+
+.. code-block:: console
+
+   target:~$ phyprovisioning-install-emmc \
+   --filesystem /tmp/phytec-securiphy-image-phyboard-nash-imx93-1.rootfs.partup \
+   --flashpath /dev/mmcblk0 \
+   --newemmc
+
+This command also mounts the partup package at ``/media/data_partup``.
+
+physecurekeystorage-install
+...........................
+
+The ``physecurekeystorage-install`` tool can initialize all supported secure key
+storages of your machine, but only one can be active at a time. For example,
+the phyBOARD Pollux i.MX8MP supports Trusted TEE, Trusted TPM, Trusted CAAM and
+Secure CAAM, one of them has to be selected for the secure key storage.
+
+The following command creates the trusted and encrypted keys with Trusted TEE.
+
+.. code-block:: console
+
+   target:~$ run0 physecurekeystorage-install --newkeystorage trustedtee
+
+physecurestorage-install
+........................
+
+The tool ``physecurestorage-install`` is used to create and populate the
+encrypted filesystem.
+
+.. code-block:: console
+
+   target:~$ run0 physecurestorage-install \
+   --filesystem /media/data_partup/phytec-securiphy-image-phyboard-nash-imx93-1.rootfs.ext4 \
+   --flashpath /dev/mmcblk0 \
+   --flashlayout 5,6 \
+   --newsecurestorage intenc
+
+The provisioning is now finished. Shutdown the provisioning system with
+``shutdown 0`` and turn off the power to the device.
