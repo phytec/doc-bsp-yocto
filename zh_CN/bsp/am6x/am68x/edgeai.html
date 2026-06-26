@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 介绍 &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/phytec-theme.css?v=fa818d0f" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/bsp/am6x/am68x/edgeai.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="Unstable (dev)" href="../../../yocto/manual-index.html" />
+    <link rel="prev" title="1. PHYTEC 文档" href="pd24.1.0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../am6x.html">AM6X</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../am62l/am62l.html">phyFLEX-AM62L Manuals</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="am68x.html">phyCORE-AM68x Manuals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="am68x.html#head">HEAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="am68x.html#bsp-yocto-ampliphy-am68x-pd24-1-0">BSP-Yocto-Ampliphy-AM68x-PD24.1.0</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="am68x.html#bsp-yocto-edgeai-am68x-v0-2">BSP-Yocto-EdgeAI-AM68x-v0.2</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. 介绍</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#setting-up-the-edgeai-bsp-on-the-phyboard-izar">1.1. Setting up the EdgeAI BSP on the phyBOARD-Izar</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#running-the-demos">1.2. Running the Demos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../am6x.html">AM6X</a></li>
+          <li class="breadcrumb-item"><a href="am68x.html">AM68x Manuals</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>介绍</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/bsp/am6x/am68x/edgeai.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1><span class="section-number">1. </span>介绍<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>Welcome to the quickstart guide for the BSP-Yocto-EdgeAI-AM68x-v0.2.</p>
+<p>This release is designed to bring the TI EdgeAI SDK onto the phyBOARD-Izar
+development kit for the phyCORE-AM68x/TDA4x platform.</p>
+<section id="setting-up-the-edgeai-bsp-on-the-phyboard-izar">
+<h2><span class="section-number">1.1. </span>Setting up the EdgeAI BSP on the phyBOARD-Izar<a class="headerlink" href="#setting-up-the-edgeai-bsp-on-the-phyboard-izar" title="Link to this heading"></a></h2>
+<p>If you have a kit, you need the phyboard-izar-am68x-2 machine which represents
+the GP silicon, whereas phyboard-izar-am68x-3 is for HS-FS silicon-based SoCs.</p>
+<p>The prebuilt images for the phyBOARD-Izar can be downloaded from: <a class="reference external" href="https://download.phytec.de/Software/Linux/BSP-Yocto-EdgeAI/BSP-Yocto-EdgeAI-AM68x-v0.2/">https://download.phytec.de/Software/Linux/BSP-Yocto-EdgeAI/BSP-Yocto-EdgeAI-AM68x-v0.2/</a></p>
+<p>Consult the <a class="reference internal" href="pd24.1.0.html#am68x-pd24-1-0-getting-started"><span class="std std-ref">phyCORE-AM68x/TDA4x documentation</span></a> for instructions on how to flash
+the image onto the SD card, set boot switches and edit the bootenv.txt if needed.</p>
+</section>
+<section id="running-the-demos">
+<h2><span class="section-number">1.2. </span>Running the Demos<a class="headerlink" href="#running-the-demos" title="Link to this heading"></a></h2>
+<p>In addition to the demos included in the SDK Linux Edge AI from TI, there are
+a few Gstreamer pipelines located in the rootfs using the VM-016 phyCAM-M CSI
+Camera as a source.</p>
+<section id="running-the-phytec-example-pipelines">
+<h3><span class="section-number">1.2.1. </span>Running the PHYTEC example pipelines<a class="headerlink" href="#running-the-phytec-example-pipelines" title="Link to this heading"></a></h3>
+<p>The example Gstreamer pipelines will capture using the VM016 CSI camera and
+show the output on the connected LVDS display:</p>
+<ul class="simple">
+<li><p>run_vm016_csi0.sh</p></li>
+<li><p>run_vm016_isp_csi0.sh</p></li>
+<li><p>run_vm016_isp_csi0_keypoint_det.sh</p></li>
+<li><p>run_vm016_isp_csi0_object_det.sh</p></li>
+</ul>
+<p>For example, to start one of the example pipelines, type</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-izar-am68x-2:~# </span>./phytec_edgeai_examples/run_vm016_isp_csi0_object_det.sh
+</pre></div>
+</div>
+<p>The following pipeline is supposed to be run on a Linux host PC to display an incoming
+RTP stream using eth0 (so copy it there):</p>
+<ul class="simple">
+<li><p>receive_rtp_stream.sh</p></li>
+</ul>
+<p>In order to switch out the default kmssink using the connected LVDS display to
+a udpsink streaming the output to a connected host PC at the very end of
+the Gstreamer pipeline, LOCAL_SINK needs to be replaced with REMOTE_SINK.</p>
+</section>
+<section id="running-the-ti-gstreamer-examples">
+<h3><span class="section-number">1.2.2. </span>Running the TI GStreamer Examples<a class="headerlink" href="#running-the-ti-gstreamer-examples" title="Link to this heading"></a></h3>
+<p>Before running one of the demos from the SDK Linux Edge AI, the SoC environment
+variable has to be set:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-izar-am68x-2:~# </span><span class="nb">cd</span><span class="w"> </span>/opt/edgeai-gst-apps/
+<span class="gp">root@phyboard-izar-am68x-2:edgeai-gst-apps# </span>.<span class="w"> </span>scripts/detect_soc.sh
+</pre></div>
+</div>
+<p>In case the LVDS display with its 1280x800 resolution is used, the output in
+the corresponding yaml configuration (here configs/face_detection.yaml) needs
+to be adjusted accordingly:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">outputs:</span>
+<span class="go">   output0:</span>
+<span class="go">      sink: kmssink</span>
+<span class="go">      width: 1280</span>
+<span class="go">      height: 800</span>
+<span class="go">      overlay-perf-type: graph</span>
+
+<span class="go">[...]</span>
+
+<span class="go">flows:</span>
+<span class="go">   flow0: [input1,model0,output0,[0,0,1280,720]]</span>
+</pre></div>
+</div>
+<p>Or if the output shall be a network stream to the host machine similar to what
+the REMOTE_SINK option in our default is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">output3:</span>
+<span class="go">   sink: remote</span>
+<span class="go">   width: 1920</span>
+<span class="go">   height: 1080</span>
+<span class="go">   port: 8081</span>
+<span class="go">   host: 192.168.3.10</span>
+<span class="go">   encoding: h264</span>
+<span class="go">   overlay-perf-type: graph</span>
+
+<span class="go">[...]</span>
+
+<span class="go">flows:</span>
+<span class="go">   flow0: [input1,model0,output3,[320,150,1280,720]]</span>
+</pre></div>
+</div>
+<p>Then, the application can be started:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@phyboard-izar-am68x-2:edgeai-gst-apps# </span>./apps_cpp/app_edgeai<span class="w"> </span>configs/face_detection.yaml
+<span class="go">/* or by using the Python version */</span>
+<span class="gp">root@phyboard-izar-am68x-2:edgeai-gst-apps# </span>./apps_python/app_edgeai.py<span class="w"> </span>configs/face_detection.yaml
+<span class="go">/* or by using Optiflow */</span>
+<span class="gp">root@phyboard-izar-am68x-2:edgeai-gst-apps# </span>./sources/optiflow/optiflow.py<span class="w"> </span>configs/face_detection.yaml
+</pre></div>
+</div>
+<p>Further information can be obtained from the <a class="reference internal" href="pd24.1.0.html#am68x-pd24-1-0-getting-started"><span class="std std-ref">phyCORE-AM68x/TDA4x documentation</span></a> and
+<a class="reference external" href="https://software-dl.ti.com/jacinto7/esd/processor-sdk-linux-am68a/09_02_00/exports/edgeai-docs/common/sdk_overview.html">SDK Linux Edge AI for AM68A Documentation by TI</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="pd24.1.0.html" class="btn btn-neutral float-left" title="1. PHYTEC 文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../../yocto/manual-index.html" class="btn btn-neutral float-right" title="Unstable (dev)" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-338-g3d94901</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
