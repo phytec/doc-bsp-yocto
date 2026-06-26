@@ -195,6 +195,19 @@ First Start-up
 .. +---------------------------------------------------------------------------+
 
 .. include:: /bsp/building-bsp.rsti
+   :end-before: .. nxp-eula-marker
+*  Open the main configuration file and accept the GPU and VPU binary license
+   agreements. Do this by uncommenting the corresponding line, as below.
+
+   .. code-block:: console
+
+      host:~/yocto/build$ vim conf/local.conf
+      # Uncomment to accept NXP EULA
+      # EULA can be found under ../sources/meta-freescale/EULA
+      ACCEPT_FSL_EULA = "1"
+
+.. include:: /bsp/building-bsp.rsti
+   :start-after: .. nxp-eula-marker
 
 .. _imx8mp-pd24.1.0_nxp-images:
 
