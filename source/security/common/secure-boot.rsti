@@ -10,7 +10,7 @@ With the Chain-of-Trust, signed programs are always started by other previously
 verified programs. This ensures that even the end application is at the
 highest layer of trustworthiness.
 
-.. image:: images/chain-of-trust.jpg
+.. image:: images/chain-of-trust.svg
 
 Boot Process
 ------------
