@@ -1,9 +1,6 @@
 Activate Secure Boot on the Device
 ==================================
 
-The final step to activate Secure Boot on your device is to burn the secure
-eFuse configuration.
-
 .. warning::
 
    The secure eFuse configuration can only be written once and is irreversible!
@@ -17,46 +14,6 @@ stores these development keys to ``yocto/phytec-dev-ca``
    Create and use your own keys and certificates for signing your images.
    Burn the right key into the Controller eFuse.
    Please refer to the chapter |secure-key-storage-link|
-
-eMMC Boot Partition to Enable Boot
-----------------------------------
-
-If you install your eMMC with the partup image, then the eMMC is configured
-with the right configuration.
-If you install the bootloader standalone on the eMMC, then please check the
-eMMC configuration for the
-right partition.
-
-+------------------------------+---------------------------------+-----------------------------------+
-|                              | barebox                         | u-boot                            |
-+==============================+=================================+===================================+
-| Set eMMC as an active device | ``barebox$ detect mmc3``        | ``u-boot=> mmc dev 2``            |
-+------------------------------+---------------------------------+-----------------------------------+
-| Show active boot partition   | ``barebox$ devinfo mmc3``       | ``u-boot=> mmc partconf 2``       |
-+------------------------------+---------------------------------+-----------------------------------+
-| Set user area for boot       | ``barebox$ mmc3.boot=disabled`` | ``u-boot=> mmc partconf 2 0 7 0`` |
-+------------------------------+---------------------------------+-----------------------------------+
-|                              || disabled: user partition       || 0x7: user partition              |
-|                              || boot0: Boot partition 0        || 0x1: Boot partition 0            |
-|                              || boot1: Boot partition 1        || 0x2: Boot partition 1            |
-+------------------------------+---------------------------------+-----------------------------------+
-
-Active boot output for barebox:
-   .. code-block::
-
-      ...
-      Parameters:
-      boot: disabled (type: enum) (values: "disabled", "boot0", "boot1", "user")
-      nt_signature: 9a54880c (type: uint32)
-      probe: 0 (type: bool)
-
-Active boot output for u-boot
-   .. code-block::
-
-      EXT_CSD[179], PARTITION_CONFIG:
-      BOOT_ACK: 0x0
-      BOOT_PARTITION_ENABLE: 0x1
-      PARTITION_ACCESS: 0x7
 
 Activate Secure Boot for NXP SoC
 --------------------------------
@@ -157,12 +114,12 @@ Burn the SRK
    ||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
    ||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
    +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
+   | reset the board                            | ``u-boot=> reset``                               | ``u-boot=> reset``                               |
+   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
    || read and check                            || ``u-boot=> fuse read 6 0 4``                    || ``u-boot=> fuse read 16 0 8``                   |
    || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
    ||                                           || ``u-boot=> fuse read 7 0 4``                    || 0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba |
    ||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 ||                                                 |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   | reset the booard                           | ``u-boot=> reset``                               | ``u-boot=> reset``                               |
    +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
    || check the state                           || ``u-boot=> hab_status``                         || ``u-boot=> ahab_status``                        |
    ||                                           ||                                                 || Lifecycle: 0x00000008, OEM Open                 |
