@@ -1,0 +1,34 @@
+.. list-table::
+
+   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mmmm.svg
+            :scale: 400%
+
+            Internal fuses
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmmm.svg
+            :scale: 400%
+
+            USB serial download
+
+   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mpmm.svg
+            :scale: 400%
+
+            e.MMC
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-ppmm.svg
+            :scale: 400%
+
+            SD card
+
+   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
+            :scale: 400%
+
+            SPI NOR flash
+
+      -  .. none
+            :scale: 400%
+
+.. note::
+   In the |sbc| PCB revision 1618.2, all boot mode switches are inverted.
+   This means for rev 1618.2 that in the illustration above, each switch's
+   (+) position must be used instead of the (-) position, and vice versa.
