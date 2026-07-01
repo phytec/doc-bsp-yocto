@@ -1,8 +1,15 @@
 TPM
 ---
 
-The |sbc| is equipped with a Trusted Platform Module (TPM)
+Some carrier boards/SOMs are equipped with a Trusted Platform Module (TPM)
 that provides hardware-based security functions.
+
+.. note::
+
+  To check if TPM is supported on your hardware, refer to the hardware manual
+  for your carrier board/SOM on the download page: |dlpage-product|.
+  Alternatively, check whether a TPM device file (``/dev/tpm*``)
+  exists on your target system.
 
 Here are some useful examples to work with the TPM
 
