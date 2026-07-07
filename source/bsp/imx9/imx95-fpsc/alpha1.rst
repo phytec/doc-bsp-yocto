@@ -539,6 +539,7 @@ Device tree description of LVDS-1 can be found here:
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
 .. include:: peripherals/tm.rsti
+   :end-before: .. imx95-tm-imx-sm-marker
 
 .. include:: /bsp/peripherals/gpu.rsti
    :end-before: .. gpu-platform-specific-marker

@@ -1,12 +1,6 @@
 Thermal Management
 ------------------
 
-U-Boot
-......
-
-There is no Thermal Management support in the first ALPHA release for the
-i.MX95 in U-Boot.
-
 Kernel
 ......
 
@@ -73,3 +67,23 @@ default policy used in the BSP is step_wise.
 
    If the value of the SoC temperature in the sysfs file temp reaches
    *trip_point_1* (critical), the board immediately shuts down to avoid any heat damage.
+
+.. imx95-tm-imx-sm-marker
+
+Systemmanager (imx-sm)
+......................
+
+If one of the temperature sensors on the |soc| reaches the critical trip point,
+the Systemmanager (imx-sm) will trigger a cold reset. And the device will only
+turn back on when it has cooled down. Additionally a message like this will be
+printed by imx-sm:
+
+.. code-block::
+
+   Reset request: reason=fccu, errId=1
+
+The errId will indicate why the reset happened. For an overheat event the errId
+will usually be 1 indicating that the A55 core overheated.
+
+This temperature protection mechanism will work regardless of which state the
+A55 core is in (U-Boot, Linux or turned off).
