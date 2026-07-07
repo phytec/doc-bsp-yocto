@@ -116,6 +116,12 @@
 .. |jtag-target-interface| replace:: S
 .. |jtag-soc-doc-link| replace:: https://kb.segger.com/NXP_i.MX_95
 
+.. Powerkey specific
+.. |powerkey-driver| replace:: scmi_bbm
+.. |systemd-logind-conf-path-powerkey| replace:: ``/usr/lib/systemd/logind.conf.d/00-systemd-conf-imx.conf``
+.. |powerkey-input-dev| replace:: arm-scmi.0.auto
+.. |powerkey-keycode-property| replace:: linux,keycode
+
 .. _imx95-fpsc-head-bsp-manual:
 
 .. only:: html
@@ -550,6 +556,8 @@ Device tree description of LVDS-1 can be found here:
    :start-after: .. gpu-platform-specific-marker
 
 .. include:: /bsp/peripherals/watchdog.rsti
+
+.. include:: /bsp/imx-common/peripherals/power-key.rsti
 
 .. include:: /bsp/peripherals/jtag.rsti
    :end-before: .. jtag-basic-functions-marker
