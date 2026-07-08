@@ -111,6 +111,12 @@
 .. |mcore-jtag-dev| replace:: MIMX8ML8_M7
 .. |mcore-sdk-version| replace:: 2.13.0
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

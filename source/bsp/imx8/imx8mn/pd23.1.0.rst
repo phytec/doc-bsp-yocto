@@ -105,6 +105,12 @@
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mn-pd23.1.0-ubootexternalenv>`
 
+====================
+|yocto-manifestname|
+====================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

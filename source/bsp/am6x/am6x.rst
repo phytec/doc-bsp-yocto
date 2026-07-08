@@ -1,10 +1,20 @@
-====
-AM6X
-====
+===================
+phyFLEX-AM62Lx FPSC
+===================
 
 .. toctree::
-   :caption: AM6X Manuals
-   :maxdepth: 2
+   :maxdepth: 1
 
-   phyFLEX-AM62L Manuals <am62l/am62l.rst>
-   phyCORE-AM68x Manuals <am68x/am68x.rst>
+   am62l/head
+   am62l/quickstart-alpha
+
+=============
+phyCORE-AM68x
+=============
+
+.. toctree::
+   :maxdepth: 1
+
+   am68x/head
+   am68x/pd24.1.0
+   am68x/edgeai

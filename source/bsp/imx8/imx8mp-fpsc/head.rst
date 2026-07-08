@@ -129,6 +129,12 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
