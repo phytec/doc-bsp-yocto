@@ -117,6 +117,12 @@
 .. |eeprom-som-detect-area| replace:: 1024
 .. |eeprom-som-detect-area-hex| replace:: 0x400
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
