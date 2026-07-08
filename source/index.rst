@@ -13,6 +13,12 @@ Welcome to the Documentation for our Yocto BSPs.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Release Notes
+
+   release-notes/index
+
+.. toctree::
+   :maxdepth: 1
    :caption: Yocto Manuals
 
    yocto/manual-index
