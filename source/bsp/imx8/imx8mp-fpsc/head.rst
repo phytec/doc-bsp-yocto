@@ -131,6 +131,12 @@
 
 .. _bsp-man-imx8mp-fpsc-head:
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

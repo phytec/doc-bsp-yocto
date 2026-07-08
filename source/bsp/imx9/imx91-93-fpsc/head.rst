@@ -117,6 +117,12 @@
    :ref:`device tree overlay section <imx91-93-fpsc-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

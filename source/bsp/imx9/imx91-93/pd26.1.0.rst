@@ -153,6 +153,12 @@
 .. |powerkey-input-dev| replace:: 44440000.bbnsm\:pwrkey
 .. |powerkey-keycode-property| replace:: linux,code
 
+====================
+|yocto-manifestname|
+====================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

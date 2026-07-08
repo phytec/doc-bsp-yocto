@@ -122,6 +122,12 @@
 .. |gpio-per-bank-1| replace:: 15
 .. |gpio-sysfs-list| replace:: gpiochip0 and gpiochip1
 
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

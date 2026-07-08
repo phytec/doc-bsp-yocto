@@ -19,6 +19,12 @@
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 
+=====================================
+|yocto-manifestname| Quickstart Guide
+=====================================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
