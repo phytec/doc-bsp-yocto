@@ -12,6 +12,9 @@
 #
 import os
 import re
+import sys
+
+sys.path.append(os.path.abspath('../extensions'))
 
 # -- Project information -----------------------------------------------------
 
@@ -34,6 +37,7 @@ extensions = [
     'sphinx_substitution_extensions',
     'sphinx_sitemap',
     'sphinxcontrib.rsvgconverter',
+    'custom_sectnum',
 ]
 
 # List of patterns, relative to source directory, that match files and
