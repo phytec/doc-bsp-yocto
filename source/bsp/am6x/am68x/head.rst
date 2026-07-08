@@ -83,7 +83,7 @@
 .. |yocto-machinename| replace:: phyboard-izar-am68x-2
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM68x-PD24.1.0
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-AM68x-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM68x-PD24.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM68x-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM68x-PD24.1.0
