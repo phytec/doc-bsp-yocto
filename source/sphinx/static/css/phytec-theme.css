@@ -103,7 +103,7 @@ legend {
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-    color: var(--teal3);
+    color: var(--teal2);
 
     /* Improves the appearance of uppercase text */
     letter-spacing: 0.75px;
@@ -176,7 +176,7 @@ legend {
 }
 
 .rst-versions .rst-current-version {
-    color: var(--teal3);
+    color: var(--teal2);
     background-color: color-mix(in srgb, var(--dark) 75%, var(--black));;
     font-weight: bold;
 }
