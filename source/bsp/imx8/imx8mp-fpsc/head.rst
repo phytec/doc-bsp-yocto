@@ -129,6 +129,8 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
+.. _bsp-man-imx8mp-fpsc-head:
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
