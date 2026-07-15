@@ -28,7 +28,7 @@ eMMC configuration for the
 right partition.
 
 +------------------------------+---------------------------------+-----------------------------------+
-|                              | barebox                         | u-boot                            |
+|                              | barebox                         | U-Boot                            |
 +==============================+=================================+===================================+
 | Set eMMC as an active device | ``barebox$ detect mmc3``        | ``u-boot=> mmc dev 2``            |
 +------------------------------+---------------------------------+-----------------------------------+
@@ -50,7 +50,7 @@ Active boot output for barebox:
       nt_signature: 9a54880c (type: uint32)
       probe: 0 (type: bool)
 
-Active boot output for u-boot
+Active boot output for U-Boot
    .. code-block::
 
       EXT_CSD[179], PARTITION_CONFIG:
@@ -61,7 +61,7 @@ Active boot output for u-boot
 Activate Secure Boot for NXP SoC
 --------------------------------
 
-For NXP SoCs you can burn the fuses with u-boot or with the tool crucible in
+For NXP SoCs you can burn the fuses with U-Boot or with the tool crucible in
 the kernel userspace.
 The necessary SRK fuses contain the hash value of the SRK public keys.
 They are never used on open devices!
@@ -90,7 +90,7 @@ Check the current state of your device
       0000000000000000000000000000000000000000000000000000000000000000
       devel mode
 
-   * NXP i.MX8M Series with HAB and bootloader u-boot
+   * NXP i.MX8M Series with HAB and bootloader U-Boot
 
    .. code-block::
 
@@ -100,7 +100,7 @@ Check the current state of your device
       HAB Configuration: 0xf0, HAB State: 0x66
       No HAB Events Found!
 
-   * NXP i.MX9 with AHAB and bootloader u-boot
+   * NXP i.MX9 with AHAB and bootloader U-Boot
 
    .. code-block::
 
@@ -139,7 +139,7 @@ Burn the SRK
       3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
       devel mode
 
-   * on a SoC with u-boot you must write every word to the fuses
+   * on a SoC with U-Boot you must write every word to the fuses
 
    +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
    |                                            | NXP i.MX8M Series with HAB                       | NXP i.MX9 series with AHAB                       |
@@ -189,7 +189,7 @@ Lock the Device
 
 The device is directly locked and the SRK is write protected, too.
 
-* SoC with u-boot:
+* SoC with U-Boot:
 
 +---------------------------+---------------------------------------+------------------------------------+
 |                           | NXP i.MX8M Series with HAB            | NXP i.MX9 series with AHAB         |
@@ -388,7 +388,7 @@ The following keys are available:
 Example for Revoke Key Slot 0 on NXP SoC with HABV4
 
 +--------------------------------------------------+--------------------------------+
-|| barebox                                         || u-boot                        |
+|| barebox                                         || U-Boot                        |
 || i.MX6, i.MX6UL                                  || i.MX8M series                 |
 +==================================================+================================+
 | ``barebox$ mw -l -d /dev/imx-ocotp 0xBC 0x0001`` | ``u-boot=> fuse prog 9 3 0x1`` |

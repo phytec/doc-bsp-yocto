@@ -81,7 +81,7 @@ Set JTAG to "Disabled debugging" mode:
 
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0xC00000
 
-* i.MX8M MNP with u-boot:
+* i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -109,7 +109,7 @@ Disable JTAG Mode
       # To prevent HAB from Enabling JTAG
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0x08000000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -118,7 +118,7 @@ Disable JTAG Mode
       # To prevent HAB from Enabling JTAG
       u-boot=> fuse prog 1 3 0x4000000
 
-* NXP i.MX93/i.MX91 with u-boot:
+* NXP i.MX93/i.MX91 with U-Boot:
 
    .. code-block::
 
@@ -203,14 +203,14 @@ configurations:
       # Disable SDP Mode Completely
       barebox$ mw -l -d /dev/imx-ocotp 0x18 0x20000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
       # Disable SDP Mode Completely
       u-boot=> fuse prog 2 0 0x200000
 
-* NXP i.MX93/i.MX91 with u-boot:
+* NXP i.MX93/i.MX91 with U-Boot:
 
    .. code-block::
 
@@ -237,13 +237,13 @@ At first you should burn the Boot Fuses.
 
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0x10000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
       u-boot=> fuse prog 2 0 0x100000
 
-* NXP i.MX93/i.MX91 with u-boot:
+* NXP i.MX93/i.MX91 with U-Boot:
 
    ================ ==========
    Boot Device      BOOT_CFG0
@@ -270,7 +270,7 @@ By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.
 
       barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0008
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 

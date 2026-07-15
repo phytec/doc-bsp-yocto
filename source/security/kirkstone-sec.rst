@@ -98,7 +98,7 @@ with the right configuration. If you install the bootloader standalone on the
 eMMC, then please check the eMMC configuration for the right partition.
 
 +------------------------------+---------------------------------+-----------------------------------+
-|                              | barebox                         | u-boot                            |
+|                              | barebox                         | U-Boot                            |
 +==============================+=================================+===================================+
 | Set eMMC as an active device | ``barebox$ detect mmc3``        | ``u-boot=> mmc dev 2``            |
 +------------------------------+---------------------------------+-----------------------------------+
@@ -120,7 +120,7 @@ Active boot output for barebox:
       nt_signature: 9a54880c (type: uint32)
       probe: 0 (type: bool)
 
-Active boot output for u-boot
+Active boot output for U-Boot
    .. code-block::
 
       EXT_CSD[179], PARTITION_CONFIG:
@@ -131,7 +131,7 @@ Active boot output for u-boot
 Activate Secure Boot for NXP SoC
 --------------------------------
 
-For NXP SoCs you can burn the fuses with u-boot or with the tool crucible in the
+For NXP SoCs you can burn the fuses with U-Boot or with the tool crucible in the
 kernel userspace. The necessary SRK fuses contain the hash value of the SRK
 public keys. They are never used on open devices! In closed devices, they are
 used to validate the public key contained in signed firmware images.
@@ -157,7 +157,7 @@ Check the current state of your device
       0000000000000000000000000000000000000000000000000000000000000000
       devel mode
 
-   * NXP i.MX8M Series with HAB and bootloader u-boot
+   * NXP i.MX8M Series with HAB and bootloader U-Boot
 
    .. code-block::
 
@@ -186,7 +186,7 @@ Burn the SRK
       3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
       devel mode
 
-   * on a SoC with u-boot you must write every word to the fuses
+   * on a SoC with U-Boot you must write every word to the fuses
 
    +--------------------------------------------+--------------------------------------------------+
    |                                            | NXP i.MX8M Series with HAB                       |
@@ -236,7 +236,7 @@ Lock the device
 
 The device is directly locked and the SRK is write protected, too.
 
-* SoC with u-boot:
+* SoC with U-Boot:
 
 +---------------------------+---------------------------------------+
 |                           | NXP i.MX8M Series with HAB            |
@@ -346,7 +346,7 @@ The following keys are available:
 Example for Revoke Key Slot 0 on NXP SoC with HABV4
 
 +--------------------------------------------------+--------------------------------+
-|| barebox                                         || u-boot                        |
+|| barebox                                         || U-Boot                        |
 || i.MX6, i.MX6UL                                  || i.MX8M series                 |
 +==================================================+================================+
 | ``barebox$ mw -l -d /dev/imx-ocotp 0xBC 0x0001`` | ``u-boot=> fuse prog 9 3 0x1`` |
@@ -784,7 +784,7 @@ Set JTAG to "Disabled debugging" mode:
 
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0xC00000
 
-* i.MX8M MNP with u-boot:
+* i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -810,7 +810,7 @@ Disable JTAG Mode
       # To prevent HAB from Enabling JTAG
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0x08000000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -843,7 +843,7 @@ configurations:
       # Disable SDP Mode Completely
       barebox$ mw -l -d /dev/imx-ocotp 0x18 0x20000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -870,7 +870,7 @@ At first you should burn the Boot Fuses.
 
       barebox$  mw -l -d /dev/imx-ocotp 0x18 0x10000
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
@@ -886,11 +886,11 @@ By writing to the DIR_BT_DIS FUSE, we can disable boot from external memory.
 
       barebox$ mw -l -d /dev/imx-ocotp 0x18 0x0008
 
-* NXP i.MX8M MNP with u-boot:
+* NXP i.MX8M MNP with U-Boot:
 
    .. code-block::
 
-      u-boot=> fuse prog 1 3 0x8000000
+      U-Boot=> fuse prog 1 3 0x8000000
 
 .. _phytec-pki-kirkstone:
 .. include:: common/phytec-pki.rsti

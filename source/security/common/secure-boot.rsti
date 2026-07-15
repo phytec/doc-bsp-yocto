@@ -21,7 +21,7 @@ SoCs of the same vendor. The main boot process is the following
 .. image:: images/image-verification.png
 
 1. The Trusted ROM-bootloader, which is part of the SoC, verifies the boot
-   container (U-boot spl, ATF, firmware, op-tee) with the internal unit
+   container (U-Boot SPL, ATF, firmware, op-tee) with the internal unit
    (**Boot Step 1**)
 
 +-------------------------------------------+--------------------+---------------------+
@@ -37,9 +37,9 @@ SoCs of the same vendor. The main boot process is the following
 | TI AM62x, AM64x, AM68x                    | R5                 |                     |
 +-------------------------------------------+--------------------+---------------------+
 
-2. u-boot SPL loads u-boot proper from the FIT-image and ATF
+2. U-Boot SPL loads U-Boot proper from the FIT-image and ATF
    (ARM Trusted Firmware) and optionally OP-TEE.
-3. Then, u-boot loads and verifies the FIT-image containing a Linux kernel,
+3. Then, U-Boot loads and verifies the FIT-image containing a Linux kernel,
    DTB, and ramdisk. (**Boot Step 2**)
 4. If built with signed kernel modules (standard), Linux will only load kernel
    modules verified with a kernel compiled-in public key
@@ -103,11 +103,11 @@ There are two different Yocto classes for creation of a signed FIT-image.
 
 * Poky ``sources/poky/meta/classes-recipe/kernel-fitimage.bbclass``
 
-   * This is the standard upstream FIT-image class in Yocto mainly for u-boot,
+   * This is the standard upstream FIT-image class in Yocto mainly for U-Boot,
      which builts one FIT-image with initramfs and without initramfs.
 
 Initially, the PHYTEC FIT-image class was used to create the FIT-images, because
-it supports barebox and u-boot and you can define more refined FIT-images.
+it supports barebox and U-Boot and you can define more refined FIT-images.
 Since security has increasingly become an integral part of the SoC
 manufacturer's BSPs, which use the kernel-fitimage, PHYTEC has decided to
 gradually switch to this class, too.
@@ -145,11 +145,11 @@ signing.
 
 In the following view you can see the necessary variables for signing with the
 PHYTEC FIT-image class. The ``FITIMAGE_PUBKEY_SIGNATURE_PATH`` is only important,
-when using the ``FITIMAGE_SIGN_ENGINE="software"``. This means, that the u-boot
+when using the ``FITIMAGE_SIGN_ENGINE="software"``. This means, that the U-Boot
 validates the kernel fitImage und uses the compiled-in public key.
 The alternative is that the NXP HAB unit validates the kernel fitImage, then
 the ``FITIMAGE_SIGN_ENGINE="nxphab"`` must be set. This is only possible for
-NXP SoCs with HAB unit and u-boot as bootloader.
+NXP SoCs with HAB unit and U-Boot as bootloader.
 The following configuration is part of in the ``sources/meta-ampliphy/secureboot.bbclass``
 
 .. code-block:: bash

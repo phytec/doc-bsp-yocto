@@ -224,7 +224,7 @@ from eMMC:
          barebox$ global linux.bootargs.rescue="rescue=1"
          barebox$ boot
 
-      * for u-boot:
+      * for U-Boot:
 
       .. code-block::
 
