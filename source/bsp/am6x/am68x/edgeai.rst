@@ -5,6 +5,12 @@
 .. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-EdgeAI/BSP-Yocto-EdgeAI-AM68x-v0.2/
 .. |am68x-pd-getting-started| replace:: :ref:`phyCORE-AM68x/TDA4x documentation <am68x-pd24.1.0-getting-started>`
 
+============================================
+BSP-Yocto-EdgeAI-AM68x-v0.2 Quickstart Guide
+============================================
+
+.. sectnum::
+
 Introduction
 ============
 

@@ -118,6 +118,12 @@
 
 .. _imx95-fpsc-alpha2-bsp-manual:
 
+====================
+|yocto-manifestname|
+====================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

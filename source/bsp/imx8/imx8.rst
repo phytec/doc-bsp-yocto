@@ -1,12 +1,51 @@
-======
-i.MX 8
-======
+====================
+phyCORE-i.MX 8M Mini
+====================
 
 .. toctree::
-   :caption: i.MX 8 Manuals
-   :maxdepth: 2
+   :maxdepth: 1
 
-   phyCORE-i.MX 8M Plus Manuals <imx8mp/imx8mp.rst>
-   phyCORE-i.MX 8M Plus FPSC Manuals <imx8mp-fpsc/imx8mp-fpsc.rst>
-   phyCORE-i.MX 8M Mini Manuals <imx8mm/imx8mm.rst>
-   phyCORE-i.MX 8M Nano Manuals <imx8mn/imx8mn.rst>
+   imx8mm/head
+   imx8mm/pd25.1.1
+   imx8mm/pd25.1.0
+   imx8mm/pd23.1.0
+   imx8mm/pd22.1.1
+
+====================
+phyCORE-i.MX 8M Nano
+====================
+
+.. toctree::
+   :maxdepth: 1
+
+   imx8mn/head
+   imx8mn/pd23.1.0
+   imx8mn/pd22.1.1
+
+====================
+phyCORE-i.MX 8M Plus
+====================
+
+.. toctree::
+   :maxdepth: 1
+
+   imx8mp/head
+   imx8mp/mainline-head
+   imx8mp/pd24.1.2
+   imx8mp/pd24.1.1_nxp
+   imx8mp/pd24.1.1
+   imx8mp/pd24.1.0_nxp
+   imx8mp/pd23.1.0
+   imx8mp/pd22.1.2
+   imx8mp/pd22.1.1
+
+=========================
+phyFLEX-i.MX 8M Plus FPSC
+=========================
+
+.. toctree::
+   :maxdepth: 1
+
+   imx8mp-fpsc/head
+   imx8mp-fpsc/alpha1
+   imx8mp-fpsc/quickstart-alpha1

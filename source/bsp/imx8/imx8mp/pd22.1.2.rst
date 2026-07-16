@@ -119,6 +119,12 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
+====================
+|yocto-manifestname|
+====================
+
+.. sectnum::
+
 The table below shows the Compatible BSPs for this manual:
 
 ==================== ================ ================ ================= ==========
