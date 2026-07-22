@@ -1,0 +1,1356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSP-Yocto-NXP-i.MX8MP-PD26.1.0 &mdash; PHYTEC BSP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=e72c8e07" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/phytec-theme.css?v=c52b48bd" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://phytec.github.io/doc-bsp-yocto/release-notes/imx8mp/nxp-pd26.1.0.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Unstable (dev)" href="../../yocto/manual-index.html" />
+    <link rel="prev" title="AM62Lx" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PHYTEC BSP Documentation
+              <img src="../../_static/logo-phytec.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">BSP Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bsp/imx8/imx8.html">i.MX 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsp/imx9/imx9.html">i.MX 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bsp/am6x/am6x.html">AM6X</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">AM62Lx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#am68x">AM68x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#i-mx-8m-mini">i.MX 8M Mini</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#i-mx-8m-plus">i.MX 8M Plus</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BSP-Yocto-NXP-i.MX8MP-PD26.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-notes">Release Notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tested-yocto-images">Tested Yocto Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-machines">Supported Machines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-environment">Build Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changes">Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issues-fixed">Issues fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defeatured">Defeatured</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues-limitations">Known Issues/Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#i-mx-8m-plus-phyboard-pollux">i.MX 8M Plus phyBOARD-Pollux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part-number-summary">Part Number Summary</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#hardware-summary">Hardware Summary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kit-summary">Kit Summary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#supported-boot-sources">Supported Boot Sources</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#supported-features">Supported Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#i-mx-8m-plus-phyflex-libra-rdk">i.MX 8M Plus phyFLEX Libra RDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Part Number Summary</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id2">Hardware Summary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">Kit Summary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id4">Supported Boot Sources</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id5">Supported Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#i-mx-91-93">i.MX 91/93</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#i-mx-95">i.MX 95</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Yocto Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto/manual-index.html">Unstable (dev)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto/manual-index.html#kirkstone">Kirkstone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto/manual-index.html#mickledore">Mickledore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto/manual-index.html#scarthgap">Scarthgap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto/manual-index.html#walnascar">Walnascar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Manuals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rauc/manual-index.html">RAUC Update &amp; Device Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security/manual-index.html">Security Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coprocessor/index.html">Coprocessor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">贡献</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing_links.html">贡献</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PHYTEC BSP Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">AM62Lx</a></li>
+      <li class="breadcrumb-item active">BSP-Yocto-NXP-i.MX8MP-PD26.1.0</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/phytec/doc-bsp-yocto/blob/main/source/release-notes/imx8mp/nxp-pd26.1.0.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bsp-yocto-nxp-i-mx8mp-pd26-1-0">
+<h1>BSP-Yocto-NXP-i.MX8MP-PD26.1.0<a class="headerlink" href="#bsp-yocto-nxp-i-mx8mp-pd26-1-0" title="Link to this heading"></a></h1>
+<section id="release-notes">
+<h2>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Linux NXP Vendor Kernel v6.12.49-2.2.0-phy11 (based on NXP tag lf-6.12.49-2.2.0)</p></li>
+<li><p>U-boot v2025.04-2.2.0-phy9 (based on NXP tag lf-6.12.49-2.2.0)</p></li>
+<li><p>Yocto 5.2.4 (Walnascar)</p></li>
+<li><p>Qt 6.8</p></li>
+<li><p>OP-TEE 4.8</p></li>
+<li><p>RAUC 1.14</p></li>
+</ul>
+<section id="tested-yocto-images">
+<h3>Tested Yocto Images<a class="headerlink" href="#tested-yocto-images" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>phytec-chromium-image</p></li>
+<li><p>phytec-qt6demo-image</p></li>
+<li><p>phytec-vision-image</p></li>
+<li><p>phytec-provisioning-image</p></li>
+<li><p>phytec-securiphy-image</p></li>
+<li><p>phytec-headless-image</p></li>
+</ul>
+</section>
+<section id="supported-machines">
+<h3>Supported Machines<a class="headerlink" href="#supported-machines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>phyboard-pollux-imx8mp-3</p></li>
+<li><p>imx8mp-phyflex-libra-rdk-2</p></li>
+</ul>
+</section>
+<section id="build-environment">
+<h3>Build Environment<a class="headerlink" href="#build-environment" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ubuntu 24.04 64-bit</p></li>
+</ul>
+</section>
+<section id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Move OP-TEE to end of 1GiB addressable RAM (0x7e000000) BSPIMX8M-4034</p></li>
+<li><p>replaced imx8mp-libra-fpsc-1 with imx8mp-phyflex-libra-rdk-2 machine</p></li>
+<li><p>i.MX8MP-FPSC release is integrated into the i.MX8MP releases.</p></li>
+</ul>
+</section>
+<section id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Chromium image</p></li>
+<li><p>ampliphy-boot</p></li>
+<li><p>4GiB RAM support on phyFLEX Libra (ALPHA)</p></li>
+<li><p>EEPROM detection support in U-Boot on phyFLEX Libra</p></li>
+<li><p>VPU support on phyFLEX Libra</p></li>
+<li><p>thermal management on phyFLEX Libra (U-Boot and Linux)</p></li>
+<li><p>support for VM-024 phyCAM-M</p></li>
+</ul>
+</section>
+<section id="issues-fixed">
+<h3>Issues fixed<a class="headerlink" href="#issues-fixed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed RS232 flow control on phyFLEX Libra</p></li>
+<li><p>Fixed video playback issue</p></li>
+</ul>
+</section>
+<section id="defeatured">
+<h3>Defeatured<a class="headerlink" href="#defeatured" title="Link to this heading"></a></h3>
+<p>legacyboot support in built-in U-Boot environment for phyBOARD Pollux</p>
+</section>
+<section id="known-issues-limitations">
+<h3>Known Issues/Limitations<a class="headerlink" href="#known-issues-limitations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>No audio support</p></li>
+<li><p>No wireless support (Bluetooth, WiFi)</p></li>
+<li><p>No NPU support</p></li>
+<li><p>No support for 8GiB RAM variant</p></li>
+<li><p>no EFI support</p></li>
+<li><p>No LED support on phyBOARD Pollux</p></li>
+<li><p>No USB-C support for phyFLEX Libra</p></li>
+<li><p>4GiB RAM Timings on phyFLEX Libra not fully validated yet</p></li>
+<li><p>phyboard-pollux-imx8mp-3: Upper USB port on X5 connector doesn't
+work reliable in host mode in bootloader</p></li>
+<li><p>shutdown from Linux might sometimes take longer due to systemd stop job running</p></li>
+<li><p>Reduction of CMA size to half for phyBOARD Pollux 1GiB RAM SoM</p></li>
+<li><p>Increased resume duration during suspend to RAM</p></li>
+</ul>
+</section>
+</section>
+<section id="i-mx-8m-plus-phyboard-pollux">
+<h2>i.MX 8M Plus phyBOARD-Pollux<a class="headerlink" href="#i-mx-8m-plus-phyboard-pollux" title="Link to this heading"></a></h2>
+<p>The BSP Manual for i.MX 8M Plus phyBOARD-Pollux can be found <a class="reference internal" href="../../bsp/imx8/imx8mp/pd26.1.0_nxp.html#bsp-man-imx8mp-pd26-1-0"><span class="std std-ref">here</span></a>.</p>
+<section id="part-number-summary">
+<h3>Part Number Summary<a class="headerlink" href="#part-number-summary" title="Link to this heading"></a></h3>
+<section id="hardware-summary">
+<h4>Hardware Summary<a class="headerlink" href="#hardware-summary" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part Number</p></th>
+<th class="head"><p>Hardware Description</p></th>
+<th class="head"><p>Configuration Details (SoC / RAM / eMMC / NOR / Eth PHY / RTC / Temp Rating)</p></th>
+<th class="head"><p>PCB Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PCM-070-0F3243I.A7</p></td>
+<td><p>phyCORE-i.MX8MP SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 2GB (2GHz) / 8GB / 64MB / Yes / Yes / Industrial</p></td>
+<td><p>1549.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCM-070-0F3403X.A0</p></td>
+<td><p>phyCORE-i.MX8MP SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 2GB (2GHz) / 32GB / - / Yes / Yes / Extended</p></td>
+<td><p>1549.3</p></td>
+</tr>
+<tr class="row-even"><td><p>PCM-070-0F8443I.A1</p></td>
+<td><p>phyCORE-i.MX8MP SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 4GB (2GHz) / 32GB / 64MB / Yes / Yes / Industrial</p></td>
+<td><p>1549.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCM-070-173203C.A1</p></td>
+<td><p>phyCORE-i.MX8MP SoM</p></td>
+<td><p>i.MX8MP 4x1.8GHz / 2GB (2GHz) / 8GB / - / Yes / Yes / Consumer</p></td>
+<td><p>1549.3</p></td>
+</tr>
+<tr class="row-even"><td><p>PCM-070-102105C.A5</p></td>
+<td><p>phyCORE-i.MX8MP SoM</p></td>
+<td><p>i.MX8MP 4x1.8GHz / 1GB (2GHz) / 4GB / - / Yes / - / Consumer</p></td>
+<td><p>1549.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PB-03123-003.A4</p></td>
+<td><p>phyBOARD Pollux SBC</p></td>
+<td></td>
+<td><p>1552.2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kit-summary">
+<h4>Kit Summary<a class="headerlink" href="#kit-summary" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part Number</p></th>
+<th class="head"><p>Yocto Machine</p></th>
+<th class="head"><p>Hardware Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>KPB-03123-Video-L02</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>Embed Imag Kit i.MX 8M Plus Pollux</p></td>
+</tr>
+<tr class="row-odd"><td><p>KPB-03123-Video-L01</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>EmbedImag Kit i.MX 8M Plus Pollux FF</p></td>
+</tr>
+<tr class="row-even"><td><p>KPB-03123-AI.A2</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>I.MX8M PLUS Artificial intelligence Kit</p></td>
+</tr>
+<tr class="row-odd"><td><p>KPB-03123-003.A0</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>I.MX8M PLUS phyBOARD-POLLUX FF Kit</p></td>
+</tr>
+<tr class="row-even"><td><p>KPB-03123-001.A3</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>I.MX8M PLUS phyBOARD-POLLUX FF Kit</p></td>
+</tr>
+<tr class="row-odd"><td><p>PB-03123-AI-Kit.A3-00</p></td>
+<td><p>phyboard-pollux-imx8mp-3</p></td>
+<td><p>PB Pollux KI Kit/4x1.6GHz/24V/I/DEV</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supported-boot-sources">
+<h4>Supported Boot Sources<a class="headerlink" href="#supported-boot-sources" title="Link to this heading"></a></h4>
+<p>The following keywords might be used in the Status column:</p>
+<ul class="simple">
+<li><p>Supported: Feature is tested and works.</p></li>
+<li><p>Unsupported: Feature is not implemented.</p></li>
+<li><p>Partly Supported: Some parts of the feature are supported, but not the full
+functionality. More detailed description is in the Notes column.</p></li>
+<li><p>Untested: Feature has been implemented, but not or not fully tested/validated.</p></li>
+<li><p>Broken: Feature has been implemented, but does not work due to a bug.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Boot Source</p></th>
+<th class="head"><p>Release Status</p></th>
+<th class="head"><p>Upstream Status</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eMMC</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td><p>Default</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD-Card</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SPI NOR Flash</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td><p>only kernel</p></td>
+</tr>
+<tr class="row-even"><td><p>USB Serial downloader
+(UUU)</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td><p>upper USB-A port</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supported-features">
+<h4>Supported Features<a class="headerlink" href="#supported-features" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Sub-Feature</p></th>
+<th class="head"><p>Release Status</p></th>
+<th class="head"><p>Upstream Status</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RAM / EEPROM Detection</p></td>
+<td><p>2GiB RAM</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td><p>Fallback size</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>1GiB RAM</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>4GiB RAM</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Read out and
+evaluate EEPROM
+data</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RAM detection
+and fallback</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>eMMC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SD-Card</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SPI NOR Flash</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ethernet</p></td>
+<td><p>SoM Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Board Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PEB-WLBT-05</p></td>
+<td><p>WiFi</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Bluetooth</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bootflow</p></td>
+<td><p>ampliphy-boot</p></td>
+<td><p>Supported</p></td>
+<td><p>Partly Supported</p></td>
+<td><p>patches pending for upstream</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>extensions</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>legacyboot</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Watchdog</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>USB Serial downloader
+(UUU flash + boot)</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Partly Supported</p></td>
+<td><p>upstream only eMMC
+can be flashed</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB-A (Host)</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PCI Express</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LEDs</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEPROM</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>RTC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>RS485</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>RS232</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CAN</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS onboard</p></td>
+<td><p>ETML1010G3DRA</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ph128800t006</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Mipi DSI</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>HDMI</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PEB-AV-10</p></td>
+<td><p>ETML1010G3DRA</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ph128800t006</p></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Audio</p></td>
+<td><p>Broken</p></td>
+<td><p>Untested</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dual Display Support</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Untested</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GPU</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Untested</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VPU</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Broken</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>QT6 demo</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Suspend to RAM</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Deactivate Cores</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Frequency scaling</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Thermal management</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ON/OFF + Reset Button</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PWM Fan</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>GPIO FAN</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Chromium</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Untested</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NPU</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M7 core</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Basis support (mcux examples)</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI-CSI 1 and 2
+(phyCAM)</p></td>
+<td><p>vm-016 phyCAM-M
+vm-016 phyCAM-L
+vm-017 phyCAM-M
+vm-017 phyCAM-L
+vm-020 phyCAM-M
+vm-020 phyCAM-L
+vm-024 phyCAM-M</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ISP</p></td>
+<td><p>Bayer Pattern
+Conversion</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Auto White
+Balance</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Autofocus</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Auto Exposure</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Lens Correction</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-even"><td><p>Security</p></td>
+<td><p>Secure Boot</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Secure Storage</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Secure Key
+Storage - CAAM
+Unit Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Secure Key
+Storage - TPM
+Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Secure Key
+Storage - TEE
+Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Protection
+Shield V2 (User
+and access)</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>RAUC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Supported</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="i-mx-8m-plus-phyflex-libra-rdk">
+<h2>i.MX 8M Plus phyFLEX Libra RDK<a class="headerlink" href="#i-mx-8m-plus-phyflex-libra-rdk" title="Link to this heading"></a></h2>
+<p>The BSP Manual for i.MX 8M Plus phyFLEX Libra RDK can be found <a class="reference internal" href="../../bsp/imx8/imx8mp-fpsc/pd26.1.0_nxp.html#bsp-man-imx8mp-fpsc-pd26-1-0"><span class="std std-ref">here</span></a>.</p>
+<section id="id1">
+<h3>Part Number Summary<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h4>Hardware Summary<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part Number</p></th>
+<th class="head"><p>Hardware Description</p></th>
+<th class="head"><p>Configuration Details (SoC / RAM / eMMC / NOR / Eth PHY / RTC / Temp Rating)</p></th>
+<th class="head"><p>PCB Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PFL-G-01-PT001.A2</p></td>
+<td><p>i.MX8MP phyFLEX-FPSC SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 2GB / 8GB / - / Yes / Yes / Industrial</p></td>
+<td><p>1617.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PFL-G-01-PT001.A3</p></td>
+<td><p>i.MX8MP phyFLEX-FPSC SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 2GB / 8GB / - / Yes / Yes / Industrial</p></td>
+<td><p>1617.4</p></td>
+</tr>
+<tr class="row-even"><td><p>PFL-G-01-SP001.A0</p></td>
+<td><p>i.MX8MP phyFLEX-FPSC SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 2GB / 8GB / - / Yes / Yes / Industrial</p></td>
+<td><p>1617.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PFL-G-01-SP002.A0</p></td>
+<td><p>i.MX8MP phyFLEX-FPSC SoM</p></td>
+<td><p>i.MX8MP 4x1.6GHz / 4GB / 32GB / - / Yes / Yes / Industrial</p></td>
+<td><p>1617.4</p></td>
+</tr>
+<tr class="row-even"><td><p>PD-05023-ALPHA.A2</p></td>
+<td><p>phyFLEX-Libra SBC</p></td>
+<td><ul class="simple">
+<li><p>/ - / - / 64MB / - / - / - /</p></li>
+</ul>
+</td>
+<td><p>1618.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PD-05023-SP001.A0</p></td>
+<td><p>phyFLEX-Libra SBC</p></td>
+<td><ul class="simple">
+<li><p>/ - / - / 64MB / - / - / - /</p></li>
+</ul>
+</td>
+<td><p>1618.3</p></td>
+</tr>
+<tr class="row-even"><td><p>PD-05023-SP002.A0</p></td>
+<td><p>phyFLEX-Libra SBC</p></td>
+<td><ul class="simple">
+<li><p>/ - / - / 64MB / - / - / - /</p></li>
+</ul>
+</td>
+<td><p>1618.3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h4>Kit Summary<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part Number</p></th>
+<th class="head"><p>Yocto Machine</p></th>
+<th class="head"><p>Hardware Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>KPD-05023-SP001.A0</p></td>
+<td><p>imx8mp-phyflex-libra-rdk-2</p></td>
+<td><p>Libra i.MX8M Plus KIT Q1.6G/2GR/8GE/4kEE/ETH</p></td>
+</tr>
+<tr class="row-odd"><td><p>KPD-05023-ALPHA.A2</p></td>
+<td><p>imx8mp-phyflex-libra-rdk-2</p></td>
+<td><p>Libra i.MX8M Plus ALPHA-KIT Q1.6G/2GR/8GE/4kEE/ETH</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h4>Supported Boot Sources<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>The following keywords might be used in the Status column:</p>
+<ul class="simple">
+<li><p>Supported: Feature is tested and works.</p></li>
+<li><p>Unsupported: Feature is not implemented.</p></li>
+<li><p>Partly Supported: Some parts of the feature are supported, but not the full
+functionality. More detailed description is in the Notes column.</p></li>
+<li><p>Untested: Feature has been implemented, but not or not fully tested/validated.</p></li>
+<li><p>Broken: Feature has been implemented, but does not work due to a bug.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Boot Source</p></th>
+<th class="head"><p>Release Status</p></th>
+<th class="head"><p>Upstream Status</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eMMC</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Default</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD-Card</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SPI NOR Flash</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>only kernel</p></td>
+</tr>
+<tr class="row-even"><td><p>USB Serial downloader
+(UUU)</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>USB-C (X18)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h4>Supported Features<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Sub-Feature</p></th>
+<th class="head"><p>Release Status</p></th>
+<th class="head"><p>Upstream Status</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RAM / EEPROM Detection</p></td>
+<td><p>2GiB RAM</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Fallback size</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>4GiB RAM</p></td>
+<td><p>Untested</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Read out and
+evaluate EEPROM
+data</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RAM detection
+and fallback</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>eMMC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SD-Card</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SPI NOR Flash</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet</p></td>
+<td><p>SoM Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Board Ethernet</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bootflow</p></td>
+<td><p>ampliphy-boot</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>extensions</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Watchdog</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>USB Serial downloader
+(UUU flash + boot)</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>USB-C (Host &amp; Device)</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>USB-A (Host)</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M.2 Key-E</p></td>
+<td><p>WiFi</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bluetooth</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LEDs</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEPROM</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO expanders</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>RTC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Temp Sensor Baseboard
+(I3C)</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Temp Sensor (SoM)</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>RS485</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>RS232</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CAN</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LVDS onboard</p></td>
+<td><p>ETML1010G3DRA</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ph128800t006</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Mipi DSI</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PEB-AV-10</p></td>
+<td><p>ETML1010G3DRA</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ph128800t006</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Audio</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dual Display Support</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>GPU</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>VPU</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>QT6 demo</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SPI ADC</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Suspend to RAM</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Deactivate Cores</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Frequency scaling</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Thermal management</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>JTAG</p></td>
+<td></td>
+<td><p>Untested</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ON/OFF + Reset Button</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PWM Fan</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO FAN</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Chromium</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NPU</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>M7 core</p></td>
+<td></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI-CSI 1 and 2
+(phyCAM)</p></td>
+<td><p>vm-016 phyCAM-M
+vm-016 phyCAM-L
+vm-017 phyCAM-M
+vm-017 phyCAM-L
+vm-020 phyCAM-M
+vm-020 phyCAM-L
+vm-024 phyCAM-M</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ISP</p></td>
+<td><p>Bayer Pattern
+Conversion</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Auto White
+Balance</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Autofocus</p></td>
+<td><p>Unsupported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Auto Exposure</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Lens Correction</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td><p>not supported for VM-024</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security</p></td>
+<td><p>Secure Boot</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Secure Storage</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Secure Key
+Storage - CAAM
+Unit Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Secure Key
+Storage - TPM
+Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Secure Key
+Storage - TEE
+Support</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Protection
+Shield V2 (User
+and access)</p></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>RAUC</p></td>
+<td></td>
+<td><p>Supported</p></td>
+<td><p>Unsupported</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../index.html" class="btn btn-neutral float-left" title="AM62Lx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../yocto/manual-index.html" class="btn btn-neutral float-right" title="Unstable (dev)" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, PHYTEC Messtechnik GmbH。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Languages
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>语言</dt>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/index.html">en</a></dd>
+        
+          <dd><a href="https://phytec.github.io/doc-bsp-yocto/zh_CN/index.html">zh_CN</a></dd>
+        
+    </dl>
+    
+
+    <div style="margin: 10px 0;"></div>
+    <dl>
+      <dt>Version</dt>
+      <dd>imx95-alpha1-366-gad4ad94</dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
