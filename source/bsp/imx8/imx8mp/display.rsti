@@ -1,9 +1,7 @@
 Display
 -------
 
-.. supported-display-interfaces-marker-start
-
-The |sbc| supports up to 4 different display outputs. Three can be used
+The |sbc| supports up to 3 different display outputs. Two can be used
 simultaneously. The following table shows the required extensions and devicetree
 overlays for the different interfaces.
 
@@ -11,13 +9,14 @@ overlays for the different interfaces.
 Interface Expansion                devicetree overlay
 ========= ======================== ======================================
 HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10                |dtbo-peb-av-10|
+LVDS0     PEB-AV-10 AC209          imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
                                    (loaded by default)
-LVDS1     |sbc|                    disabled if PEB-AV-10 overlay is used
-MIPI      PEB-AV-12 (MIPI to LVDS) imx8mp-phyboard-pollux-peb-av-012.dtbo
+LVDS0     PEB-AV-10 AC200          imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
+LVDS1     |sbc| AC209              imx8mp-phyboard-pollux-ph128800t006.dtbo
+                                   (disabled if PEB-AV-10 display overlay is used)
+LVDS1     |sbc| AC200              imx8mp-phyboard-pollux-etml1010g3dra.dtbo
+                                   (disabled if PEB-AV-10 display overlay is used)
 ========= ======================== ======================================
-
-.. supported-display-interfaces-marker-end
 
 .. note::
 
@@ -94,41 +93,4 @@ have to be set to the:
 
    [output]
    name=LVDS-1
-   mode=current
-
-.. no-peb-av-12-marker
-
-For dual display at LVDS0 (PEB-AV-010) and MIPI (PEB-AV-012), both dtbos need to
-be loaded at the bootenv.txt and the weston.ini should look like this:
-
-.. code-block::
-   :substitutions:
-
-   [output]
-   name=HDMI-A-1
-   mode=off
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-Triple Display
-~~~~~~~~~~~~~~
-
-Three outputs: HDMI, LVDS-1 (PEB-AV-10), and LVDS-2 (PEB-AV-12). Remember to
-load both dtbos for LVDS interfaces.
-
-.. code-block::
-   :substitutions:
-
-   [output]
-   name=HDMI-A-1
-   mode=|weston-hdmi-mode|
-
-   [output]
-   name=LVDS-1
-   mode=current
-
-   [output]
-   name=LVDS-2
    mode=current

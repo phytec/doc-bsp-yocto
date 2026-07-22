@@ -573,28 +573,6 @@ Device Tree Audio configuration:
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
-   :end-before: .. supported-display-interfaces-marker-start
-
-The |sbc| supports up to 3 different display outputs. Two can be used
-simultaneously. The following table shows the required extensions and devicetree
-overlays for the different interfaces.
-
-========= ======================== ======================================
-Interface Expansion                devicetree overlay
-========= ======================== ======================================
-HDMI      |sbc|                    no overlay needed (enabled by default)
-LVDS0     PEB-AV-10 AC209          imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
-                                   (loaded by default)
-LVDS0     PEB-AV-10 AC200          imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
-LVDS1     |sbc| AC209              imx8mp-phyboard-pollux-ph128800t006.dtbo
-                                   (disabled if PEB-AV-10 display overlay is used)
-LVDS1     |sbc| AC200              imx8mp-phyboard-pollux-etml1010g3dra.dtbo
-                                   (disabled if PEB-AV-10 display overlay is used)
-========= ======================== ======================================
-
-.. include:: display.rsti
-   :start-after: .. supported-display-interfaces-marker-end
-   :end-before: .. no-peb-av-12-marker
 
 .. include:: /bsp/qt6.rsti
 
