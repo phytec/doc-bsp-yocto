@@ -18,16 +18,24 @@ LVDS1     |sbc| AC200              imx8mp-phyboard-pollux-etml1010g3dra.dtbo
                                    (disabled if PEB-AV-10 display overlay is used)
 ========= ======================== ======================================
 
+The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-10).
+
+To select a different LVDS interface or display, edit ``/boot/overlays.txt`` and
+update the ``fit_overlay_conf`` entry with the appropriate overlay from the table
+above. The ``fit_overlay_conf`` value must reference the FIT overlay configuration
+name, which uses the ``conf-`` prefix.
+
+.. code-block::
+
+   fit_overlay_conf=conf-imx8mp-phyboard-pollux-etml1010g3dra.dtbo
+
+Device tree configurations can be added as a ``#``-separated list but adding two LVDS
+related overlays at a time will not work. Changes will have an effect after reboot.
+
 .. note::
 
    *  When changing Weston output, make sure to match the audio output as well.
    *  LVDS0 (PEB-AV-10) and LVDS1 (onboard) can not be used at the same time.
-
-HDMI is always enabled in the devicetree. The other interfaces can be enabled
-with Device Tree Overlay.
-
-The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
-10'' edt,etml1010g0dka display for the |lvds-display-adapters|.
 
 .. note::
 
@@ -38,7 +46,7 @@ The default-enabled Interfaces are HDMI and LVDS0 (PEB-AV-010). We support a
 Weston Configuration
 ....................
 
-In order to get an output from Weston on the correct display, it still needs to
+In order to get an output from Weston on the correct display, it also needs to
 be configured correctly. This will be done at ``/etc/xdg/weston/weston.ini``.
 
 Single Display
@@ -59,9 +67,6 @@ In our BSP, the default Weston output is set to HDMI.
 
 When using the LVDS channel 0 (PEB-AV-10) or the LVDS channel 1 as output, set
 the output mode to ``off`` for HDMI-A-1 and for LVDS-1 to ``current``.
-If you want to use LVDS channel 1 (cables connected directly to the
-phyBOARD-Pollux, not to PEB-AV-10 expansion board) then you need to load no overlay.
-Remove the imx8mp-phyboard-pollux-peb-av-xxx.dtbo from bootenv.txt.
 
 .. code-block::
 
@@ -78,7 +83,7 @@ Dual Display
 
 .. note::
 
-   For dual and triple display output you can not use LVDS1 (onboard) and HDMI
+   For dual display output you can not use LVDS1 (onboard) and HDMI
    together.
 
 For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
