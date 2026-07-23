@@ -87,7 +87,7 @@ Dual Display
    together.
 
 For dual display in dual view mode at HDMI and LVDS0 (PEB-AV-10), both modes
-have to be set to the:
+need to be configured as follows:
 
 .. code-block::
    :substitutions:
