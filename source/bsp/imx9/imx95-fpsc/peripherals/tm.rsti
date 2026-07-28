@@ -22,7 +22,9 @@ This section describes how the thermal management kernel API is used for the
 There are nine temperature sensors on the SoM that are readable from Linux.
 The |socfamily| has two internal temperature sensors for the SoC.
 Three internal sensors for the PMICs and four I²C temperature sensors located
-close to DRAM, eMMC, ethernet PHY and PMIC.
+close to DRAM, eMMC, ethernet PHY and PMIC. The four I²C sensors are optionally
+mounted and can be activated with the ``imx95-phyflex-fpsc-g-som-temperature.dtbo``
+overlay.
 
 *  The current temperatures of the system can be read in milli celsius over
 
