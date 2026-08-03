@@ -316,8 +316,48 @@ Separate the config names by hash symbols. For example:
 
       host:~$ dumpimage -l fitImage
 
-.. include:: /bsp/imx-common/development/netboot_fit.rsti
-   :start-after: .. network-settings-on-target-marker
+Network Settings on Target
+..........................
+
+To customize the targets ethernet configuration, please follow the description
+here: |ref-network|
+
+Booting from an Embedded Board
+..............................
+
+Boot the board into the U-boot prompt and press any key to hold.
+
+*  To boot from a network, call:
+
+   .. code-block:: console
+
+      u-boot=> setenv boot_targets ethernet
+      u-boot=> bootflow scan -lb
+
+To persistently boot from network, save the environment after setting
+boot_targets to ethernet.
+
+   .. code-block:: console
+
+      u-boot=> env set boot_targets "ethernet"
+      u-boot=> env save
+
+To use DHCP for booting from a network:
+
+   .. code-block:: console
+
+      u-boot=> env set ip_dyn true
+      u-boot=> env save
+
+When not using DHCP (ip_dyn set to false), U-Boot needs ipaddr and serverip to
+be set. If addresses different from the PHYTEC provided defaults are desired,
+they can be set in the U-Boot environment:
+
+   .. code-block:: console
+
+      u-boot=> env set ipaddr <xxx.xxx.xxx.xxx>
+      u-boot=> env set serverip <xxx.xxx.xxx.xxx>
+      u-boot=> env save
 
 .. include:: /bsp/imx-common/development/development_manifests.rsti
 
