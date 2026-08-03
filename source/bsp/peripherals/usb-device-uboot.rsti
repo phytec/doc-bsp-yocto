@@ -38,6 +38,6 @@ To share only the first partition of the eMMC with the host instead, run:
 
    u-boot=> ums 0 |emmcdev-uboot|:1
 
-The ums command will run until it is terminated with CTRL+C, the device is
+The ``ums`` command will run until it is terminated with :kbd:`CTRL+C`, the device is
 ejected on the host, or the USB cable is unplugged. Only then will it return to
 the U-Boot console.
