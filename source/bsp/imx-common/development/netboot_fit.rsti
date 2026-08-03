@@ -49,7 +49,7 @@ here: |ref-network|
 Booting from an Embedded Board
 ..............................
 
-Boot the board into the U-boot prompt and press any key to hold.
+*  Boot the board into the U-boot prompt and press any key to hold.
 
 *  To boot from a network, call:
 
@@ -58,27 +58,31 @@ Boot the board into the U-boot prompt and press any key to hold.
       u-boot=> setenv boot_targets ethernet
       u-boot=> bootflow scan -lb
 
-To persistently boot from network, save the environment after setting
-boot_targets to ethernet.
+*  To persistently boot from network, save the environment after setting
+   ``boot_targets`` to ethernet.
 
    .. code-block:: console
 
       u-boot=> env set boot_targets "ethernet"
       u-boot=> env save
 
-To use DHCP for booting from a network:
+*  To use DHCP for booting from a network:
 
    .. code-block:: console
 
       u-boot=> env set ip_dyn true
       u-boot=> env save
 
-When not using DHCP (ip_dyn set to false), U-Boot needs ipaddr and serverip to
-be set. If addresses different from the PHYTEC provided defaults are desired,
-they can be set in the U-Boot environment:
+*  When not using DHCP (``ip_dyn`` set to false), which is the default for our NXP
+   BSPs, U-Boot needs ``ipaddr``, ``serverip`` and ``nfs_eth_dev`` to be set.
+   ``nfs_eth_dev`` describes the name of the ethernet interface in Linux before any
+   renaming to the endx naming scheme is applied. By default this should be set to
+   the SoM Ethernet in the board environment. If values different from the PHYTEC
+   provided defaults are desired, these variables can be set in the U-Boot environment:
 
    .. code-block:: console
 
       u-boot=> env set ipaddr <xxx.xxx.xxx.xxx>
       u-boot=> env set serverip <xxx.xxx.xxx.xxx>
+      u-boot=> env set nfs_eth_dev eth<x>
       u-boot=> env save
