@@ -110,8 +110,8 @@ Used Variables:
    variable. If unset, default is ``overlays.txt``.
 *  **serverip**: IP addr of the tftp and nfs server. Only used if ip_dyn is set for
    static IPs.
-*  **nfs_eth_dev**: Can be used to set the nfs ethernet interface. If unset,
-   eth0 will be used as default.
+*  **nfs_eth_dev**: If ip_dyn is set for static IPs, this must be used to set
+   the ethernet interface.
 
 spi_boot_fit
 ^^^^^^^^^^^^

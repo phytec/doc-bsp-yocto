@@ -73,12 +73,16 @@ To use DHCP for booting from a network:
       u-boot=> env set ip_dyn true
       u-boot=> env save
 
-When not using DHCP (ip_dyn set to false), U-Boot needs ipaddr and serverip to
-be set. If addresses different from the PHYTEC provided defaults are desired,
-they can be set in the U-Boot environment:
+When not using DHCP (ip_dyn set to false), which is the default for our NXP
+BSPs, U-Boot needs ipaddr, serverip and nfs_eth_dev to be set.
+nfs_eth_dev describes the name of the ethernet interface in Linux before any
+renaming to the endx naming scheme is applied. By default this should be set to
+the SoM Ethernet in the board environment. If values different from the PHYTEC
+provided defaults are desired, these variables can be set in the U-Boot environment:
 
    .. code-block:: console
 
       u-boot=> env set ipaddr <xxx.xxx.xxx.xxx>
       u-boot=> env set serverip <xxx.xxx.xxx.xxx>
+      u-boot=> env set nfs_eth_dev eth<x>
       u-boot=> env save
