@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 09:55+0100\n"
+"POT-Creation-Date: 2025-06-06 11:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -975,6 +975,9 @@ msgstr "执行命令 *bitbake-layers show-layers* 应该会打印所有已启用
 msgid "to your *build/conf/local.conf*. Do not forget to rebuild the image"
 msgstr "到您的 *build/conf/local.conf*。不要添加后忘记重新构建镜像"
 
+msgid "After adding further external or own layers, it makes sense to reflect those additions by deriving a custom manifest file, cmp :ref:`kirkstone_phylinux-advanced-usage`"
+msgstr ""
+
 #, fuzzy
 msgid "Create your own layer"
 msgstr "创建自己的Layer 创建Layer"
@@ -1378,7 +1381,8 @@ msgstr "在这个示例中，将会忽略Layer *meta-phytec* 中目录 *boardenv
 msgid "Changing the Network Configuration"
 msgstr "更改网络配置"
 
-msgid "To tweak IP addresses, routes, and gateways at runtime you can use the tools *ifconfig* and *ip* . Some examples"
+#, fuzzy
+msgid "To tweak IP addresses, routes, and gateways at runtime you can use the *iproute2* tools. Some examples"
 msgstr "要在系统运行时调整 IP 地址、路由和网关，可以使用工具 *ifconfig* 和 *ip* 。以下是一些示例"
 
 msgid "The network configuration is managed by *systemd-networkd* . To query the current status use"
@@ -1724,9 +1728,6 @@ msgstr "完整的文档可以在一个单独的 HTML 页面上找到，用户可
 msgid "Table of Contents"
 msgstr "目录"
 
-msgid "Yocto Reference Manuals"
-msgstr "Yocto 参考手册"
-
 msgid "Kirkstone"
 msgstr "Kirkstone"
 
@@ -1796,6 +1797,9 @@ msgstr "参考资料：`Yocto 4.2.4 文档 - 自定义 Yocto 构建 <https://doc
 msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* 'sumo' build, you should try to use the 'sumo' branch in the layer, too."
 msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ 并稍微思考一下。网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_。要将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* “sumo”版本构建，因此您也应该尝试在Layer中使用“sumo”分支。"
 
+msgid "After adding further external or own layers, it makes sense to reflect those additions by deriving a custom manifest file, cmp :ref:`mickledore_phylinux-advanced-usage`"
+msgstr ""
+
 msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`mickledore_temporary-method` and is the same for all methods."
 msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`mickledore_temporary-method`。"
 
@@ -1831,6 +1835,38 @@ msgstr "关于常见任务的部分是一个很好的起始点。https://docs.yo
 
 msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/4.2.4/singleindex.html"
 msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用户搜索功能或变量名称。https://docs.yoctoproject.org/4.2.4/singleindex.html"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+
+#, fuzzy
+msgid "2024-06-27"
+msgstr "2024-04-02"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD25.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+
+#, fuzzy
+msgid "2024-12-20"
+msgstr "2024-04-09"
+
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
+
+#, fuzzy
+msgid "2024-07-19"
+msgstr "2024-04-09"
 
 msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
 msgstr "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
@@ -1869,36 +1905,15 @@ msgid "2024-10-08"
 msgstr "2024-04-09"
 
 #, fuzzy
-msgid "BSP-Yocto-Ampliphy-i.MX6-PD25.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+msgid "BSP-Yocto-NXP-i.MX95-ALPHA1"
+msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.1"
+
+msgid "Alpha"
+msgstr ""
 
 #, fuzzy
-msgid "2024-12-20"
-msgstr "2024-04-09"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
-
-#, fuzzy
-msgid "2024-07-19"
-msgstr "2024-04-09"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
-
-#, fuzzy
-msgid "2024-06-27"
+msgid "2025-06-02"
 msgstr "2024-04-02"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
 
 msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
 msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/scarthgap/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
@@ -1948,6 +1963,9 @@ msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中�
 msgid "All available remote branches will show up. Usually there should be 'sumo', 'warrior', 'zeus', 'dunfell', 'hardnkott', 'kirkstone', 'mickledore', 'master'..."
 msgstr "所有可用的远程分支会被展示出来。通常应该有'sumo'、'warrior'、'zeus'、'dunfell'、'hardnkott'、'kirkstone'、'mickledore'、'master'..."
 
+msgid "After adding further external or own layers, it makes sense to reflect those additions by deriving a custom manifest file, cmp :ref:`scarthgap_phylinux-advanced-usage`"
+msgstr ""
+
 msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`scarthgap_temporary-method` and is the same for all methods."
 msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`scarthgap_temporary-method`。"
 
@@ -1980,4 +1998,7 @@ msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用
 
 #~ msgid "Now we clean the */build* directory by deleting everything except */build/conf/* but including */build/conf/sanity* . We change *site.conf* as follows"
 #~ msgstr "现在我们将清理 */build* 目录，删除 */build/conf/* 以外的所有文件以及*/build/conf/sanity*。我们对 *site.conf* 修改如下。"
+
+#~ msgid "Yocto Reference Manuals"
+#~ msgstr "Yocto 参考手册"
 
