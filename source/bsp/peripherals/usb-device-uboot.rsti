@@ -1,0 +1,43 @@
+U-Boot also has support for USB device, there it is called USB mass storage
+(ums). When the USB device port of the board is connected to a USB-A host port
+on the host, a partition on a storage medium on the board or also the complete
+storage medium can be shared to the host via ums.
+
+For this, make sure that USB is first initialized correctly. If USB has not been
+used in U-Boot before, first run ``usb start``, which triggers the necessary usb
+initialization functions.
+
+.. code-block::
+
+   u-boot=> usb start
+
+Then stop the usb host implementation. For boards with dual-role (OTG) ports,
+the usb start function will trigger not only the general initialization of USB,
+but also the initialization of the port in host mode. This will include the
+activation of the VBUS voltage that is supplied by the USB host port. For UMS,
+the port needs to run in device mode though. For that the VBUS voltage needs to
+be disabled on the board.
+
+.. code-block::
+
+   u-boot=> usb stop
+
+If the board is booted via serial downloader boot, the USB port is already
+initialized in device mode, so these earlier steps are not necessary.
+
+Finally the storage medium on the board can be shared with the host with the
+``ums`` command. In this example we share the whole eMMC with the host.
+
+.. code-block::
+
+   u-boot=> ums 0 |emmcdev-uboot|
+
+To share only the first partition of the eMMC with the host instead, run:
+
+.. code-block::
+
+   u-boot=> ums 0 |emmcdev-uboot|:1
+
+The ``ums`` command will run until it is terminated with :kbd:`CTRL+C`, the device is
+ejected on the host, or the USB cable is unplugged. Only then will it return to
+the U-Boot console.

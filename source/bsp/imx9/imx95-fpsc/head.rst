@@ -505,22 +505,29 @@ DT representation for I²C RTCs:
 And the additions on the carrierboard:
 :linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L436`
 
-USB Host Controller
--------------------
+USB
+---
 
-The USB controller of the |soc| SoC provides a low-cost connectivity solution
-for numerous consumer portable devices by providing a mechanism for data
-transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
-'SS'). The USB subsystem has two independent USB controller cores. Both cores
-are capable of acting as a USB peripheral device or a USB host. Each is
-connected to a USB 3.0 PHY.
+The |kit| has two USB 2.0 type A ports (X16) that are configured as USB host
+interface and one USB-C 3.0 DRP (Dual Role Port) (X18) that can act
+as device or host. In Linux, the USB-C port will switch the role automatically
+depending on what is plugged into the port. In U-Boot, the port will be
+initialized as device or as host depending on the command that is used.
+
+DT representation for USB-A Host Ports:
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
+
+DT representation for USB-C DRP:
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
+
+USB-Host
+........
 
 .. include:: /bsp/peripherals/usb-host.rsti
 
-DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
-
 .. include:: /bsp/peripherals/usb-device.rsti
+
+.. include:: /bsp/peripherals/usb-device-uboot.rsti
 
 .. include:: /bsp/peripherals/video.rsti
 
