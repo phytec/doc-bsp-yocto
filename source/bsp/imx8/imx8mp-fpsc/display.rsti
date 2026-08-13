@@ -24,7 +24,7 @@ LVDS0     |sbc|                    imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
 .. note::
 
    *  When changing Weston output, make sure to match the audio output as well.
-   *  LVDS0 (PEB-AV-10) and LVDS1 (onboard) can not be used at the same time.
+   *  LVDS1 (PEB-AV-10) and LVDS0 (onboard) can not be used at the same time.
 
 The default interface is LVDS0 (onboard LVDS).
 
