@@ -10,16 +10,22 @@ download the `Official UUU-tool documentation
 Host preparations for UUU Usage
 ...............................
 
+A recent version of UUU is often available as an official package in your Linux
+distribution. Obtain it using the package manager of your host distribution.
+
+Alternatively, if no recent version of UUU is available in your host
+distribution, install UUU from source:
+
 *  Follow the instructions from https://github.com/nxp-imx/mfgtools#linux.
 
-*  If you built UUU from source, add it to ``PATH``:
+*  Add it to ``PATH``:
 
-   This BASH command adds uuu only temporarily to ``PATH``. To add it
-   permanently, add this line to ``~/.bashrc``.
-
-   .. code-block:: console
+   .. code-block:: sh
 
       export PATH=~/mfgtools/uuu/:"$PATH"
+
+   This BASH command adds ``uuu`` only temporarily to ``PATH``. To add it
+   permanently, the line to ``~/.bashrc``.
 
 *  Set udev rules (documented in ``uuu -udev``):
 
