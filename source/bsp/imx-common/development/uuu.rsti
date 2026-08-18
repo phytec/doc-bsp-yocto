@@ -115,6 +115,64 @@ Execute the following command and then power up or reset the board:
 
    host:~$ uuu -b emmc_all imx-boot |yocto-imagename|-|yocto-machinename|.rootfs.wic
 
+Flashing partup Packages to e.MMC via UUU
+.........................................
+
+Flashing partup packages via UUU to the target e.MMC is done by writing to the
+exposed UMS (USB mass storage) device of the board. For this to work, the U-Boot
+image being loaded via SDP needs a modified ``bootcmd_mfg``, so it does not boot
+into fastboot mode.
+
+In the U-Boot source code, modify the board's environment file:
+
+.. code-block::
+   :substitutions:
+
+   bootcmd_mfg=ums 0 mmc |u-boot-emmc-devno|
+
+With the modified binary, run imx-boot on the board:
+
+.. code-block:: console
+
+   host:~$ uuu -b spl imx-boot
+
+This will automatically start ``ums`` on the target and expose the e.MMC to the
+host. The U-Boot may output the following:
+
+.. code-block::
+   :substitutions:
+
+   Run bootcmd_mfg: ums 0 mmc |u-boot-emmc-devno|
+   Hit any key to stop autoboot:  0
+   UMS: LUN 0, dev mmc |u-boot-emmc-devno|, hwpart 0, sector 0x0, count 0x3a3e000
+
+On the host side, the device should appear as a UMS device:
+
+.. code-block:: console
+
+   host:~$ lsblk -o NAME,SIZE,LABEL,MODEL
+   NAME          SIZE LABEL  MODEL
+   ...
+   sdd          29.1G        UMS disk 0
+
+This device, ``/dev/sdd`` in this example, behaves exactly like an SD card. The
+e.MMC user area is fully available and ready for flashing with partup. Replace
+``/dev/sdd`` with the actual device found on your host.
+
+.. code-block::
+   :substitutions:
+
+   host:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/sdd
+
+.. note::
+   e.MMC-specific features, like `e.MMC boot partitions
+   <https://partup.readthedocs.io/en/latest/layout-config-reference.html#emmc-boot-partitions>`_,
+   `hwreset and bootbus configuration
+   <https://partup.readthedocs.io/en/latest/layout-config-reference.html#mmc-specific-controls>`_,
+   are not available this way. This is a fundamental limitation of this approach
+   using UUU and UMS devices. If e.MMC-specific features are needed, it is
+   advised to boot a minimal Linux system on the target and run partup there.
+
 .. uuu-flash-sdcard-marker
 
 Flashing U-Boot to SD Card via UUU
