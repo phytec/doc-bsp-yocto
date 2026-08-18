@@ -99,7 +99,7 @@ Flashing U-Boot Image to e.MMC via UUU
    When using **partup** and ``.partup`` packages for e.MMC flashing, this is
    done by default, which makes partup again a superior flash option.
 
-Execute and power up the board:
+Execute the following command and then power up or reset the board:
 
 .. code-block:: console
 
@@ -108,7 +108,7 @@ Execute and power up the board:
 Flashing WIC Images to e.MMC via UUU
 ....................................
 
-Execute and power up the board:
+Execute the following command and then power up or reset the board:
 
 .. code-block:: console
    :substitutions:
@@ -120,7 +120,7 @@ Execute and power up the board:
 Flashing U-Boot to SD Card via UUU
 ..................................
 
-Execute and power up the board:
+Execute the following command and then power up or reset the board:
 
 .. code-block:: console
 
@@ -129,7 +129,7 @@ Execute and power up the board:
 Flashing WIC Images to SD Card via UUU
 ......................................
 
-Execute and power up the board:
+Execute the following command and then power up or reset the board:
 
 .. code-block:: console
    :substitutions:
@@ -141,7 +141,7 @@ Execute and power up the board:
 Flashing SPI NOR Flash via UUU
 ..............................
 
-Execute and power up the board:
+Execute the following command and then power up or reset the board:
 
 .. code-block:: console
    :substitutions:
