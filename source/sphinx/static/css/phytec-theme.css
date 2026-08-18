@@ -134,7 +134,7 @@ legend {
     background-color: var(--gray-dark);
 }
 
-.wy-menu-vertical ul:last-child {
+.wy-menu-vertical > ul:last-child {
     margin-bottom: 4em;
 }
 
