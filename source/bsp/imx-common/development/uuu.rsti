@@ -69,7 +69,7 @@ You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
 
 .. uuu-flash-emmc-marker
 
-Flashing U-boot Image to e.MMC via UUU
+Flashing U-Boot Image to e.MMC via UUU
 ......................................
 
 .. warning::
@@ -90,14 +90,14 @@ Flashing U-boot Image to e.MMC via UUU
       BOOT_PARTITION_ENABLE: 0x0
       PARTITION_ACCESS: 0x0
 
-   or check :ref:`Disable booting from e.MMC boot partitions
+   Alternatively, check :ref:`Disable booting from e.MMC boot partitions
    <emmc-disable-boot-part>` from Linux.
 
-   This way the bootloader is still flashed to e.MMC BOOT partitions but it is
-   not used!
+   This way, the bootloader is still being flashed to e.MMC boot partitions, but
+   it is not used.
 
-   When using **partup** tool and ``.partup`` package for e.MMC flashing this is
-   done by default, which makes partup again superior flash option.
+   When using **partup** and ``.partup`` packages for e.MMC flashing, this is
+   done by default, which makes partup again a superior flash option.
 
 Execute and power up the board:
 
@@ -105,8 +105,8 @@ Execute and power up the board:
 
    host:~$ uuu -b emmc imx-boot
 
-Flashing wic Image to e.MMC via UUU
-...................................
+Flashing WIC Images to e.MMC via UUU
+....................................
 
 Execute and power up the board:
 
@@ -126,8 +126,8 @@ Execute and power up the board:
 
    host:~$ uuu -b sd imx-boot
 
-Flashing wic Image to SD Card via UUU
-.....................................
+Flashing WIC Images to SD Card via UUU
+......................................
 
 Execute and power up the board:
 
@@ -148,8 +148,9 @@ Execute and power up the board:
 
    host:~$ uuu -b qspi imx-boot-|yocto-machinename|-fspi.bin-flash_evk_flexspi
 
-This will update the U-Boot on SPI NOR Flash but not the environment. You may need to erase the old
-environment so the default environment of the new U-Boot gets loaded:
+This will update the U-Boot on SPI NOR Flash but not the environment. You may
+need to erase the old environment so the default environment of the new U-Boot
+gets loaded:
 
 .. code-block:: console
 
