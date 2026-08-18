@@ -123,6 +123,7 @@ legend {
 .wy-nav-side {
     color: var(--white);
     background-color: color-mix(in srgb, var(--dark), var(--black));
+    padding-bottom: 0em;
 }
 
 .wy-menu-vertical a {
@@ -131,6 +132,10 @@ legend {
 
 .wy-menu-vertical a:hover {
     background-color: var(--gray-dark);
+}
+
+.wy-menu-vertical ul:last-child {
+    margin-bottom: 4em;
 }
 
 .wy-menu-vertical li.toctree-l1.current > a {
