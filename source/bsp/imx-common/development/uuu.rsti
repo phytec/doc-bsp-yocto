@@ -31,7 +31,7 @@ distribution, install UUU from source:
 
    .. code-block:: console
 
-      host:~$ sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+      host:~$ sudo sh -c "uuu -udev > /etc/udev/rules.d/70-uuu.rules"
       host:~$ sudo udevadm control --reload
 
 Get Images
