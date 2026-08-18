@@ -60,12 +60,12 @@ Execute and power up the board:
 You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
 
 .. note::
-   The default boot command when booting with UUU is set to fastboot. If you
-   want to change this, please adjust the environment variable bootcmd_mfg in
-   U-Boot prompt with setenv bootcmd_mfg. Please note, when booting with UUU the
-   default environment is loaded. ``saveenv`` has no effect. If you want to
-   change the boot command permanently for uuu-boot, you need to change this in
-   U-Boot code.
+   The default boot command when booting with UUU is set to ``fastboot``. If you
+   want to change this, please adjust the environment variable ``bootcmd_mfg``
+   in U-Boot prompt with ``env set bootcmd_mfg ...``. Please note, when booting
+   with UUU the default environment is loaded. ``saveenv`` and ``env save`` have
+   no effect. If you want to change the boot command permanently for uuu-boot,
+   you need to change this in U-Boot source code.
 
 .. uuu-flash-emmc-marker
 
@@ -74,11 +74,11 @@ Flashing U-boot Image to e.MMC via UUU
 
 .. warning::
 
-   UUU flashes U-boot into e.MMC BOOT (hardware) boot partitions, and it sets
-   the BOOT_PARTITION_ENABLE in the e.MMC! This is a problem since we want the
-   bootloader to reside in the e.MMC USER partition. Flashing next U-Boot
-   version .wic image and not disabling BOOT_PARTITION_ENABLE bit will result in
-   device always using U-boot saved in BOOT partitions. To fix this in U-Boot:
+   UUU flashes U-Boot into e.MMC hardware boot partitions, and it sets the
+   ``BOOT_PARTITION_ENABLE`` in the e.MMC! This is a problem since we want the
+   bootloader to reside in the e.MMC user area. Flashing next U-Boot version WIC
+   image and not disabling ``BOOT_PARTITION_ENABLE`` bit will result in devices
+   always loading U-Boot from e.MMC boot partitions. To fix this in U-Boot:
 
    .. code-block:: console
       :substitutions:
