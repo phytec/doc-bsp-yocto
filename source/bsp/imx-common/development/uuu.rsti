@@ -159,7 +159,7 @@ This device, ``/dev/sdd`` in this example, behaves exactly like an SD card. The
 e.MMC user area is fully available and ready for flashing with partup. Replace
 ``/dev/sdd`` with the actual device found on your host.
 
-.. code-block::
+.. code-block:: console
    :substitutions:
 
    host:~$ partup install |yocto-imagename|-|yocto-machinename|.rootfs.partup /dev/sdd
