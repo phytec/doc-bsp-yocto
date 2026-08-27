@@ -59,7 +59,7 @@ a combined image of all three:
 
    host:~/|u-boot-repo-name|$ dd if=tiboot3.bin of=ti-boot-container.img conv=fsync
    host:~/|u-boot-repo-name|$ dd if=tispl.bin of=ti-boot-container.img seek=1024 conv=fsync
-   host:~/|u-boot-repo-name|$ dd if=tispl.bin of=ti-boot-container.img seek=5120 conv=fsync
+   host:~/|u-boot-repo-name|$ dd if=u-boot.img of=ti-boot-container.img seek=5120 conv=fsync
 
 * flash to a block device e.g. eMMC:
 
