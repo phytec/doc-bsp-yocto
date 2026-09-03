@@ -1,33 +1,34 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.1
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
-.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-8m-plus-fpsc/#downloads
+.. |dlpage-product| replace:: https://www.phytec.eu/en/produkte/embedded-vision/phyvip-vision-integration-platform-imx-8m-plus/#downloads
 .. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
 .. |dl-server-link| replace:: |dl-server|_
 .. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/sdk/ampliphy-vendor/
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-phyflex-libra-rdk-2/phytec-qt6demo-image-imx8mp-phyflex-libra-rdk-2.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-phyflex-libra-rdk-2/phytec-qt6demo-image-imx8mp-phyflex-libra-rdk-2.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-phyflex-libra-rdk-2/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/imx8mp-phyflex-libra-rdk-2/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/imx8mp-phyflex-phyvip-1/phytec-vision-image-imx8mp-phyflex-phyvip-1.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/imx8mp-phyflex-phyvip-1/phytec-vision-image-imx8mp-phyflex-phyvip-1.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/imx8mp-phyflex-phyvip-1/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/imx8mp-phyflex-phyvip-1/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _`static-pdf-dl`: ../../../_static/imx8mp-fpsc-head.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mp-phyvip-head.pdf
 
 .. IMX8(MP) specific
 
 .. General Substitutions
-.. |kit| replace:: **phyFLEX-i.MX 8M Plus Libra Rapid Development Kit**
+.. |kit| replace:: **phyVIP-i.MX 8M Plus Vision Integration Platform**
 .. |kit-ram-size| replace:: 2GiB
-.. |sbc| replace:: phyFLEX Libra
+.. |sbc| replace:: phyVIP
 .. |soc| replace:: i.MX 8M Plus
 .. |socfamily| replace:: i.MX 8
 .. |som| replace:: phyFLEX-|soc| FPSC Gamma
 .. |debug-uart| replace:: ttymxc3
 .. |serial-uart| replace:: ttymxc1
-.. |bluetooth-uart| replace:: UART1
+.. |bluetooth-uart| replace:: UART2
+.. TODO: expansion-connector ?
 .. |expansion-connector| replace:: X6
 .. |netboot-script| replace:: net_boot_fit.scr.uimg
 .. |can0-interface| replace:: fcan1
@@ -40,13 +41,15 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v6.12.49-2.2.0-phy11
+.. TODO: check kernel tag
+.. |kernel-tag| replace:: v6.12.49-2.2.0-phy14
 .. |emmcdev| replace:: mmcblk2
+.. TODO: LEDs?
 .. |led-names| replace:: red:status, green:status and blue:status
 .. |led-example| replace:: red\\:status
 
 .. Bootloader
-.. |u-boot-defconfig| replace:: imx8mp-phyflex-libra-rdk_defconfig
+.. |u-boot-defconfig| replace:: imx8mp-phyflex-phyvip_defconfig
 .. |bootloader-offset| replace:: 32
 .. |bootloader-offset-boot-part| replace:: 0
 .. |u-boot-mmc-flash-offset| replace:: 0x40
@@ -59,20 +62,23 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP_PHYFLEX_LIBRA_RDK
-.. |u-boot-tag| replace:: v2025.04-2.2.0-phy9
+.. TODO: check u-boot tag?
+.. |u-boot-tag| replace:: v2025.04-2.2.0-phy10
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
 .. _rauc-manual: https://www.phytec.de/cdocuments/?doc=F4DiM
 
 .. Devicetree
-.. |dt-carrierboard| replace:: imx8mp-phyflex-libra-rdk
+.. |dt-carrierboard| replace:: imx8mp-phyflex-phyvip
+.. |dt-expansionboard| replace:: imx8mp-phyflex-phyvip-peb-b-006
 .. |dt-som| replace:: imx8mp-phyflex-fpsc-g-som
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L94`
-.. |dt-gpio-expander1| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L178`
-.. |dt-gpio-expander2| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L202`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L94`
+.. TODO: No port expander on phyVIP?
+.. |dt-gpio-expander1| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L178`
+.. |dt-gpio-expander2| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L202`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -80,41 +86,47 @@
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: Walnascar
 .. |yocto-distro| replace:: ampliphy-vendor
-.. |yocto-imagename| replace:: phytec-qt6demo-image
+.. |yocto-imagename| replace:: phytec-vision-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
-.. |yocto-machinename| replace:: imx8mp-phyflex-libra-rdk-2
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.0
+.. |yocto-machinename| replace:: imx8mp-phyflex-phyvip-1
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.1
+.. TODO: phyVIP not available on master?
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-master>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-master-kernel-and-bootloader-conf>`
+.. TODO: not sure about the SDK version?
 .. |yocto-sdk-rev| replace::  5.2.4
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-phyvip-head-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-fpsc-head-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-fpsc-head-device-tree>`
-.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-fpsc-head-supported-hardware>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-fpsc-head-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-fpsc-head-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-fpsc-head-development>`
-.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-fpsc-head-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-fpsc-head-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-fpsc-head-format-sd>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-phyvip-head-images>`
+.. TODO: Debug USB connector uuu?
+.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-phyvip-head-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-phyvip-head-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-phyvip-head-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-phyvip-head-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-phyvip-head-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-phyvip-head-development>`
+.. TODO: USB OTG on phyVIP?
+.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-phyvip-head-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-phyvip-head-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-phyvip-head-format-sd>`
 
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
+.. TODO: No second ethernet on phyVIP?
 .. |sbc-network| replace::
    The device tree set up for EQOS Ethernet IP core where the PHY is populated
    on the |sbc| can be found here:
-   :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L94`.
+   :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L94`.
 
-.. |ref-serial| replace:: :ref:`X27 <imx8mp-fpsc-head-components>`
-.. |ref-S5| replace:: :ref:`S5 <imx8mp-fpsc-head-components>`
+.. TODO: Serial on phyVIP?
+.. |ref-serial| replace:: :ref:`X27 <imx8mp-phyvip-head-components>`
+.. |ref-S5| replace:: :ref:`S5 <imx8mp-phyvip-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-fpsc-head-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-phyvip-head-ubootexternalenv>`
 .. |weston-hdmi-mode| replace:: preferred
 
 .. M-Core specific
@@ -129,11 +141,13 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
-.. _bsp-man-imx8mp-fpsc-head:
+.. _bsp-man-imx8mp-phyvip-head:
 
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
+
+.. TODO: Check release date?
 
 The table below shows the Compatible BSPs for this manual:
 
@@ -141,12 +155,12 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
 ==================== ================ ================ ================ ==============
-|yocto-manifestname| Major            |yocto-codename| 2026/06/08       Released
+|yocto-manifestname| Major            |yocto-codename| 2026/09/XX       Released
 ==================== ================ ================ ================ ==============
 
 .. include:: /bsp/intro.rsti
 
-.. _imx8mp-fpsc-head-supported-hardware:
+.. _imx8mp-phyvip-head-supported-hardware:
 
 Supported Hardware
 ------------------
@@ -161,14 +175,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-fpsc-head-components:
+.. _imx8mp-phyvip-head-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-getting-started:
+.. _imx8mp-phyvip-head-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -177,8 +191,10 @@ First Start-up
 *  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
    position:
 
-   .. image:: /bsp/images/dipswitch-tristate-4-m000.svg
+   .. image:: /bsp/images/dipswitch-1-1.svg
       :scale: 400%
+
+.. TODO: No USB debug connector on phyVIP?
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on |ref-debugusbconnector|
@@ -204,7 +220,7 @@ First Start-up
 .. include:: /bsp/building-bsp.rsti
    :start-after: .. nxp-eula-marker
 
-.. _imx8mp-fpsc-head-images:
+.. _imx8mp-phyvip-head-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -220,10 +236,10 @@ First Start-up
 *  **fitImage-its\*.its**
 *  **Image**: Linux kernel image
 *  **Image.config**: Kernel configuration
-*  **imx8mp-phyflex-libra-rdk*.dtb**: Kernel device tree file
-*  **imx8mp-phyflex-libra*.dtbo**: Kernel device tree overlay files
-*  **phytec-qt6demo-image\*.tar.gz**: Root file system
-*  **phytec-qt6demo-image\*.rootfs.wic.xz**: compressed SD card image
+*  **imx8mp-phyflex-phyvip*.dtb**: Kernel device tree file
+*  **imx8mp-phyflex-phyvip*.dtbo**: Kernel device tree overlay files
+*  **phytec-vision-image\*.tar.gz**: Root file system
+*  **phytec-vision-image\*.rootfs.wic.xz**: compressed SD card image
 *  **\*.scr.uimg**: compiled bootscripts
 
 .. +---------------------------------------------------------------------------+
@@ -253,7 +269,7 @@ bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-development:
+.. _imx8mp-phyvip-head-development:
 
 Development
 ===========
@@ -274,7 +290,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. _imx8mp-fpsc-head-development-build-uboot:
+.. _imx8mp-phyvip-head-development-build-uboot:
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
@@ -288,7 +304,7 @@ Development
 
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 
-.. _imx8mp-fpsc-head-format-sd:
+.. _imx8mp-phyvip-head-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -336,37 +352,37 @@ the efi, rauc and script bootmethods are supported.
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-fpsc-head-device-tree:
+.. _imx8mp-phyvip-head-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
    :substitutions:
 
-   imx8mp-phyflex-libra-rdk-lvds-etml1010g3dra.dtbo
-   imx8mp-phyflex-libra-rdk-lvds-peb-av-10.dtbo
-   imx8mp-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi1.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi1-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi1-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi2.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi2-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm016-csi2-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi1.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi1-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi1-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi2.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi2-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm017-csi2-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi1.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi1-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi1-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi2.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi2-fpdlink-port0.dtbo
-   imx8mp-phyflex-libra-rdk-vm020-csi2-fpdlink-port1.dtbo
-   imx8mp-phyflex-libra-rdk-vm024-csi1.dtbo
-   imx8mp-phyflex-libra-rdk-vm024-csi2.dtbo
+	imx8mp-phyflex-phyvip.dtb
+	imx8mp-phyflex-phyvip-peb-b-006.dtbo
+	imx8mp-phyflex-phyvip-temperature.dtbo
+	imx8mp-phyflex-vm016-csi1.dtbo
+	imx8mp-phyflex-vm016-csi1-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm016-csi1-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm016-csi2.dtbo
+	imx8mp-phyflex-vm016-csi2-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm016-csi2-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm017-csi1.dtbo
+	imx8mp-phyflex-vm017-csi1-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm017-csi1-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm017-csi2.dtbo
+	imx8mp-phyflex-vm017-csi2-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm017-csi2-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm020-csi1.dtbo
+	imx8mp-phyflex-vm020-csi1-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm020-csi1-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm020-csi2.dtbo
+	imx8mp-phyflex-vm020-csi2-fpdlink-port0.dtbo
+	imx8mp-phyflex-vm020-csi2-fpdlink-port1.dtbo
+	imx8mp-phyflex-vm024-csi1.dtbo
+	imx8mp-phyflex-vm024-csi2.dtbo
 
-.. _imx8mp-fpsc-head-ubootexternalenv:
+.. _imx8mp-phyvip-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
    :end-before: .. extension-support-marker
 
@@ -403,7 +419,9 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART3 pinmuxing:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
+
+.. TODO: No RS232 but rather RS485! Rewrite bellow chapter
 
 RS232
 -----
@@ -446,9 +464,11 @@ Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
       host:~$ cat /dev/ttyUSB2
 
 The device tree representation for RS232:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L299`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L299`
 
-.. _imx8mp-fpsc-head-network:
+.. _imx8mp-phyvip-head-network:
+
+.. TODO: phyVIP doesn't have second ethernet interface. Rewrite bellow chapter
 
 Ethernet
 --------
@@ -482,38 +502,44 @@ device must then be configured as follows:
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L821`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L821`
 and
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L345`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L187`
 
 DT configuration for the e.MMC interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L831`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L831`
 
 .. include:: ../imx8mp/emmc.rsti
 
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
 
+.. TODO: phyVIP doesn't have SPI NOR flash. Remove bellow chapter
+
 .. include:: ../peripherals/spi-nor-flash-no-boot.rsti
 
 The definition of the SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L136`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L136`
+
+.. TODO: phyVIP doesn't have 2 port expander. Remove bellow chapter
 
 .. include:: gpios.rsti
+
+.. TODO: phyVIP doesn't have LEDs. Remove bellow chapter
 
 .. include:: /bsp/peripherals/leds.rsti
 
 Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L219`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L219`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L205`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L205`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L158`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L63`
 
 EEPROM
 ------
@@ -536,7 +562,7 @@ On the |som| SoM:
    *  Purpose: Available for user applications
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L293`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L293`
 
 And on the |sbc| carrier board:
 
@@ -546,27 +572,25 @@ And on the |sbc| carrier board:
    *  Address: 0x51
    *  Purpose: Reserved for carrier board identification
 
-*  User EEPROM
-
-   *  Bus: I2C-2
-   *  Address: 0x52
-   *  Purpose: Available for user applications
-
 Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L162`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L67`
+
+.. TODO: Add PEB-B-006 EEPROM to the list above.
 
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L318`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L318`
 
-And the addions on the carrierboard:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L287`
+And the addions on the expansion board:
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L150`
 
 USB Host Controller
 -------------------
+
+.. TODO: CHeck USB chapter if really possible both OTG role!
 
 The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
@@ -578,7 +602,7 @@ connected to a USB 3.0 PHY.
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L327`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L193`
 
 CAN FD
 ------
@@ -590,6 +614,8 @@ device, with some additional features special to CAN. More information can be
 found in the Linux Kernel
 documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 
+.. TODO: No CAN switched on phyVIP. Remove bellow chapter
+
 .. note::
 
    The switches S6 and S7 are switching the 120 Ohm bus termination resistors.
@@ -600,16 +626,22 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L121`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L121`
 
-and of |dt-carrierboard|.dts:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L126`
+and of |dt-expansionboard|.dtso:
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L85`
 
 .. include:: /bsp/peripherals/video.rsti
 
+.. TODO: No display on phyVIP. Check bellow chapter
+
 .. include:: display.rsti
 
+.. TODO: No Qt6 for phyVIP. Check bellow chapter or remove it.
+
 .. include:: /bsp/qt6.rsti
+
+.. TODO: No display on phyVIP. Check bellow chapter
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
 
@@ -621,6 +653,7 @@ Device tree description of LVDS-0 can be found here:
 .. include:: /bsp/imx8/peripherals/pm.rsti
    :end-before: .. suspend_to_ram_start_label
 
+.. TODO: HERE GPIO FAN?
 .. include:: /bsp/imx8/peripherals/tm.rsti
    :end-before: .. tm-gpio-fan-marker
 
