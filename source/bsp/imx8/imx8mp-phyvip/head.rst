@@ -449,14 +449,6 @@ DT configuration for the e.MMC interface can be found here:
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
 
-.. TODO: phyVIP doesn't have SPI NOR flash. Remove bellow chapter
-
-.. include:: ../peripherals/spi-nor-flash-no-boot.rsti
-
-The definition of the SPI master node in the device tree can be found here:
-
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L136`
-
 .. TODO: phyVIP doesn't have 2 port expander. Remove bellow chapter
 
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
