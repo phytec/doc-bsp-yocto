@@ -100,8 +100,6 @@
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-phyvip-head-getting-started>`
 .. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-phyvip-head-network>`
 .. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-phyvip-head-development>`
-.. TODO: USB OTG on phyVIP?
-.. |ref-usb-otg| replace:: :ref:`X18 <imx8mp-phyvip-head-components>`
 .. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-phyvip-head-development-build-uboot>`
 .. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-phyvip-head-format-sd>`
 
@@ -283,8 +281,6 @@ Development
 .. include:: /bsp//imx-common/development/standalone_build_u-boot_binman.rsti
    :end-before: .. build-uboot-fixed-ram-size-marker
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
-.. include:: /bsp/imx-common/development/uuu.rsti
-   :end-before: .. uuu-flash-spinor-marker
 
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
@@ -572,14 +568,10 @@ And the addions on the expansion board:
 USB Host Controller
 -------------------
 
-.. TODO: CHeck USB chapter if really possible both OTG role!
-
 The USB controller of the |soc| SoC provides a low-cost connectivity solution
 for numerous consumer portable devices by providing a mechanism for data
 transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
-'SS'). The USB subsystem has two independent USB controller cores. Both cores
-are capable of acting as a USB peripheral device or a USB host. Each is
-connected to a USB 3.0 PHY.
+'SS'). The USB subsystem has two independent USB controller cores.
 
 .. include:: /bsp/peripherals/usb-host.rsti
 
