@@ -1,0 +1,41 @@
+Display
+-------
+
+The |sbc| supports up to two different display outputs: HDMI and LVDS.
+Both can be used simultaneously, however availability of these interfaces depends
+on the extension board design.
+
+.. note::
+   The default PEB-B-006 extension board only supports the HDMI interface.
+
+The following table shows the required extensions and devicetree overlays for
+the different interfaces.
+
+========= ======================== =============================================
+Interface Expansion                devicetree overlay
+========= ======================== =============================================
+HDMI      |sbc|                    |dt-expansionboard|.dtbo (enabled by default)
+LVDS0     not yet available        not yet available
+========= ======================== =============================================
+
+Weston Configuration
+....................
+
+In order to get an output from Weston on the correct display, it still needs to
+be configured correctly. This will be done at ``/etc/xdg/weston/weston.ini``.
+
+Single Display
+~~~~~~~~~~~~~~
+
+In our BSP, the default Weston output is set to HDMI.
+
+.. code-block::
+   :substitutions:
+
+   [output]
+   name=HDMI-A-1
+   mode=|weston-hdmi-mode|
+
+   [output]
+   name=LVDS-1
+   mode=off

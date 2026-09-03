@@ -1,0 +1,13 @@
+WLAN/Bluetooth
+--------------
+
+For WLAN and Bluetooth support, |sbc| utilizes the BDE-3P-BW335X module from
+BDE Technology Inc. This modules support 2.4-GHz & 5-GHz Dual-Band Wi-Fi 6 and
+Bluetooth Low Energy. The combo module is based around Texas Instruments CC3351
+chip.
+
+More information about the module can be found at https://www.bdecomm.com/uploads/2026429/20260429101391389138.pdf
+
+.. note::
+   Bluetooth functionality is not yet available due to missing drivers. Please
+   contact PHYTEC support for more information on the driver availability.
