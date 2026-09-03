@@ -1,0 +1,86 @@
+AI Accelerators
+---------------
+
+In addition to the internal |soc| SoC NPU, |sbc|-|soc| supports an optional
+external AI accelerator connected via PCIe, depending on the hardware variant:
+
+*  **Hailo-8** NPU: up to 26 TOPS
+*  **Kinara ARA240** NPU: up to 40 TOPS
+
+.. note::
+   Currently, only the Hailo-8 NPU is supported in the BSP. Kinara NPU support
+   is not yet available. Please contact PHYTEC support for more information on
+   driver availability.
+
+Internal NPU
+............
+
+The internal |soc| NPU is accessed from Linux userspace via the VeriSilicon
+"galcore" kernel driver (shared with the |gpu-model| GPU) and NXP's eIQ
+TensorFlow Lite VX delegate (``libvx_delegate.so``).
+
+Demo applications and a sample model are pre-installed under
+:substitution-code:`/usr/bin/tensorflow-lite-|tflite-version|/examples`.
+
+Sanity check - confirm the NPU device node is present:
+
+   .. code-block:: console
+
+      target:~$ ls -l /dev/galcore
+
+Benchmark and health report - compare CPU-only inference against NPU-delegated
+inference on the bundled sample model:
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ cd /usr/bin/tensorflow-lite-|tflite-version|/examples
+      target:examples$ ./benchmark_model --graph=mobilenet_v1_1.0_224_quant.tflite
+      INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+      ...
+      INFO: Inference timings in us: Init: 3991, First inference: 165064, Warmup
+      (avg): 160546, Inference (avg): 158634
+
+   .. code-block:: console
+
+      target:examples$ ./benchmark_model --graph=mobilenet_v1_1.0_224_quant.tflite \
+                       --external_delegate_path=/usr/lib/libvx_delegate.so
+      INFO: External delegate path: [/usr/lib/libvx_delegate.so]
+      INFO: EXTERNAL delegate created.
+      ...
+      INFO: Inference timings in us: Init: 15530, First inference: 3276819, Warmup
+      (avg): 3.27682e+06, Inference (avg): 3424.19
+
+The *Inference (avg)* time drops from ~159 ms (CPU) to ~3.4 ms (NPU), roughly
+a 46x speedup, confirming the NPU is active and healthy.
+
+For more information, see the |eiq-doc-link|.
+
+Hailo-8 NPU
+...........
+
+The Hailo-8 NPU is accessed from Linux userspace via the HailoRT (|hailort-version|)
+software stack integrated in our BSP (``hailortcli``, ``hailo``). The following
+examples show how to verify the accelerator and evaluate its performance.
+
+Sanity check - confirm the device is detected:
+
+   .. code-block:: console
+
+      target:~$ hailortcli scan
+
+Identify the chip (firmware version, serial, part number):
+
+   .. code-block:: console
+
+      target:~$ hailortcli fw-control identify
+
+Benchmark throughput, latency and power on a compiled model (HEF):
+
+   .. code-block:: console
+
+      target:~$ wget https://hailo-model-zoo.s3.eu-west-2.amazonaws.com/ModelZoo/Compiled/v2.18.0/hailo8/resnet_v1_18.hef
+      target:~$ hailo run resnet_v1_18.hef
+      target:~$ hailortcli benchmark resnet_v1_18.hef
+
+For more information, see the |hailort-doc-link|.
