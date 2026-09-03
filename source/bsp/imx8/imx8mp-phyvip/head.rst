@@ -71,9 +71,6 @@
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L94`
-.. TODO: No port expander on phyVIP?
-.. |dt-gpio-expander1| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L178`
-.. |dt-gpio-expander2| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L202`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -519,7 +516,7 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. TODO: phyVIP doesn't have 2 port expander. Remove bellow chapter
 
-.. include:: gpios.rsti
+.. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
