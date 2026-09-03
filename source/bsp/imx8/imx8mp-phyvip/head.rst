@@ -42,9 +42,6 @@
 .. TODO: check kernel tag
 .. |kernel-tag| replace:: v6.12.49-2.2.0-phy14
 .. |emmcdev| replace:: mmcblk2
-.. TODO: LEDs?
-.. |led-names| replace:: red:status, green:status and blue:status
-.. |led-example| replace:: red\\:status
 
 .. Bootloader
 .. |u-boot-defconfig| replace:: imx8mp-phyflex-phyvip_defconfig
@@ -523,13 +520,6 @@ The definition of the SPI master node in the device tree can be found here:
 .. TODO: phyVIP doesn't have 2 port expander. Remove bellow chapter
 
 .. include:: gpios.rsti
-
-.. TODO: phyVIP doesn't have LEDs. Remove bellow chapter
-
-.. include:: /bsp/peripherals/leds.rsti
-
-Device tree configuration for the User I/O configuration can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L219`
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
