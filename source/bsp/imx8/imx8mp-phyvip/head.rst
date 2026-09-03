@@ -92,7 +92,7 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-fpsc-head-bootswitch>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-phyvip-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-fpsc-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-fpsc-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-fpsc-head-device-tree>`
@@ -238,12 +238,12 @@ Bootmode Switch (S1)
 
 .. tip::
 
-   Hardware revision baseboard: 1618.2
+   Hardware revision baseboard: 1645.0
 
-The |sbc| features a boot switch with four individually switchable ports to
-select the |som| default bootsource.
+The |sbc| features a boot switch with a single port to select the |som| default
+bootsource.
 
-.. _imx8mp-fpsc-head-bootswitch:
+.. _imx8mp-phyvip-head-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
