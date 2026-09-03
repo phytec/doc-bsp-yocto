@@ -493,8 +493,6 @@ And on the |sbc| carrier board:
 Device Tree Reference for Carrier Board:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L67`
 
-.. TODO: Add PEB-B-006 EEPROM to the list above.
-
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
