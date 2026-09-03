@@ -105,11 +105,7 @@
 
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
-.. TODO: No second ethernet on phyVIP?
-.. |sbc-network| replace::
-   The device tree set up for EQOS Ethernet IP core where the PHY is populated
-   on the |sbc| can be found here:
-   :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L94`.
+.. |sbc-network| replace:: \
 
 .. TODO: Serial on phyVIP?
 .. |ref-serial| replace:: :ref:`X27 <imx8mp-phyvip-head-components>`
@@ -453,36 +449,12 @@ The device tree representation for RS232:
 
 .. _imx8mp-phyvip-head-network:
 
-.. TODO: phyVIP doesn't have second ethernet interface. Rewrite bellow chapter
-
 Ethernet
 --------
 
-|sbc|-|soc| provides two ethernet interfaces. A gigabit Ethernet is provided by our
-module and board.
+|sbc|-|soc| provides one gigabit Ethernet interface.
 
 .. include:: /bsp/peripherals/network.rsti
-   :end-before: .. kernel-network-environment-marker
-
-Secondary Ethernet Interface Configuration in U-Boot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-By default, U-Boot utilizes the Ethernet PHY located on the module. To use the network connection
-provided by the PHY on the carrier board, configuration changes are required.
-
-To enable the secondary Ethernet interface in U-Boot, the active Ethernet connection must be
-adjusted. The IP address configuration in U-Boot may also need modification.
-
-Configure the development host with IP address 192.168.4.10 and netmask 255.255.255.0. The target
-device must then be configured as follows:
-
-.. code-block::
-
-    u-boot=> setenv ethact eth2
-    u-boot=> setenv ipaddr 192.168.4.11
-
-.. include:: /bsp/peripherals/network.rsti
-   :start-after: .. kernel-network-environment-marker
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
