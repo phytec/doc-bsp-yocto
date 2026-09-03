@@ -449,8 +449,6 @@ DT configuration for the e.MMC interface can be found here:
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
 
-.. TODO: phyVIP doesn't have 2 port expander. Remove bellow chapter
-
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
