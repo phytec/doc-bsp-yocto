@@ -107,8 +107,8 @@
 .. |gpu-model| replace:: Vivante GC7000UL
 .. |sbc-network| replace:: \
 
-.. TODO: Serial on phyVIP?
-.. |ref-serial| replace:: :ref:`X27 <imx8mp-phyvip-head-components>`
+.. |ref-serial| replace:: :ref:`X12 <imx8mp-phyvip-head-components>`
+.. TODO: ref-S5 not available on phyVIP. Check if could be removed
 .. |ref-S5| replace:: :ref:`S5 <imx8mp-phyvip-head-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
    :ref:`device tree overlay section <imx8mp-phyvip-head-ubootexternalenv>`
@@ -402,9 +402,9 @@ disabled.
 The device tree representation for UART3 pinmuxing:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
 
-.. TODO: No RS232 but rather RS485! Rewrite bellow chapter
+.. TODO: RS485 rewrite bellow chapter see source/bsp/imx8/imx8mp/head.rst
 
-RS232
+RS485
 -----
 
 The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
@@ -418,34 +418,12 @@ in 1618.4 SoM revision.
 For more information about the correct setup please refer to the |som|/|sbc|
 Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
 
-*  Display the current settings of a terminal in a human-readable format:
+.. include:: /bsp/peripherals/rs485.rsti
+.. include:: /bsp/peripherals/rs485-halfduplex.rsti
+.. include:: /bsp/peripherals/rs485-fullduplex.rsti
 
-   .. code-block:: console
-
-      target:~$ stty -a
-
-*  By default crtscts is enabled, as hardware flow control is not
-   functioning, need to configure UART interface with stty. This will be
-   fixed in 1618.4 SoM revision. For example:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ stty -F /dev/|serial-uart| 115200 -crtscts raw -echo
-
-*  With a simple echo and cat, basic communication can be tested. Example:
-
-   .. code-block:: console
-      :substitutions:
-
-      target:~$ echo 123 > /dev/|serial-uart|
-
-   .. code-block:: console
-
-      host:~$ cat /dev/ttyUSB2
-
-The device tree representation for RS232:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L299`
+The device tree representation for RS485:
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L170`
 
 .. _imx8mp-phyvip-head-network:
 
