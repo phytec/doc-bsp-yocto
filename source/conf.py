@@ -259,6 +259,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx8/imx8mp-phyvip/head',
+        'imx8mp-phyvip-head.tex',
+        'phyVIP-i.MX 8M Plus BSP Manual DRAFT',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx8/imx8mm/head',
         'imx8mm-head.tex',
         'phyCORE-i.MX 8M Mini BSP Manual DRAFT',
