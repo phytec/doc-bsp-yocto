@@ -1,0 +1,16 @@
+eMMC
+   .. figure:: /bsp/images/dipswitch-1-0.svg
+      :scale: 400%
+
+      Boot from onboard e.MMC
+
+SD card
+   .. figure:: /bsp/images/dipswitch-1-1.svg
+      :scale: 400%
+
+      Boot from external SD card
+
+.. note::
+   The |sbc|-|soc| additionally features a connector |ref-bootmodeconnector|
+   which can be utilized to select additional bootsources. For more information
+   please refer to Hardware Manual and Schematics or contact PHYTEC support.
