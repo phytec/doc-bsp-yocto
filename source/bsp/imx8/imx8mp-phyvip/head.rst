@@ -554,10 +554,6 @@ Device Tree Audio configuration:
 
 .. include:: display.rsti
 
-.. TODO: No Qt6 for phyVIP. Check bellow chapter or remove it.
-
-.. include:: /bsp/qt6.rsti
-
 .. TODO: No display on phyVIP. Check bellow chapter
 
 .. include:: /bsp/imx-common/peripherals/display.rsti
