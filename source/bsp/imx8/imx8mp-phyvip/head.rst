@@ -94,8 +94,7 @@
 .. Ref Substitutions
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-phyvip-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-phyvip-head-images>`
-.. TODO: Debug USB connector uuu?
-.. |ref-debugusbconnector| replace:: :ref:`(X14) <imx8mp-phyvip-head-components>`
+.. |ref-debugusbconnector| replace:: :ref:`(X8) <imx8mp-phyvip-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-phyvip-head-device-tree>`
 .. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-phyvip-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-phyvip-head-getting-started>`
@@ -186,11 +185,9 @@ First Start-up
    .. image:: /bsp/images/dipswitch-1-1.svg
       :scale: 400%
 
-.. TODO: No USB debug connector on phyVIP?
-
 *  Insert the SD card
-*  Connect the target and the host with **USB-C** on |ref-debugusbconnector|
-   debug USB
+*  Connect the target and the host with **USB to TTL serial adapter (1.8V)** on
+   |ref-debugusbconnector| debug connector port
 *  Power up the board
 
 .. +---------------------------------------------------------------------------+
