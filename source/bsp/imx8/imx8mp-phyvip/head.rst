@@ -534,6 +534,20 @@ Device Tree CAN configuration of |dt-som|.dtsi:
 and of |dt-expansionboard|.dtso:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L85`
 
+Audio
+-----
+
+Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
+codec on the PEB-B-006 expansion board. The connector X16 on the PEB-B-006
+provides mono-speaker output, while the X17 connector provides input for the
+microphone. The PEB-B-006 also features a Class-D amplifier output on the X18
+connector.
+
+.. include:: /bsp/peripherals/audio.rsti
+
+Device Tree Audio configuration:
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L51`
+
 .. include:: /bsp/peripherals/video.rsti
 
 .. TODO: No display on phyVIP. Check bellow chapter
