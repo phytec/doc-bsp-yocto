@@ -83,7 +83,7 @@
 .. |yocto-machinename| replace:: am62lxx-libra-fpsc-1
 .. |yocto-manifestname| replace:: BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-AM62Lx-master
-.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-FPSC-PD25.1.y
+.. |yocto-manifestname-y| replace:: BSP-Yocto-Ampliphy-AM62Lx-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (scarthgap) <yocto-man-scarthgap>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-scarthgap-kernel-and-bootloader-conf>`
 .. |yocto-sdk-rev| replace::  BSP-Yocto-Ampliphy-AM62Lx-ALPHA2
@@ -116,6 +116,12 @@
 .. |eeprom-detect-addr| replace:: 0x50
 .. |eeprom-som-detect-area| replace:: 1024
 .. |eeprom-som-detect-area-hex| replace:: 0x400
+
+======================
+|yocto-manifestname-y|
+======================
+
+.. sectnum::
 
 .. only:: html
 
