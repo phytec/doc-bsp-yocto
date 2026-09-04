@@ -95,6 +95,8 @@
 .. |ref-bootswitch| replace:: :ref:`bootmode switch (S1) <imx8mp-phyvip-head-bootswitch>`
 .. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-phyvip-head-images>`
 .. |ref-debugusbconnector| replace:: :ref:`(X8) <imx8mp-phyvip-head-components>`
+.. |ref-boardconnector1| replace:: :ref:`(CON1) <imx8mp-phyvip-head-components>`
+.. |ref-boardconnector2| replace:: :ref:`(CON2) <imx8mp-phyvip-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-phyvip-head-device-tree>`
 .. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-phyvip-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-phyvip-head-getting-started>`
@@ -402,27 +404,33 @@ disabled.
 The device tree representation for UART3 pinmuxing:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
 
-.. TODO: RS485 rewrite bellow chapter see source/bsp/imx8/imx8mp/head.rst
+RS232/RS485
+-----------
 
-RS485
------
+The FPSC Standard supports 3 UART units. On the |sbc|-|soc|, TTL level signals
+of UART3 (the standard console) are routed to a connector |ref-debugusbconnector|.
 
-The FPSC Standard supports 3 UART units. On the |sbc|, TTL level signals
-of UART3 (the standard console) and UART2 are routed to a FT4232H UART
-to USB converter expansion. This USB is brought out at USB-C connector X14.
-UART1 is connected to a multi-protocol transceiver for RS-232 and RS-485,
-available at pin header connector |ref-serial| at the RS-232 level,
-or at the RS-485 level. The muxing of the used transceivers is done by switch
-|ref-S5| on the baseboard. Presently, RS485 is not working and will be fixed
-in 1618.4 SoM revision.
-For more information about the correct setup please refer to the |som|/|sbc|
-Hardware Manual section UARTs. The switch |ref-S5| need to be set correctly.
+.. warning::
+   The TTL level signals of |ref-debugusbconnector| are 1.8V compatible and not
+   3.3V tolerant. Please use a USB to TTL serial adapter with 1.8V logic level
+   only!
 
+UART2 interface is used for the onboard Bluetooth module and thus not available
+for external use.
+
+UART1 interface is thus the only one brought out to |sbc| board connector
+|ref-boardconnector1| and can be used for general purpose RS232 or RS485 communication.
+
+.. note::
+   With the |sbc| default expansion board PEB-B-006, UART1 is connected to a
+   RS-485 transceiver chip capable of translating the UART1 signals to RS-485 differential signals available at the connector |ref-serial|.
+
+.. include:: /bsp/peripherals/rs232.rsti
 .. include:: /bsp/peripherals/rs485.rsti
 .. include:: /bsp/peripherals/rs485-halfduplex.rsti
 .. include:: /bsp/peripherals/rs485-fullduplex.rsti
 
-The device tree representation for RS485:
+The device tree representation for RS485 with default expansion board PEB-B-006:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L170`
 
 .. _imx8mp-phyvip-head-network:
