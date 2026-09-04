@@ -439,7 +439,8 @@ The device tree representation for RS485 with default expansion board PEB-B-006:
 Ethernet
 --------
 
-|sbc|-|soc| provides one gigabit Ethernet interface.
+|sbc|-|soc| provides two Ethernet interfaces. However, with the default expansion
+board PEB-B-006, only one gigabit Ethernet interface is available.
 
 .. include:: /bsp/peripherals/network.rsti
 
