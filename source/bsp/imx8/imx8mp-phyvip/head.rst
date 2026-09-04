@@ -444,6 +444,10 @@ board PEB-B-006, only one gigabit Ethernet interface is available.
 
 .. include:: /bsp/peripherals/network.rsti
 
+.. include:: wireless-network.rsti
+.. include:: ../../peripherals/wireless-network.rsti
+   :end-before: .. no-bluetooth-marker
+
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
