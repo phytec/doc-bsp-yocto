@@ -515,6 +515,9 @@ Device Tree Reference for Carrier Board:
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
+   :end-before: .. rtc_wakealarm_start_label
+.. include:: /bsp/peripherals/rtc.rsti
+   :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L318`
