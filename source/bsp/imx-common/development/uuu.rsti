@@ -62,10 +62,20 @@ You can see the bootlog on the console via |ref-debugusbconnector|, as usual.
 .. note::
    The default boot command when booting with UUU is set to ``fastboot``. If you
    want to change this, please adjust the environment variable ``bootcmd_mfg``
-   in U-Boot prompt with ``env set bootcmd_mfg ...``. Please note, when booting
-   with UUU the default environment is loaded. ``saveenv`` and ``env save`` have
-   no effect. If you want to change the boot command permanently for uuu-boot,
-   you need to change this in U-Boot source code.
+   in U-Boot prompt with ``env set bootcmd_mfg ...``.
+
+   Please note, when booting with UUU the default environment is loaded.
+   ``saveenv`` and ``env save`` have no effect. If you want to change the boot
+   command permanently for uuu-boot, you need to change this in U-Boot source
+   code. The path varies may depend on platform and U-Boot version, but usually
+   resides in the ``board`` directory, e.g.:
+
+   .. code-block::
+
+      board/phytec/imx95-phyflex-libra-rdk/imx95-phyflex-libra-rdk.env
+      board/phytec/phycore_imx8mp/phycore_imx8mp.env
+      board/phytec/phycore_imx93/phycore_imx93.env
+      ...
 
 .. uuu-flash-emmc-marker
 
