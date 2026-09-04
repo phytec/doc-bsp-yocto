@@ -459,6 +459,15 @@ DT configuration for the e.MMC interface can be found here:
 .. include:: ../peripherals/spi-master.rsti
   :end-before: .. peripherals-spi-nor-flash-marker
 
+.. note::
+   With the |sbc|-|soc| default expansion board PEB-B-006, the ECSPI interfaces
+   are not brought out to any connector and thus not available externally.
+
+The ECSPI2 interface is used for the onboard TPM2.0 chip. The definition of the
+SPI master node in the device tree can be found here:
+
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L49`
+
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
