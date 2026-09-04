@@ -537,11 +537,14 @@ and of |dt-expansionboard|.dtso:
 Audio
 -----
 
-Playback devices supported for |sbc| are HDMI and the TI TLV320AIC3007 audio
-codec on the PEB-B-006 expansion board. The connector X16 on the PEB-B-006
-provides mono-speaker output, while the X17 connector provides input for the
-microphone. The PEB-B-006 also features a Class-D amplifier output on the X18
-connector.
+Playback devices supported for |sbc|-|soc| are HDMI and the TI TLV320AIC3007
+audio codec on the default PEB-B-006 expansion board. The connector X16 on the
+PEB-B-006 provides mono-speaker output, while the X17 connector provides input
+for the microphone. The PEB-B-006 also features a Class-D amplifier output on
+the X18 connector.
+
+.. note::
+   For more details refer to the |sbc|-|soc| Hardware Manual and the Schematics.
 
 .. include:: /bsp/peripherals/audio.rsti
 
