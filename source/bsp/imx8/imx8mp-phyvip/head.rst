@@ -550,16 +550,7 @@ Device Tree Audio configuration:
 
 .. include:: /bsp/peripherals/video.rsti
 
-.. TODO: No display on phyVIP. Check bellow chapter
-
 .. include:: display.rsti
-
-.. TODO: No display on phyVIP. Check bellow chapter
-
-.. include:: /bsp/imx-common/peripherals/display.rsti
-
-Device tree description of LVDS-0 can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-libra-rdk.dts#L253`
 
 .. include:: /bsp/peripherals/gpu.rsti
 
