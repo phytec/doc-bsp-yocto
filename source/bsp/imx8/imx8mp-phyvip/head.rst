@@ -571,6 +571,8 @@ Device Tree Audio configuration:
 .. include:: /bsp/imx8/peripherals/tm.rsti
    :end-before: .. tm-gpio-fan-marker
 
+.. include:: /bsp/peripherals/tpm.rsti
+
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: /bsp/imx-common/peripherals/power-key.rsti
