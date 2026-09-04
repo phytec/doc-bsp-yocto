@@ -68,6 +68,8 @@ To set the time and date from the RTC use:
    target:~$ date
    Wed Mar  2 10:45:01 UTC 2022
 
+.. rtc_wakealarm_start_label
+
 RTC Wakealarm
 .............
 
