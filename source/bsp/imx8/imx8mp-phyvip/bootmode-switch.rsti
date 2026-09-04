@@ -10,4 +10,7 @@ SD card
 
       Boot from external SD card
 
-.. TODO: Add note about X12 connector
+.. note::
+   The |sbc|-|soc| additionally features a connector |ref-bootmodeconnector|
+   which can be utilized to select additional bootsources. For more information
+   please refer to Hardware Manual and Schematics or contact PHYTEC support.
