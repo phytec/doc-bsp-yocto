@@ -551,8 +551,6 @@ the X18 connector.
 Device Tree Audio configuration:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy14/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L51`
 
-.. include:: /bsp/peripherals/video.rsti
-
 .. include:: display.rsti
 
 .. include:: /bsp/peripherals/gpu.rsti
