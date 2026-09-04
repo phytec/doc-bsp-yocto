@@ -97,6 +97,7 @@
 .. |ref-debugusbconnector| replace:: :ref:`(X8) <imx8mp-phyvip-head-components>`
 .. |ref-boardconnector1| replace:: :ref:`(CON1) <imx8mp-phyvip-head-components>`
 .. |ref-boardconnector2| replace:: :ref:`(CON2) <imx8mp-phyvip-head-components>`
+.. |ref-bootmodeconnector| replace:: :ref:`(X12) <imx8mp-phyvip-head-components>`
 .. |ref-dt| replace:: :ref:`device tree <imx8mp-phyvip-head-device-tree>`
 .. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-phyvip-head-supported-hardware>`
 .. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-phyvip-head-getting-started>`
