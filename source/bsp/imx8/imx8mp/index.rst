@@ -9,6 +9,7 @@ phyCORE-i.MX 8M Plus
    pd24.1.2
    pd24.1.1
    head
+   pd26.1.1_nxp
    pd26.1.0_nxp
    pd24.1.1_nxp
    pd24.1.0_nxp
