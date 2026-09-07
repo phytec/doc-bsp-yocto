@@ -1,20 +1,20 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.0
+.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX8MP-PD26.1.1
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phycore-imx-8m-plus/#downloads
 .. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/
 .. |dl-server-link| replace:: |dl-server|_
 .. |dl-sdk| replace:: SDK downloads
-.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/sdk/ampliphy-vendor/
+.. _dl-sdk: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/sdk/ampliphy-vendor/
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
-.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.0/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.wic.xz
+.. |link-partup-package| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/phytec-qt6demo-image-phyboard-pollux-imx8mp-3.rootfs.partup
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX8MP/BSP-Yocto-NXP-i.MX8MP-PD26.1.1/images/ampliphy-vendor/phyboard-pollux-imx8mp-3/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx8mp
-.. _`static-pdf-dl`: ../../../_static/imx8mp-pd26.1.0_nxp.pdf
+.. _`static-pdf-dl`: ../../../_static/imx8mp-pd26.1.1_nxp.pdf
 
 .. General Substitutions
 .. |kit| replace:: **phyCORE-i.MX8M Plus Kit**
@@ -38,7 +38,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mp
-.. |kernel-tag| replace:: v6.12.49-2.2.0-phy11
+.. |kernel-tag| replace:: v6.12.49-2.2.0-phyX
 .. |emmcdev| replace:: mmcblk2
 .. |led-names| replace:: led-1, led-2 and led-3
 .. |led-example| replace:: led-1
@@ -57,7 +57,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: PHYCORE_IMX8MP
-.. |u-boot-tag| replace:: v2025.04-2.2.0-phy9
+.. |u-boot-tag| replace:: v2025.04-2.2.0-phyX
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
@@ -80,7 +80,7 @@
 .. |yocto-imagename| replace:: phytec-qt6demo-image
 .. |yocto-imageext| replace:: rootfs.wic.xz
 .. |yocto-machinename| replace:: phyboard-pollux-imx8mp-3
-.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.0
+.. |yocto-manifestname| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.1
 .. |yocto-manifestname-master| replace:: BSP-Yocto-Ampliphy-i.MX8MP-master
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX8MP-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-master>`
@@ -89,17 +89,17 @@
 .. |yocto-sdk-a-core| replace:: cortexa53-crypto
 
 .. Ref Substitutions
-.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd26.1.0_nxp-bootswitch>`
-.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd26.1.0_nxp-images>`
-.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd26.1.0_nxp-components>`
-.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd26.1.0_nxp-device-tree>`
-.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-pd26.1.0_nxp-supported-hardware>`
-.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-pd26.1.0_nxp-getting-started>`
-.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd26.1.0_nxp-network>`
-.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd26.1.0_nxp-development>`
-.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd26.1.0_nxp-components>`
-.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd26.1.0_nxp-development-build-uboot>`
-.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd26.1.0_nxp-format-sd>`
+.. |ref-bootswitch| replace:: :ref:`bootmode switch (S3) <imx8mp-pd26.1.1_nxp-bootswitch>`
+.. |ref-bsp-images| replace:: :ref:`BSP Images <imx8mp-pd26.1.1_nxp-images>`
+.. |ref-debugusbconnector| replace:: :ref:`(X1) <imx8mp-pd26.1.1_nxp-components>`
+.. |ref-dt| replace:: :ref:`device tree <imx8mp-pd26.1.1_nxp-device-tree>`
+.. |ref-supported-hardware| replace:: :ref:`Supported Hardware <imx8mp-pd26.1.1_nxp-supported-hardware>`
+.. |ref-getting-started| replace:: :ref:`Getting Started <imx8mp-pd26.1.1_nxp-getting-started>`
+.. |ref-network| replace:: :ref:`Network Environment Customization <imx8mp-pd26.1.1_nxp-network>`
+.. |ref-setup-network-host| replace:: :ref:`Setup Network Host <imx8mp-pd26.1.1_nxp-development>`
+.. |ref-usb-otg| replace:: :ref:`X5 (upper connector) <imx8mp-pd26.1.1_nxp-components>`
+.. |ref-build-uboot| replace:: :ref:`Build U-Boot <imx8mp-pd26.1.1_nxp-development-build-uboot>`
+.. |ref-format-sd| replace:: :ref:`Resizing ext4 Root Filesystem  <imx8mp-pd26.1.1_nxp-format-sd>`
 
 .. IMX8(MP) specific
 .. |gpu-model| replace:: Vivante GC7000UL
@@ -108,11 +108,11 @@
    on the |sbc| can be found here:
    :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L179`.
 
-.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd26.1.0_nxp-components>`
-.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd26.1.0_nxp-components>`
-.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd26.1.0_nxp-components>`
+.. |ref-serial| replace:: :ref:`X2 <imx8mp-pd26.1.1_nxp-components>`
+.. |ref-jp3| replace:: :ref:`JP3 <imx8mp-pd26.1.1_nxp-components>`
+.. |ref-jp4| replace:: :ref:`JP4 <imx8mp-pd26.1.1_nxp-components>`
 .. |ubootexternalenv| replace:: U-boot External Environment subsection of the
-   :ref:`device tree overlay section <imx8mp-pd26.1.0_nxp-ubootexternalenv>`
+   :ref:`device tree overlay section <imx8mp-pd26.1.1_nxp-ubootexternalenv>`
 .. |lvds-display-adapters| replace:: PEB-AV-10
 .. |weston-hdmi-mode| replace:: preferred
 
@@ -128,7 +128,7 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
-.. _bsp-man-imx8mp-pd26.1.0:
+.. _bsp-man-imx8mp-pd26.1.1:
 
 .. only:: html
 
@@ -140,12 +140,12 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
 ==================== ================ ================ ================ ==============
-|yocto-manifestname| Major            |yocto-codename| 2026/06/08       Released
+|yocto-manifestname| Major            |yocto-codename| 2026/09/XX       in development
 ==================== ================ ================ ================ ==============
 
 .. include:: ../../intro.rsti
 
-.. _imx8mp-pd26.1.0_nxp-supported-hardware:
+.. _imx8mp-pd26.1.1_nxp-supported-hardware:
 
 Supported Hardware
 ------------------
@@ -160,14 +160,14 @@ the **Article Number** of your hardware, you can leave the **Machine
 Name** drop-down menu empty and only choose your **Article Number**. Now it
 should show you the necessary **Machine Name** for your specific hardware
 
-.. _imx8mp-pd26.1.0_nxp-components:
+.. _imx8mp-pd26.1.1_nxp-components:
 .. include:: components.rsti
 
 .. +---------------------------------------------------------------------------+
 .. Getting Started
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd26.1.0_nxp-getting-started:
+.. _imx8mp-pd26.1.1_nxp-getting-started:
 .. include:: /bsp/getting-started.rsti
 
 First Start-up
@@ -190,7 +190,7 @@ First Start-up
 
 .. include:: /bsp/building-bsp.rsti
 
-.. _imx8mp-pd26.1.0_nxp-images:
+.. _imx8mp-pd26.1.1_nxp-images:
 
 *  **u-boot.bin**: Binary compiled U-boot bootloader (U-Boot). Not the final
    Bootloader image!
@@ -229,7 +229,7 @@ Bootmode Switch (S3)
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
 
-.. _imx8mp-pd26.1.0_nxp-bootswitch:
+.. _imx8mp-pd26.1.1_nxp-bootswitch:
 .. include:: bootmode-switch.rsti
 
 .. include:: /bsp/imx-common/installing-os.rsti
@@ -238,7 +238,7 @@ select the |som| default bootsource.
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd26.1.0_nxp-development:
+.. _imx8mp-pd26.1.1_nxp-development:
 
 Development
 ===========
@@ -259,7 +259,7 @@ Development
    Note, SDK issue has not been observed on newer distributions, such as Ubuntu 22.04, which appear to work
    without requiring any modifications.
 
-.. _imx8mp-pd26.1.0_nxp-development-build-uboot:
+.. _imx8mp-pd26.1.1_nxp-development-build-uboot:
 .. include:: ../../imx-common/development/standalone_build_u-boot_binman.rsti
 .. include:: development/uboot-standalone-fixed-ram-config.rsti
 .. include:: /bsp/imx-common/development/standalone_build_kernel_fit.rsti
@@ -272,7 +272,7 @@ Development
 
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 
-.. _imx8mp-pd26.1.0_nxp-format-sd:
+.. _imx8mp-pd26.1.1_nxp-format-sd:
 
 .. include:: /bsp/imx-common/development/format_sd-card.rsti
 
@@ -320,7 +320,7 @@ the efi, rauc and script bootmethods are supported.
 .. DEVICE TREE
 .. +---------------------------------------------------------------------------+
 
-.. _imx8mp-pd26.1.0_nxp-device-tree:
+.. _imx8mp-pd26.1.1_nxp-device-tree:
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
@@ -359,7 +359,7 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-phycore-no-eth.dtbo
    imx8mp-phycore-rpmsg.dtbo
 
-.. _imx8mp-pd26.1.0_nxp-ubootexternalenv:
+.. _imx8mp-pd26.1.1_nxp-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
    :end-before: .. extension-support-marker
 
@@ -423,7 +423,7 @@ correctly.
 The device tree representation for RS232 and RS485:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L376`
 
-.. _imx8mp-pd26.1.0_nxp-network:
+.. _imx8mp-pd26.1.1_nxp-network:
 
 Ethernet
 --------
@@ -549,7 +549,7 @@ speaker, headphones, and line in signals.
 
 .. warning::
 
-   In PD26.1.0 release, PEB-AV-10 audio is not working. Only HDMI audio is
+   In PD26.1.1 release, PEB-AV-10 audio is not working. Only HDMI audio is
    supported.
 
 .. include:: /bsp/peripherals/audio.rsti
