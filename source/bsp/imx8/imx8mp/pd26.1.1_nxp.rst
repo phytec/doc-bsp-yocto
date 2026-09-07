@@ -462,6 +462,14 @@ The definition of the SPI master node in the device tree can be found here:
 
 .. include:: /bsp/peripherals/leds.rsti
 
+.. note::
+
+   For Pollux board revisions 1552.2 and lower, the default LED driver is
+   incorrect. For the appropriate driver to be loaded, an overlay with the name
+   ``imx8mp-phyboard-pollux-pca9533.dtbo`` needs to be applied to the base
+   device tree. For information on how to accomplish this, see the
+   :ref:`device tree overlay <imx8mp-pd26.1.1_nxp-ubootexternalenv>` section.
+
 Device tree configuration for the User I/O configuration can be found here:
 :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts#L249`
 
