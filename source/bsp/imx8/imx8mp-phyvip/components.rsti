@@ -1,38 +1,50 @@
 |sbc|-|soc| Components
 ......................
 
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-top.jpg
+.. list-table::
+   :class: image-table
    :align: center
-   :width: 75 %
 
-   **phyVIP (Hailo) Components (top)**
+   *  -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-top.jpg
+            :width: 100%
+            :align: center
 
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-bottom.jpg
+            **phyVIP (Hailo) Components (top)**
+
+      -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-bottom.jpg
+            :width: 100%
+            :align: center
+
+            **phyVIP (Hailo) Components (bottom)**
+
+.. list-table::
+   :class: image-table
    :align: center
-   :width: 85 %
 
-   **phyVIP (Hailo) Components (bottom)**
+   *  -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-top.jpg
+            :width: 100%
+            :align: center
 
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-top.jpg
+            **phyVIP (Kinara) Components (top)**
+
+      -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-bottom.jpg
+            :width: 100%
+            :align: center
+
+            **phyVIP (Kinara) Components (bottom)**
+
+.. list-table::
+   :class: image-table
    :align: center
-   :width: 75 %
 
-   **phyVIP (Kinara) Components (top)**
+   *  -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-top.jpg
+            :width: 100%
+            :align: center
 
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-bottom.jpg
-   :align: center
-   :width: 85 %
+            **phyVIP PEB-B-006 expansion board Components (top)**
 
-   **phyVIP (Kinara) Components (bottom)**
+      -  .. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-bottom.jpg
+            :width: 100%
+            :align: center
 
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-top.jpg
-   :align: center
-   :width: 85 %
-
-   **phyVIP PEB-B-006 expansion board Components (top)**
-
-.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-bottom.jpg
-   :align: center
-   :width: 85 %
-
-   **phyVIP PEB-B-006 expansion board Components (bottom)**
+            **phyVIP PEB-B-006 expansion board Components (bottom)**
