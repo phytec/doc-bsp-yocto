@@ -1,14 +1,38 @@
-|sbc| Components
-................
+|sbc|-|soc| Components
+......................
 
-.. figure:: /bsp/imx8/imx8mp-fpsc/images/Libra-front-components.jpg
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-top.jpg
    :align: center
-   :width: 90 %
+   :width: 75 %
 
-   **Libra Components (top)**
+   **phyVIP (Hailo) Components (top)**
 
-.. figure:: /bsp/imx8/imx8mp-fpsc/images/Libra-back-components.jpg
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Hailo-1631-1-bottom.jpg
    :align: center
    :width: 85 %
 
-   **Libra Components (bottom)**
+   **phyVIP (Hailo) Components (bottom)**
+
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-top.jpg
+   :align: center
+   :width: 75 %
+
+   **phyVIP (Kinara) Components (top)**
+
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-Kinara-1645-0-bottom.jpg
+   :align: center
+   :width: 85 %
+
+   **phyVIP (Kinara) Components (bottom)**
+
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-top.jpg
+   :align: center
+   :width: 85 %
+
+   **phyVIP PEB-B-006 expansion board Components (top)**
+
+.. figure:: /bsp/imx8/imx8mp-phyvip/images/phyVIP-PEB-B-006-1632-1-bottom.jpg
+   :align: center
+   :width: 85 %
+
+   **phyVIP PEB-B-006 expansion board Components (bottom)**
