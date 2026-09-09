@@ -180,7 +180,7 @@ First Start-up
 
 *  Insert the SD card
 *  Connect the target and the host with **USB to TTL serial adapter (1.8V)** on
-   |ref-debugusbconnector| debug connector port
+   |ref-debugusbconnector| debug UART port
 *  Power up the board
 
 .. +---------------------------------------------------------------------------+
