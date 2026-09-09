@@ -125,6 +125,12 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
+.. Internal NPU (eIQ) specific
+.. |tflite-version| replace:: 2.19.0
+.. |eiq-doc| replace:: i.MX Machine Learning User's Guide
+.. _eiq-doc: https://www.nxp.com/docs/en/user-guide/UG10166.pdf
+.. |eiq-doc-link| replace:: |eiq-doc|_
+
 .. Hailo NPU specific
 .. |hailort-version| replace:: v4.24.0
 .. |hailort-doc| replace:: HailoRT documentation
@@ -595,7 +601,7 @@ Device Tree Audio configuration:
 
 .. include:: /bsp/imx-common/peripherals/power-key.rsti
 
-.. include:: ai-accelerators.rsti
+.. include:: npu.rsti
 
 .. include:: /bsp/imx8/peripherals/isp.rsti
 
