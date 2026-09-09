@@ -240,7 +240,7 @@ Bootmode Switch (S1)
 
 .. tip::
 
-   Hardware revision baseboard: 1645.0
+   Hardware revision baseboard: 1631.1 (Hailo), 1645.0 (Kinara)
 
 The |sbc| features a boot switch with a single port to select the |som| default
 bootsource.
