@@ -125,6 +125,12 @@
 .. |powerkey-input-dev| replace:: 30370000.snvs\:snvs-powerkey
 .. |powerkey-keycode-property| replace:: linux,keycode
 
+.. Hailo NPU specific
+.. |hailort-version| replace:: v4.24.0
+.. |hailort-doc| replace:: HailoRT documentation
+.. _hailort-doc: https://hailo.ai/developer-zone/documentation/hailort-v4-24-0/
+.. |hailort-doc-link| replace:: |hailort-doc|_
+
 .. _bsp-man-imx8mp-phyvip-head:
 
 .. only:: html
@@ -588,6 +594,8 @@ Device Tree Audio configuration:
 .. include:: /bsp/peripherals/watchdog.rsti
 
 .. include:: /bsp/imx-common/peripherals/power-key.rsti
+
+.. include:: ai-accelerators.rsti
 
 .. include:: /bsp/imx8/peripherals/isp.rsti
 
