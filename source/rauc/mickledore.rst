@@ -5,6 +5,10 @@
 .. |yocto-codename| replace:: Mickledore
 .. |rauc-manual| replace:: RAUC Update & Device Management Manual
 
+===============================
+|yocto-codename| -- RAUC Manual
+===============================
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_

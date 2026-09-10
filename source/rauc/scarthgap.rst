@@ -11,6 +11,10 @@
 .. |ref-rauc-use-case-http-streaming| replace:: :ref:`scarthgap_rauc-use-case-http-streaming`
 .. |ref-yocto-bsp-customization| replace:: :ref:`scarthgap_bsp-customization`
 
+===============================
+|yocto-codename| -- RAUC Manual
+===============================
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
