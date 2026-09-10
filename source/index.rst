@@ -34,7 +34,7 @@ Welcome to the Documentation for our Yocto BSPs.
    :caption: Application Manuals
 
    rauc/index
-   security/manual-index
+   security/index
    coprocessor/index
 
 .. toctree::

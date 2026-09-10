@@ -19,6 +19,10 @@
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual <yocto-man-walnascar>`
 .. |rauc-manual| replace:: :ref:`Phytec RAUC Manual <rauc-man-walnascar>`
 
+==========================================
+|yocto-codename| -- |branding-name| Manual
+==========================================
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
