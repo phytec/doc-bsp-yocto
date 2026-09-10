@@ -15,6 +15,10 @@
 .. |distro-provisioning-vendor| replace:: ampliphy-vendor-provisioning
 .. |image-secure-name| replace:: phytec-security-image
 
+==========================================
+|yocto-codename| -- |branding-name| Manual
+==========================================
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
