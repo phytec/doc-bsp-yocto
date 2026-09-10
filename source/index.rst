@@ -33,7 +33,7 @@ Welcome to the Documentation for our Yocto BSPs.
    :maxdepth: 1
    :caption: Application Manuals
 
-   rauc/manual-index
+   rauc/index
    security/manual-index
    coprocessor/index
 
