@@ -149,15 +149,13 @@
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
 
-.. TODO: Check release date!
-
 The table below shows the Compatible BSPs for this manual:
 
 ==================== ================ ================ ================ ==============
 Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
 ==================== ================ ================ ================ ==============
-|yocto-manifestname| Minor            |yocto-codename| 2026/09/XX       Released
+|yocto-manifestname| Minor            |yocto-codename| 2026 q3          In Development
 ==================== ================ ================ ================ ==============
 
 .. include:: /bsp/intro.rsti
