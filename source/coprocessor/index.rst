@@ -3,8 +3,6 @@ Coprocessor
 ===========
 
 .. toctree::
-   :caption: Table of Contents
-   :numbered:
-   :maxdepth: 2
+   :maxdepth: 1
 
    coprocessor

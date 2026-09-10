@@ -1,6 +1,10 @@
 .. Download links
 .. _`static-pdf-dl`: ../_static/coprocessor.pdf
 
+===========================
+Draft -- Coprocessor Manual
+===========================
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
