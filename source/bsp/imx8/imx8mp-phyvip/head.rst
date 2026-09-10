@@ -56,8 +56,7 @@
 
 .. IMX8(MP) specific
 .. |u-boot-socname-config| replace:: IMX8MP_PHYFLEX_LIBRA_RDK
-.. TODO: check u-boot tag!
-.. |u-boot-tag| replace:: v2025.04-2.2.0-phy10
+.. |u-boot-tag| replace:: v2025.04-2.2.0-phy
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
