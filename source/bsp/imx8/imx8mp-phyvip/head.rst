@@ -39,8 +39,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx8mp
-.. TODO: check kernel tag!
-.. |kernel-tag| replace:: v6.12.49-2.2.0-phy15
+.. |kernel-tag| replace:: v6.12.49-2.2.0-phy
 .. |emmcdev| replace:: mmcblk2
 
 .. Bootloader
@@ -70,7 +69,7 @@
 .. |dt-som| replace:: imx8mp-phyflex-fpsc-g-som
 
 .. IMX8(MP) specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L94`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L94`
 
 .. Yocto
 .. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
@@ -415,7 +414,7 @@ resistors are activated or not. In this case, the internal resistors are
 disabled.
 
 The device tree representation for UART3 pinmuxing:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L612`
 
 RS232/RS485
 -----------
@@ -444,7 +443,7 @@ UART1 interface is thus the only one brought out to |sbc| board connector
 .. include:: /bsp/peripherals/rs485-fullduplex.rsti
 
 The device tree representation for RS485 with default expansion board PEB-B-006:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L170`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L170`
 
 .. _imx8mp-phyvip-head-network:
 
@@ -463,12 +462,12 @@ board PEB-B-006, only one gigabit Ethernet interface is available.
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L821`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L821`
 and
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L187`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L187`
 
 DT configuration for the e.MMC interface can be found here:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L831`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L831`
 
 .. include:: ../imx8mp/emmc.rsti
 
@@ -482,17 +481,17 @@ DT configuration for the e.MMC interface can be found here:
 The ECSPI2 interface is used for the onboard TPM2.0 chip. The definition of the
 SPI master node in the device tree can be found here:
 
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L49`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L49`
 
 .. include:: /bsp/imx-common/peripherals/gpios.rsti
 
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L205`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L205`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L63`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L63`
 
 EEPROM
 ------
@@ -515,7 +514,7 @@ On the |som| SoM:
    *  Purpose: Available for user applications
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L293`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L293`
 
 And on the |sbc| carrier board:
 
@@ -526,7 +525,7 @@ And on the |sbc| carrier board:
    *  Purpose: Reserved for carrier board identification
 
 Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L67`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip.dts#L67`
 
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
@@ -536,10 +535,10 @@ Device Tree Reference for Carrier Board:
    :start-after: .. rtc_parameter_start_label
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L318`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L318`
 
 And the addions on the expansion board:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L150`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L150`
 
 USB Host Controller
 -------------------
@@ -552,7 +551,7 @@ transfer between USB devices with a line/bus speed of up to 4 Gbit/s (SuperSpeed
 .. include:: /bsp/peripherals/usb-host.rsti
 
 DT representation for USB Host:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L193`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L193`
 
 CAN FD
 ------
@@ -567,10 +566,10 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-som|.dtsi:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L121`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-fpsc-g-som.dtsi#L121`
 
 and of |dt-expansionboard|.dtso:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L85`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L85`
 
 Audio
 -----
@@ -587,7 +586,7 @@ the X18 connector.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy15/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L51`
+:linux-phytec-imx:`tree/v6.12.49-2.2.0-phy/arch/arm64/boot/dts/freescale/imx8mp-phyflex-phyvip-peb-b-006.dtso#L51`
 
 .. include:: display.rsti
 
