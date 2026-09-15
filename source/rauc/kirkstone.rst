@@ -9,6 +9,8 @@
 |yocto-codename| -- RAUC Manual
 ===============================
 
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
