@@ -302,7 +302,7 @@ Next Steps after Activation of Secure Boot
 Key Revocation
 --------------
 
-* NXP SoC: You have four keys from which you can revoke until 3 keys.
+* NXP SoC: You have four keys from which you can revoke the first 3 keys.
 * TI K3 SoC: You have 2 keys, a SMPK and BMPK (Backup Key)
 
 Revoke NXP SRK Key
@@ -313,22 +313,7 @@ into the eFuses, only one key (number 1 by default) is used in the secure boot
 process. If the key gets compromised, it can be revoked and a different key
 used.
 
-To use a different key for the signature of bootloader images, change the
-following variables in ``sources/meta-ampliphy/classes/secureboot.bbclass``:
-
-.. code-block:: bash
-
-   # for NXP with HABV4
-   BOOTLOADER_SIGN_IMG_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/IMG1_1_sha256_4096_65537_v3_usr_crt.pem"
-   BOOTLOADER_SIGN_CSF_PATH ??= "${CERT_PATH}/nxp_habv4_pki/crts/CSF1_1_sha256_4096_65537_v3_usr_crt.pem"
-   BOOTLOADER_HABV4_SRK_INDEX ??= "0"
-
-   # for NXP with AHAB
-   AHAB_SRK_TABLE_BIN ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK_1_2_3_4_table.bin"
-   AHAB_SRK_PUB_CERT ?= "${CERT_PATH}/nxp_ahab_pki/crts/SRK1_sha512_secp521r1_v3_usr_crt.pem"
-   AHAB_SRK_INDEX ?= "0"
-
-The following keys are available:
+The following keys are available for HABV4:
 
 +----------+----------------------+----------------------+-----------------+
 | key Slot | IMG Certificate      | CSF Certificate      | SRK_REVOLE[2:0] |
