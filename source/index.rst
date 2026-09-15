@@ -27,7 +27,7 @@ Welcome to the Documentation for our Yocto BSPs.
    :maxdepth: 1
    :caption: Yocto Manuals
 
-   yocto/manual-index
+   yocto/index
 
 .. toctree::
    :maxdepth: 1

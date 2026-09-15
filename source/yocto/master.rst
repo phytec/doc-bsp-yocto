@@ -31,6 +31,12 @@
 .. _Yocto - Development Manual: https://docs.yoctoproject.org/dev/dev-manual/index.html
 .. _FEATURES: https://docs.yoctoproject.org/dev/ref-manual/features.html#features
 
+================================
+|yocto-codename| -- Yocto Manual
+================================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
