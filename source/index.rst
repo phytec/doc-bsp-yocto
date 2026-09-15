@@ -13,6 +13,7 @@ Welcome to the Documentation for our Yocto BSPs.
    bsp/imx8/imx8mn/index
    bsp/imx8/imx8mp/index
    bsp/imx8/imx8mp-fpsc/index
+   bsp/imx8/imx8mp-phyvip/index
    bsp/imx9/imx91-93/index
    bsp/imx9/imx91-93-fpsc/index
    bsp/imx9/imx95-fpsc/index
