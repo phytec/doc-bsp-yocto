@@ -30,6 +30,12 @@
 .. _Yocto - Kernel Development Manual: https://docs.yoctoproject.org/dev/kernel-dev/index.html
 .. _Yocto - Development Manual: https://docs.yoctoproject.org/dev/dev-manual/index.html
 
+================================
+|yocto-codename| -- Yocto Manual
+================================
+
+.. sectnum::
+
 .. only:: html
 
    Documentation in pdf format: `Download <static-pdf-dl_>`_
