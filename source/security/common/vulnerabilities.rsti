@@ -22,17 +22,16 @@ for Bill of Materials and makes it simple to detect, triage, and report
 security vulnerabilities. The CycloneDX is in
 `JSON Format <https://cyclonedx.org/docs/1.6/json/>`_ and the component
 identifiers CPE and PURL enables the detection of known
-vulnerabilities. In the PHYTEC BSP you can activate the creation of a
-CycloneDX SBOM in your *local.conf*:
+vulnerabilities. In the PHYTEC BSP a CycloneDX SBOM is created for the
+``securiphy`` distro. If you want to add CycloneDX SBOM generation to your
+distro you need to add the folling line:
 
 .. code-block:: bash
 
-   # include the sbom-cyclonedx class for SBOM creation
-   INHERIT += "sbom-cyclonedx"
-   # add information as property in the component
-   # CYCLONEDX_EXPORT_PROPERTIES ?= "SRC_URI SRCREV BB_CURRENT_MC"
-   # add config and built file names for kernel and bootloader
-   CYCLONEDX_WITH_BUILDINFOS ?= "1"
+   require conf/distro/include/common-cyclonedx.inc
 
-This generated SBOM has information about the bootloader and kernel build for
-code based CVE Analysis, which you can order as a service from PHYTEC.
+SPDX 3.0 SBOM
+-------------
+
+The SPDX 3.0 SBOM can include all compiled files in the kernel by setting
+``SPDX_INCLUDE_COMPILED_SOURCES = "1"`` in the kernel recipe.
