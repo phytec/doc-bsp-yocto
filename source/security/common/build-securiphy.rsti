@@ -48,6 +48,9 @@ Configuration options in the Yocto build:
 *  The ``DISTROOVERRIDE secureboot`` enables security features and bootloader sigining
    for NXP i.MX SoCs. To enable bootloader signing on TI K3 SoCs use a machine with
    the ``MACHINEOVERRIDE secureenforced``.
-*  ``DISTRO_FEATURE disable-console`` disables the U-Boot and linux console.
+
+*  ``UBOOT_DISABLE_CONSOLE`` disables the U-Boot console. The default is ``1``
+   enabled.
+*  ``SERIAL_CONSOLES`` set empty to disable the Linux console.
 *  ``DISTRO_FEATURE ssh-authentication`` requires SSH certificate authentication.
 *  ``DISTRO_FEATURE ssh-hardening`` enables additional SSH hardening options.
