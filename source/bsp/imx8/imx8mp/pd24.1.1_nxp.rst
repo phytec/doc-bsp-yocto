@@ -68,6 +68,9 @@
 .. |dt-som| replace:: imx8mp-phycore-som
 .. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
 .. |dtbo-peb-av-10| replace:: imx8mp-phyboard-pollux-peb-av-10.dtbo
+.. |wlbt-overlay-file| replace:: /boot/bootenv.txt
+.. |wlbt-overlay-basename| replace:: bootenv.txt
+.. |wlbt-overlay-key| replace:: overlays=
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.6.52-2.2.2-phy10/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L50`
@@ -489,6 +492,15 @@ our module and board.
 .. include:: /bsp/peripherals/network.rsti
 
 .. include:: wireless-network.rsti
+   :end-before: .. wlbt-intro-marker
+
+WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
+The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install the
+PEB-WLBT-05.
+
+.. include:: wireless-network.rsti
+   :start-after: .. wlbt-05-body-marker
+   :end-before: .. wlbt-07-marker
 
 .. include:: ../../peripherals/wireless-network.rsti
    :end-before: .. bluetooth_chapter_start_label

@@ -1,9 +1,12 @@
 WLAN/Bluetooth
 --------------
 
-WLAN and Bluetooth on the |sbc| are provided by the PEB-WLBT-05 expansion card.
-The PEB-WLBT-05 for |sbc| Quickstart Guide shows you how to install the
-PEB-WLBT-05.
+.. wlbt-intro-marker
+
+PEB-WLBT-05
+...........
+
+.. wlbt-05-body-marker
 
 .. tip::
 
@@ -11,15 +14,17 @@ PEB-WLBT-05.
    otherwise the PEB-WLBT-05 won't be recognized.
 
    .. code-block:: console
+      :substitutions:
 
-      target:~$ vi /boot/bootenv.txt
+      target:~$ vi |wlbt-overlay-file|
 
-   Afterwards the bootenv.txt file should look like this (it can also contain other devicetree
+   Afterwards the |wlbt-overlay-basename| file should look like this (it can also contain other devicetree
    overlays!):
 
    .. code-block::
+      :substitutions:
 
-      overlays=conf-imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+      |wlbt-overlay-key|conf-imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
 
    The changes will be applied after a reboot:
 
@@ -34,3 +39,45 @@ module supports 2,4 GHz bandwidth and can be run in several modes, like client
 mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more. More
 information about the module can be found at
 https://connectivity-staging.s3.us-east-2.amazonaws.com/2019-09/CS-DS-SterlingLWB%20v7_2.pdf
+
+.. wlbt-07-marker
+
+PEB-WLBT-07
+...........
+
+.. tip::
+
+   The PEB-WLBT-07 overlay configuration needs to be activated first, otherwise
+   the PEB-WLBT-07 won't be recognized.
+
+   .. code-block:: console
+      :substitutions:
+
+      target:~$ vi |wlbt-overlay-file|
+
+   Afterwards the |wlbt-overlay-basename| file should look like this (it can also contain other devicetree
+   overlays!):
+
+   .. code-block::
+      :substitutions:
+
+      |wlbt-overlay-key|conf-imx8mp-phyboard-pollux-peb-wlbt-07.dtbo
+
+   The changes will be applied after a reboot:
+
+   .. code-block:: console
+
+      target:~$ reboot
+
+   For further information about devicetree overlays, read the |ref-dt| chapter.
+
+With PEB-WLBT-07 adapter, we use MAYA-W2 from u-blox for WLAN and Bluetooth support.
+This module supports dual-band 2,4 GHz and 5 GHz bandwidth and can be run in several modes,
+like client mode, Access Point (AP) mode using WEP, WPA, WPA2 encryption, and more.
+More information about the module can be found at https://content.u-blox.com/sites/default/files/documents/MAYA-W2_DataSheet_UBX-22009721.pdf
+
+.. note::
+   The following WLAN chapter assumes wireless network interface name is ``wlan0``.
+   However with PEB-WLBT-07 adapter the name of the WLAN interface is actually ``mlan0``.
+   Thus when using commands to configure wireless network, substitute ``wlan0`` with
+   ``mlan0`` when using PEB-WLBT-07 on |sbc|.

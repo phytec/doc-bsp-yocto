@@ -67,6 +67,9 @@
 .. |dt-carrierboard| replace:: imx8mp-phyboard-pollux-rdk
 .. |dt-som| replace:: imx8mp-phycore-som
 .. |dtbo-rpmsg| replace:: conf-imx8mp-phycore-rpmsg.dtbo
+.. |wlbt-overlay-file| replace:: /boot/overlays.txt
+.. |wlbt-overlay-basename| replace:: overlays.txt
+.. |wlbt-overlay-key| replace:: fit_overlay_conf=
 
 .. IMX8(MP) specific
 .. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.12.49-2.2.0-phy11/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi#L59`
@@ -341,6 +344,7 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
    imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+   imx8mp-phyboard-pollux-peb-wlbt-07.dtbo
    imx8mp-phyboard-pollux-ph128800t006.dtbo
    imx8mp-phyboard-pollux-vm016-csi1.dtbo
    imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port0.dtbo
@@ -447,6 +451,25 @@ our module and board.
    | ethernet0 = end1
 
 .. include:: /bsp/peripherals/network.rsti
+
+.. include:: wireless-network.rsti
+   :end-before: .. wlbt-intro-marker
+
+WLAN and Bluetooth on the |sbc| are provided by either the PEB-WLBT-05 or the
+PEB-WLBT-07 expansion card. Installation instructions can be found in "The
+PEB-WLBT-05 for |sbc| Quickstart Guide".
+
+.. include:: wireless-network.rsti
+   :start-after: .. wlbt-intro-marker
+
+.. include:: /bsp/peripherals/wireless-network.rsti
+   :end-before: .. bluetooth_chapter_start_label
+
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 and PEB-WLBT-07 expansion
+cards. How this can be activated is described in the WLAN/Bluetooth section.
+
+.. include:: /bsp/peripherals/wireless-network.rsti
+   :start-after: .. bluetooth_chapter_start_label
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
