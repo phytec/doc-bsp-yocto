@@ -535,6 +535,19 @@ USB-Host
 
 .. include:: /bsp/peripherals/usb-device-uboot.rsti
 
+Audio
+-----
+
+The |sbc| supports audio playback via the TI TLV320AIC3007 audio codec on the
+PEB-AV-10 expansion board. On the AV-Connector there is a 3.5mm headset jack
+with OMTP-standard and an 8-pin header. The 8-pin header contains a mono
+speaker, headphones, and line in signals.
+
+.. include:: /bsp/peripherals/audio.rsti
+
+Device Tree Audio configuration:
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk-peb-av-10.dtsi#L50`
+
 .. include:: /bsp/peripherals/video.rsti
 
 .. include:: display.rsti
