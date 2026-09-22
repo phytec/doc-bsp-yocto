@@ -215,6 +215,68 @@ i.MX91/93 with AHAB
    || for SRK                  ||                                   |
    +---------------------------+------------------------------------+
 
+i.MX95 with AHAB
+...................
+
+* Check the current state of your device
+
+TODO: check values
+   .. code-block::
+
+      u-boot=> ahab_status
+	   0x0287fad6
+      IPC = MU APD (0x2)
+      CMD = ELE_OEM_CNTN_AUTH_REQ (0x87)
+      IND = ELE_BAD_KEY_HASH_FAILURE_IND (0xFA)
+      STA = ELE_SUCCESS_IND (0xD6)
+
+      0x0287fad6
+      IPC = MU APD (0x2)
+      CMD = ELE_OEM_CNTN_AUTH_REQ (0x87)
+      IND = ELE_BAD_KEY_HASH_FAILURE_IND (0xFA)
+      STA = ELE_SUCCESS_IND (0xD6)
+
+   The reason for the ``ELE_BAD_KEY_HASH_FAILURE_IND`` is the zero hash in
+   the fuses, which is wrong for the signature of the boot container.
+
+* Burn the SRK
+
+   1. Dissconnect from U-Boot shell
+   2. Burn fuses with:
+
+   .. code-block::
+
+      host$ nxpele -p /dev/ttyUSB0 -d uboot_serial -f mimx9596 batch imx95_ahab_oem_srk_hash_nxpele.bcf
+      host$ nxpele -p /dev/ttyUSB0 -d uboot_serial -f mimx9596 batch imx95_ahab_oem_srk_pqc_hash_nxpele.bcf
+
+   3. Reconnect to U-Boot shell and ``u-boot=> reset``
+   4. Check the state with ``u-boot=> ahab_status``
+
+
+* Lock the Device
+
+   .. warning::
+      This step is irreversible and could brick your device.
+      Before closing the device:
+
+         * Verify you have built a signed bootloader image.
+         * Reset your board and verify there are no HAB or AHAB events.
+         * Verify the SRK eFuses have been burned correctly.
+
+TODO: check values
+   +---------------------------+------------------------------------+
+   || Lock your device         || ``u-boot=> ahab_close``           |
+   || Secure Boot active       ||                                   |
+   +---------------------------+------------------------------------+
+   | Set Read protection       | ``u-boot=> fuse prog 0 4 0x4000``  |
+   +---------------------------+------------------------------------+
+   || Set Over-ride protection || ``u-boot=> fuse prog 0 4 0x2000`` |
+   || for shadow register      ||                                   |
+   +---------------------------+------------------------------------+
+   || Set Write protection     || ``u-boot=> fuse prog 0 4 0x1000`` |
+   || for SRK                  ||                                   |
+   +---------------------------+------------------------------------+
+
 Activate Secure Boot for TI K3 SoC
 ----------------------------------
 
