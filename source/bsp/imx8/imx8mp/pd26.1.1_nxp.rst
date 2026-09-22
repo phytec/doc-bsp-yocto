@@ -341,6 +341,7 @@ the efi, rauc and script bootmethods are supported.
    imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
    imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
    imx8mp-phyboard-pollux-peb-wlbt-05.dtbo
+   imx8mp-phyboard-pollux-peb-wlbt-07.dtbo
    imx8mp-phyboard-pollux-ph128800t006.dtbo
    imx8mp-phyboard-pollux-vm016-csi1.dtbo
    imx8mp-phyboard-pollux-vm016-csi1-fpdlink-port0.dtbo
@@ -447,6 +448,17 @@ our module and board.
    | ethernet0 = end1
 
 .. include:: /bsp/peripherals/network.rsti
+
+.. include:: wireless-network.rsti
+
+.. include:: /bsp/peripherals/wireless-network.rsti
+   :end-before: .. bluetooth_chapter_start_label
+
+Bluetooth is supported on |sbc| with the PEB-WLBT-05 and PEB-WLBT-07 expansion
+cards. How this can be activated is described in the WLAN/Bluetooth section.
+
+.. include:: /bsp/peripherals/wireless-network.rsti
+   :start-after: .. bluetooth_chapter_start_label
 
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
