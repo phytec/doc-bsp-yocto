@@ -104,6 +104,14 @@ More information about cst and the HABv4 API can be found in the `doc folder of
 the imx-code-signing-tool repository
 <https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/docs?ref_type=heads>`_.
 
+ahab keys
+
+spsdk to create keys pqc keys
+
+.. code-block:: console
+
+   host:~$ nxpcrypto pki-tree ahab-pqc -k mldsa87 -p test -o mldsa87 -e pem -n 4
+
 Create TI K3 Keys
 -----------------
 
