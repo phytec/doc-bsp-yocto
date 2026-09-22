@@ -35,10 +35,10 @@ firmware images.
 If you build the signed bootloader, then the following tools are available in
 the bootloader.
 
-Check the current state of your device
-......................................
+i.MX6 with HAB
+..............
 
-   * NXP i.MX6 with HAB and bootloader barebox
+* Check the current state of your device
 
    .. code-block::
 
@@ -47,7 +47,45 @@ Check the current state of your device
       0000000000000000000000000000000000000000000000000000000000000000
       devel mode
 
-   * NXP i.MX8M Series with HAB and bootloader U-Boot
+* Burn the SRK
+
+   * copy the SRK_1_2_3_4_fuse.bin to the device with e.g. tftp and burn
+     directly with
+
+   .. code-block::
+
+      barebox$ hab -p -s SRK_1_2_3_4_fuse.bin
+
+   * for checking the result use again
+
+   .. code-block::
+
+      barebox$ hab -i
+      Current SRK hash:
+      3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
+      devel mode
+
+* Lock the Device
+
+   .. warning::
+      This step is irreversible and could brick your device.
+      Before closing the device:
+
+         * Verify you have built a signed bootloader image.
+         * Reset your board and verify there are no HAB or AHAB events.
+         * Verify the SRK eFuses have been burned correctly.
+
+   .. code-block::
+
+      barebox$ hab -p -l
+      Device successfully locked down
+
+   The device is directly locked and the SRK is write protected, too.
+
+i.MX8M Series with HAB
+......................
+
+* Check the current state of your device
 
    .. code-block::
 
@@ -57,7 +95,56 @@ Check the current state of your device
       HAB Configuration: 0xf0, HAB State: 0x66
       No HAB Events Found!
 
-   * NXP i.MX9 with AHAB and bootloader U-Boot
+* Burn the SRK
+
+   +--------------------------------------------+--------------------------------------------------+
+   || ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     |
+   ||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     |
+   +--------------------------------------------+--------------------------------------------------+
+   || burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           |
+   ||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           |
+   ||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           |
+   ||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           |
+   ||                                           ||                                                 |
+   ||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           |
+   ||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           |
+   ||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           |
+   ||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           |
+   +--------------------------------------------+--------------------------------------------------+
+   | reset the board                            | ``u-boot=> reset``                               |
+   +--------------------------------------------+--------------------------------------------------+
+   || read and check                            || ``u-boot=> fuse read 6 0 4``                    |
+   || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 |
+   ||                                           || ``u-boot=> fuse read 7 0 4``                    |
+   ||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 |
+   +--------------------------------------------+--------------------------------------------------+
+   || check the state                           || ``u-boot=> hab_status``                         |
+   ||                                           ||                                                 |
+   ||                                           || No Events Found!                                |
+   +--------------------------------------------+--------------------------------------------------+
+
+* Lock the Device
+
+   .. warning::
+      This step is irreversible and could brick your device.
+      Before closing the device:
+
+         * Verify you have built a signed bootloader image.
+         * Reset your board and verify there are no HAB or AHAB events.
+         * Verify the SRK eFuses have been burned correctly.
+
+   +---------------------------+---------------------------------------+
+   || Lock your device         || ``u-boot=> fuse prog 1 3 0x2000000`` |
+   || Secure Boot active       ||                                      |
+   +---------------------------+---------------------------------------+
+   || Set Write protection     || ``u-boot=> fuse prog 0 0 0x200``     |
+   || for SRK                  ||                                      |
+   +---------------------------+---------------------------------------+
+
+i.MX91/93 with AHAB
+...................
+
+* Check the current state of your device
 
    .. code-block::
 
@@ -77,91 +164,56 @@ Check the current state of your device
    The reason for the ``ELE_BAD_KEY_HASH_FAILURE_IND`` is the zero hash in
    the fuses, which is wrong for the signature of the boot container.
 
-Burn the SRK
-............
+* Burn the SRK
 
-   * on NXP i.MX6 with HAB and bootloader barebox you can copy the SRK_1_2_3_4_fuse.bin
-      to the device with e.g. tftp and burn directly with
+   +--------------------------------------------+--------------------------------------------------+
+   || ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 baaf5d2c e92e0323 23c0ba08 10e7973f     |
+   ||                                           || 0000020 678de0d5 966d3584 a541dfbe 6ea06dba     |
+   +--------------------------------------------+--------------------------------------------------+
+   || burn the fuses                            || ``u-boot=> fuse prog 16 0 0xbaaf5d2c``          |
+   ||                                           || ``u-boot=> fuse prog 16 1 0xe92e0323``          |
+   ||                                           || ``u-boot=> fuse prog 16 2 0x23c0ba08``          |
+   ||                                           || ``u-boot=> fuse prog 16 3 0x10e7973f``          |
+   ||                                           ||                                                 |
+   ||                                           || ``u-boot=> fuse prog 16 4 0x678de0d5``          |
+   ||                                           || ``u-boot=> fuse prog 16 5 0x966d3584``          |
+   ||                                           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
+   ||                                           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
+   +--------------------------------------------+--------------------------------------------------+
+   | reset the board                            | ``u-boot=> reset``                               |
+   +--------------------------------------------+--------------------------------------------------+
+   || read and check                            || ``u-boot=> fuse read 16 0 8``                   |
+   || the fuses                                 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
+   ||                                           || 0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba |
+   ||                                           ||                                                 |
+   +--------------------------------------------+--------------------------------------------------+
+   || check the state                           || ``u-boot=> ahab_status``                        |
+   ||                                           || Lifecycle: 0x00000008, OEM Open                 |
+   ||                                           || No Events Found!                                |
+   +--------------------------------------------+--------------------------------------------------+
 
-   .. code-block::
+* Lock the Device
 
-      barebox$ hab -p -s SRK_1_2_3_4_fuse.bin
+   .. warning::
+      This step is irreversible and could brick your device.
+      Before closing the device:
 
-   * for checking the result use again
+         * Verify you have built a signed bootloader image.
+         * Reset your board and verify there are no HAB or AHAB events.
+         * Verify the SRK eFuses have been burned correctly.
 
-   .. code-block::
-
-      barebox$ hab -i
-      Current SRK hash:
-      3425849ab41a49b07ba0b6d5e7dc92fd7cc80dc1a904bdd8e49f4e705953029b
-      devel mode
-
-   * on a SoC with U-Boot you must write every word to the fuses
-
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   |                                            | NXP i.MX8M Series with HAB                       | NXP i.MX9 series with AHAB                       |
-   +============================================+==================================================+==================================================+
-   || ``host:~$ od -t x4 SRK_1_2_3_4_fuse.bin`` || 0000000 9a842534 b0491ab4 d5b6a07b fd92dce7     || 0000000 baaf5d2c e92e0323 23c0ba08 10e7973f     |
-   ||                                           || 0000020 c10dc87c d8bd04a9 704e9fe4 9b025359     || 0000020 678de0d5 966d3584 a541dfbe 6ea06dba     |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   || burn the fuses                            || ``u-boot=> fuse prog 6 0 0x9a842534``           || ``u-boot=> fuse prog 16 0 0xbaaf5d2c``          |
-   ||                                           || ``u-boot=> fuse prog 6 1 0xb0491ab4``           || ``u-boot=> fuse prog 16 1 0xe92e0323``          |
-   ||                                           || ``u-boot=> fuse prog 6 2 0xd5b6a07b``           || ``u-boot=> fuse prog 16 2 0x23c0ba08``          |
-   ||                                           || ``u-boot=> fuse prog 6 3 0xfd92dce7``           || ``u-boot=> fuse prog 16 3 0x10e7973f``          |
-   ||                                           ||                                                 ||                                                 |
-   ||                                           || ``u-boot=> fuse prog 7 0 0xc10dc87c``           || ``u-boot=> fuse prog 16 4 0x678de0d5``          |
-   ||                                           || ``u-boot=> fuse prog 7 1 0xd8bd04a9``           || ``u-boot=> fuse prog 16 5 0x966d3584``          |
-   ||                                           || ``u-boot=> fuse prog 7 2 0x704e9fe4``           || ``u-boot=> fuse prog 16 6 0xa541dfbe``          |
-   ||                                           || ``u-boot=> fuse prog 7 3 0x9b025359``           || ``u-boot=> fuse prog 16 7 0x6ea06dba``          |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   | reset the board                            | ``u-boot=> reset``                               | ``u-boot=> reset``                               |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   || read and check                            || ``u-boot=> fuse read 6 0 4``                    || ``u-boot=> fuse read 16 0 8``                   |
-   || the fuses                                 || 0x00000000: 9a842534 b0491ab4 d5b6a07b fd92dce7 || 0x00000000: baaf5d2c e92e0323 23c0ba08 10e7973f |
-   ||                                           || ``u-boot=> fuse read 7 0 4``                    || 0x00000004: 678de0d5 966d3584 a541dfbe 6ea06dba |
-   ||                                           || 0x00000000: c10dc87c d8bd04a9 704e9fe4 9b025359 ||                                                 |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-   || check the state                           || ``u-boot=> hab_status``                         || ``u-boot=> ahab_status``                        |
-   ||                                           ||                                                 || Lifecycle: 0x00000008, OEM Open                 |
-   ||                                           || No Events Found!                                || No Events Found!                                |
-   +--------------------------------------------+--------------------------------------------------+--------------------------------------------------+
-
-Lock the Device
-...............
-
-.. warning::
-   This step is irreversible and could brick your device.
-   Before closing the device:
-
-      * Verify you have built a signed bootloader image.
-      * Reset your board and verify there are no HAB or AHAB events.
-      * Verify the SRK eFuses have been burned correctly.
-
-* NXP i.MX6 with HAB and bootloader barebox:
-
-.. code-block::
-
-   barebox$ hab -p -l
-   Device successfully locked down
-
-The device is directly locked and the SRK is write protected, too.
-
-* SoC with U-Boot:
-
-+---------------------------+---------------------------------------+------------------------------------+
-|                           | NXP i.MX8M Series with HAB            | NXP i.MX9 series with AHAB         |
-+===========================+=======================================+====================================+
-|| Lock your device         || ``u-boot=> fuse prog 1 3 0x2000000`` || ``u-boot=> ahab_close``           |
-|| Secure Boot active       ||                                      ||                                   |
-+---------------------------+---------------------------------------+------------------------------------+
-| Set Read protection       | not available                         | ``u-boot=> fuse prog 0 4 0x4000``  |
-+---------------------------+---------------------------------------+------------------------------------+
-|| Set Over-ride protection || not available                        || ``u-boot=> fuse prog 0 4 0x2000`` |
-|| for shadow register      ||                                      ||                                   |
-+---------------------------+---------------------------------------+------------------------------------+
-|| Set Write protection     || ``u-boot=> fuse prog 0 0 0x200``     || ``u-boot=> fuse prog 0 4 0x1000`` |
-|| for SRK                  ||                                      ||                                   |
-+---------------------------+---------------------------------------+------------------------------------+
+   +---------------------------+------------------------------------+
+   || Lock your device         || ``u-boot=> ahab_close``           |
+   || Secure Boot active       ||                                   |
+   +---------------------------+------------------------------------+
+   | Set Read protection       | ``u-boot=> fuse prog 0 4 0x4000``  |
+   +---------------------------+------------------------------------+
+   || Set Over-ride protection || ``u-boot=> fuse prog 0 4 0x2000`` |
+   || for shadow register      ||                                   |
+   +---------------------------+------------------------------------+
+   || Set Write protection     || ``u-boot=> fuse prog 0 4 0x1000`` |
+   || for SRK                  ||                                   |
+   +---------------------------+------------------------------------+
 
 Activate Secure Boot for TI K3 SoC
 ----------------------------------
