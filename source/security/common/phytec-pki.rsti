@@ -104,6 +104,26 @@ More information about cst and the HABv4 API can be found in the `doc folder of
 the imx-code-signing-tool repository
 <https://gitlab.apertis.org/pkg/imx-code-signing-tool/-/tree/debian/unstable/docs?ref_type=heads>`_.
 
+AHAB PQC keys
+.............
+
+The i.MX95 supports three key configurations for AHAB secure boot:
+
+* **classic**: only classical keys (RSA or ECC)
+* **PQC**: only post-quantum keys (ML-DSA)
+* **hybrid**: classical and post-quantum keys combined
+
+Classic keys (RSA, ECC) can be created in the same way as for other NXP SoCs
+with the ``imx-code-signing-tool``, as described above or with NXP Secure
+Provisioning SDK (SPSDK, see |soc-tools-link|). PQC and hybrid keys must be
+generated with SPSDK.
+
+Generate the PQC key tree (ML-DSA) with:
+
+.. code-block:: console
+
+   host:~$ nxpcrypto pki-tree ahab-pqc -k mldsa87 -p test -o mldsa87 -e pem -n 4
+
 Create TI K3 Keys
 -----------------
 
