@@ -627,7 +627,7 @@ Device Tree PCIe configuration of |dt-carrierboard|.dts:
 Audio
 -----
 
-The PEB-AV-10-Connector exists in two versions and the 1531.1 version is
+The PEB-AV-10 expansion board exists in two versions and the 1531.1 version is
 populated with a TI TLV320AIC3007 audio codec. Audio support is done via the I2S
 interface and controlled via I2C.
 
