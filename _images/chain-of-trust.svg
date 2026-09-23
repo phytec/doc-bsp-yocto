@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="190.25462mm"
+   height="20.000851mm"
+   viewBox="0 0 190.25462 20.000851"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="secure-boot-chain.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0154442"
+     inkscape:cx="250.62922"
+     inkscape:cy="-18.711023"
+     inkscape:window-width="1870"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker7"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker4"
+       refX="2"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <linearGradient
+       id="swatch3"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#fafafa;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.4903306,-138.49957)">
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.261534;stroke-dasharray:none;stroke-opacity:1"
+       id="path3"
+       cx="15.490331"
+       cy="148.5"
+       r="9.8692331" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.171368;stroke-dasharray:none;stroke-opacity:1"
+       x="8.6870031"
+       y="146.42194"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="8.6870031"
+         y="146.42194">   Trusted</tspan><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="8.6870031"
+         y="149.38318">ROM-BOOT-</tspan><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="8.6870031"
+         y="152.34441">   LOADER</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:12.9485;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="42.375927"
+       y="41.270473"
+       id="text8"
+       transform="translate(-10.533686,100.45054)"><tspan
+         x="42.375927"
+         y="41.270473"
+         id="tspan23">verifies
+</tspan><tspan
+         x="42.375927"
+         y="44.231713"
+         id="tspan24">against
+</tspan><tspan
+         x="42.375927"
+         y="47.192951"
+         id="tspan25">fuses</tspan></text>
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.274824;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-0"
+       cx="58.261883"
+       cy="148.5"
+       rx="9.8625879"
+       ry="9.8630133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.171368;stroke-dasharray:none;stroke-opacity:1"
+       x="53.473007"
+       y="147.88173"
+       id="text3-3"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         x="53.473007"
+         y="147.88173">  BOOT</tspan><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="53.473007"
+         y="150.84297">LOADER</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:12.9485;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="42.375927"
+       y="41.270473"
+       id="text8-1"
+       transform="translate(30.977867,100.21167)"><tspan
+         x="42.375927"
+         y="41.270473"
+         id="tspan26">verifies
+</tspan><tspan
+         x="42.375927"
+         y="44.231713"
+         id="tspan27">against
+</tspan><tspan
+         x="42.375927"
+         y="47.192951"
+         id="tspan28">public key</tspan></text>
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.274812;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-3"
+       cx="100.69644"
+       cy="148.5"
+       r="9.8625937" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.171368;stroke-dasharray:none;stroke-opacity:1"
+       x="96.425781"
+       y="147.88173"
+       id="text3-8"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         x="96.425781"
+         y="147.88173">BOOT</tspan><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="96.425781"
+         y="150.84297">SCRIPT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:12.9485;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="42.375927"
+       y="41.270473"
+       id="text8-4"
+       transform="translate(74.163748,100.01208)"><tspan
+         x="42.375927"
+         y="41.270473"
+         id="tspan29">verifies
+</tspan><tspan
+         x="42.375927"
+         y="44.231713"
+         id="tspan30">against
+</tspan><tspan
+         x="42.375927"
+         y="47.192951"
+         id="tspan31">public key</tspan></text>
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.274812;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-3-2"
+       cx="142.34418"
+       cy="148.5"
+       r="9.8625937" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.171368;stroke-dasharray:none;stroke-opacity:1"
+       x="136.72246"
+       y="147.8661"
+       id="text3-8-6"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         x="136.72246"
+         y="147.8661">KERNEL</tspan><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         x="136.72246"
+         y="150.82735">FITIMAGE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:12.9485;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="42.375927"
+       y="41.270473"
+       id="text8-4-9"
+       transform="translate(115.47309,100.50225)"><tspan
+         x="42.375927"
+         y="41.270473"
+         id="tspan32">decrypts
+</tspan><tspan
+         x="42.375927"
+         y="44.231713"
+         id="tspan33">and
+</tspan><tspan
+         x="42.375927"
+         y="47.192951"
+         id="tspan34">verifies</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.245526;stroke-dasharray:none;stroke-opacity:1"
+       id="rect16"
+       width="19.754473"
+       height="19.754473"
+       x="175.86772"
+       y="138.62276" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.36899px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="178.5842"
+       y="149.5466"
+       id="text17"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         x="178.5842"
+         y="149.5466">FILESYSTEM</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.354486;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:7.2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 25.359564,148.5 H 47.091068"
+       id="path1"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.359856;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4)"
+       d="M 68.124471,148.5 H 90.198294"
+       id="path2"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.354085;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7)"
+       d="m 110.55904,148.5 h 20.63097"
+       id="path5"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.361591;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4)"
+       d="m 152.21715,148.5 23.0045,-1e-5"
+       id="path6"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
