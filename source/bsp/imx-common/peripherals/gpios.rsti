@@ -49,11 +49,24 @@ of some usages of various tools:
 
       target:~$ gpioget -c gpiochip0 20
 
-*  Set the value of GPIO 20 on chip0 to 0 and exit tool:
+*  Set the value of GPIO 20 on chip0 to 0:
 
    .. code-block:: console
 
-      target:~$ gpioset -z -c gpiochip0 20=0
+      target:~$ gpioset -c gpiochip0 20=0
+
+   The GPIO is only set as long as the program is running. By default the
+   program is running until the user exits with :kbd:`CTRL+C` to the console.
+   With the ``-z`` option, the program will return to the console and keep
+   running in the background. It will keep blocking the ressource until it is
+   terminated. This can be done with:
+
+   .. code-block:: console
+
+      target:~$ ps | grep "gpioset"
+      1116 root      0:00 gpioset -z -c gpiochip0 20 0
+      1120 root      0:00 grep gpioset
+      target:~$ kill 1116
 
 *  Help text of gpioset shows possible options:
 
