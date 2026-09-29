@@ -471,6 +471,14 @@ latex_documents = [
         False,
     ),
     (
+        'yocto/wrynose',
+        'wrynose.tex',
+        'Yocto Reference Manual Wrynose',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'rauc/kirkstone',
         'rauc-kirkstone.tex',
         'RAUC Update \\& Device Management Manual Kirkstone',
