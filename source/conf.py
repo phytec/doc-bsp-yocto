@@ -511,6 +511,14 @@ latex_documents = [
         False,
     ),
     (
+        'rauc/wrynose',
+        'rauc-wrynose.tex',
+        'RAUC Update \\& Device Management Manual Wrynose',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'coprocessor/coprocessor',
         'coprocessor.tex',
         'Coprocessor Application Manual',
