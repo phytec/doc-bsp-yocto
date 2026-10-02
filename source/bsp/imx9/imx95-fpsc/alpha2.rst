@@ -443,7 +443,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-  :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
+:linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
 
 RS232/RS485
 -----------
