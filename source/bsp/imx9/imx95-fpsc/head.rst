@@ -1,6 +1,6 @@
 .. Download links
 .. |dlpage-bsp| replace:: our BSP
-.. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX95-ALPHA2
+.. _dlpage-bsp: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-PD26.1.0/
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
 .. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-95x-fpsc/
 .. |dl-server| replace:: BSP downloads
@@ -9,10 +9,10 @@
 .. |dl-sdk| replace:: SDK downloads
 .. _dl-sdk: none
 .. |dl-sdk-link| replace:: |dl-sdk|_
-.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA2/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/phytec-qt6demo-image-imx95-phyflex-libra-rdk-2.rootfs.wic.xz
+.. |link-image| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-PD26.1.0/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/phytec-qt6demo-image-imx95-phyflex-libra-rdk-2.rootfs.wic.xz
 .. |link-partup-package| replace:: none
-.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA2/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/imx-boot-tools/
-.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-ALPHA2/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/
+.. |link-boot-tools| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-PD26.1.0/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/imx-boot-tools/
+.. |link-bsp-images| replace:: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/BSP-Yocto-NXP-i.MX95-PD26.1.0/images/ampliphy-vendor/imx95-phyflex-libra-rdk-2/
 .. _releasenotes: https://git.phytec.de/phy2octo/tree/releasenotes?h=imx95
 .. _`static-pdf-dl`: ../../../_static/imx95-fpsc-head.pdf
 
@@ -38,7 +38,7 @@
 .. |kernel-repo-name| replace:: linux-phytec-imx
 .. |kernel-repo-url| replace:: https://github.com/phytec/linux-phytec-imx
 .. |kernel-socname| replace:: imx95
-.. |kernel-tag| replace:: v6.18.20-2.0.0-phy
+.. |kernel-tag| replace:: v6.18.20-2.0.0-phy7
 .. |emmcdev| replace:: mmcblk0
 .. |led-names| replace:: red:status, green:status and blue:status
 .. |led-example| replace:: red:status
@@ -57,7 +57,7 @@
 
 .. IMX95 specific
 .. |u-boot-socname-config| replace:: IMX95_PHYFLEX_LIBRA_RDK
-.. |u-boot-tag| replace:: v2026.04_2.0.0-phy
+.. |u-boot-tag| replace:: v2026.04_2.0.0-phy4
 
 .. RAUC
 .. |rauc-manual| replace:: L-1006e.A6 RAUC Update & Device Management Manual
@@ -69,10 +69,10 @@
 .. |dtbo-peb-av-10| replace:: imx95-phyflex-libra-rdk-peb-av-10-ph128800t006-zhc01.dtbo
 
 .. IMX95 specific
-.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L90`
+.. |dt-somnetwork| replace:: :linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L123`
 
 .. Yocto
-.. |yocto-bootenv-link| replace:: :yocto-bootenv:`walnascar`
+.. |yocto-bootenv-link| replace:: :yocto-bootenv:`wrynose`
 .. |yocto-bsp-name| replace:: BSP-Yocto-IMX95
 .. _yocto-bsp-name: `dl-server`_
 .. |yocto-codename| replace:: Wrynose
@@ -85,7 +85,7 @@
 .. |yocto-manifestname-y| replace:: BSP-Yocto-NXP-i.MX95-PD26.1.y
 .. |yocto-ref-manual| replace:: :ref:`Yocto Reference Manual (walnascar) <yocto-man-walnascar>`
 .. |yocto-ref-manual-kernel-and-bootloader-conf| replace:: :ref:`Yocto Reference Manual <yocto-man-walnascar-kernel-and-bootloader-conf>`
-.. |yocto-sdk-rev| replace::  5.2.4
+.. |yocto-sdk-rev| replace::  6.0
 .. |yocto-sdk-a-core| replace:: cortexa55-crypto
 
 .. Ref Substitutions
@@ -106,7 +106,7 @@
 .. |sbc-network| replace::
    The device tree set up for the ethernet where the PHY is populated on the |sbc|
    can be found here:
-   :linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L196`.
+   :linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L196`.
 
 .. |ref-serial| replace:: :ref:`X27 <imx95-fpsc-head-components>`
 .. |ref-S5| replace:: :ref:`S5 <imx95-fpsc-head-components>`
@@ -140,7 +140,7 @@ The table below shows the Compatible BSPs for this manual:
 Compatible BSPs      BSP Release Type Yocto Version    BSP Release Date BSP Status
 
 ==================== ================ ================ ================ ==========
-|yocto-manifestname| Major            |yocto-codename| 2026 q3          In Development
+|yocto-manifestname| Major            |yocto-codename| 2026-10-01       Released
 ==================== ================ ================ ================ ==========
 
 .. include:: /bsp/intro.rsti
@@ -342,30 +342,34 @@ only the script method is supported.
 .. include:: /bsp/device-tree.rsti
 
 .. code-block::
-   :substitutions:
 
+   imx95-phyflex-fpsc-g-som-temperature.dtbo
    imx95-phyflex-libra-rdk-bluetooth-88w8987.dtbo
    imx95-phyflex-libra-rdk-lvds-ph128800t006-zhc01.dtbo
    imx95-phyflex-libra-rdk-neoisp.dtbo
+   imx95-phyflex-libra-rdk-peb-av-10.dtbo
+   imx95-phyflex-libra-rdk-peb-av-10-ph128800t006-zhc01.dtbo
+   imx95-phyflex-libra-rdk-sfp.dtbo
    imx95-phyflex-libra-rdk-vm016-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm016-fpdlink-port0-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm016-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm016-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port0-csi1.dtbo
    imx95-phyflex-libra-rdk-vm016-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm016-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm016-fpdlink-port1-csi2.dtbo
    imx95-phyflex-libra-rdk-vm017-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm017-fpdlink-port0-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm017-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm017-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port0-csi1.dtbo
    imx95-phyflex-libra-rdk-vm017-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm017-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm017-fpdlink-port1-csi2.dtbo
    imx95-phyflex-libra-rdk-vm020-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi1.dtbo
-   imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm020-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi1.dtbo
    imx95-phyflex-libra-rdk-vm020-fpdlink-port0-csi2.dtbo
+   imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi1.dtbo
    imx95-phyflex-libra-rdk-vm020-fpdlink-port1-csi2.dtbo
-   imx95-phyflex-fpsc-g-som-temperature.dtbo
+   imx95-phyflex-libra-rdk-vm024-csi1.dtbo
+   imx95-phyflex-libra-rdk-vm024-csi2.dtbo
 
 .. _imx95-fpsc-head-ubootexternalenv:
 .. include:: /bsp/dt-overlays-ampliphy-boot.rsti
@@ -398,7 +402,7 @@ internal pull resistors are activated or not. In this case, the internal
 resistors are enabled.
 
 The device tree representation for UART1 pinmuxing:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L264`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L299`
 
 .. _imx95-fpsc-head-network:
 
@@ -419,10 +423,10 @@ only the Gigabit Ethernet ports are supported (Ethernet1 and Ethernet2).
 .. include:: /bsp/imx-common/peripherals/sd-card.rsti
 
 DT configuration for the MMC (SD card slot) interface can be found here:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L697`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L738`
 
 DT configuration for the eMMC interface can be found here:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L684`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L725`
 
 .. include:: /bsp/peripherals/emmc.rsti
 
@@ -431,10 +435,10 @@ DT configuration for the eMMC interface can be found here:
 .. include:: /bsp/imx-common/peripherals/i2c-bus.rsti
 
 General I²C bus configuration from SoM (e.g. |dt-som|.dtsi):
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L146`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L179`
 
 General I²C bus configuration from carrierboard (e.g. |dt-carrierboard|.dts)
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L242`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L248`
 
 .. include:: /bsp/peripherals/leds.rsti
 
@@ -451,7 +455,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-  :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L213`
 
 RS232/RS485
 -----------
@@ -482,7 +486,7 @@ On the |som| SoM:
    *  Purpose: Available for user applications
 
 Device Tree Reference for SoM EEPROMs:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L181`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L215`
 
 And on the |sbc| carrier board:
 
@@ -499,17 +503,17 @@ And on the |sbc| carrier board:
    *  Purpose: Available for user applications
 
 Device Tree Reference for Carrier Board:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L339`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L357`
 
 .. include:: /bsp/imx-common/peripherals/eeprom.rsti
 
 .. include:: /bsp/peripherals/rtc.rsti
 
 DT representation for I²C RTCs:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L197`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-fpsc-g-som.dtsi#L232`
 
 And the additions on the carrierboard:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L436`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L454`
 
 USB
 ---
@@ -521,10 +525,10 @@ depending on what is plugged into the port. In U-Boot, the port will be
 initialized as device or as host depending on the command that is used.
 
 DT representation for USB-A Host Ports:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L519`
 
 DT representation for USB-C DRP:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L538`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L524`
 
 USB-Host
 ........
@@ -546,7 +550,7 @@ speaker, headphones, and line in signals.
 .. include:: /bsp/peripherals/audio.rsti
 
 Device Tree Audio configuration:
-:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk-peb-av-10.dtsi#L50`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk-peb-av-10.dtsi#L50`
 
 .. include:: /bsp/peripherals/video.rsti
 
@@ -563,7 +567,7 @@ Device Tree Audio configuration:
    brightness level 0.
 
 Device tree description of LVDS-1 can be found here:
-linux-phytec-imx:`tree/v6.18.20-2.0.0-phy/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk-lvds.dtsi#L30`
+:linux-phytec-imx:`tree/v6.18.20-2.0.0-phy7/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk-lvds.dtsi#L30`
 
 .. include:: /bsp/imx8/peripherals/pm.rsti
 
