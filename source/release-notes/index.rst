@@ -26,3 +26,8 @@ i.MX 91/93
 =======
 i.MX 95
 =======
+
+.. toctree::
+   :maxdepth: 1
+
+   imx95/nxp-pd26.1.0
