@@ -399,6 +399,14 @@ latex_documents = [
         False,
     ),
     (
+        'bsp/imx9/imx95-fpsc/pd26.1.0_nxp',
+        'imx95-fpsc-pd26.1.0_nxp.tex',
+        'phyFLEX-i.MX 95 FPSC BSP Manual PD26.1.0 NXP',
+        'PHYTEC Messtechnik GmbH',
+        'manual',
+        False,
+    ),
+    (
         'bsp/imx9/imx95-fpsc/alpha2',
         'imx95-fpsc-alpha2.tex',
         'phyFLEX-i.MX 95 FPSC BSP Manual ALPHA2',
