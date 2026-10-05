@@ -6,6 +6,7 @@ phyFLEX-i.MX 95 FPSC
    :maxdepth: 1
 
    head
+   pd26.1.0_nxp
    alpha2
    alpha1
    quickstart-alpha1
