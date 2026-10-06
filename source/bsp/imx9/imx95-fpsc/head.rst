@@ -254,6 +254,9 @@ select the |som| default bootsource.
    :start-after: .. flash-emmc-from-sdcard-marker
    :end-before: .. flash-spi-nor-flash-marker
 
+.. include:: /bsp/imx-common/installing-os.rsti
+   :start-after: .. rauc-marker
+
 .. +---------------------------------------------------------------------------+
 .. DEVELOPMENT
 .. +---------------------------------------------------------------------------+
