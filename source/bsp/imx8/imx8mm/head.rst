@@ -317,7 +317,7 @@ After saving the changes, follow the remaining steps from |ref-build-uboot|.
 .. include:: /bsp/development/host_network_setup.rsti
 .. include:: /bsp/imx-common/development/netboot_fit.rsti
 
-.. include:: /bsp/imx-common/development/development_manifests.rsti
+.. include:: /bsp/development/development_manifests.rsti
 
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 

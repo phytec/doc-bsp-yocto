@@ -393,7 +393,7 @@ Booting from an Embedded Board
       u-boot=> env set serverip <xxx.xxx.xxx.xxx>
       u-boot=> env save
 
-.. include:: /bsp/imx-common/development/development_manifests.rsti
+.. include:: /bsp/development/development_manifests.rsti
 
 .. _imx95-fpsc-alpha1-format-sd:
 

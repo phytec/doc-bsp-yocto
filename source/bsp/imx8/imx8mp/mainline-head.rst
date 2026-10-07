@@ -776,7 +776,7 @@ Execute and power up the board:
 
 .. include:: /bsp/imx-common/development/standalone_build_kernel.rsti
 
-.. include:: /bsp/imx-common/development/development_manifests.rsti
+.. include:: /bsp/development/development_manifests.rsti
 .. include:: /bsp/imx-common/development/master_manifest.rsti
 
 .. _imx8mp-mainline-head-format-sd:
