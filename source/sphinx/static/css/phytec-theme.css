@@ -103,7 +103,10 @@ legend {
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-    color: var(--teal2);
+    background-image: linear-gradient(to right, var(--teal2) 0%, var(--success) 400%);
+    background-clip: text;
+    color: transparent;
+    font-size: 87%;
 
     /* Improves the appearance of uppercase text */
     letter-spacing: 0.75px;
