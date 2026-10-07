@@ -15,7 +15,9 @@ Welcome to the Documentation for our Yocto BSPs.
    :maxdepth: 1
    :caption: Release Notes
 
-   release-notes/index
+   release-notes/am6x/index
+   release-notes/imx8/index
+   release-notes/imx9/index
 
 .. toctree::
    :maxdepth: 1
