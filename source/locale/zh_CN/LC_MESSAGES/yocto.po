@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHYTEC BSP Documentation imx8mp-pd22.1.2-5-ge2f699d\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 09:55+0100\n"
+"POT-Creation-Date: 2026-10-07 09:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -18,34 +18,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
+
+#, fuzzy
+msgid "Yocto Manuals"
+msgstr "Yocto手册"
+
+#, fuzzy
+msgid "|yocto-codename| -- Yocto Manual"
+msgstr "|yocto-ref-manual|"
 
 msgid "Documentation in pdf format: `Download <static-pdf-dl_>`_"
 msgstr ""
-
-msgid "|yocto-ref-manual|"
-msgstr "|yocto-ref-manual|"
-
-msgid "Document Title"
-msgstr "文档标题"
-
-msgid "|yocto-ref-manual| |yocto-codename|"
-msgstr "|yocto-ref-manual| |yocto-codename|"
-
-msgid "Document Type"
-msgstr "文档类型"
-
-msgid "Yocto Manual"
-msgstr "Yocto手册"
-
-msgid "Release Date"
-msgstr "发布日期"
-
-msgid "XXXX/XX/XX"
-msgstr "XXXX/XX/XX"
-
-msgid "Is Branch of"
-msgstr "母文档"
 
 msgid "Compatible BSPs"
 msgstr "适用BSP"
@@ -128,19 +112,18 @@ msgstr "2023 年 12 月 15 日"
 msgid "This manual applies to all |yocto-codename| based PHYTEC releases."
 msgstr "本手册适用于所有基于 |yocto-codename| 的 PHYTEC BSP版本。"
 
-msgid "The Yocto Project"
-msgstr "Yocto 项目"
-
 msgid "PHYTEC Documentation"
 msgstr "PHYTEC 文档"
 
-msgid "PHYTEC will provide a variety of hardware and software documentation for all of our products. This includes any or all of the following:"
+#, fuzzy
+msgid "PHYTEC provides a variety of hardware and software documentation for all of its products. This includes any or all of the following:"
 msgstr "PHYTEC 将为旗下所有产品提供各种硬件和软件文档。包括以下任一以及全部内容："
 
-msgid "**QS Guide**: A short guide on how to set up and boot a phyCORE board along with brief information on building a BSP, the device tree, and accessing peripherals."
-msgstr "**快速上手指南**：简单指导我们如何配置和启动 phyCORE 核心板，以及对构建 BSP、设备树和外设访问进行简要说明。"
+msgid "**QS Guide**: A short guide on how to set up and boot a phyCORE based board."
+msgstr ""
 
-msgid "**Hardware Manual**: A detailed description of the System on Module and accompanying carrier board."
+#, fuzzy
+msgid "**Hardware Manual**: A detailed description of the System-on-Module and accompanying carrierboard."
 msgstr "**硬件手册**：核心板和配套底板的详细硬件描述。"
 
 msgid "**Yocto Guide**: A comprehensive guide for the Yocto version the phyCORE uses. This guide contains an overview of Yocto; introducing, installing, and customizing the PHYTEC BSP; how to work with programs like Poky and Bitbake; and much more."
@@ -152,11 +135,15 @@ msgstr "**BSP 手册**：phyCORE 的 BSP 版本专用手册。可在此处找到
 msgid "**Development Environment Guide**: This guide shows how to work with the Virtual Machine (VM) Host PHYTEC has developed and prepared to run various Development Environments. There are detailed step-by-step instructions for Eclipse and Qt Creator, which are included in the VM. There are instructions for running demo projects for these programs on a phyCORE product as well. Information on how to build a Linux host PC yourself is also a part of this guide."
 msgstr "**开发环境指南**：本指南介绍了如何使用 PHYTEC 虚拟机来搭建多样的开发环境。VM 中包含了 Eclipse 和 Qt Creator 的详细上手指导，还说明了如何将所编译出的demo程序放到phyCORE 核心板上运行。本指南同时也介绍了如何在本地Linux ubuntu上搭建完整的应用开发环境。"
 
-msgid "**Pin Muxing Table**: phyCORE SOMs have an accompanying pin table (in Excel format). This table will show the complete default signal path, from processor to carrier board. The default device tree muxing option will also be included. This gives a developer all the information needed in one location to make muxing changes and design options when developing a specialized carrier board or adapting a PHYTEC phyCORE SOM to an application."
+#, fuzzy
+msgid "**Pin Muxing Table**: phyCORE SOMs have an accompanying pin table (in Excel format). This table will show the complete default signal path, from the processor to the carrier board. The default device tree muxing option will also be included. This gives a developer all the information needed in one location to make muxing changes and design options when developing a specialized carrier board or adapting a PHYTEC phyCORE SOM to an application."
 msgstr "**引脚复用表**：phyCORE 核心板附带一个引脚复用表（Excel 格式）。此表将显示从处理器到底板的信号连接以及默认的设备树复用选项。这为开发人员进行引脚复用和设计提供了必要的信息。"
 
 msgid "On top of these standard manuals and guides, PHYTEC will also provide Product Change Notifications, Application Notes, and Technical Notes. These will be done on a case-by-case basis. Most of the documentation can be found in the applicable download page of our products."
 msgstr "除了这些标准手册和指南之外，PHYTEC 还将提供产品变更通知、应用说明和技术说明。这些文档将根据具体案例进行针对性提供。大多数文档都可以在我们产品的下载页面中找到。"
+
+msgid "The Yocto Project"
+msgstr "Yocto 项目"
 
 msgid "Yocto Introduction"
 msgstr "Yocto 介绍"
@@ -245,8 +232,9 @@ msgstr "Miscellaneous"
 msgid "*Yocto's* versioning scheme is reflected in every layer as version branches. For each *Yocto* version, every layer has a named branch in its *Git* repository. You can add one or many layers of each category in your build."
 msgstr "*Yocto* 的版本控制方案在每一个Layer中以版本分支的形式体现。对于每个 *Yocto* 版本，每个Layer在其 *Git* 仓库中都有一个对应分支。您可以在Yocto工程中添加一个或多个Layer。"
 
-msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
-msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/kirkstone/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以查看是否可以轻松检索和集成软件包。"
+#, fuzzy
+msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: `layerindex`_"
+msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/scarthgap/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
 
 msgid "Machine"
 msgstr "Machine"
@@ -284,20 +272,23 @@ msgstr "*Yocto* 参考 BSP"
 msgid "Bitbake"
 msgstr "Bitbake"
 
-msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: https://docs.yoctoproject.org/bitbake/2.0/index.html"
-msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解析用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.0/index.html"
+#, fuzzy
+msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: `Bitbake`_"
+msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解释用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.8/index.html"
 
 msgid "Toaster"
 msgstr "Toaster"
 
-msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html"
-msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 是有十分有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能增减。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html"
+#, fuzzy
+msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: `Toaster`_"
+msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 实例是有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能添加或删除。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/dev/toaster-manual/index.html"
 
 msgid "Official Documentation"
 msgstr "官方文档"
 
-msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: https://docs.yoctoproject.org/4.0.6/singleindex.html"
-msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/4.0.6/singleindex.html"
+#, fuzzy
+msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: `megamanual`_"
+msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/dev/singleindex.html"
 
 msgid "Compatible Linux Distributions"
 msgstr "Linux主机开发环境"
@@ -380,8 +371,9 @@ msgstr "这一Layer包含搭建 `RAUC <https://rauc.readthedocs.io/en/latest/ind
 msgid "meta-phytec"
 msgstr "meta-phytec"
 
-msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package <https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
-msgstr "这一Layer包含我们 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ （从Yocto *fido* 版本开始），适用于PHYTEC所有支持的硬件，并且从设计上和 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其中包括："
+#, fuzzy
+msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
+msgstr "这一Layer包含我们所有 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/dev/bsp-guide/index.html>`_ 适用于所有受支持的硬件（从 *fido* 开始），并且设计为与 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其特点是："
 
 msgid "Bootloaders in ``recipes-bsp/barebox/`` and ``recipes-bsp/u-boot/``"
 msgstr "``recipes-bsp/barebox/`` 和 ``recipes-bsp/u-boot/`` 中的Bootloader"
@@ -404,7 +396,7 @@ msgstr "meta-ampliphy"
 msgid "This is our example distribution and BSP layer. It extends the basic configuration of *Poky* with software projects described by all the other BSP components. It provides a base for your specific development scenarios. The current features are:"
 msgstr "这是我们的发行版示例 layer。它扩展了 *Poky* 的基础配置，为您的特定开发场景提供了基础。当前功能包括："
 
-msgid "`systemd <https://www.freedesktop.org/wiki/Software/systemd//>`_ init system"
+msgid "`systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ init system"
 msgstr "`systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ 初始化系统"
 
 msgid "Images: ``phytec-headless-image`` for non-graphics applications"
@@ -500,8 +492,9 @@ msgstr "这是 i.MX Yocto 项目发行版的Layer。"
 msgid "BSP Content"
 msgstr "BSP 代码源"
 
-msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`kirkstone_gen-source-mirrors`."
-msgstr "当您首次开始使用 *Bitbake* 时，BSP 代码会从不同的线上源提取。所有相关的源文件都会被下载并拷贝到在 *Yocto* 中被配置为 ``DL_DIR`` 的本地目录中。如果您想备份包含完整内容源的 BSP，您也必须备份这些源文件。在 :ref:`kirkstone_gen-source-mirrors` 一章中会作出进一步解释。"
+#, fuzzy
+msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter |ref-gen-source-mirrors|."
+msgstr "当您首次开始使用 *Bitbake* 时，BSP Content会从不同的线上源提取。所有文件都将下载并拷贝到在 *Yocto* 中配置为``DL_DIR``的本地目录中。如果您想备份包含完整内容的 BSP，则也必须备份这些源文件。在 :ref:`scarthgap_gen-source-mirrors` 一章中会作出进一步解释"
 
 msgid "Build Configuration"
 msgstr "编译配置"
@@ -780,14 +773,11 @@ msgstr "调试模式（例如设置空的 root 密码）将不会生效。"
 msgid "Accessing the Development States between Releases"
 msgstr "获取BSP长期维护版本之间的中间开发版本"
 
-msgid "Special release manifests exist to give you access to the current development states of the *Yocto* BSP. They will not be displayed in the phyLinux selection menu but need to be selected manually. This can be done using the following command line"
-msgstr "您也可以访问 *Yocto* BSP 最新的开发中版本，这属于特殊版本，并不是正式的长期维护版本，所以它们不会显示在 phyLinux 选择菜单中，需要手动选择。可以使用以下命令行来获取BSP"
+msgid "Special release manifests exist to give you access to the current development states of the *Yocto* BSP. They will be displayed in the phyLinux selection menu with the ending *PDXX.X.y*"
+msgstr "您也可以访问 *Yocto* BSP 最新的开发中版本，这属于特殊版本，并不是正式的长期维护的版本。他们会在phyLinux的版本选项中以 *PDXX.X.y* 结尾"
 
-msgid "This will initialize a BSP that will track the latest development state. From now on running"
-msgstr "这将初始化一个最新的BSP开发版本。运行"
-
-msgid "this folder will pull all the latest changes from our Git repositories."
-msgstr "该文件夹将从我们的 Git 仓库中提取所有最新更改。"
+msgid "This will initialize a BSP that will track the latest development state."
+msgstr "这将初始化一个最新的BSP开发版本。"
 
 msgid "Inspect your Build Configuration"
 msgstr "检查您的编译配置"
@@ -804,8 +794,9 @@ msgstr "在运行构建之前，您还可以启动 *Toaster*，以便能够使�
 msgid "Maybe you need to install some requirements, first"
 msgstr "但是您可能需要先安装一些依赖才能运行toaster"
 
-msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
-msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行\"控制台，请通过串口或网"
+#, fuzzy
+msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at `Toaster`_. To shut down the *Toaster* web GUI again, execute"
+msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/dev/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"
 
 msgid "BSP Features of meta-phytec and meta-ampliphy"
 msgstr "meta-phytec 和 meta-ampliphy 的特点"
@@ -912,8 +903,9 @@ msgstr "生成的 *plots-<machine> .pdf* 文件包含所有图表。要将单个
 msgid "Add Additional Software for the BSP Image"
 msgstr "为 BSP 镜像添加新的软件包"
 
-msgid "To add additional software to the image, look at the OpenEmbedded layer index: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
-msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
+#, fuzzy
+msgid "To add additional software to the image, look at the OpenEmbedded layer index: `layerindex`_"
+msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
 
 msgid "First, select the *Yocto* version of the BSP you have from the drop-down list in the top left corner and click **Recipes**. Now you can search for a software project name and find which layer it is in. In some cases, the program is in *meta-openembedded*, *openembedded-core*, or *Poky* which means that the recipe is already in your build tree. This section describes how to add additional software when this is the case. If the package is in another layer, see the next section."
 msgstr "首先，从左上角的下拉列表中选择您拥有的 BSP 的 *Yocto* 版本，然后单击 **Recipes**。现在您可以搜索软件项目名称并找到它所在的Layer。在某些情况下，程序位于 *meta-openembedded*、 *openembedded-core* 或 *Poky* 中，这意味着Recipe已在您的Yocto工程中。本节介绍在这种情况下如何添加软件。如果软件包位于另一个Layer，请参阅下一部分。"
@@ -945,17 +937,19 @@ msgstr "您正在将软件包添加到 IMAGE_INSTALL 变量中。这些不一定
 msgid "If you can not find your software in the layers provided in the folder *sources*, see the next section to include another layer into the *Yocto* build."
 msgstr "如果您在文件夹 *sources* 提供的Layer中找不到您的软件，请参阅下一部分以将一个新的Layer包含到 *Yocto* 构建中。"
 
-msgid "References: `Yocto 4.0.6 Documentation - Customizing Yocto builds <https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_"
-msgstr "参考资料：`Yocto 4.0.6 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_"
+#, fuzzy
+msgid "References: `Yocto Documentation - Customizing Yocto builds`_"
+msgstr "参考资料：`Yocto 开发 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/dev/singleindex.html#user-configuration>`_"
 
 msgid "Add an Additional Layer"
 msgstr "添加其他Layer"
 
-msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/kirkstone/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/kirkstone/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* 'sumo' build, you should try to use the 'sumo' branch in the layer, too."
-msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/kirkstone/layers/>`_ 网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/kirkstone/layer/meta-security/>`_。将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* “sumo”版本构建，您也应该尝试在Layer中使用“sumo”分支。"
+#, fuzzy
+msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `layerindex`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* |yocto-codename| build, you should try to use the |yocto-codename| branch in the layer, too."
+msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/scarthgap/layers/>`_ 并稍微思考一下。网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/scarthgap/layer/meta-security/>`_。要将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* |yocto-codename| 版本构建，因此您也应该尝试在Layer中使用 |yocto-codename| 分支。"
 
-msgid "All available remote branches will show up. Usually there should be 'fido', 'jethro', 'krogoth', 'master', ..."
-msgstr "所有可用的远程分支都会显示出来。通常应该有“fido”、“jethro”、“krogoth”、“master”……"
+msgid "All available remote branches will show up. Usually there should be 'sumo', 'warrior', 'zeus', 'dunfell', 'hardnkott', 'kirkstone', 'mickledore', 'master'..."
+msgstr "所有可用的远程分支会被展示出来。通常应该有'sumo'、'warrior'、'zeus'、'dunfell'、'hardnkott'、'kirkstone'、'mickledore'、'master'..."
 
 msgid "Now we add the directory of the layer to the file *build/conf/bblayers.conf* by appending the line"
 msgstr "现在我们通过把以下代码添加到 *build/conf/bblayers.conf* 文件末尾的方式来将Layer包含到构建中"
@@ -974,6 +968,9 @@ msgstr "执行命令 *bitbake-layers show-layers* 应该会打印所有已启用
 
 msgid "to your *build/conf/local.conf*. Do not forget to rebuild the image"
 msgstr "到您的 *build/conf/local.conf*。不要添加后忘记重新构建镜像"
+
+msgid "After adding further external or own layers, it makes sense to reflect those additions by deriving a custom manifest file, cmp |ref-phylinux-advanced-usage|"
+msgstr ""
 
 #, fuzzy
 msgid "Create your own layer"
@@ -1156,14 +1153,15 @@ msgstr "这里我们将利用 *devtool* 来修改kernel。我们以 *linux-mainl
 msgid "*Devtool* will create a layer in *build/workspace* where you can see all modifications done by *devtool* . It will extract the sources corresponding to the recipe to the specified directory. A *bbappend* will be created in the workspace directing the SRC_URI to this directory. Building an image with *Bitbake* will now use the sources in this directory. Now you can modify lines in the kernel"
 msgstr "*Devtool* 将在 *build/workspace* 目录下创建一个layer ，您可以在这个Layer下查看 *devtool* 命令进行的所有更改。它将与recipe 相关的源代码下载到一个指定的文件夹中以及在workspace生成一个 *bbappend* 文件，其中的 SRC_URI 指向上述下载文件夹。使用 *Bitbake* 构建镜像时，将会使用此文件夹中的源代码。现在您可以对kernel进行修改。"
 
-msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`kirkstone_temporary-method` and is the same for all methods."
-msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`kirkstone_temporary-method`。"
+#, fuzzy
+msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in |ref-temporary-method| and is the same for all methods."
+msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`scarthgap_temporary-method`。"
 
 msgid "If you want to learn more about *devtool*, visit:"
 msgstr "如果您想了解有关 *devtool* 的更多信息，请访问："
 
-msgid "`Yocto 4.0.6 - Devtool <https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_"
-msgstr "`Yocto 4.0.6 - Devtool <https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_"
+msgid "`Yocto - Devtool`_ or `Devtool Quick Reference`_."
+msgstr ""
 
 msgid "Patch the Kernel or Bootloader using the \"Temporary Method\""
 msgstr "使用“临时方法”修补Kernel 或Bootloader"
@@ -1177,7 +1175,8 @@ msgstr "*Yocto* 非常容易覆盖您所作的修改（所有内容都会丢失�
 msgid "It is possible to alter the source code before *Bitbake* configures and compiles the recipe. Use *Bitbake'* s *devshell* command to jump into the source directory of the recipe. Here is the *barebox* recipe"
 msgstr "Yocto 允许在 *Bitbake* 配置和编译recipe之前，更改源代码。使用 *Bitbake* 的 *devshell* 命令跳转到recipe的源目录。这是 *barebox* recipe"
 
-msgid "After executing the command, a shell window opens. The current working directory of the shell will be changed to the source directory of the recipe inside the *tmp* folder. Here you can use your favorite editor, e.g. *vim*, *emacs*, or any other graphical editor, to alter the source code. When you are finished, exit the *devshell* by typing *exit* or hitting **CTRL-D**."
+#, fuzzy
+msgid "After executing the command, a shell window opens. The current working directory of the shell will be changed to the source directory of the recipe inside the *tmp* folder. Here you can use your favorite editor, e.g. *vim*, *emacs*, or any other graphical editor, to alter the source code. When you are finished, exit the *devshell* by typing *exit* or hitting :kbd:`Ctrl+D`."
 msgstr "执行命令后，将打开一个 shell 窗口。shell 的当前工作目录将更改为 *tmp* 文件夹中recipe的资源文件目录。在这里，您可以使用您最喜欢的编辑器（例如 *vim*、 *emacs* 或任何其他图形编辑器）来更改源代码。完成后，通过键入 *exit* 或按 **CTRL-D** 退出 *devshell*。"
 
 msgid "After leaving the *devshell* you can recompile the package"
@@ -1225,11 +1224,12 @@ msgstr "**更多资源：**"
 msgid "The *Yocto* Project has some documentation for software developers. Check the 'Kernel Development Manual' for more information about how to configure the kernel. Please note that not all of the information from the *Yocto* manual can be applied to the PHYTEC BSP as we use the classic kernel approach of *Yocto* and most of the documentation assumes the *Yocto* kernel approach."
 msgstr "*Yocto* 项目为软件开发人员提供了一些文档。请参考“Kernel开发手册”以获取有关Kernel配置的详细信息。请注意，并非所有 *Yocto* 手册中的内容都适用于 PHYTEC BSP，因为我们采用了传统的内核编译方法，而大部分文档会假设使用的是 *Yocto* 的内核编译方式。"
 
-msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_"
-msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_"
+msgid "`Yocto - Kernel Development Manual`_"
+msgstr ""
 
-msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_"
-msgstr "`Yocto - 开发手册 <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_"
+#, fuzzy
+msgid "`Yocto - Development Manual`_"
+msgstr "Yocto 参考手册"
 
 msgid "Working with the Kernel and Bootloader using SRC_URI in *local.conf*"
 msgstr "使用 *local.conf* 文件中的 SRC_URI 来配置Kernel 和Bootloader "
@@ -1360,8 +1360,8 @@ msgstr "如果您只需将一些 *barebox* 环境设置应用于一台或多台�
 msgid "The next example adds the environment variables only if the MACHINE is set to *phyboard-mira-imx6-4*"
 msgstr "下一个示例仅当 MACHINE 设置为 *phyboard-mira-imx6-4* 时才添加环境变量"
 
-msgid "*Bitbake's* override syntax for variables is explained in more detail at: https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
-msgstr "*Bitbake* 变量覆盖语法的更详细解释如下：https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
+msgid "*Bitbake's* override syntax for variables is explained in more detail at: https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
+msgstr "*Bitbake* 变量覆盖语法的更详细解释如下：https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
 
 msgid "Upgrading the *barebox* Environment from Previous BSP Releases"
 msgstr "在旧的 BSP 版本升级 *barebox* 环境"
@@ -1378,7 +1378,8 @@ msgstr "在这个示例中，将会忽略Layer *meta-phytec* 中目录 *boardenv
 msgid "Changing the Network Configuration"
 msgstr "更改网络配置"
 
-msgid "To tweak IP addresses, routes, and gateways at runtime you can use the tools *ifconfig* and *ip* . Some examples"
+#, fuzzy
+msgid "To tweak IP addresses, routes, and gateways at runtime you can use the *iproute2* tools. Some examples"
 msgstr "要在系统运行时调整 IP 地址、路由和网关，可以使用工具 *ifconfig* 和 *ip* 。以下是一些示例"
 
 msgid "The network configuration is managed by *systemd-networkd* . To query the current status use"
@@ -1429,8 +1430,8 @@ msgstr "现在可以建立连接"
 msgid "This should result in the following output"
 msgstr "这会有以下结果"
 
-msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`kirkstone_changing-net-config`."
-msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`kirkstone_changing-net-config` 部分。"
+msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`scarthgap_changing-net-config`."
+msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`scarthgap_changing-net-config` 部分。"
 
 msgid "First, create the directory"
 msgstr "首先，创建目录"
@@ -1480,8 +1481,8 @@ msgstr "有关 AP 设置和用户空间守护进程 *hostapd* 的更多信息，
 msgid "phyCORE-i.MX 6UL/ULL Bluetooth"
 msgstr "phyCORE-i.MX 6UL/ULL 蓝牙"
 
-msgid "Special consideration must be paid when working with any Bluetooth on a phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX 6UL/ULL BSP Manual - Bluetooth <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5-Bluetooth>`_."
-msgstr "在使用 phyCORE-i.MX 6UL/ULL 的蓝牙功能时，需要特别谨慎。了解更多详情，请参考 `L-844e.A5 i.MX 6UL/ULL BSP手册 - 蓝牙 <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5-Bluetooth>`_。"
+msgid "Special consideration must be paid when working with any Bluetooth on a phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX 6UL/ULL BSP Manual - Bluetooth <https://www.phytec.de/cdocuments/?doc=xoJEEQ#L844e-A5i-MX6ULULLBSPManual-Bluetooth>`_."
+msgstr "在使用 phyCORE-i.MX 6UL/ULL 的蓝牙功能时，需要特别谨慎。了解更多详情，请参考 `L-844e.A5 i.MX 6UL/ULL BSP手册 - 蓝牙 <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5i-Bluetooth>`_。"
 
 msgid "Add OpenCV Libraries and Examples"
 msgstr "添加 OpenCV 库和示例"
@@ -1612,6 +1613,9 @@ msgstr "使用以下方式运行生成的二进制文件"
 msgid "You can activate the toolchain for your shell by sourcing the file *environment-setup* in the toolchain directory"
 msgstr "您可以通过source 工具链目录中的 *environment-setup* 脚本来激活当前shell的工具链环境"
 
+msgid "To be able to build a Qt6 application with the SDK and the Meson Build system, the following has to be done, *after* the SDK has been sourced:"
+msgstr "在可以用SDK和Meson编译系统编译Qt6应用之前，需要在source SDK 后做以下步骤："
+
 msgid "Then the necessary tools like the cross compiler and linker are in your PATH. To compile a simple *C* program, use"
 msgstr "然后，交叉编译器和链接器等必要工具就在您的 PATH 中了。要编译一个简单的 *C* 程序，请使用"
 
@@ -1651,8 +1655,9 @@ msgstr "*Yocto* SDK 是 *GNU Autotools* 项目会用到的一个工具。传统�
 msgid "The commands to compile for the target machine with the *Yocto* SDK are quite similar. The following commands assume that the SDK was unpacked to the directory */opt/phytec-ampliphy/i.MX6-PD15.3.0/* (adapt the path as needed)"
 msgstr "用 *Yocto* SDK 对目标machine进行构建的命令也是非常相似的。以下命令假设 SDK 已解压到目录 */opt/phytec-ampliphy/i.MX6-PD15.3.0/* （可根据实际情况修改路径）"
 
-msgid "Refer to the official *Yocto* documentation for more information: https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects"
-msgstr "有关更多信息，请参阅官方 *Yocto* 文档：https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects"
+#, fuzzy
+msgid "Refer to the official *Yocto* documentation for more information: `Autotools-Based Projects`_"
+msgstr "请参考官方 *Yocto* 文档以获取更多信息：https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects"
 
 msgid "Working with Kernel Modules"
 msgstr "使用Kernel模块"
@@ -1669,34 +1674,6 @@ msgstr "无论是在kernel recipe中还是涉及到全局变量。如果您需�
 msgid "if you want to blacklist a module from autoloading, you can do it intuitively with"
 msgstr "如果您想将某个模块列入自动加载黑名单，您可以直接使用"
 
-msgid "Working with *udev*"
-msgstr "使用 *udev*"
-
-msgid "Udev (Linux dynamic device management) is a system daemon that handles dynamic device management in /dev. It is controlled by *udev* \\ rules that are located in */etc/udev/rules.d* (sysadmin configuration space) and\\  */lib/udev/rules.d/* (vendor-provided). Here is an example of an *udev* \\ rule file"
-msgstr "Udev（Linux 动态设备管理）是一个系统守护进程，用于处理 /dev 中的动态设备管理。它由位于 */etc/udev/rules.d* （系统管理员配置空间）和 */lib/udev/rules.d/* （供应商提供）中的 *udev* \\ 规则控制。以下是 *udev* \\ 规则文件的示例"
-
-msgid "See https://www.freedesktop.org/software/systemd/man/latest/udev.html for more details about the syntax and usage. To get the list of attributes for a specific device that can be used in an *udev* rule you can use the *udevadm info* tool. It prints all existing attributes of the device node and its parents. The key-value pairs from the output can be copied and pasted into a rule file. Some examples"
-msgstr "有关语法和用法的更详细信息，请访问 https://www.freedesktop.org/software/systemd/man/latest/udev.html。要获取可以在 *udev* 规则中使用的设备属性列表，您可以利用 *udevadm info* 工具。该工具将打印出设备节点及其父节点的所有现有属性。输出中的键值对可以直接复制并粘贴到规则文件中。以下是一些示例。"
-
-msgid "After changing an *udev* rule, you have to notify the daemon. Otherwise, your changes are not reflected. Use the following command"
-msgstr "更改 *udev* 规则后，您必须通知udev守护进程。否则，您的更改不会生效。使用以下命令"
-
-msgid "While developing *udev* rules you should monitor the events in order to see when devices are attached or unattached to the system. Use"
-msgstr "在制定 *udev* 规则时，您应该监视事件，以便查看设备何时连接到系统或从系统断开连接。使用"
-
-msgid "Furthermore, it is very useful to monitor the system log in another shell, especially if the rule executes external scripts. Execute"
-msgstr "在另一个 shell 中监控系统日志也是非常有帮助的，尤其是在udev规则中执行了外部脚本的情况下。执行"
-
-msgid "You cannot start daemons or heavy scripts in a *RUN* attribute. See https://www.freedesktop.org/software/systemd/man/latest/udev.html ."
-msgstr "您无法在 *RUN* 属性中启动守护进程或大型脚本。请参阅 https://www.freedesktop.org/software/systemd/man/latest/udev.html 。"
-
-#, python-brace-format
-msgid "This can only be used for very short-running foreground tasks. Running an event process for a long period of time may block all further events for this or a dependent device. Starting daemons or other long-running processes is not appropriate for *udev*; the forked processes, detached or not, will be unconditionally killed after the event handling has finished. You can use the special attribute *ENV{SYSTEMD_WANTS}=\"service-name.service\"* and a *systemd*\\ service instead."
-msgstr "这仅适用于执行时间非常短的前台任务。长时间运行的事件进程可能会阻碍此设备或从设备的后续所有事件。启动守护进程或其他长时间运行的进程并不适合 *udev*；派生进程（无论是否和母进程分离）都将在母进程事件处理完成后无条件被终止。如果需要执行其他任务，您可以考虑使用特殊属性 *ENV {SYSTEMD_WANTS} =\"service-name.service\"* 和 *systemd* 服务。"
-
-msgid "See https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd."
-msgstr "请参阅https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd。"
-
 msgid "Troubleshooting"
 msgstr "故障排除"
 
@@ -1706,35 +1683,220 @@ msgstr "setscene任务告警"
 msgid "This warning occurs when the Yocto cache is in a dirty state."
 msgstr "当 Yocto 缓存处于dirty状态时会出现此告警。"
 
-msgid "You should avoid canceling the build process or if you have to, press Ctrl-C once and wait until the build process has stopped. To remove all these warnings just clean the sstate cache and remove the build folders."
+#, fuzzy
+msgid "You should avoid canceling the build process or if you have to, press :kbd:`Ctrl+C` once and wait until the build process has stopped. To remove all these warnings just clean the sstate cache and remove the build folders."
 msgstr "但是请避免强制取消构建，或者如果必须取消，请按一次 Ctrl-C 并等待构建过程停止。要删除所有这些告警，请清除 sstate 缓存并删除build文件夹。"
 
 msgid "Yocto Documentation"
 msgstr "Yocto 文档"
 
-msgid "The most important piece of documentation for a BSP user is probably the developer manual. https://docs.yoctoproject.org/4.0.6/dev-manual/index.html"
-msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/4.0.6/dev-manual/index.html"
+#, fuzzy
+msgid "The most important piece of documentation for a BSP user is probably the developer `manual`_."
+msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/dev/dev-manual/index.html"
 
-msgid "The chapter about common tasks is a good starting point. https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks"
-msgstr "关于常见任务的部分是一个很好的起点。https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks"
+#, fuzzy
+msgid "The chapter about common tasks is a good starting point. `Creating Layers`_"
+msgstr "关于常见任务的部分是一个很好的起始点。https://docs.yoctoproject.org/dev/dev-manual/common-tasks.html#common-tasks"
 
-msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/4.0.6/singleindex.html"
-msgstr "完整的文档可以在一个单独的 HTML 页面上找到，用户可以在页面上搜索功能或变量名称。https://docs.yoctoproject.org/4.0.6/singleindex.html"
+#, fuzzy
+msgid "The complete documentation is available on one single `megamanual`_ HTML page, which is good for searching for a feature or a variable name."
+msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用户搜索功能或变量名称。https://docs.yoctoproject.org/dev/singleindex.html"
 
-msgid "Table of Contents"
-msgstr "目录"
+#, fuzzy
+msgid "To build *Yocto* you need a compatible *Linux* host development machine. The list of supported distributions can be found in the reference manual: `Supported Distributions`_"
+msgstr "要编译 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions"
 
-msgid "Yocto Reference Manuals"
-msgstr "Yocto 参考手册"
+msgid "Continue with the next step *Git Configuration* after that. Also see the documentation for |ref-build-container|."
+msgstr ""
 
-msgid "Kirkstone"
-msgstr "Kirkstone"
+msgid "Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu* you need"
+msgstr "如果您不想使用编译container， *Yocto* 需要在您主机上安装一些其他的软件包。对于 *Ubuntu*，您需要"
 
-msgid "Mickledore"
-msgstr "Mickledore"
+#, fuzzy
+msgid "For other distributions you can find information in the *Yocto* Quick Build: `Quick Build`_"
+msgstr "对于其他发行版，您可以在 *Yocto* Quick Build 中找到信息：https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html"
 
-msgid "Scarthgap"
-msgstr "Scarthgap"
+msgid "Create the two directories on a drive where you have approximately 50 GB of space and assign the two variables in your ``build/conf/local.conf``::"
+msgstr "在大约有 50 GB 空闲空间的硬盘上创建这两个目录，并在``build/conf/local.conf``中分配两个变量"
+
+#, fuzzy
+msgid "Ampliphy-boot"
+msgstr "meta-ampliphy"
+
+msgid "Ampliphy-boot is a collection of bootscripts for booting the ampliphy distro that work across different platforms. The bootscripts are developed to work with the U-Boot `standard boot <https://docs.u-boot.org/en/latest/develop/bootstd/overview.html>`_ feature."
+msgstr ""
+
+msgid "Provided bootscripts"
+msgstr ""
+
+msgid "Ampliphy-boot currently provides these bootscripts:"
+msgstr ""
+
+msgid "mmc_boot"
+msgstr ""
+
+msgid "This script is for booting kernel and devicetree from mmc devices."
+msgstr ""
+
+msgid "Used Variables:"
+msgstr ""
+
+msgid "**console**: Console device and baudrate for kernel bootargs."
+msgstr ""
+
+msgid "**devnum**: Number of the device the bootscript is loaded from. This device will also be used for loading overlaysenvfile, kernel, devicetrees and overlays as well as mounting the root partition. Automatically set by U-Boot standard boot."
+msgstr ""
+
+msgid "**devtype**: Type of the device the bootscript is loaded from. Must be mmc for this bootscript. Automatically set by U-Boot standard boot."
+msgstr ""
+
+msgid "**distro_rootpart**: Number of root partition. If unset, default is 2."
+msgstr ""
+
+msgid "**earlycon**: Optional Early console bootargs parameter for kernel."
+msgstr ""
+
+msgid "**fdt_addr_r**: Address in RAM the fdt is loaded to."
+msgstr ""
+
+msgid "**fdtfile**: Name of the fdt file."
+msgstr ""
+
+msgid "**fdtoverlay_addr_r**: Address in RAM the fdtoverlays are loaded to."
+msgstr ""
+
+msgid "**kernel_addr_r**: Address in RAM the kernel is loaded to."
+msgstr ""
+
+msgid "**loadaddr**: Address in RAM the overlaysenvfile is loaded to."
+msgstr ""
+
+msgid "**optargs**: Optional additional arguments for kernel bootargs."
+msgstr ""
+
+msgid "**overlays**: Optional variable to set kernel devicetree overlays. If set in U-Boot environment, that will be taken over the value in overlaysenvfile."
+msgstr ""
+
+msgid "**overlaysenvfile**: Filename of the bootenv file that sets the overlays variable. If unset, default is ``overlays.txt``."
+msgstr ""
+
+msgid "**raucargs**: Optional additional RAUC arguments for kernel bootargs."
+msgstr ""
+
+msgid "mmc_boot_fit"
+msgstr ""
+
+msgid "This script is for booting a fitImage from mmc devices."
+msgstr ""
+
+msgid "**devnum**: Number of the device the bootscript is loaded from. This device will also be used for loading overlaysenvfile and fitImage as well as mounting the root partition. Automatically set by U-Boot standard boot."
+msgstr ""
+
+msgid "**earlycon**: Optional early console bootargs parameter for kernel."
+msgstr ""
+
+msgid "**fit_addr_r**: Optional variable for setting the RAM addr for loading overlaysenvfile and kernel fitImage. If not set loadaddr will be used."
+msgstr ""
+
+msgid "**fit_extensions**: Optional variable where certain devicetree overlays can be set depending on the SoM variant. This variable will be set by U-Boot in board code depending on Phytec SoM detection."
+msgstr ""
+
+msgid "**fit_overlay_conf**: Optional variable to set kernel devicetree overlay configs. If set in U-Boot environment, that will be taken over the value in overlaysenvfile."
+msgstr ""
+
+msgid "**loadaddr**: Address in RAM the overlaysenvfile and kernel fitImage is loaded to. Will be set to fit_addr_r if that variable is set."
+msgstr ""
+
+msgid "**overlaysenvfile**: Filename of the bootenv file that sets the fit_overlay_conf variable. If unset, default is ``overlays.txt``."
+msgstr ""
+
+msgid "net_boot_fit"
+msgstr ""
+
+msgid "This script is for booting a fitImage over network (eth0) and mounting the rootfs over nfs."
+msgstr ""
+
+msgid "**ipaddr**: IP addr of the board. Only used if ip_dyn is set for static IPs."
+msgstr ""
+
+msgid "**ip_dyn**: Used to determine whether dhcp (dynamic IP) or tftp (static IP) is used for network connection. Valid values are [yes/no], [true/false], [1/0]. If unset or other value dhcp will be used by default."
+msgstr ""
+
+msgid "**netmask**: Netmask for ipaddr and serverip. Only used if ip_dyn is set for static IPs."
+msgstr ""
+
+msgid "**nfsroot**: Path to nfs folder on host."
+msgstr ""
+
+msgid "**serverip**: IP addr of the tftp and nfs server. Only used if ip_dyn is set for static IPs."
+msgstr ""
+
+msgid "**nfs_eth_dev**: If ``ip_dyn`` is set for static IPs, this must be used to set the ethernet interface."
+msgstr ""
+
+msgid "spi_boot_fit"
+msgstr ""
+
+msgid "This script is for booting a fitImage with initramfs from SPI flash."
+msgstr ""
+
+msgid "This script has the ``.in`` fileending which means that there is an expression (``@@EXPRESSION@@``) that has to be replaced before compiling. In this case ``@@SPI_MTD_PARTS@@`` will be replaced with the fitImage location in the SPI flash. The variable is set in the ampliphy-boot recipe."
+msgstr ""
+
+msgid "**fit_overlay_conf**: Optional variable to set kernel devicetree overlay configs. Has to be set in U-Boot env. Overlaysenvfile is not supported."
+msgstr ""
+
+msgid "Adding ampliphy-boot to your platform in Yocto"
+msgstr ""
+
+msgid "To add ampliphy-boot to your platform in Yocto, first the dependencies need to be set."
+msgstr ""
+
+msgid "By default all the bootscripts get deplayed and ``mmc_boot.cmd`` is the default bootscript and will get deployed as ``boot.scr.uimg``. This can be changed with the variables ``DEFAULT_BOOTSCRIPT`` and ``BOOTSCRIPTS`` that are set in the ampliphy-boot recipe in meta-ampliphy layer at ``recipes-bsp/u-boot/ampliphy-boot.bb``. ``DEFAULT_BOOTSCRIPT`` specifies the bootscript that gets built into the WIC image boot partition. ``BOOTSCRIPTS`` is a list of bootscripts (``*.cmd``) that should be built by Yocto."
+msgstr ""
+
+msgid "Finally, the default bootscript ``boot.scr.uimg`` needs to be added to the ``IMAGE_BOOT_FILES`` variable in the machine conf file, so that it gets built into the boot partition of the WIC image and partup package."
+msgstr ""
+
+#, fuzzy
+msgid "Working with bootscripts"
+msgstr "使用 *udev*"
+
+msgid "Bootscripts have a source form (``.cmd``) and a compiled form (``.scr`` or ``.scr.uimg``). The ``.scr`` image is a raw U-Boot script image, while ``.scr.uimg`` means that the script is packed into a FIT. For ampliphy-boot the bootscripts are packed into FITs."
+msgstr ""
+
+msgid "In case something needs to be changed in an existing script or a new one needs to be created, the sources need to be compiled. Therefore the source file (``*.cmd``) and the image tree source file (``*.its``) are required. Both can be found in meta-ampliphy in ``recipes-bsp/u-boot/ampliphy-boot/``. The ``.in`` file ending means that there is an expression (``@@EXPRESSION@@``) that needs to be replaced. For the ``boot.its.in`` file ``@@BOOTCOMMAND_FILE@@`` needs to be replaced by the filename of the bootscript source file. Then the ``.in`` ending can be removed. Finally the ``*.cmd`` file can be compiled into the ``*.scr.uimg`` format with the following command:"
+msgstr ""
+
+msgid "Otherwise the ``*.cmd`` files can also be rebuilt in Yocto with the following command. With that command only the bootscripts get rebuilt, but not the complete WIC image:"
+msgstr ""
+
+msgid "To update the bootscript in the image, rebuild the whole image with:"
+msgstr ""
+
+msgid "Enabling software FEATURES"
+msgstr ""
+
+msgid "To include or exclude additional, optional, packages in your BSP, The Yocto Project provides the `FEATURES`_ variables."
+msgstr ""
+
+msgid "To keep it short, in the following section, only additional FEATURES will be discussed as well as *Ampliphy* quirks."
+msgstr ""
+
+msgid "OP-TEE (optee)"
+msgstr ""
+
+msgid "If ``optee`` is found in ``MACHINE_FEATURES``, the `OP-TEE <https://optee.readthedocs.io/en/latest/general/about.html>`_ trusted OS will be packaged into the image. |optee| has a high impact on functional safety as it is an essential part in the boot chain."
+msgstr ""
+
+msgid "If there is an error in how |optee| is packaged, the board may not boot."
+msgstr ""
+
+msgid "The |optee| is loaded by the |atf| (`ref <https://trustedfirmware-a.readthedocs.io/en/latest/>`_) before the Bootloader is started. For conceptual details, please refer to the provided documentation."
+msgstr ""
+
+msgid "The practical impact for the BSP is that multiple pieces of software need to work together to make OP-TEE integration work. This is |optee|, |atf| and the Bootloader. The bootloader has the task of loading the TEE into RAM from non-volatile storage at the same address |atf| later passes control to. |optee| itself needs these (load) addresses set as well to correctly protect its RAM region."
+msgstr ""
 
 msgid "BSP-Yocto-NXP-i.MX93-PD24.1.0"
 msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.0"
@@ -1748,89 +1910,40 @@ msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.1"
 msgid "08.05.2024"
 msgstr "2024 年 5 月 8 日"
 
-msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
-msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/mickledore/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
-
-msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: https://docs.yoctoproject.org/bitbake/2.4/index.html"
-msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解释用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.4/index.html"
-
-msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html"
-msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 实例是有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能添加或删除。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html"
-
-msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: https://docs.yoctoproject.org/4.2.4/singleindex.html"
-msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/4.2.4/singleindex.html"
-
-msgid "To build *Yocto* you need a compatible *Linux* host development machine. The list of supported distributions can be found in the reference manual: https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions"
-msgstr "要编译 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions"
-
-msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package <https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
-msgstr "这一Layer包含我们所有 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ 适用于所有受支持的硬件（从 *fido* 开始），并且设计为与 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其特点是："
-
-msgid "`systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ init system"
-msgstr "`systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ 初始化系统"
-
-msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`mickledore_gen-source-mirrors`."
-msgstr "当您首次开始使用 *Bitbake* 时，BSP Content会从不同的线上源提取。所有文件都将下载并拷贝到在 *Yocto* 中配置为``DL_DIR``的本地目录中。如果您想备份包含完整内容的 BSP，则也必须备份这些源文件。在 :ref:`mickledore_gen-source-mirrors` 一章中会作出进一步解释。"
-
 msgid "Continue with the next step :ref:`mickledore_git-config` after that. The documentation for using build-container can be found in this manual after :ref:`mickledore_phylinux-advanced-usage` of phyLinux."
 msgstr "之后继续下一步 :ref:`mickledore_git-config`。关于如何使用 编译-container ，您可以在 本文档phyLinux 的 :ref:`mickledore_phylinux-advanced-usage` 之后章节找到。"
 
-msgid "Else *Yocto* needs a handful of additional packages on your host. For *Ubuntu* you need"
-msgstr "如果您不想使用编译container， *Yocto* 需要在您主机上安装一些其他的软件包。对于 *Ubuntu*，您需要"
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
 
-msgid "For other distributions you can find information in the *Yocto* Quick Build: https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html"
-msgstr "对于其他发行版，您可以在 *Yocto* Quick Build 中找到信息：https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html"
+#, fuzzy
+msgid "2024-06-27"
+msgstr "2024-04-02"
 
-msgid "Create the two directories on a drive where you have approximately 50 GB of space and assign the two variables in your ``build/conf/local.conf``::"
-msgstr "在大约有 50 GB 空闲空间的硬盘上创建这两个目录，并在``build/conf/local.conf``中分配两个变量"
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
 
-msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
-msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
 
-msgid "To add additional software to the image, look at the OpenEmbedded layer index: https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
-msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6-PD25.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
 
-msgid "References: `Yocto 4.2.4 Documentation - Customizing Yocto builds <https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_"
-msgstr "参考资料：`Yocto 4.2.4 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_"
+#, fuzzy
+msgid "2024-12-20"
+msgstr "2024-04-09"
 
-msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* 'sumo' build, you should try to use the 'sumo' branch in the layer, too."
-msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ 并稍微思考一下。网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_。要将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* “sumo”版本构建，因此您也应该尝试在Layer中使用“sumo”分支。"
+#, fuzzy
+msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
+msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
 
-msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`mickledore_temporary-method` and is the same for all methods."
-msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`mickledore_temporary-method`。"
-
-msgid "`Yocto 4.2.4 - Devtool <https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_"
-msgstr "`Yocto 4.2.4 - Devtool <https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_"
-
-msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_"
-msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_"
-
-msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_"
-msgstr "`Yocto-开发手册 <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_"
-
-msgid "*Bitbake's* override syntax for variables is explained in more detail at: https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
-msgstr "*Bitbake* 变量覆盖语法的更详细解释如下：https://docs.yoctoproject.org/bitbake/2.4/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
-
-msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`mickledore_changing-net-config`."
-msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`mickledore_changing-net-config` 部分。"
-
-msgid "Special consideration must be paid when working with any Bluetooth on a phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX 6UL/ULL BSP Manual - Bluetooth <https://www.phytec.de/cdocuments/?doc=xoJEEQ#L844e-A5i-MX6ULULLBSPManual-Bluetooth>`_."
-msgstr "在使用 phyCORE-i.MX 6UL/ULL 的蓝牙功能时，需要特别谨慎。了解更多详情，请参考 `L-844e.A5 i.MX 6UL/ULL BSP手册 - 蓝牙 <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5i-Bluetooth>`_。"
-
-msgid "Refer to the official *Yocto* documentation for more information: https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects"
-msgstr "请参考官方 *Yocto* 文档以获取更多信息：https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects"
-
-msgid "You cannot start daemons or heavy scripts in a *RUN* attribute. See https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D ."
-msgstr "您无法在 *RUN* 属性中启动守护进程或大型脚本。请参阅 https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D 。"
-
-msgid "The most important piece of documentation for a BSP user is probably the developer manual. https://docs.yoctoproject.org/4.2.4/dev-manual/index.html"
-msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/4.2.4/dev-manual/index.html"
-
-msgid "The chapter about common tasks is a good starting point. https://docs.yoctoproject.org/4.2.4/dev-manual/layers.html#understanding-and-creating-layers"
-msgstr "关于常见任务的部分是一个很好的起始点。https://docs.yoctoproject.org/4.2.4/dev-manual/common-tasks.html#common-tasks"
-
-msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/4.2.4/singleindex.html"
-msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用户搜索功能或变量名称。https://docs.yoctoproject.org/4.2.4/singleindex.html"
+#, fuzzy
+msgid "2024-07-19"
+msgstr "2024-04-09"
 
 msgid "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
 msgstr "BSP-Yocto-Ampliphy-i.MX8MP-PD24.1.0"
@@ -1869,115 +1982,259 @@ msgid "2024-10-08"
 msgstr "2024-04-09"
 
 #, fuzzy
-msgid "BSP-Yocto-Ampliphy-i.MX6-PD25.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6-PD22.1.0"
+msgid "BSP-Yocto-NXP-i.MX95-ALPHA1"
+msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.1"
+
+msgid "Alpha"
+msgstr ""
 
 #, fuzzy
-msgid "2024-12-20"
-msgstr "2024-04-09"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-i.MX6UL-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0"
-
-#, fuzzy
-msgid "2024-07-19"
-msgstr "2024-04-09"
-
-#, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM62Ax-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
-
-#, fuzzy
-msgid "2024-06-27"
+msgid "2025-06-02"
 msgstr "2024-04-02"
 
 #, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM62x-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0"
+msgid "BSP-Yocto-NXP-i.MX8MM-PD25.1.1"
+msgstr "BSP-Yocto-NXP-i.MX8MM-PD23.1.0"
 
 #, fuzzy
-msgid "BSP-Yocto-Ampliphy-AM64x-PD24.1.0"
-msgstr "BSP-Yocto-Ampliphy-AM64x-PD23.2.0"
+msgid "2026-03-19"
+msgstr "2024-04-09"
 
-msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
-msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/scarthgap/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
+#, fuzzy
+msgid "BSP-Yocto-NXP-i.MX95-ALPHA2"
+msgstr "BSP-Yocto-NXP-i.MX93-PD24.1.0"
 
-msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: https://docs.yoctoproject.org/bitbake/2.8/index.html"
-msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解释用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.8/index.html"
+msgid "ALPHA"
+msgstr ""
 
-msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: https://docs.yoctoproject.org/dev/toaster-manual/index.html"
-msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 实例是有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能添加或删除。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/dev/toaster-manual/index.html"
+msgid "2026/03/06"
+msgstr ""
 
-msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: https://docs.yoctoproject.org/dev/singleindex.html"
-msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/dev/singleindex.html"
+#, fuzzy
+msgid "Released"
+msgstr "已发布"
 
-msgid "To build *Yocto* you need a compatible *Linux* host development machine. The list of supported distributions can be found in the reference manual: https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions"
-msgstr "要编译 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html#supported-linux-distributions"
+#, fuzzy
+msgid "BSP-Yocto-NXP-i.MX8MP-PD26.1.0"
+msgstr "BSP-Yocto-NXP-i.MX8MP-PD23.1.0"
 
-msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package <https://docs.yoctoproject.org/dev/bsp-guide/index.html>`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
-msgstr "这一Layer包含我们所有 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/dev/bsp-guide/index.html>`_ 适用于所有受支持的硬件（从 *fido* 开始），并且设计为与 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其特点是："
-
-msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`scarthgap_gen-source-mirrors`."
-msgstr "当您首次开始使用 *Bitbake* 时，BSP Content会从不同的线上源提取。所有文件都将下载并拷贝到在 *Yocto* 中配置为``DL_DIR``的本地目录中。如果您想备份包含完整内容的 BSP，则也必须备份这些源文件。在 :ref:`scarthgap_gen-source-mirrors` 一章中会作出进一步解释"
-
-msgid "Continue with the next step :ref:`scarthgap_git-config` after that. The documentation for using build-container can be found in this manual after :ref:`scarthgap_phylinux-advanced-usage` of phyLinux."
-msgstr "之后继续下一步 :ref:`scarthgap_git-config`。关于如何使用 编译-container ，您可以在 本文档phyLinux 的 :ref:`scarthgap_phylinux-advanced-usage` 之后章节找到。"
-
-msgid "For other distributions you can find information in the *Yocto* Quick Build: https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html"
-msgstr "对于其他发行版，您可以在 *Yocto* Quick Build 中找到信息：https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html"
-
-msgid "Special release manifests exist to give you access to the current development states of the *Yocto* BSP. They will be displayed in the phyLinux selection menu with the ending *PDXX.X.y*"
-msgstr "您也可以访问 *Yocto* BSP 最新的开发中版本，这属于特殊版本，并不是正式的长期维护的版本。他们会在phyLinux的版本选项中以 *PDXX.X.y* 结尾"
-
-msgid "This will initialize a BSP that will track the latest development state."
-msgstr "这将初始化一个最新的BSP开发版本。"
-
-msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/dev/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
-msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/dev/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"
-
-msgid "To add additional software to the image, look at the OpenEmbedded layer index: https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
-msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/scarthgap/layers/"
-
-msgid "References: `Yocto dev Documentation - Customizing Yocto builds <https://docs.yoctoproject.org/dev/singleindex.html#user-configuration>`_"
-msgstr "参考资料：`Yocto 开发 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/dev/singleindex.html#user-configuration>`_"
-
-msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/scarthgap/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/scarthgap/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* |yocto-codename| build, you should try to use the |yocto-codename| branch in the layer, too."
-msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/scarthgap/layers/>`_ 并稍微思考一下。网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/scarthgap/layer/meta-security/>`_。要将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* |yocto-codename| 版本构建，因此您也应该尝试在Layer中使用 |yocto-codename| 分支。"
-
-msgid "All available remote branches will show up. Usually there should be 'sumo', 'warrior', 'zeus', 'dunfell', 'hardnkott', 'kirkstone', 'mickledore', 'master'..."
-msgstr "所有可用的远程分支会被展示出来。通常应该有'sumo'、'warrior'、'zeus'、'dunfell'、'hardnkott'、'kirkstone'、'mickledore'、'master'..."
-
-msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`scarthgap_temporary-method` and is the same for all methods."
-msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`scarthgap_temporary-method`。"
-
-msgid "`Yocto dev - Devtool <https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html>`_"
-msgstr "`Yocto 开发 - Devtool <https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html>`_"
-
-msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/dev/kernel-dev/index.html>`_"
-msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/dev/kernel-dev/index.html>`_"
-
-msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/dev/dev-manual/index.html>`_"
-msgstr "`Yocto-开发手册 <https://docs.yoctoproject.org/dev/dev-manual/index.html>`_"
-
-msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`scarthgap_changing-net-config`."
-msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`scarthgap_changing-net-config` 部分。"
-
-msgid "To be able to build a Qt6 application with the SDK and the Meson Build system, the following has to be done, *after* the SDK has been sourced:"
-msgstr "在可以用SDK和Meson编译系统编译Qt6应用之前，需要在source SDK 后做以下步骤："
-
-msgid "Refer to the official *Yocto* documentation for more information: https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects"
-msgstr "请参考官方 *Yocto* 文档以获取更多信息：https://docs.yoctoproject.org/dev/singleindex.html#autotools-based-projects"
-
-msgid "The most important piece of documentation for a BSP user is probably the developer manual. https://docs.yoctoproject.org/dev/dev-manual/index.html"
-msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/dev/dev-manual/index.html"
-
-msgid "The chapter about common tasks is a good starting point. https://docs.yoctoproject.org/dev/dev-manual/layers.html#understanding-and-creating-layers"
-msgstr "关于常见任务的部分是一个很好的起始点。https://docs.yoctoproject.org/dev/dev-manual/common-tasks.html#common-tasks"
-
-msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/dev/singleindex.html"
-msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用户搜索功能或变量名称。https://docs.yoctoproject.org/dev/singleindex.html"
+#, fuzzy
+msgid "2026/06/08"
+msgstr "2024-04-09"
 
 #~ msgid "Now we clean the */build* directory by deleting everything except */build/conf/* but including */build/conf/sanity* . We change *site.conf* as follows"
 #~ msgstr "现在我们将清理 */build* 目录，删除 */build/conf/* 以外的所有文件以及*/build/conf/sanity*。我们对 *site.conf* 修改如下。"
+
+#~ msgid "Document Title"
+#~ msgstr "文档标题"
+
+#~ msgid "|yocto-ref-manual| |yocto-codename|"
+#~ msgstr "|yocto-ref-manual| |yocto-codename|"
+
+#~ msgid "Document Type"
+#~ msgstr "文档类型"
+
+#~ msgid "Release Date"
+#~ msgstr "发布日期"
+
+#~ msgid "XXXX/XX/XX"
+#~ msgstr "XXXX/XX/XX"
+
+#~ msgid "Is Branch of"
+#~ msgstr "母文档"
+
+#~ msgid "**QS Guide**: A short guide on how to set up and boot a phyCORE board along with brief information on building a BSP, the device tree, and accessing peripherals."
+#~ msgstr "**快速上手指南**：简单指导我们如何配置和启动 phyCORE 核心板，以及对构建 BSP、设备树和外设访问进行简要说明。"
+
+#~ msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
+#~ msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/kirkstone/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以查看是否可以轻松检索和集成软件包。"
+
+#~ msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: https://docs.yoctoproject.org/bitbake/2.0/index.html"
+#~ msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解析用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.0/index.html"
+
+#~ msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html"
+#~ msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 是有十分有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能增减。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html"
+
+#~ msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: https://docs.yoctoproject.org/4.0.6/singleindex.html"
+#~ msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/4.0.6/singleindex.html"
+
+#~ msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package <https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
+#~ msgstr "这一Layer包含我们 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/4.0.6/bsp-guide/index.html>`_ （从Yocto *fido* 版本开始），适用于PHYTEC所有支持的硬件，并且从设计上和 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其中包括："
+
+#~ msgid "`systemd <https://www.freedesktop.org/wiki/Software/systemd//>`_ init system"
+#~ msgstr "`systemd <https://www.freedesktop.org/wiki/Software/systemd/>`_ 初始化系统"
+
+#~ msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`kirkstone_gen-source-mirrors`."
+#~ msgstr "当您首次开始使用 *Bitbake* 时，BSP 代码会从不同的线上源提取。所有相关的源文件都会被下载并拷贝到在 *Yocto* 中被配置为 ``DL_DIR`` 的本地目录中。如果您想备份包含完整内容源的 BSP，您也必须备份这些源文件。在 :ref:`kirkstone_gen-source-mirrors` 一章中会作出进一步解释。"
+
+#~ msgid "Special release manifests exist to give you access to the current development states of the *Yocto* BSP. They will not be displayed in the phyLinux selection menu but need to be selected manually. This can be done using the following command line"
+#~ msgstr "您也可以访问 *Yocto* BSP 最新的开发中版本，这属于特殊版本，并不是正式的长期维护版本，所以它们不会显示在 phyLinux 选择菜单中，需要手动选择。可以使用以下命令行来获取BSP"
+
+#~ msgid "This will initialize a BSP that will track the latest development state. From now on running"
+#~ msgstr "这将初始化一个最新的BSP开发版本。运行"
+
+#~ msgid "this folder will pull all the latest changes from our Git repositories."
+#~ msgstr "该文件夹将从我们的 Git 仓库中提取所有最新更改。"
+
+#~ msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
+#~ msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.0.6/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行\"控制台，请通过串口或网"
+
+#~ msgid "To add additional software to the image, look at the OpenEmbedded layer index: https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
+#~ msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/kirkstone/layers/"
+
+#~ msgid "References: `Yocto 4.0.6 Documentation - Customizing Yocto builds <https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_"
+#~ msgstr "参考资料：`Yocto 4.0.6 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/4.0.6/singleindex.html#user-configuration>`_"
+
+#~ msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/kirkstone/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/kirkstone/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* 'sumo' build, you should try to use the 'sumo' branch in the layer, too."
+#~ msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/kirkstone/layers/>`_ 网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/kirkstone/layer/meta-security/>`_。将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* “sumo”版本构建，您也应该尝试在Layer中使用“sumo”分支。"
+
+#~ msgid "All available remote branches will show up. Usually there should be 'fido', 'jethro', 'krogoth', 'master', ..."
+#~ msgstr "所有可用的远程分支都会显示出来。通常应该有“fido”、“jethro”、“krogoth”、“master”……"
+
+#~ msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`kirkstone_temporary-method` and is the same for all methods."
+#~ msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`kirkstone_temporary-method`。"
+
+#~ msgid "`Yocto 4.0.6 - Devtool <https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_"
+#~ msgstr "`Yocto 4.0.6 - Devtool <https://docs.yoctoproject.org/4.0.6/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/4.0.6/ref-manual/devtool-reference.html>`_"
+
+#~ msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_"
+#~ msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/4.0.6/kernel-dev/index.html>`_"
+
+#~ msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_"
+#~ msgstr "`Yocto - 开发手册 <https://docs.yoctoproject.org/4.0.6/dev-manual/index.html>`_"
+
+#~ msgid "*Bitbake's* override syntax for variables is explained in more detail at: https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
+#~ msgstr "*Bitbake* 变量覆盖语法的更详细解释如下：https://docs.yoctoproject.org/bitbake/2.0/bitbake-user-manual/bitbake-user-manual-metadata.html#conditional-metadata"
+
+#~ msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`kirkstone_changing-net-config`."
+#~ msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`kirkstone_changing-net-config` 部分。"
+
+#~ msgid "Special consideration must be paid when working with any Bluetooth on a phyCORE-i.MX 6UL/ULL. For further information, please check `L-844e.A5 i.MX 6UL/ULL BSP Manual - Bluetooth <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5-Bluetooth>`_."
+#~ msgstr "在使用 phyCORE-i.MX 6UL/ULL 的蓝牙功能时，需要特别谨慎。了解更多详情，请参考 `L-844e.A5 i.MX 6UL/ULL BSP手册 - 蓝牙 <https://www.phytec.de/cdocuments/?doc=xoJEEQ#BSPReferenceManualphyCOREi-MX6ULULLL844e-A5-Bluetooth>`_。"
+
+#~ msgid "Refer to the official *Yocto* documentation for more information: https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects"
+#~ msgstr "有关更多信息，请参阅官方 *Yocto* 文档：https://docs.yoctoproject.org/4.0.6/singleindex.html#autotools-based-projects"
+
+#~ msgid "Udev (Linux dynamic device management) is a system daemon that handles dynamic device management in /dev. It is controlled by *udev* \\ rules that are located in */etc/udev/rules.d* (sysadmin configuration space) and\\  */lib/udev/rules.d/* (vendor-provided). Here is an example of an *udev* \\ rule file"
+#~ msgstr "Udev（Linux 动态设备管理）是一个系统守护进程，用于处理 /dev 中的动态设备管理。它由位于 */etc/udev/rules.d* （系统管理员配置空间）和 */lib/udev/rules.d/* （供应商提供）中的 *udev* \\ 规则控制。以下是 *udev* \\ 规则文件的示例"
+
+#~ msgid "See https://www.freedesktop.org/software/systemd/man/latest/udev.html for more details about the syntax and usage. To get the list of attributes for a specific device that can be used in an *udev* rule you can use the *udevadm info* tool. It prints all existing attributes of the device node and its parents. The key-value pairs from the output can be copied and pasted into a rule file. Some examples"
+#~ msgstr "有关语法和用法的更详细信息，请访问 https://www.freedesktop.org/software/systemd/man/latest/udev.html。要获取可以在 *udev* 规则中使用的设备属性列表，您可以利用 *udevadm info* 工具。该工具将打印出设备节点及其父节点的所有现有属性。输出中的键值对可以直接复制并粘贴到规则文件中。以下是一些示例。"
+
+#~ msgid "After changing an *udev* rule, you have to notify the daemon. Otherwise, your changes are not reflected. Use the following command"
+#~ msgstr "更改 *udev* 规则后，您必须通知udev守护进程。否则，您的更改不会生效。使用以下命令"
+
+#~ msgid "While developing *udev* rules you should monitor the events in order to see when devices are attached or unattached to the system. Use"
+#~ msgstr "在制定 *udev* 规则时，您应该监视事件，以便查看设备何时连接到系统或从系统断开连接。使用"
+
+#~ msgid "Furthermore, it is very useful to monitor the system log in another shell, especially if the rule executes external scripts. Execute"
+#~ msgstr "在另一个 shell 中监控系统日志也是非常有帮助的，尤其是在udev规则中执行了外部脚本的情况下。执行"
+
+#~ msgid "You cannot start daemons or heavy scripts in a *RUN* attribute. See https://www.freedesktop.org/software/systemd/man/latest/udev.html ."
+#~ msgstr "您无法在 *RUN* 属性中启动守护进程或大型脚本。请参阅 https://www.freedesktop.org/software/systemd/man/latest/udev.html 。"
+
+#~ msgid "This can only be used for very short-running foreground tasks. Running an event process for a long period of time may block all further events for this or a dependent device. Starting daemons or other long-running processes is not appropriate for *udev*; the forked processes, detached or not, will be unconditionally killed after the event handling has finished. You can use the special attribute *ENV{SYSTEMD_WANTS}=\"service-name.service\"* and a *systemd*\\ service instead."
+#~ msgstr "这仅适用于执行时间非常短的前台任务。长时间运行的事件进程可能会阻碍此设备或从设备的后续所有事件。启动守护进程或其他长时间运行的进程并不适合 *udev*；派生进程（无论是否和母进程分离）都将在母进程事件处理完成后无条件被终止。如果需要执行其他任务，您可以考虑使用特殊属性 *ENV {SYSTEMD_WANTS} =\"service-name.service\"* 和 *systemd* 服务。"
+
+#~ msgid "See https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd."
+#~ msgstr "请参阅https://unix.stackexchange.com/questions/63232/what-is-the-correct-way-to-write-a-udev-rule-to-stop-a-service-under-systemd。"
+
+#~ msgid "The most important piece of documentation for a BSP user is probably the developer manual. https://docs.yoctoproject.org/4.0.6/dev-manual/index.html"
+#~ msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/4.0.6/dev-manual/index.html"
+
+#~ msgid "The chapter about common tasks is a good starting point. https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks"
+#~ msgstr "关于常见任务的部分是一个很好的起点。https://docs.yoctoproject.org/4.0.6/dev-manual/common-tasks.html#common-tasks"
+
+#~ msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/4.0.6/singleindex.html"
+#~ msgstr "完整的文档可以在一个单独的 HTML 页面上找到，用户可以在页面上搜索功能或变量名称。https://docs.yoctoproject.org/4.0.6/singleindex.html"
+
+#~ msgid "Table of Contents"
+#~ msgstr "目录"
+
+#~ msgid "Kirkstone"
+#~ msgstr "Kirkstone"
+
+#~ msgid "Mickledore"
+#~ msgstr "Mickledore"
+
+#~ msgid "Scarthgap"
+#~ msgstr "Scarthgap"
+
+#~ msgid "A collection of OpenEmbedded layers can be found here. The search function is very helpful to see if a software package can be retrieved and integrated easily: https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
+#~ msgstr "可以在这里https://layers.openembedded.org/layerindex/branch/mickledore/layers/找到 OpenEmbedded Layer的集合。搜索功能非常有用，可以轻松检索和集成软件包。"
+
+#~ msgid "*Bitbake* is the task scheduler. It is written in *Python* and interprets recipes that contain code in *Bitbake's* own programming language, *Python*, and bash code. The official documentation can be found here: https://docs.yoctoproject.org/bitbake/2.4/index.html"
+#~ msgstr "*Bitbake* 是任务调度器。它是一个Python脚本，解释用 *Bitbake* 自己的编程语言、 *Python* 或者 bash 代码编写的recipe。官方文档可在此处找到：https://docs.yoctoproject.org/bitbake/2.4/index.html"
+
+#~ msgid "*Toaster* is a web frontend for *Bitbake* to start and investigate builds. It provides information about the build history and statistics on created images. There are several use cases where the installation and maintenance of a *Toaster* instance are beneficial. PHYTEC did not add or remove any features to the upstream *Toaster*, provided by *Poky*. The best source for more information is the official documentation: https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html"
+#~ msgstr "*Toaster* 是 *Bitbake* 的用于启动和分析工程构建的Web 前端。它提供有关编译历史和所生成镜像的统计信息。在多个案例中，安装和维护 *Toaster* 实例是有益的。PHYTEC 未对 *Poky* 提供的 *Toaster* 作任何功能添加或删除。如果想了解更多，请参考官方文档：https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html"
+
+#~ msgid "For more general questions about *Bitbake* and *Poky* consult the mega-manual: https://docs.yoctoproject.org/4.2.4/singleindex.html"
+#~ msgstr "有关 *Bitbake* 和 *Poky* 的更多常见问题，请参阅手册：https://docs.yoctoproject.org/4.2.4/singleindex.html"
+
+#~ msgid "To build *Yocto* you need a compatible *Linux* host development machine. The list of supported distributions can be found in the reference manual: https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions"
+#~ msgstr "要编译 *Yocto*，您需要一台合适的 *Linux* 主机开发环境。支持的Linux发行版列表可在参考手册中找到：https://docs.yoctoproject.org/4.2.4/ref-manual/system-requirements.html#supported-linux-distributions"
+
+#~ msgid "This layer contains all machines and common features for all our BSPs. It is PHYTEC's `Yocto Board Support Package <https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ for all supported hardware (since *fido*) and is designed to be standalone with *Poky*. Only these two parts are required if you want to integrate the PHYTEC's hardware into your existing *Yocto* workflow. The features are:"
+#~ msgstr "这一Layer包含我们所有 BSP 的所有machine和通用特性。它是 PHYTEC 的 `Yocto BSP <https://docs.yoctoproject.org/4.2.4/bsp-guide/index.html>`_ 适用于所有受支持的硬件（从 *fido* 开始），并且设计为与 *Poky* Layer相互独立。如果您想将 PHYTEC 的硬件集成到现有的 *Yocto* 项目中，只需要这两个Layer即可。其特点是："
+
+#~ msgid "The BSP content gets pulled from different online sources when you first start using *Bitbake*. All files will be downloaded and cloned in a local directory configured as ``DL_DIR`` in *Yocto*. If you backup your BSP with the complete content, those sources have to be backed up, too. How you can do this will be explained in the chapter :ref:`mickledore_gen-source-mirrors`."
+#~ msgstr "当您首次开始使用 *Bitbake* 时，BSP Content会从不同的线上源提取。所有文件都将下载并拷贝到在 *Yocto* 中配置为``DL_DIR``的本地目录中。如果您想备份包含完整内容的 BSP，则也必须备份这些源文件。在 :ref:`mickledore_gen-source-mirrors` 一章中会作出进一步解释。"
+
+#~ msgid "For other distributions you can find information in the *Yocto* Quick Build: https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html"
+#~ msgstr "对于其他发行版，您可以在 *Yocto* Quick Build 中找到信息：https://docs.yoctoproject.org/4.2.4/brief-yoctoprojectqs/index.html"
+
+#~ msgid "You can then point your browser to *http://0.0.0.0:8000/* and continue working with *Bitbake*. All build activity can be monitored and analyzed from this web server. If you want to learn more about *Toaster*, look at https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html. To shut down the *Toaster* web GUI again, execute"
+#~ msgstr "然后，您可以将浏览器指向 *http://0.0.0.0:8000/* 并继续使用 *Bitbake*。可以从此 Web 服务器监控和分析所有构建活动。如果您想了解有关 *Toaster* 的更多信息，请查看 https://docs.yoctoproject.org/4.2.4/toaster-manual/index.html。要关闭 *Toaster* Web GUI，请执行"
+
+#~ msgid "To add additional software to the image, look at the OpenEmbedded layer index: https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
+#~ msgstr "要向镜像添加其他软件，请查看 OpenEmbedded Layer索引：https://layers.openembedded.org/layerindex/branch/mickledore/layers/"
+
+#~ msgid "References: `Yocto 4.2.4 Documentation - Customizing Yocto builds <https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_"
+#~ msgstr "参考资料：`Yocto 4.2.4 文档 - 自定义 Yocto 构建 <https://docs.yoctoproject.org/4.2.4/singleindex.html#user-configuration>`_"
+
+#~ msgid "This is a step-by-step guide on how to add another layer to your *Yocto* build and install additional software from it. As an example, we include the network security scanner *nmap* in the layer *meta-security*. First, you must locate the layer on which the software is hosted. Check out the `OpenEmbedded MetaData Index <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ and guess a little bit. The network scanner *nmap* is in the *meta-security* layer. See `meta-security on layers.openembedded.org <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_. To integrate it into the *Yocto* build, you have to check out the repository and then switch to the correct stable branch. Since the BSP is based on the *Yocto* 'sumo' build, you should try to use the 'sumo' branch in the layer, too."
+#~ msgstr "这是关于如何在您的 *Yocto* 构建中添加另一Layer并从中安装软件的详细上手指南。例如，我们将网络安全扫描器 *nmap* 包含在Layer *meta-security* 中。首先，您必须找到包含该软件的Layer。查看 `OpenEmbedded MetaData 索引 <https://layers.openembedded.org/layerindex/branch/mickledore/layers/>`_ 并稍微思考一下。网络扫描器 *nmap* 位于 *meta-security* Layer。请参阅 layer.openembedded.org 上的 `meta-security <https://layers.openembedded.org/layerindex/branch/mickledore/layer/meta-security/>`_。要将其集成到 *Yocto* 构建中，您必须拉取git仓库，然后切换到正确的稳定分支。由于 BSP 是基于 *Yocto* “sumo”版本构建，因此您也应该尝试在Layer中使用“sumo”分支。"
+
+#~ msgid "Your changes will now be recompiled and added to the image. If you want to store your changes permanently, it is advisable to create a patch from the changes, then store and backup only the patch. You can go into the *linux-mainline* directory and create a patch using *Git*. How to create a patch is described in :ref:`mickledore_temporary-method` and is the same for all methods."
+#~ msgstr "您的更改现在将被重新编译并添加到镜像中。如果您希望永久保存这些更改，建议您根据更改创建一个补丁，存储和备份该补丁。您可以进入 *linux-mainline* 目录并使用 *Git* 来创建补丁。有关如何创建补丁的详细信息，请参阅 :ref:`mickledore_temporary-method`。"
+
+#~ msgid "`Yocto 4.2.4 - Devtool <https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_"
+#~ msgstr "`Yocto 4.2.4 - Devtool <https://docs.yoctoproject.org/4.2.4/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/4.2.4/ref-manual/devtool-reference.html>`_"
+
+#~ msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_"
+#~ msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/4.2.4/kernel-dev/index.html>`_"
+
+#~ msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_"
+#~ msgstr "`Yocto-开发手册 <https://docs.yoctoproject.org/4.2.4/dev-manual/index.html>`_"
+
+#~ msgid "To finish the configuration you can configure DHCP to receive an IP address (supported by most WLAN access points). For other possible IP configurations, see the section :ref:`mickledore_changing-net-config`."
+#~ msgstr "最后，您可以配置 DHCP 以获取 IP 地址（大多数 WLAN 接入点都支持此功能）。有关其他可能的 IP 配置，请参考 :ref:`mickledore_changing-net-config` 部分。"
+
+#~ msgid "Refer to the official *Yocto* documentation for more information: https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects"
+#~ msgstr "请参考官方 *Yocto* 文档以获取更多信息：https://docs.yoctoproject.org/4.2.4/singleindex.html#autotools-based-projects"
+
+#~ msgid "You cannot start daemons or heavy scripts in a *RUN* attribute. See https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D ."
+#~ msgstr "您无法在 *RUN* 属性中启动守护进程或大型脚本。请参阅 https://www.freedesktop.org/software/systemd/man/latest/udev.html#RUN%7Btype%7D 。"
+
+#~ msgid "The most important piece of documentation for a BSP user is probably the developer manual. https://docs.yoctoproject.org/4.2.4/dev-manual/index.html"
+#~ msgstr "对于 BSP 用户来说，最重要的文档可能是开发人员手册。https://docs.yoctoproject.org/4.2.4/dev-manual/index.html"
+
+#~ msgid "The chapter about common tasks is a good starting point. https://docs.yoctoproject.org/4.2.4/dev-manual/layers.html#understanding-and-creating-layers"
+#~ msgstr "关于常见任务的部分是一个很好的起始点。https://docs.yoctoproject.org/4.2.4/dev-manual/common-tasks.html#common-tasks"
+
+#~ msgid "The complete documentation is available on one single HTML page, which is good for searching for a feature or a variable name. https://docs.yoctoproject.org/4.2.4/singleindex.html"
+#~ msgstr "完整的文档可以在一个单独的 HTML 页面上找到，适合用户搜索功能或变量名称。https://docs.yoctoproject.org/4.2.4/singleindex.html"
+
+#~ msgid "Continue with the next step :ref:`scarthgap_git-config` after that. The documentation for using build-container can be found in this manual after :ref:`scarthgap_phylinux-advanced-usage` of phyLinux."
+#~ msgstr "之后继续下一步 :ref:`scarthgap_git-config`。关于如何使用 编译-container ，您可以在 本文档phyLinux 的 :ref:`scarthgap_phylinux-advanced-usage` 之后章节找到。"
+
+#~ msgid "`Yocto dev - Devtool <https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ or `Devtool Quick Reference <https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html>`_"
+#~ msgstr "`Yocto 开发 - Devtool <https://docs.yoctoproject.org/dev/sdk-manual/extensible.html#using-devtool-in-your-sdk-workflow>`_ 或 `Devtool 快速指南 <https://docs.yoctoproject.org/dev/ref-manual/devtool-reference.html>`_"
+
+#~ msgid "`Yocto - Kernel Development Manual <https://docs.yoctoproject.org/dev/kernel-dev/index.html>`_"
+#~ msgstr "`Yocto-Kernel 开发手册 <https://docs.yoctoproject.org/dev/kernel-dev/index.html>`_"
+
+#~ msgid "`Yocto - Development Manual <https://docs.yoctoproject.org/dev/dev-manual/index.html>`_"
+#~ msgstr "`Yocto-开发手册 <https://docs.yoctoproject.org/dev/dev-manual/index.html>`_"
 
