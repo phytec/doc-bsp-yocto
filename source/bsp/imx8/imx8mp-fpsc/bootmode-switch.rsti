@@ -1,35 +1,57 @@
-Internal fuses
-   .. figure:: /bsp/images/dipswitch-tristate-4-0p00.svg
-      :scale: 400%
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
 
-      Boot from internal fuses
+   *  -  PCB Revision
 
-USB
-   .. figure:: /bsp/images/dipswitch-tristate-4-mp00.svg
-      :scale: 400%
+      -  1618.0, 1618.1
 
-      USB serial download
+      -  1618.2
 
-eMMC
-   .. figure:: /bsp/images/dipswitch-tristate-4-0000.svg
-      :scale: 400%
+   *  -  Internal fuses
 
-      Boot from onboard e.MMC
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-0p00.svg
+            :scale: 300%
 
-SD card
-   .. figure:: /bsp/images/dipswitch-tristate-4-m000.svg
-      :scale: 400%
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-0m00.svg
+            :scale: 300%
 
-      Boot from external SD card
+   *  -  USB
 
-SPI NOR flash
-   .. figure:: /bsp/images/dipswitch-tristate-4-00m0.svg
-      :scale: 400%
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mp00.svg
+            :scale: 300%
 
-      Boot from onboard SPI NOR flash
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pm00.svg
+            :scale: 300%
 
-JTAG
-   .. figure:: /bsp/images/dipswitch-tristate-4-m0mm.svg
-      :scale: 400%
+   *  -  eMMC
 
-      JTAG mode
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-0000.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-0000.svg
+            :scale: 300%
+
+   *  -  SD card
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-m000.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-p000.svg
+            :scale: 300%
+
+   *  -  SPI NOR flash
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-00m0.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-00p0.svg
+            :scale: 300%
+
+   *  -  JTAG
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-m0mm.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-p0pp.svg
+            :scale: 300%
