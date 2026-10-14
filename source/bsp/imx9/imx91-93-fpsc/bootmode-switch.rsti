@@ -1,34 +1,49 @@
 .. list-table::
+   :header-rows: 1
+   :stub-columns: 1
 
-   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mmmm.svg
-            :scale: 400%
+   *  -  PCB Revision
 
-            Internal fuses
+      -  1618.2
+
+      -  1618.3
+
+   *  -  Internal fuses
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mmmm.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pppp.svg
+            :scale: 300%
+
+   *  -  USB serial download
 
       -  .. figure:: /bsp/images/dipswitch-tristate-4-pmmm.svg
-            :scale: 400%
+            :scale: 300%
 
-            USB serial download
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mppp.svg
+            :scale: 300%
 
-   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mpmm.svg
-            :scale: 400%
+   *  -  e.MMC
 
-            e.MMC
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mpmm.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmpp.svg
+            :scale: 300%
+
+   *  -  SD card
 
       -  .. figure:: /bsp/images/dipswitch-tristate-4-ppmm.svg
-            :scale: 400%
+            :scale: 300%
 
-            SD card
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpp.svg
+            :scale: 300%
 
-   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
-            :scale: 400%
+   *  -  SPI NOR flash
 
-            SPI NOR flash
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
+            :scale: 300%
 
-      -  .. none
-            :scale: 400%
-
-.. note::
-   In the |sbc| PCB revision 1618.2, all boot mode switches are inverted.
-   This means for rev 1618.2 that in the illustration above, each switch's
-   (+) position must be used instead of the (-) position, and vice versa.
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-ppmp.svg
+            :scale: 300%
