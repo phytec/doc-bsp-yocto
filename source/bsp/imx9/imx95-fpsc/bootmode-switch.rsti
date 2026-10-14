@@ -1,21 +1,41 @@
 .. list-table::
+   :header-rows: 1
+   :stub-columns: 1
 
-   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mppm.svg
-            :scale: 400%
+   *  -  PCB Revision
 
-            USB serial download
+      -  1618.2
 
-      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmpm.svg
-            :scale: 400%
+      -  1618.3
 
-            e.MMC
+   *  -  USB serial download
 
-   *  -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
-            :scale: 400%
-
-            SD card
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmmp.svg
+            :scale: 300%
 
       -  .. figure:: /bsp/images/dipswitch-tristate-4-mppm.svg
-            :scale: 400%
+            :scale: 300%
 
-            SPI NOR flash
+   *  -  e.MMC
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mpmp.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmpm.svg
+            :scale: 300%
+
+   *  -  SD card
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-ppmp.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mmpm.svg
+            :scale: 300%
+
+   *  -  SPI NOR flash
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-pmmp.svg
+            :scale: 300%
+
+      -  .. figure:: /bsp/images/dipswitch-tristate-4-mppm.svg
+            :scale: 300%
