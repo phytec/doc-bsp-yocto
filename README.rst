@@ -24,6 +24,14 @@ dependencies are specified in ``requirements/``::
    source env/bin/activate
    pip3 install -r requirements/setup.txt
 
+The HTML theme and custom Sphinx extensions are provided by the separate
+`sphinx-phytec-theme <https://github.com/phytec/sphinx-phytec-theme>`_ package,
+which is installed by tox through ``requirements/build.txt``. For local theme
+development, install it in editable mode into the tox environment or your
+virtualenv::
+
+   pip3 install -e ../sphinx-phytec-theme
+
 Make also sure that your system has following tools installed
 (example for debian based systems)::
 
