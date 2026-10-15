@@ -374,10 +374,13 @@ html and pdf versions of the documentation.::
    tox -e pdf
 
 To add new language links to the sidebar menu for the html documentation, add
-the language path to the ``languages`` list in the ``conf.py`` file.::
+the language path to the ``languages`` list in the ``conf.py`` file. The
+template that renders this list (``versions.html``) is part of the
+`sphinx-phytec-theme <https://github.com/phytec/sphinx-phytec-theme>`_
+package.::
 
    html_context = {
-       # Language selector, works together with versions.html in templates
+       # Language selector, works together with versions.html in the theme
        'languages': [
            ['en', pages_root],
            ['zh_CN', pages_root + '/zh_CN']
