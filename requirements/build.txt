@@ -1,5 +1,5 @@
 Sphinx==8.2.1
-sphinx-rtd-theme==3.0.2
+sphinx-phytec-theme @ git+https://github.com/phytec/sphinx-phytec-theme.git@0.2.0
 Sphinx-Substitution-Extensions==2025.2.19
 sphinx-intl==2.3.1
 sphinx-sitemap==2.6.0
