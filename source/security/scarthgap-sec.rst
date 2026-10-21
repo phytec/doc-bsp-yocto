@@ -4,6 +4,7 @@
 .. |secure-boot-link| replace:: :ref:`secure-boot-scarthgap`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-scarthgap`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-scarthgap`
+.. |soc-tools-link| replace:: :ref:`soc-tools-scarthgap`
 .. |physical-security-link| replace:: :ref:`physical-security-scarthgap`
 
 .. Yocto
@@ -373,4 +374,5 @@ from eMMC:
 .. _phytec-pki-scarthgap:
 .. include:: common/phytec-pki.rsti
 .. include:: common/vulnerabilities.rsti
+.. _soc-tools-scarthgap:
 .. include:: common/soc-configuration-tools.rsti

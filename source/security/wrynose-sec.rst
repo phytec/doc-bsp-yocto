@@ -6,6 +6,7 @@
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-wrynose`
 .. |physical-security-link| replace:: :ref:`physical-security-wrynose`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-wrynose`
+.. |soc-tools-link| replace:: :ref:`soc-tools-wrynose`
 .. |provisioning-scripts-link| replace:: :ref:`provisioning-scripts-wrynose`
 
 .. Yocto
@@ -71,4 +72,5 @@ This manual applies to all |yocto-codename| based PHYTEC releases.
 .. _phytec-pki-wrynose:
 .. include:: common/phytec-pki.rsti
 .. include:: common/vulnerabilities.rsti
+.. _soc-tools-wrynose:
 .. include:: common/soc-configuration-tools.rsti
