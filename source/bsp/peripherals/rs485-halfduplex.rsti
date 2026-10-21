@@ -8,6 +8,9 @@ For half-duplex mode your connection setup should look like this:
 .. note::
 
    Note that TX+ corresponds to signal A and TX- corresponds to signal B.
+   This is the vendor-specific naming used by PHYTEC. It is the reverse of
+   the naming in the TIA/EIA-485 standard, where A is the inverting (-) and
+   B the non-inverting (+) line.
 
 Which function is on which pin is described in the hardware manual.
 
