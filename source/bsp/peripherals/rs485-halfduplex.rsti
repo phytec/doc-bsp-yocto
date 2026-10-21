@@ -3,11 +3,14 @@ RS485 half-duplex
 
 For half-duplex mode your connection setup should look like this:
 
-.. image:: ./images/RS485_halfduplex_connection.png
+.. image:: /bsp/peripherals/images/rs485-halfduplex-connection.svg
 
 .. note::
 
    Note that TX+ corresponds to signal A and TX- corresponds to signal B.
+   This is the vendor-specific naming used by PHYTEC. It is the reverse of
+   the naming in the TIA/EIA-485 standard, where A is the inverting (-) and
+   B the non-inverting (+) line.
 
 Which function is on which pin is described in the hardware manual.
 
