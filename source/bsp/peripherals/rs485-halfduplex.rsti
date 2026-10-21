@@ -3,7 +3,7 @@ RS485 half-duplex
 
 For half-duplex mode your connection setup should look like this:
 
-.. image:: ./images/RS485_halfduplex_connection.png
+.. image:: /bsp/peripherals/images/RS485_halfduplex_connection.png
 
 .. note::
 
