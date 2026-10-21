@@ -8,6 +8,7 @@ For half-duplex mode your connection setup should look like this:
 .. note::
 
    Note that TX+ corresponds to signal A and TX- corresponds to signal B.
+   This is the vendor-specific naming used by PHYTEC.
 
 Which function is on which pin is described in the hardware manual.
 
