@@ -6,6 +6,7 @@
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-walnascar`
 .. |physical-security-link| replace:: :ref:`physical-security-walnascar`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-walnascar`
+.. |soc-tools-link| replace:: :ref:`soc-tools-walnascar`
 .. |provisioning-scripts-link| replace:: :ref:`provisioning-scripts-walnascar`
 
 .. Yocto
@@ -73,4 +74,5 @@ This manual applies to all |yocto-codename| based PHYTEC releases.
 .. _phytec-pki-walnascar:
 .. include:: common/phytec-pki.rsti
 .. include:: common/vulnerabilities.rsti
+.. _soc-tools-walnascar:
 .. include:: common/soc-configuration-tools.rsti
