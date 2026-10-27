@@ -59,11 +59,11 @@ To burn the SRK hash to an other SoC, just replace ``IMX8MP`` with another
 supported SoC identifier. The supported SoCs can be found on
 `<https://github.com/usbarmory/crucible/tree/master/cmd/crucible/fusemaps>`_.
 
-NXP i.MX9 EdgeLock Enclave (ELE) Tools
---------------------------------------
+Secure Provisioning SDK (SPSDK)
+-------------------------------
 
 NXP provides the `Secure Provisioning SDK (SPSDK)
-<https://github.com/nxp-mcuxpresso/spsdk/tree/master>`_.
+<https://spsdk.readthedocs.io/en/latest/>`_.
 You can install it as a Python package on your host:
 
 .. code-block:: console
