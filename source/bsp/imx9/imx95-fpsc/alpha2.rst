@@ -2,7 +2,7 @@
 .. |dlpage-bsp| replace:: our BSP
 .. _dlpage-bsp: https://www.phytec.de/bsp-download/?bsp=BSP-Yocto-NXP-i.MX95-ALPHA2
 .. |dlpage-bsp-link| replace:: |dlpage-bsp|_
-.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-95-fpsc/
+.. |dlpage-product| replace:: https://www.phytec.de/produkte/system-on-modules/phyflex-imx-95x-fpsc/
 .. |dl-server| replace:: BSP downloads
 .. _dl-server: https://download.phytec.de/Software/Linux/BSP-Yocto-i.MX95/
 .. |dl-server-link| replace:: |dl-server|_
@@ -443,7 +443,7 @@ documentation: https://www.kernel.org/doc/html/latest/networking/can.html
 .. include:: /bsp/peripherals/canfd.rsti
 
 Device Tree CAN configuration of |dt-carrierboard|.dts:
-  :linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
+:linux-phytec-imx:`blob/v6.12.34-2.1.0-phy6/arch/arm64/boot/dts/freescale/imx95-phyflex-libra-rdk.dts#L208`
 
 RS232/RS485
 -----------
