@@ -121,7 +121,7 @@ Kit Summary
 +-----------------------+--------------------------+---------------------------------------------+
 
 Supported Boot Sources
-......................
+----------------------
 
 The following keywords might be used in the Status column:
 
@@ -148,7 +148,7 @@ The following keywords might be used in the Status column:
 +------------------------+--------------------+--------------------+-------------------------------+
 
 Supported Features
-..................
+------------------
 
 +------------------------+-----------------+--------------------+--------------------+-------------------------------+
 | Feature                | Sub-Feature     | Release Status     | Upstream Status    | Notes                         |
@@ -333,7 +333,7 @@ Kit Summary
 +--------------------+----------------------------+----------------------------------------------------+
 
 Supported Boot Sources
-......................
+----------------------
 
 The following keywords might be used in the Status column:
 
@@ -360,7 +360,7 @@ The following keywords might be used in the Status column:
 +------------------------+--------------------+--------------------+-------------------------------+
 
 Supported Features
-..................
+------------------
 
 +------------------------+-----------------+--------------------+--------------------+-------------------------------+
 | Feature                | Sub-Feature     | Release Status     | Upstream Status    | Notes                         |
