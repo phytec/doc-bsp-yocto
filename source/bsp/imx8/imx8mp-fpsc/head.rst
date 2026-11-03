@@ -183,8 +183,23 @@ First Start-up
 *  To boot from an SD card, the |ref-bootswitch| needs to be set to the following
    position:
 
-   .. image:: /bsp/images/dipswitch-tristate-4-m000.svg
-      :scale: 400%
+   .. list-table::
+      :header-rows: 1
+      :stub-columns: 1
+
+      *  -  PCB Revision
+
+         -  1618.2
+
+         -  1618.3
+
+      *  -  SD card
+
+         -  .. image:: /bsp/images/dipswitch-tristate-4-m000.svg
+               :scale: 300%
+
+         -  .. image:: /bsp/images/dipswitch-tristate-4-p000.svg
+               :scale: 300%
 
 *  Insert the SD card
 *  Connect the target and the host with **USB-C** on |ref-debugusbconnector|
@@ -241,10 +256,6 @@ Installing the OS
 
 Bootmode Switch (S1)
 --------------------
-
-.. tip::
-
-   Hardware revision baseboard: 1618.2
 
 The |sbc| features a boot switch with four individually switchable ports to
 select the |som| default bootsource.
