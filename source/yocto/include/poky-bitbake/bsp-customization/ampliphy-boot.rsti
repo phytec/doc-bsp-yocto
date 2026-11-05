@@ -30,8 +30,8 @@ Used Variables:
    also be used for loading overlaysenvfile, kernel, devicetrees and overlays
    as well as mounting the root partition. Automatically set by U-Boot
    standard boot.
-*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
-   this bootscript. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be ``mmc``
+   for this bootscript. Automatically set by U-Boot standard boot.
 *  **distro_rootpart**: Number of root partition. If unset, default is 2.
 *  **earlycon**: Optional Early console bootargs parameter for kernel.
 *  **fdt_addr_r**: Address in RAM the fdt is loaded to.
@@ -57,8 +57,8 @@ Used Variables:
 *  **devnum**: Number of the device the bootscript is loaded from. This device will
    also be used for loading overlaysenvfile and fitImage as well as mounting the
    root partition. Automatically set by U-Boot standard boot.
-*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
-   this bootscript. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be ``mmc``
+   for this bootscript. Automatically set by U-Boot standard boot.
 *  **distro_rootpart**: Number of root partition. If unset, default is 2.
 *  **earlycon**: Optional early console bootargs parameter for kernel.
 *  **fit_addr_r**: Optional variable for setting the RAM addr for loading
@@ -85,8 +85,8 @@ rootfs over nfs.
 Used Variables:
 
 *  **console**: Console device and baudrate for kernel bootargs.
-*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
-   this bootscript. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be
+   ``ethernet`` for this bootscript. Automatically set by U-Boot standard boot.
 *  **earlycon**: Optional early console bootargs parameter for kernel.
 *  **fit_addr_r**: Optional variable for setting the RAM addr for loading
    overlaysenvfile and kernel fitImage. If not set loadaddr will be used.
@@ -129,8 +129,8 @@ Used Variables:
 *  **devnum**: Number of the device the bootscript is loaded from. This device
    will also be used for loading overlaysenvfile and fitImage as well as
    mounting the root partition. Automatically set by U-Boot standard boot.
-*  **devtype**: Type of the device the bootscript is loaded from. Must be mmc for
-   this bootscript. Automatically set by U-Boot standard boot.
+*  **devtype**: Type of the device the bootscript is loaded from. Must be
+   ``spi_flash`` for this bootscript. Automatically set by U-Boot standard boot.
 *  **earlycon**: Optional early console bootargs parameter for kernel.
 *  **fit_addr_r**: Optional variable for setting the RAM addr for loading
    overlaysenvfile and kernel fitImage. If not set loadaddr will be used.
