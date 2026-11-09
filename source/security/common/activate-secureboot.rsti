@@ -278,7 +278,7 @@ normally would. You should see the output messages from the keywriting:
 
 If you are using the incremental approach to programming your keys, it is
 essential that you run your Key Revision binary after all the other binaries
-have been successfully run. Writing the key revision is what converts the
+have been run successfully. Writing the key revision is what converts the
 device to a secure boot device, so you will not be able to run your other
 binaries after the key revision is set.
 
