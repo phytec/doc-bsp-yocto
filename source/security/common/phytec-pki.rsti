@@ -107,7 +107,7 @@ the imx-code-signing-tool repository
 Create TI K3 Keys
 -----------------
 
-Key Types Involved in Secure Boot
+Key types involved in Secure Boot
 
 *  MEK (Manufacture Encryption Key): TI-provided, permanently fused, validates
    TI-signed artifacts.
