@@ -253,6 +253,32 @@ on the device.
 
       target:~$ tpm2_clear -c platform
 
+* ErrorCode (0x921)
+
+   .. code-block::
+
+      tpm tpm0: A TPM error (2337) occurred loading blob
+      add_key: Operation not permitted
+      add_key: Required key not available
+
+   Reason: The TPM goes in lock state after a defined count of hard resets.
+
+   Check the currently configured maximum count of authentication failures with:
+
+   .. code-block:: console
+
+      tpm2_getcap properties-variable | grep TPM2_PT_MAX_AUTH_FAIL
+      TPM2_PT_MAX_AUTH_FAIL: 0x5
+
+   Unlock the TPM and set the maximum allowed authentication failures with:
+
+   .. code-block:: console
+
+      tpm2_dictionarylockout --setup-parameters --max-tries=10 --clear-lockout
+
+   More information is available at
+   https://github.com/Infineon/optiga-tpm-cheatsheet#dictionary-attack-protection.
+
 Kernel Key Retention Service for Filesystem Encryption
 ------------------------------------------------------
 
