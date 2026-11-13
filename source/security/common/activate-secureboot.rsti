@@ -550,3 +550,38 @@ All four SRKs can be revoked individually.
 .. code-block::
 
    u-boot=> fuse prog 9 3 0x1
+
+i.MX91/3
+~~~~~~~~
+
+All four SRKs can be revoked individually.
+First, at build time set the bitmask of the SRKs to be revoked in ``local.conf``:
+
+.. code-block::
+
+   AHAB_SRK_REVOCATIONS = "0x1"
+
+Next, burn the revocation fuses selected through the bitmask from U-Boot with:
+
+.. code-block::
+
+   # always the same command for all SRKs
+   u-boot=> ahab_commit 0x10
+
+i.MX95
+~~~~~~
+All four SRKs can be revoked individually.
+First, at build time set the bitmask of the SRKs to be revoked in
+``imx95_ahab_sign.yaml.in`` in
+``dynamic-layers/fsl-bsp-release/recipes-bsp/imx-mkimage/imx-boot/``:
+
+.. code-block::
+
+   srk_revoke_mask: "0x1"
+
+Next, burn the revocation fuses selected through the bitmask from U-Boot with:
+
+.. code-block::
+
+   # always the same command for all SRKs
+   u-boot=> ahab_commit 0x10
