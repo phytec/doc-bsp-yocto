@@ -499,18 +499,26 @@ Key Revocation
 * NXP SoC: You have four keys from which you can revoke the first 3 keys.
 * TI K3 SoC: You have 2 keys, a SMPK and BMPK (Backup Key)
 
-Revoke NXP SRK Key
-..................
+Revoke NXP SRK
+..............
 
 Although securing the device involves programming the hash of four public keys
 into the eFuses, only one key (number 1 by default) is used in the secure boot
 process. If the key gets compromised, it can be revoked and a different key
 used.
 
+.. note::
+   * The SRK Revocation does not modify the SRK hash values, only the
+     SRK_REVOKE fuse has to be programmed.
+   * In a closed configuration, HAB, by default, sets the SRK_REVOKE_LOCK
+     sticky bit in the OCOTP controller to write protect this eFuse field.
+   * To instruct HAB not to lock the SRK_REVOKE field, the CSF commands in
+     the bootloader need to be reconfigured.
+
 The following keys are available for HABV4:
 
 +----------+----------------------+----------------------+-----------------+
-| key Slot | IMG Certificate      | CSF Certificate      | SRK_REVOLE[2:0] |
+| key Slot | IMG Certificate      | CSF Certificate      | SRK_REVOKE[2:0] |
 +==========+======================+======================+=================+
 | 0        | IMG1_1_sha256_4096_* | CSF1_1_sha256_4096_* | 001             |
 +----------+----------------------+----------------------+-----------------+
@@ -521,19 +529,24 @@ The following keys are available for HABV4:
 | 3        | IMG4_1_sha256_4096_* | CSF4_1_sha256_4096_* | not revocable   |
 +----------+----------------------+----------------------+-----------------+
 
-Example for Revoke Key Slot 0 on NXP SoC with HABV4
-
-+--------------------------------------------------+--------------------------------+
-|| barebox                                         || U-Boot                        |
-|| i.MX6, i.MX6UL                                  || i.MX8M Mini/Nano/Plus         |
-+==================================================+================================+
-| ``barebox$ mw -l -d /dev/imx-ocotp 0xBC 0x0001`` | ``u-boot=> fuse prog 9 3 0x1`` |
-+--------------------------------------------------+--------------------------------+
-
 .. note::
-   * The SRK Revocation does not modify the SRK hash values, only the
-     SRK_REVOKE fuse has to be programmed.
-   * In a closed configuration, HAB, by default, sets the SRK_REVOKE_LOCK
-     sticky bit in the OCOTP controller to write protect this eFuse field.
-   * To instruct HAB not to lock the SRK_REVOKE field, the CSF commands in
-     the bootloader need to be reconfigured.
+   All examples show revoking the first key with the srk index 0. This uses the
+   bitmask 0x1.
+
+i.MX6/UL
+~~~~~~~~
+
+The first three SRKs can be revoked. The last on is not revocable.
+
+.. code-block::
+
+   barebox$ mw -l -d /dev/imx-ocotp 0xBC 0x0001
+
+i.MX8M Mini/Nano/Plus
+~~~~~~~~~~~~~~~~~~~~~
+
+All four SRKs can be revoked individually.
+
+.. code-block::
+
+   u-boot=> fuse prog 9 3 0x1
