@@ -3,7 +3,7 @@ RS485 full-duplex
 
 For full-duplex mode your connection setup should look like this:
 
-.. image:: /bsp/peripherals/images/RS485_fullduplex_connection.png
+.. image:: /bsp/peripherals/images/rs485-fullduplex-connection.svg
 
 Which function is on which pin is described in the hardware manual.
 
