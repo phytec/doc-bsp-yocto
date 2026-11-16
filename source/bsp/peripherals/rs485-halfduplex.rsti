@@ -3,11 +3,12 @@ RS485 half-duplex
 
 For half-duplex mode your connection setup should look like this:
 
-.. image:: ./images/RS485_halfduplex_connection.png
+.. image:: /bsp/peripherals/images/rs485-halfduplex-connection.svg
 
 .. note::
 
    Note that TX+ corresponds to signal A and TX- corresponds to signal B.
+   This is the vendor-specific naming used by PHYTEC.
 
 Which function is on which pin is described in the hardware manual.
 
