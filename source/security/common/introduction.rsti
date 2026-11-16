@@ -41,6 +41,10 @@ Short Crypto Refresher
 | Encrypted Keys             | | Symmetric key with variable length is a key type of the |
 |                            | | existing kernel keyring service.                        |
 +----------------------------+-----------------------------------------------------------+
+| Post-Quantum               | | Algorithms resistant to classical and quantum attacks,  |
+| Cryptography (PQC)         | | replacing RSA/ECDSA (NIST ML-DSA, ML-KEM). On securiPHY |
+|                            | | used for AHAB secure boot on the i.MX95 (ML-DSA keys).  |
++----------------------------+-----------------------------------------------------------+
 
 Chain of Trust
 --------------

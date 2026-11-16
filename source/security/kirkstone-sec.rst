@@ -5,6 +5,7 @@
 .. |secure-key-storage-init-link| replace:: :ref:`secure-key-storage-init-kirkstone`
 .. |secure-key-storage-link| replace:: :ref:`secure-key-storage-kirkstone`
 .. |phytec-pki-link| replace:: :ref:`phytec-pki-kirkstone`
+.. |soc-tools-link| replace:: `SPSDK documentation <https://spsdk.readthedocs.io/en/latest/>`__
 
 .. Yocto
 .. |branding-name| replace:: Security
