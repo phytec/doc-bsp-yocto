@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="79mm"
+   height="44mm"
+   viewBox="0 0 79 44"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       xlink:href="#linearGradient1558"
+       id="linearGradient375925"
+       x1="24.228357"
+       y1="93.015747"
+       x2="75.251999"
+       y2="93.015747"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.52916568,0,0,0.52916568,-11.820817,-45.220752)" />
+    <linearGradient
+       id="linearGradient1558">
+      <stop
+         style="stop-color:#02a6b1;stop-opacity:1"
+         offset="0"
+         id="stop1554" />
+      <stop
+         style="stop-color:#03c9d6;stop-opacity:1"
+         offset="1"
+         id="stop1556" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient1530"
+       id="linearGradient29"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.52916568,0,0,0.52916568,38.179125,-45.22076)"
+       x1="24.228357"
+       y1="93.015747"
+       x2="75.251999"
+       y2="93.015747" />
+    <linearGradient
+       id="linearGradient1530">
+      <stop
+         style="stop-color:#4bd900;stop-opacity:1"
+         offset="0"
+         id="stop1526" />
+      <stop
+         style="stop-color:#9fd900;stop-opacity:1"
+         offset="1"
+         id="stop1528" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="Dot"
+       refX="0"
+       refY="0"
+       orient="auto"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         id="path17" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker30"
+       refX="0"
+       refY="0"
+       orient="auto"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         id="path30" />
+    </marker>
+  </defs>
+  <rect
+     style="fill:url(#linearGradient375925);fill-opacity:1;stroke:none;stroke-width:0.912002;stroke-linecap:round"
+     id="rect167677"
+     width="26.999969"
+     height="41.999943"
+     x="1"
+     y="1" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+     x="2.8930264"
+     y="4.9689865"
+     id="text167681"><tspan
+       id="tspan167679"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+       x="2.8930264"
+       y="4.9689865">RS-485 Target 1</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect1"
+     width="14.999982"
+     height="5.9999814"
+     x="12.000018"
+     y="7.000001" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="14.405313"
+     y="11.031709"
+     id="text1"><tspan
+       id="tspan1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="14.405313"
+       y="11.031709">TX+ / A</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect19"
+     width="14.999974"
+     height="5.9999814"
+     x="12.000018"
+     y="13.999978" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="14.619254"
+     y="18.031693"
+     id="text20"><tspan
+       id="tspan20"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="14.619254"
+       y="18.031693">TX− / B</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect20"
+     width="14.999974"
+     height="5.9999814"
+     x="12.000018"
+     y="20.999969" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="19.316633"
+     y="25.128576"
+     id="text21"><tspan
+       id="tspan21"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="19.316633"
+       y="25.128576">RX+</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect21"
+     width="14.999974"
+     height="5.9999814"
+     x="12.000018"
+     y="27.999952" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="19.384848"
+     y="32.128567"
+     id="text22"><tspan
+       id="tspan22"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="19.384848"
+       y="32.128567">RX−</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect22"
+     width="14.999974"
+     height="5.9999814"
+     x="12.000018"
+     y="34.99995" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="18.667063"
+     y="39.129337"
+     id="text23"><tspan
+       id="tspan23"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="18.667063"
+       y="39.129337">GND</tspan></text>
+  <rect
+     style="fill:url(#linearGradient29);stroke:none;stroke-width:0.912002;stroke-linecap:round"
+     id="rect23"
+     width="26.999969"
+     height="41.999943"
+     x="50.999943"
+     y="1" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+     x="52.892975"
+     y="4.9689865"
+     id="text24"><tspan
+       id="tspan24"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+       x="52.892975"
+       y="4.9689865">RS-485 Target 2</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect24"
+     width="14.999982"
+     height="5.9999814"
+     x="52"
+     y="7.000001" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="53.936436"
+     y="11.175111"
+     id="text25"><tspan
+       id="tspan25"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="53.936436"
+       y="11.175111">TX+ / A</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect25"
+     width="14.999974"
+     height="5.9999814"
+     x="52"
+     y="13.999978" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="53.936436"
+     y="18.031693"
+     id="text26"><tspan
+       id="tspan26"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="53.936436"
+       y="18.031693">TX− / B</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect26"
+     width="14.999974"
+     height="5.9999814"
+     x="52"
+     y="20.999969" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="53.798466"
+     y="25.128576"
+     id="text27"><tspan
+       id="tspan27"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="53.798466"
+       y="25.128576">RX+</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect27"
+     width="14.999974"
+     height="5.9999814"
+     x="52"
+     y="27.999952" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="53.798466"
+     y="32.128567"
+     id="text28"><tspan
+       id="tspan28"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="53.798466"
+       y="32.128567">RX−</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linejoin:round"
+     id="rect28"
+     width="14.999974"
+     height="5.9999814"
+     x="52"
+     y="34.99995" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+     x="53.852726"
+     y="39.129337"
+     id="text29"><tspan
+       id="tspan29"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="53.852726"
+       y="39.129337">GND</tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker30)"
+     d="M 52,10.00001 H 27"
+     id="path29" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker30)"
+     d="M 52,17 H 27"
+     id="path31" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker30)"
+     d="m 51.999992,37.999941 h -25"
+     id="path1" />
+</svg>
