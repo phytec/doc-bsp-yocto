@@ -1,7 +1,7 @@
-Sphinx==8.2.1
-sphinx-phytec-theme @ git+https://github.com/phytec/sphinx-phytec-theme.git@0.5.0
-Sphinx-Substitution-Extensions==2025.2.19
-sphinx-intl==2.3.1
-sphinx-sitemap==2.6.0
-sphinx-autobuild==2024.10.3
-sphinxcontrib-svg2pdfconverter==2.0.0
+Sphinx==9.2.0
+sphinx-phytec-theme @ git+https://github.com/phytec/sphinx-phytec-theme.git@0.5.1
+sphinx-substitution-extensions==2026.10.9
+sphinx-intl==2.4.0
+sphinx-sitemap==2.9.0
+sphinx-autobuild==2025.8.25
+sphinxcontrib-svg2pdfconverter==2.1.0
