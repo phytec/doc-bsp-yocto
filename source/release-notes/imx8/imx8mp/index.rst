@@ -1,5 +1,5 @@
-phyCORE-i.MX 8M Plus
-====================
+BSP-Yocto-i.MX8MP
+=================
 
 .. toctree::
    :maxdepth: 1

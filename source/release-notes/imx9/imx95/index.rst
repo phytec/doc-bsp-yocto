@@ -1,5 +1,5 @@
-phyFLEX-i.MX 95 FPSC
-====================
+BSP-Yocto-i.MX95
+================
 
 .. toctree::
    :maxdepth: 1
